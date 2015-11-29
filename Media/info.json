@@ -1,0 +1,80 @@
+{
+    "name": {
+        "id": 1000400000,
+        "internal": "Media",
+        "external": "OMS Media"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The profile module.",
+    "directory": "Media",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "1ba288c868cacf14e56f8205efef31d697301d02"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Media",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "15b5e54cc7b2f8bdb84ed667d9931d758c6bc108"
+            ],
+            "type": 4,
+            "for": "CostUnitAccounting",
+            "file": "Media",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "e56f238d391b804975e0f47f26d20b6d2d675200"
+            ],
+            "type": 4,
+            "for": "Admin",
+            "file": "Media",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "1ba288c868cacf14e56f8205efef31d697301d02",
+                "e269b5109994852366c276ad5f6bb4ef89f45d2e",
+                "e56f238d391b804975e0f47f26d20b6d2d675200"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "15b5e54cc7b2f8bdb84ed667d9931d758c6bc108"
+            ],
+            "type": 5,
+            "for": "CostUnitAccounting",
+            "file": "api",
+            "from": "Media"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Media",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

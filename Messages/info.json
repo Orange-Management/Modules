@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1001200000,
+        "internal": "Messages",
+        "external": "OMS Messages"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Messages module.",
+    "directory": "Messages",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "ea312354fa4b4029c8a121b7da7992983d3132a9"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Messages",
+            "file": "Messages"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Messages",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "ea312354fa4b4029c8a121b7da7992983d3132a9"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Messages"
+        }
+    ]
+}

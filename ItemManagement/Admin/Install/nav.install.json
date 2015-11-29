@@ -1,0 +1,126 @@
+[
+    {
+        "id": 1004805001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Articles",
+        "uri": "/{/lang}/backend/sales/item/list",
+        "target": "self",
+        "icon": null,
+        "order": 10,
+        "from": "ItemManagement",
+        "permission": null,
+        "parent": 1001601001,
+        "children": [
+            {
+                "id": 1004805101,
+                "pid": "e3d6f58661c6f42309e273740944547c93ff76a0",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/sales/item/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "ItemManagement",
+                "permission": null,
+                "parent": 1004805001,
+                "children": [
+                    {
+                        "id": 1004805301,
+                        "pid": "4a41925386568368ad4dd823b3945199e8e2628e",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Article",
+                        "uri": "/{/lang}/backend/sales/item/single",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "ItemManagement",
+                        "permission": null,
+                        "parent": 1004805101,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1004805201,
+                "pid": "e3d6f58661c6f42309e273740944547c93ff76a0",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/sales/item/create",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "ItemManagement",
+                "permission": null,
+                "parent": 1004805001,
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 1004806001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Articles",
+        "uri": "/{/lang}/backend/purchase/item/list",
+        "target": "self",
+        "icon": null,
+        "order": 10,
+        "from": "ItemManagement",
+        "permission": null,
+        "parent": 1002101001,
+        "children": [
+            {
+                "id": 1004806101,
+                "pid": "e9b2adda603aaee5f852c05fabe394bd56cf0426",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/purchase/item/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "ItemManagement",
+                "permission": null,
+                "parent": 1004806001,
+                "children": [
+                    {
+                        "id": 1004806301,
+                        "pid": "4a41925386568368ad4dd823b3945199e8e2628e",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Article",
+                        "uri": "/{/lang}/backend/purchase/item/single",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "ItemManagement",
+                        "permission": null,
+                        "parent": 1004806101,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1004806201,
+                "pid": "e9b2adda603aaee5f852c05fabe394bd56cf0426",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/purchase/item/create",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "ItemManagement",
+                "permission": null,
+                "parent": 1004806001,
+                "children": []
+            }
+        ]
+    }
+]

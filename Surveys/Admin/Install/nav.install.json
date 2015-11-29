@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1000801001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Surveys",
+        "uri": "/{/lang}/backend/survey/list",
+        "target": "self",
+        "icon": null,
+        "order": 50,
+        "from": "Surveys",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1000802001,
+                "pid": "6c941ab5b60c49df3c7d50b935fd213c060a6664",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/survey/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Surveys",
+                "permission": null,
+                "parent": 1000801001,
+                "children": []
+            },
+            {
+                "id": 1000803001,
+                "pid": "6c941ab5b60c49df3c7d50b935fd213c060a6664",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/survey/create",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Surveys",
+                "permission": null,
+                "parent": 1000801001,
+                "children": []
+            }
+        ]
+    }
+]

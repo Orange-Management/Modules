@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1001300000,
+        "internal": "WarehouseManagement",
+        "external": "OMS Warehousing"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Warehousing module.",
+    "directory": "WarehouseManagement",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "2bea808a85e14f973f3076105a97cd46b4551819"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "WarehouseManagement",
+            "file": "WarehouseManagement"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "WarehouseManagement",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "2bea808a85e14f973f3076105a97cd46b4551819"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "WarehouseManagement"
+        }
+    ]
+}

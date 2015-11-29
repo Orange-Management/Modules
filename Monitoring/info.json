@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1000700000,
+        "internal": "Monitoring",
+        "external": "OMS Monitoring"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Monitoring",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Monitoring",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "c66e6604564259b087dc6db1e46de8cf6353c96d"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Monitoring",
+            "from": "Monitoring"
+        },
+        {
+            "pid": [
+                "c66e6604564259b087dc6db1e46de8cf6353c96d"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Monitoring"
+        }
+    ]
+}

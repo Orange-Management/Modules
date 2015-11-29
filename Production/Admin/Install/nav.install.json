@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1004301001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 0,
+        "name": "Production",
+        "uri": "/{/lang}/backend/production/dashboard",
+        "target": "self",
+        "icon": "fa fa-fire",
+        "order": 70,
+        "from": 1004300000,
+        "permission": null,
+        "parent": 1000201001,
+        "children": [
+            {
+                "id": 1004302001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Articles",
+                "uri": "/{/lang}/backend/production/item/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1004300000,
+                "permission": null,
+                "parent": 1004301001,
+                "children": []
+            },
+            {
+                "id": 1004303001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Production",
+                "uri": "/{/lang}/backend/production/list",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1004300000,
+                "permission": null,
+                "parent": 1004301001,
+                "children": [
+                    {
+                        "id": 1004303101,
+                        "pid": "8bcf3571d1d43ecefeeb78a999f83418ccfd4f71",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "/{/lang}/backend/production/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": 1004300000,
+                        "permission": null,
+                        "parent": 1004303001,
+                        "children": []
+                    },
+                    {
+                        "id": 1004303201,
+                        "pid": "8bcf3571d1d43ecefeeb78a999f83418ccfd4f71",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "/{/lang}/backend/production/create",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": 1004300000,
+                        "permission": null,
+                        "parent": 1004303001,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

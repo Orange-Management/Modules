@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1002200000,
+        "internal": "ResearchDevelopment",
+        "external": "OMS Research & Development"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Research & Development module.",
+    "directory": "ResearchDevelopment",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "f37d0b45c43b1ee70d7b26791640cda9402d203e"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "ResearchDevelopment",
+            "file": "ResearchDevelopment"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "ResearchDevelopment",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "f37d0b45c43b1ee70d7b26791640cda9402d203e"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "ResearchDevelopment"
+        }
+    ]
+}

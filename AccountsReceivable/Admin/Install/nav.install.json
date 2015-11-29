@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1004901001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "AccountsReceivable",
+        "uri": "/{/lang}/backend/accounting/account/receivable/list",
+        "target": "self",
+        "icon": null,
+        "order": 10,
+        "from": "AccountsReceivable",
+        "permission": null,
+        "parent": 1002601001,
+        "children": [
+            {
+                "id": 1004901101,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/accounting/account/receivable/list",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "AccountsReceivable",
+                "permission": null,
+                "parent": 1004901001,
+                "children": [
+                ]
+            },
+            {
+                "id": 1004901201,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/accounting/account/receivable/create",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "AccountsReceivable",
+                "permission": null,
+                "parent": 1004901001,
+                "children": [
+                ]
+            }
+        ]
+    }
+]

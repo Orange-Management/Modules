@@ -1,0 +1,53 @@
+{
+    "name": {
+        "id": 1004600000,
+        "internal": "BudgetManagement",
+        "external": "OMS Budget Management"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Budget Management module.",
+    "directory": "BudgetManagement",
+    "dependencies": {
+        "Controlling": "*"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "1179e5f06ef09c6ba4a87f656b41fe6145de9b5a"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "BudgetManagement",
+            "file": "BudgetManagement"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "BudgetManagement",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "1179e5f06ef09c6ba4a87f656b41fe6145de9b5a"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "BudgetManagement"
+        }
+    ]
+}

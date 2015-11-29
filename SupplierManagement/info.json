@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1003200000,
+        "internal": "SupplierManagement",
+        "external": "OMS Purchase"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Supplier management module.",
+    "directory": "SupplierManagement",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "520f00a1a583e4936dc01665781e0dfafd699613"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "SupplierManagement",
+            "file": "SupplierManagement"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "SupplierManagement",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "520f00a1a583e4936dc01665781e0dfafd699613"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "SupplierManagement"
+        }
+    ]
+}

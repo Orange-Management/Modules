@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1001901001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 0,
+        "name": "Marketing",
+        "uri": "/{/lang}/backend/marketing/dashboard",
+        "target": "self",
+        "icon": "fa fa-paint-brush",
+        "order": 60,
+        "from": 1001900000,
+        "permission": null,
+        "parent": 1000201001,
+        "children": [
+            {
+                "id": 1001902001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Promotions",
+                "uri": "/{/lang}/backend/marketing/promotion/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1001900000,
+                "permission": null,
+                "parent": 1001901001,
+                "children": [
+                    {
+                        "id": 1001902101,
+                        "pid": "5c1412dc489ced2edd20a6883bf5a394011f5235",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "/{/lang}/backend/marketing/promotion/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1001900000,
+                        "permission": null,
+                        "parent": 1001902001,
+                        "children": []
+                    },
+                    {
+                        "id": 1001902201,
+                        "pid": "5c1412dc489ced2edd20a6883bf5a394011f5235",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "/{/lang}/backend/marketing/promotion/create",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1001900000,
+                        "permission": null,
+                        "parent": 1001902001,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1001903001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Events",
+                "uri": "/{/lang}/backend/marketing/event/list",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1001900000,
+                "permission": null,
+                "parent": 1001901001,
+                "children": [
+                    {
+                        "id": 1001903101,
+                        "pid": "083a414f7b324d073baab24daeab1a7d99d2bb8f",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "/{/lang}/backend/marketing/event/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1001900000,
+                        "permission": null,
+                        "parent": 1001902001,
+                        "children": []
+                    },
+                    {
+                        "id": 1001903201,
+                        "pid": "083a414f7b324d073baab24daeab1a7d99d2bb8f",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "/{/lang}/backend/marketing/event/create",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1001900000,
+                        "permission": null,
+                        "parent": 1001902001,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

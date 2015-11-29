@@ -1,0 +1,53 @@
+{
+    "name": {
+        "id": 1002900000,
+        "internal": "Support",
+        "external": "OMS Support"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Support module.",
+    "directory": "Support",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "165b4fe348524450aa8471c275ea8f685856e196",
+                "90604e24f45665d3036937960efcc695dfd6e149"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Support",
+            "file": "Support"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Support",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "165b4fe348524450aa8471c275ea8f685856e196",
+                "90604e24f45665d3036937960efcc695dfd6e149"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Support"
+        }
+    ]
+}

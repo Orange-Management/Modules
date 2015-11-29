@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1001700000,
+        "internal": "ProjectManagement",
+        "external": "OMS Project Management"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Project Management module.",
+    "directory": "ProjectManagement",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "e8f8b3f93644a55dcaa84f20c2d7736fbd9ee62a"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "ProjectManagement",
+            "file": "ProjectManagement"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "ProjectManagement",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "e8f8b3f93644a55dcaa84f20c2d7736fbd9ee62a"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "ProjectManagement"
+        }
+    ]
+}

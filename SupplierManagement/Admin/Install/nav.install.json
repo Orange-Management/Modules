@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1003202001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Suppliers",
+        "uri": "/{/lang}/backend/purchase/supplier/list",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": 1003200000,
+        "permission": null,
+        "parent": 1002101001,
+        "children": [
+            {
+                "id": 1003202101,
+                "pid": "520f00a1a583e4936dc01665781e0dfafd699613",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/purchase/supplier/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1003200000,
+                "permission": null,
+                "parent": 1003202001,
+                "children": [
+                    {
+                        "id": 1003203101,
+                        "pid": "8cb9bb8ac30a3372db74b90f4c847bdb48da45ce",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Profile",
+                        "uri": "/{/lang}/backend/purchase/supplier/profile",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1003200000,
+                        "permission": null,
+                        "parent": 1003202101,
+                        "children": []
+                    },
+                    {
+                        "id": 1003203201,
+                        "pid": "8cb9bb8ac30a3372db74b90f4c847bdb48da45ce",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Invoices",
+                        "uri": "/{/lang}/backend/purchase/supplier/invoice/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1003200000,
+                        "permission": null,
+                        "parent": 1003202101,
+                        "children": []
+                    },
+                    {
+                        "id": 1003203301,
+                        "pid": "8cb9bb8ac30a3372db74b90f4c847bdb48da45ce",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Articles",
+                        "uri": "/{/lang}/backend/purchase/supplier/article/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1003200000,
+                        "permission": null,
+                        "parent": 1003202101,
+                        "children": []
+                    },
+                    {
+                        "id": 1003203401,
+                        "pid": "8cb9bb8ac30a3372db74b90f4c847bdb48da45ce",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Analysis",
+                        "uri": "/{/lang}/backend/purchase/supplier/analysis",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1003200000,
+                        "permission": null,
+                        "parent": 1003202101,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1003202201,
+                "pid": "520f00a1a583e4936dc01665781e0dfafd699613",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/purchase/supplier/create",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1003200000,
+                "permission": null,
+                "parent": 1003202001,
+                "children": []
+            }
+        ]
+    }
+]

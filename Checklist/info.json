@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1003600000,
+        "internal": "Checklist",
+        "external": "OMS Checklist"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Checklist",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "485c01f6ec77f5370a8060bb44b8a13a985184b5"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Checklist",
+            "from": "Checklist"
+        },
+        {
+            "pid": [
+                "485c01f6ec77f5370a8060bb44b8a13a985184b5"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Checklist"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Checklist",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

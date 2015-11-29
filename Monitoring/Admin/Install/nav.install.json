@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1000706001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Monitoring",
+        "uri": "/{/lang}/backend/admin/monitoring/general",
+        "target": "self",
+        "icon": null,
+        "order": 50,
+        "from": "Admin",
+        "permission": null,
+        "parent": 1000101001,
+        "children": [
+            {
+                "id": 1000706101,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "/{/lang}/backend/admin/monitoring/general",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Admin",
+                "permission": null,
+                "parent": 1000706001,
+                "children": []
+            },
+            {
+                "id": 1000706102,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 3,
+                "subtype": 1,
+                "name": "Logs",
+                "uri": "/{/lang}/backend/admin/monitoring/logs/list",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Admin",
+                "permission": null,
+                "parent": 1000706001,
+                "children": []
+            }
+        ]
+    }
+]

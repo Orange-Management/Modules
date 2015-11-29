@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1004201001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "EventManagement",
+        "uri": "/{/lang}/backend/eventmanagement/list",
+        "target": "self",
+        "icon": null,
+        "order": 65,
+        "from": "EventManagement",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1004202001,
+                "pid": "9a017c0aa5117ed6dd28736a6d6338e7c499e64f",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/eventmanagement/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "EventManagement",
+                "permission": null,
+                "parent": 1004201001,
+                "children": []
+            },
+            {
+                "id": 1004203001,
+                "pid": "9a017c0aa5117ed6dd28736a6d6338e7c499e64f",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/eventmanagement/create",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "EventManagement",
+                "permission": null,
+                "parent": 1004201001,
+                "children": []
+            }
+        ]
+    }
+]

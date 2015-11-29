@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1004700000,
+        "internal": "Business",
+        "external": "OMS Business"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The buisness module.",
+    "directory": "Business",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "d22b06b478e3622168a943f8df016bf745dfdccc"
+            ],
+            "type": 4,
+            "for": "Business",
+            "file": "Business",
+            "from": "Admin"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "for": "Business",
+            "file": "backend",
+            "from": "Admin"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Business",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

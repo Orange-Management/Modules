@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1001600000,
+        "internal": "Sales",
+        "external": "OMS Sales"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Sales module.",
+    "directory": "Sales",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "b5adefd1c8bd87a6b304347e0daee31b279ed2ae"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Sales",
+            "file": "Sales"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Sales",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "b5adefd1c8bd87a6b304347e0daee31b279ed2ae"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Sales"
+        }
+    ]
+}

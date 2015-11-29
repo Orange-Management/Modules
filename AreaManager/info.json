@@ -1,0 +1,44 @@
+{
+    "name": {
+        "id": 1002000000,
+        "internal": "AreaManager",
+        "external": "OMS Area Manager"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Accounting module.",
+    "directory": "AreaManager",
+    "dependencies": {
+        "Sales": "*"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "AreaManager",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "70fd31eceb885a9c7f237ee93fd976d5bab1d1ae"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "backend",
+            "from": "AreaManager"
+        }
+    ]
+}

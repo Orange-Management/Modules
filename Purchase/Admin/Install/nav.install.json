@@ -1,0 +1,95 @@
+[
+    {
+        "id": 1002101001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 0,
+        "name": "Purchase",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-shopping-cart",
+        "order": 30,
+        "from": 1002100000,
+        "permission": null,
+        "parent": 0,
+        "children": [
+            {
+                "id": 1002104001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Invoices",
+                "uri": "/{/lang}/backend/purchase/invoice/list",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": 1002100000,
+                "permission": null,
+                "parent": 1002101001,
+                "children": [
+                    {
+                        "id": 1002104101,
+                        "pid": "475124021da7877ef311983bb9eb769b1bd94f22",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Invoices",
+                        "uri": "/{/lang}/backend/purchase/invoice/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": 1002100000,
+                        "permission": null,
+                        "parent": 1002104001,
+                        "children": [
+                            {
+                                "id": 1002104201,
+                                "pid": "b6e53e5e6ef4ea4ab05514366d6d7d0c3be5b228",
+                                "type": 3,
+                                "subtype": 1,
+                                "name": "Invoice",
+                                "uri": "/{/lang}/backend/purchase/invoice/single",
+                                "target": "self",
+                                "icon": null,
+                                "order": 1,
+                                "from": 1002100000,
+                                "permission": null,
+                                "parent": 1002104001,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1002104301,
+                        "pid": "475124021da7877ef311983bb9eb769b1bd94f22",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "/{/lang}/backend/purchase/invoice/create",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": 1002100000,
+                        "permission": null,
+                        "parent": 1002104001,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1002106001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Analysis",
+                "uri": "/{/lang}/backend/purchase/analysis",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": 1002100000,
+                "permission": null,
+                "parent": 1002101001,
+                "children": []
+            }
+        ]
+    }
+]

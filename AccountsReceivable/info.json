@@ -1,0 +1,53 @@
+{
+    "name": {
+        "id": 1004900000,
+        "internal": "AccountsReceivable",
+        "external": "OMS Accounts Receivable"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Accounting module.",
+    "directory": "AccountsReceivable",
+    "dependencies": {
+        "PaymentInformation": "*"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "AccountsReceivable",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "47e9d72449035cd040e0f93693fd0a925bf6e340"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "AccountsReceivable"
+        },
+        {
+            "pid": [
+                "2b2b1ba818089aa7176d744c993f95e30ef8f511"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "AccountsReceivable",
+            "from": "AccountsReceivable"
+        }
+    ]
+}

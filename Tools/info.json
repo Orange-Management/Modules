@@ -1,0 +1,33 @@
+{
+    "name": {
+        "id": 1003300000,
+        "internal": "Tools",
+        "external": "OMS Tools"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Tools module.",
+    "directory": "Tools",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Tools",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

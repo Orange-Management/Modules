@@ -1,0 +1,33 @@
+{
+    "name": {
+        "id": 1002500000,
+        "internal": "Clocking",
+        "external": "OMS Clocking"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The buisness module.",
+    "directory": "Clocking",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Clocking",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

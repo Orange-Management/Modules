@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1000301001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Profiles",
+        "uri": "/{/lang}/backend/profile/list",
+        "target": "self",
+        "icon": null,
+        "order": 10,
+        "from": "Profile",
+        "permission": null,
+        "parent": 1000201001,
+        "children": [
+            {
+                "id": 1000302001,
+                "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/profile/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Profile",
+                "permission": null,
+                "parent": 1000301001,
+                "children": []
+            },
+            {
+                "id": 1000303001,
+                "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+                "type": 5,
+                "subtype": 1,
+                "name": "Profile",
+                "uri": "/{/lang}/backend/profile/single/front",
+                "target": "self",
+                "icon": null,
+                "order": 3,
+                "from": "Profile",
+                "permission": null,
+                "parent": 1000301001,
+                "children": []
+            },
+            {
+                "id": 1000303002,
+                "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+                "type": 5,
+                "subtype": 1,
+                "name": "Settings",
+                "uri": "/{/lang}/backend/profile/single/settings",
+                "target": "self",
+                "icon": null,
+                "order": 999,
+                "from": "Profile",
+                "permission": null,
+                "parent": 1000301001,
+                "children": []
+            }
+        ]
+    }
+]

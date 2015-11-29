@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1002800000,
+        "internal": "Controlling",
+        "external": "OMS Controlling"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Controlling module.",
+    "directory": "Controlling",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "a5dd2992c4ffd521e23894599418f28a07e0ff1a"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Controlling",
+            "file": "Controlling"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Controlling",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "a5dd2992c4ffd521e23894599418f28a07e0ff1a"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Controlling"
+        }
+    ]
+}

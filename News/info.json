@@ -1,0 +1,52 @@
+{
+    "name": {
+        "id": 1000600000,
+        "internal": "News",
+        "external": "OMS News"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "News module.",
+    "directory": "News",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "d7470914e19522acc310a55e5cb13a6f0f7ca000",
+                "0ac9153b72f8659e3c4b370f56bbcdf0eba86d6a"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "News",
+            "file": "News"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "News",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "d7470914e19522acc310a55e5cb13a6f0f7ca000"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "News"
+        }
+    ]
+}

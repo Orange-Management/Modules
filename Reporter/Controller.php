@@ -1,0 +1,520 @@
+<?php
+/**
+ * Orange Management
+ *
+ * PHP Version 7.0
+ *
+ * @category   TBD
+ * @package    TBD
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @copyright  2013 Dennis Eichhorn
+ * @license    OMS License 1.0
+ * @version    1.0.0
+ * @link       http://orange-management.com
+ */
+namespace Modules\Reporter;
+
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
+use Modules\Media\Models\MediaMapper;
+use Modules\Navigation\Models\Navigation;
+use Modules\Navigation\Views\NavigationView;
+use Modules\Reporter\Models\Report;
+use Modules\Reporter\Models\ReportMapper;
+use Modules\Reporter\Models\Template;
+use Modules\Reporter\Models\TemplateDataType;
+use Modules\Reporter\Models\TemplateMapper;
+use phpOMS\Asset\AssetType;
+use phpOMS\Contract\RenderableInterface;
+use phpOMS\Message\RequestAbstract;
+use phpOMS\Message\RequestDestination;
+use phpOMS\Message\ResponseAbstract;
+use phpOMS\Module\ModuleAbstract;
+use phpOMS\Module\WebInterface;
+use phpOMS\System\MimeType;
+use phpOMS\Utils\IO\Csv\CsvDatabaseMapper;
+use phpOMS\Utils\IO\Excel\ExcelDatabaseMapper;
+use phpOMS\Utils\StringUtils;
+use phpOMS\Views\View;
+use phpOMS\Views\ViewLayout;
+
+/**
+ * TODO: Implement auto sqlite generator on upload
+ */
+
+/**
+ * Reporter controller class.
+ *
+ * @category   Modules
+ * @package    Modules\Admin
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @copyright  2013 Dennis Eichhorn
+ * @license    OMS License 1.0
+ * @version    1.0.
+ * @link       http://orange-management.com * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @license    OMS License 1.0
+ * @link       http://orange-management.com
+ * @since      1.0.0
+ */
+class Controller extends ModuleAbstract implements WebInterface
+{
+
+    /**
+     * Module name.
+     *
+     * @var \string
+     * @since 1.0.0
+     */
+    protected static $module = 'Reporter';
+
+    /**
+     * Localization files.
+     *
+     * @var \string
+     * @since 1.0.0
+     */
+    protected static $localization = [
+        RequestDestination::BACKEND => ['backend'],
+    ];
+
+    /**
+     * Providing.
+     *
+     * @var \string
+     * @since 1.0.0
+     */
+    protected static $providing = [
+        'Content',
+    ];
+
+    /**
+     * Dependencies.
+     *
+     * @var \string
+     * @since 1.0.0
+     */
+    protected static $dependencies = [
+    ];
+
+    /**
+     * Routing elements.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $routes = [
+        '^.*/backend/reporter/template/create.*$' => [
+            ['dest' => '\Modules\Reporter\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
+            ['dest' => '\Modules\Reporter\Controller:viewTemplateCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
+        ],
+        '^.*/backend/reporter/report/create.*$'   => [
+            ['dest' => '\Modules\Reporter\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
+            ['dest' => '\Modules\Reporter\Controller:viewReportCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
+        ],
+
+        '^.*/backend/reporter/list.*$'        => [['dest' => '\Modules\Reporter\Controller:viewTemplateList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/reporter/report/view.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterReport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+
+        '^.*/api/reporter/report/export.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterExport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+    ];
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $head = $response->getHead();
+        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia.js');
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-list');
+        $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
+
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $head    = $response->getHead();
+        $baseUri = $request->getUri()->getBase();
+
+        $head->addAsset(AssetType::JS, $baseUri . 'Modules/Media/Models/UI.js');
+
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-template-create');
+        $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $head    = $response->getHead();
+        $baseUri = $request->getUri()->getBase();
+
+        $head->addAsset(AssetType::JS, $baseUri . 'Modules/Media/Models/UI.js');
+
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-create');
+        $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewReportView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Reporter/Theme/reporter/reporter-single');
+        $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
+
+        $dataView = new View($this->app, $request, $response);
+        $dataView->setTemplate('/Modules/Reporter/Templates/' . $request->getData('id') . '/' . $request->getData('id'));
+        $view->addData('name', $request->getData('id'));
+        $view->addView('DataView', $dataView);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @throws \Exception
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function showSingleBackend($request, $response)
+    {
+        switch ($request->getPath(4)) {
+            case '':
+                $templateMapper = new TemplateMapper($this->app->dbPool->get());
+                $template       = $templateMapper->get((int) $request->getData('id'));
+
+                //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
+
+                $mediaMapper      = new MediaMapper($this->app->dbPool->get());
+                $collectionMapper = new CollectionMapper($this->app->dbPool->get());
+                $collection       = $collectionMapper->get($template->getSource());
+
+                $tcoll = [];
+                $files = $collection->getSources();
+
+                foreach ($files as $file) {
+                    $tMedia = $mediaMapper->get($file);
+
+                    $path = $tMedia->getPath();
+                    if (StringUtils::endsWith(strtolower($path), '.lang.php')) {
+                        $tcoll['lang'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), 'worker.php')) {
+                        $tcoll['worker'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.xlsx.php')) {
+                        $tcoll['excel'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.pdf.php')) {
+                        $tcoll['pdf'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.csv.php')) {
+                        $tcoll['csv'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.json.php')) {
+                        $tcoll['json'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.tpl.php')) {
+                        $tcoll['template'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.css')) {
+                        $tcoll['css'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.js')) {
+                        $tcoll['js'] = $tMedia;
+                    } elseif (StringUtils::endsWith(strtolower($path), '.sqlite') || StringUtils::endsWith(strtolower($path), '.db')) {
+                        $tcoll['db'][] = $tMedia;
+                    } else {
+                        // DO Nothing only the creator knows how to deal with this type of file :)
+                    }
+                }
+
+                if (!isset($tcoll['template'])) {
+                    throw new \Exception('No template file detected.');
+                }
+
+                $reportSingle = new View($this->app, $request, $response);
+                $reportSingle->setTemplate('/Modules/Reporter/Theme/backend/reporter-single');
+
+                $navigation = Navigation::getInstance($request, $this->app->dbPool);
+                $reportSingle->addData('nav', $navigation->getNav());
+
+                $reportMapper = new ReportMapper($this->app->dbPool->get());
+                $report       = $reportMapper->getNewest();
+
+                $collection = $collectionMapper->get($report->getSource());
+                $files      = $collection->getSources();
+
+                $rcoll = [];
+
+                foreach ($files as $file) {
+                    $media                    = $mediaMapper->get($file);
+                    $rcoll[$media->getName()] = $media;
+                }
+
+                $reportSingle->addData('tcoll', $tcoll);
+                $reportSingle->addData('lang', $request->getL11n()->getLanguage());
+                $reportSingle->addData('template', $template);
+                $reportSingle->addData('report', $report);
+                $reportSingle->addData('rcoll', $rcoll);
+                echo $reportSingle->render();
+                break;
+        }
+    }
+
+    /**
+     * Shows api content.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function showApi($request, $response)
+    {
+        switch ($request->getPath(3)) {
+            case 'export':
+                switch ($request->getData('type')) {
+                    case 'pdf':
+                        $response->setHeader('Content-Type', MimeType::M_PDF, true);
+                        break;
+                    case 'csv':
+                        $response->setHeader('Content-Type', MimeType::M_CONF, true);
+                        break;
+                    case 'xlsx':
+                        $response->setHeader('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
+                        $response->setHeader('Content-Type', MimeType::M_XLSX, true);
+
+                        $response->setHeader('Content-Type', MimeType::M_XLSX, true);
+                        break;
+                    case 'json':
+                        $response->setHeader('Content-Type', MimeType::M_JSON, true);
+                        break;
+                    default:
+                        // TODO handle bad request
+                }
+
+                if ($request->getData('download') !== null) {
+                    $response->setHeader('Content-Type', MimeType::M_BIN, true);
+                    $response->setHeader('Content-Transfer-Encoding', 'Binary', true);
+                    $response->setHeader('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
+                }
+
+                /** @var array $reportLanguage */
+                /** @noinspection PhpIncludeInspection */
+                include_once __DIR__ . '/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.lang.php';
+
+                $exportView = new View($this->app, $request, $response);
+                $exportView->addData('lang', $reportLanguage[$this->app->accountManager->get($request->getAccount())->getL11n()->getLanguage()]);
+                $exportView->setTemplate('/Modules/Reporter/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.' . $request->getData('type'));
+                $response->set('export', $exportView->render());
+                break;
+            case 'template':
+                $this->apiCreateTemplate($request, $response);
+                break;
+            case 'report':
+                $this->apiCreateReport($request, $response);
+                break;
+        }
+    }
+
+    /**
+     * Shows api content.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiCreateTemplate($request, $response)
+    {
+        $files    = json_decode($request->getData('files'));
+        $expected = $request->getData('expected');
+
+        // TODO: make sure this user has permissions for provided files
+
+        /* Create collection */
+        $mediaCollection = new Collection();
+        $mediaCollection->setName($request->getData('name') ?? 'Empty');
+        $mediaCollection->setCreatedBy($request->getAccount());
+        $mediaCollection->setCreatedAt(new \DateTime('NOW'));
+        $mediaCollection->setSources($files);
+
+        $mediaCollectionMapper = new CollectionMapper($this->app->dbPool->get());
+        $collectionId          = $mediaCollectionMapper->create($mediaCollection);
+
+        /* Create template */
+        $reporterTemplate = new Template();
+        $reporterTemplate->setName($request->getData('name') ?? 'Empty');
+        $reporterTemplate->setSource($collectionId);
+        $reporterTemplate->setExpected(isset($expected) ? (array) json_decode($expected) : []);
+        $reporterTemplate->setCreatedBy($request->getAccount());
+        $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
+        $reporterTemplate->setDatatype((int) $request->getData('source'));
+
+        $reporterTemplateMapper = new TemplateMapper($this->app->dbPool->get());
+        $templateId             = $reporterTemplateMapper->create($reporterTemplate);
+
+        $response->set($request->__toString(), $templateId);
+    }
+
+    /**
+     * Shows api content.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiCreateReport($request, $response)
+    {
+        $files = json_decode($request->getData('files'));
+
+        // TODO: make sure user has permission for files
+        // TODO: make sure user has permission for template
+
+        $collectionMapper = new CollectionMapper($this->app->dbPool->get());
+        $mediaMapper      = new MediaMapper($this->app->dbPool->get());
+
+        /* Init Template */
+        $templateMapper = new TemplateMapper($this->app->dbPool->get());
+        $template       = $templateMapper->get((int) $request->getData('template'));
+
+        if ($template->getDatatype() === TemplateDataType::GLOBAL_DB) {
+            $templateFiles = $mediaMapper->get($template->getSource());
+
+            foreach ($templateFiles as $templateFile) {
+                $dbFile = $mediaMapper->get($templateFile);
+
+                // Found centralized db
+                if ($dbFile->getExtension() === '.sqlite') {
+                    $this->app->dbPool->create('reporter_1', ['db' => 'sqlite', 'path' => $dbFile->getPath()]);
+                    $csvDbMapper   = new CsvDatabaseMapper($this->app->dbPool->get('reporter_1'));
+                    $excelDbMapper = new ExcelDatabaseMapper($this->app->dbPool->get('reporter_1'));
+                    $csvDbMapper->autoIdentifyCsvSettings(true);
+
+                    foreach ($files as $file) {
+                        $mediaFile = $mediaMapper->get($file);
+
+                        if (StringUtils::endsWith($mediaFile->getFilename(), '.db') && $mediaFile->getExtension() === '.csv') {
+                            $csvDbMapper->addSource($mediaFile->getPath());
+                        } elseif (StringUtils::endsWith($mediaFile->getFilename(), '.db') && ($mediaFile->getExtension() === '.xls' || $mediaFile->getExtension() === '.xlsx')) {
+                            $excelDbMapper->addSource($mediaFile->getPath());
+                        }
+                    }
+
+                    $csvDbMapper->insert();
+                    $excelDbMapper->insert();
+
+                    break;
+                }
+            }
+        }
+
+        /* Create collection */
+        $mediaCollection = new Collection();
+        $mediaCollection->setName($request->getData('name'));
+        $mediaCollection->setCreatedBy($request->getAccount());
+        $mediaCollection->setCreatedAt(new \DateTime('NOW'));
+        $mediaCollection->setSources($files);
+        $collectionId = $collectionMapper->create($mediaCollection);
+
+        /* Create template */
+        $reporterReport = new Report();
+        $reporterReport->setTitle($request->getData('name'));
+        $reporterReport->setSource($collectionId);
+        $reporterReport->setTemplate((int) $request->getData('template'));
+        $reporterReport->setCreatedBy($request->getAccount());
+        $reporterReport->setCreatedAt(new \DateTime('NOW'));
+
+        $reporterReportMapper = new ReportMapper($this->app->dbPool->get());
+        $reportId             = $reporterReportMapper->create($reporterReport);
+
+        $response->set($request->__toString(), $reportId);
+    }
+
+    /**
+     * @param int              $pageId   Page/parent Id for navigation
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    private function createNavigation(\int $pageId, RequestAbstract $request, ResponseAbstract $response)
+    {
+        $nav     = Navigation::getInstance($request, $this->app->dbPool);
+        $navView = new NavigationView($this->app, $request, $response);
+        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setNav($nav->getNav());
+        $navView->setLanguage($request->getL11n()->language);
+        $navView->setParent($pageId);
+
+        return $navView;
+    }
+}
