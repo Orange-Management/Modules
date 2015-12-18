@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Line Chart</h1>
     <div class="inner">
         <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/line'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/img/thumb-line-chart.png">
         </a>
     </div>
 </section>
