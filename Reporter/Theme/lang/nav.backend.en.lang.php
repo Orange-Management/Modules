@@ -19,4 +19,5 @@ $MODLANG['Navigation'] = [
     'CreateReport'   => 'Create Report',
     'List'           => 'List',
     'Reporter'       => 'Reporter',
+    'Reporting'      => 'Reporting',
 ];

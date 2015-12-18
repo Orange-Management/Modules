@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1005200000,
+        "internal": "Draw",
+        "external": "OMS Draw"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Draw",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "e19f4e17662b65bae885bc55cbb55797677ecc40"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Draw",
+            "from": "Draw"
+        },
+        {
+            "pid": [
+                "e19f4e17662b65bae885bc55cbb55797677ecc40"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Draw"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Draw",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

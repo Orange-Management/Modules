@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1004101001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Charts",
+        "uri": "/{/lang}/backend/chart/list",
+        "target": "self",
+        "icon": null,
+        "order": 80,
+        "from": "Chart",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1004102001,
+                "pid": "4a75c2d146b2f5695614b8a2038d053061527ba7",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/chart/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Chart",
+                "permission": null,
+                "parent": 1004101001,
+                "children": []
+            },
+            {
+                "id": 1004102101,
+                "pid": "4a75c2d146b2f5695614b8a2038d053061527ba7",
+                "type": 3,
+                "subtype": 5,
+                "name": "Create",
+                "uri": "/{/lang}/backend/chart/create",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "Chart",
+                "permission": null,
+                "parent": 1004101001,
+                "children": []
+            }
+        ]
+    }
+]

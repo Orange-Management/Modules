@@ -105,7 +105,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/backend/support-list');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
     }
@@ -124,7 +124,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/backend/support-create');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
     }
@@ -143,7 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/backend/support-analysis');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
     }
@@ -162,7 +162,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/backend/support-settings');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
     }
@@ -181,7 +181,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/backend/user-support-dashboard');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
     }

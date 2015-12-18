@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1004000000,
+        "internal": "Shipping",
+        "external": "OMS Shipping"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Shipping module.",
+    "directory": "Shipping",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "b9ef527475a11e18a3ff2b5291c764176a89b6aa"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Shipping",
+            "from": "Shipping"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Shipping",
+            "for": "Navigation",
+            "file": "nav.backend"
+        },
+        {
+            "pid": [
+                "70fd31eceb885a9c7f237ee93fd976d5bab1d1ae"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Shipping"
+        }
+    ]
+}

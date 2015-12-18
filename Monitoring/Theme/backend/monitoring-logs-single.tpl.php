@@ -49,6 +49,22 @@ echo $this->getData('nav')->render(); ?>
                 <td><i class="fa fa-commenting"></i>
                 <td><?= $log['message']; ?>
             <tr>
+                <td><?= $this->l11n->lang['Monitoring']['File']; ?>
+                <td><i class="fa fa-file"></i>
+                <td><?= $log['file']; ?>
+            <tr>
+                <td><?= $this->l11n->lang['Monitoring']['Line']; ?>
+                <td><i class="fa fa-commenting"></i>
+                <td><?= $log['line']; ?>
+            <tr>
+                <td><?= $this->l11n->lang['Monitoring']['Version']; ?>
+                <td><i class="fa fa-pencil"></i>
+                <td><?= $log['version']; ?>
+            <tr>
+                <td><?= $this->l11n->lang['Monitoring']['OS']; ?>
+                <td><i class="fa fa-laptop"></i>
+                <td><?= $log['os']; ?>
+            <tr>
                 <td colspan="3"><?= $this->l11n->lang['Monitoring']['Backtrace']; ?>
             <tr>
                 <td colspan="3">

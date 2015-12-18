@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
             <td><a href=<?= $url; ?>><i class="fa fa-clock-o"></i> <?= $value[0] ?? ''; ?></a>
             <td><a href=<?= $url; ?>><i class="fa fa-<?= in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i> <?= $value[1] ?? ''; ?></a>
             <td><a href=<?= $url; ?>><i class="fa fa-wifi"></i> <?= $value[2] ?? ''; ?></a>
-            <td><a href=<?= $url; ?>><i class="fa fa-commenting"></i> <?= $value[3] ?? ''; ?></a>
+            <td><a href=<?= $url; ?>><i class="fa fa-commenting"></i> <?= $value[6] ?? ''; ?></a>
                 <?php endforeach;
                 if (!isset($key)) : ?>
         <tr>

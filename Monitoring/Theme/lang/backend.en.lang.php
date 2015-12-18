@@ -30,6 +30,7 @@ $MODLANG['Monitoring'] = [
     'File'        => 'File',
     'Info'        => 'Info',
     'Level'       => 'Level',
+    'Line'        => 'Line',
     'Logs'        => 'Logs',
     'MemoryLimit' => 'Memory Limit',
     'Message'     => 'Message',

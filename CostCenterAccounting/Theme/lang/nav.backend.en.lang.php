@@ -14,4 +14,8 @@
  * @link       http://orange-management.com
  */
 $MODLANG['Navigation'] = [
+    'CostCenter'  => 'Cost Center',
+    'CostCenters' => 'Cost Centers',
+    'Create'      => 'Create',
+    'List'        => 'List',
 ];

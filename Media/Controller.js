@@ -10,6 +10,7 @@
         for (var c = 0; c < forms.length; c++) {
             var self = this;
 
+            // todo: only do this for forms that have type=file elements
             this.app.uiManager.getFormManager().injectSubmit(forms[c].id, function (e) {
                 var fileFields = e.querySelectorAll('input[type=file]'),
                     uploader = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
@@ -21,7 +22,7 @@
                     self.app.uiManager.getFormManager().submit(e, data);
                 });
 
-                uploader.setUri('http://127.0.0.1/en/api/media.php');
+                uploader.setUri(jsOMS.UriFactory.build(Url + '/{lang}/api/media'));
 
                 for (var i = 0; i < fileFields.length; i++) {
                     for (var j = 0; j < fileFields[i].files.length; j++) {

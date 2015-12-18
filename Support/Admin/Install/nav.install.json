@@ -22,11 +22,43 @@
                 "uri": "/{/lang}/backend/support/list",
                 "target": "self",
                 "icon": null,
-                "order": 80,
+                "order": 1,
                 "from": "Support",
                 "permission": null,
                 "parent": 1002901001,
                 "children": [
+                    {
+                        "id": 1002903101,
+                        "pid": "165b4fe348524450aa8471c275ea8f685856e196",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "List",
+                        "uri": "/{/lang}/backend/support/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "Support",
+                        "permission": null,
+                        "parent": 1002901101,
+                        "children": [
+                        ]
+                    },
+                    {
+                        "id": 1002903201,
+                        "pid": "165b4fe348524450aa8471c275ea8f685856e196",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Create",
+                        "uri": "/{/lang}/backend/support/create",
+                        "target": "self",
+                        "icon": null,
+                        "order": 5,
+                        "from": "Support",
+                        "permission": null,
+                        "parent": 1002901101,
+                        "children": [
+                        ]
+                    }
                 ]
             },
             {
@@ -38,7 +70,7 @@
                 "uri": "/{/lang}/backend/support/settings/dashboard",
                 "target": "self",
                 "icon": null,
-                "order": 80,
+                "order": 5,
                 "from": "Support",
                 "permission": null,
                 "parent": 1002901001,
@@ -54,7 +86,7 @@
                 "uri": "/{/lang}/backend/support/analysis/dashboard",
                 "target": "self",
                 "icon": null,
-                "order": 80,
+                "order": 10,
                 "from": "Support",
                 "permission": null,
                 "parent": 1002901001,

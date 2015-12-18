@@ -1,0 +1,51 @@
+{
+    "name": {
+        "id": 1005300000,
+        "internal": "Editor",
+        "external": "OMS Editor"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Editor",
+    "dependencies": {},
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "439884690b4c05681a7c7ca9292d5cfb03d2971f"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Editor",
+            "from": "Editor"
+        },
+        {
+            "pid": [
+                "439884690b4c05681a7c7ca9292d5cfb03d2971f"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "backend",
+            "from": "Editor"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Editor",
+            "for": "Navigation",
+            "file": "nav.backend"
+        }
+    ]
+}

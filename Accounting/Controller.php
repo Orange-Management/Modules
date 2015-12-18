@@ -80,14 +80,6 @@ class Controller extends ModuleAbstract implements WebInterface
         '^.*/backend/accounting/gl/create.*$'  => [['dest' => '\Modules\Accounting\Controller:viewGLCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/accounting/gl/profile.*$' => [['dest' => '\Modules\Accounting\Controller:viewGLProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
-        '^.*/backend/accounting/costobject/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewCostObjectList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costobject/create.*$'  => [['dest' => '\Modules\Accounting\Controller:viewCostObjectCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costobject/profile.*$' => [['dest' => '\Modules\Accounting\Controller:viewCostObjectProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/costcenter/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewCostCenterList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costcenter/create.*$'  => [['dest' => '\Modules\Accounting\Controller:viewCostCenterCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costcenter/profile.*$' => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
         '^.*/api/accounting/dun/print.*$'         => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/api/accounting/statement/print.*$'   => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/api/accounting/balances/print.*$'    => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
@@ -281,120 +273,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/backend/gl-profile');
         $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewCostObjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/costobject-list');
-        $view->addData('nav', $this->createNavigation(1002604001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewCostObjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/costobject-create');
-        $view->addData('nav', $this->createNavigation(1002604001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewCostObjectProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/costobject-profile');
-        $view->addData('nav', $this->createNavigation(1002604001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/costcenter-list');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/costcenter-create');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/costcenter-profile');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
 
         return $view;
     }
