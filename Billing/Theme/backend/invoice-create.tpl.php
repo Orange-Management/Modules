@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     <form>
                         <table class="layout wf-100">
                             <tr><td><label for="iSource"><?= $this->l11n->lang['Billing']['Source'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" id="iSource" name="source"></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iSource" name="source"></span>
                             <tr><td><label for="iType"><?= $this->l11n->lang['Billing']['Type'] ?></label>
                             <tr><td><select id="iType" name="type">
                                         <option><?= $this->l11n->lang['Billing']['Invoice'] ?>
@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option><?= $this->l11n->lang['Billing']['CreditNote'] ?>
                                     </select>
                             <tr><td><label for="iClient"><?= $this->l11n->lang['Billing']['Client'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" id="iClient" name="client"></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iClient" name="client"></span>
                             <tr><td><label for="iDelivery"><?= $this->l11n->lang['Billing']['Delivery'] ?></label>
                             <tr><td><input type="datetime-local" id="iDelivery" name="delivery">
                             <tr><td><label for="iDue"><?= $this->l11n->lang['Billing']['Due'] ?></label>
@@ -137,8 +137,8 @@ echo $this->getData('nav')->render(); ?>
                     <tbody>
                     <tr>
                         <td><i class="fa fa-plus"></i> <i class="fa fa-chevron-up"></i> <i class="fa fa-chevron-down"></i>
-                        <td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" required></span>
-                        <td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" required></span>
+                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" required></span>
+                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" required></span>
                         <td><input type="text" required><!-- todo: make this textarea -->
                         <td><input type="number" min="0" value="0" required>
                         <td><input type="number" min="0">

@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iName"><?= $this->l11n->lang['Business']['Name']; ?></label>
                 <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>
                 <tr><td><label for="iParent"><?= $this->l11n->lang['Business']['Parent']; ?></label>
-                <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent"></span>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent"></span>
                 <tr><td><label for="iStatus"><?= $this->l11n->lang['Business']['Status']; ?></label>
                 <tr><td><select name="status" id="iStatus">
                             <option><?= $this->l11n->lang['Business']['Active']; ?>

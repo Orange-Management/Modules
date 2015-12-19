@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                             <option>
                         </select>
                 <tr><td><label for="iId"><?= $this->l11n->lang[0]['ID']; ?></label>
-                <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
                 <tr><td><label for="iName1"><?= $this->l11n->lang['AccountsReceivable']['Name1']; ?></label>
                 <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
                 <tr><td><label for="iName2"><?= $this->l11n->lang['AccountsReceivable']['Name2']; ?></label>

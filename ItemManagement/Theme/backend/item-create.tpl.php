@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iSource"><?= $this->l11n->lang[0]['ID'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
                             <tr><td><label for="iSegment"><?= $this->l11n->lang['ItemManagement']['Segment'] ?></label>
                             <tr><td><input id="iSegment" name="segment" type="text" placeholder="" required>
                             <tr><td><label for="iProductgroup"><?= $this->l11n->lang['ItemManagement']['Productgroup'] ?></label>
@@ -57,7 +57,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><label for="iArticlegroup"><?= $this->l11n->lang['ItemManagement']['Articlegroup'] ?></label>
                             <tr><td><input id="iArticlegroup" name="articlegroup" type="text" placeholder="" required>
                             <tr><td><label for="iSSuccessor"><?= $this->l11n->lang['ItemManagement']['Successor'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Create'] ?>">
                         </table>
                     </form>
@@ -97,7 +97,7 @@ echo $this->getData('nav')->render(); ?>
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Name'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPTradingUnit"><?= $this->l11n->lang['ItemManagement']['Unit'] ?></label>
                             <tr><td><select id="iPTracking" name="tracking">
                                         <option>
@@ -120,7 +120,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option>
                                     </select>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Property'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Translation'] ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
@@ -139,7 +139,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option>
                                     </select>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Value'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Translation'] ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
@@ -155,7 +155,7 @@ echo $this->getData('nav')->render(); ?>
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Name'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPTradingUnit"><?= $this->l11n->lang['ItemManagement']['Unit'] ?></label>
                             <tr><td><select id="iPTracking" name="tracking">
                                         <option>
@@ -178,7 +178,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option>
                                     </select>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Attribute'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Translation'] ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
@@ -197,7 +197,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option>
                                     </select>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Value'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->l11n->lang['ItemManagement']['Translation'] ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
@@ -293,7 +293,7 @@ echo $this->getData('nav')->render(); ?>
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iSupplierId"><?= $this->l11n->lang['ItemManagement']['Supplier'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSupplierId" name="supplierid" type="text" placeholder="" required></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSupplierId" name="supplierid" type="text" placeholder="" required></span>
                             <tr><td><label for="iPrice">GTIN</label>
                             <tr><td><input id="iPrice" name="price" type="text" placeholder="">
                             <tr><td><label for="iPPriceUnit"><?= $this->l11n->lang['ItemManagement']['PriceUnit'] ?></label>
@@ -443,7 +443,7 @@ echo $this->getData('nav')->render(); ?>
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iSource"><?= $this->l11n->lang[0]['ID'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iDiscount"><?= $this->l11n->lang['ItemManagement']['Quantity'] ?></label>
                             <tr><td><input id="iDiscount" name="discount" type="number" step="any" min="0" placeholder="">
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">

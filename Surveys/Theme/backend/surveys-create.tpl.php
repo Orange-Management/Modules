@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><select id="iResponsibility" name="responsibility">
                         <option value=""><?= $this->l11n->lang['Surveys']['Questionee'] ?>
                         <option value=""><?= $this->l11n->lang['Surveys']['Manager'] ?>
-                    </select><td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" id="iPerm" name="permission"></span><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
+                    </select><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iPerm" name="permission"></span><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
                 <tr><td colspan="3"><input type="submit" value="<?= $this->l11n->lang[0]['Create'] ?>">
             </table>
         </form>

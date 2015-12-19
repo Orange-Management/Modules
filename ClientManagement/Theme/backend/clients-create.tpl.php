@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                     <form>
                         <table class="layout w-100">
                             <tr><td><label for="iId"><?= $this->l11n->lang[0]['ID']; ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
                             <tr><td><label for="iName1"><?= $this->l11n->lang['ClientManagement']['Name1']; ?></label>
                             <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
                             <tr><td><label for="iName2"><?= $this->l11n->lang['ClientManagement']['Name2']; ?></label>
@@ -120,7 +120,7 @@ echo $this->getData('nav')->render(); ?>
                     <form>
                         <table class="layout w-100">
                             <tr><td><label for="iSource"><?= $this->l11n->lang[0]['ID'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iSegment"><?= $this->l11n->lang['ClientManagement']['Segment'] ?></label>
                             <tr><td><input id="iSegment" name="segment" type="text" placeholder="">
                             <tr><td><label for="iProductgroup"><?= $this->l11n->lang['ClientManagement']['Productgroup'] ?></label>
@@ -171,7 +171,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option>
                                     </select><td>
                             <tr><td><label for="iSource"><?= $this->l11n->lang[0]['ID'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iSegment"><?= $this->l11n->lang['ClientManagement']['Segment'] ?></label>
                             <tr><td><input id="iSegment" name="segment" type="text" placeholder="">
                             <tr><td><label for="iProductgroup"><?= $this->l11n->lang['ClientManagement']['Productgroup'] ?></label>
@@ -205,9 +205,9 @@ echo $this->getData('nav')->render(); ?>
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iManager"><?= $this->l11n->lang['ClientManagement']['AreaManager'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iManager" name="source" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iManager" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iSource"><?= $this->l11n->lang[0]['ID'] ?></label>
-                            <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iSegment"><?= $this->l11n->lang['ClientManagement']['Segment'] ?></label>
                             <tr><td><input id="iSegment" name="segment" type="text" placeholder="">
                             <tr><td><label for="iProductgroup"><?= $this->l11n->lang['ClientManagement']['Productgroup'] ?></label>

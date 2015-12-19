@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iDescription"><?= $this->l11n->lang['Checklist']['Description']; ?></label><td>
                 <tr><td><textarea id="iDescription" name="description"></textarea><td>
                 <tr><td><label for="iPermission"><?= $this->l11n->lang['Checklist']['Permissions']; ?></label><td>
-                <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" id="iPermission" name="permission"></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iPermission" name="permission"></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td><label for="iFiles"><?= $this->l11n->lang['Checklist']['Files']; ?></label><td>
                 <tr><td><input id="iFiles" name="files" type="file" multiple><td>
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Create']; ?>"><td>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iEDescription"><?= $this->l11n->lang['Checklist']['Description']; ?></label><td>
                 <tr><td><textarea id="iEDescription" name="eDescription"></textarea><td>
                 <tr><td><label for="iEPermission"><?= $this->l11n->lang['Checklist']['Permissions']; ?></label><td>
-                <tr><td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" id="iEPermission" name="ePermission"></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iEPermission" name="ePermission"></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td><label for="iEFiles"><?= $this->l11n->lang['Checklist']['Files']; ?></label><td>
                 <tr><td><input id="iEFiles" name="eFiles" type="file" multiple><td>
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add']; ?>"><td>

@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                             <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER ?>"><?= $this->l11n->lang['ProjectManagement']['Manager']; ?>
                             <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::OTHER ?>"><?= $this->l11n->lang['ProjectManagement']['Other']; ?>
                         </select>
-                    <td><span class="input"><button><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                    <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="3"><input type="submit" value="<?= $this->l11n->lang[0]['Create']; ?>">
             </table>
         </form>
