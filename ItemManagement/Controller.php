@@ -85,8 +85,10 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $routes = [
         '^.*/backend/sales/item/list.*$'    => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/purchase/item/list.*$' => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/warehousing/stock/list.*$' => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/sales/item/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/purchase/item/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/warehousing/stock/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -137,6 +139,25 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
+    public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/ItemManagement/Theme/backend/stock-list');
+        $view->addData('nav', $this->createNavigation(1004807001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
@@ -161,6 +182,25 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/backend/item-create');
         $view->addData('nav', $this->createNavigation(1004806001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/ItemManagement/Theme/backend/item-create');
+        $view->addData('nav', $this->createNavigation(1004807001, $request, $response));
 
         return $view;
     }

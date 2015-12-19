@@ -122,7 +122,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/backend/promotion-create');
-        $view->addData('nav', $this->createNavigation(1000706001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1001902001, $request, $response));
 
         return $view;
     }
@@ -141,7 +141,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/backend/event-list');
-        $view->addData('nav', $this->createNavigation(1000706001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1001903001, $request, $response));
 
         return $view;
     }
@@ -160,7 +160,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/backend/event-create');
-        $view->addData('nav', $this->createNavigation(1000706001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1001903001, $request, $response));
 
         return $view;
     }

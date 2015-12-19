@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "Shipping",
-        "uri": "/{/lang}/backend/warehousing/stock/shipping/list",
+        "uri": "/{/lang}/backend/warehousing/shipping/list",
         "target": "self",
         "icon": null,
         "order": 10,

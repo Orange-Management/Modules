@@ -21,20 +21,19 @@ $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
 
-
 <section class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['SupplierManagement']['Suppliers'] ?></caption>
+        <caption><?= $this->l11n->lang['Billing']['Invoices'] ?></caption>
         <thead>
         <tr>
             <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Name1']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Name2']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['SupplierManagement']['Name3']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['City']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Zip']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Address']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Country']; ?>
+            <td><?= $this->l11n->lang['Billing']['Type']; ?>
+            <td><?= $this->l11n->lang['Billing']['SupplierID']; ?>
+            <td class="wf-100"><?= $this->l11n->lang['Billing']['Supplier']; ?>
+            <td><?= $this->l11n->lang['Billing']['Net']; ?>
+            <td><?= $this->l11n->lang['Billing']['Gross']; ?>
+            <td><?= $this->l11n->lang['Billing']['Created']; ?>
+            <td><?= $this->l11n->lang['Billing']['Due']; ?>
         <tfoot>
         <tr>
             <td colspan="8"><?= $footerView->render(); ?>

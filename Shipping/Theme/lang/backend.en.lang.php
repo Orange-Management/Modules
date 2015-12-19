@@ -13,5 +13,12 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['CreditManagement'] = [
+$MODLANG['Shipping'] = [
+    'Created'   => 'Created',
+    'Creator'   => 'Creator',
+    'Name'      => 'Name',
+    'Service'   => 'Service',
+    'Shipping'  => 'Shipping',
+    'Status'    => 'Status',
+    'Reference' => 'Reference',
 ];

@@ -83,27 +83,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $routes = [
-        '^.*/backend/warehousing/stock/list.*$' => [['dest' => '\Modules\WarehouseManagement\Controller:viewWarehouseManagementStockList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function viewWarehouseManagementStockList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/WarehouseManagement/Theme/backend/stock-list');
-        $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
-
-        return $view;
-    }
 
     /**
      * @param int              $pageId   Page/parent Id for navigation

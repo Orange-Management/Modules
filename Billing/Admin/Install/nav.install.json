@@ -60,5 +60,67 @@
                 "children": []
             }
         ]
+    },
+    {
+        "id": 1005105001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Invoice",
+        "uri": "/{/lang}/backend/purchase/invoice/list",
+        "target": "self",
+        "icon": null,
+        "order": 5,
+        "from": "Invoice",
+        "permission": null,
+        "parent": 1002101001,
+        "children": [
+            {
+                "id": 1005105101,
+                "pid": "722ef87be24d036db431dd65c0418e5502a6eb89",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/purchase/invoice/list",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Billing",
+                "permission": null,
+                "parent": 1005105001,
+                "children": [
+                    {
+                        "id": 1005105201,
+                        "pid": "420c091bd6d9f5cd16b1d62569189feb707d6652",
+                        "type": 3,
+                        "subtype": 1,
+                        "name": "Invoice",
+                        "uri": "/{/lang}/backend/purchase/invoice/single",
+                        "target": "self",
+                        "icon": null,
+                        "order": 1,
+                        "from": "Billing",
+                        "permission": null,
+                        "parent": 1005104101,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 1005105301,
+                "pid": "722ef87be24d036db431dd65c0418e5502a6eb89",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/purchase/invoice/create",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Billing",
+                "permission": null,
+                "parent": 1005104001,
+                "children": []
+            }
+        ]
     }
 ]

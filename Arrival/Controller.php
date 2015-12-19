@@ -83,7 +83,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $routes = [
-        '^.*/backend/admin/settings/general.*$' => [['dest' => '\Modules\Arrival\Controller:viewSettingsGeneral', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/warehousing/stock/arrival/list.*$' => [['dest' => '\Modules\Arrival\Controller:viewArrivalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/warehousing/stock/arrival/create.*$' => [['dest' => '\Modules\Arrival\Controller:viewArrivalCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -96,11 +97,30 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewArrivalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Arrival/Theme/backend/accounts-list');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->setTemplate('/Modules/Arrival/Theme/backend/arrival-list');
+        $view->addData('nav', $this->createNavigation(1001501001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewArrivalCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Arrival/Theme/backend/arrival-create');
+        $view->addData('nav', $this->createNavigation(1001501001, $request, $response));
 
         return $view;
     }

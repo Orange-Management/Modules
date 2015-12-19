@@ -13,5 +13,9 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['CreditManagement'] = [
-];
+/**
+ * @var \phpOMS\Views\View $this
+ */
+
+echo $this->getData('nav')->render(); ?>
+

@@ -129,6 +129,25 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewBillingPurchaInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Billing/Theme/backend/purchase-invoice-list');
+        $view->addData('nav', $this->createNavigation(1005104001, $request, $response));
+
+        return $view;
+    }
+
+    /**
      * @param int              $pageId   Page/parent Id for navigation
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response

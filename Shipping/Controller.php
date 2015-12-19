@@ -83,7 +83,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $routes = [
-        '^.*/backend/admin/settings/general.*$' => [['dest' => '\Modules\Shipping\Controller:viewSettingsGeneral', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/warehousing/shipping/list.*$' => [['dest' => '\Modules\Shipping\Controller:viewShippingList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/warehousing/shipping/create.*$' => [['dest' => '\Modules\Shipping\Controller:viewShippingCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -96,15 +97,33 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewShippingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Shipping/Theme/backend/accounts-list');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->setTemplate('/Modules/Shipping/Theme/backend/shipping-list');
+        $view->addData('nav', $this->createNavigation(1004001001, $request, $response));
 
         return $view;
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewShippingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Shipping/Theme/backend/shipping-create');
+        $view->addData('nav', $this->createNavigation(1004001001, $request, $response));
+
+        return $view;
+    }
 
     /**
      * @param int              $pageId   Page/parent Id for navigation

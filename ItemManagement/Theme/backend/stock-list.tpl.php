@@ -28,12 +28,12 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['WarehouseManagement']['Stock']; ?></caption>
+        <caption><?= $this->l11n->lang['ItemManagement']['Stock']; ?></caption>
         <thead>
         <tr>
             <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['WarehouseManagement']['Article']; ?>
-            <td><?= $this->l11n->lang['WarehouseManagement']['Quantity']; ?>
+            <td class="wf-100"><?= $this->l11n->lang['ItemManagement']['Article']; ?>
+            <td><?= $this->l11n->lang['ItemManagement']['Quantity']; ?>
         <tfoot>
         <tr><td colspan="8"><?= $footerView->render(); ?>
         <tbody>

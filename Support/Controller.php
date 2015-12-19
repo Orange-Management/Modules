@@ -123,7 +123,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewSupportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Support/Theme/backend/support-create');
+        $view->setTemplate('/Modules/Support/Theme/backend/ticket-create');
         $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;

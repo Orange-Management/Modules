@@ -14,14 +14,17 @@
  * @link       http://orange-management.com
  */
 $MODLANG['Marketing'] = [
-    'Budget'   => 'Budget',
-    'Expenses' => 'Expenses',
-    'End'      => 'End',
-    'Events'   => 'Events',
-    'Location' => 'Location',
-    'Sales'    => 'Sales',
-    'Start'    => 'Start',
-    'Status'   => 'Status',
-    'Title'    => 'Title',
-    'Type'     => 'Type',
+    'Budget'      => 'Budget',
+    'Description' => 'Description',
+    'Expenses'    => 'Expenses',
+    'End'         => 'End',
+    'Events'      => 'Events',
+    'Limit'       => 'Limit',
+    'Location'    => 'Location',
+    'Promotion'   => 'Promotion',
+    'Sales'       => 'Sales',
+    'Start'       => 'Start',
+    'Status'      => 'Status',
+    'Title'       => 'Title',
+    'Type'        => 'Type',
 ];
