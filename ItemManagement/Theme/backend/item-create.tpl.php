@@ -57,7 +57,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><label for="iArticlegroup"><?= $this->l11n->lang['ItemManagement']['Articlegroup'] ?></label>
                             <tr><td><input id="iArticlegroup" name="articlegroup" type="text" placeholder="" required>
                             <tr><td><label for="iSSuccessor"><?= $this->l11n->lang['ItemManagement']['Successor'] ?></label>
-                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
+                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Create'] ?>">
                         </table>
                     </form>
