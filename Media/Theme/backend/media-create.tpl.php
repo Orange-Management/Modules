@@ -21,12 +21,12 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-50">
     <h1><?= $this->l11n->lang['Media']['Upload']; ?></h1>
     <div class="inner">
-        <form>
+        <form method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/media/create'); ?>">
             <table class="layout wf-100">
                 <tr><td><label for="iName"><?= $this->l11n->lang['Media']['Name']; ?></label>
                 <tr><td><input type="text" id="iName" name="name" placeholder="&#xf040;">
                 <tr><td><label for="iFiles"><?= $this->l11n->lang['Media']['Files']; ?></label>
-                <tr><td><input type="file" id="iFiles" name="files" multiple>
+                <tr><td><input type="file" id="iFiles" name="files" multiple><input name="media" type="hidden">
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Create']; ?>">
             </table>
         </form>

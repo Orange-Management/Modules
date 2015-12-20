@@ -96,7 +96,7 @@
                     self.app.uiManager.getFormManager().submit(e, data);
                 });
 
-                uploader.setUri('http://127.0.0.1/en/api/media.php');
+                uploader.setUri('http://127.0.0.1/en/api/media');
 
                 for (var i = 0; i < fileFields.length; i++) {
                     for (var j = 0; j < fileFields[i].files.length; j++) {

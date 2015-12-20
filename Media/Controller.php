@@ -21,6 +21,7 @@ use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;
@@ -88,12 +89,30 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $routes = [
         '^.*/backend/media/list.*$'   => [['dest' => '\Modules\Media\Controller:viewMediaList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/media/create.*$' => [['dest' => '\Modules\Media\Controller:viewMediaCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/media/create.*$' => [
+            ['dest' => '\Modules\Media\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
+            ['dest' => '\Modules\Media\Controller:viewMediaCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
+        ],
 
-        '^.*/api/media/file/create.*$'       => [['dest' => '\Modules\Media\Controller:apiFileCreate', 'method' => 'POST', 'type' => ViewLayout::MAIN],],
-        '^.*/api/media/collection/create.*$' => [['dest' => '\Modules\Media\Controller:apiCollectionCreate', 'method' => 'POST', 'type' => ViewLayout::MAIN],],
-        '^.*/api/media/upload.*$'            => [['dest' => '\Modules\Media\Controller:apiMediaUpload', 'method' => 'POST', 'type' => ViewLayout::NULL],],
+        '^.*/api/media/collection.*$' => [['dest' => '\Modules\Media\Controller:apiCollectionCreate', 'method' => 'POST', 'type' => ViewLayout::MAIN],],
+        '^.*/api/media.*$'            => [['dest' => '\Modules\Media\Controller:apiMediaUpload', 'method' => 'POST', 'type' => ViewLayout::NULL],],
     ];
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $head = $response->getHead();
+        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia.js');
+    }
 
     /**
      * @param RequestAbstract  $request  Request
@@ -147,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $uploads = $this->uploadFiles($_FILES, $request->getAccount());
+        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount());
 
         $response->set($request->__toString(), [['uploads' => $uploads, 'type' => 'UI']]);
     }
