@@ -42,11 +42,13 @@ $MODLANG['Monitoring'] = [
     'Penetrators' => 'Penetrators',
     'RAMUsage'    => 'RAM Usage',
     'Release'     => 'Release',
+    'Report'      => 'Report',
     'Source'      => 'Source',
     'SystemRAM'   => 'System RAM',
     'Theme'       => 'Theme',
     'Time'        => 'Time',
     'Timestamp'   => 'Timestamp',
+    'Uri'         => 'Uri',
     'Version'     => 'Version',
     'Warnings'    => 'Warnings',
 ];

@@ -21,6 +21,15 @@ $log              = $this->app->logger->getByLine((int) $this->request->getData(
 $temp             = trim($log['backtrace']);
 $log['backtrace'] = json_decode($temp, true);
 
+$details = '* Uri: `' . trim($log['path']) . "`\n"
+    . '* Level: `' . trim($log['level']) . "`\n"
+    . '* Message: `' . trim($log['message']) . "`\n"
+    . '* File: `' . trim($log['file']) . "`\n"
+    . '* Line: `' . trim($log['line']) . "`\n"
+    . '* Version: `' . trim($log['version']) . "`\n"
+    . '* OS: `' . trim($log['os']) . "`\n\n"
+    . "Backtrace: \n\n```\n" . json_encode($log['backtrace'], JSON_PRETTY_PRINT);
+
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
@@ -37,12 +46,17 @@ echo $this->getData('nav')->render(); ?>
                 <td><i class="fa fa-clock-o"></i>
                 <td><?= $log['datetime']; ?>
             <tr>
+                <td><?= $this->l11n->lang['Monitoring']['Uri']; ?>
+                <td><i class="fa fa-globe"></i>
+                <td><?= $log['path']; ?>
+            <tr>
                 <td><?= $this->l11n->lang['Monitoring']['Source']; ?>
                 <td><i class="fa fa-wifi"></i>
                 <td><?= $log['ip']; ?>
             <tr>
                 <td><?= $this->l11n->lang['Monitoring']['Level']; ?>
-                <td><i class="fa fa-<?= in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i>
+                <td>
+                    <i class="fa fa-<?= in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i>
                 <td><?= $log['level']; ?>
             <tr>
                 <td><?= $this->l11n->lang['Monitoring']['Message']; ?>
@@ -69,6 +83,9 @@ echo $this->getData('nav')->render(); ?>
             <tr>
                 <td colspan="3">
                     <pre><?= json_encode($log['backtrace'], JSON_PRETTY_PRINT); ?></pre>
+            <tr>
+                <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
+                       href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= urlencode($log['message']); ?>&details=<?= urlencode($details); ?>"><?= $this->l11n->lang['Monitoring']['Report']; ?></a>
         </table>
     </div>
 </section>
