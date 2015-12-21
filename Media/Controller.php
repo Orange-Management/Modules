@@ -95,7 +95,8 @@ class Controller extends ModuleAbstract implements WebInterface
         ],
 
         '^.*/api/media/collection.*$' => [['dest' => '\Modules\Media\Controller:apiCollectionCreate', 'method' => 'POST', 'type' => ViewLayout::MAIN],],
-        '^.*/api/media.*$'            => [['dest' => '\Modules\Media\Controller:apiMediaUpload', 'method' => 'POST', 'type' => ViewLayout::NULL],],
+        '^.*/api/media$'              => [['dest' => '\Modules\Media\Controller:apiMediaUpload', 'method' => 'POST', 'type' => ViewLayout::NULL],],
+        '^.*/api/media/create.*$'     => [['dest' => '\Modules\Media\Controller:apiMediaCreate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
     ];
 
     /**
@@ -169,6 +170,23 @@ class Controller extends ModuleAbstract implements WebInterface
         $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount());
 
         $response->set($request->__toString(), [['uploads' => $uploads, 'type' => 'UI']]);
+    }
+
+    /**
+     * Shows api content.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        // todo: change database entry for files if has write permission
     }
 
     /**

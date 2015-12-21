@@ -17,9 +17,22 @@
  * @var \phpOMS\Views\View $this
  */
 
+$mediaMapper = new \Modules\Media\Models\MediaMapper($this->app->dbPool->get());
+$media      = $mediaMapper
+    ->listResults(
+        $mediaMapper
+            ->find('media.media_id',
+                'media.media_name',
+                'media.media_extension',
+                'media.media_size',
+                'media.media_created_at',
+                'media.media_created_by')
+    //->newest('reporter_template.reporter_template_created')
+    );
+
 $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-$footerView->setPages(20);
+$footerView->setPages(count($media) / 25);
 $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
@@ -37,7 +50,13 @@ echo $this->getData('nav')->render(); ?>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php $count = 0; foreach($media as $key => $value) : $count++; ?>
+                <tr>
+                    <td><?= $value->getName(); ?>
+                    <td><?= $value->getExtension(); ?>
+                    <td><?= $value->getSize(); ?>
+                    <td><?= $value->getCreatedBy(); ?>
+                    <td><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
         <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
