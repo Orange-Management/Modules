@@ -102,8 +102,6 @@ class Arrival implements Multition
      *
      * @param \int $id Arrival ID
      *
-     * @return void
-     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */

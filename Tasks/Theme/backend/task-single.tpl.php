@@ -88,13 +88,13 @@ foreach ($elements as $element): ?>
     <div class="bc-1">
         <ul class="l-1">
             <li>
-                <lable><?= $this->l11n->lang['Tasks']['Receiver']; ?></lable>
+                <label><?= $this->l11n->lang['Tasks']['Receiver']; ?></label>
             <li><input type="text">
             <li>
-                <lable><?= $this->l11n->lang['Tasks']['Due']; ?></lable>
+                <label><?= $this->l11n->lang['Tasks']['Due']; ?></label>
             <li><input type="text">
             <li>
-                <lable><?= $this->l11n->lang['Tasks']['Message']; ?></lable>
+                <label><?= $this->l11n->lang['Tasks']['Message']; ?></label>
             <li><textarea style="width: 100%"></textarea>
         </ul>
         <button class="rf"><?= $this->l11n->lang[0]['Submit']; ?></button>

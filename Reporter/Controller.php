@@ -306,12 +306,11 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
-     * Shows api content.
-     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
      *
-     * @return void
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

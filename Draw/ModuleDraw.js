@@ -28,17 +28,17 @@
                 this.editors.push(temp);
             }
         }
-    }
+    };
 
     jsOMS.Modules.Draw.prototype.getElements = function ()
     {
         return this.editors;
-    }
+    };
 
     jsOMS.Modules.Draw.prototype.count = function ()
     {
         return this.editors.length;
-    }
+    };
 }(window.jsOMS = window.jsOMS || {}));
 
 jsOMS.ready(function ()
@@ -201,22 +201,22 @@ jsOMS.ready(function ()
             // remove x first undos from history
             // add this step to undo
         }
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.setSize = function (size)
     {
         this.size = size;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.setType = function (type)
     {
         this.type = type;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.setColor = function (color)
     {
         this.color = color;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.mousePosition = function (evt)
     {
@@ -225,7 +225,7 @@ jsOMS.ready(function ()
             x: evt.clientX - rect.left - 0.5,
             y: evt.clientY - rect.top - 0.5
         };
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.resize = function (size)
     {
@@ -239,7 +239,7 @@ jsOMS.ready(function ()
         this.canvas.height = size.height;
 
         this.canvas.getContext('2d').drawImage(tmpCanvas, 0, 0, tmpCanvas.width, tmpCanvas.height, 0, 0, this.canvas.width, this.canvas.height);
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.scale = function (scale)
     {
@@ -250,5 +250,5 @@ jsOMS.ready(function ()
         tmpCanvas.getContext('2d').drawImage(this.canvas, 0, 0);
 
         this.canvas.getContext('2d').drawImage(tmpCanvas, 0, 0, tmpCanvas.width, tmpCanvas.height, 0, 0, scale.width, scale.height);
-    }
+    };
 }(window.jsOMS = window.jsOMS || {}));

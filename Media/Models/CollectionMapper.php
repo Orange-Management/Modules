@@ -38,6 +38,12 @@ class CollectionMapper extends MediaMapper
      */
     protected static $table = 'media';
 
+    /**
+     * Created at.
+     *
+     * @var \string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'media_created_at';
 
     /**

@@ -64,8 +64,6 @@ class Navigation
      * @param RequestAbstract $request Request hashes
      * @param Pool            $dbPool  Database pool
      *
-     * @return void
-     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */

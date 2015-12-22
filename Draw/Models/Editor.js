@@ -133,22 +133,22 @@
             // remove x first undos from history
             // add this step to undo
         }
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.setSize = function (size)
     {
         this.size = size;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.setType = function (type)
     {
         this.type = type;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.setColor = function (color)
     {
         this.color = color;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.toImage = function (callback)
     {
@@ -156,12 +156,12 @@
         image.onload = function ()
         {
             callback(image);
-        }
+        };
 
         image.src = this.canvas.toDataURL('image/png');
 
         // return image;
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.mousePosition = function (evt)
     {
@@ -170,7 +170,7 @@
             x: evt.clientX - rect.left - 0.5,
             y: evt.clientY - rect.top - 0.5
         };
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.resize = function (size)
     {
@@ -184,7 +184,7 @@
         this.canvas.height = size.height;
 
         this.canvas.getContext('2d').drawImage(tmpCanvas, 0, 0, tmpCanvas.width, tmpCanvas.height, 0, 0, this.canvas.width, this.canvas.height);
-    }
+    };
 
     jsOMS.Modules.Draw.Editor.prototype.scale = function (scale)
     {
@@ -195,5 +195,5 @@
         tmpCanvas.getContext('2d').drawImage(this.canvas, 0, 0);
 
         this.canvas.getContext('2d').drawImage(tmpCanvas, 0, 0, tmpCanvas.width, tmpCanvas.height, 0, 0, scale.width, scale.height);
-    }
+    };
 }(window.jsOMS = window.jsOMS || {}));

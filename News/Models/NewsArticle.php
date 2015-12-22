@@ -168,7 +168,7 @@ class NewsArticle
     }
 
     /**
-     * @return null
+     * @return \DateTime
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -238,7 +238,7 @@ class NewsArticle
     }
 
     /**
-     * @return null
+     * @return \DateTime
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -325,7 +325,7 @@ class NewsArticle
     }
 
     /**
-     * @return null
+     * @return \int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -349,7 +349,7 @@ class NewsArticle
     }
 
     /**
-     * @return null
+     * @return \int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

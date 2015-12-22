@@ -25,15 +25,15 @@
                 this.editors.push(temp);
             }
         }
-    }
+    };
 
     jsOMS.Modules.Draw.prototype.getElements = function() {
         return this.editors;
-    }
+    };
 
     jsOMS.Modules.Draw.prototype.count = function() {
         return this.editors.length;
-    }
+    };
 }(window.jsOMS = window.jsOMS || {}));
 
 jsOMS.ready(function () {
