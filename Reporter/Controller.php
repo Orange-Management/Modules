@@ -119,6 +119,8 @@ class Controller extends ModuleAbstract implements WebInterface
         '^.*/backend/reporter/report/view.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterReport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
         '^.*/api/reporter/report/export.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterExport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/api/reporter/template.*$'      => [['dest' => '\Modules\Reporter\Controller:apiCreateTemplate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
+        '^.*/api/reporter/report.*$'        => [['dest' => '\Modules\Reporter\Controller:apiCreateReport', 'method' => 'POST', 'type' => ViewLayout::NULL],],
     ];
 
     /**
@@ -169,11 +171,6 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $head    = $response->getHead();
-        $baseUri = $request->getUri()->getBase();
-
-        $head->addAsset(AssetType::JS, $baseUri . 'Modules/Media/Models/UI.js');
-
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-template-create');
         $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
@@ -193,11 +190,6 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $head    = $response->getHead();
-        $baseUri = $request->getUri()->getBase();
-
-        $head->addAsset(AssetType::JS, $baseUri . 'Modules/Media/Models/UI.js');
-
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-create');
         $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
@@ -232,88 +224,85 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
      *
-     * @throws \Exception
+     * @return RenderableInterface
+     *
+     * @throws
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function showSingleBackend($request, $response)
+    public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        switch ($request->getPath(4)) {
-            case '':
-                $templateMapper = new TemplateMapper($this->app->dbPool->get());
-                $template       = $templateMapper->get((int) $request->getData('id'));
+        $templateMapper = new TemplateMapper($this->app->dbPool->get());
+        $template       = $templateMapper->get((int) $request->getData('id'));
 
-                //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
+        //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
-                $mediaMapper      = new MediaMapper($this->app->dbPool->get());
-                $collectionMapper = new CollectionMapper($this->app->dbPool->get());
-                $collection       = $collectionMapper->get($template->getSource());
+        $mediaMapper      = new MediaMapper($this->app->dbPool->get());
+        $collectionMapper = new CollectionMapper($this->app->dbPool->get());
+        $collection       = $collectionMapper->get($template->getSource());
 
-                $tcoll = [];
-                $files = $collection->getSources();
+        $tcoll = [];
+        $files = $collection->getSources();
 
-                foreach ($files as $file) {
-                    $tMedia = $mediaMapper->get($file);
+        foreach ($files as $file) {
+            $tMedia = $mediaMapper->get($file);
+            $path   = $tMedia->getPath();
 
-                    $path = $tMedia->getPath();
-                    if (StringUtils::endsWith(strtolower($path), '.lang.php')) {
-                        $tcoll['lang'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), 'worker.php')) {
-                        $tcoll['worker'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.xlsx.php')) {
-                        $tcoll['excel'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.pdf.php')) {
-                        $tcoll['pdf'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.csv.php')) {
-                        $tcoll['csv'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.json.php')) {
-                        $tcoll['json'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.tpl.php')) {
-                        $tcoll['template'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.css')) {
-                        $tcoll['css'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.js')) {
-                        $tcoll['js'] = $tMedia;
-                    } elseif (StringUtils::endsWith(strtolower($path), '.sqlite') || StringUtils::endsWith(strtolower($path), '.db')) {
-                        $tcoll['db'][] = $tMedia;
-                    } else {
-                        // DO Nothing only the creator knows how to deal with this type of file :)
-                    }
-                }
-
-                if (!isset($tcoll['template'])) {
-                    throw new \Exception('No template file detected.');
-                }
-
-                $reportSingle = new View($this->app, $request, $response);
-                $reportSingle->setTemplate('/Modules/Reporter/Theme/backend/reporter-single');
-
-                $navigation = Navigation::getInstance($request, $this->app->dbPool);
-                $reportSingle->addData('nav', $navigation->getNav());
-
-                $reportMapper = new ReportMapper($this->app->dbPool->get());
-                $report       = $reportMapper->getNewest();
-
-                $collection = $collectionMapper->get($report->getSource());
-                $files      = $collection->getSources();
-
-                $rcoll = [];
-
-                foreach ($files as $file) {
-                    $media                    = $mediaMapper->get($file);
-                    $rcoll[$media->getName()] = $media;
-                }
-
-                $reportSingle->addData('tcoll', $tcoll);
-                $reportSingle->addData('lang', $request->getL11n()->getLanguage());
-                $reportSingle->addData('template', $template);
-                $reportSingle->addData('report', $report);
-                $reportSingle->addData('rcoll', $rcoll);
-                echo $reportSingle->render();
-                break;
+            if (StringUtils::endsWith(strtolower($path), '.lang.php')) {
+                $tcoll['lang'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), 'worker.php')) {
+                $tcoll['worker'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.xlsx.php')) {
+                $tcoll['excel'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.pdf.php')) {
+                $tcoll['pdf'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.csv.php')) {
+                $tcoll['csv'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.json.php')) {
+                $tcoll['json'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.tpl.php')) {
+                $tcoll['template'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.css')) {
+                $tcoll['css'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.js')) {
+                $tcoll['js'] = $tMedia;
+            } elseif (StringUtils::endsWith(strtolower($path), '.sqlite') || StringUtils::endsWith(strtolower($path), '.db')) {
+                $tcoll['db'][] = $tMedia;
+            } else {
+                // Do nothing; only the creator knows how to deal with this type of file :)
+            }
         }
+
+        if (!isset($tcoll['template'])) {
+            throw new \Exception('No template file detected.');
+        }
+
+        $reportMapper = new ReportMapper($this->app->dbPool->get());
+        $report       = $reportMapper->getNewest();
+
+        $collection = $collectionMapper->get($report->getSource());
+        $files      = $collection->getSources();
+
+        $rcoll = [];
+
+        foreach ($files as $file) {
+            $media                    = $mediaMapper->get($file);
+            $rcoll[$media->getName()] = $media;
+        }
+
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-single');
+        $view->addData('tcoll', $tcoll);
+        $view->addData('lang', $request->getL11n()->getLanguage());
+        $view->addData('template', $template);
+        $view->addData('report', $report);
+        $view->addData('rcoll', $rcoll);
+        $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
+
+        return $view;
     }
 
     /**
@@ -327,7 +316,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function showApi($request, $response)
+    public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         switch ($request->getPath(3)) {
             case 'export':
@@ -366,27 +355,20 @@ class Controller extends ModuleAbstract implements WebInterface
                 $exportView->setTemplate('/Modules/Reporter/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.' . $request->getData('type'));
                 $response->set('export', $exportView->render());
                 break;
-            case 'template':
-                $this->apiCreateTemplate($request, $response);
-                break;
-            case 'report':
-                $this->apiCreateReport($request, $response);
-                break;
         }
     }
 
     /**
-     * Shows api content.
-     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
      *
-     * @return void
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function apiCreateTemplate($request, $response)
+    public function apiCreateTemplate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $files    = json_decode($request->getData('files'));
         $expected = $request->getData('expected');
@@ -419,17 +401,16 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
-     * Shows api content.
-     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
      *
-     * @return void
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function apiCreateReport($request, $response)
+    public function apiCreateReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $files = json_decode($request->getData('files'));
 

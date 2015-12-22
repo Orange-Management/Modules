@@ -53,7 +53,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr class="empty"><td colspan="4"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
                 <?php foreach ($templates as $key => $template) :
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/single?id=' . $template->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>
         <tr>
             <td><a href="<?= $url; ?>"><?= $template->getId(); ?></a>
             <td><a href="<?= $url; ?>"><?= $template->getName(); ?></a>

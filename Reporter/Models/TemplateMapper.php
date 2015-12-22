@@ -32,7 +32,7 @@ class TemplateMapper extends DataMapperAbstract
         'reporter_template_id'      => ['name' => 'reporter_template_id', 'type' => 'int', 'internal' => 'id'],
         'reporter_template_status'  => ['name' => 'reporter_template_status', 'type' => 'int', 'internal' => 'status'],
         'reporter_template_title'   => ['name' => 'reporter_template_title', 'type' => 'string', 'internal' => 'name'],
-        'reporter_template_data'   => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
+        'reporter_template_data'    => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
         'reporter_template_desc'    => ['name'     => 'reporter_template_desc', 'type' => 'string',
                                         'internal' => 'description'],
         'reporter_template_media'   => ['name' => 'reporter_template_media', 'type' => 'int', 'internal' => 'source'],
@@ -76,20 +76,20 @@ class TemplateMapper extends DataMapperAbstract
             $objId = parent::create($obj);
             $query = new Builder($this->db);
             $query->prefix($this->db->getPrefix())
-                ->insert(
-                    'account_permission_account',
-                    'account_permission_from',
-                    'account_permission_for',
-                    'account_permission_id1',
-                    'account_permission_id2',
-                    'account_permission_r',
-                    'account_permission_w',
-                    'account_permission_m',
-                    'account_permission_d',
-                    'account_permission_p'
-                )
-                ->into('account_permission')
-                ->values($obj->getCreatedBy(), 'reporter', 'reporter', 2, $objId, 1, 1, 1, 1, 1);
+                  ->insert(
+                      'account_permission_account',
+                      'account_permission_from',
+                      'account_permission_for',
+                      'account_permission_id1',
+                      'account_permission_id2',
+                      'account_permission_r',
+                      'account_permission_w',
+                      'account_permission_m',
+                      'account_permission_d',
+                      'account_permission_p'
+                  )
+                  ->into('account_permission')
+                  ->values($obj->getCreatedBy(), 'reporter', 'reporter', 2, $objId, 1, 1, 1, 1, 1);
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
@@ -114,9 +114,9 @@ class TemplateMapper extends DataMapperAbstract
     public function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
-            ->where('account_permission.account_permission_for', '=', 'reporter')
-            ->where('account_permission.account_permission_id1', '=', 2)
-            ->where('reporter_template.reporter_template_id', '=', new Column('account_permission.account_permission_id2'))
-            ->where('account_permission.account_permission_r', '=', 1);
+                     ->where('account_permission.account_permission_for', '=', 'reporter')
+                     ->where('account_permission.account_permission_id1', '=', 2)
+                     ->where('reporter_template.reporter_template_id', '=', new Column('account_permission.account_permission_id2'))
+                     ->where('account_permission.account_permission_r', '=', 1);
     }
 }

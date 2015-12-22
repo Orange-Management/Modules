@@ -21,12 +21,13 @@ use phpOMS\DataStorage\Database\Query\Column;
 class CollectionMapper extends MediaMapper
 {
     protected static $hasMany = [
-        'source' => [
-            'mapper' => null,
-            'table'  => 'media_relation',
-            'dst'    => 'media_relation_dst',
-            'src'    => 'media_relation_src'
-        ]
+        'sources' => [
+            'mapper'         => '\Modules\Media\Models\MediaMapper', /* mapper of the related object */
+            'relationmapper' => null, /* if the relation itself is a more complex object that has it's own mapper */
+            'table'          => 'media_relation', /* table of the related object, null if no relation table is used (many->1) */
+            'dst'            => 'media_relation_dst',
+            'src'            => 'media_relation_src',
+        ],
     ];
 
     /**
