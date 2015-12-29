@@ -74,7 +74,7 @@ class Installer extends InstallerAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public static function installExternal($dbPool, $data)
+    public static function installExternal(Pool $dbPool, array $data)
     {
         try {
             $dbPool->get('core')->con->query('select 1 from `' . $dbPool->get('core')->prefix . 'nav`');
