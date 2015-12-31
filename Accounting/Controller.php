@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Accounting';
+    const MODULE_NAME = 'Accounting';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -108,9 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -135,7 +133,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/entries');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/entries');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         return $view;
@@ -154,7 +152,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/journal-list');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/journal-list');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         return $view;
@@ -173,7 +171,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/stack-list');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-list');
         $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
 
         return $view;
@@ -192,7 +190,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/stack-create');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-create');
         $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
 
         return $view;
@@ -211,7 +209,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/stack-entries');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-entries');
         $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
 
         return $view;
@@ -230,7 +228,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/stack-archive-list');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-archive-list');
         $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
 
         return $view;
@@ -249,7 +247,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/gl-list');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-list');
         $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
 
         return $view;
@@ -268,7 +266,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/gl-create');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-create');
         $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
 
         return $view;
@@ -287,7 +285,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Accounting/Theme/backend/gl-profile');
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-profile');
         $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
 
         return $view;
@@ -307,7 +305,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

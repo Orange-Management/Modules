@@ -35,7 +35,7 @@
             ],
             "type": 5,
             "for": "Business",
-            "file": "backend",
+            "file": "",
             "from": "Admin"
         },
         {
@@ -45,7 +45,7 @@
             "type": 5,
             "from": "Business",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

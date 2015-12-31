@@ -29,7 +29,7 @@
             "type": 5,
             "from": "CostCenterAccounting",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

@@ -59,7 +59,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'PersonnelTimeManagement';
+    const MODULE_NAME = 'PersonnelTimeManagement';
 
     /**
      * Localization files.
@@ -68,7 +68,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -77,9 +77,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -139,7 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
             switch ($request->getPath(4)) {
                 case 'dashboard':
                     $timemgmtDashboardView = new View($this->app, $request, $response);
-                    $timemgmtDashboardView->setTemplate('/Modules/PersonnelTimeManagement/Theme/backend/timemanagement-list');
+                    $timemgmtDashboardView->setTemplate('/Modules/PersonnelTimeManagement/Theme/Backend/timemanagement-list');
 
                     $navigation = Navigation::getInstance($request, $this->app->dbPool);
                     $timemgmtDashboardView->addData('nav', $navigation->getNav());
@@ -147,7 +145,7 @@ class Controller extends ModuleAbstract implements WebInterface
                     break;
                 case 'single':
                     $timemgmtSingleView = new View($this->app, $request, $response);
-                    $timemgmtSingleView->setTemplate('/Modules/PersonnelTimeManagement/Theme/backend/timemanagement-single');
+                    $timemgmtSingleView->setTemplate('/Modules/PersonnelTimeManagement/Theme/Backend/timemanagement-single');
 
                     $navigation = Navigation::getInstance($request, $this->app->dbPool);
                     $timemgmtSingleView->addData('nav', $navigation->getNav());
@@ -171,7 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
         switch ($request->getPath(4)) {
             case 'dashboard':
                 $timemgmtDashboardView = new View($this->app, $request, $response);
-                $timemgmtDashboardView->setTemplate('/Modules/PersonnelTimeManagement/Theme/backend/user-timemanagement-dashboard');
+                $timemgmtDashboardView->setTemplate('/Modules/PersonnelTimeManagement/Theme/Backend/user-timemanagement-dashboard');
 
                 $navigation = Navigation::getInstance($request, $this->app->dbPool);
                 $timemgmtDashboardView->addData('nav', $navigation->getNav());

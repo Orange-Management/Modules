@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Billing';
+    const MODULE_NAME = 'Billing';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -119,7 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewBillingInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Billing/Theme/backend/invoice-list');
+        $view->setTemplate('/Modules/Billing/Theme/Backend/invoice-list');
         $view->addData('nav', $this->createNavigation(1005104001, $request, $response));
 
         return $view;
@@ -138,7 +136,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewBillingInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Billing/Theme/backend/invoice-create');
+        $view->setTemplate('/Modules/Billing/Theme/Backend/invoice-create');
         $view->addData('nav', $this->createNavigation(1005104001, $request, $response));
 
         return $view;
@@ -157,7 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewBillingPurchaInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Billing/Theme/backend/purchase-invoice-list');
+        $view->setTemplate('/Modules/Billing/Theme/Backend/purchase-invoice-list');
         $view->addData('nav', $this->createNavigation(1005104001, $request, $response));
 
         return $view;
@@ -177,7 +175,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

@@ -65,7 +65,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'News';
+    const MODULE_NAME = 'News';
 
     /**
      * Localization files.
@@ -74,7 +74,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -83,9 +83,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -121,7 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewNewsDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/News/Theme/backend/news-dashboard');
+        $view->setTemplate('/Modules/News/Theme/Backend/news-dashboard');
         $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
 
         $news     = $this->getNewsListR(20, 0, 'news.news_publish', 'DESC', $this->app->accountManager->get($request->getAccount()));
@@ -145,7 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/News/Theme/backend/news-single');
+        $view->setTemplate('/Modules/News/Theme/Backend/news-single');
         $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
 
         $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
@@ -168,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewNewsArchive(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/News/Theme/backend/news-archive');
+        $view->setTemplate('/Modules/News/Theme/Backend/news-archive');
         $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
 
         return $view;
@@ -187,7 +185,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/News/Theme/backend/news-create');
+        $view->setTemplate('/Modules/News/Theme/Backend/news-create');
         $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
 
         return $view;
@@ -290,7 +288,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

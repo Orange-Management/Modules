@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'AccountsReceivable';
+    const MODULE_NAME = 'AccountsReceivable';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -98,9 +98,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -125,7 +123,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/AccountsReceivable/Theme/backend/debitor-list');
+        $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-list');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         return $view;
@@ -144,7 +142,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/AccountsReceivable/Theme/backend/debitor-create');
+        $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-create');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         return $view;
@@ -163,7 +161,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/AccountsReceivable/Theme/backend/debitor-profile');
+        $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-profile');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         return $view;
@@ -183,7 +181,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

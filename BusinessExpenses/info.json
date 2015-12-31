@@ -27,7 +27,7 @@
             "type": 5,
             "from": "BusinessExpenses",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         },
         {
             "pid": [
@@ -35,7 +35,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "BusinessExpenses"
         }
     ]

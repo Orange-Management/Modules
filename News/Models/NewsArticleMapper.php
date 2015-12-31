@@ -67,7 +67,7 @@ class NewsArticleMapper extends DataMapperAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function create(&$obj)
+    public function create($obj)
     {
         try {
             $objId = parent::create($obj);

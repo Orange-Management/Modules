@@ -84,7 +84,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Reporter';
+    const MODULE_NAME = 'Reporter';
 
     /**
      * Localization files.
@@ -93,7 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -102,9 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -168,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-list');
+        $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-list');
         $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
 
 
@@ -188,7 +186,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-template-create');
+        $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-template-create');
         $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
 
         return $view;
@@ -207,7 +205,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-create');
+        $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-create');
         $view->addData('nav', $this->createNavigation(1002701001, $request, $response));
 
         return $view;
@@ -310,7 +308,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Reporter/Theme/backend/reporter-single');
+        $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-single');
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getL11n()->getLanguage());
         $view->addData('template', $template);
@@ -506,7 +504,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

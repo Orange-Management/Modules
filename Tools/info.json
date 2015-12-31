@@ -27,7 +27,7 @@
             "type": 5,
             "from": "Tools",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

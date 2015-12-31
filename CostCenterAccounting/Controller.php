@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'CostCenterAccounting';
+    const MODULE_NAME = 'CostCenterAccounting';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -92,9 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -119,7 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/CostCenterAccounting/Theme/backend/costcenter-list');
+        $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-list');
         $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
 
         return $view;
@@ -138,7 +136,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/CostCenterAccounting/Theme/backend/costcenter-create');
+        $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-create');
         $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
 
         return $view;
@@ -157,7 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/CostCenterAccounting/Theme/backend/costcenter-profile');
+        $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-profile');
         $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
 
         return $view;
@@ -177,7 +175,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

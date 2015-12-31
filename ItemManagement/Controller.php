@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'ItemManagement';
+    const MODULE_NAME = 'ItemManagement';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -120,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ItemManagement/Theme/backend/sales-item-list');
+        $view->setTemplate('/Modules/ItemManagement/Theme/Backend/sales-item-list');
         $view->addData('nav', $this->createNavigation(1004805001, $request, $response));
 
         return $view;
@@ -139,7 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ItemManagement/Theme/backend/purchase-item-list');
+        $view->setTemplate('/Modules/ItemManagement/Theme/Backend/purchase-item-list');
         $view->addData('nav', $this->createNavigation(1004806001, $request, $response));
 
         return $view;
@@ -158,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ItemManagement/Theme/backend/stock-list');
+        $view->setTemplate('/Modules/ItemManagement/Theme/Backend/stock-list');
         $view->addData('nav', $this->createNavigation(1004807001, $request, $response));
 
         return $view;
@@ -177,7 +175,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ItemManagement/Theme/backend/item-create');
+        $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
         $view->addData('nav', $this->createNavigation(1004805001, $request, $response));
 
         return $view;
@@ -196,7 +194,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ItemManagement/Theme/backend/item-create');
+        $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
         $view->addData('nav', $this->createNavigation(1004806001, $request, $response));
 
         return $view;
@@ -215,7 +213,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ItemManagement/Theme/backend/item-create');
+        $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
         $view->addData('nav', $this->createNavigation(1004807001, $request, $response));
 
         return $view;
@@ -235,7 +233,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

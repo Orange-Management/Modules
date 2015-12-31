@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Line Chart</h1>
     <div class="inner">
         <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/line'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/thumb-line-chart.png">
+            <img src="/Modules/Chart/Img/thumb-line-chart.png">
         </a>
     </div>
 </section>
@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Area Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Bar Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -50,7 +50,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Column Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -59,7 +59,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Pie Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Point Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -77,7 +77,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Pyramid Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -86,7 +86,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Radar Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -95,7 +95,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Bubble Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -104,7 +104,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>High Low Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -113,7 +113,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Candlestick Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -122,7 +122,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Gantt Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>
@@ -131,7 +131,7 @@ echo $this->getData('nav')->render(); ?>
     <h1>Map</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/img/chart-thumb.png">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
         </a>
     </div>
 </section>

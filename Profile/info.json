@@ -35,7 +35,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "Profile"
         },
         {
@@ -45,7 +45,7 @@
             "type": 5,
             "from": "Profile",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

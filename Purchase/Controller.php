@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Purchase';
+    const MODULE_NAME = 'Purchase';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -121,7 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPurchaseInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Purchase/Theme/backend/invoice-list');
+        $view->setTemplate('/Modules/Purchase/Theme/Backend/invoice-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -140,7 +138,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPurchaseInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Purchase/Theme/backend/invoice-create');
+        $view->setTemplate('/Modules/Purchase/Theme/Backend/invoice-create');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -159,7 +157,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPurchaseArticleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Purchase/Theme/backend/article-list');
+        $view->setTemplate('/Modules/Purchase/Theme/Backend/article-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -178,7 +176,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPurchaseArticleCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Purchase/Theme/backend/article-create');
+        $view->setTemplate('/Modules/Purchase/Theme/Backend/article-create');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -197,7 +195,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPurchaseArticleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Purchase/Theme/backend/article-profile');
+        $view->setTemplate('/Modules/Purchase/Theme/Backend/article-profile');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -216,7 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPurchaseOrderRecommendation(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Purchase/Theme/backend/article-order-recommendation');
+        $view->setTemplate('/Modules/Purchase/Theme/Backend/article-order-recommendation');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -236,7 +234,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

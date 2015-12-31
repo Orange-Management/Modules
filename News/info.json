@@ -37,7 +37,7 @@
             "type": 5,
             "from": "News",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         },
         {
             "pid": [
@@ -45,7 +45,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "News"
         }
     ]

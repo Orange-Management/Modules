@@ -64,7 +64,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Admin';
+    const MODULE_NAME = 'Admin';
 
     /**
      * Localization files.
@@ -73,7 +73,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -82,9 +82,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -139,7 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
 
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/settings-general');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/settings-general');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         $view->setData('oname', $settings[1000000009]);
@@ -168,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/accounts-list');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         $accountMapper = new AccountMapper($this->app->dbPool->get());
@@ -191,7 +189,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/accounts-single');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         $accountMapper = new AccountMapper($this->app->dbPool->get());
@@ -213,7 +211,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/accounts-create');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-create');
         $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
 
         return $view;
@@ -232,7 +230,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/groups-list');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
         $view->addData('nav', $this->createNavigation(1000103001, $request, $response));
 
         $groupMapper = new GroupMapper($this->app->dbPool->get());
@@ -254,7 +252,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/groups-single');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->createNavigation(1000103001, $request, $response));
 
         $groupMapper = new GroupMapper($this->app->dbPool->get());
@@ -276,7 +274,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/groups-create');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
         $view->addData('nav', $this->createNavigation(1000103001, $request, $response));
 
         return $view;
@@ -295,7 +293,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/modules-list');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/modules-list');
 
         return $view;
     }
@@ -313,7 +311,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Admin/Theme/backend/modules-single');
+        $view->setTemplate('/Modules/Admin/Theme/Backend/modules-single');
 
         return $view;
     }
@@ -332,7 +330,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

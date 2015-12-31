@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'ProjectManagement';
+    const MODULE_NAME = 'ProjectManagement';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -117,7 +115,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProjectManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ProjectManagement/Theme/backend/projectmanagement-list');
+        $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-list');
         $view->addData('nav', $this->createNavigation(1001701001, $request, $response));
 
         return $view;
@@ -136,7 +134,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProjectManagementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ProjectManagement/Theme/backend/projectmanagement-create');
+        $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-create');
         $view->addData('nav', $this->createNavigation(1001701001, $request, $response));
 
         return $view;
@@ -155,7 +153,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProjectManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ProjectManagement/Theme/backend/projectmanagement-profile');
+        $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-profile');
         $view->addData('nav', $this->createNavigation(1001701001, $request, $response));
 
         return $view;
@@ -175,7 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

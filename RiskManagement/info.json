@@ -38,7 +38,7 @@
             "type": 5,
             "from": "RiskManagement",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         },
         {
             "pid": [
@@ -46,7 +46,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "RiskManagement"
         }
     ]

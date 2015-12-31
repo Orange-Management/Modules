@@ -29,7 +29,7 @@
             "type": 5,
             "from": "CostUnitAccounting",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

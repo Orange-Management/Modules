@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Monitoring';
+    const MODULE_NAME = 'Monitoring';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -117,7 +115,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Monitoring/Theme/backend/monitoring-dashboard');
+        $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-dashboard');
         $view->addData('nav', $this->createNavigation(1000706001, $request, $response));
 
         return $view;
@@ -136,7 +134,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Monitoring/Theme/backend/monitoring-logs');
+        $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs');
         $view->addData('nav', $this->createNavigation(1000706001, $request, $response));
 
         return $view;
@@ -155,7 +153,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Monitoring/Theme/backend/monitoring-logs-single');
+        $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-single');
         $view->addData('nav', $this->createNavigation(1000706001, $request, $response));
 
         return $view;
@@ -175,7 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

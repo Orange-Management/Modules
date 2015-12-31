@@ -15,8 +15,6 @@
  */
 namespace Modules\Tools;
 
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 
@@ -56,7 +54,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'MyTools';
+    const MODULE_NAME = 'MyTools';
 
     /**
      * Localization files.

@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Marketing';
+    const MODULE_NAME = 'Marketing';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -118,7 +116,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMarketingPromotionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Marketing/Theme/backend/promotion-list');
+        $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-list');
         $view->addData('nav', $this->createNavigation(1001902001, $request, $response));
 
         return $view;
@@ -137,7 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMarketingPromotionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Marketing/Theme/backend/promotion-create');
+        $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-create');
         $view->addData('nav', $this->createNavigation(1001902001, $request, $response));
 
         return $view;
@@ -156,7 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMarketingEventList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Marketing/Theme/backend/event-list');
+        $view->setTemplate('/Modules/Marketing/Theme/Backend/event-list');
         $view->addData('nav', $this->createNavigation(1001903001, $request, $response));
 
         return $view;
@@ -175,7 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMarketingEventCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Marketing/Theme/backend/event-create');
+        $view->setTemplate('/Modules/Marketing/Theme/Backend/event-create');
         $view->addData('nav', $this->createNavigation(1001903001, $request, $response));
 
         return $view;
@@ -195,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

@@ -67,7 +67,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Media';
+    const MODULE_NAME = 'Media';
 
     /**
      * Localization files.
@@ -76,7 +76,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -85,9 +85,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -144,7 +142,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMediaList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Media/Theme/backend/media-list');
+        $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         $view->addData('nav', $this->createNavigation(1000401001, $request, $response));
 
         return $view;
@@ -163,7 +161,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Media/Theme/backend/media-create');
+        $view->setTemplate('/Modules/Media/Theme/Backend/media-create');
         $view->addData('nav', $this->createNavigation(1000401001, $request, $response));
 
         return $view;
@@ -260,7 +258,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

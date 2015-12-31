@@ -58,7 +58,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Clocking';
+    const MODULE_NAME = 'Clocking';
 
     /**
      * Localization files.
@@ -67,7 +67,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -76,9 +76,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -108,7 +106,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function getBackendUserClocking($request, $response)
     {
         $clockingTimeMgmtView = new View($this->app, $request, $response);
-        $clockingTimeMgmtView->setTemplate('/Modules/Clocking/Theme/backend/user-clocking');
+        $clockingTimeMgmtView->setTemplate('/Modules/Clocking/Theme/Backend/user-clocking');
         echo $clockingTimeMgmtView->render();
     }
 }

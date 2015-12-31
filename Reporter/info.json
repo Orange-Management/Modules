@@ -37,7 +37,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "Reporter"
         },
         {
@@ -56,7 +56,7 @@
             "type": 5,
             "from": "Reporter",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         },
         {
             "pid": [

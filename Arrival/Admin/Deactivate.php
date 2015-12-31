@@ -15,7 +15,7 @@
  */
 namespace Modules\Arrival\Admin;
 
-use phpOMS\DataStorage\Database\DatabaseType;
+
 use phpOMS\DataStorage\Database\Pool;
 use phpOMS\Module\DeactivateAbstract;
 

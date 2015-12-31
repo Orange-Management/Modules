@@ -52,7 +52,7 @@ $reporterListView->addView('footer', $footerView);
  * Navigation
  */
 $nav = new \Modules\Navigation\Views\NavigationView($this->app, $this->request, $this->response);
-$nav->setTemplate('/Modules/Navigation/Theme/backend/mid');
+$nav->setTemplate('/Modules/Navigation/Theme/Backend/mid');
 $nav->setNav($this->getData('nav'));
 $nav->setLanguage($this->l11n->language);
 $nav->setParent(1002710000);

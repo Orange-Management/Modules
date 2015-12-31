@@ -104,7 +104,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Navigation';
+    const MODULE_NAME = 'Navigation';
 
     /**
      * Localization files.
@@ -155,7 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $language = $this->app->accountManager->get($request->getAccount())->getL11n()->getLanguage();
 
         foreach ($modules as $id => $module) {
-            $this->app->accountManager->get($request->getAccount())->getL11n()->loadLanguage($language, 'nav.backend', $module[0]['module_path']);
+            $this->app->accountManager->get($request->getAccount())->getL11n()->loadLanguage($language, 'Navigation', $module[0]['module_path']);
         }
 
         if (!empty($this->nav)) {

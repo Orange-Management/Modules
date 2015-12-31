@@ -27,7 +27,7 @@
             "type": 5,
             "from": "MyPrivate",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

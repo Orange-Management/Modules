@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Tasks';
+    const MODULE_NAME = 'Tasks';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -118,7 +116,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Tasks/Theme/backend/task-dashboard');
+        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->createNavigation(1001101001, $request, $response));
 
         return $view;
@@ -137,7 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Tasks/Theme/backend/task-single');
+        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
         $view->addData('nav', $this->createNavigation(1001101001, $request, $response));
 
         return $view;
@@ -156,7 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Tasks/Theme/backend/task-create');
+        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-create');
         $view->addData('nav', $this->createNavigation(1001101001, $request, $response));
 
         return $view;
@@ -175,7 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Tasks/Theme/backend/task-analysis');
+        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-analysis');
         $view->addData('nav', $this->createNavigation(1001101001, $request, $response));
 
         return $view;
@@ -195,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

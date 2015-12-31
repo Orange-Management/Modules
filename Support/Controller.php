@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Support';
+    const MODULE_NAME = 'Support';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -120,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewSupportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Support/Theme/backend/support-list');
+        $view->setTemplate('/Modules/Support/Theme/Backend/support-list');
         $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
@@ -139,7 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewSupportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Support/Theme/backend/ticket-create');
+        $view->setTemplate('/Modules/Support/Theme/Backend/ticket-create');
         $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
@@ -158,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewSupportAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Support/Theme/backend/support-analysis');
+        $view->setTemplate('/Modules/Support/Theme/Backend/support-analysis');
         $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
@@ -177,7 +175,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewSupportSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Support/Theme/backend/support-settings');
+        $view->setTemplate('/Modules/Support/Theme/Backend/support-settings');
         $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
@@ -196,7 +194,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPrivateSupportDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Support/Theme/backend/user-support-dashboard');
+        $view->setTemplate('/Modules/Support/Theme/Backend/user-support-dashboard');
         $view->addData('nav', $this->createNavigation(1002901101, $request, $response));
 
         return $view;
@@ -216,7 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

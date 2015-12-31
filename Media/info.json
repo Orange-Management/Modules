@@ -55,7 +55,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "Media"
         },
         {
@@ -74,7 +74,7 @@
             "type": 5,
             "from": "Media",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         }
     ]
 }

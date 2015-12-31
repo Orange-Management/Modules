@@ -37,7 +37,7 @@
             "type": 5,
             "from": "Dashboard",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         },
         {
             "pid": [

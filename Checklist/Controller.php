@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Checklist';
+    const MODULE_NAME = 'Checklist';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -119,7 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewChecklistList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Checklist/Theme/backend/checklist-list');
+        $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-list');
         $view->addData('nav', $this->createNavigation(1003601001, $request, $response));
 
         return $view;
@@ -138,7 +136,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewChecklistTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Checklist/Theme/backend/checklist-template-list');
+        $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-list');
         $view->addData('nav', $this->createNavigation(1003601001, $request, $response));
 
         return $view;
@@ -157,7 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewChecklistTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Checklist/Theme/backend/checklist-template-create');
+        $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-create');
         $view->addData('nav', $this->createNavigation(1003601001, $request, $response));
 
         return $view;
@@ -177,7 +175,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

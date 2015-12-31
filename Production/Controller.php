@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Production';
+    const MODULE_NAME = 'Production';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -119,7 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProductionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Production/Theme/backend/production-list');
+        $view->setTemplate('/Modules/Production/Theme/Backend/production-list');
         $view->addData('nav', $this->createNavigation(1004303001, $request, $response));
 
         return $view;
@@ -138,7 +136,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProductionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Production/Theme/backend/production-create');
+        $view->setTemplate('/Modules/Production/Theme/Backend/production-create');
         $view->addData('nav', $this->createNavigation(1004303001, $request, $response));
 
         return $view;
@@ -157,7 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProductionProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Production/Theme/backend/process-list');
+        $view->setTemplate('/Modules/Production/Theme/Backend/process-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -176,7 +174,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProductionProcessCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Production/Theme/backend/process-create');
+        $view->setTemplate('/Modules/Production/Theme/Backend/process-create');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -196,7 +194,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'RiskManagement';
+    const MODULE_NAME = 'RiskManagement';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -124,7 +122,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskCockpit(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/cockpit');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cockpit');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -143,7 +141,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/risk-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -162,7 +160,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskCauseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/cause-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -181,7 +179,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskSolutionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/solution-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -200,7 +198,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/unit-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -219,7 +217,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/department-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -238,7 +236,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskCategoryList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/category-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -257,7 +255,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/project-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -276,7 +274,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/process-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-list');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -295,7 +293,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewRiskSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/backend/settings-dashboard');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/settings-dashboard');
         $view->addData('nav', $this->createNavigation(1003001001, $request, $response));
 
         return $view;
@@ -315,7 +313,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

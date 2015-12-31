@@ -29,7 +29,7 @@
             "type": 5,
             "from": "AccountsReceivable",
             "for": "Navigation",
-            "file": "nav.backend"
+            "file": "Navigation"
         },
         {
             "pid": [
@@ -37,7 +37,7 @@
             ],
             "type": 5,
             "for": "Content",
-            "file": "backend",
+            "file": "",
             "from": "AccountsReceivable"
         },
         {

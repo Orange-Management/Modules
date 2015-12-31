@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'ClientManagement';
+    const MODULE_NAME = 'ClientManagement';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -118,7 +116,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewClientManagementClientList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ClientManagement/Theme/backend/clients-list');
+        $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-list');
         $view->addData('nav', $this->createNavigation(1003102001, $request, $response));
 
         return $view;
@@ -137,7 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewClientManagementClientCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ClientManagement/Theme/backend/clients-create');
+        $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-create');
         $view->addData('nav', $this->createNavigation(1003102001, $request, $response));
 
         return $view;
@@ -156,7 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewClientManagementClientProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/ClientManagement/Theme/backend/clients-profile');
+        $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-profile');
         $view->addData('nav', $this->createNavigation(1003102001, $request, $response));
 
         return $view;
@@ -176,7 +174,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

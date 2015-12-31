@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'AccountsPayable';
+    const MODULE_NAME = 'AccountsPayable';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -96,9 +96,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -123,7 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewCreditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/AccountsPayable/Theme/backend/creditor-list');
+        $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-list');
         $view->addData('nav', $this->createNavigation(1005001001, $request, $response));
 
         return $view;
@@ -142,7 +140,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewCreditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/AccountsPayable/Theme/backend/creditor-create');
+        $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-create');
         $view->addData('nav', $this->createNavigation(1005001001, $request, $response));
 
         return $view;
@@ -161,7 +159,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewCreditorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/AccountsPayable/Theme/backend/creditor-profile');
+        $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-profile');
         $view->addData('nav', $this->createNavigation(1005001001, $request, $response));
 
         return $view;
@@ -181,7 +179,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);

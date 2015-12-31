@@ -62,7 +62,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $module = 'Messages';
+    const MODULE_NAME = 'Messages';
 
     /**
      * Localization files.
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $localization = [
-        RequestDestination::BACKEND => ['backend'],
+        RequestDestination::BACKEND => [''],
     ];
 
     /**
@@ -80,9 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $providing = [
-        'Content',
-    ];
+    protected static $providing = [];
 
     /**
      * Dependencies.
@@ -122,7 +120,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/dashboard');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/dashboard');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
 
         return $view;
@@ -141,7 +139,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/mail-out-view');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/mail-out-view');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
 
         return $view;
@@ -160,7 +158,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/mail-trash-view');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/mail-trash-view');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
 
         return $view;
@@ -179,7 +177,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/mail-spam-view');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/mail-spam-view');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
 
         return $view;
@@ -198,7 +196,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/mail-view');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/mail-view');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
         $view->addData('id', (int) $request->getData('id'));
 
@@ -218,7 +216,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/mail-create');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/mail-create');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
 
         return $view;
@@ -237,7 +235,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Messages/Theme/backend/message-settings');
+        $view->setTemplate('/Modules/Messages/Theme/Backend/message-settings');
         $view->addData('nav', $this->createNavigation(1001201001, $request, $response));
 
         return $view;
@@ -257,7 +255,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/backend/mid');
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getL11n()->language);
         $navView->setParent($pageId);
