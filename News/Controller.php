@@ -223,7 +223,11 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Get Newslists.
      *
-     * @param array $articleElements Article elements
+     * @param int     $limit   News limit
+     * @param int     $offset  News offset
+     * @param string  $orderBy Order criteria (database table name)
+     * @param string  $ordered Order type (e.g. ASC)
+     * @param Account $account Accont for permission handling
      *
      * @return array
      *
@@ -250,7 +254,11 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Get Headlinelist.
      *
-     * @param array $articleElements Article elements
+     * @param int     $limit   News limit
+     * @param int     $offset  News offset
+     * @param string  $orderBy Order criteria (database table name)
+     * @param string  $ordered Order type (e.g. ASC)
+     * @param Account $account Accont for permission handling
      *
      * @return array
      *
