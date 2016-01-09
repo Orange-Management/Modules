@@ -18,6 +18,7 @@ $MODLANG['Marketing'] = [
     'Description' => 'Description',
     'Expenses'    => 'Expenses',
     'End'         => 'End',
+    'Event'       => 'Event',
     'Events'      => 'Events',
     'Limit'       => 'Limit',
     'Location'    => 'Location',

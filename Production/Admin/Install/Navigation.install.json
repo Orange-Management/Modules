@@ -14,21 +14,6 @@
         "parent": 1000201001,
         "children": [
             {
-                "id": 1004302001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
-                "type": 2,
-                "subtype": 1,
-                "name": "Articles",
-                "uri": "/{/lang}/backend/production/item/list",
-                "target": "self",
-                "icon": null,
-                "order": 1,
-                "from": 1004300000,
-                "permission": null,
-                "parent": 1004301001,
-                "children": []
-            },
-            {
                 "id": 1004303001,
                 "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
                 "type": 2,
@@ -66,7 +51,7 @@
                         "uri": "/{/lang}/backend/production/create",
                         "target": "self",
                         "icon": null,
-                        "order": 5,
+                        "order": 10,
                         "from": 1004300000,
                         "permission": null,
                         "parent": 1004303001,

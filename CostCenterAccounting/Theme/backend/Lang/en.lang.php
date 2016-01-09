@@ -13,4 +13,5 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-echo $this->getData('nav')->render(); ?>
+$MODLANG['CostCenterAccounting'] = [
+];

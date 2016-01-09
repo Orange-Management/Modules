@@ -15,4 +15,5 @@
  */
 $MODLANG['Navigation'] = [
     'AccountsPayable' => 'Payable',
+    'Analyze'         => 'Analyze',
 ];

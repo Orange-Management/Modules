@@ -106,6 +106,10 @@ class Controller extends ModuleAbstract implements WebInterface
         '^.*/backend/business/department/list.*$'    => [['dest' => '\Modules\Business\Controller:viewDepartmentList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/business/department/profile.*$' => [['dest' => '\Modules\Business\Controller:viewDepartmentProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/business/department/create.*$'  => [['dest' => '\Modules\Business\Controller:viewDepartmentCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+
+        '^.*/backend/business/position/list.*$'    => [['dest' => '\Modules\Business\Controller:viewPositionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/position/profile.*$' => [['dest' => '\Modules\Business\Controller:viewPositionProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/position/create.*$'  => [['dest' => '\Modules\Business\Controller:viewPositionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -236,6 +240,63 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
         $view->addData('unit', $unitMapper->get((int) $request->getData('id')));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Business/Theme/Backend/position-list');
+        $view->addData('nav', $this->createNavigation(1004704001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Business/Theme/Backend/position-profile');
+        $view->addData('nav', $this->createNavigation(1004704001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Business/Theme/Backend/position-create');
+        $view->addData('nav', $this->createNavigation(1004704001, $request, $response));
 
         return $view;
     }

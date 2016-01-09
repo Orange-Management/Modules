@@ -326,6 +326,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return RenderableInterface
      *
+     * @api
+     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
@@ -378,6 +380,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return RenderableInterface
      *
+     * @api
+     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
@@ -391,6 +395,7 @@ class Controller extends ModuleAbstract implements WebInterface
         /* Create collection */
         $mediaCollection = new Collection();
         $mediaCollection->setName($request->getData('name') ?? 'Empty');
+        $mediaCollection->setDescription($request->getData('description') ?? '');
         $mediaCollection->setCreatedBy($request->getAccount());
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
@@ -419,6 +424,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
+     *
+     * @api
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

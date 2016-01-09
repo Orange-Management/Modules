@@ -26,6 +26,8 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <tr><td colspan="2"><label for="iTitle"><?= $this->l11n->lang['Reporter']['Title'] ?></label>
                 <tr><td colspan="2"><input id="iTitle" name="name" type="text" placeholder="&#xf040; P&L Reporting" required>
+                <tr><td colspan="2"><label for="iDescription"><?= $this->l11n->lang['Reporter']['Description'] ?></label>
+                <tr><td colspan="2"><textarea id="iDescription" name="description"></textarea>
                 <tr><td colspan="2"><h2><?= $this->l11n->lang['Reporter']['Storage'] ?></h2>
                 <tr><td colspan="2">
                         <span class="radio">

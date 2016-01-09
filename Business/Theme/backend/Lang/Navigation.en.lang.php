@@ -14,5 +14,8 @@
  * @link       http://orange-management.com
  */
 $MODLANG['Navigation'] = [
-    'Business' => 'Business',
+    'Business'    => 'Business',
+    'Departments' => 'Departments',
+    'Positions'   => 'Positions',
+    'Units'       => 'Units',
 ];

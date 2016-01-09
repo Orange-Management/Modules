@@ -118,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-list');
-        $view->addData('nav', $this->createNavigation(1002604001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004401001, $request, $response));
 
         return $view;
     }
@@ -137,7 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-create');
-        $view->addData('nav', $this->createNavigation(1002604001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004401001, $request, $response));
 
         return $view;
     }
@@ -156,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-profile');
-        $view->addData('nav', $this->createNavigation(1002604001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004401001, $request, $response));
 
         return $view;
     }

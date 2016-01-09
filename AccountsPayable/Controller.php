@@ -88,6 +88,8 @@ class Controller extends ModuleAbstract implements WebInterface
         '^.*/backend/accounting/payable/age.*$'          => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorAge', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/accounting/payable/payable.*$'      => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorPayable', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/accounting/payable/journal/list.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/payable/entries.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewEntriesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/payable/analyze.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewAnalyzeDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -160,6 +162,44 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-profile');
+        $view->addData('nav', $this->createNavigation(1005001001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/entries-list');
+        $view->addData('nav', $this->createNavigation(1005001001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/analyze-dashboard');
         $view->addData('nav', $this->createNavigation(1005001001, $request, $response));
 
         return $view;

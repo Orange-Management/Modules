@@ -24,6 +24,15 @@
     "load": [
         {
             "pid": [
+                "6a1cb664a79da53146481a7ed22fb2eb8c6c800c"
+            ],
+            "type": 4,
+            "for": "Content",
+            "from": "CostObjectAccounting",
+            "file": "CostObjectAccounting"
+        },
+        {
+            "pid": [
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,

@@ -87,10 +87,11 @@ class Controller extends ModuleAbstract implements WebInterface
 
         '^.*/backend/accounting/impersonal/journal/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
-        '^.*/backend/accounting/stack/list.*$'         => [['dest' => '\Modules\Accounting\Controller:viewStackList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/entries.*$'      => [['dest' => '\Modules\Accounting\Controller:viewStackEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/archive/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewStackArchiveList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/create.*$' => [['dest' => '\Modules\Accounting\Controller:viewStackCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/stack/list.*$'            => [['dest' => '\Modules\Accounting\Controller:viewStackList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/stack/entries.*$'         => [['dest' => '\Modules\Accounting\Controller:viewStackEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/stack/archive/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewStackArchiveList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/stack/create.*$'          => [['dest' => '\Modules\Accounting\Controller:viewStackCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/stack/predefined/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewStackPredefinedList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
         '^.*/backend/accounting/gl/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewGLList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/accounting/gl/create.*$'  => [['dest' => '\Modules\Accounting\Controller:viewGLCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
@@ -172,6 +173,25 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-list');
+        $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-predefined-list');
         $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
 
         return $view;

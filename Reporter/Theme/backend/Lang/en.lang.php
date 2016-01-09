@@ -24,6 +24,7 @@ $MODLANG['Reporter'] = [
     'Database'         => 'Database',
     'Dataset'          => 'Dataset',
     'Datasets'         => 'Datasets',
+    'Description'      => 'Description',
     'Expected'         => 'Expected',
     'Export'           => 'Export',
     'Edit'             => 'Edit',

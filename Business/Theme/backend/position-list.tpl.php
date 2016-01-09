@@ -28,25 +28,21 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Accounting']['CostCenters']; ?></caption>
+        <caption><?= $this->l11n->lang['Business']['Positions']; ?></caption>
         <thead>
         <tr>
             <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Accounting']['Name']; ?>
-        <tfoot>
-        <tr><td colspan="5"><?= $footerView->render(); ?>
-        <tbody>
-        <?php $c = 0; foreach ([] as $key => $value) : $c++;
-        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
+            <td class="wf-100"><?= $this->l11n->lang['Business']['Name']; ?>
+            <td><?= $this->l11n->lang['Business']['Parent']; ?>
+                <tfoot>
+        <tr><td colspan="3"><?= $footerView->render(); ?>
+                <tbody>
+                <?php foreach ($this->getData('list:elements') as $key => $value) :
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/business/unit/profile?id=' . $value->getId()); ?>
         <tr>
             <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
             <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-            <td>
-            <td>
-            <td>
+            <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
                 <?php endforeach; ?>
-                <?php if($c === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
-                <?php endif; ?>
     </table>
 </section>

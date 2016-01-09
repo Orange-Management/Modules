@@ -68,7 +68,7 @@
                 "uri": "/{/lang}/backend/accounting/stack/list",
                 "target": "self",
                 "icon": null,
-                "order": 20,
+                "order": 10,
                 "from": 1002600000,
                 "permission": null,
                 "parent": 1002601001,
@@ -108,6 +108,21 @@
                         "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
                         "type": 3,
                         "subtype": 1,
+                        "name": "Predefined",
+                        "uri": "/{/lang}/backend/accounting/stack/predefined/list",
+                        "target": "self",
+                        "icon": null,
+                        "order": 10,
+                        "from": 1002600000,
+                        "permission": null,
+                        "parent": 1002605001,
+                        "children": []
+                    },
+                    {
+                        "id": 1002605401,
+                        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                        "type": 3,
+                        "subtype": 1,
                         "name": "Create",
                         "uri": "/{/lang}/backend/accounting/stack/create",
                         "target": "self",
@@ -118,6 +133,23 @@
                         "parent": 1002605001,
                         "children": []
                     }
+                ]
+            },
+            {
+                "id": 1002606001,
+                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "type": 2,
+                "subtype": 1,
+                "name": "Entries",
+                "uri": "/{/lang}/backend/accounting/entries/dashboard",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": 1002600000,
+                "permission": null,
+                "parent": 1002601001,
+                "children": [
+
                 ]
             }
         ]

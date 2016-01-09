@@ -90,6 +90,8 @@ class Controller extends ModuleAbstract implements WebInterface
         '^.*/backend/accounting/receivable/dun/list.*$'     => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDunList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/accounting/receivable/dso/list.*$'     => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDsoList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/accounting/receivable/journal/list.*$' => [['dest' => '\Modules\AccountsReceivable\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/receivable/entries.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewEntriesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/accounting/receivable/analyze.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewAnalyzeDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -124,7 +126,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-list');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004901001, $request, $response));
 
         return $view;
     }
@@ -143,7 +145,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-create');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004901001, $request, $response));
 
         return $view;
     }
@@ -162,7 +164,45 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-profile');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004901001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/entries-list');
+        $view->addData('nav', $this->createNavigation(1004901001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/analyze-dashboard');
+        $view->addData('nav', $this->createNavigation(1004901001, $request, $response));
 
         return $view;
     }

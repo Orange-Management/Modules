@@ -156,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/purchase-invoice-list');
-        $view->addData('nav', $this->createNavigation(1005104001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1005105001, $request, $response));
 
         return $view;
     }

@@ -43,7 +43,6 @@
 
 jsOMS.ready(function ()
 {
-    window.omsApp.moduleManager.initModule('Draw');
     window.omsApp.moduleManager.get('Draw').bind();
 });
 

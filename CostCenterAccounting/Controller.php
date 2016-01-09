@@ -118,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-list');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004501001, $request, $response));
 
         return $view;
     }
@@ -137,7 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-create');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004501001, $request, $response));
 
         return $view;
     }
@@ -156,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-profile');
-        $view->addData('nav', $this->createNavigation(1002603001, $request, $response));
+        $view->addData('nav', $this->createNavigation(1004501001, $request, $response));
 
         return $view;
     }

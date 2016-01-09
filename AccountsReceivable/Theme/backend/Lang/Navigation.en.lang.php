@@ -15,4 +15,5 @@
  */
 $MODLANG['Navigation'] = [
     'AccountsReceivable' => 'Receivable',
+    'Analyze'            => 'Analyze',
 ];

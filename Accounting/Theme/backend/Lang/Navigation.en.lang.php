@@ -22,5 +22,7 @@ $MODLANG['Navigation'] = [
     'CostObjects'     => 'Cost Objects',
     'Creditors'       => 'Creditors',
     'Debitors'        => 'Debitors',
+    'Entries'         => 'Entries',
     'Postings'        => 'Postings',
+    'Predefined'      => 'Predefined',
 ];

@@ -17,6 +17,7 @@ $MODLANG['ItemManagement'] = [
     'Accounting'       => 'Accounting',
     'IsActive'         => 'Active?',
     'All'              => 'All',
+    'Article'          => 'Article',
     'Articlegroup'     => 'Articlegroup',
     'Attribute'        => 'Attribute',
     'Available'        => 'Available',

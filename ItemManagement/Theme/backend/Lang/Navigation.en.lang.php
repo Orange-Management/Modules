@@ -14,6 +14,7 @@
  * @link       http://orange-management.com
  */
 $MODLANG['Navigation'] = [
-    'List'   => 'List',
-    'Create' => 'Create',
+    'Analyze' => 'Analyze',
+    'List'    => 'List',
+    'Create'  => 'Create',
 ];
