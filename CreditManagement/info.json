@@ -15,7 +15,9 @@
     },
     "description": "Research & Development module.",
     "directory": "CreditManagement",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

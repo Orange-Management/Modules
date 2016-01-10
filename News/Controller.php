@@ -91,7 +91,9 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var \string
      * @since 1.0.0
      */
-    protected static $dependencies = [];
+    protected static $dependencies = [
+        'Admin',
+    ];
 
     /**
      * Routing elements.

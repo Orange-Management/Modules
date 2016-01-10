@@ -15,7 +15,9 @@
     },
     "description": "Research & Development module.",
     "directory": "ResearchDevelopment",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

@@ -15,7 +15,9 @@
     },
     "description": "The backend dashboard module.",
     "directory": "Dashboard",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

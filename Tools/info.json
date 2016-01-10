@@ -15,7 +15,9 @@
     },
     "description": "Tools module.",
     "directory": "Tools",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

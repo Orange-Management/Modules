@@ -15,7 +15,9 @@
     },
     "description": "Marketing module.",
     "directory": "Marketing",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

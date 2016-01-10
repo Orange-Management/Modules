@@ -15,7 +15,9 @@
     },
     "description": "Event Management module.",
     "directory": "ItemManagement",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

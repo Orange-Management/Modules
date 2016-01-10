@@ -15,7 +15,9 @@
     },
     "description": "The navigation module.",
     "directory": "Navigation",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

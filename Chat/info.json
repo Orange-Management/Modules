@@ -15,7 +15,9 @@
     },
     "description": "Chat module.",
     "directory": "Chat",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

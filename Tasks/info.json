@@ -15,7 +15,9 @@
     },
     "description": "Tasks module.",
     "directory": "Tasks",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

@@ -15,7 +15,9 @@
     },
     "description": "Tasks module.",
     "directory": "PersonnelTimeManagement",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

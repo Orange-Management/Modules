@@ -15,7 +15,9 @@
     },
     "description": "Tasks module.",
     "directory": "MyPrivate",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

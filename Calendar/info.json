@@ -15,7 +15,9 @@
     },
     "description": "Calendar module.",
     "directory": "Calendar",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

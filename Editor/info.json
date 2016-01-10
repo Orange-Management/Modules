@@ -15,7 +15,9 @@
     },
     "description": "The administration module.",
     "directory": "Editor",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },

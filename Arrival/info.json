@@ -15,7 +15,9 @@
     },
     "description": "Accounting module.",
     "directory": "Arrival",
-    "dependencies": {},
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
     "providing": {
         "Navigation": "*"
     },
