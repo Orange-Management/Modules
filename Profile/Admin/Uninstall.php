@@ -17,6 +17,7 @@ namespace Modules\Profile\Admin;
 
 
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\Schema\Builder;
 use phpOMS\Module\UninstallAbstract;
 
 /**
@@ -36,8 +37,20 @@ class Uninstall extends UninstallAbstract
     /**
      * {@inheritdoc}
      */
-    public static function unisntall(Pool $dbPool, array $info)
+    public static function uninstall(Pool $dbPool, array $info)
     {
-        parent::unisntall($dbPool, $info);
+        parent::uninstall($dbPool, $info);
+
+        $query = new Builder($dbPool->get());
+
+        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+            'profile_account_setting',
+            'profile_account_relation',
+            'profile_address',
+            'profile_phone',
+            'profile_account'
+        );
+
+        $dbPool->get()->con->prepare($query->toSql())->execute();
     }
 }

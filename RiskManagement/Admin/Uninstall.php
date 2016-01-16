@@ -17,6 +17,7 @@ namespace Modules\RiskManagement\Admin;
 
 
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\Schema\Builder;
 use phpOMS\Module\UninstallAbstract;
 
 /**
@@ -36,8 +37,26 @@ class Uninstall extends UninstallAbstract
     /**
      * {@inheritdoc}
      */
-    public static function unisntall(Pool $dbPool, array $info)
+    public static function uninstall(Pool $dbPool, array $info)
     {
-        parent::unisntall($dbPool, $info);
+        parent::uninstall($dbPool, $info);
+
+        $query = new Builder($dbPool->get());
+
+        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+            'riskmngmt_risk_solution',
+            'riskmngmt_risk_cause',
+            'riskmngmt_risk_media',
+            'riskmngmt_risk_eval',
+            'riskmngmt_risk_object',
+            'riskmngmt_risk',
+            'riskmngmt_process',
+            'riskmngmt_project',
+            'riskmngmt_category',
+            'riskmngmt_department',
+            'riskmngmt_unit'
+        );
+
+        $dbPool->get()->con->prepare($query->toSql())->execute();
     }
 }

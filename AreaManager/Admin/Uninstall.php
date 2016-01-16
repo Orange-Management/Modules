@@ -36,8 +36,17 @@ class Uninstall extends UninstallAbstract
     /**
      * {@inheritdoc}
      */
-    public static function unisntall(Pool $dbPool, array $info)
+    public static function uninstall(Pool $dbPool, array $info)
     {
-        parent::unisntall($dbPool, $info);
+        parent::uninstall($dbPool, $info);
+
+        $query = new Builder($dbPool->get());
+
+        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+            'area_manager_account',
+            'area_manager_area'
+        );
+
+        $dbPool->get()->con->prepare($query->toSql())->execute();
     }
 }

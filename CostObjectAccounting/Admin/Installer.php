@@ -58,12 +58,6 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'cost_unit_accounting_ibfk_1` FOREIGN KEY (`cost_unit_accounting_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'cost_unit_accounting` (`cost_unit_accounting_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_posting_ele`
-                        ADD `accounting_posting_ele_costunit` int(11) NOT NULL,
-                        ADD KEY `accounting_posting_ele_costunit` (`accounting_posting_ele_costunit`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_posting_ele_ibfk_3` FOREIGN KEY (`accounting_posting_ele_costunit`) REFERENCES `' . $dbPool->get('core')->prefix . 'cost_unit_accounting` (`cost_unit_accounting_id`);'
-                )->execute();
                 break;
         }
     }

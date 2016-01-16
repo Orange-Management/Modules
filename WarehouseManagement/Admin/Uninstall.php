@@ -17,6 +17,7 @@ namespace Modules\WarehouseManagement\Admin;
 
 
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\Schema\Builder;
 use phpOMS\Module\UninstallAbstract;
 
 /**
@@ -36,8 +37,25 @@ class Uninstall extends UninstallAbstract
     /**
      * {@inheritdoc}
      */
-    public static function unisntall(Pool $dbPool, array $info)
+    public static function uninstall(Pool $dbPool, array $info)
     {
-        parent::unisntall($dbPool, $info);
+        parent::uninstall($dbPool, $info);
+
+        $query = new Builder($dbPool->get());
+
+        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+            'warehousing_shipping',
+            'warehousing_article_transfer_single',
+            'warehousing_article_transfer',
+            'warehousing_arrival_transfer',
+            'warehousing_article_stock',
+            'warehousing_arrival',
+            'warehousing_article_disposal',
+            'warehousing_article',
+            'warehousing_stock_location',
+            'warehousing_stock'
+        );
+
+        $dbPool->get()->con->prepare($query->toSql())->execute();
     }
 }

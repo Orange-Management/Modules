@@ -36,8 +36,8 @@ class Uninstall extends UninstallAbstract
     /**
      * {@inheritdoc}
      */
-    public static function unisntall(Pool $dbPool, array $info)
+    public static function uninstall(Pool $dbPool, array $info)
     {
-        parent::unisntall($dbPool, $info);
+        parent::uninstall($dbPool, $info);
     }
 }

@@ -58,12 +58,6 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'cost_center_accounting_ibfk_1` FOREIGN KEY (`cost_center_accounting_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'cost_center_accounting` (`cost_center_accounting_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_posting_ele`
-                        ADD `accounting_posting_ele_costcenter` int(11) NOT NULL,
-                        ADD KEY `accounting_posting_ele_costcenter` (`accounting_posting_ele_costcenter`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_posting_ele_ibfk_2` FOREIGN KEY (`accounting_posting_ele_costcenter`) REFERENCES `' . $dbPool->get('core')->prefix . 'cost_center_accounting` (`cost_center_accounting_id`);'
-                )->execute();
                 break;
         }
     }
