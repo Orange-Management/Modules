@@ -28,6 +28,7 @@ use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
@@ -255,7 +256,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
-        $mediaMapper      = new MediaMapper($this->app->dbPool->get());
         $collectionMapper = new CollectionMapper($this->app->dbPool->get());
         $collection       = $collectionMapper->get($template->getSource());
 
@@ -295,7 +295,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $reportMapper = new ReportMapper($this->app->dbPool->get());
-        $report       = $reportMapper->getNewest();
+        $report       = $reportMapper->getNewest(1, (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())); /* todo newest that belongs to template x. right now always newest no matter the template */
         $rcoll        = [];
 
         if (!($report instanceof NullReport)) {
