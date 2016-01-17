@@ -26,7 +26,7 @@ $report   = $this->getData('report');
 /** @noinspection PhpIncludeInspection */
 include ROOT_PATH . '/' . $tcoll['lang']->getPath();
 
-$lang = $reportLanguage[$lang];
+$cLang = $reportLanguage[$lang];
 
 echo $this->getData('nav')->render(); ?>
 <div class="wf-75 floatLeft">
@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr>
                         <td><select id="iLang" name="lang">
                                 <?php foreach($reportLanguage as $key => $langauge) : ?>
-                                <option value="<?= $key; ?>"<?= $langauge[':language'] === $lang[':language'] ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
+                                <option value="<?= $key; ?>"<?= $langauge[':language'] === $cLang[':language'] ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
                                 <?php endforeach; ?>
                             </select>
                     <tr>

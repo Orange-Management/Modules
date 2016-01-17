@@ -20,6 +20,7 @@ use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+use Modules\Reporter\Models\NullReport;
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReportMapper;
 use Modules\Reporter\Models\Template;
@@ -111,7 +112,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $dependencies = [
-        'Admin',
     ];
 
     /**
@@ -262,9 +262,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $tcoll = [];
         $files = $collection->getSources();
 
-        foreach ($files as $file) {
-            $tMedia = $mediaMapper->get($file);
-            $path   = $tMedia->getPath();
+        foreach ($files as $tMedia) {
+            $path = $tMedia->getPath();
 
             if (StringUtils::endsWith(strtolower($path), '.lang.php')) {
                 $tcoll['lang'] = $tMedia;
@@ -297,15 +296,15 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $reportMapper = new ReportMapper($this->app->dbPool->get());
         $report       = $reportMapper->getNewest();
+        $rcoll        = [];
 
-        $collection = $collectionMapper->get($report->getSource());
-        $files      = $collection->getSources();
+        if (!($report instanceof NullReport)) {
+            $collection = $collectionMapper->get($report->getSource());
+            $files      = $collection->getSources();
 
-        $rcoll = [];
-
-        foreach ($files as $file) {
-            $media                    = $mediaMapper->get($file);
-            $rcoll[$media->getName()] = $media;
+            foreach ($files as $media) {
+                $rcoll[$media->getName()] = $media;
+            }
         }
 
         $view = new View($this->app, $request, $response);
