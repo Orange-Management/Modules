@@ -81,6 +81,5 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $dependencies = [
-        'Admin',
     ];
 }
