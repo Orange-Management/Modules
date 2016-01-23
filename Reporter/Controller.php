@@ -406,6 +406,7 @@ class Controller extends ModuleAbstract implements WebInterface
         /* Create template */
         $reporterTemplate = new Template();
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
+        $reporterTemplate->setDescription($request->getData('description') ?? '');
         $reporterTemplate->setSource($collectionId);
         $reporterTemplate->setExpected(isset($expected) ? (array) json_decode($expected) : []);
         $reporterTemplate->setCreatedBy($request->getAccount());
