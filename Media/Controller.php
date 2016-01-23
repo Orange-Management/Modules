@@ -223,22 +223,38 @@ class Controller extends ModuleAbstract implements WebInterface
             $path    = '/Modules/Media/Files/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
             $upload->setOutputDir($path);
             $upload->setFileName(false);
-            $status = $upload->upload($files);
+            $status       = $upload->upload($files);
+            $mediaCreated = $this->createDbEntries($status, $account);
+        }
 
-            $mediaMapper = new MediaMapper($this->app->dbPool->get());
+        return $mediaCreated;
+    }
 
-            foreach ($status as $uFile) {
-                if ($uFile['status'] === UploadStatus::OK) {
-                    $media = new Media();
-                    $media->setPath($uFile['path'] . '/' . $uFile['filename']);
-                    $media->setName($uFile['filename']);
-                    $media->setSize($uFile['size']);
-                    $media->setCreatedBy($account);
-                    $media->setCreatedAt(new \DateTime('NOW'));
-                    $media->setExtension($uFile['extension']);
+    /**
+     * @param array $status  Files
+     * @param int   $account Uploader
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function createDbEntries(array $status, int $account) : array
+    {
+        $mediaCreated = [];
+        $mediaMapper  = new MediaMapper($this->app->dbPool->get());
 
-                    $mediaCreated[] = $mediaMapper->create($media);
-                }
+        foreach ($status as $uFile) {
+            if ($uFile['status'] === UploadStatus::OK) {
+                $media = new Media();
+                $media->setPath($uFile['path'] . '/' . $uFile['filename']);
+                $media->setName($uFile['filename']);
+                $media->setSize($uFile['size']);
+                $media->setCreatedBy($account);
+                $media->setCreatedAt(new \DateTime('NOW'));
+                $media->setExtension($uFile['extension']);
+
+                $mediaCreated[] = $mediaMapper->create($media);
             }
         }
 
