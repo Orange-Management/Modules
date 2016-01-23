@@ -178,15 +178,14 @@ class UploadFile
                 \mkdir($path, '0655', true);
             }
 
-            if (!move_uploaded_file($f['tmp_name'], $path . '/' . $this->fileName)) {
+            if (!move_uploaded_file($path = $f['tmp_name'], $path . '/' . $this->fileName) || !is_uploaded_file($path)) {
                 // couldn't move
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
             }
 
-            $result[$key]['path'] = $rpath;
-
+            $result[$key]['path']   = $rpath;
             $result[$key]['status'] = UploadStatus::OK;
         }
 
