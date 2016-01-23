@@ -34,7 +34,7 @@ class Template
     /**
      * Template Id.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = 0;
@@ -42,7 +42,7 @@ class Template
     /**
      * Template status.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $status = ReporterStatus::ACTIVE;
@@ -50,7 +50,7 @@ class Template
     /**
      * Template data source.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $datatype = TemplateDataType::OTHER;
@@ -58,7 +58,7 @@ class Template
     /**
      * Template name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -66,7 +66,7 @@ class Template
     /**
      * Template description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -82,7 +82,7 @@ class Template
     /**
      * Template created by.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -90,7 +90,7 @@ class Template
     /**
      * Template source.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $source = 0;
@@ -131,97 +131,97 @@ class Template
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getId() : \int
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
-     * @param \string $name Template name
+     * @param string $name Template name
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setName(\string $name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getName() : \string
+    public function getName() : string
     {
         return $this->name;
     }
 
     /**
-     * @param \string $description Template description
+     * @param string $description Template description
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setDescription(\string $description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDescription() : \string
+    public function getDescription() : string
     {
         return $this->description;
     }
 
     /**
-     * @param \int $source Source
+     * @param int $source Source
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setSource(\int $source)
+    public function setSource(int $source)
     {
         $this->source = $source;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getSource() : \int
+    public function getSource() : int
     {
         return $this->source;
     }
 
     /**
-     * @param \int $createdBy Creator
+     * @param int $createdBy Creator
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreatedBy(\int $createdBy)
+    public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
     }
@@ -240,12 +240,12 @@ class Template
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreatedBy() : \int
+    public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
@@ -286,62 +286,62 @@ class Template
     }
 
     /**
-     * @param \string $expected Expected file
+     * @param string $expected Expected file
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function addExpected(\string $expected)
+    public function addExpected(string $expected)
     {
         $this->expected[] = $expected;
     }
 
     /**
-     * @param \int $status Template status (is active?)
+     * @param int $status Template status (is active?)
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setStatus(\int $status)
+    public function setStatus(int $status)
     {
         $this->status = $status;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getStatus() : \int
+    public function getStatus() : int
     {
         return $this->status;
     }
 
     /**
-     * @param \int $datatype Template datatype source
+     * @param int $datatype Template datatype source
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setDatatype(\int $datatype)
+    public function setDatatype(int $datatype)
     {
         $this->datatype = $datatype;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDatatype() : \int
+    public function getDatatype() : int
     {
         return $this->datatype;
     }

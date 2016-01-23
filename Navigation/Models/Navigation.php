@@ -76,7 +76,7 @@ class Navigation
     /**
      * Load navigation based on request.
      *
-     * @param \string[] $request Request hashes
+     * @param string[] $request Request hashes
      *
      * @return void
      *

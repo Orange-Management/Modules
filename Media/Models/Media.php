@@ -32,7 +32,7 @@ class Media
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     protected $id = 0;
@@ -40,7 +40,7 @@ class Media
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected $name = '';
@@ -48,7 +48,7 @@ class Media
     /**
      * Extension.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected $extension = '';
@@ -56,7 +56,7 @@ class Media
     /**
      * File size in bytes.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     protected $size = 0;
@@ -64,7 +64,7 @@ class Media
     /**
      * Author.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -80,7 +80,7 @@ class Media
     /**
      * Resource path.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected $path = '';
@@ -88,7 +88,7 @@ class Media
     /**
      * Is versioned.
      *
-     * @var \bool
+     * @var bool
      * @since 1.0.0
      */
     protected $versioned = false;
@@ -96,7 +96,7 @@ class Media
     /**
      * Media Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected $description = '';
@@ -129,36 +129,36 @@ class Media
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getId() : \int
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
-     * @param \int $id Id
+     * @param int $id Id
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setId(\int $id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreatedBy() : \int
+    public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
@@ -175,69 +175,69 @@ class Media
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getExtension() : \string
+    public function getExtension() : string
     {
         return $this->extension;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getPath() : \string
+    public function getPath() : string
     {
         return $this->path;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getName() : \string
+    public function getName() : string
     {
         return $this->name;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDescription() : \string
+    public function getDescription() : string
     {
         return $this->description;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getSize() : \int
+    public function getSize() : int
     {
         return $this->size;
     }
 
     /**
-     * @param \int $createdBy Creator
+     * @param int $createdBy Creator
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreatedBy(\int $createdBy)
+    public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
     }
@@ -256,90 +256,90 @@ class Media
     }
 
     /**
-     * @param \string $extension Extension
+     * @param string $extension Extension
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setExtension(\string $extension)
+    public function setExtension(string $extension)
     {
         $this->extension = $extension;
     }
 
     /**
-     * @param \string $path $filepath
+     * @param string $path $filepath
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setPath(\string $path)
+    public function setPath(string $path)
     {
         $this->path = $path;
     }
 
     /**
-     * @param \string $name Media name (not file name)
+     * @param string $name Media name (not file name)
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setName(\string $name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
     /**
-     * @param \string $description Media description
+     * @param string $description Media description
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setDescription(\string $description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
     /**
-     * @param \int $size Filesize
+     * @param int $size Filesize
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setSize(\int $size)
+    public function setSize(int $size)
     {
         $this->size = $size;
     }
 
     /**
-     * @param \bool $versioned File is version controlled
+     * @param bool $versioned File is version controlled
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setVersioned(\bool $versioned)
+    public function setVersioned(bool $versioned)
     {
         $this->versioned = $versioned;
     }
 
     /**
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getVersioned() : \bool
+    public function getVersioned() : bool
     {
         return $this->versioned;
     }

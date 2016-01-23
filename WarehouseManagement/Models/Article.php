@@ -34,7 +34,7 @@ class Article implements Multition
     /**
      * Article ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = null;
@@ -42,7 +42,7 @@ class Article implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -50,7 +50,7 @@ class Article implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -58,7 +58,7 @@ class Article implements Multition
     /**
      * Matchcode.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $matchcode = '';
@@ -66,7 +66,7 @@ class Article implements Multition
     /**
      * Sector.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $sector = null;
@@ -74,7 +74,7 @@ class Article implements Multition
     /**
      * Group.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $group = null;
@@ -84,7 +84,7 @@ class Article implements Multition
      *
      * supplier price leadtime
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $suppliers = null;
@@ -112,7 +112,7 @@ class Article implements Multition
     /**
      * Active supplier.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $pprice = null;
@@ -144,7 +144,7 @@ class Article implements Multition
     /**
      * Constructor.
      *
-     * @param \int $id Article ID
+     * @param int $id Article ID
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -171,7 +171,7 @@ class Article implements Multition
     /**
      * Initializing object.
      *
-     * @param \int $id Article ID
+     * @param int $id Article ID
      *
      * @return \Modules\Warehousing\Models\Article
      *
@@ -190,7 +190,7 @@ class Article implements Multition
     /**
      * Get ID.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -203,7 +203,7 @@ class Article implements Multition
     /**
      * Get name.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -216,7 +216,7 @@ class Article implements Multition
     /**
      * Set name.
      *
-     * @param \string $name Name of the article
+     * @param string $name Name of the article
      *
      * @return void
      *
@@ -231,7 +231,7 @@ class Article implements Multition
     /**
      * Get matchcode.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -244,7 +244,7 @@ class Article implements Multition
     /**
      * Set matchcode.
      *
-     * @param \string $matchcode Matchcode of the article
+     * @param string $matchcode Matchcode of the article
      *
      * @return void
      *
@@ -259,7 +259,7 @@ class Article implements Multition
     /**
      * Get description.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -272,7 +272,7 @@ class Article implements Multition
     /**
      * Set description.
      *
-     * @param \string $desc Description of the article
+     * @param string $desc Description of the article
      *
      * @return void
      *
@@ -344,7 +344,7 @@ class Article implements Multition
      * Add price to pricelist.
      *
      * @param array $price Price
-     * @param \bool $db    Update DB and cache?
+     * @param bool $db    Update DB and cache?
      *
      * @return void
      *
@@ -360,8 +360,8 @@ class Article implements Multition
     /**
      * Remove price from pricelist.
      *
-     * @param \int  $id Price ID
-     * @param \bool $db Update DB and cache?
+     * @param int  $id Price ID
+     * @param bool $db Update DB and cache?
      *
      * @return void
      *
@@ -378,9 +378,9 @@ class Article implements Multition
     /**
      * Add price to pricelist.
      *
-     * @param \int  $id    Price ID
+     * @param int  $id    Price ID
      * @param array $price Price
-     * @param \bool $db    Update DB and cache?
+     * @param bool $db    Update DB and cache?
      *
      * @return void
      *

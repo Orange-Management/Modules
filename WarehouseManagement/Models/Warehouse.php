@@ -34,7 +34,7 @@ class Warehouse implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -42,7 +42,7 @@ class Warehouse implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -66,7 +66,7 @@ class Warehouse implements Multition
     /**
      * Constructor.
      *
-     * @param \int $id Warehouse ID
+     * @param int $id Warehouse ID
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -79,7 +79,7 @@ class Warehouse implements Multition
     /**
      * Initializing object.
      *
-     * @param \int $id Warehouse ID
+     * @param int $id Warehouse ID
      *
      * @return \Modules\Warehousing\Models\Warehouse
      *
@@ -112,7 +112,7 @@ class Warehouse implements Multition
     /**
      * Get ID.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -125,7 +125,7 @@ class Warehouse implements Multition
     /**
      * Get name.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -138,7 +138,7 @@ class Warehouse implements Multition
     /**
      * Set name.
      *
-     * @param \string $name Name of the article
+     * @param string $name Name of the article
      *
      * @return void
      *
@@ -153,7 +153,7 @@ class Warehouse implements Multition
     /**
      * Get name.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -166,7 +166,7 @@ class Warehouse implements Multition
     /**
      * Set name.
      *
-     * @param \string $description Description of the warehouse
+     * @param string $description Description of the warehouse
      *
      * @return void
      *

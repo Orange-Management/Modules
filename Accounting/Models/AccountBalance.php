@@ -32,7 +32,7 @@ abstract class AccountBalance
     /**
      * Id.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = null;
@@ -72,7 +72,7 @@ abstract class AccountBalance
     /**
      * Balance.
      *
-     * @var \float
+     * @var float
      * @since 1.0.0
      */
     private $balance = null;
@@ -80,12 +80,12 @@ abstract class AccountBalance
     /**
      * Constructor.
      *
-     * @param \int $id Account id
+     * @param int $id Account id
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function __construct(\int $id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }
@@ -187,7 +187,7 @@ abstract class AccountBalance
     }
 
     /**
-     * @return \float
+     * @return float
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -198,7 +198,7 @@ abstract class AccountBalance
     }
 
     /**
-     * @param \float $balance
+     * @param float $balance
      *
      * @return void
      *

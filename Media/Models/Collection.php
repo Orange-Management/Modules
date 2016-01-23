@@ -34,7 +34,7 @@ class Collection extends Media
     /**
      * Resource id.
      *
-     * @var \int[]
+     * @var int[]
      * @since 1.0.0
      */
     private $sources = [];
@@ -67,14 +67,14 @@ class Collection extends Media
     /**
      * Set sources.
      *
-     * @param \int $source Source
+     * @param int $source Source
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function addSource(\int $source)
+    public function addSource(int $source)
     {
         $this->sources[] = $source;
     }

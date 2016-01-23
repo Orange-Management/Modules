@@ -32,7 +32,7 @@ class Task
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = null;
@@ -40,7 +40,7 @@ class Task
     /**
      * Title.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $title = '';
@@ -48,7 +48,7 @@ class Task
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = null;
@@ -64,7 +64,7 @@ class Task
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -72,7 +72,7 @@ class Task
     /**
      * Plain unparsed.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $plain = '';
@@ -137,7 +137,7 @@ class Task
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function addElement(TaskElement $element) : \bool
+    public function addElement(TaskElement $element) : bool
     {
         if (!isset($this->taskElements[$element->getId()])) {
             $this->taskElements[$element->getId()] = $element;
@@ -160,23 +160,23 @@ class Task
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreatedBy() : \int
+    public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDescription() : \string
+    public function getDescription() : string
     {
         return $this->description;
     }
@@ -204,12 +204,12 @@ class Task
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getId() : \int
+    public function getId() : int
     {
         return $this->id;
     }
@@ -226,12 +226,12 @@ class Task
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTitle() : \string
+    public function getTitle() : string
     {
         return $this->title;
     }
@@ -239,14 +239,14 @@ class Task
     /**
      * Remove Element from list.
      *
-     * @param \int $id Task element
+     * @param int $id Task element
      *
      * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function removeElement($id) : \bool
+    public function removeElement($id) : bool
     {
         if (isset($this->taskElements[$id])) {
             unset($this->taskElements[$id]);
@@ -273,14 +273,14 @@ class Task
     /**
      * Get task elements.
      *
-     * @param \int $id Element id
+     * @param int $id Element id
      *
      * @return TaskElement
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTaskElement(\int $id) : TaskElement
+    public function getTaskElement(int $id) : TaskElement
     {
         return $this->taskElements[$id] ?? new NullTaskElement();
     }
@@ -288,12 +288,12 @@ class Task
     /**
      * Get task type.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getType() : \int
+    public function getType() : int
     {
         return $this->type;
     }
@@ -301,12 +301,12 @@ class Task
     /**
      * Get plain.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getPlain() : \string
+    public function getPlain() : string
     {
         return $this->plain;
     }

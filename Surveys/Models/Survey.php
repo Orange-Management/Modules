@@ -34,7 +34,7 @@ class Survey implements Multition
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = '';
@@ -42,7 +42,7 @@ class Survey implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -50,7 +50,7 @@ class Survey implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -66,7 +66,7 @@ class Survey implements Multition
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = null;

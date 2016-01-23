@@ -53,7 +53,7 @@ class NavigationView extends View
     /**
      * Language used for the navigation.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected $language = 'en';
@@ -61,7 +61,7 @@ class NavigationView extends View
     /**
      * Parent element used for navigation.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     protected $parent = 0;
@@ -77,12 +77,12 @@ class NavigationView extends View
     /**
      * Get navigation Id.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getNavId() : \int
+    public function getNavId() : int
     {
         return $this->navId;
     }
@@ -90,14 +90,14 @@ class NavigationView extends View
     /**
      * Set navigation Id.
      *
-     * @param \int $navId Navigation id used for display
+     * @param int $navId Navigation id used for display
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setNavId(\int $navId)
+    public function setNavId(int $navId)
     {
         $this->navId = $navId;
     }
@@ -127,49 +127,49 @@ class NavigationView extends View
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getLanguage() : \string
+    public function getLanguage() : string
     {
         return $this->language;
     }
 
     /**
-     * @param \string $language
+     * @param string $language
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setLanguage(\string $language)
+    public function setLanguage(string $language)
     {
         $this->language = $language;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getParent() : \int
+    public function getParent() : int
     {
         return $this->parent;
     }
 
     /**
-     * @param \int $parent
+     * @param int $parent
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setParent(\int $parent)
+    public function setParent(int $parent)
     {
         $this->parent = $parent;
     }

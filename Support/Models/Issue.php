@@ -34,7 +34,7 @@ class Issue implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -42,7 +42,7 @@ class Issue implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -58,7 +58,7 @@ class Issue implements Multition
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = null;

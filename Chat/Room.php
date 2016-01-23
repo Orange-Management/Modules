@@ -34,7 +34,7 @@ class Room implements Multition
     /**
      * Room ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = null;
@@ -42,7 +42,7 @@ class Room implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -50,7 +50,7 @@ class Room implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -66,7 +66,7 @@ class Room implements Multition
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = null;
@@ -82,7 +82,7 @@ class Room implements Multition
     /**
      * Password.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $password = null;

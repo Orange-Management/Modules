@@ -33,7 +33,7 @@ class UploadFile
     /**
      * Upload max size.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $maxSize = 50000000;
@@ -49,7 +49,7 @@ class UploadFile
     /**
      * Output directory.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $outputDir = '/Modules/Media/Files';
@@ -57,7 +57,7 @@ class UploadFile
     /**
      * Output file name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $fileName = '';
@@ -65,7 +65,7 @@ class UploadFile
     /**
      * Output file name.
      *
-     * @var \bool
+     * @var bool
      * @since 1.0.0
      */
     private $preserveFileName = true;
@@ -193,25 +193,25 @@ class UploadFile
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getMaxSize() : \int
+    public function getMaxSize() : int
     {
         return $this->maxSize;
     }
 
     /**
-     * @param \int $maxSize
+     * @param int $maxSize
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setMaxSize(\int $maxSize)
+    public function setMaxSize(int $maxSize)
     {
         $this->maxSize = $maxSize;
     }
@@ -254,62 +254,62 @@ class UploadFile
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getOutputDir() : \string
+    public function getOutputDir() : string
     {
         return $this->outputDir;
     }
 
     /**
-     * @param \string $outputDir
+     * @param string $outputDir
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setOutputDir(\string $outputDir)
+    public function setOutputDir(string $outputDir)
     {
         $this->outputDir = $outputDir;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getFileName() : \string
+    public function getFileName() : string
     {
         return $this->fileName;
     }
 
     /**
-     * @param \string $fileName
+     * @param string $fileName
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setFileName(\string $fileName)
+    public function setFileName(string $fileName)
     {
         $this->fileName = $fileName;
     }
 
     /**
-     * @param \bool $preserveFileName
+     * @param bool $preserveFileName
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setPreserveFileName(\bool $preserveFileName)
+    public function setPreserveFileName(bool $preserveFileName)
     {
         $this->preserveFileName = $preserveFileName;
     }

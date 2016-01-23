@@ -33,7 +33,7 @@ class CollectionMapper extends MediaMapper
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'media';
@@ -41,7 +41,7 @@ class CollectionMapper extends MediaMapper
     /**
      * Created at.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $createdAt = 'media_created_at';
@@ -49,7 +49,7 @@ class CollectionMapper extends MediaMapper
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'media_id';

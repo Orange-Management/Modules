@@ -37,7 +37,7 @@ class DepartmentMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'business_department';
@@ -45,7 +45,7 @@ class DepartmentMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'business_department_id';

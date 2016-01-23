@@ -45,7 +45,7 @@ class TemplateMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'reporter_template';
@@ -55,7 +55,7 @@ class TemplateMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'reporter_template_id';
@@ -65,7 +65,7 @@ class TemplateMapper extends DataMapperAbstract
      *
      * @param Template $obj Report template
      *
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

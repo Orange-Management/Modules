@@ -34,7 +34,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = 0;
@@ -42,7 +42,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = null;
@@ -58,7 +58,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = null;
@@ -84,7 +84,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Get id.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -97,7 +97,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Set id.
      *
-     * @param \int $id Batch ID
+     * @param int $id Batch ID
      *
      * @return void
      *
@@ -112,7 +112,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Get description.
      *
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -125,7 +125,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Set description.
      *
-     * @param \string $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
@@ -167,7 +167,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Get creator.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -180,7 +180,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Set creator.
      *
-     * @param \int $creator Creator ID
+     * @param int $creator Creator ID
      *
      * @return void
      *
@@ -195,7 +195,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Get posting.
      *
-     * @param \int $id Posting ID
+     * @param int $id Posting ID
      *
      * @return \Modules\Accounting\Models\PostingAbstract
      *
@@ -210,7 +210,7 @@ class BatchPosting implements ExchangeInterface, \Countable
     /**
      * Remove posting.
      *
-     * @param \int $id Posting ID
+     * @param int $id Posting ID
      *
      * @return void
      *

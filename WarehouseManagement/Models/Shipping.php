@@ -34,7 +34,7 @@ class Shipping implements Multition
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = 0;
@@ -42,7 +42,7 @@ class Shipping implements Multition
     /**
      * Order.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $order = '';
@@ -58,7 +58,7 @@ class Shipping implements Multition
     /**
      * Warehouse.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $warehouse = '';
@@ -74,7 +74,7 @@ class Shipping implements Multition
     /**
      * Person who sent the delivery.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $sender = null;
@@ -98,7 +98,7 @@ class Shipping implements Multition
     /**
      * Constructor.
      *
-     * @param \int $id Article ID
+     * @param int $id Article ID
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -111,7 +111,7 @@ class Shipping implements Multition
     /**
      * Initializing object.
      *
-     * @param \int $id Article ID
+     * @param int $id Article ID
      *
      * @return \Modules\Warehousing\Models\Article
      *
@@ -144,7 +144,7 @@ class Shipping implements Multition
     /**
      * Get ID.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -157,7 +157,7 @@ class Shipping implements Multition
     /**
      * Get order.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -170,7 +170,7 @@ class Shipping implements Multition
     /**
      * Set order.
      *
-     * @param \int $order Order ID
+     * @param int $order Order ID
      *
      * @return void
      *
@@ -282,7 +282,7 @@ class Shipping implements Multition
     /**
      * Get acceptor.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -295,7 +295,7 @@ class Shipping implements Multition
     /**
      * Set sender.
      *
-     * @param \int $sender Person who accepted the consignment
+     * @param int $sender Person who accepted the consignment
      *
      * @return void
      *

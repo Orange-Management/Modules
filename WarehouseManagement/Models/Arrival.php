@@ -34,7 +34,7 @@ class Arrival implements Multition
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = '';
@@ -42,7 +42,7 @@ class Arrival implements Multition
     /**
      * Order.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $order = '';
@@ -74,7 +74,7 @@ class Arrival implements Multition
     /**
      * Person who accepted the delivery.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $acceptor = null;
@@ -100,7 +100,7 @@ class Arrival implements Multition
     /**
      * Constructor.
      *
-     * @param \int $id Arrival ID
+     * @param int $id Arrival ID
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -127,7 +127,7 @@ class Arrival implements Multition
     /**
      * Initializing object.
      *
-     * @param \int $id Arrival ID
+     * @param int $id Arrival ID
      *
      * @return \Modules\Warehousing\Models\Arrival
      *
@@ -146,7 +146,7 @@ class Arrival implements Multition
     /**
      * Get ID.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -187,7 +187,7 @@ class Arrival implements Multition
     /**
      * Get order.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -200,7 +200,7 @@ class Arrival implements Multition
     /**
      * Set order.
      *
-     * @param \int $order Order Id
+     * @param int $order Order Id
      *
      * @return void
      *
@@ -284,7 +284,7 @@ class Arrival implements Multition
     /**
      * Get acceptor.
      *
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -297,7 +297,7 @@ class Arrival implements Multition
     /**
      * Set acceptor.
      *
-     * @param \int $acceptor Person who accepted the consignment
+     * @param int $acceptor Person who accepted the consignment
      *
      * @return void
      *

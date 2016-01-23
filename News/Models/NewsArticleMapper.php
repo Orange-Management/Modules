@@ -44,7 +44,7 @@ class NewsArticleMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'news';
@@ -52,7 +52,7 @@ class NewsArticleMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'id';
@@ -62,7 +62,7 @@ class NewsArticleMapper extends DataMapperAbstract
      *
      * @param mixed $obj News article
      *
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

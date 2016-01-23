@@ -35,7 +35,7 @@ class NewsArticle
     /**
      * Article ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = 0;
@@ -43,7 +43,7 @@ class NewsArticle
     /**
      * Author ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $author = 0;
@@ -51,7 +51,7 @@ class NewsArticle
     /**
      * Title.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $title = '';
@@ -59,7 +59,7 @@ class NewsArticle
     /**
      * Content.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $content = '';
@@ -67,7 +67,7 @@ class NewsArticle
     /**
      * Plain.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $plain = '';
@@ -75,7 +75,7 @@ class NewsArticle
     /**
      * News type.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $type = NewsType::ARTICLE;
@@ -83,7 +83,7 @@ class NewsArticle
     /**
      * News status.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $status = NewsStatus::VISIBLE;
@@ -91,7 +91,7 @@ class NewsArticle
     /**
      * Language.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $lang = ISO639Enum::_EN;
@@ -115,7 +115,7 @@ class NewsArticle
     /**
      * Featured.
      *
-     * @var \bool
+     * @var bool
      * @since 1.0.0
      */
     private $featured = false;
@@ -133,36 +133,36 @@ class NewsArticle
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getAuthor() : \int
+    public function getAuthor() : int
     {
         return $this->author;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getContent() : \string
+    public function getContent() : string
     {
         return $this->content;
     }
 
     /**
-     * @param \string $content
+     * @param string $content
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setContent(\string $content)
+    public function setContent(string $content)
     {
         $this->content = $content;
     }
@@ -179,60 +179,60 @@ class NewsArticle
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getId() : \int
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
-     * @param \int $id Id
+     * @param int $id Id
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setId(\int $id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getLanguage() : \string
+    public function getLanguage() : string
     {
         return $this->lang;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getPlain() : \string
+    public function getPlain() : string
     {
         return $this->plain;
     }
 
     /**
-     * @param \string $plain
+     * @param string $plain
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setPlain(\string $plain)
+    public function setPlain(string $plain)
     {
         $this->plain = $plain;
     }
@@ -249,14 +249,14 @@ class NewsArticle
     }
 
     /**
-     * @param \string $lang
+     * @param string $lang
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setLang(\string $lang)
+    public function setLang(string $lang)
     {
         $this->lang = $lang;
     }
@@ -288,110 +288,110 @@ class NewsArticle
     }
 
     /**
-     * @param \int $author
+     * @param int $author
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setAuthor(\int $author)
+    public function setAuthor(int $author)
     {
         $this->author = $author;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTitle() : \string
+    public function getTitle() : string
     {
         return $this->title;
     }
 
     /**
-     * @param \string $title
+     * @param string $title
      *
      * @return mixed
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setTitle(\string $title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getType() : \int
+    public function getType() : int
     {
         return $this->type;
     }
 
     /**
-     * @param \int $type
+     * @param int $type
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setType(\int $type)
+    public function setType(int $type)
     {
         $this->type = $type;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getStatus() : \int
+    public function getStatus() : int
     {
         return $this->status;
     }
 
     /**
-     * @param \int $status
+     * @param int $status
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setStatus(\int $status)
+    public function setStatus(int $status)
     {
         $this->status = $status;
     }
 
     /**
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function isFeatured() : \bool
+    public function isFeatured() : bool
     {
         return $this->featured;
     }
 
     /**
-     * @param \bool $featured
+     * @param bool $featured
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setFeatured(\bool $featured)
+    public function setFeatured(bool $featured)
     {
         $this->featured = $featured;
     }

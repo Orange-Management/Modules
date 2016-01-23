@@ -34,7 +34,7 @@ class Event implements Multition
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = null;
@@ -42,7 +42,7 @@ class Event implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -50,7 +50,7 @@ class Event implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = null;
@@ -66,7 +66,7 @@ class Event implements Multition
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = null;
@@ -221,7 +221,7 @@ class Event implements Multition
      *
      * This usually happens from DB or cache
      *
-     * @param \int $id Object ID
+     * @param int $id Object ID
      *
      * @return void
      *

@@ -34,7 +34,7 @@ interface AccountInterface
      *
      * This function gets all groups in a range
      *
-     * @return \float
+     * @return float
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

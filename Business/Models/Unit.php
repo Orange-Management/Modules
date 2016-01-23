@@ -25,22 +25,22 @@ class Unit
 
     protected $description = '';
 
-    public function getId() : \int
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName() : \string
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function getParent() : \int
+    public function getParent() : int
     {
         return $this->parent;
     }
 
-    public function getDescription() : \string
+    public function getDescription() : string
     {
         return $this->description;
     }

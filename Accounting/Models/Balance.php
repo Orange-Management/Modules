@@ -34,7 +34,7 @@ abstract class Balance implements ExchangeInterface
     /**
      * ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = 0;
@@ -75,7 +75,7 @@ abstract class Balance implements ExchangeInterface
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -86,7 +86,7 @@ abstract class Balance implements ExchangeInterface
     }
 
     /**
-     * @param \int $id
+     * @param int $id
      *
      * @return void
      *

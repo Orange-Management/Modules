@@ -34,7 +34,7 @@ class Report
     /**
      * Report Id.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = 0;
@@ -42,7 +42,7 @@ class Report
     /**
      * Report status.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $status = ReporterStatus::INACTIVE;
@@ -50,7 +50,7 @@ class Report
     /**
      * Report title.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $title = '';
@@ -58,7 +58,7 @@ class Report
     /**
      * Report description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -74,7 +74,7 @@ class Report
     /**
      * Report created by.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -82,7 +82,7 @@ class Report
     /**
      * Report template.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $template = 0;
@@ -90,7 +90,7 @@ class Report
     /**
      * Report source.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $source = null;
@@ -123,84 +123,84 @@ class Report
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getId() : \int
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getStatus() : \int
+    public function getStatus() : int
     {
         return $this->status;
     }
 
     /**
-     * @param \int $status Report status
+     * @param int $status Report status
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setStatus(\int $status)
+    public function setStatus(int $status)
     {
         $this->status = $status;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTitle() : \string
+    public function getTitle() : string
     {
         return $this->title;
     }
 
     /**
-     * @param \string $title Title
+     * @param string $title Title
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setTitle(\string $title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDescription() : \string
+    public function getDescription() : string
     {
         return $this->description;
     }
 
     /**
-     * @param \string $description Description
+     * @param string $description Description
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setDescription(\string $description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
@@ -230,73 +230,73 @@ class Report
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreatedBy() : \int
+    public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
 
     /**
-     * @param \int $creator Created by
+     * @param int $creator Created by
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreatedBy(\int $creator)
+    public function setCreatedBy(int $creator)
     {
         $this->createdBy = $creator;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTemplate() : \int
+    public function getTemplate() : int
     {
         return $this->template;
     }
 
     /**
-     * @param \int $template Report template
+     * @param int $template Report template
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setTemplate(\int $template)
+    public function setTemplate(int $template)
     {
         $this->template = $template;
     }
 
     /**
-     * @param \int $source Report source
+     * @param int $source Report source
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setSource(\int $source)
+    public function setSource(int $source)
     {
         $this->source = $source;
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getSource() : \int
+    public function getSource() : int
     {
         return $this->source;
     }

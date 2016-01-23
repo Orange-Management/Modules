@@ -32,7 +32,7 @@ class TaskElement
     /**
      * Id.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $id = null;
@@ -40,7 +40,7 @@ class TaskElement
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -48,7 +48,7 @@ class TaskElement
     /**
      * Task.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $task = 0;
@@ -56,7 +56,7 @@ class TaskElement
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = 0;
@@ -72,7 +72,7 @@ class TaskElement
     /**
      * Status.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $status = null;
@@ -88,7 +88,7 @@ class TaskElement
     /**
      * Forwarded to.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $forwarded = 0;
@@ -106,7 +106,7 @@ class TaskElement
     /**
      * Init task element.
      *
-     * @param \int $id Article ID
+     * @param int $id Article ID
      *
      * @return void
      *
@@ -142,7 +142,7 @@ class TaskElement
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -153,7 +153,7 @@ class TaskElement
     }
 
     /**
-     * @param \int $creator
+     * @param int $creator
      *
      * @return void
      *
@@ -166,7 +166,7 @@ class TaskElement
     }
 
     /**
-     * @return \string
+     * @return string
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -177,7 +177,7 @@ class TaskElement
     }
 
     /**
-     * @param \string $description
+     * @param string $description
      *
      * @return void
      *
@@ -214,7 +214,7 @@ class TaskElement
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -225,7 +225,7 @@ class TaskElement
     }
 
     /**
-     * @param \int $forwarded
+     * @param int $forwarded
      *
      * @return void
      *
@@ -238,7 +238,7 @@ class TaskElement
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -249,7 +249,7 @@ class TaskElement
     }
 
     /**
-     * @param \int $id
+     * @param int $id
      *
      * @return void
      *
@@ -262,7 +262,7 @@ class TaskElement
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -273,7 +273,7 @@ class TaskElement
     }
 
     /**
-     * @param \int $status
+     * @param int $status
      *
      * @return void
      *
@@ -286,7 +286,7 @@ class TaskElement
     }
 
     /**
-     * @return \int
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -297,7 +297,7 @@ class TaskElement
     }
 
     /**
-     * @param \int $task
+     * @param int $task
      *
      * @return void
      *

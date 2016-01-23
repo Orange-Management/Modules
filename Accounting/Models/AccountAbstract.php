@@ -33,7 +33,7 @@ abstract class AccountAbstract implements AccountInterface
     /**
      * Account ID.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     protected $id = 0;
@@ -57,7 +57,7 @@ abstract class AccountAbstract implements AccountInterface
     /**
      * Constructor.
      *
-     * @param \int $id Account ID
+     * @param int $id Account ID
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -70,7 +70,7 @@ abstract class AccountAbstract implements AccountInterface
     /**
      * Get entry.
      *
-     * @param \int $id Entry ID
+     * @param int $id Entry ID
      *
      * @return void
      *
@@ -86,7 +86,7 @@ abstract class AccountAbstract implements AccountInterface
      *
      * @param \DateTime $start Interval start
      * @param \DateTime $end   Interval end
-     * @param \int      $dateType
+     * @param int      $dateType
      *
      * @internal \Modules\Accounting\Models\TimeRangeType $dateTime Time range type
      *

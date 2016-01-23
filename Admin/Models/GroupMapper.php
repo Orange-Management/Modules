@@ -36,7 +36,7 @@ class GroupMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'group';
@@ -44,7 +44,7 @@ class GroupMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'group_id';
@@ -52,7 +52,7 @@ class GroupMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $createdAt = 'group_created';

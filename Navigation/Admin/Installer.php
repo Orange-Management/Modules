@@ -92,7 +92,7 @@ class Installer extends InstallerAbstract
      *
      * @param Pool  $dbPool Database instance
      * @param array $data   Link info
-     * @param \int  $parent Parent element (default is 0 for none)
+     * @param int  $parent Parent element (default is 0 for none)
      *
      * @return void
      *

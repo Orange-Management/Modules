@@ -43,7 +43,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'media';
@@ -53,7 +53,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'media_id';
@@ -63,7 +63,7 @@ class MediaMapper extends DataMapperAbstract
      *
      * @param Media $obj Media
      *
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

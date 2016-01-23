@@ -58,8 +58,8 @@ class NewsList
      * This function gets all accounts in a range
      *
      * @param array $filter Filter for search results
-     * @param \int  $offset Offset for first account
-     * @param \int  $limit  Limit for results
+     * @param int  $offset Offset for first account
+     * @param int  $limit  Limit for results
      *
      * @return array
      *

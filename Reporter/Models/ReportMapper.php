@@ -44,7 +44,7 @@ class ReportMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'reporter_report';
@@ -52,7 +52,7 @@ class ReportMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'reporter_report_id';
@@ -64,7 +64,7 @@ class ReportMapper extends DataMapperAbstract
      *
      * @param Report $obj Report report
      *
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

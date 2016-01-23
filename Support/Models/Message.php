@@ -34,7 +34,7 @@ class Message implements Multition
     /**
      * Name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $name = '';
@@ -42,7 +42,7 @@ class Message implements Multition
     /**
      * Description.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     private $description = '';
@@ -58,7 +58,7 @@ class Message implements Multition
     /**
      * Creator.
      *
-     * @var \int
+     * @var int
      * @since 1.0.0
      */
     private $creator = null;
@@ -153,7 +153,7 @@ class Message implements Multition
      *
      * This usually happens from DB or cache
      *
-     * @param \int $id Object ID
+     * @param int $id Object ID
      *
      * @return void
      *

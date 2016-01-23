@@ -44,7 +44,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'task';
@@ -54,7 +54,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'task_id';
@@ -64,7 +64,7 @@ class TaskMapper extends DataMapperAbstract
      *
      * @param Task $obj Media
      *
-     * @return \bool
+     * @return bool
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

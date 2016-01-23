@@ -45,7 +45,7 @@ class AccountMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'account';
@@ -53,7 +53,7 @@ class AccountMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'account_id';
@@ -61,7 +61,7 @@ class AccountMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $createdAt = 'account_created';

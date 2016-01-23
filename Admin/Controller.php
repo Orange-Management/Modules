@@ -45,7 +45,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module path.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     const MODULE_PATH = __DIR__;
@@ -53,7 +53,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module version.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     const MODULE_VERSION = '1.0.0';
@@ -61,7 +61,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     const MODULE_NAME = 'Admin';
@@ -69,7 +69,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Localization files.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $localization = [
@@ -79,7 +79,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Providing.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $providing = [];
@@ -87,7 +87,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Dependencies.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $dependencies = [];
@@ -326,7 +326,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    private function createNavigation(\int $pageId, RequestAbstract $request, ResponseAbstract $response)
+    private function createNavigation(int $pageId, RequestAbstract $request, ResponseAbstract $response)
     {
         $nav     = Navigation::getInstance($request, $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);

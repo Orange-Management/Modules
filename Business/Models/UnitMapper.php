@@ -39,7 +39,7 @@ class UnitMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $table = 'business_unit';
@@ -47,7 +47,7 @@ class UnitMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $primaryField = 'business_unit_id';
@@ -55,7 +55,7 @@ class UnitMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var \string
+     * @var string
      * @since 1.0.0
      */
     protected static $createdAt = 'business_unit_created';
