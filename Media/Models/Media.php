@@ -140,19 +140,6 @@ class Media
     }
 
     /**
-     * @param int $id Id
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return int
      *
      * @since  1.0.0
@@ -171,7 +158,7 @@ class Media
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt;
+        return $this->createdAt ?? new \DateTime('now');
     }
 
     /**
@@ -227,6 +214,17 @@ class Media
     public function getSize() : int
     {
         return $this->size;
+    }
+
+    /**
+     * @return bool
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function isVersioned() : bool
+    {
+        return $this->versioned;
     }
 
     /**
@@ -331,16 +329,5 @@ class Media
     public function setVersioned(bool $versioned)
     {
         $this->versioned = $versioned;
-    }
-
-    /**
-     * @return bool
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function getVersioned() : bool
-    {
-        return $this->versioned;
     }
 }

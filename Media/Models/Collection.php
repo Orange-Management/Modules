@@ -16,7 +16,6 @@
 namespace Modules\Media\Models;
 
 
-
 /**
  * Media class.
  *
@@ -38,6 +37,9 @@ class Collection extends Media
      * @since 1.0.0
      */
     private $sources = [];
+
+    protected $extension = 'collection';
+    protected $versioned = false;
 
     /**
      * Constructor.
@@ -90,5 +92,13 @@ class Collection extends Media
     public function getSources() : array
     {
         return $this->sources;
+    }
+
+    public function setExtension(string $extension)
+    {
+    }
+
+    public function setVersioned(bool $versioned)
+    {
     }
 }
