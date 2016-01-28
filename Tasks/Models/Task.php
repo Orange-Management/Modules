@@ -35,7 +35,7 @@ class Task
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private $id = 0;
 
     /**
      * Title.
@@ -51,7 +51,7 @@ class Task
      * @var int
      * @since 1.0.0
      */
-    private $createdBy = null;
+    private $createdBy = 0;
 
     /**
      * Created.
@@ -68,14 +68,6 @@ class Task
      * @since 1.0.0
      */
     private $description = '';
-
-    /**
-     * Plain unparsed.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    private $plain = '';
 
     /**
      * Type.
@@ -125,6 +117,8 @@ class Task
      */
     public function __construct()
     {
+        $this->createdAt = new \DateTime('now');
+        $this->due = (new \DateTime('now'))->modify('+1 day');
     }
 
     /**
@@ -132,20 +126,20 @@ class Task
      *
      * @param TaskElement $element Task element
      *
-     * @return bool
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function addElement(TaskElement $element) : bool
+    public function addElement(TaskElement $element) : int
     {
-        if (!isset($this->taskElements[$element->getId()])) {
-            $this->taskElements[$element->getId()] = $element;
+        $this->taskElements[] = $element;
 
-            return true;
-        }
+        end($this->taskElements);
+        $key = key($this->taskElements);
+        reset($this->taskElements);
 
-        return false;
+        return $key;
     }
 
     /**
@@ -156,7 +150,18 @@ class Task
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt;
+        return $this->createdAt ?? new \DateTime();
+    }
+
+    /**
+     * @param \DateTime $created
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setCreatedAt(\DateTime $created)
+    {
+        $this->createdAt = $created;
     }
 
     /**
@@ -171,6 +176,17 @@ class Task
     }
 
     /**
+     * @param int $id
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setCreatedBy(int $id)
+    {
+        $this->createdBy = $id;
+    }
+
+    /**
      * @return string
      *
      * @since  1.0.0
@@ -182,14 +198,36 @@ class Task
     }
 
     /**
+     * @param string $description
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    /**
      * @return \DateTime
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDone() : \DateTime
+    public function getDone()
     {
         return $this->done;
+    }
+
+    /**
+     * @param \DateTime $done
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setDone(\DateTime $done)
+    {
+        $this->done = $done;;
     }
 
     /**
@@ -204,6 +242,17 @@ class Task
     }
 
     /**
+     * @param \DateTime $due
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setDue(\DateTime $due)
+    {
+        $this->due = $due;
+    }
+
+    /**
      * @return int
      *
      * @since  1.0.0
@@ -215,14 +264,25 @@ class Task
     }
 
     /**
-     * @return TaskStatus
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getStatus() : TaskStatus
+    public function getStatus() : int
     {
         return $this->status;
+    }
+
+    /**
+     * @param int $status
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 
     /**
@@ -234,6 +294,17 @@ class Task
     public function getTitle() : string
     {
         return $this->title;
+    }
+
+    /**
+     * @param string $title
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
     }
 
     /**
@@ -299,15 +370,16 @@ class Task
     }
 
     /**
-     * Get plain.
+     * Set task type.
      *
-     * @return string
+     * @param int $type
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getPlain() : string
+    public function setType(\int $type)
     {
-        return $this->plain;
+        $this->type = $type;
     }
+
 }

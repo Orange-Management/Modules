@@ -74,6 +74,7 @@ class ReportMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj);
             $query = new Builder($this->db);
+
             $query->prefix($this->db->getPrefix())
                   ->insert(
                       'account_permission_account',

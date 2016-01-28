@@ -49,21 +49,20 @@ class Installer extends InstallerAbstract
                             `task_id` int(11) NOT NULL AUTO_INCREMENT,
                             `task_title` varchar(30) DEFAULT NULL,
                             `task_desc` text NOT NULL,
-                            `task_plain` text NOT NULL,
                             `task_type` tinyint(1) NOT NULL,
                             `task_status` tinyint(1) NOT NULL,
                             `task_due` datetime NOT NULL,
                             `task_done` datetime NOT NULL,
-                            `task_creator` int(11) NOT NULL,
-                            `task_created` datetime NOT NULL,
+                            `task_created_by` int(11) NOT NULL,
+                            `task_created_at` datetime NOT NULL,
                             PRIMARY KEY (`task_id`),
-                            KEY `task_creator` (`task_creator`)
+                            KEY `task_creator` (`task_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'task`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_1` FOREIGN KEY (`task_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_1` FOREIGN KEY (`task_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
@@ -89,16 +88,15 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'task_element` (
                             `task_element_id` int(11) NOT NULL AUTO_INCREMENT,
                             `task_element_desc` text NOT NULL,
-                            `task_element_plain` text NOT NULL,
                             `task_element_task` int(11) NOT NULL,
-                            `task_element_creator` int(11) NOT NULL,
+                            `task_element_created_by` int(11) NOT NULL,
                             `task_element_status` tinyint(1) NOT NULL,
                             `task_element_due` datetime NOT NULL,
-                            `task_element_forwarded` int(11) NOT NULL,
-                            `task_element_created` datetime NOT NULL,
+                            `task_element_forwarded` int(11) DEFAULT NULL,
+                            `task_element_created_at` datetime NOT NULL,
                             PRIMARY KEY (`task_element_id`),
                             KEY `task_element_task` (`task_element_task`),
-                            KEY `task_element_creator` (`task_element_creator`),
+                            KEY `task_element_created_by` (`task_element_created_by`),
                             KEY `task_element_forwarded` (`task_element_forwarded`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -106,7 +104,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'task_element`
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_1` FOREIGN KEY (`task_element_task`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_2` FOREIGN KEY (`task_element_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_2` FOREIGN KEY (`task_element_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_3` FOREIGN KEY (`task_element_forwarded`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 

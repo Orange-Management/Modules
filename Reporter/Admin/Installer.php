@@ -80,6 +80,7 @@ class Installer extends InstallerAbstract
                             `reporter_template_status` tinyint(1) NOT NULL,
                             `reporter_template_title` varchar(25) NOT NULL,
                             `reporter_template_data` tinyint(1) NOT NULL,
+                            `reporter_template_expected` varchar(255) NOT NULL,
                             `reporter_template_desc` varchar(255) NOT NULL,
                             `reporter_template_media` int(11) NOT NULL,
                             `reporter_template_creator` int(11) NOT NULL,

@@ -408,10 +408,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
         $reporterTemplate->setDescription($request->getData('description') ?? '');
         $reporterTemplate->setSource($collectionId);
-        $reporterTemplate->setExpected(isset($expected) ? (array) json_decode($expected) : []);
+        $reporterTemplate->setExpected(isset($expected) ? json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getAccount());
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
-        $reporterTemplate->setDatatype((int) $request->getData('source'));
+        $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
         $reporterTemplateMapper = new TemplateMapper($this->app->dbPool->get());
         $templateId             = $reporterTemplateMapper->create($reporterTemplate);

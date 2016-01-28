@@ -29,17 +29,18 @@ class TemplateMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'reporter_template_id'      => ['name' => 'reporter_template_id', 'type' => 'int', 'internal' => 'id'],
-        'reporter_template_status'  => ['name' => 'reporter_template_status', 'type' => 'int', 'internal' => 'status'],
-        'reporter_template_title'   => ['name' => 'reporter_template_title', 'type' => 'string', 'internal' => 'name'],
-        'reporter_template_data'    => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
-        'reporter_template_desc'    => ['name'     => 'reporter_template_desc', 'type' => 'string',
-                                        'internal' => 'description'],
-        'reporter_template_media'   => ['name' => 'reporter_template_media', 'type' => 'int', 'internal' => 'source'],
-        'reporter_template_creator' => ['name'     => 'reporter_template_creator', 'type' => 'int',
-                                        'internal' => 'createdBy'],
-        'reporter_template_created' => ['name'     => 'reporter_template_created', 'type' => 'DateTime',
-                                        'internal' => 'createdAt'],
+        'reporter_template_id'       => ['name' => 'reporter_template_id', 'type' => 'int', 'internal' => 'id'],
+        'reporter_template_status'   => ['name' => 'reporter_template_status', 'type' => 'int', 'internal' => 'status'],
+        'reporter_template_title'    => ['name' => 'reporter_template_title', 'type' => 'string', 'internal' => 'name'],
+        'reporter_template_data'     => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
+        'reporter_template_expected' => ['name' => 'reporter_template_expected', 'type' => 'Json', 'internal' => 'expected'],
+        'reporter_template_desc'     => ['name'     => 'reporter_template_desc', 'type' => 'string',
+                                         'internal' => 'description'],
+        'reporter_template_media'    => ['name' => 'reporter_template_media', 'type' => 'int', 'internal' => 'source'],
+        'reporter_template_creator'  => ['name'     => 'reporter_template_creator', 'type' => 'int',
+                                         'internal' => 'createdBy'],
+        'reporter_template_created'  => ['name'     => 'reporter_template_created', 'type' => 'DateTime',
+                                         'internal' => 'createdAt'],
     ];
 
     /**

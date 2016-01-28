@@ -50,6 +50,7 @@ class Installer extends InstallerAbstract
                             `media_file` varchar(255) NOT NULL,
                             `media_extension` varchar(10) NULL,
                             `media_collection` tinyint(1) NULL,
+                            `media_description` varchar(255) NULL,
                             `media_size` int(11) NULL,
                             `media_created_by` int(11) DEFAULT NULL,
                             `media_created_at` datetime DEFAULT NULL,

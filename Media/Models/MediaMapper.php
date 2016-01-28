@@ -29,15 +29,16 @@ class MediaMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'media_id'         => ['name' => 'media_id', 'type' => 'int', 'internal' => 'id'],
-        'media_name'       => ['name' => 'media_name', 'type' => 'string', 'internal' => 'name'],
-        'media_versioned'  => ['name' => 'media_versioned', 'type' => 'bool', 'internal' => 'versioned'],
-        'media_file'       => ['name' => 'media_file', 'type' => 'string', 'internal' => 'path'],
-        'media_extension'  => ['name' => 'media_extension', 'type' => 'string', 'internal' => 'extension'],
-        'media_collection' => ['name' => 'media_collection', 'type' => 'bool', 'internal' => 'collection'],
-        'media_size'       => ['name' => 'media_size', 'type' => 'int', 'internal' => 'size'],
-        'media_created_by' => ['name' => 'media_created_by', 'type' => 'int', 'internal' => 'createdBy'],
-        'media_created_at' => ['name' => 'media_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'media_id'          => ['name' => 'media_id', 'type' => 'int', 'internal' => 'id'],
+        'media_name'        => ['name' => 'media_name', 'type' => 'string', 'internal' => 'name'],
+        'media_versioned'   => ['name' => 'media_versioned', 'type' => 'bool', 'internal' => 'versioned'],
+        'media_file'        => ['name' => 'media_file', 'type' => 'string', 'internal' => 'path'],
+        'media_extension'   => ['name' => 'media_extension', 'type' => 'string', 'internal' => 'extension'],
+        'media_collection'  => ['name' => 'media_collection', 'type' => 'bool', 'internal' => 'collection'],
+        'media_description' => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description'],
+        'media_size'        => ['name' => 'media_size', 'type' => 'int', 'internal' => 'size'],
+        'media_created_by'  => ['name' => 'media_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'media_created_at'  => ['name' => 'media_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**

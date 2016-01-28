@@ -93,7 +93,7 @@ class Report
      * @var int
      * @since 1.0.0
      */
-    private $source = null;
+    private $source = 0;
 
     /**
      * Permissions.
@@ -213,7 +213,7 @@ class Report
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt;
+        return $this->createdAt ?? new \DateTime('now');
     }
 
     /**

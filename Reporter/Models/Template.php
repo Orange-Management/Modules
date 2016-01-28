@@ -14,8 +14,6 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Reporter\Models;
-use phpOMS\Contract\Object;
-
 
 /**
  * Template model.
@@ -45,7 +43,7 @@ class Template
      * @var int
      * @since 1.0.0
      */
-    private $status = ReporterStatus::ACTIVE;
+    private $status = ReporterStatus::INACTIVE;
 
     /**
      * Template data source.
@@ -77,7 +75,7 @@ class Template
      * @var \DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    protected $createdAt = null;
 
     /**
      * Template created by.
@@ -258,7 +256,7 @@ class Template
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt;
+        return $this->createdAt ?? new \DateTime('now');
     }
 
     /**

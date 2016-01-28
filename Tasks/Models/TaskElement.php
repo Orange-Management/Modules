@@ -35,7 +35,7 @@ class TaskElement
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private $id = 0;
 
     /**
      * Description.
@@ -59,7 +59,7 @@ class TaskElement
      * @var int
      * @since 1.0.0
      */
-    private $creator = 0;
+    private $createdBy = 0;
 
     /**
      * Created.
@@ -67,7 +67,7 @@ class TaskElement
      * @var \DateTime
      * @since 1.0.0
      */
-    private $created = null;
+    private $createdAt = null;
 
     /**
      * Status.
@@ -75,7 +75,7 @@ class TaskElement
      * @var int
      * @since 1.0.0
      */
-    private $status = null;
+    private $status = TaskStatus::OPEN;
 
     /**
      * Due.
@@ -91,7 +91,7 @@ class TaskElement
      * @var int
      * @since 1.0.0
      */
-    private $forwarded = 0;
+    private $forwarded = null;
 
     /**
      * Constructor.
@@ -101,20 +101,8 @@ class TaskElement
      */
     public function __construct()
     {
-    }
-
-    /**
-     * Init task element.
-     *
-     * @param int $id Article ID
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function init($id)
-    {
+        $this->due       = (new \DateTime('now'))->modify('+1 day');
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -123,9 +111,9 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreated()
+    public function getCreatedAt() : \DateTime
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
     /**
@@ -136,9 +124,9 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreated($created)
+    public function setCreatedAt(\DateTime $created)
     {
-        $this->created = $created;
+        $this->createdAt = $created;
     }
 
     /**
@@ -147,9 +135,9 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreator()
+    public function getCreatedBy() : int
     {
-        return $this->creator;
+        return $this->createdBy;
     }
 
     /**
@@ -160,9 +148,9 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreator($creator)
+    public function setCreatedBy(int $creator)
     {
-        $this->creator = $creator;
+        $this->createdBy = $creator;
     }
 
     /**
@@ -171,7 +159,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDescription()
+    public function getDescription() : string
     {
         return $this->description;
     }
@@ -184,7 +172,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
@@ -195,7 +183,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getDue()
+    public function getDue() : \DateTime
     {
         return $this->due;
     }
@@ -208,7 +196,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setDue($due)
+    public function setDue(\DateTime $due)
     {
         $this->due = $due;
     }
@@ -219,9 +207,9 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getForwarded()
+    public function getForwarded() : int
     {
-        return $this->forwarded;
+        return $this->forwarded ?? 0;
     }
 
     /**
@@ -232,7 +220,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setForwarded($forwarded)
+    public function setForwarded(int $forwarded)
     {
         $this->forwarded = $forwarded;
     }
@@ -243,22 +231,9 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 
     /**
@@ -267,7 +242,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getStatus()
+    public function getStatus() : int
     {
         return $this->status;
     }
@@ -280,7 +255,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setStatus($status)
+    public function setStatus(int $status)
     {
         $this->status = $status;
     }
@@ -291,7 +266,7 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTask()
+    public function getTask() : int
     {
         return $this->task;
     }
@@ -304,43 +279,8 @@ class TaskElement
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setTask($task)
+    public function setTask(int $task)
     {
         $this->task = $task;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function create()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function update()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function serialize()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($data)
-    {
     }
 }

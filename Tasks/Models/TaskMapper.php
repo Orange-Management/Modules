@@ -32,13 +32,22 @@ class TaskMapper extends DataMapperAbstract
         'task_id'      => ['name' => 'task_id', 'type' => 'int', 'internal' => 'id'],
         'task_title'   => ['name' => 'task_title', 'type' => 'string', 'internal' => 'title'],
         'task_desc'    => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
-        'task_plain'   => ['name' => 'task_plain', 'type' => 'string', 'internal' => 'plain'],
         'task_type'    => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
         'task_status'  => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
         'task_due'     => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
         'task_done'    => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
-        'task_creator' => ['name' => 'task_creator', 'type' => 'int', 'internal' => 'createdBy'],
-        'task_created' => ['name' => 'task_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'task_created_by' => ['name' => 'task_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+    ];
+
+    protected static $hasMany = [
+        'taskElements' => [
+            'mapper'         => '\Modules\Tasks\Models\TaskElementMapper',
+            'relationmapper' => '\Modules\Tasks\Models\TaskElementMapper',
+            'table'          => 'task_element',
+            'dst'            => 'task_element_task',
+            'src'            => null,
+        ],
     ];
 
     /**
@@ -49,7 +58,7 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $table = 'task';
 
-    protected static $createdAt = 'task_created';
+    protected static $createdAt = 'task_created_at';
 
     /**
      * Primary field name.
@@ -92,7 +101,7 @@ class TaskMapper extends DataMapperAbstract
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e);
+            var_dump($e->getMessage());
 
             return false;
         }
