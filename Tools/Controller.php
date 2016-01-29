@@ -54,7 +54,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'MyTools';
+    const MODULE_NAME = 'Tools';
 
     /**
      * Localization files.

@@ -44,6 +44,14 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_PATH = __DIR__;
 
     /**
+     * Module name.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    const MODULE_NAME = 'CreditManagement';
+
+    /**
      * Module version.
      *
      * @var string
