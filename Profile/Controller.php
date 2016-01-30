@@ -119,25 +119,4 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    /**
-     * @param int              $pageId   Page/parent Id for navigation
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    private function createNavigation(int $pageId, RequestAbstract $request, ResponseAbstract $response)
-    {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
-        $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
-        $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
-        $navView->setParent($pageId);
-
-        return $navView;
-    }
 }

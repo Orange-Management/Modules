@@ -127,7 +127,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/unit-list');
-        $view->addData('nav', $this->createNavigation(1004702001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
         $view->addData('list:elements', $unitMapper->getAll());
@@ -149,7 +149,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/unit-profile');
-        $view->addData('nav', $this->createNavigation(1004702001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
         $view->addData('unit', $unitMapper->get((int) $request->getData('id')));
@@ -171,7 +171,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/unit-create');
-        $view->addData('nav', $this->createNavigation(1004702001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
         $view->addData('unit', $unitMapper->get((int) $request->getData('id')));
@@ -193,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/department-list');
-        $view->addData('nav', $this->createNavigation(1004703001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
         $view->addData('list:elements', $departmentMapper->getAll());
@@ -215,7 +215,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/department-profile');
-        $view->addData('nav', $this->createNavigation(1004703001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
         $view->addData('unit', $departmentMapper->get((int) $request->getData('id')));
@@ -237,7 +237,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/department-create');
-        $view->addData('nav', $this->createNavigation(1004703001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
         $view->addData('unit', $unitMapper->get((int) $request->getData('id')));
@@ -259,7 +259,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/position-list');
-        $view->addData('nav', $this->createNavigation(1004704001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         return $view;
     }
@@ -278,7 +278,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/position-profile');
-        $view->addData('nav', $this->createNavigation(1004704001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         return $view;
     }
@@ -297,30 +297,9 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Business/Theme/Backend/position-create');
-        $view->addData('nav', $this->createNavigation(1004704001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         return $view;
     }
 
-    /**
-     * @param int              $pageId   Page/parent Id for navigation
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    private function createNavigation(int $pageId, RequestAbstract $request, ResponseAbstract $response)
-    {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
-        $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
-        $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
-        $navView->setParent($pageId);
-
-        return $navView;
-    }
 }

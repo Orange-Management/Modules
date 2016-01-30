@@ -135,7 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/entries');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         return $view;
     }
@@ -154,7 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/journal-list');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         return $view;
     }
@@ -173,7 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-list');
-        $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002605001, $request, $response));
 
         return $view;
     }
@@ -192,7 +192,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-predefined-list');
-        $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002605001, $request, $response));
 
         return $view;
     }
@@ -211,7 +211,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-create');
-        $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002605001, $request, $response));
 
         return $view;
     }
@@ -230,7 +230,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-entries');
-        $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002605001, $request, $response));
 
         return $view;
     }
@@ -249,7 +249,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-archive-list');
-        $view->addData('nav', $this->createNavigation(1002605001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002605001, $request, $response));
 
         return $view;
     }
@@ -268,7 +268,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-list');
-        $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002602001, $request, $response));
 
         return $view;
     }
@@ -287,7 +287,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-create');
-        $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002602001, $request, $response));
 
         return $view;
     }
@@ -306,30 +306,9 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-profile');
-        $view->addData('nav', $this->createNavigation(1002602001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002602001, $request, $response));
 
         return $view;
     }
 
-    /**
-     * @param int              $pageId   Page/parent Id for navigation
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    private function createNavigation(int $pageId, RequestAbstract $request, ResponseAbstract $response)
-    {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
-        $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
-        $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
-        $navView->setParent($pageId);
-
-        return $navView;
-    }
 }

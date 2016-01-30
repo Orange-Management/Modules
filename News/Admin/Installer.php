@@ -48,21 +48,20 @@ class Installer extends InstallerAbstract
                             `news_title` varchar(250) NOT NULL,
                             `news_featured` tinyint(1) DEFAULT NULL,
                             `news_content` text NOT NULL,
-                            `news_plain` text NOT NULL,
                             `news_type` tinyint(2) NOT NULL,
                             `news_status` tinyint(1) NOT NULL,
                             `news_lang` varchar(2) NOT NULL,
                             `news_publish` datetime NOT NULL,
-                            `news_created` datetime NOT NULL,
-                            `news_author` int(11) NOT NULL,
+                            `news_created_at` datetime NOT NULL,
+                            `news_created_by` int(11) NOT NULL,
                             PRIMARY KEY (`news_id`),
-                            KEY `news_author` (`news_author`)
+                            KEY `news_created_by` (`news_created_by`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'news`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_ibfk_1` FOREIGN KEY (`news_author`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_ibfk_1` FOREIGN KEY (`news_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

@@ -15,8 +15,6 @@
  */
 namespace Modules\Calendar\Models;
 
-use phpOMS\Pattern\Multition;
-
 /**
  * Calendar class.
  *
@@ -28,7 +26,7 @@ use phpOMS\Pattern\Multition;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Calendar implements Multition
+class Calendar
 {
 
     /**
@@ -37,7 +35,7 @@ class Calendar implements Multition
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private $id = 0;
 
     /**
      * Name.
@@ -56,20 +54,20 @@ class Calendar implements Multition
     private $description = '';
 
     /**
-     * Created.
+     * Created at.
      *
      * @var \Datetime
      * @since 1.0.0
      */
-    private $created = null;
+    private $createdAt = null;
 
     /**
-     * Creator.
+     * Created by.
      *
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private $createdBy = 0;
 
     /**
      * Events.
@@ -79,125 +77,85 @@ class Calendar implements Multition
      */
     private $events = [];
 
-    private static $instances = [];
-
-    public function __construct($id)
+    public function __construct()
     {
+        $this->createdAt = new \DateTime('now');
     }
 
-    public function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function init($id)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __clone()
-    {
-    }
-
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
-    public function getDescription()
+    public function getDescription() : string
     {
         return $this->description;
     }
 
-    public function setDescription($desc)
+    public function setDescription(string $desc)
     {
         $this->description = $desc;
     }
 
-    public function getEvents()
+    public function addEvent(Event $event) : int
+    {
+        $this->events[] = $event;
+
+        end($this->events);
+        $key = key($this->events);
+        reset($this->events);
+
+        return $key;
+    }
+
+    public function getEvents() : array
     {
         return $this->events;
     }
 
-    public function removeEvent()
+    public function removeEvent($id) : bool
     {
+        if (isset($this->events[$id])) {
+            unset($this->events[$id]);
+
+            return true;
+        }
+
+        return false;
     }
 
-    public function getEvent($id)
+    public function getEvent($id) : Event
     {
+        return $this->events[$id] ?? new NullEvent();
     }
 
-    public function getCreated()
+    public function getCreatedAt() : \DateTime
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
-    public function setCreated($created)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->created = $created;
+        $this->createdAt = $createdAt;
     }
 
-    public function getCreator()
+    public function getCreatedBy() : int
     {
-        return $this->creator;
+        return $this->createdBy;
     }
 
-    public function setCreator($creator)
+    public function setCreatedBy(int $createdBy)
     {
-        $this->creator = $creator;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function create()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function update()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function serialize()
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($data)
-    {
+        $this->createdBy = $createdBy;
     }
 }

@@ -15,8 +15,8 @@
  */
 namespace Modules\News\Models;
 
-
-use phpOMS\Localization\ISO639Enum;
+use phpOMS\Datatypes\Exception\InvalidEnumValue;
+use phpOMS\Localization\ISO639x1Enum;
 
 /**
  * News article class.
@@ -41,14 +41,6 @@ class NewsArticle
     private $id = 0;
 
     /**
-     * Author ID.
-     *
-     * @var int
-     * @since 1.0.0
-     */
-    private $author = 0;
-
-    /**
      * Title.
      *
      * @var string
@@ -65,14 +57,6 @@ class NewsArticle
     private $content = '';
 
     /**
-     * Plain.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    private $plain = '';
-
-    /**
      * News type.
      *
      * @var int
@@ -86,7 +70,7 @@ class NewsArticle
      * @var int
      * @since 1.0.0
      */
-    private $status = NewsStatus::VISIBLE;
+    private $status = NewsStatus::DRAFT;
 
     /**
      * Language.
@@ -94,7 +78,7 @@ class NewsArticle
      * @var string
      * @since 1.0.0
      */
-    private $lang = ISO639Enum::_EN;
+    private $language = ISO639x1Enum::_EN;
 
     /**
      * Created.
@@ -102,7 +86,15 @@ class NewsArticle
      * @var \DateTime
      * @since 1.0.0
      */
-    private $created = null;
+    private $createdAt = null;
+
+    /**
+     * Creator.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $createdBy = 0;
 
     /**
      * Publish.
@@ -128,19 +120,8 @@ class NewsArticle
      */
     public function __construct()
     {
-        $this->created = new \DateTime('NOW');
+        $this->createdAt = new \DateTime('NOW');
         $this->publish = new \DateTime('NOW');
-    }
-
-    /**
-     * @return int
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function getAuthor() : int
-    {
-        return $this->author;
     }
 
     /**
@@ -173,9 +154,9 @@ class NewsArticle
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreated() : \DateTime
+    public function getCreatedAt() : \DateTime
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
     /**
@@ -190,19 +171,6 @@ class NewsArticle
     }
 
     /**
-     * @param int $id Id
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return string
      *
      * @since  1.0.0
@@ -210,31 +178,7 @@ class NewsArticle
      */
     public function getLanguage() : string
     {
-        return $this->lang;
-    }
-
-    /**
-     * @return string
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function getPlain() : string
-    {
-        return $this->plain;
-    }
-
-    /**
-     * @param string $plain
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function setPlain(string $plain)
-    {
-        $this->plain = $plain;
+        return $this->language;
     }
 
     /**
@@ -249,16 +193,20 @@ class NewsArticle
     }
 
     /**
-     * @param string $lang
+     * @param string $language
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setLang(string $lang)
+    public function setLanguage(string $language)
     {
-        $this->lang = $lang;
+        if(!ISO639x1Enum::isValidValue($language)) {
+            throw new InvalidEnumValue($language);
+        }
+
+        $this->language = $language;
     }
 
     /**
@@ -275,29 +223,38 @@ class NewsArticle
     }
 
     /**
-     * @param \DateTime $created
-     *
-     * @return void
+     * @return int
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreated(\DateTime $created)
+    public function getCreatedBy() : int
     {
-        $this->created = $created;
+        return $this->createdBy;
     }
 
     /**
-     * @param int $author
+     * @param int $id
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setCreatedBy(int $id)
+    {
+        $this->createdBy = $id;
+    }
+
+    /**
+     * @param \DateTime $createdAt
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setAuthor(int $author)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->author = $author;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -345,6 +302,10 @@ class NewsArticle
      */
     public function setType(int $type)
     {
+        if(!NewsType::isValidValue($type)) {
+            throw new InvalidEnumValue($type);
+        }
+
         $this->type = $type;
     }
 
@@ -364,11 +325,17 @@ class NewsArticle
      *
      * @return void
      *
+     * @throws
+     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
+        if(!NewsStatus::isValidValue($status)) {
+            throw new InvalidEnumValue($status);
+        }
+
         $this->status = $status;
     }
 

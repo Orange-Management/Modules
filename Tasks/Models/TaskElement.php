@@ -14,6 +14,7 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Tasks\Models;
+use phpOMS\Datatypes\Exception\InvalidEnumValue;
 
 /**
  * Task class.
@@ -252,11 +253,17 @@ class TaskElement
      *
      * @return void
      *
+     * @throws
+     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
+        if(!TaskStatus::isValidValue($status)) {
+            throw new InvalidEnumValue($status);
+        }
+
         $this->status = $status;
     }
 

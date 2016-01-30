@@ -15,7 +15,10 @@
  */
 namespace Modules\Navigation;
 
+use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Models\NavigationType;
+use Modules\Navigation\Views\NavigationView;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -60,43 +63,6 @@ class Controller extends ModuleAbstract implements WebInterface
     public static $js = [
         'backend',
     ];
-
-    /**
-     * CSS files.
-     *
-     * @var string[]
-     * @since 1.0.0
-     */
-    public static $css = [
-    ];
-
-    /**
-     * Navigation array.
-     *
-     * Array of all navigation elements sorted by type->parent->id
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    public $nav = [];
-
-    /**
-     * Navigation array.
-     *
-     * Array of all navigation elements by id
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    public $nid = null;
-
-    /**
-     * Parent links of the current page.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    public $nav_parents = null;
 
     /**
      * Module name.
@@ -147,63 +113,24 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param int              $pageId   Page/parent Id for navigation
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function call(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response)
     {
-        $modules  = $this->app->moduleManager->getActiveModules();
-        $language = $this->app->accountManager->get($request->getAccount())->getL11n()->getLanguage();
+        $nav     = Navigation::getInstance($request, $this->app->dbPool);
+        $navView = new NavigationView($this->app, $request, $response);
+        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
+        $navView->setNav($nav->getNav());
+        $navView->setLanguage($request->getL11n()->getLanguage());
+        $navView->setParent($pageId);
 
-        foreach ($modules as $id => $module) {
-            $this->app->accountManager->get($request->getAccount())->getL11n()->loadLanguage($language, 'Navigation', $module[0]['module_path']);
-        }
-
-        if (!empty($this->nav)) {
-            $this->nav = [];
-
-            $uri_hash = $request->getHash();
-            $uri_pdo  = '';
-            $i        = 1;
-            foreach ($uri_hash as $hash) {
-                $uri_pdo .= ':pid' . $i . ',';
-                $i++;
-            }
-
-            $uri_pdo = rtrim($uri_pdo, ',');
-
-            $sth = $this->app->dbPool->get('core')->con->prepare('SELECT * FROM `' . $this->app->dbPool->get('core')->prefix . 'nav` WHERE `nav_pid` IN(' . $uri_pdo . ') ORDER BY `nav_order` ASC');
-
-            $i = 1;
-            foreach ($uri_hash as $hash) {
-                $sth->bindValue(':pid' . $i, $hash, \PDO::PARAM_STR);
-                $i++;
-            }
-
-            $sth->execute();
-            $temp_nav = $sth->fetchAll();
-
-            foreach ($temp_nav as $link) {
-                $this->nav[$link['nav_type']][$link['nav_subtype']][$link['nav_id']] = $link;
-            }
-        }
-
-        switch ($data[0]) {
-            case NavigationType::TOP:
-                /** @noinspection PhpIncludeInspection */
-                require __DIR__ . '/Theme/' . $request->getType() . '/top.tpl.php';
-                break;
-            case NavigationType::SIDE:
-                /** @noinspection PhpIncludeInspection */
-                require __DIR__ . '/Theme/' . $request->getType() . '/side.tpl.php';
-                break;
-            case NavigationType::CONTENT:
-                /** @noinspection PhpIncludeInspection */
-                require __DIR__ . '/Theme/' . $request->getType() . '/mid.tpl.php';
-                break;
-            case NavigationType::CONTENT_SIDE:
-                /** @noinspection PhpIncludeInspection */
-                require __DIR__ . '/Theme/' . $request->getType() . '/mid-side.tpl.php';
-                break;
-        }
+        return $navView;
     }
 }

@@ -121,7 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/News/Theme/Backend/news-dashboard');
-        $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
         $news     = $this->getNewsListR(20, 0, 'news.news_publish', 'DESC', $this->app->accountManager->get($request->getAccount()));
         $headline = $this->getHeadlineListR(20, 0, 'news.news_publish', 'ASC', $this->app->accountManager->get($request->getAccount()));
@@ -145,7 +145,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/News/Theme/Backend/news-single');
-        $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
         $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
         $article           = $newsArticleMapper->get((int) $request->getData('id'));
@@ -168,7 +168,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/News/Theme/Backend/news-archive');
-        $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
         return $view;
     }
@@ -187,7 +187,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/News/Theme/Backend/news-create');
-        $view->addData('nav', $this->createNavigation(1000701001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
         return $view;
     }
@@ -283,25 +283,4 @@ class Controller extends ModuleAbstract implements WebInterface
         return $newsArticleMapper->getAllByQuery($query);
     }
 
-    /**
-     * @param int              $pageId   Page/parent Id for navigation
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    private function createNavigation(int $pageId, RequestAbstract $request, ResponseAbstract $response)
-    {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
-        $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
-        $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
-        $navView->setParent($pageId);
-
-        return $navView;
-    }
 }

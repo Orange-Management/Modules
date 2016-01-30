@@ -15,8 +15,6 @@
  */
 namespace Modules\Calendar\Models;
 
-use phpOMS\Pattern\Multition;
-
 /**
  * Calendar class.
  *
@@ -28,7 +26,7 @@ use phpOMS\Pattern\Multition;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Event implements Multition
+class Event
 {
 
     /**
@@ -119,19 +117,8 @@ class Event implements Multition
      */
     private $occurence = null;
 
-    private static $instances = [];
-
-    public function __construct($id)
+    public function __construct()
     {
-    }
-
-    public function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
     }
 
     /**

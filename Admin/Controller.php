@@ -138,7 +138,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/settings-general');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         $view->setData('oname', $settings[1000000009]);
         $view->setData('country', $settings[1000000019]);
@@ -167,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         $accountMapper = new AccountMapper($this->app->dbPool->get());
         $view->setData('list:elements', $accountMapper->getAll());
@@ -190,7 +190,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         $accountMapper = new AccountMapper($this->app->dbPool->get());
         $view->addData('account', $accountMapper->get((int) $request->getData('id')));
@@ -212,7 +212,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-create');
-        $view->addData('nav', $this->createNavigation(1000104001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         return $view;
     }
@@ -231,7 +231,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
-        $view->addData('nav', $this->createNavigation(1000103001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
         $groupMapper = new GroupMapper($this->app->dbPool->get());
         $view->setData('list:elements', $groupMapper->getAll());
@@ -253,7 +253,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
-        $view->addData('nav', $this->createNavigation(1000103001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
         $groupMapper = new GroupMapper($this->app->dbPool->get());
         $view->addData('group', $groupMapper->get((int) $request->getData('id')));
@@ -275,7 +275,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
-        $view->addData('nav', $this->createNavigation(1000103001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
         return $view;
     }
@@ -316,25 +316,4 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    /**
-     * @param int              $pageId   Page/parent Id for navigation
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    private function createNavigation(int $pageId, RequestAbstract $request, ResponseAbstract $response)
-    {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
-        $navView = new NavigationView($this->app, $request, $response);
-        $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
-        $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
-        $navView->setParent($pageId);
-
-        return $navView;
-    }
 }
