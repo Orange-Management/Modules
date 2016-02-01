@@ -48,16 +48,16 @@ class Installer extends InstallerAbstract
                             `calendar_name` varchar(25) NOT NULL,
                             `calendar_password` varchar(64) NOT NULL,
                             `calendar_description` varchar(255) NOT NULL,
-                            `calendar_creator` int(11) NOT NULL,
-                            `calendar_created` datetime NOT NULL,
+                            `task_created_by` int(11) NOT NULL,
+                            `task_created_at` datetime NOT NULL,
                             PRIMARY KEY (`calendar_id`),
-                            KEY `calendar_creator` (`calendar_creator`)
+                            KEY `task_created_by` (`task_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'calendar`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_ibfk_1` FOREIGN KEY (`calendar_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_ibfk_1` FOREIGN KEY (`task_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
@@ -82,30 +82,20 @@ class Installer extends InstallerAbstract
                             `calendar_event_id` int(11) NOT NULL AUTO_INCREMENT,
                             `calendar_event_name` varchar(25) NOT NULL,
                             `calendar_event_description` varchar(255) NOT NULL,
-                            `calendar_event_start` datetime NOT NULL,
-                            `calendar_event_end` datetime NOT NULL,
                             `calendar_event_status` tinyint(1) NOT NULL,
-                            `calendar_event_repeat` tinyint(1) NOT NULL,
-                            `calendar_event_rep_interval` tinyint(3) NOT NULL,
-                            `calendar_event_rep_monday` tinyint(1) NOT NULL,
-                            `calendar_event_rep_tuesday` tinyint(1) NOT NULL,
-                            `calendar_event_rep_wednesday` tinyint(1) NOT NULL,
-                            `calendar_event_rep_thursday` tinyint(1) NOT NULL,
-                            `calendar_event_rep_friday` tinyint(1) NOT NULL,
-                            `calendar_event_rep_saturday` tinyint(1) NOT NULL,
-                            `calendar_event_rep_sunday` tinyint(1) NOT NULL,
-                            `calendar_event_creator` int(11) NOT NULL,
-                            `calendar_event_created` datetime NOT NULL,
+                            `calendar_event_location` varchar(511) NOT NULL,
+                            `calendar_event_created_by` int(11) NOT NULL,
+                            `calendar_event_created_at` datetime NOT NULL,
                             `calendar_event_calendar` int(11) NOT NULL,
                             PRIMARY KEY (`calendar_event_id`),
-                            KEY `calendar_event_creator` (`calendar_event_creator`),
+                            KEY `calendar_event_created_by` (`calendar_event_created_by`),
                             KEY `calendar_event_calendar` (`calendar_event_calendar`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'calendar_event`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_1` FOREIGN KEY (`calendar_event_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_1` FOREIGN KEY (`calendar_event_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_2` FOREIGN KEY (`calendar_event_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`);'
                 )->execute();
 

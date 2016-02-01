@@ -15,6 +15,10 @@
  */
 namespace Modules\Calendar\Models;
 
+use phpOMS\Account\Account;
+use phpOMS\Account\NullAccount;
+use phpOMS\Datatypes\Location;
+
 /**
  * Calendar class.
  *
@@ -59,7 +63,7 @@ class Event
      * @var \Datetime
      * @since 1.0.0
      */
-    private $created = null;
+    private $createdAt = null;
 
     /**
      * Creator.
@@ -67,7 +71,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private $createdBy = 0;
 
     /**
      * People.
@@ -77,6 +81,8 @@ class Event
      */
     private $location = null;
 
+    private $calendar = 0;
+
     /**
      * People.
      *
@@ -85,133 +91,116 @@ class Event
      */
     private $people = [];
 
-    /**
-     * Start.
-     *
-     * @var \Datetime
-     * @since 1.0.0
-     */
-    private $start = null;
-
-    /**
-     * Start.
-     *
-     * @var \Datetime
-     * @since 1.0.0
-     */
-    private $end = null;
-
-    /**
-     * Timezone.
-     *
-     * @var \Datetime
-     * @since 1.0.0
-     */
-    private $timezone = null;
-
-    /**
-     * Occurence.
-     *
-     * @var \Modules\Calendar\Models\OccurrenceType
-     * @since 1.0.0
-     */
-    private $occurence = null;
-
     public function __construct()
     {
+        $this->createdAt = new \DateTime('now');
+        $this->location  = new Location();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function init($id)
-    {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __clone()
-    {
-    }
-
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function getPeople() : array
+    {
+        return $this->people;
+    }
+
+    public function getPerson(int $id) : Account
+    {
+        return $this->people[$id] ?? new NullAccount();
+    }
+
+    public function addPerson(Account $person)
+    {
+        $this->people[] = $person;
+
+        end($this->people);
+        $key = key($this->people);
+        reset($this->people);
+
+        return $key;
+    }
+
+    /**
+     * Remove Element from list.
+     *
+     * @param int $id Task element
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function removePerson(int $id) : bool
+    {
+        if (isset($this->people[$id])) {
+            unset($this->people[$id]);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
-    public function getDescription()
+    public function getDescription() : string
     {
         return $this->description;
     }
 
-    public function setDescription($desc)
+    public function setDescription(string $desc)
     {
         $this->description = $desc;
     }
 
-    public function getCreated()
+    public function getCreatedAt() : \DateTime
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
-    public function setCreated($created)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->created = $created;
+        $this->createdAt = $createdAt;
     }
 
-    public function getCreator()
+    public function getCreatedBy() : int
     {
-        return $this->creator;
+        return $this->createdBy;
     }
 
-    public function setCreator($creator)
+    public function setCreatedBy(int $createdBy)
     {
-        $this->creator = $creator;
+        $this->createdBy = $createdBy;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function delete()
+    public function setLocation(Location $location)
     {
+        $this->location = $location;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function create()
+    public function getLocation() : Location
     {
+        return $this->location;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function update()
+    public function getCalendar() : int
     {
+        return $this->calendar;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function serialize()
+    public function setCalendar(int $calendar)
     {
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($data)
-    {
+        $this->calendar = $calendar;
     }
 }
