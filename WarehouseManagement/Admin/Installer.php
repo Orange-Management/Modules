@@ -228,7 +228,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'warehousing_shipping`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'warehousing_shipping_ibfk_1` FOREIGN KEY (`shipFrom`) REFERENCES `' . $dbPool->get('core')->prefix . 'business_address` (`business_address_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'warehousing_shipping_ibfk_1` FOREIGN KEY (`shipFrom`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_address` (`organization_address_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'warehousing_shipping_ibfk_2` FOREIGN KEY (`shipped`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 

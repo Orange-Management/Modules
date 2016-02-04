@@ -23,7 +23,7 @@ use phpOMS\Module\InstallerAbstract;
  * Organization install class.
  *
  * @category   Modules
- * @package    Modules\Business
+ * @package    Modules\Organization
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0

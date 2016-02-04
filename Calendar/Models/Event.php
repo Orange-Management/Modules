@@ -39,7 +39,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private $id = 0;
 
     /**
      * Name.

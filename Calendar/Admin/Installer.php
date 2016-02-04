@@ -48,16 +48,16 @@ class Installer extends InstallerAbstract
                             `calendar_name` varchar(25) NOT NULL,
                             `calendar_password` varchar(64) NOT NULL,
                             `calendar_description` varchar(255) NOT NULL,
-                            `task_created_by` int(11) NOT NULL,
-                            `task_created_at` datetime NOT NULL,
+                            `calendar_created_by` int(11) NOT NULL,
+                            `calendar_created_at` datetime NOT NULL,
                             PRIMARY KEY (`calendar_id`),
-                            KEY `task_created_by` (`task_created_by`)
+                            KEY `calendar_created_by` (`calendar_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'calendar`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_ibfk_1` FOREIGN KEY (`task_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_ibfk_1` FOREIGN KEY (`calendar_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

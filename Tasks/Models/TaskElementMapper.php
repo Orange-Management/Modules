@@ -71,7 +71,7 @@ class TaskElementMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj);
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
+            var_dump($e);
 
             return false;
         }

@@ -55,7 +55,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_unit`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_unit_ibfk_1` FOREIGN KEY (`riskmngmt_unit_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'business_unit` (`business_unit_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_unit_ibfk_1` FOREIGN KEY (`riskmngmt_unit_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_unit_ibfk_2` FOREIGN KEY (`riskmngmt_unit_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
@@ -72,7 +72,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_department`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_department_ibfk_1` FOREIGN KEY (`riskmngmt_department_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'business_department` (`business_department_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_department_ibfk_1` FOREIGN KEY (`riskmngmt_department_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_department` (`organization_department_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_department_ibfk_2` FOREIGN KEY (`riskmngmt_department_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
@@ -110,7 +110,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_project`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_project_ibfk_1` FOREIGN KEY (`riskmngmt_project_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'business_unit` (`business_unit_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_project_ibfk_1` FOREIGN KEY (`riskmngmt_project_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_project_ibfk_2` FOREIGN KEY (`riskmngmt_project_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
@@ -130,7 +130,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_process`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_process_ibfk_1` FOREIGN KEY (`riskmngmt_process_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'business_unit` (`business_unit_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_process_ibfk_1` FOREIGN KEY (`riskmngmt_process_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_process_ibfk_2` FOREIGN KEY (`riskmngmt_process_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
@@ -154,7 +154,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_risk`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_ibfk_1` FOREIGN KEY (`riskmngmt_risk_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'business_unit` (`business_unit_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_ibfk_1` FOREIGN KEY (`riskmngmt_risk_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_ibfk_2` FOREIGN KEY (`riskmngmt_risk_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 

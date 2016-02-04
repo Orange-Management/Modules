@@ -32,13 +32,13 @@ class CalendarMapper extends DataMapperAbstract
         'calendar_id'          => ['name' => 'calendar_id', 'type' => 'int', 'internal' => 'id'],
         'calendar_name'        => ['name' => 'calendar_name', 'type' => 'string', 'internal' => 'name'],
         'calendar_password'    => ['name' => 'calendar_password', 'type' => 'string', 'internal' => 'password'],
-        'calendar_description' => ['name' => 'calendar_description', 'type' => 'int', 'internal' => 'description'],
+        'calendar_description' => ['name' => 'calendar_description', 'type' => 'string', 'internal' => 'description'],
         'calendar_created_by'  => ['name' => 'calendar_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'calendar_created_at'  => ['name' => 'calendar_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     protected static $hasMany = [
-        'taskElements' => [
+        'events' => [
             'mapper'         => '\Modules\Calendar\Models\EventMapper',
             'relationmapper' => '\Modules\Calendar\Models\EventMapper',
             'table'          => 'calendar_event',
@@ -98,7 +98,7 @@ class CalendarMapper extends DataMapperAbstract
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
+            var_dump($e);
 
             return false;
         }
@@ -119,9 +119,9 @@ class CalendarMapper extends DataMapperAbstract
     public function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
-                     ->where('account_permission.account_permission_for', '=', 'task')
+                     ->where('account_permission.account_permission_for', '=', 'calendar')
                      ->where('account_permission.account_permission_id1', '=', 1)
-                     ->where('task.task_id', '=', new Column('account_permission.account_permission_id2'))
+                     ->where('calendar.calendar_id', '=', new Column('account_permission.account_permission_id2'))
                      ->where('account_permission.account_permission_r', '=', 1);
     }
 }

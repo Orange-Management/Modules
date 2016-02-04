@@ -17,8 +17,6 @@ namespace Modules\Organization;
 
 use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\UnitMapper;
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;
