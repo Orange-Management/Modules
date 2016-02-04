@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Business'] = [
+$MODLANG['Organization'] = [
     'Active'      => 'Active',
     'Department'  => 'Department',
     'Departments' => 'Departments',
