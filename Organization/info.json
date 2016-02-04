@@ -1,8 +1,8 @@
 {
     "name": {
         "id": 1004700000,
-        "internal": "Business",
-        "external": "OMS Business"
+        "internal": "Organization",
+        "external": "OMS Organization"
     },
     "version": "1.0.0",
     "requirements": {
@@ -14,7 +14,7 @@
         "website": "www.spl1nes.com"
     },
     "description": "The buisness module.",
-    "directory": "Business",
+    "directory": "Organization",
     "dependencies": {
         "Admin" : "1.0.0"
     },
@@ -27,8 +27,8 @@
                 "d22b06b478e3622168a943f8df016bf745dfdccc"
             ],
             "type": 4,
-            "for": "Business",
-            "file": "Business",
+            "for": "Organization",
+            "file": "Organization",
             "from": "Admin"
         },
         {
@@ -36,7 +36,7 @@
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,
-            "for": "Business",
+            "for": "Organization",
             "file": "",
             "from": "Admin"
         },
@@ -45,7 +45,7 @@
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,
-            "from": "Business",
+            "from": "Organization",
             "for": "Navigation",
             "file": "Navigation"
         }

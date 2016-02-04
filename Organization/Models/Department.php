@@ -13,15 +13,17 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Business\Models;
+namespace Modules\Organization\Models;
 
-class Unit
+class Department
 {
     protected $id = 0;
 
     protected $name = '';
 
     protected $parent = 0;
+
+    protected $unit = 0;
 
     protected $description = '';
 
@@ -36,6 +38,11 @@ class Unit
     }
 
     public function getParent() : int
+    {
+        return $this->parent;
+    }
+
+    public function getUnit() : int
     {
         return $this->parent;
     }

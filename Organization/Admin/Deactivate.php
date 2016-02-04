@@ -13,8 +13,11 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Business\Admin\Install;
+namespace Modules\Organization\Admin;
+
+
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\DeactivateAbstract;
 
 /**
  * Navigation class.
@@ -27,14 +30,14 @@ use phpOMS\DataStorage\Database\Pool;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Navigation
+class Deactivate extends DeactivateAbstract
 {
-    public static function install(Pool $dbPool)
-    {
-        $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
 
-        $class = '\\Modules\\Navigation\\Admin\\Installer';
-        /** @var $class \Modules\Navigation\Admin\Installer */
-        $class::installExternal($dbPool, $navData);
+    /**
+     * {@inheritdoc}
+     */
+    public static function deactivate(Pool $dbPool, array $info)
+    {
+        parent::deactivate($dbPool, $info);
     }
 }

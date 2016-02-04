@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Business\Admin;
+namespace Modules\Organization\Admin;
 
 
 use phpOMS\DataStorage\Database\Pool;
@@ -44,9 +44,9 @@ class Uninstall extends UninstallAbstract
         $query = new Builder($dbPool->get());
 
         $query->prefix($dbPool->get('core')->getPrefix())->drop(
-            'business_address',
-            'business_department',
-            'business_unit'
+            'organization_address',
+            'organization_department',
+            'organization_unit'
         );
 
         $dbPool->get()->con->prepare($query->toSql())->execute();

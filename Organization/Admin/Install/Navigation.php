@@ -13,11 +13,8 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Business\Admin;
-
-
+namespace Modules\Organization\Admin\Install;
 use phpOMS\DataStorage\Database\Pool;
-use phpOMS\Module\ActivateAbstract;
 
 /**
  * Navigation class.
@@ -30,14 +27,14 @@ use phpOMS\Module\ActivateAbstract;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Activate extends ActivateAbstract
+class Navigation
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function activate(Pool $dbPool, array $info)
+    public static function install(Pool $dbPool)
     {
-        parent::activate($dbPool, $info);
+        $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
+
+        $class = '\\Modules\\Navigation\\Admin\\Installer';
+        /** @var $class \Modules\Navigation\Admin\Installer */
+        $class::installExternal($dbPool, $navData);
     }
 }

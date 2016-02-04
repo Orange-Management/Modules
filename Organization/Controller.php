@@ -13,10 +13,10 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Business;
+namespace Modules\Organization;
 
-use Modules\Business\Models\DepartmentMapper;
-use Modules\Business\Models\UnitMapper;
+use Modules\Organization\Models\DepartmentMapper;
+use Modules\Organization\Models\UnitMapper;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
@@ -29,10 +29,10 @@ use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
 
 /**
- * Business Controller class.
+ * Organization Controller class.
  *
  * @category   Modules
- * @package    Modules\Business
+ * @package    Modules\Organization
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
@@ -64,7 +64,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'Business';
+    const MODULE_NAME = 'Organization';
 
     /**
      * Localization files.
@@ -100,17 +100,17 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $routes = [
-        '^.*/backend/business/unit/list.*$'    => [['dest' => '\Modules\Business\Controller:viewUnitList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/business/unit/profile.*$' => [['dest' => '\Modules\Business\Controller:viewUnitProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/business/unit/create.*$'  => [['dest' => '\Modules\Business\Controller:viewUnitCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/unit/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewUnitList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/unit/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewUnitProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/unit/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewUnitCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
-        '^.*/backend/business/department/list.*$'    => [['dest' => '\Modules\Business\Controller:viewDepartmentList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/business/department/profile.*$' => [['dest' => '\Modules\Business\Controller:viewDepartmentProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/business/department/create.*$'  => [['dest' => '\Modules\Business\Controller:viewDepartmentCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/department/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewDepartmentList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/department/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewDepartmentProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/department/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewDepartmentCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
-        '^.*/backend/business/position/list.*$'    => [['dest' => '\Modules\Business\Controller:viewPositionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/business/position/profile.*$' => [['dest' => '\Modules\Business\Controller:viewPositionProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/business/position/create.*$'  => [['dest' => '\Modules\Business\Controller:viewPositionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/position/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewPositionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/position/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewPositionProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/business/position/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewPositionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -126,7 +126,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/unit-list');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/unit-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
@@ -148,7 +148,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/unit-profile');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/unit-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
@@ -170,7 +170,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/unit-create');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/unit-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
@@ -192,7 +192,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/department-list');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/department-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
@@ -214,7 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/department-profile');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/department-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
@@ -236,7 +236,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/department-create');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/department-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $unitMapper = new UnitMapper($this->app->dbPool->get());
@@ -258,7 +258,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/position-list');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/position-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         return $view;
@@ -277,7 +277,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/position-profile');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         return $view;
@@ -296,7 +296,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Business/Theme/Backend/position-create');
+        $view->setTemplate('/Modules/Organization/Theme/Backend/position-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         return $view;

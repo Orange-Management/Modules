@@ -13,11 +13,12 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Business\Admin;
+namespace Modules\Organization\Admin;
 
 
 use phpOMS\DataStorage\Database\Pool;
-use phpOMS\Module\DeactivateAbstract;
+use phpOMS\Module\UpdateAbstract;
+use phpOMS\System\FileSystem;
 
 /**
  * Navigation class.
@@ -30,14 +31,16 @@ use phpOMS\Module\DeactivateAbstract;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Deactivate extends DeactivateAbstract
+class Update extends UpdateAbstract
 {
 
     /**
      * {@inheritdoc}
      */
-    public static function deactivate(Pool $dbPool, array $info)
+    public static function update(Pool $dbPool, array $info)
     {
-        parent::deactivate($dbPool, $info);
+        FileSystem::deletePath(__DIR__ . '/Update');
+        mkdir('Update');
+        parent::update($dbPool, $info);
     }
 }
