@@ -15,14 +15,15 @@
  */
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Tasks\Models\Task[] $tasks
  */
+$tasks = $this->getData('tasks');
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-75 floatLeft">
     <table class="table">
         <caption><?= $this->l11n->lang['Tasks']['Tasks']; ?></caption>
         <thead>
-            <tr><td><?= $this->l11n->lang[0]['ID']; ?>
             <td><?= $this->l11n->lang['Tasks']['Status']; ?>
             <td><?= $this->l11n->lang['Tasks']['Due']; ?>
             <td class="full"><?= $this->l11n->lang['Tasks']['Title']; ?>
@@ -30,7 +31,23 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->l11n->lang['Tasks']['Created']; ?>
         <tfoot>
         <tbody>
+        <?php $c = 0; foreach($tasks as $key => $task) : $c++;
+        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/task/single?id=' . $task->getId());
+        $color = 'darkred';
+        if($task->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
+        elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
+        elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
+        elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
+        elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ;?>
+            <tr>
+                <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->lang['Tasks']['S' . $task->getStatus()]; ?></span></a>
+                <td><a href="<?= $url; ?>"><?= $task->getDue()->format('Y-m-d H:i'); ?></a>
+                <td><a href="<?= $url; ?>"><?= $task->getTitle(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $task->getCreatedBy(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $task->getCreatedAt()->format('Y-m-d H:i'); ?></a>
+        <?php endforeach; if($c == 0) : ?>
         <tr><td colspan="6" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <?php endif; ?>
     </table>
 </section>
 

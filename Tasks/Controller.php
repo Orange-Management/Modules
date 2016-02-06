@@ -15,8 +15,11 @@
  */
 namespace Modules\Tasks;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
+use Modules\Tasks\Models\Task;
+use Modules\Tasks\Models\TaskElement;
+use Modules\Tasks\Models\TaskMapper;
+use Modules\Tasks\Models\TaskStatus;
+use Modules\Tasks\Models\TaskType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;
@@ -120,6 +123,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
+        $taskMapper = new TaskMapper($this->app->dbPool->get());
+        $tasks = $taskMapper->getNewest(25);
+        $view->addData('tasks', $tasks);
+
         return $view;
     }
 
@@ -138,6 +145,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+
+        $taskMapper = new TaskMapper($this->app->dbPool->get());
+        $task = $taskMapper->get((int) $request->getData('id'));
+        $view->addData('task', $task);
 
         return $view;
     }
@@ -178,6 +189,32 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         return $view;
+    }
+
+    public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $taskMapper = new TaskMapper($this->app->dbPool->get());
+
+        $task = new Task();
+        $task->setTitle($request->getData('title') ?? '');
+        $task->setDescription($request->getData('description') ?? '');
+        $task->setCreatedBy($request->getAccount());
+        $task->setCreatedAt(new \DateTime('now'));
+        $task->setDue(new \DateTime($request->getData('due') ?? 'now'));
+        $task->setStatus(TaskStatus::OPEN);
+        $task->setType(TaskType::TASK);
+
+        $element = new TaskElement();
+        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setCreatedAt($task->getCreatedAt());
+        $element->setCreatedBy($task->getCreatedBy());
+        $element->setDue($task->getDue());
+        $element->setStatus(TaskStatus::OPEN);
+
+        $task->addElement($element);
+
+        $taskMapper->create($task);
+        $response->set($request->__toString(), $task->getId());
     }
 
 }

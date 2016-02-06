@@ -299,7 +299,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $rcoll        = [];
 
         if (!($report instanceof NullReport)) {
-            $collection = $collectionMapper->get($report->getSource());
+            $collection = $collectionMapper->get(end($report)->getSource());
             $files      = $collection->getSources();
 
             foreach ($files as $media) {
@@ -312,7 +312,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getL11n()->getLanguage());
         $view->addData('template', $template);
-        $view->addData('report', $report);
+        $view->addData('report', end($report));
         $view->addData('rcoll', $rcoll);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 

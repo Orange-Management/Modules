@@ -47,12 +47,12 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'task` (
                             `task_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `task_title` varchar(30) DEFAULT NULL,
+                            `task_title` varchar(60) DEFAULT NULL,
                             `task_desc` text NOT NULL,
                             `task_type` tinyint(1) NOT NULL,
                             `task_status` tinyint(1) NOT NULL,
                             `task_due` datetime NOT NULL,
-                            `task_done` datetime NOT NULL,
+                            `task_done` datetime DEFAULT NULL,
                             `task_created_by` int(11) NOT NULL,
                             `task_created_at` datetime NOT NULL,
                             PRIMARY KEY (`task_id`),

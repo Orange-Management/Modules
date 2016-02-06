@@ -92,7 +92,7 @@ class TaskElement
      * @var int
      * @since 1.0.0
      */
-    private $forwarded = null;
+    private $forwarded = 0;
 
     /**
      * Constructor.
@@ -152,6 +152,10 @@ class TaskElement
     public function setCreatedBy(int $creator)
     {
         $this->createdBy = $creator;
+
+        if($this->forwarded === 0) {
+            $this->setForwarded($this->createdBy);
+        }
     }
 
     /**
@@ -210,7 +214,7 @@ class TaskElement
      */
     public function getForwarded() : int
     {
-        return $this->forwarded ?? 0;
+        return $this->forwarded;
     }
 
     /**

@@ -56,4 +56,9 @@ $MODLANG['Tasks'] = [
     'Upload'             => 'Upload',
     'Week'               => 'Week',
     'Year'               => 'Year',
+    'S1'                 => 'Open',
+    'S2'                 => 'Working',
+    'S3'                 => 'Suspended',
+    'S4'                 => 'Canceled',
+    'S5'                 => 'Done',
 ];

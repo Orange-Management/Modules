@@ -101,7 +101,7 @@ class TaskMapper extends DataMapperAbstract
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e);
+            var_dump($e->getMessage());
 
             return false;
         }
