@@ -15,8 +15,7 @@
  */
 namespace Modules\Profile;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;
@@ -98,7 +97,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $routes = [
-        '^.*/backend/profile/list.*$' => [['dest' => '\Modules\Profile\Controller:viewProfileList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/profile/list.*$'   => [['dest' => '\Modules\Profile\Controller:viewProfileList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/profile/single.*$' => [['dest' => '\Modules\Profile\Controller:viewProfileSingle', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -116,7 +116,33 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
 
+        $accountMapper = new AccountMapper($this->app->dbPool->get());
+
+        $view->setData('accounts', $accountMapper->getNewest(25));
+
         return $view;
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
+
+        $accountMapper = new AccountMapper($this->app->dbPool->get());
+
+        $view->setData('account', $accountMapper->get($request->getData('id')));
+
+        return $view;
+    }
 }

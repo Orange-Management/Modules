@@ -108,6 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
             ['dest' => '\Modules\Media\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
             ['dest' => '\Modules\Media\Controller:viewMediaCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
         ],
+        '^.*/backend/media/single.*$' => [['dest' => '\Modules\Media\Controller:viewMediaSingle', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
 
         '^.*/api/media/collection.*$' => [['dest' => '\Modules\Media\Controller:apiCollectionCreate', 'method' => 'POST', 'type' => ViewLayout::MAIN],],
         '^.*/api/media$'              => [['dest' => '\Modules\Media\Controller:apiMediaUpload', 'method' => 'POST', 'type' => ViewLayout::NULL],],
@@ -145,6 +146,28 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Media/Theme/Backend/media-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
+
+        $mediaMapper = new MediaMapper($this->app->dbPool->get());
+        $view->addData('media', $mediaMapper->get($request->getData('id')));
 
         return $view;
     }

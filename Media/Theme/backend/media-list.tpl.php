@@ -18,17 +18,7 @@
  */
 
 $mediaMapper = new \Modules\Media\Models\MediaMapper($this->app->dbPool->get());
-$media      = $mediaMapper
-    ->listResults(
-        $mediaMapper
-            ->find('media.media_id',
-                'media.media_name',
-                'media.media_extension',
-                'media.media_size',
-                'media.media_created_at',
-                'media.media_created_by')
-    //->newest('reporter_template.reporter_template_created')
-    );
+$media      = $mediaMapper->getNewest(25);
 
 $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
@@ -50,13 +40,14 @@ echo $this->getData('nav')->render(); ?>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach($media as $key => $value) : $count++; ?>
+                <?php $count = 0; foreach($media as $key => $value) : $count++;
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?id=' . $value->getId()); ?>
                 <tr>
-                    <td><?= $value->getName(); ?>
-                    <td><?= $value->getExtension(); ?>
-                    <td><?= $value->getSize(); ?>
-                    <td><?= $value->getCreatedBy(); ?>
-                    <td><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?>
+                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getExtension(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getSize(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getCreatedBy(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
         <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
