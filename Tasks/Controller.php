@@ -15,6 +15,7 @@
  */
 namespace Modules\Tasks;
 
+use Model\Message\Redirect;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskMapper;
@@ -26,6 +27,7 @@ use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
 
@@ -105,6 +107,8 @@ class Controller extends ModuleAbstract implements WebInterface
         '^.*/backend/task/single.*$'    => [['dest' => '\Modules\Tasks\Controller:viewTaskView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/task/create.*$'    => [['dest' => '\Modules\Tasks\Controller:viewTaskCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/task/analysis.*$'  => [['dest' => '\Modules\Tasks\Controller:viewTaskAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+
+        '^.*/api/task/create.*$' => [['dest' => '\Modules\Tasks\Controller:apiTaskCreate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
     ];
 
     /**
@@ -124,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         $taskMapper = new TaskMapper($this->app->dbPool->get());
-        $tasks = $taskMapper->getNewest(25);
+        $tasks      = $taskMapper->getNewest(25);
         $view->addData('tasks', $tasks);
 
         return $view;
@@ -147,7 +151,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         $taskMapper = new TaskMapper($this->app->dbPool->get());
-        $task = $taskMapper->get((int) $request->getData('id'));
+        $task       = $taskMapper->get((int) $request->getData('id'));
         $view->addData('task', $task);
 
         return $view;
@@ -214,7 +218,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->addElement($element);
 
         $taskMapper->create($task);
-        $response->set($request->__toString(), $task->getId());
+        $response->set($request->__toString(), new Redirect(UriFactory::build('http://127.0.0.1/{/lang}/backend/task/single?id=' . $task->getId())));
     }
 
 }

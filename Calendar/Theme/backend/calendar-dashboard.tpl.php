@@ -1,3 +1,6 @@
+<?php
+$calendar = new \Modules\Calendar\Models\Calendar();
+?>
 <section class="wf-75 floatLeft">
     <section class="box w-100">
         <ul class="btns floatLeft">
@@ -14,9 +17,17 @@
     <section class="box w-100">
         <div class="m-calendar-month">
             <?php for($i = 0; $i < 6; $i++) : ?>
-            <div class="wf-100">
-                <?php for($j = 0; $j < 7; $j++) : ?><div style="display: inline-block; box-sizing: border-box; width: 14.28%; height: 100px; border: 1px solid #000; margin: 0; padding: 3px;"><?= $this->l11n->lang[0][jddayofweek($j, 1)]; ?></div><?php endfor; ?>
-            </div>
+                <div class="wf-100">
+                <?php for($j = 0; $j < 7; $j++) : ?>
+                    <div contextmenu="calendar-day-menu" style="display: inline-block; box-sizing: border-box; width: 13.0%; height: 100px; border: 1px solid #000; margin: 0; padding: 3px;">
+                    <?php if($calendar->getFirstDay() <= $i*7+$j+1 && $calendar->getDaysOfMonth() >= $i*7+$j+1) {
+                        echo ($i*7+$j+1) . ' ' . $this->l11n->lang[0][jddayofweek($j, 1)];
+                    } else {
+                        echo (($i*7+$j+1)-$calendar->getDaysOfMonth());
+                    } ?>
+                    </div>
+                <?php endfor; ?>
+                </div>
             <?php endfor;?>
         </div>
     </section>
@@ -45,10 +56,41 @@
 
         <div class="inner">
             <ul class="boxed">
-                <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span>
+                <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
             </ul>
             <div class="spacer"></div>
             <button><i class="fa fa-calendar-plus-o"></i> <?= $this->l11n->lang[0]['Add'] ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->l11n->lang[0]['Create'] ?></button>
         </div>
     </section>
 </section>
+
+<menu type="context" id="calendar-day-menu">
+    <menuitem label="<?= $this->l11n->lang['Calendar']['NewEvent'] ?>"></menuitem>
+</menu>
+
+<menu type="context" id="calendar-event-menu">
+    <menuitem label="Edit"></menuitem>
+    <menuitem label="Accept" disabled></menuitem>
+    <menuitem label="Re-Schedule"></menuitem>
+    <menuitem label="Decline"></menuitem>
+    <menuitem label="Delete"></menuitem>
+</menu>
+
+<div class="hidden">
+    <section class="box">
+        <div class="inner">
+            <form>
+                <table class="layout">
+                    <tr><td><label for="iTitle">Title</label>
+                    <tr><td><input type="text" id="">
+                    <tr><td><label for="iTitle">Description</label>
+                    <tr><td><textarea></textarea>
+                    <tr><td><label for="iTitle">To</label>
+                    <tr><td><input type="text" id="">
+                    <tr><td><label for="iTitle">Files</label>
+                    <tr><td><input type="text" id="">
+                </table>
+            </form>
+        </div>
+    </section>
+</div>

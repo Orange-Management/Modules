@@ -13,13 +13,13 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Tasks\Models;
+namespace Modules\Calendar\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 
-class TaskMapper extends DataMapperAbstract
+class ScheduleMapper extends DataMapperAbstract
 {
 
     /**
@@ -29,33 +29,22 @@ class TaskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'task_id'      => ['name' => 'task_id', 'type' => 'int', 'internal' => 'id'],
-        'task_title'   => ['name' => 'task_title', 'type' => 'string', 'internal' => 'title'],
-        'task_desc'    => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
-        'task_type'    => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
-        'task_status'  => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
-        'task_due'     => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
-        'task_done'    => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
-        'task_schedule'    => ['name' => 'task_schedule', 'type' => 'int', 'internal' => 'schedule'],
-        'task_created_by' => ['name' => 'task_created_by', 'type' => 'int', 'internal' => 'createdBy'],
-        'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'schedule_id'                     => ['name' => 'schedule_id', 'type' => 'int', 'internal' => 'id'],
+        'schedule_uid'                    => ['name' => 'schedule_uid', 'type' => 'string', 'internal' => 'uid'],
+        'schedule_status'                 => ['name' => 'schedule_status', 'type' => 'int', 'internal' => 'status'],
+        'schedule_freq_type'              => ['name' => 'schedule_freq_type', 'type' => 'int', 'internal' => 'freqType'],
+        'schedule_freq_interval'          => ['name' => 'schedule_freq_interval', 'type' => 'int', 'internal' => 'freqInterval'],
+        'schedule_freq_interval_type'     => ['name' => 'schedule_freq_interval_type', 'type' => 'int', 'internal' => 'intervalType'],
+        'schedule_freq_relative_interval' => ['name' => 'schedule_freq_relative_interval', 'type' => 'int', 'internal' => 'relativeInternal'],
+        'schedule_freq_recurrence_factor' => ['name' => 'schedule_freq_recurrence_factor', 'type' => 'int', 'internal' => 'recurrenceFactor'],
+        'schedule_start'                  => ['name' => 'schedule_start', 'type' => 'DateTime', 'internal' => 'start'],
+        'schedule_duration'               => ['name' => 'schedule_duration', 'type' => 'int', 'internal' => 'duration'],
+        'schedule_end'                    => ['name' => 'schedule_end', 'type' => 'DateTime', 'internal' => 'end'],
+        'scheule_created_at'              => ['name' => 'scheule_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'scheule_created_by'              => ['name' => 'scheule_created_by', 'type' => 'int', 'internal' => 'createdBy'],
     ];
 
     protected static $hasMany = [
-        'taskElements' => [
-            'mapper'         => '\Modules\Tasks\Models\TaskElementMapper',
-            'relationmapper' => '\Modules\Tasks\Models\TaskElementMapper',
-            'table'          => 'task_element',
-            'dst'            => 'task_element_task',
-            'src'            => null,
-        ],
-    ];
-
-    protected static $hasOne = [
-        'schedule' => [
-            'mapper'         => '\Modules\Calendar\Models\ScheduleMapper',
-            'src'            => 'task_schedule',
-        ],
     ];
 
     /**
@@ -64,9 +53,9 @@ class TaskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'task';
+    protected static $table = 'schedule';
 
-    protected static $createdAt = 'task_created_at';
+    protected static $createdAt = 'schedule_created_at';
 
     /**
      * Primary field name.
@@ -74,12 +63,12 @@ class TaskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'task_id';
+    protected static $primaryField = 'schedule_id';
 
     /**
      * Create media.
      *
-     * @param Task $obj Media
+     * @param Calendar $obj Media
      *
      * @return bool
      *
@@ -105,11 +94,11 @@ class TaskMapper extends DataMapperAbstract
                       'account_permission_p'
                   )
                   ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'task', 'task', 1, $objId, 1, 1, 1, 1, 1);
+                  ->values($obj->getCreatedBy(), 'calendar', 'calendar', 1, $objId, 1, 1, 1, 1, 1);
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
+            var_dump($e);
 
             return false;
         }
@@ -130,9 +119,9 @@ class TaskMapper extends DataMapperAbstract
     public function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
-                     ->where('account_permission.account_permission_for', '=', 'task')
+                     ->where('account_permission.account_permission_for', '=', 'calendar')
                      ->where('account_permission.account_permission_id1', '=', 1)
-                     ->where('task.task_id', '=', new Column('account_permission.account_permission_id2'))
+                     ->where('calendar.calendar_id', '=', new Column('account_permission.account_permission_id2'))
                      ->where('account_permission.account_permission_r', '=', 1);
     }
 }

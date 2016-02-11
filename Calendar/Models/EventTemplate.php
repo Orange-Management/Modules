@@ -15,12 +15,10 @@
  */
 namespace Modules\Calendar\Models;
 
-use phpOMS\Datatypes\Enum;
-
 /**
- * Occurrence type enum.
+ * Calendar class.
  *
- * @category   OccurrenceType
+ * @category   Calendar
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
@@ -28,17 +26,7 @@ use phpOMS\Datatypes\Enum;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class OccurrenceType extends Enum
+class EventTemplate extends Event
 {
-    const SINGLE = 0;
-
-    const DAILY = 1;
-
-    const WEEKLY = 2;
-
-    const MONTHLY = 3;
-
-    const QUARTERLY = 4;
-
-    const YEARLY = 5;
+    private $type = EventType::TEMPLATE;
 }

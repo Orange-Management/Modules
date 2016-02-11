@@ -13,23 +13,30 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Tasks\Models;
+namespace Modules\Calendar\Models;
 
 use phpOMS\Datatypes\Enum;
 
 /**
- * Task type enum.
+ * Occurrence type enum.
  *
- * @category   Tasks
- * @package    Modules
+ * @category   OccurrenceType
+ * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class TaskType extends Enum
+abstract class FrequencyType extends Enum
 {
-    const TEMPLATE = 1;
-    const SINGLE   = 2;
+    const ONCE = 1;
+
+    const DAILY = 2;
+
+    const WEEKLY = 4;
+
+    const MONTHLY = 8;
+
+    const YEARLY = 16;
 }

@@ -20,6 +20,7 @@ $MODLANG['Calendar'] = [
     'Layout'   => 'Layout',
     'List'     => 'List',
     'Month'    => 'Month',
+    'NewEvent'        => 'New Event',
     'Settings' => 'Settings',
     'Timeline' => 'Timeline',
     'Week'     => 'Week',

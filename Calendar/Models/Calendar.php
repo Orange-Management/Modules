@@ -69,6 +69,8 @@ class Calendar
      */
     private $createdBy = 0;
 
+    private $date = null;
+
     /**
      * Events.
      *
@@ -80,6 +82,7 @@ class Calendar
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->date = new \DateTime('now');
     }
 
     public function getId() : int
@@ -157,5 +160,21 @@ class Calendar
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
+    }
+
+    public function getDate() : \DateTime {
+        return $this->date;
+    }
+
+    public function setDate(\DateTime $date) {
+        $this->date = $date;
+    }
+
+    public function getDaysOfMonth() : int {
+        return cal_days_in_month(CAL_GREGORIAN, $this->date->format('m'), $this->date->format('Y'));
+    }
+
+    public function getFirstDay() {
+        return getdate(mktime(null, null, null, $this->date->format('m'), 1, $this->date->format('Y')))['wday'];
     }
 }

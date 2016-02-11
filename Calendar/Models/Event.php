@@ -73,6 +73,10 @@ class Event
      */
     private $createdBy = 0;
 
+    private $type = EventType::SINGLE;
+
+    private $schedule = null;
+
     /**
      * People.
      *
@@ -95,6 +99,7 @@ class Event
     {
         $this->createdAt = new \DateTime('now');
         $this->location  = new Location();
+        $this->schedule = new Schedule();
     }
 
     public function getId() : int
@@ -199,8 +204,17 @@ class Event
         return $this->calendar;
     }
 
+    public function getType() : int
+    {
+        return $this->type;
+    }
+
     public function setCalendar(int $calendar)
     {
         $this->calendar = $calendar;
+    }
+
+    public function getSchedule() : Schedule {
+        return $this->schedule;
     }
 }

@@ -33,10 +33,19 @@ class EventMapper extends DataMapperAbstract
         'calendar_event_name'        => ['name' => 'calendar_event_name', 'type' => 'string', 'internal' => 'name'],
         'calendar_event_description' => ['name' => 'calendar_event_description', 'type' => 'string', 'internal' => 'description'],
         'calendar_event_location'    => ['name' => 'calendar_event_location', 'type' => 'Serializable', 'internal' => 'location'],
+        'calendar_event_type'        => ['name' => 'calendar_event_type', 'type' => 'int', 'internal' => 'type'],
         'calendar_event_status'      => ['name' => 'calendar_event_status', 'type' => 'int', 'internal' => 'status'],
+        'calendar_event_schedule'    => ['name' => 'calendar_event_schedule', 'type' => 'int', 'internal' => 'schedule'],
         'calendar_event_calendar'    => ['name' => 'calendar_event_calendar', 'type' => 'int', 'internal' => 'calendar'],
         'calendar_event_created_by'  => ['name' => 'calendar_event_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'calendar_event_created_at'  => ['name' => 'calendar_event_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+    ];
+
+    protected static $hasOne = [
+        'schedule' => [
+            'mapper' => '\Modules\Calendar\Models\ScheduleMapper',
+            'src'    => 'calendar_event_schedule',
+        ],
     ];
 
     /**
@@ -60,7 +69,7 @@ class EventMapper extends DataMapperAbstract
     /**
      * Create media.
      *
-     * @param Calendar $obj Media
+     * @param Event $obj Media
      *
      * @return bool
      *

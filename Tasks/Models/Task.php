@@ -14,6 +14,7 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Tasks\Models;
+use Modules\Calendar\Models\Schedule;
 use phpOMS\Datatypes\Exception\InvalidEnumValue;
 
 /**
@@ -76,7 +77,7 @@ class Task
      * @var TaskType
      * @since 1.0.0
      */
-    private $type = TaskType::TASK;
+    private $type = TaskType::SINGLE;
 
     /**
      * Status.
@@ -110,6 +111,8 @@ class Task
      */
     private $taskElements = [];
 
+    private $schedule = null;
+
     /**
      * Constructor.
      *
@@ -120,6 +123,7 @@ class Task
     {
         $this->createdAt = new \DateTime('now');
         $this->due = (new \DateTime('now'))->modify('+1 day');
+        $this->schedule = new Schedule();
     }
 
     /**
@@ -376,23 +380,8 @@ class Task
         return $this->type;
     }
 
-    /**
-     * Set task type.
-     *
-     * @param int $type
-     *
-     * @throws
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function setType(\int $type)
-    {
-        if(!TaskType::isValidValue($type)) {
-            throw new InvalidEnumValue($type);
-        }
-
-        $this->type = $type;
+    public function getSchedule() : Schedule {
+        return $this->schedule;
     }
 
 }

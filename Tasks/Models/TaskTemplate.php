@@ -15,21 +15,24 @@
  */
 namespace Modules\Tasks\Models;
 
-use phpOMS\Datatypes\Enum;
-
 /**
- * Task type enum.
+ * Task class.
  *
- * @category   Tasks
- * @package    Modules
+ * @category   Modules
+ * @package    Tasks
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class TaskType extends Enum
+class TaskTemplate extends Task
 {
-    const TEMPLATE = 1;
-    const SINGLE   = 2;
+    /**
+     * Type.
+     *
+     * @var TaskType
+     * @since 1.0.0
+     */
+    private $type = TaskType::TEMPLATE;
 }
