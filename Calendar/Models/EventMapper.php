@@ -19,6 +19,17 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 
+/**
+ * Mapper class.
+ *
+ * @category   Calendar
+ * @package    Modules
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @license    OMS License 1.0
+ * @link       http://orange-management.com
+ * @since      1.0.0
+ */
 class EventMapper extends DataMapperAbstract
 {
 
@@ -41,6 +52,12 @@ class EventMapper extends DataMapperAbstract
         'calendar_event_created_at'  => ['name' => 'calendar_event_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
+    /**
+     * Has one relation.
+     *
+     * @var array<string, array>
+     * @since 1.0.0
+     */
     protected static $hasOne = [
         'schedule' => [
             'mapper' => '\Modules\Calendar\Models\ScheduleMapper',
@@ -56,6 +73,12 @@ class EventMapper extends DataMapperAbstract
      */
     protected static $table = 'calendar_event';
 
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'calendar_event_created_at';
 
     /**

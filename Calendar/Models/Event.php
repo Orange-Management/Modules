@@ -20,7 +20,7 @@ use phpOMS\Account\NullAccount;
 use phpOMS\Datatypes\Location;
 
 /**
- * Calendar class.
+ * Event class.
  *
  * @category   Calendar
  * @package    Framework
@@ -73,18 +73,38 @@ class Event
      */
     private $createdBy = 0;
 
+    /**
+     * Event type.
+     *
+     * Single event or a template (templates have a repeating)
+     *
+     * @var int
+     * @since 1.0.0
+     */
     private $type = EventType::SINGLE;
 
+    /**
+     * Schedule
+     *
+     * @var Schedule
+     * @since 1.0.0
+     */
     private $schedule = null;
 
     /**
-     * People.
+     * Location of the event.
      *
      * @var array
      * @since 1.0.0
      */
     private $location = null;
 
+    /**
+     * Calendar
+     *
+     * @var int
+     * @since 1.0.0
+     */
     private $calendar = 0;
 
     /**
@@ -95,33 +115,73 @@ class Event
      */
     private $people = [];
 
+    /**
+     * Constructor.
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
         $this->location  = new Location();
-        $this->schedule = new Schedule();
+        $this->schedule  = new Schedule();
     }
 
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getId() : int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * @return Account[]
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getPeople() : array
     {
         return $this->people;
     }
 
+    /**
+     * @param int $id Account id
+     *
+     * @return Account
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getPerson(int $id) : Account
     {
         return $this->people[$id] ?? new NullAccount();
     }
 
+    /**
+     * @param Account $person Person to add
+     *
+     * @return int Account id/position
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function addPerson(Account $person)
     {
         $this->people[] = $person;
@@ -154,67 +214,146 @@ class Event
         return false;
     }
 
+    /**
+     * @param string $name Event name/title
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function setName(string $name)
     {
         $this->name = $name;
     }
 
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
+    /**
+     * @param string $desc Event description
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function setDescription(string $desc)
     {
         $this->description = $desc;
     }
 
+    /**
+     * @return \DateTime
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;
     }
 
+    /**
+     * @param \DateTime $createdAt Event created at
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
 
+    /**
+     * @param int $createdBy Creator
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * @param Location $location Event location
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function setLocation(Location $location)
     {
         $this->location = $location;
     }
 
+    /**
+     * @return Location
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getLocation() : Location
     {
         return $this->location;
     }
 
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getCalendar() : int
     {
         return $this->calendar;
     }
 
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getType() : int
     {
         return $this->type;
     }
 
+    /**
+     * @param int $calendar Calendar
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function setCalendar(int $calendar)
     {
         $this->calendar = $calendar;
     }
 
-    public function getSchedule() : Schedule {
+    /**
+     * @return Schedule
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getSchedule() : Schedule
+    {
         return $this->schedule;
     }
 }

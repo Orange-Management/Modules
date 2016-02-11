@@ -16,10 +16,10 @@
 namespace Modules\Calendar\Models;
 
 /**
- * Calendar class.
+ * Null event class.
  *
  * @category   Calendar
- * @package    Framework
+ * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0

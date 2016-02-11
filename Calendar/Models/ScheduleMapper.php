@@ -19,6 +19,17 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 
+/**
+ * Mapper class.
+ *
+ * @category   Calendar
+ * @package    Modules
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @license    OMS License 1.0
+ * @link       http://orange-management.com
+ * @since      1.0.0
+ */
 class ScheduleMapper extends DataMapperAbstract
 {
 
@@ -44,9 +55,6 @@ class ScheduleMapper extends DataMapperAbstract
         'scheule_created_by'              => ['name' => 'scheule_created_by', 'type' => 'int', 'internal' => 'createdBy'],
     ];
 
-    protected static $hasMany = [
-    ];
-
     /**
      * Primary table.
      *
@@ -55,6 +63,12 @@ class ScheduleMapper extends DataMapperAbstract
      */
     protected static $table = 'schedule';
 
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'schedule_created_at';
 
     /**
