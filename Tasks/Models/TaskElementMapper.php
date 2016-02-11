@@ -16,8 +16,18 @@
 namespace Modules\Tasks\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
 
+/**
+ * Mapper class.
+ *
+ * @category   Tasks
+ * @package    Modules
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @license    OMS License 1.0
+ * @link       http://orange-management.com
+ * @since      1.0.0
+ */
 class TaskElementMapper extends DataMapperAbstract
 {
 
@@ -46,6 +56,12 @@ class TaskElementMapper extends DataMapperAbstract
      */
     protected static $table = 'task_element';
 
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'task_created_at';
 
     /**

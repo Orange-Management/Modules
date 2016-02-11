@@ -20,8 +20,8 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
 /**
  * Task class.
  *
- * @category   Modules
- * @package    Tasks
+ * @category   Tasks
+ * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
@@ -111,6 +111,12 @@ class Task
      */
     private $taskElements = [];
 
+    /**
+     * Schedule
+     *
+     * @var Schedule
+     * @since 1.0.0
+     */
     private $schedule = null;
 
     /**
@@ -380,6 +386,14 @@ class Task
         return $this->type;
     }
 
+    /**
+     * Get schedule.
+     *
+     * @return Schedule
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function getSchedule() : Schedule {
         return $this->schedule;
     }

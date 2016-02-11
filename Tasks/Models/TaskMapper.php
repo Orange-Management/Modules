@@ -19,6 +19,17 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 
+/**
+ * Mapper class.
+ *
+ * @category   Tasks
+ * @package    Modules
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @license    OMS License 1.0
+ * @link       http://orange-management.com
+ * @since      1.0.0
+ */
 class TaskMapper extends DataMapperAbstract
 {
 
@@ -41,6 +52,12 @@ class TaskMapper extends DataMapperAbstract
         'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
+    /**
+     * Has many relation.
+     *
+     * @var array<string, array>
+     * @since 1.0.0
+     */
     protected static $hasMany = [
         'taskElements' => [
             'mapper'         => '\Modules\Tasks\Models\TaskElementMapper',
@@ -51,6 +68,12 @@ class TaskMapper extends DataMapperAbstract
         ],
     ];
 
+    /**
+     * Has one relation.
+     *
+     * @var array<string, array>
+     * @since 1.0.0
+     */
     protected static $hasOne = [
         'schedule' => [
             'mapper'         => '\Modules\Calendar\Models\ScheduleMapper',
@@ -66,6 +89,12 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $table = 'task';
 
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'task_created_at';
 
     /**
