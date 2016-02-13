@@ -46,6 +46,7 @@ class Uninstall extends UninstallAbstract
         $query->prefix($dbPool->get('core')->getPrefix())->drop(
             'calendar_event_participant',
             'calendar_event',
+            'schedule',
             'calendar_permission',
             'calendar'
         );

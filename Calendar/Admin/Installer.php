@@ -90,8 +90,8 @@ class Installer extends InstallerAbstract
                             `schedule_start` datetime NOT NULL,
                             `schedule_duration` int(11) NOT NULL,
                             `schedule_end` datetime DEFAULT NULL,
-                            `scheule_created_at` datetime NOT NULL,
-                            `scheule_created_by` int(11) NOT NULL,
+                            `schedule_created_at` datetime NOT NULL,
+                            `schedule_created_by` int(11) NOT NULL,
                             PRIMARY KEY (`schedule_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -102,6 +102,7 @@ class Installer extends InstallerAbstract
                             `calendar_event_name` varchar(25) NOT NULL,
                             `calendar_event_description` varchar(255) NOT NULL,
                             `calendar_event_status` tinyint(1) NOT NULL,
+                            `calendar_event_type` tinyint(1) NOT NULL,
                             `calendar_event_location` varchar(511) NOT NULL,
                             `calendar_event_created_by` int(11) NOT NULL,
                             `calendar_event_created_at` datetime NOT NULL,
@@ -109,6 +110,7 @@ class Installer extends InstallerAbstract
                             `calendar_event_calendar` int(11) NOT NULL,
                             PRIMARY KEY (`calendar_event_id`),
                             KEY `calendar_event_created_by` (`calendar_event_created_by`),
+                            KEY `calendar_event_schedule` (`calendar_event_schedule`),
                             KEY `calendar_event_calendar` (`calendar_event_calendar`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -116,7 +118,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'calendar_event`
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_1` FOREIGN KEY (`calendar_event_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_2` FOREIGN KEY (`calendar_event_schedule) REFERENCES `' . $dbPool->get('core')->prefix . 'schedule` (`schedule_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_2` FOREIGN KEY (`calendar_event_schedule`) REFERENCES `' . $dbPool->get('core')->prefix . 'schedule` (`schedule_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_event_ibfk_3` FOREIGN KEY (`calendar_event_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`);'
                 )->execute();
 

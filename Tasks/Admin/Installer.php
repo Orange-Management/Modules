@@ -53,16 +53,19 @@ class Installer extends InstallerAbstract
                             `task_status` tinyint(1) NOT NULL,
                             `task_due` datetime NOT NULL,
                             `task_done` datetime DEFAULT NULL,
+                            `task_schedule` int(11) DEFAULT NULL,
                             `task_created_by` int(11) NOT NULL,
                             `task_created_at` datetime NOT NULL,
                             PRIMARY KEY (`task_id`),
-                            KEY `task_creator` (`task_created_by`)
+                            KEY `task_schedule` (`task_schedule`),
+                            KEY `task_created_by` (`task_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'task`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_1` FOREIGN KEY (`task_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_1` FOREIGN KEY (`task_schedule`) REFERENCES `' . $dbPool->get('core')->prefix . 'schedule` (`schedule_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_2` FOREIGN KEY (`task_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

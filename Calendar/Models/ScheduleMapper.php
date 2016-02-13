@@ -51,8 +51,8 @@ class ScheduleMapper extends DataMapperAbstract
         'schedule_start'                  => ['name' => 'schedule_start', 'type' => 'DateTime', 'internal' => 'start'],
         'schedule_duration'               => ['name' => 'schedule_duration', 'type' => 'int', 'internal' => 'duration'],
         'schedule_end'                    => ['name' => 'schedule_end', 'type' => 'DateTime', 'internal' => 'end'],
-        'scheule_created_at'              => ['name' => 'scheule_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
-        'scheule_created_by'              => ['name' => 'scheule_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'schedule_created_at'             => ['name' => 'schedule_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'schedule_created_by'             => ['name' => 'schedule_created_by', 'type' => 'int', 'internal' => 'createdBy'],
     ];
 
     /**
@@ -108,11 +108,11 @@ class ScheduleMapper extends DataMapperAbstract
                       'account_permission_p'
                   )
                   ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'calendar', 'calendar', 1, $objId, 1, 1, 1, 1, 1);
+                  ->values($obj->getCreatedBy(), 'schedule', 'schedule', 1, $objId, 1, 1, 1, 1, 1);
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e);
+            var_dump($e->getMessage());
 
             return false;
         }
