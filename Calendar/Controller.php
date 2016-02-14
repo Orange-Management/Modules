@@ -15,9 +15,11 @@
  */
 namespace Modules\Calendar;
 
+use Modules\Calendar\Models\CalendarMapper;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\Datatypes\SmartDateTime;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
@@ -116,6 +118,11 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Calendar/Theme/Backend/calendar-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001201001, $request, $response));
+
+        $mapper = new CalendarMapper($this->app->dbPool->get());
+        $calendar = $mapper->get(1);
+        $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
+        $view->addData('calendar', $calendar);
 
         return $view;
     }

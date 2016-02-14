@@ -14,6 +14,7 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Calendar\Models;
+
 use phpOMS\Datatypes\SmartDateTime;
 
 /**
@@ -283,5 +284,27 @@ class Calendar
     public function setDate(\DateTime $date)
     {
         $this->date = $date;
+    }
+
+    /**
+     * Get event by date
+     *
+     * @param \DateTime $date Date of the event
+     *
+     * @return Event[]
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getEventByDate(\DateTime $date) : array
+    {
+        $events = [];
+        foreach ($this->events as $event) {
+            if ($event->getCreatedAt()->format('Y-m-d') === $date->format('Y-m-d')) {
+                $events[] = $event;
+            }
+        }
+
+        return $events;
     }
 }

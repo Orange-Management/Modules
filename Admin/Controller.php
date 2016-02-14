@@ -17,8 +17,6 @@ namespace Modules\Admin;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\GroupMapper;
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\RequestDestination;

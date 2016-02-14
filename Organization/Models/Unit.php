@@ -17,13 +17,13 @@ namespace Modules\Organization\Models;
 
 class Unit
 {
-    protected $id = 0;
+    private $id = 0;
 
-    protected $name = '';
+    private $name = '';
 
-    protected $parent = 0;
+    private $parent = 0;
 
-    protected $description = '';
+    private $description = '';
 
     public function getId() : int
     {
@@ -35,13 +35,27 @@ class Unit
         return $this->name;
     }
 
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
     public function getParent() : int
     {
         return $this->parent;
     }
 
+    public function setParent(int $parent) {
+        $this->parent = $parent;
+    }
+
     public function getDescription() : string
     {
         return $this->description;
+    }
+
+    public function setDescription(string $desc)
+    {
+        $this->description = $desc;
     }
 }

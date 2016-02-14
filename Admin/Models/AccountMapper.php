@@ -27,19 +27,19 @@ class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'account_id'       => ['name' => 'account_id', 'type' => 'int', 'internal' => 'id'],
-        'account_status'   => ['name' => 'account_status', 'type' => 'int', 'internal' => 'status'],
-        'account_type'     => ['name' => 'account_type', 'type' => 'int', 'internal' => 'type'],
+        'account_id'         => ['name' => 'account_id', 'type' => 'int', 'internal' => 'id'],
+        'account_status'     => ['name' => 'account_status', 'type' => 'int', 'internal' => 'status'],
+        'account_type'       => ['name' => 'account_type', 'type' => 'int', 'internal' => 'type'],
         'account_login'    => ['name' => 'account_login', 'type' => 'string', 'internal' => 'login'],
-        'account_name1'    => ['name' => 'account_name1', 'type' => 'string', 'internal' => 'name1'],
-        'account_name2'    => ['name' => 'account_name2', 'type' => 'string', 'internal' => 'name2'],
-        'account_name3'    => ['name' => 'account_name3', 'type' => 'string', 'internal' => 'name3'],
+        'account_name1'      => ['name' => 'account_name1', 'type' => 'string', 'internal' => 'name1'],
+        'account_name2'      => ['name' => 'account_name2', 'type' => 'string', 'internal' => 'name2'],
+        'account_name3'      => ['name' => 'account_name3', 'type' => 'string', 'internal' => 'name3'],
         'account_password' => ['name' => 'account_password', 'type' => 'string', 'internal' => 'password'],
-        'account_email'    => ['name' => 'account_email', 'type' => 'string', 'internal' => 'email'],
-        'account_tries'    => ['name' => 'account_tries', 'type' => 'int', 'internal' => 'tries'],
-        'account_lactive'  => ['name'     => 'account_lactive', 'type' => 'DateTime',
-                               'internal' => 'lastActive'],
-        'account_created'  => ['name' => 'account_created', 'type' => 'int', 'internal' => 'created'],
+        'account_email'      => ['name' => 'account_email', 'type' => 'string', 'internal' => 'email'],
+        //'account_tries'    => ['name' => 'account_tries', 'type' => 'int', 'internal' => 'tries'],
+        'account_lactive'    => ['name'     => 'account_lactive', 'type' => 'DateTime',
+                                 'internal' => 'lastActive'],
+        'account_created_at' => ['name' => 'account_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**
@@ -64,5 +64,5 @@ class AccountMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'account_created';
+    protected static $createdAt = 'account_created_at';
 }

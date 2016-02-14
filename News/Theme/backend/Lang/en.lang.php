@@ -34,4 +34,7 @@ $MODLANG['News'] = [
     'Title'       => 'Title',
     'Type'        => 'Type',
     'Visible'     => 'Visible',
+    'TYPE0'       => 'Article',
+    'TYPE1'       => 'Link',
+    'TYPE2'       => 'Headline',
 ];

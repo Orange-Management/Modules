@@ -133,8 +133,8 @@ class Installer extends InstallerAbstract
                             `account_password` varchar(64) NOT NULL,
                             `account_email` varchar(70) NOT NULL,
                             `account_tries` tinyint(2) NOT NULL DEFAULT 0,
-                            `account_lactive` datetime NOT NULL,
-                            `account_created` datetime NOT NULL,
+                            `account_lactive` datetime DEFAULT NULL,
+                            `account_created_at` datetime NOT NULL,
                             PRIMARY KEY (`account_id`)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();

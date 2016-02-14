@@ -17,10 +17,4 @@ namespace Modules\Admin\Models;
 
 class Account extends \phpOMS\Account\Account
 {
-    protected $createdAt = null;
-
-    public function getCreatedAt() : \DateTime
-    {
-        return $this->createdAt ?? new \DateTime('NOW');
-    }
 }

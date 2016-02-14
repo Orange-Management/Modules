@@ -58,6 +58,14 @@ class NewsArticleMapper extends DataMapperAbstract
     protected static $primaryField = 'news_id';
 
     /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static $createdAt = 'news_created_at';
+
+    /**
      * Create article.
      *
      * @param mixed $obj News article

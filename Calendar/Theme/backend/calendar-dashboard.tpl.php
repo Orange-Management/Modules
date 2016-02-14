@@ -1,11 +1,11 @@
 <?php
-$calendar = new \Modules\Calendar\Models\Calendar();
+$calendar = $this->getData('calendar');
 ?>
 <section class="wf-75 floatLeft">
     <section class="box w-100">
         <ul class="btns floatLeft">
-            <li><a href=""><i class="fa fa-arrow-left"></i></a>
-            <li><a href=""><i class="fa fa-arrow-right"></i></a>
+            <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-left"></i></a>
+            <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
         </ul>
         <ul class="btns floatRight">
             <li><a href=""><?= $this->l11n->lang['Calendar']['Day'] ?></a>
@@ -16,15 +16,23 @@ $calendar = new \Modules\Calendar\Models\Calendar();
     </section>
     <section class="box w-100">
         <div class="m-calendar-month">
-            <?php for($i = 0; $i < 6; $i++) : ?>
+            <?php $current = new \phpOMS\Datatypes\SmartDateTime($calendar->getDate()->format('Y') . '-' . $calendar->getDate()->format('m') . '-' . '01'); for($i = 0; $i < 6; $i++) : ?>
                 <div class="wf-100">
                 <?php for($j = 0; $j < 7; $j++) : ?>
-                    <div contextmenu="calendar-day-menu" style="display: inline-block; box-sizing: border-box; width: 13.0%; height: 100px; border: 1px solid #000; margin: 0; padding: 3px;">
-                    <?php if($calendar->getFirstDay() <= $i*7+$j+1 && $calendar->getDaysOfMonth() >= $i*7+$j+1) {
+                    <div contextmenu="calendar-day-menu" style="display: inline-block; box-sizing: border-box; width: 13.0%; height: 100px; border: 1px solid #000; margin: 0; padding: 3px; overflow: hidden">
+                    <?php if($calendar->getDate()->getFirstDayOfMonth() <= $i*7+$j+1 && $calendar->getDate()->getDaysOfMonth() >= $i*7+$j+1) {
                         echo ($i*7+$j+1) . ' ' . $this->l11n->lang[0][jddayofweek($j, 1)];
                     } else {
-                        echo (($i*7+$j+1)-$calendar->getDaysOfMonth());
+                        echo (($i*7+$j+1)-$calendar->getDate()->getDaysOfMonth()) . ' ' . $this->l11n->lang[0][jddayofweek($j, 1)];
                     } ?>
+                        <ul>
+                        <?php
+                        $events = $calendar->getEventByDate($current);
+                        $current->smartModify(0, 0, 1);
+                    foreach($events as $event) : ?>
+                        <li><span class="tag purple" style="white-space: nowrap;"><?= $event->getName(); ?></span>
+                    <?php endforeach; ?>
+                        </ul>
                     </div>
                 <?php endfor; ?>
                 </div>

@@ -17,7 +17,7 @@ namespace Modules\Organization\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
-class UnitMapper extends DataMapperAbstract
+class PositionMapper extends DataMapperAbstract
 {
 
     /**
@@ -27,10 +27,10 @@ class UnitMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'organization_unit_id'          => ['name' => 'organization_unit_id', 'type' => 'int', 'internal' => 'id'],
-        'organization_unit_name'        => ['name' => 'organization_unit_name', 'type' => 'string', 'internal' => 'name'],
-        'organization_unit_description' => ['name' => 'organization_unit_description', 'type' => 'string', 'internal' => 'description'],
-        'organization_unit_parent'      => ['name' => 'organization_unit_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_position_id'          => ['name' => 'organization_position_id', 'type' => 'int', 'internal' => 'id'],
+        'organization_position_name'        => ['name' => 'organization_position_name', 'type' => 'string', 'internal' => 'name'],
+        'organization_position_description' => ['name' => 'organization_position_description', 'type' => 'string', 'internal' => 'description'],
+        'organization_position_parent'      => ['name' => 'organization_position_parent', 'type' => 'int', 'internal' => 'parent'],
     ];
 
     /**
@@ -39,7 +39,7 @@ class UnitMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'organization_unit';
+    protected static $table = 'organization_position';
 
     /**
      * Primary field name.
@@ -47,5 +47,5 @@ class UnitMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'organization_unit_id';
+    protected static $primaryField = 'organization_position_id';
 }

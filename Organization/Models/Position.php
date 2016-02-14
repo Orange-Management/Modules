@@ -15,17 +15,15 @@
  */
 namespace Modules\Organization\Models;
 
-class Department
+class Position
 {
-    protected $id = 0;
+    private $id = 0;
 
-    protected $name = '';
+    private $name = '';
 
-    protected $parent = null;
+    private $parent = null;
 
-    protected $unit = 1;
-
-    protected $description = '';
+    private $description = '';
 
     public function getId() : int
     {
@@ -39,7 +37,7 @@ class Department
 
     public function setName(string $name)
     {
-        return $this->name = $name;
+        $this->name = $name;
     }
 
     public function getParent()
@@ -47,19 +45,8 @@ class Department
         return $this->parent;
     }
 
-    public function setParent(int $parent)
-    {
+    public function setParent(int $parent) {
         $this->parent = $parent;
-    }
-
-    public function getUnit() : int
-    {
-        return $this->unit;
-    }
-
-    public function setUnit(int $unit)
-    {
-        $this->unit = $unit;
     }
 
     public function getDescription() : string

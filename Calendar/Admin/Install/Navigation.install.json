@@ -2,6 +2,21 @@
     {
         "id": 1000901001,
         "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 1,
+        "subtype": 1,
+        "name": "Calendar",
+        "uri": "/{/lang}/backend/calendar/dashboard",
+        "target": "self",
+        "icon": "fa fa-calendar",
+        "order": 10,
+        "from": "Calendar",
+        "permission": null,
+        "parent": 1000201001,
+        "children": []
+    },
+    {
+        "id": 1000901002,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
         "type": 2,
         "subtype": 1,
         "name": "Calendar",

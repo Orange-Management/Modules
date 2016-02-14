@@ -1,13 +1,31 @@
-<div class="b b-5 c7-1 c7" id="i7-1-1">
-    <h1>
-        <?= /** @var \Modules\News\Article $article */
-        $article->getTitle(); ?>
-        <i class="fa fa-minus min"></i>
-        <i class="fa fa-plus max vh"></i>
-    </h1>
+<?php
+/**
+ * Orange Management
+ *
+ * PHP Version 7.0
+ *
+ * @category   TBD
+ * @package    TBD
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @copyright  2013 Dennis Eichhorn
+ * @license    OMS License 1.0
+ * @version    1.0.0
+ * @link       http://orange-management.com
+ */
+/**
+ * @var \phpOMS\Views\View $this
+ */
 
-    <div class="bc-1">
-        <span><?= $article->getPublish()->format('Y-m-d H:i:s'); ?></span> <span><?= $article->getAuthor(); ?></span>
-        <?= $article->getContent(); ?>
+$news = $this->getData('news');
+
+echo $this->getData('nav')->render(); ?>
+
+<section class="box w-100">
+    <h1><?= $news->getTitle(); ?></h1>
+    <div class="inner">
+        <article>
+            <?= $news->getContent(); ?>
+        </article>
     </div>
-</div>
+</section>

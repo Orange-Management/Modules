@@ -102,7 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $routes = [
         '^.*/backend/news/dashboard.*$' => [['dest' => '\Modules\News\Controller:viewNewsDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/news/single.*$'    => [['dest' => '\Modules\News\Controller:viewNewsArticle', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
+        '^.*/backend/news/article.*$'    => [['dest' => '\Modules\News\Controller:viewNewsArticle', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/news/archive.*$'   => [['dest' => '\Modules\News\Controller:viewNewsArchive', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
         '^.*/backend/news/create.*$'    => [['dest' => '\Modules\News\Controller:viewNewsCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
@@ -123,10 +123,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/News/Theme/Backend/news-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
-        $news     = $this->getNewsListR(20, 0, 'news.news_publish', 'DESC', $this->app->accountManager->get($request->getAccount()));
-        $headline = $this->getHeadlineListR(20, 0, 'news.news_publish', 'ASC', $this->app->accountManager->get($request->getAccount()));
-        $view->addData('newsList', $news);
-        $view->addData('headlineList', $headline);
+        $mapper = new NewsArticleMapper($this->app->dbPool->get());
+        $news     = $mapper->getNewest(50);
+        $view->addData('news', $news);
 
         return $view;
     }
@@ -149,7 +148,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
         $article           = $newsArticleMapper->get((int) $request->getData('id'));
-        $view->addData('newsList', $article);
+        $view->addData('news', $article);
 
         return $view;
     }

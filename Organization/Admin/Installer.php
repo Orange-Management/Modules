@@ -45,12 +45,9 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_unit` (
                             `organization_unit_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `organization_unit_status` tinyint(2) DEFAULT NULL,
-                            `organization_unit_matchcode` varchar(50) DEFAULT NULL,
                             `organization_unit_name` varchar(50) DEFAULT NULL,
                             `organization_unit_description` varchar(255) DEFAULT NULL,
                             `organization_unit_parent` int(11) DEFAULT NULL,
-                            `organization_unit_created` datetime DEFAULT NULL,
                             PRIMARY KEY (`organization_unit_id`),
                             KEY `organization_unit_parent` (`organization_unit_parent`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
@@ -81,6 +78,22 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_position` (
+                            `organization_position_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `organization_position_name` varchar(50) DEFAULT NULL,
+                            `organization_position_description` varchar(255) DEFAULT NULL,
+                            `organization_position_parent` int(11) DEFAULT NULL,
+                            PRIMARY KEY (`organization_position_id`),
+                            KEY `organization_position_parent` (`organization_position_parent`)
+                        )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'organization_position`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_position_ibfk_1` FOREIGN KEY (`organization_position_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_position` (`organization_position_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_address` (
                             `organization_address_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_address_status` tinyint(2) DEFAULT NULL,
@@ -104,8 +117,8 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'INSERT INTO `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_status`, `organization_unit_matchcode`, `organization_unit_name`, `organization_unit_description`, `organization_unit_parent`) VALUES
-                            (1, \'default\', \'Default\', \'Default unit.\', NULL);'
+                    'INSERT INTO `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_name`, `organization_unit_description`, `organization_unit_parent`) VALUES
+                            (\'Default\', \'Default unit.\', NULL);'
                 )->execute();
                 break;
         }

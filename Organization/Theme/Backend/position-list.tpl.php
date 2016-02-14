@@ -28,12 +28,12 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Business']['Positions']; ?></caption>
+        <caption><?= $this->l11n->lang['Organization']['Positions']; ?></caption>
         <thead>
         <tr>
             <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Business']['Name']; ?>
-            <td><?= $this->l11n->lang['Business']['Parent']; ?>
+            <td class="wf-100"><?= $this->l11n->lang['Organization']['Name']; ?>
+            <td><?= $this->l11n->lang['Organization']['Parent']; ?>
                 <tfoot>
         <tr><td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
