@@ -15,10 +15,10 @@
  */
 namespace Modules\Support;
 
-use phpOMS\Datatypes\Enum;
+use Modules\Tasks\Models\Task;
 
 /**
- * Support status enum.
+ * Issue class.
  *
  * @category   Support
  * @package    Framework
@@ -28,19 +28,31 @@ use phpOMS\Datatypes\Enum;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class SupportStatus extends Enum
+class Ticket extends Task
 {
-    const OPEN = 0;
 
-    const REVIEW = 1;
+    private $id   = 0;
+    private $task = 0;
 
-    const LIVE = 2;
+    /**
+     * Assigned group.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $group = 0;
 
-    const HOLD = 3;
+    /**
+     * Assigned person.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $person = 0;
 
-    const UNSOLVABLE = 4;
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-    const SOLVED = 5;
-
-    const CLOSED = 6;
 }

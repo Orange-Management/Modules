@@ -216,7 +216,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
-        $view->addData('unit', $departmentMapper->get((int) $request->getData('id')));
+        $view->addData('department', $departmentMapper->get((int) $request->getData('id')));
 
         return $view;
     }

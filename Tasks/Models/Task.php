@@ -37,7 +37,7 @@ class Task
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    protected $id = 0;
 
     /**
      * Title.
@@ -45,7 +45,7 @@ class Task
      * @var string
      * @since 1.0.0
      */
-    private $title = '';
+    protected $title = '';
 
     /**
      * Creator.
@@ -53,7 +53,7 @@ class Task
      * @var int
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    protected $createdBy = 0;
 
     /**
      * Created.
@@ -61,7 +61,7 @@ class Task
      * @var \DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    protected $createdAt = null;
 
     /**
      * Description.
@@ -69,7 +69,7 @@ class Task
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    protected $description = '';
 
     /**
      * Type.
@@ -77,7 +77,7 @@ class Task
      * @var TaskType
      * @since 1.0.0
      */
-    private $type = TaskType::SINGLE;
+    protected $type = TaskType::SINGLE;
 
     /**
      * Status.
@@ -85,7 +85,7 @@ class Task
      * @var TaskStatus
      * @since 1.0.0
      */
-    private $status = TaskStatus::OPEN;
+    protected $status = TaskStatus::OPEN;
 
     /**
      * Due.
@@ -93,7 +93,7 @@ class Task
      * @var \DateTime
      * @since 1.0.0
      */
-    private $due = null;
+    protected $due = null;
 
     /**
      * Done.
@@ -101,7 +101,7 @@ class Task
      * @var \DateTime
      * @since 1.0.0
      */
-    private $done = null;
+    protected $done = null;
 
     /**
      * Task elements.
@@ -109,7 +109,7 @@ class Task
      * @var TaskElement[]
      * @since 1.0.0
      */
-    private $taskElements = [];
+    protected $taskElements = [];
 
     /**
      * Schedule
@@ -117,7 +117,7 @@ class Task
      * @var Schedule
      * @since 1.0.0
      */
-    private $schedule = null;
+    protected $schedule = null;
 
     /**
      * Constructor.

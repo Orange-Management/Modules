@@ -32,4 +32,5 @@ abstract class TaskType extends Enum
 {
     const TEMPLATE = 1;
     const SINGLE   = 2;
+    const HIDDEN   = 3;
 }

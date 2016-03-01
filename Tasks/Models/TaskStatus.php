@@ -39,4 +39,6 @@ abstract class TaskStatus extends Enum
     const CANCELED = 4;
 
     const DONE = 5;
+
+    const CLOSED = 6;
 }
