@@ -46,6 +46,8 @@ abstract class AccountAbstract implements AccountInterface
      */
     protected $type = null;
 
+    protected $parent = null;
+
     /**
      * Entry list.
      *
