@@ -15,8 +15,6 @@
  */
 namespace Modules\Reporter\Models;
 
-
-
 /**
  * Report model.
  *

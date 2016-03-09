@@ -51,6 +51,12 @@ class TemplateMapper extends DataMapperAbstract
      */
     protected static $table = 'reporter_template';
 
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'reporter_template_created';
 
     /**

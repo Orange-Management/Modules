@@ -60,8 +60,8 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'taskElements' => [
-            'mapper'         => '\Modules\Tasks\Models\TaskElementMapper',
-            'relationmapper' => '\Modules\Tasks\Models\TaskElementMapper',
+            'mapper'         => \Modules\Tasks\Models\TaskElementMapper::class,
+            'relationmapper' => \Modules\Tasks\Models\TaskElementMapper::class,
             'table'          => 'task_element',
             'dst'            => 'task_element_task',
             'src'            => null,
@@ -76,7 +76,7 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $hasOne = [
         'schedule' => [
-            'mapper'         => '\Modules\Calendar\Models\ScheduleMapper',
+            'mapper'         => \Modules\Calendar\Models\ScheduleMapper::class,
             'src'            => 'task_schedule',
         ],
     ];

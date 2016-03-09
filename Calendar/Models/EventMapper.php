@@ -60,7 +60,7 @@ class EventMapper extends DataMapperAbstract
      */
     protected static $hasOne = [
         'schedule' => [
-            'mapper' => '\Modules\Calendar\Models\ScheduleMapper',
+            'mapper' => \Modules\Calendar\Models\ScheduleMapper::class,
             'src'    => 'calendar_event_schedule',
         ],
     ];

@@ -314,4 +314,11 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    public function apiAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) 
+    {
+        // todo: instead of returning dom, maybe only return data and let ui handle presentation?!!?!?!?!!
+
+        $mapper = new AccountMapper($this->app->dbPool->get());
+    }
+
 }

@@ -52,7 +52,7 @@ class TicketMapper extends DataMapperAbstract
      */
     protected static $isExtending = [
         'task' => [
-            'mapper' => '\Modules\Tasks\Models\TaskMapper',
+            'mapper' => \Modules\Tasks\Models\TaskMapper::class,
             'src'    => 'ticket_task',
         ],
     ];

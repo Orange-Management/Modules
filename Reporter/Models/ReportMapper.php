@@ -57,6 +57,12 @@ class ReportMapper extends DataMapperAbstract
      */
     protected static $primaryField = 'reporter_report_id';
 
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected static $createdAt = 'reporter_report_created';
 
     /**
