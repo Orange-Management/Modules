@@ -42,7 +42,43 @@ class Installer extends InstallerAbstract
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'projectmanagement_project` (
+                            `projectmanagement_project_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `projectmanagement_project_name` varchar(254) NOT NULL,
+                            `projectmanagement_project_description` text NOT NULL,
+                            `projectmanagement_project_calendar` int(11) NOT NULL,
+                            `projectmanagement_project_costs` int(11) NOT NULL,
+                            `projectmanagement_project_budget` int(11) NOT NULL,
+                            `projectmanagement_project_earnings` int(11) NOT NULL,
+                            `projectmanagement_project_start` datetime NOT NULL,
+                            `projectmanagement_project_end` datetime NOT NULL,
+                            PRIMARY KEY (`projectmanagement_project_id`),
+                            KEY `projectmanagement_project_project` (`projectmanagement_project_project`)
+                        )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
 
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'projectmanagement_project`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'projectmanagement_project_ibfk_1` FOREIGN KEY (`projectmanagement_project_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'projectmanagement_task_relation` (
+                            `projectmanagement_task_relation_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `projectmanagement_task_relation_src`  int(11) NULL,
+                            `projectmanagement_task_relation_dst` int(11) NULL,
+                            PRIMARY KEY (`projectmanagement_task_relation_id`),
+                            KEY `projectmanagement_task_relation_src` (`projectmanagement_task_relation_src`),
+                            KEY `projectmanagement_task_relation_dst` (`projectmanagement_task_relation_dst`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'projectmanagement_task_relation`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'projectmanagement_task_relation_ibfk_1` FOREIGN KEY (`projectmanagement_task_relation_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'projectmanagement_task_relation_ibfk_2` FOREIGN KEY (`projectmanagement_task_relation_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'projectmanagement_project` (`projectmanagement_project_id`);'
+                )->execute();
                 break;
         }
     }

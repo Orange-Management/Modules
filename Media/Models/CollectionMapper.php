@@ -22,7 +22,7 @@ class CollectionMapper extends MediaMapper
 {
     protected static $hasMany = [
         'sources' => [
-            'mapper'         => '\Modules\Media\Models\MediaMapper', /* mapper of the related object */
+            'mapper'         => \Modules\Media\Models\MediaMapper::class, /* mapper of the related object */
             'relationmapper' => null, /* if the relation itself is a more complex object that has it's own mapper */
             'table'          => 'media_relation', /* table of the related object, null if no relation table is used (many->1) */
             'dst'            => 'media_relation_dst',

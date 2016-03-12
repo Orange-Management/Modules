@@ -13,9 +13,9 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\EventManagement;
+namespace Modules\EventManagement\Models;
 
-use phpOMS\Pattern\Multition;
+use Modules\Calendar\Models\Event as CalendarEvent;
 
 /**
  * Event class.
@@ -28,7 +28,7 @@ use phpOMS\Pattern\Multition;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Event implements Multition
+class Event
 {
 
     /**
@@ -39,208 +39,127 @@ class Event implements Multition
      */
     private $id = null;
 
-    /**
-     * Name.
-     *
-     * @var string
-     * @since 1.0.0
-     */
+    private $type = EventType::DEFAULT;
+
     private $name = '';
 
-    /**
-     * Description.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    private $description = null;
+    private $event = null;
 
-    /**
-     * Created.
-     *
-     * @var datetime
-     * @since 1.0.0
-     */
-    private $created = null;
+    private $costs = null;
 
-    /**
-     * Creator.
-     *
-     * @var int
-     * @since 1.0.0
-     */
-    private $creator = null;
+    private $budget = null;
 
-    /**
-     * Calendar.
-     *
-     * @var \Modules\Calender\Models\Calender
-     * @since 1.0.0
-     */
-    private $calendar = null;
+    private $earnings = null;
 
-    /**
-     * People/Users.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    private $people = [];
+    private $tasks = [];
 
-    private static $instances = [];
-
-    public function __construct($id)
+    public function __construct(string $name = '')
     {
+        $this->event = new CalendarEvent();
+        $this->costs = new Money();
+        $this->budget = new Money();
+        $this->earnings = new Money();
+
+        $this->setName($name);
     }
 
-    public function getInstance($id)
+    public function getEvent() : CalendarEvent
     {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
+        return $this->event;
     }
 
-    public function getId()
+    public function setName(string $name) 
     {
-        return $this->id;
+        $this->name = $name;
+        $this->event->setName($name);
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function addTask(Task $task)
     {
-        $this->name = $name;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setDescription($desc)
-    {
-        $this->descritpion = $desc;
-    }
-
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    }
-
-    public function getCreator()
-    {
-        return $this->creator;
-    }
-
-    public function setCreator($creator)
-    {
-        $this->creator = $creator;
-    }
-
-    public function getCalendar()
-    {
-        return $this->calender;
-    }
-
-    public function setCalender($calender)
-    {
-        $this->calender = $calender;
-    }
-
-    public function getPeople()
-    {
-        return $this->people;
-    }
-
-    public function setPeople($people)
-    {
-        $this->people = $people;
-    }
-
-    public function addPerson($person)
-    {
-        if (!isset($this->people[$person['id']])) {
-            $this->people[$person['id']] = $person;
+        if($task->getId() !== 0) {
+            $this->tasks[$task->getId()] = $task;
+        } else {
+            $this->tasks[] = $task;
         }
     }
 
-    public function removePerson($id)
+    public function removeTask(int $id) : bool
     {
-        if (isset($this->people[$id])) {
-            unset($this->people[$id]);
+        if(isset($this->tasks[$id])) {
+            unset($this->tasks[$id]);
+
+            return true;
         }
+
+        return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function delete()
+    public function getTask(int $id) : Task
     {
+        return $this->tasks[$id] ?? new NullTask();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function create()
+    public function getTasks() : array 
     {
+        return $this->tasks;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function update()
+    public function countTasks() : int 
     {
+        return count($this->tasks);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function serialize()
+    public function getId() : int
     {
+        return $this->id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($data)
+    public function setType(int $type)
     {
+        if(!EventType::isValid($type)) {
+            throw new InvalidEnumValue($type);
+        }
+
+        $this->type = $type;
     }
 
-    /**
-     * Init object by ID.
-     *
-     * This usually happens from DB or cache
-     *
-     * @param int $id Object ID
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function init($id)
+    public function getType() : int
     {
-        // TODO: Implement init() method.
+        return $this->type;
     }
 
-    /**
-     * Overwriting clone in order to maintain singleton pattern.
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function __clone()
+    public function getCosts() : Money 
     {
-        // TODO: Implement __clone() method.
+        return $this->costs;
+    }
+
+    public function getBudget() : Money 
+    {
+        return $this->budget;
+    }
+
+    public function getEarnings() : Money 
+    {
+        return $this->earnings;
+    }
+
+    public function setCosts(Money $costs) 
+    {
+        $this->costs = $costs;
+    }
+
+    public function setBudget(Money $budget) 
+    {
+        $this->budget = $budget;
+    }
+
+    public function setEarnings(Money $earnings) 
+    {
+        $this->earnings = $earnings;
     }
 }
