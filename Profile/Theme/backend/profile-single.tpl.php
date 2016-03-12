@@ -74,3 +74,29 @@ echo $this->getData('nav')->render();
                 <!-- @formatter:on -->
     </div>
 </section>
+
+<section class="box w-100">
+    <table class="table">
+        <caption><?= $this->l11n->lang['Profile']['Media']; ?></caption>
+        <thead>
+        <tr>
+            <td><?= $this->l11n->lang[0]['ID']; ?>
+            <td class="wf-100"><?= $this->l11n->lang['Profile']['Title']; ?>
+            <td><?= $this->l11n->lang['Profile']['Type']; ?>
+            <td><?= $this->l11n->lang['Profile']['Created']; ?>
+        <tfoot>
+        <tr><td colspan="4"><?= $footerView->render(); ?>
+        <tbody>
+        <?php $c = 0; foreach ($employees as $key => $value) : $c++;
+            $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
+            <tr>
+                <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $value->getNewestStatus()->getStatus(); ?></a>
+        <?php endforeach; ?>
+        <?php if($c === 0) : ?>
+            <tr><td colspan="4" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <?php endif; ?>
+    </table>
+</section>
