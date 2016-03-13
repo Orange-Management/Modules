@@ -54,7 +54,7 @@ class Installer extends InstallerAbstract
                             `projectmanagement_project_start` datetime NOT NULL,
                             `projectmanagement_project_end` datetime NOT NULL,
                             PRIMARY KEY (`projectmanagement_project_id`),
-                            KEY `projectmanagement_project_project` (`projectmanagement_project_project`)
+                            KEY `projectmanagement_project_calendar` (`projectmanagement_project_calendar`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
