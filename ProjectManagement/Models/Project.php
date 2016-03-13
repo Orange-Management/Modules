@@ -64,10 +64,11 @@ class Project
 
     private $tasks = [];
 
-    public function __construct(string $name = '') {
+    public function __construct(string $name = '') 
+    {
         $this->start = new \DateTime('now');
         $this->end = new \DateTime('now');
-        $this->end->modify('+1M');
+        $this->end->modify('+1 month');
         $this->createdAt = new \DateTime('now');
 
         $this->calendar = new Calendar();
