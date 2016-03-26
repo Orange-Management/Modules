@@ -38,7 +38,7 @@
     jsOMS.Modules.Models.Media.Upload.prototype.upload = function (formId) {
         // TODO: validate file type + file size
 
-        var request = new jsOMS.Request(),
+        var request = new jsOMS.Message.Request(),
             formData = new FormData(),
             self = this;
 
