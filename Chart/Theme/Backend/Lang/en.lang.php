@@ -1,0 +1,53 @@
+<?php
+/**
+ * Orange Management
+ *
+ * PHP Version 7.0
+ *
+ * @category   TBD
+ * @package    TBD
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @copyright  2013 Dennis Eichhorn
+ * @license    OMS License 1.0
+ * @version    1.0.0
+ * @link       http://orange-management.com
+ */
+$MODLANG['Chart'] = [
+    'Axis'       => 'Axis',
+    'Chart'      => 'Chart',
+    'Charts'     => 'Charts',
+    'Color'      => 'Color',
+    'Created'    => 'Created',
+    'Creator'    => 'Creator',
+    'Data'       => 'Data',
+    'Footer'     => 'Footer',
+    'Grid'       => 'Grid',
+    'GroupUser'  => 'Group/User',
+    'Hover'      => 'Hover',
+    'Info'       => 'Info',
+    'Label'      => 'Label',
+    'Layout'     => 'Layout',
+    'Legend'     => 'Legend',
+    'Marker'     => 'Marker',
+    'Master'     => 'Master',
+    'Maximum'    => 'Maximum',
+    'Minimum'    => 'Minimum',
+    'Name'       => 'Name',
+    'Permission' => 'Permission',
+    'Position'   => 'Position',
+    'ShowAxis'   => 'Show Axis',
+    'ShowData'   => 'Show Data',
+    'ShowTicks'  => 'Show Ticks',
+    'Settings'   => 'Settings',
+    'Size'       => 'Size',
+    'Status'     => 'Status',
+    'Steps'      => 'Steps',
+    'Subtitle'   => 'Subtitle',
+    'Text'       => 'Text',
+    'Thickness'  => 'Thickness',
+    'Ticks'      => 'Ticks',
+    'Title'      => 'Title',
+    'Type'       => 'Type',
+    'Visible'    => 'Visible',
+];
