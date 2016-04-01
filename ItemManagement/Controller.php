@@ -92,21 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/sales/item/list.*$'    => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/item/list.*$' => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/warehousing/stock/list.*$' => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/item/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/item/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/warehousing/stock/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

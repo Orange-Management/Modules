@@ -75,18 +75,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/costcenter/list.*$'    => [['dest' => '\Modules\CostCenterAccounting\Controller:viewCostCenterList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costcenter/create.*$'  => [['dest' => '\Modules\CostCenterAccounting\Controller:viewCostCenterCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costcenter/profile.*$' => [['dest' => '\Modules\CostCenterAccounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string

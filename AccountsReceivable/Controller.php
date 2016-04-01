@@ -75,26 +75,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/receivable/list.*$'         => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/create.*$'       => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/profile.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/outstanding.*$'  => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorOutstanding', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/age.*$'          => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorAge', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/receivable.*$'   => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorPayable', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/dun/list.*$'     => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDunList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/dso/list.*$'     => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDsoList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/journal/list.*$' => [['dest' => '\Modules\AccountsReceivable\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/entries.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewEntriesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/analyze.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewAnalyzeDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string

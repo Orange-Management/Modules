@@ -92,23 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/messages/dashboard.*$'   => [['dest' => '\Modules\Messages\Controller:viewMessageInbox', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/outbox.*$'      => [['dest' => '\Modules\Messages\Controller:viewMessageOutbox', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/trash.*$'       => [['dest' => '\Modules\Messages\Controller:viewMessageTrash', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/spam.*$'        => [['dest' => '\Modules\Messages\Controller:viewMessageSpam', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/settings.*$'    => [['dest' => '\Modules\Messages\Controller:viewMessageSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/mail/create.*$' => [['dest' => '\Modules\Messages\Controller:viewMessageCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/mail/single.*$' => [['dest' => '\Modules\Messages\Controller:viewMessageView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/messages/mail/single.*$'     => [['dest' => '\Modules\Messages\Controller:viewMessageView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

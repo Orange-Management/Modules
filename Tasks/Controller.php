@@ -97,21 +97,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/task/dashboard.*$' => [['dest' => '\Modules\Tasks\Controller:viewTaskDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/task/single.*$'    => [['dest' => '\Modules\Tasks\Controller:viewTaskView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/task/create.*$'    => [['dest' => '\Modules\Tasks\Controller:viewTaskCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/task/analysis.*$'  => [['dest' => '\Modules\Tasks\Controller:viewTaskAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/task/create.*$' => [['dest' => '\Modules\Tasks\Controller:apiTaskCreate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

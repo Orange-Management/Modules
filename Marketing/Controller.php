@@ -92,19 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/marketing/promotion/list.*$'   => [['dest' => '\Modules\Marketing\Controller:viewMarketingPromotionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/marketing/promotion/create.*$' => [['dest' => '\Modules\Marketing\Controller:viewMarketingPromotionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/marketing/event/list.*$'   => [['dest' => '\Modules\Marketing\Controller:viewMarketingEventList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/marketing/event/create.*$' => [['dest' => '\Modules\Marketing\Controller:viewMarketingEventCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

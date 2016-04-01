@@ -92,25 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/controlling/riskmanagement/cockpit.*$'            => [['dest' => '\Modules\RiskManagement\Controller:viewRiskCockpit', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/risk/list.*$'          => [['dest' => '\Modules\RiskManagement\Controller:viewRiskList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/cause/list.*$'         => [['dest' => '\Modules\RiskManagement\Controller:viewRiskCauseList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/solution/list.*$'      => [['dest' => '\Modules\RiskManagement\Controller:viewRiskSolutionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/unit/list.*$'          => [['dest' => '\Modules\RiskManagement\Controller:viewRiskUnitList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/department/list.*$'    => [['dest' => '\Modules\RiskManagement\Controller:viewRiskDepartmentList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/category/list.*$'      => [['dest' => '\Modules\RiskManagement\Controller:viewRiskCategoryList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/project/list.*$'       => [['dest' => '\Modules\RiskManagement\Controller:viewRiskProjectList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/process/list.*$'       => [['dest' => '\Modules\RiskManagement\Controller:viewRiskProcessList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/controlling/riskmanagement/settings/dashboard.*$' => [['dest' => '\Modules\RiskManagement\Controller:viewRiskSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

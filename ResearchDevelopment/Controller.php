@@ -92,17 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/rnd/list.*$'   => [['dest' => '\Modules\ResearchDevelopment\Controller:viewProjectList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/rnd/create.*$' => [['dest' => '\Modules\ResearchDevelopment\Controller:viewProjectCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

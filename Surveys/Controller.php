@@ -92,18 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/survey/list.*$'    => [['dest' => '\Modules\Surveys\Controller:viewSurveysList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/survey/create.*$'  => [['dest' => '\Modules\Surveys\Controller:viewSurveysCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/survey/profile.*$' => [['dest' => '\Modules\Surveys\Controller:viewSurveysProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

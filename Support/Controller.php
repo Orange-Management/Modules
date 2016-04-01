@@ -92,21 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/support/list.*$'              => [['dest' => '\Modules\Support\Controller:viewSupportList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/single.*$'            => [['dest' => '\Modules\Support\Controller:viewSupportTicket', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/create.*$'            => [['dest' => '\Modules\Support\Controller:viewSupportCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/analysis.*$'          => [['dest' => '\Modules\Support\Controller:viewSupportAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/settings.*$'          => [['dest' => '\Modules\Support\Controller:viewSupportSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/private/support/dashboard.*$' => [['dest' => '\Modules\Support\Controller:viewPrivateSupportDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

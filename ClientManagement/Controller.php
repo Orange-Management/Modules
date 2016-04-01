@@ -92,19 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/sales/client/list.*$'     => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/client/create.*$'   => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/client/profile.*$'  => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/client/analysis.*$' => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

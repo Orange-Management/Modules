@@ -92,18 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/projectmanagement/list.*$'    => [['dest' => '\Modules\ProjectManagement\Controller:viewProjectManagementList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/projectmanagement/create.*$'  => [['dest' => '\Modules\ProjectManagement\Controller:viewProjectManagementCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/projectmanagement/profile.*$' => [['dest' => '\Modules\ProjectManagement\Controller:viewProjectManagementProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

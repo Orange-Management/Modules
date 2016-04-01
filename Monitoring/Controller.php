@@ -92,18 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/admin/monitoring/general.*$'     => [['dest' => '\Modules\Monitoring\Controller:viewMonitoringGeneral', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/monitoring/logs/list.*$'   => [['dest' => '\Modules\Monitoring\Controller:viewMonitoringLogList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/monitoring/logs/single.*$' => [['dest' => '\Modules\Monitoring\Controller:viewMonitoringLogEntry', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

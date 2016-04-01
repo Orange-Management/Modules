@@ -92,19 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/purchase/supplier/list.*$'     => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/supplier/create.*$'   => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/supplier/profile.*$'  => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/supplier/analysis.*$' => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

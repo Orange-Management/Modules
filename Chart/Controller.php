@@ -93,21 +93,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/chart/create$'        => [['dest' => '\Modules\Chart\Controller:viewChartCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/chart/create/line.*$' => [
-            ['dest' => '\Modules\Chart\Controller:setUpChartEditor', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Chart\Controller:viewChartCreateLine', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-        '^.*/backend/chart/list.*$'        => [['dest' => '\Modules\Chart\Controller:viewChartList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

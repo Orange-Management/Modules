@@ -116,30 +116,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/reporter/template/create.*$' => [
-            ['dest' => '\Modules\Reporter\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Reporter\Controller:viewTemplateCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-        '^.*/backend/reporter/report/create.*$'   => [
-            ['dest' => '\Modules\Reporter\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Reporter\Controller:viewReportCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-
-        '^.*/backend/reporter/list.*$'        => [['dest' => '\Modules\Reporter\Controller:viewTemplateList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/reporter/report/view.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterReport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/reporter/report/export.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterExport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/reporter/template.*$'      => [['dest' => '\Modules\Reporter\Controller:apiCreateTemplate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-        '^.*/api/reporter/report.*$'        => [['dest' => '\Modules\Reporter\Controller:apiCreateReport', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

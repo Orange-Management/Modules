@@ -92,19 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/checklist/list.*$'            => [['dest' => '\Modules\Checklist\Controller:viewChecklistList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/checklist/template/list.*$'   => [['dest' => '\Modules\Checklist\Controller:viewChecklistTemplateList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/checklist/template/create.*$' => [['dest' => '\Modules\Checklist\Controller:viewChecklistTemplateCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/checklist/template/view.*$'   => [['dest' => '\Modules\Checklist\Controller:viewChecklistTemplateView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

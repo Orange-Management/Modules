@@ -75,18 +75,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/costobject/list.*$'    => [['dest' => '\Modules\CostObjectAccounting\Controller:viewCostObjectList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costobject/create.*$'  => [['dest' => '\Modules\CostObjectAccounting\Controller:viewCostObjectCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costobject/profile.*$' => [['dest' => '\Modules\CostObjectAccounting\Controller:viewCostObjectProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string

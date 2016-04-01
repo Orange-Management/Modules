@@ -91,27 +91,6 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/admin/settings/general.*$' => [['dest' => '\Modules\Admin\Controller:viewSettingsGeneral', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/admin/account/list.*$'     => [['dest' => '\Modules\Admin\Controller:viewAccountList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/account/settings.*$' => [['dest' => '\Modules\Admin\Controller:viewAccountSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/account/create.*$'   => [['dest' => '\Modules\Admin\Controller:viewAccountCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/admin/group/list.*$'     => [['dest' => '\Modules\Admin\Controller:viewGroupList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/group/settings.*$' => [['dest' => '\Modules\Admin\Controller:viewGroupSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/group/create.*$'   => [['dest' => '\Modules\Admin\Controller:viewGroupCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/admin/module/list.*$'     => [['dest' => '\Modules\Admin\Controller:viewModuleList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/module/settings.*$' => [['dest' => '\Modules\Admin\Controller:viewModuleProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

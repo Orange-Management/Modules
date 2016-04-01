@@ -92,22 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/purchase/invoice/create.*$' => [['dest' => '\Modules\Purchase\Controller:viewPurchaseInvoiceCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/invoice/list.*$'   => [['dest' => '\Modules\Purchase\Controller:viewPurchaseInvoiceList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/purchase/article/list.*$'      => [['dest' => '\Modules\Purchase\Controller:viewPurchaseArticleList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/article/recommend.*$' => [['dest' => '\Modules\Purchase\Controller:viewPurchaseOrderRecommendation', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/article/create.*$'    => [['dest' => '\Modules\Purchase\Controller:viewPurchaseArticleCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/article/profile.*$'   => [['dest' => '\Modules\Purchase\Controller:viewPurchaseArticleProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

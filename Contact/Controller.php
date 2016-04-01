@@ -68,15 +68,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-    ];
-
-    /**
      * Providing.
      *
      * @var string

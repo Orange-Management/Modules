@@ -92,26 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/organization/unit/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewUnitList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/unit/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewUnitProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/unit/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewUnitCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/organization/department/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewDepartmentList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/department/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewDepartmentProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/department/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewDepartmentCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/organization/position/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewPositionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/position/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewPositionProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/position/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewPositionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

@@ -75,35 +75,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/personal/entries.*$'   => [['dest' => '\Modules\Accounting\Controller:viewPersonalEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/impersonal/entries.*$' => [['dest' => '\Modules\Accounting\Controller:viewImpersonalEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/entries.*$'            => [['dest' => '\Modules\Accounting\Controller:viewEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/impersonal/journal/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/stack/list.*$'            => [['dest' => '\Modules\Accounting\Controller:viewStackList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/entries.*$'         => [['dest' => '\Modules\Accounting\Controller:viewStackEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/archive/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewStackArchiveList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/create.*$'          => [['dest' => '\Modules\Accounting\Controller:viewStackCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/predefined/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewStackPredefinedList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/gl/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewGLList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/gl/create.*$'  => [['dest' => '\Modules\Accounting\Controller:viewGLCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/gl/profile.*$' => [['dest' => '\Modules\Accounting\Controller:viewGLProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/accounting/dun/print.*$'         => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/accounting/statement/print.*$'   => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/accounting/balances/print.*$'    => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/accounting/accountform/print.*$' => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string

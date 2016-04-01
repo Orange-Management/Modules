@@ -92,17 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/warehousing/stock/arrival/list.*$' => [['dest' => '\Modules\Arrival\Controller:viewArrivalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/warehousing/stock/arrival/create.*$' => [['dest' => '\Modules\Arrival\Controller:viewArrivalCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

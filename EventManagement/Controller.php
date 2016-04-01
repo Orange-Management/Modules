@@ -92,18 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/eventmanagement/list.*$'    => [['dest' => '\Modules\EventManagement\Controller:viewEventManagementList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/eventmanagement/create.*$'  => [['dest' => '\Modules\EventManagement\Controller:viewEventManagementCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/eventmanagement/profile.*$' => [['dest' => '\Modules\EventManagement\Controller:viewEventManagementProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

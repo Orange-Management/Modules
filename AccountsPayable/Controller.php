@@ -75,24 +75,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/payable/list.*$'         => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/create.*$'       => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/profile.*$'      => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/outstanding.*$'  => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorOutstanding', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/age.*$'          => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorAge', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/payable.*$'      => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorPayable', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/journal/list.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/entries.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewEntriesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/analyze.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewAnalyzeDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string

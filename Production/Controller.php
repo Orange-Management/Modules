@@ -92,20 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/production/list.*$' => [['dest' => '\Modules\Production\Controller:viewProductionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/production/create.*$' => [['dest' => '\Modules\Production\Controller:viewProductionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/production/process/list.*$' => [['dest' => '\Modules\Production\Controller:viewProductionProcessList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/production/process/create.*$' => [['dest' => '\Modules\Production\Controller:viewProductionProcessCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

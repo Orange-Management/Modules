@@ -92,20 +92,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/sales/invoice/create.*$' => [['dest' => '\Modules\Billing\Controller:viewBillingInvoiceCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/invoice/list.*$'   => [['dest' => '\Modules\Billing\Controller:viewBillingInvoiceList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/purchase/invoice/create.*$' => [['dest' => '\Modules\Billing\Controller:viewBillingPurchaseInvoiceCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/invoice/list.*$'   => [['dest' => '\Modules\Billing\Controller:viewBillingPurchaInvoiceList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
