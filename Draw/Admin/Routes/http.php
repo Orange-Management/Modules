@@ -1,6 +1,6 @@
 <?php
 
-$httpRoutes = [
+return [
     '^.*/backend/draw/create.*$' => [
         [
             'dest' => '\Modules\Draw\Controller:setUpDrawEditor', 
@@ -11,16 +11,12 @@ $httpRoutes = [
         [
             'dest' => '\Modules\Draw\Controller:viewDrawCreate', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
     '^.*/backend/draw/list.*$' => [
         [
             'dest' => '\Modules\Draw\Controller:viewDrawList', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
 ];

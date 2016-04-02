@@ -1,6 +1,6 @@
 <?php
 
-$httpRoutes = [
+return [
     '^.*/backend/editor/create.*$' => [
         [
             'dest' => '\Modules\Editor\Controller:setUpEditorEditor', 
@@ -11,16 +11,12 @@ $httpRoutes = [
         [
             'dest' => '\Modules\Editor\Controller:viewEditorCreate', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
     '^.*/backend/editor/list.*$' => [
         [
             'dest' => '\Modules\Editor\Controller:viewEditorList', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
 ];

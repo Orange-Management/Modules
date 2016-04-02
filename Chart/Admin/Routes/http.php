@@ -1,12 +1,10 @@
 <?php
 
-$httpRoutes = [
+return [
     '^.*/backend/chart/create$' => [
         [
             'dest' => '\Modules\Chart\Controller:viewChartCreate', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
     '^.*/backend/chart/create/line.*$' => [
@@ -19,16 +17,12 @@ $httpRoutes = [
         [
             'dest' => '\Modules\Chart\Controller:viewChartCreateLine', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
     '^.*/backend/chart/list.*$' => [
         [
             'dest' => '\Modules\Chart\Controller:viewChartList', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
 ];
