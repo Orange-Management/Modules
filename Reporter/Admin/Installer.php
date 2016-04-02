@@ -44,7 +44,7 @@ class Installer extends InstallerAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public static function install(Pool $dbPool, array $info)
+    public static function install(Pool $dbPool, InfoManager $info)
     {
         parent::install($dbPool, $info);
 

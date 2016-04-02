@@ -19,7 +19,6 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\GroupMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -63,16 +62,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     const MODULE_NAME = 'Admin';
-
-    /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
 
     /**
      * Providing.

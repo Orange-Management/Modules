@@ -21,7 +21,6 @@ use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Datatypes\SmartDateTime;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     const MODULE_NAME = 'Calendar';
-
-    /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
 
     /**
      * Providing.
