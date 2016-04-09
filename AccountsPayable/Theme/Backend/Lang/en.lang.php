@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['AccountsPayable'] = [
+return ['AccountsPayable' => [
     'AccountsPayable' => 'Accounts Payable',
     'Address'         => 'Address',
     'AgePattern'      => 'Age Pattern',
@@ -31,4 +31,4 @@ $MODLANG['AccountsPayable'] = [
     'Selected'        => 'Selected',
     'Status'          => 'Status',
     'Zip'             => 'Zip',
-];
+]];

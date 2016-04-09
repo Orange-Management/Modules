@@ -57,7 +57,7 @@ $settingsFormView->setTemplate('/Web/Templates/Forms/FormFull');
 $settingsFormView->setHasSubmit(false);
 $settingsFormView->setOnChange(true);
 $settingsFormView->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
-$settingsFormView->setMethod(\phpOMS\Message\RequestMethod::POST);
+$settingsFormView->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
 $settingsFormView->setElement(0, 0, [
     'type'    => \phpOMS\Html\TagType::SELECT,

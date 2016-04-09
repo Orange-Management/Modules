@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['ResearchDevelopment'] = [
+return ['ResearchDevelopment' => [
     'Active'         => 'Active',
     'Budget'         => 'Budget',
     'Canceled'       => 'Canceled',
@@ -34,4 +34,4 @@ $MODLANG['ResearchDevelopment'] = [
     'Start'          => 'Start',
     'Status'         => 'Status',
     'UserGroup'      => 'User/Group',
-];
+]];

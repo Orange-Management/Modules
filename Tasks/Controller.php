@@ -23,7 +23,6 @@ use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -70,16 +69,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Tasks';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -97,21 +86,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/task/dashboard.*$' => [['dest' => '\Modules\Tasks\Controller:viewTaskDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/task/single.*$'    => [['dest' => '\Modules\Tasks\Controller:viewTaskView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/task/create.*$'    => [['dest' => '\Modules\Tasks\Controller:viewTaskCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/task/analysis.*$'  => [['dest' => '\Modules\Tasks\Controller:viewTaskAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/task/create.*$' => [['dest' => '\Modules\Tasks\Controller:apiTaskCreate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -121,7 +95,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewTaskDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewTaskDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
@@ -144,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
@@ -167,7 +141,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-create');
@@ -186,7 +160,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewTaskAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewTaskAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-analysis');

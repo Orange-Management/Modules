@@ -13,11 +13,11 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'Create'         => 'Create',
     'CreateTemplate' => 'Create Template',
     'CreateReport'   => 'Create Report',
     'List'           => 'List',
     'Reporter'       => 'Reporter',
     'Reporting'      => 'Reporting',
-];
+]];

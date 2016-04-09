@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'SupplierManagement';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,19 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/purchase/supplier/list.*$'     => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/supplier/create.*$'   => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/supplier/profile.*$'  => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/supplier/analysis.*$' => [['dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -114,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupplierManagementSupplierList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupplierManagementSupplierList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/SupplierManagement/Theme/Backend/supplier-list');
@@ -133,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupplierManagementSupplierCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupplierManagementSupplierCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/SupplierManagement/Theme/Backend/supplier-create');
@@ -152,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupplierManagementSupplierProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupplierManagementSupplierProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/SupplierManagement/Theme/Backend/supplier-profile');

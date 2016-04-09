@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Calendar'] = [
+return ['Calendar' => [
     'Blocks'   => 'Blocks',
     'Day'      => 'Day',
     'Interval' => 'Interval',
@@ -25,4 +25,4 @@ $MODLANG['Calendar'] = [
     'Timeline' => 'Timeline',
     'Week'     => 'Week',
     'Year'     => 'Year',
-];
+]];

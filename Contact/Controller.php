@@ -58,25 +58,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Contact';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-    ];
-
-    /**
      * Providing.
      *
      * @var string

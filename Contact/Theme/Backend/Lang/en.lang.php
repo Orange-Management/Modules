@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Contact'] = [
+return ['Contact' => [
     'Addresses' => 'Addresses',
     'Address'   => 'Address',
     'City'      => 'City',
@@ -30,4 +30,4 @@ $MODLANG['Contact'] = [
     'Province'  => 'Province',
     'State'     => 'State',
     'Zip'       => 'Zip',
-];
+]];

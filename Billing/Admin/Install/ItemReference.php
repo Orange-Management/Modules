@@ -35,7 +35,7 @@ class ItemReference
     /**
      * {@inheritdoc}
      */
-    public static function install(Pool $dbPool, array $info)
+    public static function install(Pool $dbPool, InfoManager $info)
     {
 
         switch ($dbPool->get('core')->getType()) {

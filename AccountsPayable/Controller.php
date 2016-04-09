@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,34 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'AccountsPayable';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/payable/list.*$'         => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/create.*$'       => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/profile.*$'      => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/outstanding.*$'  => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorOutstanding', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/age.*$'          => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorAge', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/payable.*$'      => [['dest' => '\Modules\AccountsPayable\Controller:viewCreditorPayable', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/journal/list.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/entries.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewEntriesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/payable/analyze.*$' => [['dest' => '\Modules\AccountsPayable\Controller:viewAnalyzeDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -120,7 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewCreditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewCreditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-list');
@@ -139,7 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewCreditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewCreditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-create');
@@ -158,7 +129,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewCreditorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewCreditorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/creditor-profile');
@@ -177,7 +148,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/entries-list');
@@ -196,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsPayable/Theme/Backend/analyze-dashboard');

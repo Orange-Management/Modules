@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['ProjectManagement'] = [
+return ['ProjectManagement' => [
     'Active'         => 'Active',
     'Budget'         => 'Budget',
     'Canceled'       => 'Canceled',
@@ -35,4 +35,4 @@ $MODLANG['ProjectManagement'] = [
     'Status'         => 'Status',
     'Title'          => 'Title',
     'UserGroup'      => 'User/Group',
-];
+]];

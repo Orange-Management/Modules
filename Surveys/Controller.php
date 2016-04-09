@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Surveys';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,18 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/survey/list.*$'    => [['dest' => '\Modules\Surveys\Controller:viewSurveysList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/survey/create.*$'  => [['dest' => '\Modules\Surveys\Controller:viewSurveysCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/survey/profile.*$' => [['dest' => '\Modules\Surveys\Controller:viewSurveysProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -113,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSurveysList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-list');
@@ -132,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSurveysCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
@@ -151,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSurveysProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-profile');

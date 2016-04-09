@@ -14,7 +14,9 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Dashboard\Admin;
+
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\InfoManager;
 
 /**
  * Dashboard install class.
@@ -33,7 +35,7 @@ class Installer
     /**
      * {@inheritdoc}
      */
-    public static function install(Pool $dbPool, array $info)
+    public static function install(Pool $dbPool, InfoManager $info)
     {
     }
 }

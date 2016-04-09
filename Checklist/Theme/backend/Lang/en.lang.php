@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Checklist'] = [
+return ['Checklist' => [
     'Checklist'   => 'Checklist',
     'Checklists'  => 'Checklists',
     'Created'     => 'Created',
@@ -27,4 +27,4 @@ $MODLANG['Checklist'] = [
     'Tasks'       => 'Tasks',
     'Templates'   => 'Templates',
     'Title'       => 'Title',
-];
+]];

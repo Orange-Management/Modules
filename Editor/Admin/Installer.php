@@ -17,6 +17,7 @@ namespace Modules\Editor\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
@@ -36,7 +37,7 @@ class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(Pool $dbPool, array $info)
+    public static function install(Pool $dbPool, InfoManager $info)
     {
         parent::install($dbPool, $info);
 

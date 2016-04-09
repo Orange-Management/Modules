@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Messages'] = [
+return ['Messages' => [
     'All'           => 'All',
     'AverageAmount' => 'Avg. Amount',
     'BCC'           => 'BCC',
@@ -40,4 +40,4 @@ $MODLANG['Messages'] = [
     'Trash'         => 'Trash',
     'Week'          => 'Week',
     'Year'          => 'Year',
-];
+]];

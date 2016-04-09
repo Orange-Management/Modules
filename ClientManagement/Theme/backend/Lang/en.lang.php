@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['ClientManagement'] = [
+return ['ClientManagement' => [
     'Accounting'   => 'Accounting',
     'Address'      => 'Address',
     'Addresses'    => 'Addresses',
@@ -61,4 +61,4 @@ $MODLANG['ClientManagement'] = [
     'Type'         => 'Type',
     'Wire'         => 'Wire',
     'Zip'          => 'Zip',
-];
+]];

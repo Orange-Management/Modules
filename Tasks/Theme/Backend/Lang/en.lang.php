@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Tasks'] = [
+return ['Tasks' => [
     'Account'            => 'Account',
     'All'                => 'All',
     'AverageProcessTime' => 'Avg. Process Time',
@@ -61,4 +61,4 @@ $MODLANG['Tasks'] = [
     'S3'                 => 'Suspended',
     'S4'                 => 'Canceled',
     'S5'                 => 'Done',
-];
+]];

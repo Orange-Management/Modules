@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'Accounting'      => 'Accounting',
     'AccountPostings' => 'Account Postings',
     'Balance'         => 'Balance',
@@ -25,4 +25,4 @@ $MODLANG['Navigation'] = [
     'Entries'         => 'Entries',
     'Postings'        => 'Postings',
     'Predefined'      => 'Predefined',
-];
+]];

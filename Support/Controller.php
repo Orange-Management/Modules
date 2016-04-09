@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Support';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,21 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/support/list.*$'              => [['dest' => '\Modules\Support\Controller:viewSupportList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/single.*$'            => [['dest' => '\Modules\Support\Controller:viewSupportTicket', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/create.*$'            => [['dest' => '\Modules\Support\Controller:viewSupportCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/analysis.*$'          => [['dest' => '\Modules\Support\Controller:viewSupportAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/support/settings.*$'          => [['dest' => '\Modules\Support\Controller:viewSupportSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/private/support/dashboard.*$' => [['dest' => '\Modules\Support\Controller:viewPrivateSupportDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -116,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/Backend/support-list');
@@ -135,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/Backend/ticket-create');
@@ -154,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupportAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupportAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/Backend/support-analysis');
@@ -173,7 +147,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSupportSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSupportSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/Backend/support-settings');
@@ -192,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewPrivateSupportDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewPrivateSupportDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/Backend/user-support-dashboard');

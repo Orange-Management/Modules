@@ -20,7 +20,6 @@ use Modules\Navigation\Views\NavigationView;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -66,16 +65,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Editor';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -90,20 +79,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $dependencies = [
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/editor/create.*$' => [
-            ['dest' => '\Modules\Editor\Controller:setUpEditorEditor', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Editor\Controller:viewEditorCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-        '^.*/backend/editor/list.*$' => [['dest' => '\Modules\Editor\Controller:viewEditorList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
     ];
 
     /**
@@ -132,7 +107,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Editor/Theme/Backend/editor-create');
@@ -151,7 +126,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewEditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewEditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Editor/Theme/Backend/editor-list');

@@ -13,9 +13,9 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'CostCenter'  => 'Cost Center',
     'CostCenters' => 'Cost Centers',
     'Create'      => 'Create',
     'List'        => 'List',
-];
+]];

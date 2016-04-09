@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Purchase'] = [
+return ['Purchase' => [
     'Account'              => 'Account',
     'Active'               => 'Active',
     'Activity'             => 'Activity',
@@ -100,4 +100,4 @@ $MODLANG['Purchase'] = [
     'Turnover'             => 'Turnover',
     'Type'                 => 'Type',
     'ZipCode'              => 'ZipCode',
-];
+]];

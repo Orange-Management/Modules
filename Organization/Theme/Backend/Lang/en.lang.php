@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Organization'] = [
+return ['Organization' => [
     'Active'      => 'Active',
     'Department'  => 'Department',
     'Departments' => 'Departments',
@@ -24,4 +24,4 @@ $MODLANG['Organization'] = [
     'Status'      => 'Status',
     'Unit'        => 'Unit',
     'Units'       => 'Units',
-];
+]];

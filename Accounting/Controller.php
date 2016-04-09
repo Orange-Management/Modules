@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,45 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Accounting';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/personal/entries.*$'   => [['dest' => '\Modules\Accounting\Controller:viewPersonalEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/impersonal/entries.*$' => [['dest' => '\Modules\Accounting\Controller:viewImpersonalEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/entries.*$'            => [['dest' => '\Modules\Accounting\Controller:viewEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/impersonal/journal/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/stack/list.*$'            => [['dest' => '\Modules\Accounting\Controller:viewStackList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/entries.*$'         => [['dest' => '\Modules\Accounting\Controller:viewStackEntries', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/archive/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewStackArchiveList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/create.*$'          => [['dest' => '\Modules\Accounting\Controller:viewStackCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/stack/predefined/list.*$' => [['dest' => '\Modules\Accounting\Controller:viewStackPredefinedList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/accounting/gl/list.*$'    => [['dest' => '\Modules\Accounting\Controller:viewGLList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/gl/create.*$'  => [['dest' => '\Modules\Accounting\Controller:viewGLCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/gl/profile.*$' => [['dest' => '\Modules\Accounting\Controller:viewGLProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/accounting/dun/print.*$'         => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/accounting/statement/print.*$'   => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/accounting/balances/print.*$'    => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/accounting/accountform/print.*$' => [['dest' => '\Modules\Accounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -131,7 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/entries');
@@ -150,7 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/journal-list');
@@ -169,7 +129,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-list');
@@ -188,7 +148,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-predefined-list');
@@ -207,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-create');
@@ -226,7 +186,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-entries');
@@ -245,7 +205,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/stack-archive-list');
@@ -264,7 +224,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-list');
@@ -283,7 +243,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-create');
@@ -302,7 +262,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Accounting/Theme/Backend/gl-profile');

@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Checklist';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,19 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/checklist/list.*$'            => [['dest' => '\Modules\Checklist\Controller:viewChecklistList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/checklist/template/list.*$'   => [['dest' => '\Modules\Checklist\Controller:viewChecklistTemplateList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/checklist/template/create.*$' => [['dest' => '\Modules\Checklist\Controller:viewChecklistTemplateCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/checklist/template/view.*$'   => [['dest' => '\Modules\Checklist\Controller:viewChecklistTemplateView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -114,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewChecklistList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewChecklistList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-list');
@@ -133,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewChecklistTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewChecklistTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-list');
@@ -152,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewChecklistTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewChecklistTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-create');

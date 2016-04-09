@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'ProjectManagement';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,18 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/projectmanagement/list.*$'    => [['dest' => '\Modules\ProjectManagement\Controller:viewProjectManagementList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/projectmanagement/create.*$'  => [['dest' => '\Modules\ProjectManagement\Controller:viewProjectManagementCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/projectmanagement/profile.*$' => [['dest' => '\Modules\ProjectManagement\Controller:viewProjectManagementProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -113,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewProjectManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewProjectManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-list');
@@ -132,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewProjectManagementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewProjectManagementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-create');
@@ -151,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewProjectManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewProjectManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-profile');

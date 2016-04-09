@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'ItemManagement';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,21 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/sales/item/list.*$'    => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/item/list.*$' => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/warehousing/stock/list.*$' => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/item/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/item/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/warehousing/stock/create.*$'  => [['dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -116,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/sales-item-list');
@@ -135,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/purchase-item-list');
@@ -154,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/stock-list');
@@ -173,7 +147,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
@@ -192,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
@@ -211,7 +185,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');

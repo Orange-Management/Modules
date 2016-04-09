@@ -19,7 +19,6 @@ use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\UnitMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Organization';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,26 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/organization/unit/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewUnitList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/unit/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewUnitProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/unit/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewUnitCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/organization/department/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewDepartmentList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/department/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewDepartmentProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/department/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewDepartmentCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/organization/position/list.*$'    => [['dest' => '\Modules\Organization\Controller:viewPositionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/position/profile.*$' => [['dest' => '\Modules\Organization\Controller:viewPositionProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/organization/position/create.*$'  => [['dest' => '\Modules\Organization\Controller:viewPositionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -121,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-list');
@@ -143,7 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-profile');
@@ -165,7 +134,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-create');
@@ -187,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-list');
@@ -209,7 +178,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-profile');
@@ -231,7 +200,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-create');
@@ -253,7 +222,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-list');
@@ -272,7 +241,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
@@ -291,7 +260,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-create');

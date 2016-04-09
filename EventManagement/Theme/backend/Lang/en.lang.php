@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['EventManagement'] = [
+return ['EventManagement' => [
     'Account'         => 'Account',
     'Amount'          => 'Amount',
     'CoreData'        => 'Core Data',
@@ -36,4 +36,4 @@ $MODLANG['EventManagement'] = [
     'Title'           => 'Title',
     'User'            => 'User',
     'UserGroup'       => 'User/Group',
-];
+]];

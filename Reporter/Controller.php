@@ -30,7 +30,6 @@ use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -89,16 +88,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Reporter';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -113,30 +102,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static $dependencies = [
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/reporter/template/create.*$' => [
-            ['dest' => '\Modules\Reporter\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Reporter\Controller:viewTemplateCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-        '^.*/backend/reporter/report/create.*$'   => [
-            ['dest' => '\Modules\Reporter\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Reporter\Controller:viewReportCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-
-        '^.*/backend/reporter/list.*$'        => [['dest' => '\Modules\Reporter\Controller:viewTemplateList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/reporter/report/view.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterReport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/reporter/report/export.*$' => [['dest' => '\Modules\Reporter\Controller:viewReporterExport', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/reporter/template.*$'      => [['dest' => '\Modules\Reporter\Controller:apiCreateTemplate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-        '^.*/api/reporter/report.*$'        => [['dest' => '\Modules\Reporter\Controller:apiCreateReport', 'method' => 'POST', 'type' => ViewLayout::NULL],],
     ];
 
     /**
@@ -165,7 +130,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-list');
@@ -185,7 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-template-create');
@@ -204,7 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-create');
@@ -223,7 +188,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewReportView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewReportView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Reporter/Theme/reporter/reporter-single');

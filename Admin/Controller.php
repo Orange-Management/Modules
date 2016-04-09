@@ -19,7 +19,6 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\GroupMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Admin';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -91,27 +80,6 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/admin/settings/general.*$' => [['dest' => '\Modules\Admin\Controller:viewSettingsGeneral', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/admin/account/list.*$'     => [['dest' => '\Modules\Admin\Controller:viewAccountList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/account/settings.*$' => [['dest' => '\Modules\Admin\Controller:viewAccountSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/account/create.*$'   => [['dest' => '\Modules\Admin\Controller:viewAccountCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/admin/group/list.*$'     => [['dest' => '\Modules\Admin\Controller:viewGroupList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/group/settings.*$' => [['dest' => '\Modules\Admin\Controller:viewGroupSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/group/create.*$'   => [['dest' => '\Modules\Admin\Controller:viewGroupCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/admin/module/list.*$'     => [['dest' => '\Modules\Admin\Controller:viewModuleList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/module/settings.*$' => [['dest' => '\Modules\Admin\Controller:viewModuleProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -121,7 +89,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $settings = $this->app->appSettings->get([
             1000000009,
@@ -161,7 +129,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
@@ -184,7 +152,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
@@ -206,7 +174,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-create');
@@ -225,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
@@ -247,7 +215,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
@@ -269,7 +237,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
@@ -288,7 +256,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-list');
@@ -306,7 +274,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-single');

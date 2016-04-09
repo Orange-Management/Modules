@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,28 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'CostCenterAccounting';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/costcenter/list.*$'    => [['dest' => '\Modules\CostCenterAccounting\Controller:viewCostCenterList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costcenter/create.*$'  => [['dest' => '\Modules\CostCenterAccounting\Controller:viewCostCenterCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/costcenter/profile.*$' => [['dest' => '\Modules\CostCenterAccounting\Controller:viewCostCenterProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -114,7 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-list');
@@ -133,7 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-create');
@@ -152,7 +129,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-profile');

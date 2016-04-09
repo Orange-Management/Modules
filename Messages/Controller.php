@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Messages';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,23 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/messages/dashboard.*$'   => [['dest' => '\Modules\Messages\Controller:viewMessageInbox', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/outbox.*$'      => [['dest' => '\Modules\Messages\Controller:viewMessageOutbox', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/trash.*$'       => [['dest' => '\Modules\Messages\Controller:viewMessageTrash', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/spam.*$'        => [['dest' => '\Modules\Messages\Controller:viewMessageSpam', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/settings.*$'    => [['dest' => '\Modules\Messages\Controller:viewMessageSettings', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/mail/create.*$' => [['dest' => '\Modules\Messages\Controller:viewMessageCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/messages/mail/single.*$' => [['dest' => '\Modules\Messages\Controller:viewMessageView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/api/messages/mail/single.*$'     => [['dest' => '\Modules\Messages\Controller:viewMessageView', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -118,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/dashboard');
@@ -137,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-out-view');
@@ -156,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-trash-view');
@@ -175,7 +147,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-spam-view');
@@ -194,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-view');
@@ -214,7 +186,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-create');
@@ -233,7 +205,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/message-settings');

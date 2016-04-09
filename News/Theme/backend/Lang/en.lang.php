@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['News'] = [
+return ['News' => [
     'Additional'  => 'Additional',
     'Archive'     => 'Archive',
     'Author'      => 'Author',
@@ -37,4 +37,4 @@ $MODLANG['News'] = [
     'TYPE0'       => 'Article',
     'TYPE1'       => 'Link',
     'TYPE2'       => 'Headline',
-];
+]];

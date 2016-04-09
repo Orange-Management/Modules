@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Billing';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,20 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/sales/invoice/create.*$' => [['dest' => '\Modules\Billing\Controller:viewBillingInvoiceCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/invoice/list.*$'   => [['dest' => '\Modules\Billing\Controller:viewBillingInvoiceList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/backend/purchase/invoice/create.*$' => [['dest' => '\Modules\Billing\Controller:viewBillingPurchaseInvoiceCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/purchase/invoice/list.*$'   => [['dest' => '\Modules\Billing\Controller:viewBillingPurchaInvoiceList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -115,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewBillingInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewBillingInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/invoice-list');
@@ -134,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewBillingInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewBillingInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/invoice-create');
@@ -153,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewBillingPurchaInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewBillingPurchaInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/purchase-invoice-list');

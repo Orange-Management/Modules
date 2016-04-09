@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'ClientManagement';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,19 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/sales/client/list.*$'     => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/client/create.*$'   => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/client/profile.*$'  => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/sales/client/analysis.*$' => [['dest' => '\Modules\ClientManagement\Controller:viewClientManagementClientAnalysis', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -114,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewClientManagementClientList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewClientManagementClientList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-list');
@@ -133,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewClientManagementClientCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewClientManagementClientCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-create');
@@ -152,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewClientManagementClientProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewClientManagementClientProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-profile');

@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Monitoring';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,18 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/admin/monitoring/general.*$'     => [['dest' => '\Modules\Monitoring\Controller:viewMonitoringGeneral', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/monitoring/logs/list.*$'   => [['dest' => '\Modules\Monitoring\Controller:viewMonitoringLogList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/admin/monitoring/logs/single.*$' => [['dest' => '\Modules\Monitoring\Controller:viewMonitoringLogEntry', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -113,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-dashboard');
@@ -132,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs');
@@ -151,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-single');

@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,36 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'AccountsReceivable';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/accounting/receivable/list.*$'         => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/create.*$'       => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/profile.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorProfile', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/outstanding.*$'  => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorOutstanding', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/age.*$'          => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorAge', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/receivable.*$'   => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorPayable', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/dun/list.*$'     => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDunList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/dso/list.*$'     => [['dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDsoList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/journal/list.*$' => [['dest' => '\Modules\AccountsReceivable\Controller:viewJournalList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/entries.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewEntriesList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/accounting/receivable/analyze.*$'      => [['dest' => '\Modules\AccountsReceivable\Controller:viewAnalyzeDashboard', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -122,7 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-list');
@@ -141,7 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-create');
@@ -160,7 +129,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-profile');
@@ -179,7 +148,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/entries-list');
@@ -198,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/analyze-dashboard');

@@ -19,7 +19,6 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\RequestDestination;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -65,16 +64,6 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_NAME = 'Marketing';
 
     /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-        RequestDestination::BACKEND => [''],
-    ];
-
-    /**
      * Providing.
      *
      * @var string
@@ -92,19 +81,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/marketing/promotion/list.*$'   => [['dest' => '\Modules\Marketing\Controller:viewMarketingPromotionList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/marketing/promotion/create.*$' => [['dest' => '\Modules\Marketing\Controller:viewMarketingPromotionCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/marketing/event/list.*$'   => [['dest' => '\Modules\Marketing\Controller:viewMarketingEventList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/marketing/event/create.*$' => [['dest' => '\Modules\Marketing\Controller:viewMarketingEventCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -114,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMarketingPromotionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMarketingPromotionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-list');
@@ -133,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMarketingPromotionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMarketingPromotionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-create');
@@ -152,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMarketingEventList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMarketingEventList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/event-list');
@@ -171,7 +147,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMarketingEventCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMarketingEventCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/event-create');

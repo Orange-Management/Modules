@@ -1,4 +1,4 @@
-<?php
+z<?php
 /**
  * Orange Management
  *
@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Billing'] = [
+return [
     'Address'      => 'Address',
     'Addresses'    => 'Addresses',
     'Bonus'        => 'Bonus',

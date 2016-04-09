@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Monitoring'] = [
+return ['Monitoring' => [
     'Alerts'      => 'Alerts',
     'All'         => 'All',
     'Backtrace'   => 'Backtrace',
@@ -51,4 +51,4 @@ $MODLANG['Monitoring'] = [
     'Uri'         => 'Uri',
     'Version'     => 'Version',
     'Warnings'    => 'Warnings',
-];
+]];
