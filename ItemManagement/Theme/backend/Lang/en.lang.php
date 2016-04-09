@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['ItemManagement'] = [
+return ['ItemManagement' => [
     'Accounting'       => 'Accounting',
     'IsActive'         => 'Active?',
     'All'              => 'All',
@@ -102,4 +102,4 @@ $MODLANG['ItemManagement'] = [
     'Volume'           => 'Volume',
     'Warehouse'        => 'Warehouse',
     'Width'            => 'Width',
-];
+]];

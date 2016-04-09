@@ -15,9 +15,9 @@
  */
 namespace Modules\Monitoring\Admin;
 
-
 use phpOMS\DataStorage\Database\Pool;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Monitoring install class.

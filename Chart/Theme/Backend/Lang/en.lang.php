@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Chart'] = [
+return ['Chart' => [
     'Axis'       => 'Axis',
     'Chart'      => 'Chart',
     'Charts'     => 'Charts',
@@ -50,4 +50,4 @@ $MODLANG['Chart'] = [
     'Title'      => 'Title',
     'Type'       => 'Type',
     'Visible'    => 'Visible',
-];
+]];

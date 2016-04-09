@@ -13,10 +13,10 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Arrival'] = [
+return ['Arrival' => [
     'AccountID' => 'Account ID',
     'Arrivals'  => 'Arrivals',
     'Created'   => 'Created',
     'Creator'   => 'Creator',
     'Company'   => 'Company',
-];
+]];

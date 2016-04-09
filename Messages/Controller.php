@@ -90,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/dashboard');
@@ -109,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-out-view');
@@ -128,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-trash-view');
@@ -147,7 +147,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-spam-view');
@@ -166,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-view');
@@ -186,7 +186,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-create');
@@ -205,7 +205,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/message-settings');

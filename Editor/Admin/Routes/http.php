@@ -1,12 +1,12 @@
 <?php
 
+use phpOMS\Router\RouteVerb;
+
 return [
     '^.*/backend/editor/create.*$' => [
         [
             'dest' => '\Modules\Editor\Controller:setUpEditorEditor', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::NULL,
         ],
         [
             'dest' => '\Modules\Editor\Controller:viewEditorCreate', 

@@ -1,12 +1,12 @@
 <?php
 
+use phpOMS\Router\RouteVerb;
+
 return [
     '^.*/backend/draw/create.*$' => [
         [
             'dest' => '\Modules\Draw\Controller:setUpDrawEditor', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::NULL,
         ],
         [
             'dest' => '\Modules\Draw\Controller:viewDrawCreate', 

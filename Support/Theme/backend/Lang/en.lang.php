@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Support'] = [
+return ['Support' => [
     'Account'            => 'Account',
     'All'                => 'All',
     'AverageProcessTime' => 'Avg. Process Time',
@@ -57,4 +57,4 @@ $MODLANG['Support'] = [
     'Type'               => 'Type',
     'Week'               => 'Week',
     'Year'               => 'Year',
-];
+]];

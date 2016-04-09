@@ -1,5 +1,7 @@
 <?php
 
+use phpOMS\Router\RouteVerb;
+
 return [
     '^.*/backend/chart/create$' => [
         [
@@ -11,8 +13,6 @@ return [
         [
             'dest' => '\Modules\Chart\Controller:setUpChartEditor', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::NULL,
         ],
         [
             'dest' => '\Modules\Chart\Controller:viewChartCreateLine', 

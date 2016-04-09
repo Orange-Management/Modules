@@ -14,7 +14,9 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Dashboard\Admin;
+
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\InfoManager;
 
 /**
  * Dashboard install class.

@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Production'] = [
+return ['Production' => [
     'Article'     => 'Article',
     'Done'        => 'Done',
     'Due'         => 'Due',
@@ -27,4 +27,4 @@ $MODLANG['Production'] = [
     'Quantity'    => 'Quantity',
     'Start'       => 'Start',
     'Status'      => 'Status',
-];
+]];

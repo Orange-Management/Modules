@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'AccountsPayable' => 'Payable',
     'Analyze'         => 'Analyze',
-];
+]];

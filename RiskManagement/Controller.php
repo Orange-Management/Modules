@@ -90,7 +90,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskCockpit(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskCockpit(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cockpit');
@@ -109,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-list');
@@ -128,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskCauseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskCauseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-list');
@@ -147,7 +147,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskSolutionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskSolutionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-list');
@@ -166,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-list');
@@ -185,7 +185,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-list');
@@ -204,7 +204,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskCategoryList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskCategoryList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-list');
@@ -223,7 +223,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-list');
@@ -242,7 +242,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-list');
@@ -261,7 +261,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewRiskSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewRiskSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/settings-dashboard');

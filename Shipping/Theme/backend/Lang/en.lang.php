@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Shipping'] = [
+return ['Shipping' => [
     'Created'   => 'Created',
     'Creator'   => 'Creator',
     'Name'      => 'Name',
@@ -21,4 +21,4 @@ $MODLANG['Shipping'] = [
     'Shipping'  => 'Shipping',
     'Status'    => 'Status',
     'Reference' => 'Reference',
-];
+]];

@@ -17,6 +17,7 @@ namespace Modules\Tools\Admin;
 
 use phpOMS\DataStorage\Database\Pool;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Tools install class.

@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['RiskManagement'] = [
+return ['RiskManagement' => [
     'Active'            => 'Active',
     'All'               => 'All',
     'AvgRiskAmount'     => 'Avg. Risk Amount',
@@ -79,4 +79,4 @@ $MODLANG['RiskManagement'] = [
     'Unit'              => 'Unit',
     'Units'             => 'Units',
     'Watchlist'         => 'Watchlist',
-];
+]];

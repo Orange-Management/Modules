@@ -1,12 +1,12 @@
 <?php
 
+use phpOMS\Router\RouteVerb;
+
 return [
     '^.*/backend/reporter/template/create.*$' => [
         [
             'dest' => '\Modules\Reporter\Controller:setUpFileUploader', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::NULL,
         ],
         [
             'dest' => '\Modules\Reporter\Controller:viewTemplateCreate', 
@@ -17,8 +17,6 @@ return [
         [
             'dest' => '\Modules\Reporter\Controller:setUpFileUploader', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::HTML,
-            'layout' => ViewLayout::NULL,
         ],
         [
             'dest' => '\Modules\Reporter\Controller:viewReportCreate', 

@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Editor'] = [
+return ['Editor' => [
     'Created'    => 'Created',
     'Creator'    => 'Creator',
     'Documents'  => 'Documents',
@@ -26,4 +26,4 @@ $MODLANG['Editor'] = [
     'Preview'    => 'Preview',
     'Start'      => 'Start',
     'Text'       => 'Text',
-];
+]];

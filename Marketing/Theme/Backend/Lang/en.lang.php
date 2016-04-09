@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Marketing'] = [
+return ['Marketing' => [
     'Budget'      => 'Budget',
     'Description' => 'Description',
     'Expenses'    => 'Expenses',
@@ -28,4 +28,4 @@ $MODLANG['Marketing'] = [
     'Status'      => 'Status',
     'Title'       => 'Title',
     'Type'        => 'Type',
-];
+]];

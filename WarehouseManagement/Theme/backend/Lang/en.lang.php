@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['WarehouseManagement'] = [
+return ['WarehouseManagement' => [
     'All'         => 'All',
     'Amount'      => 'Amount',
     'Arrivals'    => 'Arrivals',
@@ -42,4 +42,4 @@ $MODLANG['WarehouseManagement'] = [
     'Week'        => 'Week',
     'Year'        => 'Year',
     'Zip'         => 'Zip',
-];
+]];

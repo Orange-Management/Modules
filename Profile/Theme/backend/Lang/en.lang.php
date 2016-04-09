@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Profile'] = [
+return ['Profile' => [
     'Activity'           => 'Activity',
     'Birthday'           => 'Birthday',
     'ContactInformation' => 'Contact Information',
@@ -31,4 +31,4 @@ $MODLANG['Profile'] = [
     'Registered'         => 'Registered',
     'Skype'              => 'Skype',
     'Status'             => 'Status',
-];
+]];
