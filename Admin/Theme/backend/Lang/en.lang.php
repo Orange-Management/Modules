@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Admin'] = [
+return ['Admin' => [
     'Account'            => 'Account',
     'Accounts'           => 'Accounts',
     'Active'             => 'Active',
@@ -101,4 +101,4 @@ $MODLANG['Admin'] = [
     'i:rem'              => 'IP address or URL for remote access.',
     'i:rc'               => 'Forcing re-cache for every user.',
     'i:timef'            => 'Time format.',
-];
+]];

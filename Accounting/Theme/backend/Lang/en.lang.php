@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Accounting'] = [
+return ['Accounting' => [
     'Account'         => 'Account',
     'Accounts'        => 'Accounts',
     'BatchPostings'   => 'Batch Postings',
@@ -46,4 +46,4 @@ $MODLANG['Accounting'] = [
     'To'              => 'To',
     'Total'           => 'Total',
     'Type'            => 'Type',
-];
+]];

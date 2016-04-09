@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Media'] = [
+return ['Media' => [
     'Account'     => 'Account',
     'Author'      => 'Author',
     'Changed'     => 'Changed',
@@ -33,4 +33,4 @@ $MODLANG['Media'] = [
     'Type'        => 'Type',
     'Upload'      => 'Upload',
     'Visibility'  => 'Visibility',
-];
+]];

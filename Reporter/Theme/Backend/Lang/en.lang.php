@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Reporter'] = [
+return ['Reporter' => [
     'Add'              => 'Add',
     'CentralizedDB'    => 'Centralized DB',
     'CentralizedFiles' => 'Centralized Files',
@@ -52,4 +52,4 @@ $MODLANG['Reporter'] = [
     'Title'            => 'Title',
     'Type'             => 'Type',
     'Updated'          => 'Updated',
-];
+]];

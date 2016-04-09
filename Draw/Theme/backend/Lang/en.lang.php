@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Draw'] = [
+return ['Draw' => [
     'Created'    => 'Created',
     'Creator'    => 'Creator',
     'Draw'       => 'Draw',
@@ -23,4 +23,4 @@ $MODLANG['Draw'] = [
     'Name'       => 'Name',
     'Permission' => 'Permission',
     'Start'      => 'Start',
-];
+]];

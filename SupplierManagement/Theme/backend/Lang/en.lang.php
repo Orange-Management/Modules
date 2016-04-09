@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['SupplierManagement'] = [
+return ['SupplierManagement' => [
     'Accounting'   => 'Accounting',
     'Address'      => 'Address',
     'Addresses'    => 'Addresses',
@@ -52,4 +52,4 @@ $MODLANG['SupplierManagement'] = [
     'Type'         => 'Type',
     'Wire'         => 'Wire',
     'Zip'          => 'Zip',
-];
+]];

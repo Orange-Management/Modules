@@ -59,7 +59,7 @@ echo $this->getData('nav')->render(); ?>
     $formOverview->setSubmit('submit1', $this->l11n->lang['Reporter']['Edit']);
     $formOverview->setSubmit('submit2', $this->l11n->lang[0]['Delete']);
     $formOverview->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
-    $formOverview->setMethod(\phpOMS\Message\RequestMethod::POST);
+    $formOverview->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
     $formOverview->setElement(0, 0, [
         'type'    => \phpOMS\Html\TagType::INPUT,
@@ -104,7 +104,7 @@ echo $this->getData('nav')->render(); ?>
     $formPermissionAdd->setTemplate('/Web/Templates/Forms/FormFull');
     $formPermissionAdd->setSubmit('submit1', $this->l11n->lang[0]['Add']);
     $formPermissionAdd->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
-    $formPermissionAdd->setMethod(\phpOMS\Message\RequestMethod::POST);
+    $formPermissionAdd->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
     $formPermissionAdd->setElement(0, 0, [
         'type'     => \phpOMS\Html\TagType::SELECT,
@@ -207,7 +207,7 @@ echo $this->getData('nav')->render(); ?>
     $formCreateForm->setTemplate('/Web/Templates/Forms/FormFull');
     $formCreateForm->setSubmit('submit1', $this->l11n->lang[0]['Submit']);
     $formCreateForm->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
-    $formCreateForm->setMethod(\phpOMS\Message\RequestMethod::POST);
+    $formCreateForm->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
     $formCreateForm->setElement(0, 0, [
         'type'    => \phpOMS\Html\TagType::INPUT,

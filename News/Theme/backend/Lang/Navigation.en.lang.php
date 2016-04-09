@@ -13,9 +13,9 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'Archive' => 'Archive',
     'Create'  => 'Create',
     'Draft'   => 'Draft',
     'News'    => 'News',
-];
+]];

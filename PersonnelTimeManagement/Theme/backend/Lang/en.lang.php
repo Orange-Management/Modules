@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['PersonnelTimeManagement'] = [
+return ['PersonnelTimeManagement' => [
     'All'            => 'All',
     'Date'           => 'Date',
     'Day'            => 'Day',
@@ -45,4 +45,4 @@ $MODLANG['PersonnelTimeManagement'] = [
     'Work'           => 'Work',
     'Working'        => 'Working',
     'Year'           => 'Year',
-];
+]];

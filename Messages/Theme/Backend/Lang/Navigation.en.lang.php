@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'Draft'    => 'Draft',
     'Inbox'    => 'Inbox',
     'Messages' => 'Messages',
@@ -21,4 +21,4 @@ $MODLANG['Navigation'] = [
     'Settings' => 'Settings',
     'Spam'     => 'Spam',
     'Trash'    => 'Trash',
-];
+]];

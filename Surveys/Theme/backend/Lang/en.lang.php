@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Surveys'] = [
+return ['Surveys' => [
     'Additional'     => 'Additional',
     'Answer'         => 'Answer',
     'Checkbox'       => 'Checkbox',
@@ -47,4 +47,4 @@ $MODLANG['Surveys'] = [
     'Type'           => 'Type',
     'User'           => 'User',
     'UserGroup'      => 'User/Group',
-];
+]];

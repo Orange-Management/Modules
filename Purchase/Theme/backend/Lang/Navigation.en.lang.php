@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-$MODLANG['Navigation'] = [
+return ['Navigation' => [
     'Analysis'         => 'Analysis',
     'Articles'         => 'Articles',
     'Create'           => 'Create',
@@ -25,4 +25,4 @@ $MODLANG['Navigation'] = [
     'Profile'          => 'Profile',
     'Purchase'         => 'Purchase',
     'Suppliers'        => 'Suppliers',
-];
+]];
