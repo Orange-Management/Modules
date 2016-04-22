@@ -1,5 +1,5 @@
 (function (jsOMS, undefined) {
-    jsOMS.Modules.Models.Media = typeof jsOMS.Modules.Models.Media == 'undefined' ? {} : jsOMS.Modules.Models.Media;
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Media.Models');
 
     jsOMS.Modules.Models.Media.Upload = function (responseManager) {
         this.responseManager = responseManager;

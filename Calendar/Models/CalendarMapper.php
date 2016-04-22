@@ -56,8 +56,8 @@ class CalendarMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'events' => [
-            'mapper'         => \Modules\Calendar\Models\EventMapper::class
-            'relationmapper' => \Modules\Calendar\Models\EventMapper::class
+            'mapper'         => \Modules\Calendar\Models\EventMapper::class,
+            'relationmapper' => \Modules\Calendar\Models\EventMapper::class,
             'table'          => 'calendar_event',
             'dst'            => 'calendar_event_calendar',
             'src'            => null,

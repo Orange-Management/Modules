@@ -1,37 +1,40 @@
 (function (jsOMS, undefined) {
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
+
     jsOMS.Modules.Media = function (app) {
         this.app = app;
     };
 
     jsOMS.Modules.Media.prototype.bind = function () {
-        var forms = document.getElementsByTagName('form');
+        let forms = document.getElementsByTagName('form');
 
         /* Handle media forms */
-        for (var c = 0; c < forms.length; c++) {
-            var self = this;
+        for (let c = 0; c < forms.length; c++) {
+            let self = this;
 
-            // todo: only do this for forms that have type=file elements
-            this.app.uiManager.getFormManager().injectSubmit(forms[c].id, function (e) {
-                var fileFields = e.querySelectorAll('input[type=file]'),
-                    uploader = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
+            if(typeof forms[i].querySelector('input[type=file]') !== 'undefined') {
+                this.app.uiManager.getFormManager().get(forms[c].id).injectSubmit(function (e) {
+                    let fileFields = e.querySelectorAll('input[type=file]'),
+                        uploader = new jsOMS.Modules.Media.Models.Upload(self.app.responseManager);
 
-                uploader.setSuccess(e.id, function (type, response) {
-                    e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
+                    uploader.setSuccess(e.id, function (type, response) {
+                        e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
 
-                    var data = self.app.uiManager.getFormManager().getData(e);
-                    self.app.uiManager.getFormManager().submit(e, data);
-                });
+                        let data = self.app.uiManager.getFormManager().getData(e);
+                        self.app.uiManager.getFormManager().submit(e, data);
+                    });
 
-                uploader.setUri(jsOMS.UriFactory.build(Url + '/{lang}/api/media'));
+                    uploader.setUri(jsOMS.Uri.UriFactory.build(Url + '/{lang}/api/media'));
 
-                for (var i = 0; i < fileFields.length; i++) {
-                    for (var j = 0; j < fileFields[i].files.length; j++) {
-                        uploader.addFile(fileFields[i].files[j]);
+                    for (let i = 0; i < fileFields.length; i++) {
+                        for (let j = 0; j < fileFields[i].files.length; j++) {
+                            uploader.addFile(fileFields[i].files[j]);
+                        }
                     }
-                }
 
-                uploader.upload(e.id);
-            });
+                    uploader.upload(e.id);
+                });
+            }
         }
     }
 }(window.jsOMS = window.jsOMS || {}));
