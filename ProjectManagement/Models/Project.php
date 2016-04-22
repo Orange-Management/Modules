@@ -14,6 +14,9 @@
  * @link       http://orange-management.com
  */
 namespace Modules\ProjectManagement\Models;
+use Modules\Calendar\Models\Calendar;
+use Modules\Tasks\Models\Task;
+use phpOMS\Localization\Money;
 
 /**
  * Project class.
@@ -107,7 +110,12 @@ class Project
 
     public function getTask(int $id) : Task
     {
-        return $this->tasks[$id] ?? new NullTask();
+        return $this->tasks[$id] ?? new Task();
+    }
+
+    public function getTasks() : array
+    {
+        return $this->tasks;
     }
 
     public function countTasks() : int 

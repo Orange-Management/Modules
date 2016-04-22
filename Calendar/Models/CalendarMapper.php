@@ -15,6 +15,7 @@
  */
 namespace Modules\Calendar\Models;
 
+use Modules\Calendar\Models\EventMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
@@ -56,8 +57,8 @@ class CalendarMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'events' => [
-            'mapper'         => \Modules\Calendar\Models\EventMapper::class
-            'relationmapper' => \Modules\Calendar\Models\EventMapper::class
+            'mapper'         => EventMapper::class,
+            'relationmapper' => EventMapper::class,
             'table'          => 'calendar_event',
             'dst'            => 'calendar_event_calendar',
             'src'            => null,
@@ -121,8 +122,6 @@ class CalendarMapper extends DataMapperAbstract
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
-
             return false;
         }
 

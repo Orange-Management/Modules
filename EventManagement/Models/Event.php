@@ -16,6 +16,9 @@
 namespace Modules\EventManagement\Models;
 
 use Modules\Calendar\Models\Event as CalendarEvent;
+use Modules\Tasks\Models\Task;
+use phpOMS\Datatypes\Exception\InvalidEnumValue;
+use phpOMS\Localization\Money;
 
 /**
  * Event class.
@@ -37,7 +40,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private $id = 0;
 
     private $type = EventType::DEFAULT;
 
@@ -101,7 +104,7 @@ class Event
 
     public function getTask(int $id) : Task
     {
-        return $this->tasks[$id] ?? new NullTask();
+        return $this->tasks[$id] ?? new Task();
     }
 
     public function getTasks() : array 
@@ -121,7 +124,7 @@ class Event
 
     public function setType(int $type)
     {
-        if(!EventType::isValid($type)) {
+        if(!EventType::isValidValue($type)) {
             throw new InvalidEnumValue($type);
         }
 

@@ -99,8 +99,6 @@ class ReportMapper extends DataMapperAbstract
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            var_dump($e);
-
             return false;
         }
 

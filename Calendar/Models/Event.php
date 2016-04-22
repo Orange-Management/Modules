@@ -84,6 +84,16 @@ class Event
     private $type = EventType::SINGLE;
 
     /**
+     * Event status.
+     *
+     * Active, inactive etc.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $status = EventStatus::ACTIVE;
+
+    /**
      * Schedule
      *
      * @var Schedule
@@ -333,6 +343,17 @@ class Event
     public function getType() : int
     {
         return $this->type;
+    }
+
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getStatus() : int
+    {
+        return $this->status;
     }
 
     /**
