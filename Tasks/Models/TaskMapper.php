@@ -15,6 +15,8 @@
  */
 namespace Modules\Tasks\Models;
 
+use Modules\Calendar\Models\ScheduleMapper;
+use Modules\Tasks\Models\TaskElementMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
@@ -60,8 +62,8 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'taskElements' => [
-            'mapper'         => \Modules\Tasks\Models\TaskElementMapper::class,
-            'relationmapper' => \Modules\Tasks\Models\TaskElementMapper::class,
+            'mapper'         => TaskElementMapper::class,
+            'relationmapper' => TaskElementMapper::class,
             'table'          => 'task_element',
             'dst'            => 'task_element_task',
             'src'            => null,
@@ -76,7 +78,7 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $hasOne = [
         'schedule' => [
-            'mapper'         => \Modules\Calendar\Models\ScheduleMapper::class,
+            'mapper'         => ScheduleMapper::class,
             'src'            => 'task_schedule',
         ],
     ];

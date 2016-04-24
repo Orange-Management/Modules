@@ -115,7 +115,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $calendar = 0;
+    private $calendar = null;
 
     /**
      * People.
@@ -299,6 +299,7 @@ class Event
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
+        $this->schedule->setCreatedBy($this->createdBy);
     }
 
     /**

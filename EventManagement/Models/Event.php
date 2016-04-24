@@ -44,8 +44,6 @@ class Event
 
     private $type = EventType::DEFAULT;
 
-    private $name = '';
-
     private $event = null;
 
     private $costs = null;
@@ -56,12 +54,29 @@ class Event
 
     private $tasks = [];
 
+    /**
+     * Created.
+     *
+     * @var \Datetime
+     * @since 1.0.0
+     */
+    private $createdAt = null;
+
+    /**
+     * Creator.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $createdBy = 0;
+
     public function __construct(string $name = '')
     {
         $this->event = new CalendarEvent();
         $this->costs = new Money();
         $this->budget = new Money();
         $this->earnings = new Money();
+        $this->createdAt = new \DateTime('now');
 
         $this->setName($name);
     }
@@ -73,13 +88,12 @@ class Event
 
     public function setName(string $name) 
     {
-        $this->name = $name;
         $this->event->setName($name);
     }
 
     public function getName() : string
     {
-        return $this->name;
+        return $this->event->getName();
     }
 
     public function addTask(Task $task)
@@ -164,5 +178,51 @@ class Event
     public function setEarnings(Money $earnings) 
     {
         $this->earnings = $earnings;
+    }
+
+    /**
+     * @return \DateTime
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getCreatedAt() : \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt Event created at
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+        $this->event->setCreatedAt($this->createdAt);
+    }
+
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getCreatedBy() : int
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param int $createdBy Creator
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setCreatedBy(int $createdBy)
+    {
+        $this->createdBy = $createdBy;
+        $this->event->setCreatedBy($this->createdBy);
     }
 }

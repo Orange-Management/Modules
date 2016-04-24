@@ -15,7 +15,6 @@
  */
 namespace Modules\Calendar\Models;
 
-use Modules\Calendar\Models\EventMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;

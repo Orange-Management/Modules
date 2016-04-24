@@ -47,7 +47,7 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'calendar` (
                             `calendar_id` int(11) NOT NULL AUTO_INCREMENT,
                             `calendar_name` varchar(25) NOT NULL,
-                            `calendar_password` varchar(64) NOT NULL,
+                            `calendar_password` varchar(64) DEFAULT NULL,
                             `calendar_description` varchar(255) NOT NULL,
                             `calendar_created_by` int(11) NOT NULL,
                             `calendar_created_at` datetime NOT NULL,
@@ -108,7 +108,7 @@ class Installer extends InstallerAbstract
                             `calendar_event_created_by` int(11) NOT NULL,
                             `calendar_event_created_at` datetime NOT NULL,
                             `calendar_event_schedule` int(11) NOT NULL,
-                            `calendar_event_calendar` int(11) NOT NULL,
+                            `calendar_event_calendar` int(11) DEFAULT NULL,
                             PRIMARY KEY (`calendar_event_id`),
                             KEY `calendar_event_created_by` (`calendar_event_created_by`),
                             KEY `calendar_event_schedule` (`calendar_event_schedule`),

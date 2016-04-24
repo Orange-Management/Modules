@@ -15,6 +15,8 @@
  */
 namespace Modules\ProjectManagement\Models;
 
+use Modules\Calendar\Models\CalendarMapper;
+use Modules\Tasks\Models\TaskMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
@@ -58,8 +60,8 @@ class ProjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $hasOne = [
-        'project' => [
-            'mapper' => \Modules\Calendar\Models\CalendarMapper::class,
+        'calendar' => [
+            'mapper' => CalendarMapper::class,
             'src'    => 'projectmanagement_project_calendar',
         ],
     ];
@@ -71,13 +73,6 @@ class ProjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $hasMany = [
-        'sources' => [
-            'mapper'         => \Modules\Tasks\Models\TaskMapper::class, /* mapper of the related object */
-            'relationmapper' => null, /* if the relation itself is a more complex object that has it's own mapper */
-            'table'          => 'projectmanager_task_relation', /* table of the related object, null if no relation table is used (many->1) */
-            'dst'            => 'projectmanager_task_relation_dst',
-            'src'            => 'projectmanager_task_relation_src',
-        ],
     ];
 
     /**
@@ -87,6 +82,14 @@ class ProjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $table = 'projectmanagement_project';
+
+    /**
+     * Primary field name.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static $primaryField = 'projectmanagement_project_id';
 
     /**
      * Create media.
