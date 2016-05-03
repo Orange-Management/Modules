@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-50 floatLeft">
     <h1><?= $this->l11n->lang['Reporter']['Report'] ?></h1>
     <div class="inner">
-        <form id="reporter-report-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report/report'); ?>" method="post">
+        <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iTitle"><?= $this->l11n->lang['Reporter']['Title'] ?></label>
@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                                 <?php endforeach; ?>
                         </select>
                 <tr><td><label for="iFile"><?= $this->l11n->lang['Reporter']['Files'] ?></label>
-                <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden" pattern="\\[(([0-9])+(,)*( )*)+\\]" required>
+                <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden">
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Create'] ?>">
             </table>
         </form>
