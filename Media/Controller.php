@@ -86,25 +86,6 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Routing elements.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $routes = [
-        '^.*/backend/media/list.*$'   => [['dest' => '\Modules\Media\Controller:viewMediaList', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-        '^.*/backend/media/create.*$' => [
-            ['dest' => '\Modules\Media\Controller:setUpFileUploader', 'method' => 'GET', 'type' => ViewLayout::NULL],
-            ['dest' => '\Modules\Media\Controller:viewMediaCreate', 'method' => 'GET', 'type' => ViewLayout::MAIN],
-        ],
-        '^.*/backend/media/single.*$' => [['dest' => '\Modules\Media\Controller:viewMediaSingle', 'method' => 'GET', 'type' => ViewLayout::MAIN],],
-
-        '^.*/api/media/collection.*$' => [['dest' => '\Modules\Media\Controller:apiCollectionCreate', 'method' => 'POST', 'type' => ViewLayout::MAIN],],
-        '^.*/api/media$'              => [['dest' => '\Modules\Media\Controller:apiMediaUpload', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-        '^.*/api/media/create.*$'     => [['dest' => '\Modules\Media\Controller:apiMediaCreate', 'method' => 'POST', 'type' => ViewLayout::NULL],],
-    ];
-
-    /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -114,10 +95,11 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $head = $response->getHead();
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia.js');
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Models/Upload.js');
+        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Controller.js');
     }
 
     /**
@@ -229,7 +211,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $mediaCreated = [];
 
-        if (isset($files)) {
+        if (!empty($files)) {
             $upload  = new UploadFile();
             $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
             $path    = '/Modules/Media/Files/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];

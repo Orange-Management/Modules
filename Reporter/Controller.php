@@ -15,6 +15,8 @@
  */
 namespace Modules\Reporter;
 
+use Model\Message\Redirect;
+use Model\Message\Reload;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\MediaMapper;
@@ -103,22 +105,6 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
-    {
-        $head = $response->getHead();
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/ModuleMedia.js');
-    }
 
     /**
      * @param RequestAbstract  $request  Request
@@ -460,7 +446,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterReportMapper = new ReportMapper($this->app->dbPool->get());
         $reportId             = $reporterReportMapper->create($reporterReport);
 
-        $response->set($request->__toString(), $reportId);
+        $response->set($request->__toString(), new Redirect($request->getUri()->getBase() . $request->getL11n()->getLanguage() . '/backend/reporter/list'));
     }
 
 }

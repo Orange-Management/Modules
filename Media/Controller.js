@@ -1,45 +1,56 @@
-(function (jsOMS, undefined) {
+(function (jsOMS, undefined)
+{
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
 
-    jsOMS.Modules.Media = function (app) {
+    jsOMS.Modules.Media = function (app)
+    {
         this.app = app;
     };
 
-    jsOMS.Modules.Media.prototype.bind = function () {
+    jsOMS.Modules.Media.prototype.bind = function ()
+    {
         let forms = document.getElementsByTagName('form');
 
         /* Handle media forms */
-        for (let c = 0; c < forms.length; c++) {
+        for (let i = 0; i < forms.length; i++) {
             let self = this;
 
-            if(typeof forms[i].querySelector('input[type=file]') !== 'undefined') {
-                this.app.uiManager.getFormManager().get(forms[c].id).injectSubmit(function (e) {
-                    let fileFields = e.querySelectorAll('input[type=file]'),
-                        uploader = new jsOMS.Modules.Media.Models.Upload(self.app.responseManager);
+            if (typeof forms[i].querySelector('input[type=file]') !== 'undefined') {
+                try {
+                    this.app.uiManager.getFormManager().get(forms[i].id).injectSubmit('media-upload', function (e, requestId, requestGroup)
+                    {
+                        let fileFields = e.querySelectorAll('input[type=file]'),
+                            uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager, self.app.logger);
 
-                    uploader.setSuccess(e.id, function (type, response) {
-                        e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
+                        uploader.setSuccess(e.id, function (type, response)
+                        {
+                            e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
+                            self.app.requestManager.triggerDone(requestId, requestGroup);
+                        });
 
-                        let data = self.app.uiManager.getFormManager().getData(e);
-                        self.app.uiManager.getFormManager().submit(e, data);
-                    });
+                        uploader.setUri(Url + '{/lang}/api/media');
 
-                    uploader.setUri(jsOMS.Uri.UriFactory.build(Url + '/{lang}/api/media'));
-
-                    for (let i = 0; i < fileFields.length; i++) {
-                        for (let j = 0; j < fileFields[i].files.length; j++) {
-                            uploader.addFile(fileFields[i].files[j]);
+                        for (let i = 0; i < fileFields.length; i++) {
+                            for (let j = 0; j < fileFields[i].files.length; j++) {
+                                uploader.addFile(fileFields[i].files[j]);
+                            }
                         }
-                    }
 
-                    uploader.upload(e.id);
-                });
+                        if (uploader.count() < 1) {
+                            return;
+                        }
+
+                        uploader.upload(e.id);
+                    });
+                } catch (e) {
+                    this.app.logger.info('Tried to add media upload support for form without an ID.');
+                }
             }
         }
-    }
+    };
 }(window.jsOMS = window.jsOMS || {}));
 
-jsOMS.ready(function () {
-    window.omsApp.moduleManager.initModule('Media');
+jsOMS.ready(function ()
+{
     window.omsApp.moduleManager.get('Media').bind();
 });

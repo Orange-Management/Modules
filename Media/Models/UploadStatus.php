@@ -37,6 +37,7 @@ abstract class UploadStatus extends Enum
     const UNKNOWN_ERROR    = -4;
     const CONFIG_SIZE      = -5;
     const WRONG_EXTENSION  = -6;
-    const NOT_MOVABLE      = -7;
-    const FAILED_HASHING   = -8;
+    const NOT_UPLOADED     = -7;
+    const NOT_MOVABLE      = -8;
+    const FAILED_HASHING   = -9;
 }

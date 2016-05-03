@@ -1,73 +1,98 @@
-(function (jsOMS, undefined) {
-    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Media.Models');
+(function (jsOMS, undefined)
+{
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Media');
 
-    jsOMS.Modules.Models.Media.Upload = function (responseManager) {
+    jsOMS.Modules.Models.Media.Upload = function (responseManager, logger)
+    {
+        this.logger          = logger;
         this.responseManager = responseManager;
-        this.success = [];
+        this.success         = [];
 
-        this.uri = '';
+        this.uri          = '';
         this.allowedTypes = [];
-        this.maxFileSize = 0;
-        this.files = [];
+        this.maxFileSize  = 0;
+        this.files        = [];
     };
 
-    jsOMS.Modules.Models.Media.Upload.prototype.setSuccess = function (id, callback) {
-        this.success[id] = callback;
-    };
-
-    jsOMS.Modules.Models.Media.Upload.prototype.setUri = function (uri) {
-        this.uri = uri;
-    };
-
-    jsOMS.Modules.Models.Media.Upload.prototype.setAllowedTypes = function (allowed) {
-        this.allowedTypes = allowed;
-    };
-
-    jsOMS.Modules.Models.Media.Upload.prototype.addAllowedType = function (allowed) {
-        this.allowedTypes.push(allowed);
-    };
-
-    jsOMS.Modules.Models.Media.Upload.prototype.setMaxFileSize = function (size) {
+    jsOMS.Modules.Models.Media.Upload.prototype.setMaxFileSize = function (size)
+    {
         this.maxFileSize = size;
     };
 
-    jsOMS.Modules.Models.Media.Upload.prototype.addFile = function (file) {
+    jsOMS.Modules.Models.Media.Upload.prototype.getMaxFileSize = function (size)
+    {
+        return this.maxFileSize;
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.setSuccess = function (id, callback)
+    {
+        this.success[id] = callback;
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.setUri = function (uri)
+    {
+        this.uri = uri;
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.setAllowedTypes = function (allowed)
+    {
+        this.allowedTypes = allowed;
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.addAllowedType = function (allowed)
+    {
+        this.allowedTypes.push(allowed);
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.setMaxFileSize = function (size)
+    {
+        this.maxFileSize = size;
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.addFile = function (file)
+    {
         this.files.push(file);
     };
 
-    jsOMS.Modules.Models.Media.Upload.prototype.upload = function (formId) {
+    jsOMS.Modules.Models.Media.Upload.prototype.count = function ()
+    {
+        return this.files.length;
+    };
+
+    jsOMS.Modules.Models.Media.Upload.prototype.upload = function (formId)
+    {
         // TODO: validate file type + file size
 
-        var request = new jsOMS.Message.Request.Request(),
+        let request  = new jsOMS.Message.Request.Request(),
             formData = new FormData(),
-            self = this;
+            self     = this;
 
-        this.files.forEach(function (element, index) {
+        this.files.forEach(function (element, index)
+        {
             formData.append('file' + index, element);
         });
 
         request.setData(formData);
-        request.setType('raw');
+        request.setType(jsOMS.Message.Request.RequestType.RAW);
         request.setUri(this.uri);
-        request.setMethod('POST');
+        request.setMethod(jsOMS.Message.Request.RequestMethod.POST);
         request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
-        request.setSuccess(function (xhr) {
-            console.log(xhr); // TODO: remove this is for error checking
-            var o = JSON.parse(xhr.response),
-                response = Object.keys(o).map(function (k) {
-                    return o[k];
-                });
+        request.setSuccess(function (xhr)
+        {
+            try {
+                let response = JSON.parse(xhr.response);
 
-            console.log(response);
-
-            for (var k = 0; k < response.length; k++) {
-                if (response[k] !== null) {
+                for (let k = 0; k < response.length; k++) {
                     if (!self.success[formId]) {
-                        self.responseManager.execute(response[k].type, response[k]);
+                        self.responseManager.run(response[k].type, response[k]);
                     } else {
                         self.success[formId](response[k].type, response[k]);
                     }
                 }
+            } catch (exception) {
+                self.logger.error('Invalid media upload response: ' + xhr.response);
+
+                return false;
             }
         });
         request.send();

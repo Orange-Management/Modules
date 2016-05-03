@@ -178,8 +178,13 @@ class UploadFile
                 \mkdir($path, '0655', true);
             }
 
-            if (!move_uploaded_file($path = $f['tmp_name'], $path . '/' . $this->fileName) || !is_uploaded_file($path)) {
-                // couldn't move
+            if (!is_uploaded_file($f['tmp_name'])) {
+                $result[$key]['status'] = UploadStatus::NOT_UPLOADED;
+
+                return $result;
+            }
+
+            if (!move_uploaded_file($f['tmp_name'], $path . '/' . $this->fileName)) {
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
@@ -198,7 +203,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getMaxSize() : int
+    public
+    function getMaxSize() : int
     {
         return $this->maxSize;
     }
@@ -211,7 +217,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setMaxSize(int $maxSize)
+    public
+    function setMaxSize(int $maxSize)
     {
         $this->maxSize = $maxSize;
     }
@@ -222,7 +229,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getAllowedTypes() : array
+    public
+    function getAllowedTypes() : array
     {
         return $this->allowedTypes;
     }
@@ -235,7 +243,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setAllowedTypes(array $allowedTypes)
+    public
+    function setAllowedTypes(array $allowedTypes)
     {
         $this->allowedTypes = $allowedTypes;
     }
@@ -248,7 +257,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function addAllowedTypes($allowedTypes)
+    public
+    function addAllowedTypes($allowedTypes)
     {
         $this->allowedTypes[] = $allowedTypes;
     }
@@ -259,7 +269,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getOutputDir() : string
+    public
+    function getOutputDir() : string
     {
         return $this->outputDir;
     }
@@ -272,7 +283,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setOutputDir(string $outputDir)
+    public
+    function setOutputDir(string $outputDir)
     {
         $this->outputDir = $outputDir;
     }
@@ -283,7 +295,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getFileName() : string
+    public
+    function getFileName() : string
     {
         return $this->fileName;
     }
@@ -296,7 +309,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setFileName(string $fileName)
+    public
+    function setFileName(string $fileName)
     {
         $this->fileName = $fileName;
     }
@@ -309,7 +323,8 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setPreserveFileName(bool $preserveFileName)
+    public
+    function setPreserveFileName(bool $preserveFileName)
     {
         $this->preserveFileName = $preserveFileName;
     }

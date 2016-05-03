@@ -99,7 +99,7 @@ class ReportMapper extends DataMapperAbstract
 
             $this->db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
-            return false;
+            echo $e->getMessage();
         }
 
         return $objId;

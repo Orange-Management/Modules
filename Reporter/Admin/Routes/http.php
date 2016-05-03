@@ -5,7 +5,7 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/backend/reporter/template/create.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:setUpFileUploader', 
+            'dest' => '\Modules\Media\Controller::setUpFileUploader',
             'verb' => RouteVerb::GET,
         ],
         [
@@ -15,7 +15,7 @@ return [
     ],
     '^.*/backend/reporter/report/create.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:setUpFileUploader', 
+            'dest' => '\Modules\Media\Controller::setUpFileUploader',
             'verb' => RouteVerb::GET,
         ],
         [
@@ -44,13 +44,13 @@ return [
     '^.*/api/reporter/report/template.*$' => [
         [
             'dest' => '\Modules\Reporter\Controller:apiCreateTemplate', 
-            'verb' => RouteVerb::GET,
+            'verb' => RouteVerb::SET,
         ],
     ],
     '^.*/api/reporter/report/report.*$' => [
         [
             'dest' => '\Modules\Reporter\Controller:apiCreateReport', 
-            'verb' => RouteVerb::GET,
+            'verb' => RouteVerb::SET,
         ],
     ],
 ];
