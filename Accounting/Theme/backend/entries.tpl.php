@@ -33,7 +33,7 @@ $footerView->setResults(1);
                     <td><label for="iAccountStart"><?= $this->l11n->lang['Accounting']['CostObject']; ?>
                     <td><label for="iAccountStart"><?= $this->l11n->lang['Accounting']['EntryDate']; ?>
                 <tr>
-                    <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i>
+                    <td><span class="input"><button type="button" id="account-start" formaction="" data-action='[{"type": "popup", "tpl": "entry-list-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 1000}]'><i class="fa fa-book"></i>
                             </button><input type="number" id="iId" min="1" name="id" required></span>
                     <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i>
                             </button><input type="number" id="iId" min="1" name="id" required></span>
@@ -177,3 +177,5 @@ $footerView->setResults(1);
         </div>
     </div>
 </section>
+
+<?php include 'account-list.tpl.php'; ?>

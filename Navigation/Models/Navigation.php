@@ -121,12 +121,18 @@ class Navigation
      *
      * @return \Modules\Navigation\Models\Navigation
      *
+     * @throws \Exception
+     *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public static function getInstance(RequestAbstract $request = null, Pool $dbPool = null)
     {
         if (!isset(self::$instance)) {
+            if(!isset($request) || !isset($dbPool)) {
+                throw new \Exception('Invalid parameters');
+            }
+
             self::$instance = new self($request, $dbPool);
         }
 

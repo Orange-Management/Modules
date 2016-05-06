@@ -40,11 +40,11 @@ echo $this->getData('nav')->render(); ?>
                 elseif($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; }
                 ?>
                     <tr>
-                        <td><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
-                        <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->lang['News']['TYPE' . $news->getType()]; ?></span></a>
-                        <td><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
+                        <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
+                        <td data-label="<?= $this->l11n->lang['News']['Type']; ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->lang['News']['TYPE' . $news->getType()]; ?></span></a>
+                        <td data-label="<?= $this->l11n->lang['News']['Title']; ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
+                        <td data-label="<?= $this->l11n->lang['News']['Author']; ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
+                        <td data-label="<?= $this->l11n->lang['News']['Date']; ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
         <tr><td colspan="3" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>

@@ -16,19 +16,15 @@
 namespace Modules\Reporter;
 
 use Model\Message\Redirect;
-use Model\Message\Reload;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\MediaMapper;
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use Modules\Reporter\Models\NullReport;
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReportMapper;
 use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
-use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
@@ -40,7 +36,6 @@ use phpOMS\Utils\IO\Csv\CsvDatabaseMapper;
 use phpOMS\Utils\IO\Excel\ExcelDatabaseMapper;
 use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * TODO: Implement auto sqlite generator on upload

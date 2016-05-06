@@ -15,8 +15,6 @@
  */
 namespace Modules\News;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use phpOMS\Account\Account;
@@ -26,7 +24,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * News controller class.
@@ -88,7 +85,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -111,7 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -134,7 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -153,7 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -180,13 +177,13 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createNews(...$articleElements)
     {
         $newsArticle = new NewsArticle();
-        $newsArticle->setAuthor($articleElements[0]);
-        $newsArticle->setCreated($articleElements[1]);
+        $newsArticle->setCreatedBy($articleElements[0]);
+        $newsArticle->setCreatedAt($articleElements[1]);
         $newsArticle->setPublish($articleElements[2]);
         $newsArticle->setTitle($articleElements[3]);
         $newsArticle->setPlain($articleElements[4]);
         $newsArticle->setContent($articleElements[5]);
-        $newsArticle->setLang($articleElements[6]);
+        $newsArticle->setLanguage($articleElements[6]);
         $newsArticle->setType($articleElements[7]);
         $newsArticle->setStatus($articleElements[8]);
         $newsArticle->setFeatured($articleElements[9]);

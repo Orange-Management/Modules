@@ -104,7 +104,7 @@ class Event
     /**
      * Location of the event.
      *
-     * @var array
+     * @var Location
      * @since 1.0.0
      */
     private $location = null;
