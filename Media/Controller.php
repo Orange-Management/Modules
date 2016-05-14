@@ -22,6 +22,7 @@ use Modules\Media\Models\UploadStatus;
 use phpOMS\Asset\AssetType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
@@ -93,6 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        /** @var Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Models/Upload.js');
         $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Controller.js');

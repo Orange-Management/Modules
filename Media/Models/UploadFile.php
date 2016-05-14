@@ -88,44 +88,22 @@ class UploadFile
             $files = [$files];
         }
 
-        if (count($files) > 1) {
-            do {
-                $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
-            } while (file_exists($this->outputDir . '/' . $rndPath));
-
-            $this->outputDir = $this->outputDir . '/' . $rndPath;
-        }
-
+        $this->findOutputDir($files);
         $rpath = $this->outputDir;
 
         foreach ($files as $key => $f) {
-            $result[$key] = [];
+            $result[$key]           = [];
+            $result[$key]['status'] = UploadStatus::OK;
 
             if (!isset($f['error'])) {
                 // TODO: handle wrong parameters
                 $result[$key]['status'] = UploadStatus::WRONG_PARAMETERS;
 
                 return $result;
-            }
+            } elseif ($f['error'] !== UPLOAD_ERR_OK) {
+                $result[$key]['status'] = $this->getUploadError($f['error']);
 
-            switch ($f['error']) {
-                case UPLOAD_ERR_OK:
-                    break;
-                case UPLOAD_ERR_NO_FILE:
-                    // TODO: no file sent
-                    $result[$key]['status'] = UploadStatus::NOTHING_UPLOADED;
-
-                    return $result;
-                case UPLOAD_ERR_INI_SIZE:
-                case UPLOAD_ERR_FORM_SIZE:
-                    // too large
-                    $result[$key]['status'] = UploadStatus::UPLOAD_SIZE;
-
-                    return $result;
-                default:
-                    $result[$key]['status'] = UploadStatus::UNKNOWN_ERROR;
-
-                    return $result;
+                return $result;
             }
 
             $result[$key]['size'] = $f['size'];
@@ -136,6 +114,7 @@ class UploadFile
 
                 return $result;
             }
+
             // TODO: do I need pecl fileinfo?
             if (!empty($this->allowedTypes) && false === $ext = array_search($f['type'], $this->allowedTypes, true)) {
                 // wrong file format
@@ -190,11 +169,55 @@ class UploadFile
                 return $result;
             }
 
-            $result[$key]['path']   = $rpath;
-            $result[$key]['status'] = UploadStatus::OK;
+            $result[$key]['path'] = $rpath;
         }
 
         return $result;
+    }
+
+    /**
+     * Find unique output path for batch of files
+     *
+     * @param array $files Array of files
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    private function findOutputDir(array $files)
+    {
+        if (count($files) > 1) {
+            do {
+                $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+            } while (file_exists($this->outputDir . '/' . $rndPath));
+
+            $this->outputDir = $this->outputDir . '/' . $rndPath;
+        }
+    }
+
+    /**
+     * Get upload error
+     *
+     * @param mixed $error Error type
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    private function getUploadError($error) : int
+    {
+        switch ($error) {
+            case UPLOAD_ERR_NO_FILE:
+                // TODO: no file sent
+                return UploadStatus::NOTHING_UPLOADED;
+            case UPLOAD_ERR_INI_SIZE:
+            case UPLOAD_ERR_FORM_SIZE:
+                return UploadStatus::UPLOAD_SIZE;
+            default:
+                return UploadStatus::UNKNOWN_ERROR;
+        }
     }
 
     /**
@@ -203,8 +226,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function getMaxSize() : int
+    public function getMaxSize() : int
     {
         return $this->maxSize;
     }
@@ -217,8 +239,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function setMaxSize(int $maxSize)
+    public function setMaxSize(int $maxSize)
     {
         $this->maxSize = $maxSize;
     }
@@ -229,8 +250,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function getAllowedTypes() : array
+    public function getAllowedTypes() : array
     {
         return $this->allowedTypes;
     }
@@ -243,8 +263,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function setAllowedTypes(array $allowedTypes)
+    public function setAllowedTypes(array $allowedTypes)
     {
         $this->allowedTypes = $allowedTypes;
     }
@@ -257,8 +276,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function addAllowedTypes($allowedTypes)
+    public function addAllowedTypes($allowedTypes)
     {
         $this->allowedTypes[] = $allowedTypes;
     }
@@ -269,8 +287,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function getOutputDir() : string
+    public function getOutputDir() : string
     {
         return $this->outputDir;
     }
@@ -283,8 +300,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function setOutputDir(string $outputDir)
+    public function setOutputDir(string $outputDir)
     {
         $this->outputDir = $outputDir;
     }
@@ -295,8 +311,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function getFileName() : string
+    public function getFileName() : string
     {
         return $this->fileName;
     }
@@ -309,8 +324,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function setFileName(string $fileName)
+    public function setFileName(string $fileName)
     {
         $this->fileName = $fileName;
     }
@@ -323,8 +337,7 @@ class UploadFile
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public
-    function setPreserveFileName(bool $preserveFileName)
+    public function setPreserveFileName(bool $preserveFileName)
     {
         $this->preserveFileName = $preserveFileName;
     }

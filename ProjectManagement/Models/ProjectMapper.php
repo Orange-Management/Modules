@@ -20,6 +20,7 @@ use Modules\Tasks\Models\TaskMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
+use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Mapper class.
@@ -92,16 +93,17 @@ class ProjectMapper extends DataMapperAbstract
     protected static $primaryField = 'projectmanagement_project_id';
 
     /**
-     * Create media.
+     * Create object.
      *
-     * @param project $obj Media
+     * @param mixed $obj       Object
+     * @param int   $relations Behavior for relations creation
      *
-     * @return bool
+     * @return mixed
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public static function create($obj, bool $relations = true)
+    public static function create($obj, int $relations = RelationType::ALL)
     {
         try {
             $objId = parent::create($obj, $relations);
