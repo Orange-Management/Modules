@@ -32,6 +32,13 @@ use phpOMS\DataStorage\Database\Query\Column;
  */
 class CalendarMapper extends DataMapperAbstract
 {
+    /**
+     * Class name for .
+     *
+     * @var array<string, array>
+     * @since 1.0.0
+     */
+    protected static $CLASS = __CLASS__;
 
     /**
      * Columns.
@@ -98,12 +105,12 @@ class CalendarMapper extends DataMapperAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function create($obj)
+    public static function create($obj, bool $relations = true)
     {
         try {
-            $objId = parent::create($obj);
-            $query = new Builder($this->db);
-            $query->prefix($this->db->getPrefix())
+            $objId = parent::create($obj, $relations);
+            $query = new Builder(self::$db);
+            $query->prefix(self::$db->getPrefix())
                   ->insert(
                       'account_permission_account',
                       'account_permission_from',
@@ -119,7 +126,7 @@ class CalendarMapper extends DataMapperAbstract
                   ->into('account_permission')
                   ->values($obj->getCreatedBy(), 'calendar', 'calendar', 1, $objId, 1, 1, 1, 1, 1);
 
-            $this->db->con->prepare($query->toSql())->execute();
+            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             return false;
         }
@@ -137,7 +144,7 @@ class CalendarMapper extends DataMapperAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function find(...$columns) : Builder
+    public static function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
                      ->where('account_permission.account_permission_for', '=', 'calendar')

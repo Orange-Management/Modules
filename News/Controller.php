@@ -18,7 +18,6 @@ namespace Modules\News;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use phpOMS\Account\Account;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -96,8 +95,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/News/Theme/Backend/news-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
-        $mapper = new NewsArticleMapper($this->app->dbPool->get());
-        $news     = $mapper->getNewest(50);
+        $news = NewsArticleMapper::getNewest(50);
         $view->addData('news', $news);
 
         return $view;
@@ -119,8 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/News/Theme/Backend/news-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
-        $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
-        $article           = $newsArticleMapper->get((int) $request->getData('id'));
+        $article = NewsArticleMapper::get((int) $request->getData('id'));
         $view->addData('news', $article);
 
         return $view;
@@ -188,9 +185,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle->setStatus($articleElements[8]);
         $newsArticle->setFeatured($articleElements[9]);
 
-        $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
-
-        return $newsArticleMapper->create($newsArticle);
+        return NewsArticleMapper::create($newsArticle);
     }
 
     /**
@@ -209,19 +204,18 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function getNewsListR(int $limit = 50, int $offset = 0, string $orderBy = 'news_created', string $ordered = 'ASC', Account $account = null)
     {
-        $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
-        $query             = $newsArticleMapper->find('news.news_id', 'news.news_author', 'news.news_publish', 'news.news_title')
-                                               ->where('news.news_type', '=', 1)
-                                               ->where('news.news_status', '=', 1)
-                                               ->orderBy($orderBy, $ordered)
-                                               ->offset($offset)
-                                               ->limit($limit);
+        $query = NewsArticleMapper::find('news.news_id', 'news.news_author', 'news.news_publish', 'news.news_title')
+            ->where('news.news_type', '=', 1)
+            ->where('news.news_status', '=', 1)
+            ->orderBy($orderBy, $ordered)
+            ->offset($offset)
+            ->limit($limit);
 
         if (isset($account)) {
             $query->where('account_permission.account_permission_account', '=', $account->getId());
         }
 
-        return $newsArticleMapper->getAllByQuery($query);
+        return NewsArticleMapper::getAllByQuery($query);
     }
 
     /**
@@ -240,19 +234,18 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function getHeadlineListR(int $limit = 50, int $offset = 0, string $orderBy = 'news_created', string $ordered = 'ASC', Account $account = null)
     {
-        $newsArticleMapper = new NewsArticleMapper($this->app->dbPool->get());
-        $query             = $newsArticleMapper->find('news.news_id', 'news.news_author', 'news.news_publish', 'news.news_title')
-                                               ->where('news.news_type', '=', 0)
-                                               ->where('news.news_status', '=', 1)
-                                               ->orderBy($orderBy, $ordered)
-                                               ->offset($offset)
-                                               ->limit($limit);
+        $query = NewsArticleMapper::find('news.news_id', 'news.news_author', 'news.news_publish', 'news.news_title')
+            ->where('news.news_type', '=', 0)
+            ->where('news.news_status', '=', 1)
+            ->orderBy($orderBy, $ordered)
+            ->offset($offset)
+            ->limit($limit);
 
         if (isset($account)) {
             $query->where('account_permission.account_permission_account', '=', $account->getId());
         }
 
-        return $newsArticleMapper->getAllByQuery($query);
+        return NewsArticleMapper::getAllByQuery($query);
     }
 
 }

@@ -19,7 +19,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 class DepartmentMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

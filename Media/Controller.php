@@ -19,16 +19,12 @@ use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use phpOMS\Asset\AssetType;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Media class.
@@ -107,7 +103,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -126,7 +122,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -137,8 +133,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Media/Theme/Backend/media-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
-        $mediaMapper = new MediaMapper($this->app->dbPool->get());
-        $view->addData('media', $mediaMapper->get($request->getData('id')));
+        $view->addData('media', MediaMapper::get($request->getData('id')));
 
         return $view;
     }
@@ -148,7 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -236,7 +231,6 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createDbEntries(array $status, int $account) : array
     {
         $mediaCreated = [];
-        $mediaMapper  = new MediaMapper($this->app->dbPool->get());
 
         foreach ($status as $uFile) {
             if ($uFile['status'] === UploadStatus::OK) {
@@ -248,7 +242,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 $media->setCreatedAt(new \DateTime('NOW'));
                 $media->setExtension($uFile['extension']);
 
-                $mediaCreated[] = $mediaMapper->create($media);
+                $mediaCreated[] = MediaMapper::create($media);
             }
         }
 

@@ -21,14 +21,12 @@ use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Task class.
@@ -90,7 +88,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -101,8 +99,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
-        $taskMapper = new TaskMapper($this->app->dbPool->get());
-        $tasks      = $taskMapper->getNewest(25);
+        $tasks = TaskMapper::getNewest(25);
         $view->addData('tasks', $tasks);
 
         return $view;
@@ -113,7 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -124,8 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
-        $taskMapper = new TaskMapper($this->app->dbPool->get());
-        $task       = $taskMapper->get((int) $request->getData('id'));
+        $task = TaskMapper::get((int) $request->getData('id'));
         $view->addData('task', $task);
 
         return $view;
@@ -136,7 +132,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -155,7 +151,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -171,8 +167,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $taskMapper = new TaskMapper($this->app->dbPool->get());
-
         $task = new Task();
         $task->setTitle($request->getData('title') ?? '');
         $task->setDescription($request->getData('description') ?? '');
@@ -191,7 +185,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $task->addElement($element);
 
-        $taskMapper->create($task);
+        TaskMapper::create($task);
         $response->set($request->__toString(), new Redirect(UriFactory::build('http://127.0.0.1/{/lang}/backend/task/single?id=' . $task->getId())));
     }
 

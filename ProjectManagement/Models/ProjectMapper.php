@@ -101,12 +101,12 @@ class ProjectMapper extends DataMapperAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function create($obj)
+    public static function create($obj, bool $relations = true)
     {
         try {
-            $objId = parent::create($obj);
-            $query = new Builder($this->db);
-            $query->prefix($this->db->getPrefix())
+            $objId = parent::create($obj, $relations);
+            $query = new Builder(self::$db);
+            $query->prefix(self::$db->getPrefix())
                   ->insert(
                       'account_permission_account',
                       'account_permission_from',
@@ -122,7 +122,7 @@ class ProjectMapper extends DataMapperAbstract
                   ->into('account_permission')
                   ->values($obj->getCreatedBy(), 'calendar_project', 'calendar_project', 1, $objId, 1, 1, 1, 1, 1);
 
-            $this->db->con->prepare($query->toSql())->execute();
+            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 
@@ -142,7 +142,7 @@ class ProjectMapper extends DataMapperAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function find(...$columns) : Builder
+    public static function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
                      ->where('account_permission.account_permission_for', '=', 'calendar_project')

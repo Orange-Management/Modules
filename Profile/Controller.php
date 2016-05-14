@@ -94,9 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
 
-        $accountMapper = new AccountMapper($this->app->dbPool->get());
-
-        $view->setData('accounts', $accountMapper->getNewest(25));
+        $view->setData('accounts', AccountMapper::getNewest(25));
 
         return $view;
     }
@@ -117,9 +115,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $accountMapper = new AccountMapper($this->app->dbPool->get());
-
-        $view->setData('account', $accountMapper->get($request->getData('id')));
+        $view->setData('account', AccountMapper::get($request->getData('id')));
 
         return $view;
     }

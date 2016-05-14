@@ -87,7 +87,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -98,8 +98,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Calendar/Theme/Backend/calendar-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001201001, $request, $response));
 
-        $mapper = new CalendarMapper($this->app->dbPool->get());
-        $calendar = $mapper->get(1);
+        $calendar = CalendarMapper::get(1);
         $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
         $view->addData('calendar', $calendar);
 

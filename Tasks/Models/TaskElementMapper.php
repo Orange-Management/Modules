@@ -82,10 +82,10 @@ class TaskElementMapper extends DataMapperAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function create($obj)
+    public static function create($obj, bool $relations = true)
     {
         try {
-            $objId = parent::create($obj);
+            $objId = parent::create($obj, $relations);
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

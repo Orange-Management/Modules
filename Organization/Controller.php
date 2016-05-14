@@ -94,8 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
-        $unitMapper = new UnitMapper($this->app->dbPool->get());
-        $view->addData('list:elements', $unitMapper->getAll());
+        $view->addData('list:elements', UnitMapper::getAll());
 
         return $view;
     }
@@ -116,8 +115,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
-        $unitMapper = new UnitMapper($this->app->dbPool->get());
-        $view->addData('unit', $unitMapper->get((int) $request->getData('id')));
+        $view->addData('unit', UnitMapper::get((int) $request->getData('id')));
 
         return $view;
     }
@@ -157,8 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
-        $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
-        $view->addData('list:elements', $departmentMapper->getAll());
+        $view->addData('list:elements', DepartmentMapper::getAll());
 
         return $view;
     }
@@ -179,8 +176,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
-        $departmentMapper = new DepartmentMapper($this->app->dbPool->get());
-        $view->addData('department', $departmentMapper->get((int) $request->getData('id')));
+        $view->addData('department', DepartmentMapper::get((int) $request->getData('id')));
 
         return $view;
     }

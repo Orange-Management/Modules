@@ -64,7 +64,7 @@ class CollectionMapper extends MediaMapper
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function find(...$columns) : Builder
+    public static function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
                      ->where('account_permission.account_permission_for', '=', 'news')

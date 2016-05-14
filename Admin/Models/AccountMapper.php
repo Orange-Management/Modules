@@ -19,7 +19,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 class AccountMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

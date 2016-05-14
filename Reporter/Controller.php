@@ -18,6 +18,7 @@ namespace Modules\Reporter;
 use Model\Message\Redirect;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
+use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Reporter\Models\NullReport;
 use Modules\Reporter\Models\Report;
@@ -25,7 +26,6 @@ use Modules\Reporter\Models\ReportMapper;
 use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -106,7 +106,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -126,7 +126,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -145,7 +145,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -164,7 +164,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -188,7 +188,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @throws
      *
@@ -197,13 +197,11 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $templateMapper = new TemplateMapper($this->app->dbPool->get());
-        $template       = $templateMapper->get((int) $request->getData('id'));
+        $template = TemplateMapper::get((int) $request->getData('id'));
 
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
-        $collectionMapper = new CollectionMapper($this->app->dbPool->get());
-        $collection       = $collectionMapper->get($template->getSource());
+        $collection = CollectionMapper::get($template->getSource());
 
         $tcoll = [];
         $files = $collection->getSources();
@@ -240,13 +238,13 @@ class Controller extends ModuleAbstract implements WebInterface
             throw new \Exception('No template file detected.');
         }
 
-        $reportMapper = new ReportMapper($this->app->dbPool->get());
-        $report       = $reportMapper->getNewest(1, (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())); /* todo newest that belongs to template x. right now always newest no matter the template */
-        $rcoll        = [];
+        $report = ReportMapper::getNewest(1, (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())); /* todo newest that belongs to template x. right now always newest no matter the template */
+        $rcoll  = [];
 
         if (!($report instanceof NullReport)) {
-            $collection = $collectionMapper->get(end($report)->getSource());
-            $files      = $collection->getSources();
+            $collection = CollectionMapper::get(end($report)->getSource());
+            /** @var Media[] $files */
+            $files = $collection->getSources();
 
             foreach ($files as $media) {
                 $rcoll[$media->getName()] = $media;
@@ -270,7 +268,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @api
      *
@@ -324,7 +322,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @api
      *
@@ -346,8 +344,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
 
-        $mediaCollectionMapper = new CollectionMapper($this->app->dbPool->get());
-        $collectionId          = $mediaCollectionMapper->create($mediaCollection);
+        $collectionId = CollectionMapper::create($mediaCollection);
 
         /* Create template */
         $reporterTemplate = new Template();
@@ -359,8 +356,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
-        $reporterTemplateMapper = new TemplateMapper($this->app->dbPool->get());
-        $templateId             = $reporterTemplateMapper->create($reporterTemplate);
+        $templateId = TemplateMapper::create($reporterTemplate);
 
         $response->set($request->__toString(), $templateId);
     }
@@ -370,7 +366,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @api
      *
@@ -384,18 +380,14 @@ class Controller extends ModuleAbstract implements WebInterface
         // TODO: make sure user has permission for files
         // TODO: make sure user has permission for template
 
-        $collectionMapper = new CollectionMapper($this->app->dbPool->get());
-        $mediaMapper      = new MediaMapper($this->app->dbPool->get());
-
         /* Init Template */
-        $templateMapper = new TemplateMapper($this->app->dbPool->get());
-        $template       = $templateMapper->get((int) $request->getData('template'));
+        $template = TemplateMapper::get((int) $request->getData('template'));
 
         if ($template->getDatatype() === TemplateDataType::GLOBAL_DB) {
-            $templateFiles = $mediaMapper->get($template->getSource());
+            $templateFiles = MediaMapper::get($template->getSource());
 
             foreach ($templateFiles as $templateFile) {
-                $dbFile = $mediaMapper->get($templateFile);
+                $dbFile = MediaMapper::get($templateFile);
 
                 // Found centralized db
                 if ($dbFile->getExtension() === '.sqlite') {
@@ -405,7 +397,7 @@ class Controller extends ModuleAbstract implements WebInterface
                     $csvDbMapper->autoIdentifyCsvSettings(true);
 
                     foreach ($files as $file) {
-                        $mediaFile = $mediaMapper->get($file);
+                        $mediaFile = MediaMapper::get($file);
 
                         if (StringUtils::endsWith($mediaFile->getFilename(), '.db') && $mediaFile->getExtension() === '.csv') {
                             $csvDbMapper->addSource($mediaFile->getPath());
@@ -428,7 +420,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection->setCreatedBy($request->getAccount());
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
-        $collectionId = $collectionMapper->create($mediaCollection);
+        $collectionId = CollectionMapper::create($mediaCollection);
 
         /* Create template */
         $reporterReport = new Report();
@@ -438,8 +430,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterReport->setCreatedBy($request->getAccount());
         $reporterReport->setCreatedAt(new \DateTime('NOW'));
 
-        $reporterReportMapper = new ReportMapper($this->app->dbPool->get());
-        $reportId             = $reporterReportMapper->create($reporterReport);
+        $reportId = ReportMapper::create($reporterReport);
 
         $response->set($request->__toString(), new Redirect($request->getUri()->getBase() . $request->getL11n()->getLanguage() . '/backend/reporter/list'));
     }
