@@ -15,16 +15,13 @@
  */
 namespace Modules\Draw;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use phpOMS\Asset\AssetType;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Calendar controller class.
@@ -93,7 +90,8 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $head = $response->getHead();
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Draw/ModuleDraw.js');
     }
 
@@ -102,7 +100,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -121,7 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
