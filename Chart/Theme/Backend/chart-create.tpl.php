@@ -31,14 +31,14 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-25 floatLeft">
     <h1>Area Chart</h1>
     <div class="inner">
-        <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
-            <img src="/Modules/Chart/Img/chart-thumb.png">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/area'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/thumb-area-chart.png">
         </a>
     </div>
 </section>
 
 <section class="box w-25 floatLeft">
-    <h1>Bar Chart</h1>
+    <h1>Stacked Area Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/chart-thumb.png">
@@ -47,7 +47,34 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-25 floatLeft">
-    <h1>Column Chart</h1>
+    <h1>Grouped Column Chart</h1>
+    <div class="inner">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/column?subtype=grouped'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/thumb-grouped-column-chart.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Stacked Column Chart</h1>
+    <div class="inner">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/column?suptype=stacked'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/thumb-stacked-column-chart.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Grouped Bar Chart</h1>
+    <div class="inner">
+        <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Stacked Bar Chart</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/chart-thumb.png">
@@ -65,7 +92,25 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-25 floatLeft">
-    <h1>Point Chart</h1>
+    <h1>Scatterplot</h1>
+    <div class="inner">
+        <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Box Plot</h1>
+    <div class="inner">
+        <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Heatmap</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/chart-thumb.png">
@@ -120,6 +165,24 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-25 floatLeft">
     <h1>Gantt Chart</h1>
+    <div class="inner">
+        <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Waterfall</h1>
+    <div class="inner">
+        <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
+            <img src="/Modules/Chart/Img/chart-thumb.png">
+        </a>
+    </div>
+</section>
+
+<section class="box w-25 floatLeft">
+    <h1>Tree</h1>
     <div class="inner">
         <a href="#" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/chart-thumb.png">
