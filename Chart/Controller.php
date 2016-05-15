@@ -15,16 +15,13 @@
  */
 namespace Modules\Chart;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 use phpOMS\Asset\AssetType;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Calendar controller class.
@@ -93,13 +90,14 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function setUpChartEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $head = $response->getHead();
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'cssOMS/chart/chart.css');
         $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'cssOMS/chart/chart_line.css');
-        $head->addAsset(AssetType::JS, 'http://d3js.org/d3.v3.min.js');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Chart/ModuleChart.js');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'cssOMS/chart/chart_area.css');
         $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'jsOMS/Chart/Chart.js');
         $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'jsOMS/Chart/LineChart.js');
+        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'jsOMS/Chart/ColumnChart.js');
     }
 
     /**
@@ -107,7 +105,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -126,7 +124,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -145,7 +143,26 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewChartCreateArea(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create-area');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004101001, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
