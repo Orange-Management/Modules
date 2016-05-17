@@ -19,7 +19,7 @@ $penetrators = $this->app->logger->getHighestPerpetrator();
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Monitoring']['System'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Monitoring']['System'] ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tbody>
@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Monitoring']['Logs'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Monitoring']['Logs'] ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tbody>
@@ -54,7 +54,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Monitoring']['Penetrators'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Monitoring']['Penetrators'] ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tbody>

@@ -60,7 +60,7 @@ $footerView->setResults(1);
     </div>
 </section>
 
-<section class="box w-100">
+<div class="box w-100">
     <div class="tabular-2">
         <ul class="tab-links">
             <li><label for="c-tab2-1"><?= $this->l11n->lang['Accounting']['List']; ?></label></li>
@@ -176,6 +176,6 @@ $footerView->setResults(1);
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <?php include 'account-list.tpl.php'; ?>

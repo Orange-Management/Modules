@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="wf-25 floatLeft">
     <section class="box w-100">
-        <h1><?= $this->l11n->lang['Reporter']['Reports']; ?></h1>
+        <header><h1><?= $this->l11n->lang['Reporter']['Reports']; ?></h1></header>
 
         <div class="inner">
             <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
@@ -61,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
     </section>
 
     <section class="box w-100">
-        <h1><?= $this->l11n->lang['Reporter']['Export']; ?></h1>
+        <header><h1><?= $this->l11n->lang['Reporter']['Export']; ?></h1></header>
 
         <div class="inner">
             <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
@@ -86,7 +86,7 @@ echo $this->getData('nav')->render(); ?>
     </section>
 
     <section class="box w-100">
-        <h1><?= $this->l11n->lang['Reporter']['Info']; ?></h1>
+        <header><h1><?= $this->l11n->lang['Reporter']['Info']; ?></h1></header>
 
         <div class="inner">
             <table class="list wf-100">

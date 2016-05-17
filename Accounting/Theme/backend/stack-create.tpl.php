@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <h1><?= $this->l11n->lang['Accounting']['Stack']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Accounting']['Stack']; ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">

@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="tabular-2">
-    <section class="box">
+    <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['ItemManagement']['Master'] ?></label>
             <li><label for="c-tab-2"><?= $this->l11n->lang['ItemManagement']['Properties'] ?></label>
@@ -36,12 +36,12 @@ echo $this->getData('nav')->render(); ?>
             <li><label for="c-tab-14"><?= $this->l11n->lang['ItemManagement']['Files'] ?></label>
             <li><label for="c-tab-15"><?= $this->l11n->lang['ItemManagement']['Logs'] ?></label>
         </ul>
-    </section>
+    </div>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Item'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Item'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -65,7 +65,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -91,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Property'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Property'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -110,7 +110,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </section>
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -129,7 +129,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </section>
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -149,7 +149,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Attribute'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Attribute'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -168,7 +168,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </section>
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -187,7 +187,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </section>
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Language'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -209,7 +209,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-4" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Sales'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Sales'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -251,7 +251,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Price'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Price'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -287,7 +287,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-5" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Purchase'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Purchase'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -320,7 +320,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Price'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Price'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -344,7 +344,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Stock'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Stock'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -368,7 +368,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Supplier'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Supplier'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -386,7 +386,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-6" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Accounting'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Accounting'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -407,7 +407,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-7" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Production'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Production'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -437,7 +437,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-8" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['StockList'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['StockList'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -455,7 +455,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-9" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['QM'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['QM'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -468,7 +468,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-10" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Packaging'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Packaging'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -500,7 +500,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-11" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Media'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Media'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -516,7 +516,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-12" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Stock'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Stock'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -529,7 +529,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Stock'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Stock'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -553,7 +553,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-13" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Disposal'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Disposal'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -566,7 +566,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-14" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ItemManagement']['Files'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ItemManagement']['Files'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -587,7 +587,7 @@ echo $this->getData('nav')->render(); ?>
             $footerView->setPages(20);
             $footerView->setPage(1);
             ?>
-            <section class="box w-100">
+            <div class="box w-100">
                 <table class="table">
                     <caption><?= $this->l11n->lang['ItemManagement']['Logs'] ?></caption>
                     <thead>
@@ -608,7 +608,7 @@ echo $this->getData('nav')->render(); ?>
                         <td>Creating item
                         <td><?= (new \DateTime('now'))->format('Y-m-d H:i:s') ?>
                 </table>
-            </section>
+            </div>
         </div>
     </div>
 </div>

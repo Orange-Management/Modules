@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </section>
 
-<section class="box w-100">
+<div class="box w-100">
     <div class="tabular">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['Draw']['Start'] ?></label>
@@ -58,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <div class="m-draw">
     <section class="box w-100" style="height: 30%;">

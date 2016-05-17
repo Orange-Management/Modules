@@ -18,7 +18,7 @@
  */
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Support']['Tickets']; ?></caption>
         <thead>
@@ -31,4 +31,4 @@ echo $this->getData('nav')->render(); ?>
         <tbody>
         <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
     </table>
-</section>
+</div>

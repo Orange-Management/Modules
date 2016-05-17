@@ -25,7 +25,7 @@ $id = $this->request->getData('id') ?? 1;
 ?>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $modules[$id]['name']['external'] ?></h1>
+    <header><h1><?= $modules[$id]['name']['external'] ?></h1></header>
 
     <div class="inner">
         <table class="list wf-100">
@@ -62,7 +62,7 @@ $id = $this->request->getData('id') ?? 1;
 </section>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Settings'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Settings'] ?></h1></header>
 
     <div class="inner">
 
@@ -70,7 +70,7 @@ $id = $this->request->getData('id') ?? 1;
 </section>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Groups'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Groups'] ?></h1></header>
 
     <div class="inner">
 
@@ -78,7 +78,7 @@ $id = $this->request->getData('id') ?? 1;
 </section>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Permissions'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Permissions'] ?></h1></header>
 
     <div class="inner">
 

@@ -20,7 +20,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Group'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Group'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-66 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Parent'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Parent'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
@@ -50,7 +50,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-66 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Permissions'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Permissions'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">

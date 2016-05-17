@@ -26,7 +26,7 @@ $footerView->setResults(0);
 
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Arrival']['Arrivals']; ?></caption>
         <thead>
@@ -48,4 +48,4 @@ echo $this->getData('nav')->render(); ?>
             <td>
                 <?php endforeach; ?>
     </table>
-</section>
+</div>

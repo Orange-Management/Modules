@@ -29,7 +29,7 @@ $templateList   = $templateMapper
 
 echo $this->getData('nav')->render(); ?>
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Reporter']['Report'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Reporter']['Report'] ?></h1></header>
     <div class="inner">
         <form id="reporter-report-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report/report'); ?>" method="post">
             <table class="layout wf-100">

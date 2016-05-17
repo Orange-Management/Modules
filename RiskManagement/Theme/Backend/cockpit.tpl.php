@@ -27,7 +27,7 @@ $footerView->setResults(1);
 echo $this->getData('nav')->render(); ?>
 
 <section class="wf-75 floatLeft">
-    <section class="box w-100">
+    <div class="box w-100">
         <table class="table">
             <caption><?= $this->l11n->lang['RiskManagement']['TopRisks']; ?></caption>
             <thead>
@@ -54,11 +54,11 @@ echo $this->getData('nav')->render(); ?>
             <tr><td colspan="6" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
                     <?php endif; ?>
         </table>
-    </section>
+    </div>
 </section>
 <section class="wf-25 floatLeft">
     <section class="box w-100">
-        <h1><?= $this->l11n->lang['RiskManagement']['Statistics']; ?></h1>
+        <header><h1><?= $this->l11n->lang['RiskManagement']['Statistics']; ?></h1></header>
         <div class="inner">
             <table class="list">
                 <thead>

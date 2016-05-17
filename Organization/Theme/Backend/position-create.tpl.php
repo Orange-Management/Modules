@@ -20,7 +20,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <h1><?= $this->l11n->lang['Organization']['Position']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Organization']['Position']; ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">

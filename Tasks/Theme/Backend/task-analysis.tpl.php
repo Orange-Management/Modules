@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Tasks']['Account']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Tasks']['Account']; ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Tasks']['Statistics']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Tasks']['Statistics']; ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tr><td><?= $this->l11n->lang['Tasks']['Received']; ?><td>0

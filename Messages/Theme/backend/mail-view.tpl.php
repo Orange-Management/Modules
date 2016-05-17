@@ -20,7 +20,7 @@ $mails = $mail->getEmail($this->getData('id'));
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
-    <h1><?= str_replace('_',' ', mb_decode_mimeheader($mails['overview'][0]->subject)); ?></h1>
+    <header><h1><?= str_replace('_',' ', mb_decode_mimeheader($mails['overview'][0]->subject)); ?></h1></header>
     <div class="inner">
         <?= $mail::decode($mails['body'], $mails['encoding']->encoding); ?>
     </div>

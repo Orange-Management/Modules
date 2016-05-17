@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="tabular-2">
-    <section class="box">
+    <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['ClientManagement']['Master'] ?></label></li>
             <li><label for="c-tab-2"><?= $this->l11n->lang['ClientManagement']['Contact'] ?></label></li>
@@ -30,12 +30,12 @@ echo $this->getData('nav')->render(); ?>
             <li><label for="c-tab-7"><?= $this->l11n->lang['ClientManagement']['AreaManager'] ?></label></li>
             <li><label for="c-tab-8"><?= $this->l11n->lang['ClientManagement']['Files'] ?></label></li>
         </ul>
-    </section>
+    </div>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['Client'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['Client'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -56,7 +56,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['Contact'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['Contact'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-3" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['Address'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['Address'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -115,7 +115,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-4" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['PaymentTerm'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['PaymentTerm'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -143,7 +143,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-5" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['Payment'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['Payment'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -161,7 +161,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-6" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['Price'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['Price'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
@@ -199,7 +199,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-7" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['ClientManagement']['AreaManager'] ?></h1>
+                <header><h1><?= $this->l11n->lang['ClientManagement']['AreaManager'] ?></h1></header>
                 <div class="inner">
                     <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">

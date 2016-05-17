@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Tasks']['Task']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Tasks']['Task']; ?></h1></header>
 
     <div class="inner">
         <form id="fTask"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task/create'); ?>">
@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Tasks']['Media']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Tasks']['Media']; ?></h1></header>
 
     <div class="inner">
         <form>

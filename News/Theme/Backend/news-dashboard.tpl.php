@@ -21,7 +21,7 @@ $newsList = $this->getData('news');
 
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-100 floatLeft">
+<div class="box w-100 floatLeft">
     <table class="table">
         <caption><?= $this->l11n->lang['News']['News'] ?></caption>
         <thead>
@@ -50,4 +50,4 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="3" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
     </table>
-</section>
+</div>

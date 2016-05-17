@@ -21,7 +21,7 @@ $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['ItemManagement']['Items'] ?></caption>
         <thead>
@@ -42,4 +42,4 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="6" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
     </table>
-</section>
+</div>

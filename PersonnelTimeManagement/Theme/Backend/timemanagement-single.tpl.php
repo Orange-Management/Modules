@@ -110,7 +110,7 @@ $nav->setParent(1003501001);
 
 <div class="b-7" id="i3-2-1">
     <div class="b b-5 c3-2 c3" id="i3-2-5">
-        <h1><?= $this->l11n->lang['PersonnelTimeManagement']['Planning']; ?></h1>
+        <header><h1><?= $this->l11n->lang['PersonnelTimeManagement']['Planning']; ?></h1></header>
 
         <div class="bc-1">
             <button><?= $this->l11n->lang['PersonnelTimeManagement']['New']; ?></button>

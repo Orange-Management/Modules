@@ -19,7 +19,7 @@
 
 echo $this->getData('nav')->render(); ?>
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Reporter']['Template'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Reporter']['Template'] ?></h1></header>
     <div class="inner">
         <form id="reporter-template-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report/template'); ?>" method="post">
             <table class="layout wf-100">
