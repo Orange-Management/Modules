@@ -37,7 +37,7 @@ $footerView->setResults(count($templates));
 
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Reporter']['Reports']; ?></caption>
         <thead>
@@ -61,5 +61,5 @@ echo $this->getData('nav')->render(); ?>
             <td><a href="<?= $url; ?>"><?= $template->getCreatedAt()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
     </table>
-</section>
+</div>
 

@@ -21,7 +21,7 @@ echo $this->getData('nav')->render();
 ?>
 
 <section class="box w-100">
-    <h1><?= $media->getName() ?></h1>
+    <header><h1><?= $media->getName() ?></h1></header>
     <div class="inner">
         <?php if(in_array($media->getExtension(), ['gif', 'bmp', 'jpg', 'jpeg', 'png'])) : ?>
             <img src="<?= $media->getPath(); ?>">

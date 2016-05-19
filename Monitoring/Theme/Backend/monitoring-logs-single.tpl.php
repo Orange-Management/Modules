@@ -33,7 +33,7 @@ $details = '* Uri: `' . trim($log['path']) . "`\n"
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
-    <h1><?= $this->l11n->lang['Monitoring']['Logs']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Monitoring']['Logs']; ?></h1></header>
 
     <div class="inner">
         <table class="list w-100">

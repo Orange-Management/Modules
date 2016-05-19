@@ -22,7 +22,7 @@ $news = $this->getData('news');
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
-    <h1><?= $news->getTitle(); ?></h1>
+    <header><h1><?= $news->getTitle(); ?></h1></header>
     <div class="inner">
         <article>
             <?= $news->getContent(); ?>

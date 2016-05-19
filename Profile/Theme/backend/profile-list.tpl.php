@@ -25,7 +25,7 @@ $footerView->setPage(1);
 $accounts = $this->getData('accounts');
 ?>
 
-<section class="box">
+<div class="box">
     <table class="table">
         <caption><?= $this->l11n->lang['Profile']['Profiles']; ?></caption>
         <thead>
@@ -48,4 +48,4 @@ $accounts = $this->getData('accounts');
         <tr><td colspan="3" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
         <?php endif; ?>
     </table>
-</section>
+</div>

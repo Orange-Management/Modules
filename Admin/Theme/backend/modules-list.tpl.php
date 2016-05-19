@@ -29,7 +29,7 @@ $footerView->setPage(1);
 $footerView->setResults(count($modules));
 ?>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Admin']['Modules']; ?></caption>
         <thead>
@@ -59,4 +59,4 @@ $footerView->setResults(count($modules));
             <tr><td colspan="4" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
         <?php endif; ?>
     </table>
-</section>
+</div>

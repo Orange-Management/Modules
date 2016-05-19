@@ -35,7 +35,7 @@ $currencies    = \phpOMS\Localization\ISO4217EnumArray::getConstants();
 
 ?>
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Settings'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Settings'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/general'); ?>" method="post">
             <table class="layout wf-100">
@@ -51,7 +51,7 @@ $currencies    = \phpOMS\Localization\ISO4217EnumArray::getConstants();
 </section>
 
 <section class="box w-50 floatLeft">
-    <h1><?= $this->l11n->lang['Admin']['Localization'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Admin']['Localization'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
             <table class="layout wf-100">

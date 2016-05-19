@@ -19,7 +19,7 @@
 
 echo $this->getData('nav')->render(); ?>
 <section class="box w-50">
-    <h1><?= $this->l11n->lang['Media']['Upload']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Media']['Upload']; ?></h1></header>
     <div class="inner">
         <form method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/media/create'); ?>">
             <table class="layout wf-100">

@@ -20,7 +20,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <h1><?= $this->l11n->lang['Marketing']['Promotion'] ?></h1>
+    <header><h1><?= $this->l11n->lang['Marketing']['Promotion'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
             <table class="layout wf-100">

@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="tabular-2">
-    <section class="box">
+    <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['SupplierManagement']['Master'] ?></label></li>
             <li><label for="c-tab-2"><?= $this->l11n->lang['SupplierManagement']['Contact'] ?></label></li>
@@ -28,12 +28,12 @@ echo $this->getData('nav')->render(); ?>
             <li><label for="c-tab-5"><?= $this->l11n->lang['SupplierManagement']['Payment'] ?></label></li>
             <li><label for="c-tab-6"><?= $this->l11n->lang['SupplierManagement']['Files'] ?></label></li>
         </ul>
-    </section>
+    </div>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['SupplierManagement']['Supplier'] ?></h1>
+                <header><h1><?= $this->l11n->lang['SupplierManagement']['Supplier'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -54,7 +54,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['SupplierManagement']['Contact'] ?></h1>
+                <header><h1><?= $this->l11n->lang['SupplierManagement']['Contact'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -85,7 +85,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-3" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['SupplierManagement']['Address'] ?></h1>
+                <header><h1><?= $this->l11n->lang['SupplierManagement']['Address'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -113,7 +113,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-4" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['SupplierManagement']['PaymentTerm'] ?></h1>
+                <header><h1><?= $this->l11n->lang['SupplierManagement']['PaymentTerm'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">
@@ -141,7 +141,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-5" name="tabular-2">
         <div class="tab">
             <section class="box w-33 floatLeft">
-                <h1><?= $this->l11n->lang['SupplierManagement']['Payment'] ?></h1>
+                <header><h1><?= $this->l11n->lang['SupplierManagement']['Payment'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout w-100">

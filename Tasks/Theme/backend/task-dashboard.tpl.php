@@ -20,7 +20,7 @@
 $tasks = $this->getData('tasks');
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-75 floatLeft">
+<div class="box w-75 floatLeft">
     <table class="table">
         <caption><?= $this->l11n->lang['Tasks']['Tasks']; ?></caption>
         <thead>
@@ -49,11 +49,11 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="6" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
         <?php endif; ?>
     </table>
-</section>
+</div>
 
 <section class="w-25 floatLeft">
     <section class="box w-100">
-        <h1><?= $this->l11n->lang['Tasks']['Settings']; ?></h1>
+        <header><h1><?= $this->l11n->lang['Tasks']['Settings']; ?></h1></header>
         <div class="inner">
             <form>
                 <table class="layout wf-100">
@@ -71,7 +71,7 @@ echo $this->getData('nav')->render(); ?>
     </section>
 
     <section class="box w-100">
-        <h1><?= $this->l11n->lang['Tasks']['Settings']; ?></h1>
+        <header><h1><?= $this->l11n->lang['Tasks']['Settings']; ?></h1></header>
         <div class="inner">
             <table class="list">
                 <tr><th><?= $this->l11n->lang['Tasks']['Received']; ?><td>0

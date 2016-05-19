@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <div class="tabular-2">
-    <section class="box">
+    <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['Chart']['Master'] ?></label>
             <li><label for="c-tab-2"><?= $this->l11n->lang['Chart']['Text'] ?></label>
@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
             <li><label for="c-tab-4"><?= $this->l11n->lang['Chart']['Data'] ?></label>
             <li><label for="c-tab-5"><?= $this->l11n->lang['Chart']['Legend'] ?></label>
         </ul>
-    </section>
+    </div>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-1" checked>
         <div class="tab">
@@ -110,7 +110,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-3" name="tabular-1">
         <div class="tab">
             <section class="box w-50 floatLeft">
-                <h1>X</h1>
+                <header><h1>X</h1></header>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
@@ -135,7 +135,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-50 floatLeft">
-                <h1>Y</h1>
+                <header><h1>Y</h1></header>
                 <div class="inner">
                     <form>
                         <table class="wf-100">

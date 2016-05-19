@@ -24,7 +24,7 @@ $cElements = count($elements);
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <h1><?= $task->getTitle(); ?></h1>
+    <header><h1><?= $task->getTitle(); ?></h1></header>
     <div class="inner">
         <div class="floatRight">Due <?= $task->getDue()->format('Y-m-d H:i'); ?></div>
         <div>Created <?= $task->getCreatedAt()->format('Y-m-d H:i'); ?></div>

@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
         </div>
     </section>
 
-    <section class="box w-100">
+    <div class="box w-100">
         <div class="tabular">
             <ul class="tab-links">
                 <li><label for="c-tab-1"><?= $this->l11n->lang['News']['Plain'] ?></label>
@@ -62,7 +62,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </section>
 <section class="wf-25 floatLeft">
     <section class="box w-100">

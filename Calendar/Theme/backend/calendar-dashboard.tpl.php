@@ -2,7 +2,7 @@
 $calendar = $this->getData('calendar');
 ?>
 <section class="wf-75 floatLeft">
-    <section class="box w-100">
+    <div class="box w-100">
         <ul class="btns floatLeft">
             <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-left"></i></a>
             <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
@@ -13,8 +13,8 @@ $calendar = $this->getData('calendar');
             <li><a href=""><?= $this->l11n->lang['Calendar']['Month'] ?></a>
             <li><a href=""><?= $this->l11n->lang['Calendar']['Year'] ?></a>
         </ul>
-    </section>
-    <section class="box w-100">
+    </div>
+    <div class="box w-100">
         <div class="m-calendar-month">
             <?php $current = new \phpOMS\Datatypes\SmartDateTime($calendar->getDate()->format('Y') . '-' . $calendar->getDate()->format('m') . '-' . '01'); for($i = 0; $i < 6; $i++) : ?>
                 <div class="wf-100">
@@ -38,12 +38,12 @@ $calendar = $this->getData('calendar');
                 </div>
             <?php endfor;?>
         </div>
-    </section>
+    </div>
 </section>
 
 <section class="wf-25 floatLeft">
     <section class="box w-100">
-        <h1>Title</h1>
+        <header><h1>Title</h1></header>
 
         <div class="inner">
             <form>
@@ -60,7 +60,7 @@ $calendar = $this->getData('calendar');
     </section>
 
     <section class="box w-100">
-        <h1>Calendars</h1>
+        <header><h1>Calendars</h1></header>
 
         <div class="inner">
             <ul class="boxed">

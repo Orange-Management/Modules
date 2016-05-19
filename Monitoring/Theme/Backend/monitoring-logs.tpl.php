@@ -28,7 +28,7 @@ $logs = array_reverse($this->app->logger->get(25), true);
 
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Monitoring']['Logs']; ?></caption>
         <thead>
@@ -54,4 +54,4 @@ echo $this->getData('nav')->render(); ?>
             <td colspan="4">
                 <?php endif; ?>
     </table>
-</section>
+</div>

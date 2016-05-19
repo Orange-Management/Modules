@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
 
 <!-- Hover may be better here?!?!?!
 <section class="box w-100">
-    <h1><?= $this->l11n->lang['ClientManagement']['Client'] ?></h1>
+    <header><h1><?= $this->l11n->lang['ClientManagement']['Client'] ?></h1></header>
     <div class="inner floatLeft wf-100">
         <form class="wf-33 floatLeft">
             <table class="layout w-100">
@@ -59,7 +59,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 -->
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['ClientManagement']['Clients'] ?></caption>
         <thead>
@@ -82,4 +82,4 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="8" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
     </table>
-</section>
+</div>

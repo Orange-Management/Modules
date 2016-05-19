@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </section>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Accounting']['Entries'] ?></caption>
         <thead>
@@ -74,9 +74,9 @@ echo $this->getData('nav')->render(); ?>
             <td colspan="13" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
     </table>
-</section>
+</div>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Accounting']['Entries'] ?></caption>
         <thead>
@@ -101,4 +101,4 @@ echo $this->getData('nav')->render(); ?>
             <td colspan="13" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
     </table>
-</section>
+</div>

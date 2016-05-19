@@ -21,7 +21,7 @@ $account = $this->getData('account');
 echo $this->getData('nav')->render();
 ?>
 <section itemscope itemtype="http://schema.org/Person" class="box w-33">
-    <h1><?= $this->l11n->lang['Profile']['Profile']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Profile']['Profile']; ?></h1></header>
     <div class="inner">
         <!-- @formatter:off -->
                 <table class="list">
@@ -75,7 +75,7 @@ echo $this->getData('nav')->render();
     </div>
 </section>
 
-<section class="box w-100">
+<div class="box w-100">
     <table class="table">
         <caption><?= $this->l11n->lang['Profile']['Media']; ?></caption>
         <thead>
@@ -99,4 +99,4 @@ echo $this->getData('nav')->render();
             <tr><td colspan="4" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
         <?php endif; ?>
     </table>
-</section>
+</div>

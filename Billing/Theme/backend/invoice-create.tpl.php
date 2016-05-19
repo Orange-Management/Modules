@@ -20,17 +20,17 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="tabular-2">
-    <section class="box">
+    <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['Billing']['Invoice'] ?></label></li>
             <li><label for="c-tab-2"><?= $this->l11n->lang['Billing']['Items'] ?></label></li>
         </ul>
-    </section>
+    </div>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
             <section class="box w-50 floatLeft">
-                <h1><?= $this->l11n->lang['Billing']['Invoice'] ?></h1>
+                <header><h1><?= $this->l11n->lang['Billing']['Invoice'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout wf-100">
@@ -63,7 +63,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-50 floatLeft">
-                <h1><?= $this->l11n->lang['Billing']['Invoice'] ?></h1>
+                <header><h1><?= $this->l11n->lang['Billing']['Invoice'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout wf-100">
@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
             </section>
 
             <section class="box w-50 floatLeft">
-                <h1><?= $this->l11n->lang['Billing']['Delivery'] ?></h1>
+                <header><h1><?= $this->l11n->lang['Billing']['Delivery'] ?></h1></header>
                 <div class="inner">
                     <form>
                         <table class="layout wf-100">
@@ -112,7 +112,7 @@ echo $this->getData('nav')->render(); ?>
         </div>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
-            <section class="box w-100">
+            <div class="box w-100">
                 <table class="table">
                     <caption><?= $this->l11n->lang['Billing']['Invoice'] ?></caption>
                     <thead>
@@ -147,7 +147,7 @@ echo $this->getData('nav')->render(); ?>
                         <td>
                         <td>
                 </table>
-            </section>
+            </div>
         </div>
     </div>
 </div>

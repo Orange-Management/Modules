@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </section>
 
-<section class="box w-100">
+<div class="box w-100">
     <div class="tabular">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->l11n->lang['Editor']['Start'] ?></label>
@@ -84,9 +84,9 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="box w-100">
+<div class="box w-100">
     <div class="tabular">
         <ul class="tab-links">
             <li><label for="c-tab2-1"><?= $this->l11n->lang['Editor']['Text'] ?></label>
@@ -102,7 +102,7 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <section class="box w-100">
     <div class="inner">

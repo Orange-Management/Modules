@@ -20,7 +20,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <h1><?= $this->l11n->lang['Checklist']['General']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Checklist']['General']; ?></h1></header>
     <div class="inner">
         <form id="fChecklist">
             <table class="layout wf-100">
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <section class="box w-33">
-    <h1><?= $this->l11n->lang['Checklist']['Tasks']; ?></h1>
+    <header><h1><?= $this->l11n->lang['Checklist']['Tasks']; ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
