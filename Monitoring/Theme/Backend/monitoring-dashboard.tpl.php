@@ -28,9 +28,9 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><?= $this->l11n->lang['Monitoring']['Release'] ?><td><?= php_uname('r'); ?>
                 <tr><td><?= $this->l11n->lang['Monitoring']['RAMUsage'] ?><td><?= memory_get_usage(true)/(1024*1024); ?> MB
                 <tr><td><?= $this->l11n->lang['Monitoring']['MemoryLimit'] ?><td><?= ini_get('memory_limit'); ?>
-                <tr><td><?= $this->l11n->lang['Monitoring']['SystemRAM'] ?><td><?= \phpOMS\Utils\SystemUtils::getRAM()/(1024); ?> MB
-                <tr><td><?= $this->l11n->lang['Monitoring']['CPUUsage'] ?><td><?= \phpOMS\Utils\SystemUtils::getCpuUsage(); ?>%
-                <tr><td><?= $this->l11n->lang['Monitoring']['DiskUsage'] ?><td><?= round(\phpOMS\Utils\SystemUtils::getFolderSize(ROOT_PATH)/1000000, 0); ?> MB
+                <tr><td><?= $this->l11n->lang['Monitoring']['SystemRAM'] ?><td><?= \phpOMS\System\SystemUtils::getRAM()/(1024); ?> MB
+                <tr><td><?= $this->l11n->lang['Monitoring']['CPUUsage'] ?><td><?= \phpOMS\System\SystemUtils::getCpuUsage(); ?>%
+                <tr><td><?= $this->l11n->lang['Monitoring']['DiskUsage'] ?><td><?= round(\phpOMS\System\File\Directory::getFolderSize(ROOT_PATH)/1000000, true); ?> MB
         </table>
     </div>
 </section>

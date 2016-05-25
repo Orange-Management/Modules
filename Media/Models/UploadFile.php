@@ -15,6 +15,8 @@
  */
 namespace Modules\Media\Models;
 
+use phpOMS\System\File\Directory;
+
 
 /**
  * Upload.
@@ -89,7 +91,7 @@ class UploadFile
         }
 
         $this->findOutputDir($files);
-        $rpath = $this->outputDir;
+        $path = ROOT_PATH . $this->outputDir;
 
         foreach ($files as $key => $f) {
             $result[$key]           = [];
@@ -116,14 +118,12 @@ class UploadFile
             }
 
             // TODO: do I need pecl fileinfo?
-            if (!empty($this->allowedTypes) && false === $ext = array_search($f['type'], $this->allowedTypes, true)) {
+            if (!empty($this->allowedTypes) && ($ext = array_search($f['type'], $this->allowedTypes, true)) === false) {
                 // wrong file format
                 $result[$key]['status'] = UploadStatus::WRONG_EXTENSION;
 
                 return $result;
             }
-
-            $path = __DIR__ . '/../../..' . $this->outputDir;
 
             if ($this->preserveFileName) {
                 $this->fileName = $f['name'];
@@ -133,6 +133,8 @@ class UploadFile
             $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 
+            // ! and empty same?!
+            $result[$key]['filename'] = $this->fileName;
             if (!$this->fileName || empty($this->fileName) || file_exists($path . '/' . $this->fileName)) {
                 $rnd = '';
 
@@ -147,14 +149,12 @@ class UploadFile
                     }
 
                     $this->fileName = $sha;
-                    $rnd            = rand();
+                    $rnd            = mt_rand();
                 } while (file_exists($path . '/' . $this->fileName));
             }
 
-            $result[$key]['filename'] = $this->fileName;
-
             if (!is_dir($path)) {
-                \mkdir($path, '0655', true);
+                Directory::createPath($path, '0655', true);
             }
 
             if (!is_uploaded_file($f['tmp_name'])) {
@@ -169,7 +169,7 @@ class UploadFile
                 return $result;
             }
 
-            $result[$key]['path'] = $rpath;
+            $result[$key]['path'] = $this->outputDir;
         }
 
         return $result;
@@ -192,7 +192,7 @@ class UploadFile
                 $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
             } while (file_exists($this->outputDir . '/' . $rndPath));
 
-            $this->outputDir = $this->outputDir . '/' . $rndPath;
+            $this->outputDir = '/../../..' . $this->outputDir . '/' . $rndPath;
         }
     }
 

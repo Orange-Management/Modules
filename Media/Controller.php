@@ -214,6 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $path    = '/Modules/Media/Files/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
             $upload->setOutputDir($path);
             $upload->setFileName(false);
+
             $status       = $upload->upload($files);
             $mediaCreated = $this->createDbEntries($status, $account);
         }
@@ -237,7 +238,7 @@ class Controller extends ModuleAbstract implements WebInterface
         foreach ($status as $uFile) {
             if ($uFile['status'] === UploadStatus::OK) {
                 $media = new Media();
-                $media->setPath($uFile['path'] . '/' . $uFile['filename']);
+                $media->setPath(trim($uFile['path'], '/') . '/' . $uFile['filename']);
                 $media->setName($uFile['filename']);
                 $media->setSize($uFile['size']);
                 $media->setCreatedBy($account);

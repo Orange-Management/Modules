@@ -17,16 +17,13 @@
  * @var \phpOMS\Views\View $this
  */
 
-$templateMapper = new \Modules\Reporter\Models\TemplateMapper($this->app->dbPool->get());
-$templates      = $templateMapper
-    ->listResults(
-        $templateMapper
-            ->find('reporter_template.reporter_template_id',
-                'reporter_template.reporter_template_title',
-                'reporter_template.reporter_template_creator',
-                'reporter_template.reporter_template_created')
-            //->newest('reporter_template.reporter_template_created')
-    );
+$templates = \Modules\Reporter\Models\TemplateMapper::listResults(
+    \Modules\Reporter\Models\TemplateMapper::find('reporter_template.reporter_template_id',
+        'reporter_template.reporter_template_title',
+        'reporter_template.reporter_template_creator',
+        'reporter_template.reporter_template_created')
+//->newest('reporter_template.reporter_template_created')
+);
 
 $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
@@ -46,11 +43,13 @@ echo $this->getData('nav')->render(); ?>
             <td class="wf-100"><?= $this->l11n->lang['Reporter']['Name']; ?>
             <td><?= $this->l11n->lang['Reporter']['Creator']; ?>
             <td><?= $this->l11n->lang['Reporter']['Updated']; ?>
-                <tfoot>
-        <tr><td colspan="4"><?= $footerView->render(); ?>
-                <tbody>
-                <?php if(count($templates) == 0) : ?>
-                    <tr class="empty"><td colspan="4"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tfoot>
+        <tr>
+            <td colspan="4"><?= $footerView->render(); ?>
+        <tbody>
+        <?php if (count($templates) == 0) : ?>
+        <tr class="empty">
+            <td colspan="4"><?= $this->l11n->lang[0]['Empty']; ?>
                 <?php endif; ?>
                 <?php foreach ($templates as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>

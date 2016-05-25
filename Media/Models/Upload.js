@@ -95,6 +95,7 @@
                 return false;
             }
         });
+
         request.send();
     };
 }(window.jsOMS = window.jsOMS || {}));
