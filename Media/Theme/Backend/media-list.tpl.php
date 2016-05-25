@@ -17,9 +17,7 @@
  * @var \phpOMS\Views\View $this
  */
 
-$mediaMapper = new \Modules\Media\Models\MediaMapper($this->app->dbPool->get());
-$media      = $mediaMapper->getNewest(25);
-
+$media      = \Modules\Media\Models\MediaMapper::getNewest(25);
 $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(count($media) / 25);

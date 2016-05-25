@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-50">
     <header><h1><?= $this->l11n->lang['Media']['Upload']; ?></h1></header>
     <div class="inner">
-        <form method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/media/create'); ?>">
+        <form method="POST" id="media-uploader" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/media'); ?>">
             <table class="layout wf-100">
                 <tr><td><label for="iName"><?= $this->l11n->lang['Media']['Name']; ?></label>
                 <tr><td><input type="text" id="iName" name="name" placeholder="&#xf040;">

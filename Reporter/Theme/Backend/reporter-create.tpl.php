@@ -16,11 +16,8 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-$templateMapper = new \Modules\Reporter\Models\TemplateMapper($this->app->dbPool->get());
-$templateList   = $templateMapper
-    ->listResults(
-        $templateMapper
-            ->find('reporter_template.reporter_template_id',
+$templateList   = \Modules\Reporter\Models\TemplateMapper::listResults(
+    \Modules\Reporter\Models\TemplateMapper::find('reporter_template.reporter_template_id',
                 'reporter_template.reporter_template_title',
                 'reporter_template.reporter_template_creator',
                 'reporter_template.reporter_template_created')
