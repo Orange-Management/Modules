@@ -36,6 +36,8 @@ echo $this->getData('nav')->render();
         </table>
         <?php if(in_array($media->getExtension(), ['gif', 'bmp', 'jpg', 'jpeg', 'png'])) : ?>
             <img src="<?= $this->request->getUri()->getBase() . $media->getPath(); ?>">
+        <?php elseif($media->getExtension() === 'collection') : ?>
+            collection
         <?php else : ?>
             <pre>
             <?php
