@@ -59,6 +59,8 @@
         return this.files.length;
     };
 
+    // todo: maybe do file upload together with data upload in FormData.
+    // let the module forward the files to the media module?!
     jsOMS.Modules.Models.Media.Upload.prototype.upload = function (formId)
     {
         // TODO: validate file type + file size

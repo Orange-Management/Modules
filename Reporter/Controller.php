@@ -281,28 +281,28 @@ class Controller extends ModuleAbstract implements WebInterface
             case 'export':
                 switch ($request->getData('type')) {
                     case 'pdf':
-                        $response->setHeader('Content-Type', MimeType::M_PDF, true);
+                        $response->getHeader()->set('Content-Type', MimeType::M_PDF, true);
                         break;
                     case 'csv':
-                        $response->setHeader('Content-Type', MimeType::M_CONF, true);
+                        $response->getHeader()->set('Content-Type', MimeType::M_CONF, true);
                         break;
                     case 'xlsx':
-                        $response->setHeader('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
-                        $response->setHeader('Content-Type', MimeType::M_XLSX, true);
+                        $response->getHeader()->set('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
+                        $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
 
-                        $response->setHeader('Content-Type', MimeType::M_XLSX, true);
+                        $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
                         break;
                     case 'json':
-                        $response->setHeader('Content-Type', MimeType::M_JSON, true);
+                        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
                         break;
                     default:
                         // TODO handle bad request
                 }
 
                 if ($request->getData('download') !== null) {
-                    $response->setHeader('Content-Type', MimeType::M_BIN, true);
-                    $response->setHeader('Content-Transfer-Encoding', 'Binary', true);
-                    $response->setHeader('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
+                    $response->getHeader()->set('Content-Type', MimeType::M_BIN, true);
+                    $response->getHeader()->set('Content-Transfer-Encoding', 'Binary', true);
+                    $response->getHeader()->set('Content-disposition', 'attachment; filename="' . $request->getData('id') . '.' . $request->getData('type') . '"', true);
                 }
 
                 /** @var array $reportLanguage */
