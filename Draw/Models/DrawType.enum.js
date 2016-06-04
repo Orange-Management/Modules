@@ -7,7 +7,7 @@
  * @license    OMS License 1.0
  * @version    1.0.0 * @since      1.0.0
  */
-(function (jsOMS, undefined)
+(function (jsOMS)
 {
     jsOMS.Modules.Draw.DrawTypeEnum = Object.freeze({
         DRAW: 0,

@@ -1,4 +1,4 @@
-(function (jsOMS, undefined)
+(function (jsOMS)
 {
     jsOMS.Modules.Draw = function (app)
     {
@@ -55,7 +55,7 @@ jsOMS.ready(function ()
  * @license    OMS License 1.0
  * @version    1.0.0 * @since      1.0.0
  */
-(function (jsOMS, undefined)
+(function (jsOMS)
 {
     jsOMS.Modules.Draw.DrawTypeEnum = Object.freeze({
         DRAW: 0,
@@ -65,7 +65,7 @@ jsOMS.ready(function ()
     });
 }(window.jsOMS = window.jsOMS || {}));
 
-(function (jsOMS, undefined)
+(function (jsOMS)
 {
     jsOMS.Modules.Draw.Editor = function (editor)
     {

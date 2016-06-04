@@ -1,4 +1,4 @@
-(function (jsOMS, undefined)
+(function (jsOMS)
 {
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
 
@@ -17,7 +17,7 @@
 
             if (typeof forms[i].querySelector('input[type=file]') !== 'undefined') {
                 try {
-                    this.app.uiManager.getFormManager().get(forms[i].id).injectSubmit('media-upload', function (e, requestId, requestGroup)
+                    this.app.uiManager.getFormManager().get(forms[i].id).injectSubmit(function (e, requestId, requestGroup)
                     {
                         let fileFields = e.querySelectorAll('input[type=file]'),
                             uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager, self.app.logger);

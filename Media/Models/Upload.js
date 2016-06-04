@@ -1,4 +1,4 @@
-(function (jsOMS, undefined)
+(function (jsOMS)
 {
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Media');
 

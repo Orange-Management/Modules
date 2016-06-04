@@ -1,4 +1,4 @@
-(function (jsOMS, undefined) {
+(function (jsOMS) {
     jsOMS.Modules.Draw = function (app) {
         this.app = app;
         this.editors = [];
