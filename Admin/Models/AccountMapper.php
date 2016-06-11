@@ -16,6 +16,7 @@
 namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
 
 class AccountMapper extends DataMapperAbstract
 {
@@ -64,4 +65,21 @@ class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $createdAt = 'account_created_at';
+
+    /**
+     * Get object.
+     *
+     * @param mixed $primaryKey Key
+     * @param int   $relations  Load relations
+     * @param mixed $fill       Object to fill
+     *
+     * @return Account
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
+    {
+        return parent::get((int) $primaryKey, $relations, $fill);
+    }
 }

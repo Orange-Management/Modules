@@ -15,8 +15,10 @@
  */
 namespace Modules\Admin;
 
+use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\GroupMapper;
+use Modules\Admin\Models\Group;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -133,8 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
-        $accountMapper = new AccountMapper($this->app->dbPool->get());
-        $view->setData('list:elements', $accountMapper->getAll());
+        $view->setData('list:elements', AccountMapper::getAll());
         $view->setData('list:count', 1);
 
         return $view;
@@ -156,8 +157,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
-        $accountMapper = new AccountMapper($this->app->dbPool->get());
-        $view->addData('account', $accountMapper->get((int) $request->getData('id')));
+        $view->addData('account', AccountMapper::get((int) $request->getData('id')));
 
         return $view;
     }
@@ -197,8 +197,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
-        $groupMapper = new GroupMapper($this->app->dbPool->get());
-        $view->setData('list:elements', $groupMapper->getAll());
+        $view->setData('list:elements', GroupMapper::getAll());
 
         return $view;
     }
@@ -219,8 +218,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
-        $groupMapper = new GroupMapper($this->app->dbPool->get());
-        $view->addData('group', $groupMapper->get((int) $request->getData('id')));
+        $view->addData('group', GroupMapper::get((int) $request->getData('id')));
 
         return $view;
     }
@@ -280,11 +278,82 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    public function apiAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) 
+    public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        // todo: instead of returning dom, maybe only return data and let ui handle presentation?!!?!?!?!!
+        $response->set('settings', $this->app->appSettings->get($request->getData('id')));
+    }
 
-        $mapper = new AccountMapper($this->app->dbPool->get());
+    public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $this->app->appSettings->set([$request->getData('setting') => $request->getData('value')], true);
+    }
+
+    public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $response->set('group', GroupMapper::getByRequest($request));
+    }
+
+    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $group = new Group();
+        $group->setName($request->getData('name'));
+        $group->setDescription($request->getData('desc'));
+
+        GroupMapper::create($group);
+
+        $response->set('group', $group->__toString());
+    }
+
+    public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $status = GroupMapper::delete($request->getData('id'));
+
+        $response->set('group', $status);
+    }
+
+    public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $group = GroupMapper::get($request->getData('id'));
+        $group->setName($request->getData('name'));
+        $group->setDescription($request->getData('desc'));
+
+        $status = GroupMapper::update($group);
+
+        $response->set('group', ['status' => $status, 'group' => $group->__toString()]);
+    }
+
+    public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $response->set('account', AccountMapper::getByRequest($request));
+    }
+
+    public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $account = new Account();
+        $account->setName($request->getData('name'));
+        $account->setDescription($request->getData('desc'));
+
+        AccountMapper::create($account);
+
+        $response->set('account', $account->__toString());
+    }
+
+    public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $status = AccountMapper::delete($request->getData('id'));
+
+        $response->set('account', $status);
+    }
+
+    public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $account = AccountMapper::get($request->getData('id'));
+        $account->setName($request->getData('name'));
+        $account->setDescription($request->getData('desc'));
+
+        $status = AccountMapper::update($account);
+
+        $response->set('account', ['status' => $status, 'account' => $account->__toString()]);
     }
 
 }

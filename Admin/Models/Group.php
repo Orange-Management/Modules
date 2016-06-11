@@ -17,7 +17,21 @@ namespace Modules\Admin\Models;
 
 class Group extends \phpOMS\Account\Group
 {
+    /**
+     * Created at.
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
     protected $createdAt = null;
+
+    /**
+     * Created by.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected $createdBy = 0;
 
     public function getCreatedAt() : \DateTime
     {

@@ -16,6 +16,7 @@
 namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
 
 class GroupMapper extends DataMapperAbstract
 {
@@ -56,4 +57,21 @@ class GroupMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $createdAt = 'group_created';
+
+    /**
+     * Get object.
+     *
+     * @param mixed $primaryKey Key
+     * @param int   $relations  Load relations
+     * @param mixed $fill       Object to fill
+     *
+     * @return Group
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
+    {
+        return parent::get((int) $primaryKey, $relations, $fill);
+    }
 }
