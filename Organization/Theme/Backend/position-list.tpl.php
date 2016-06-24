@@ -24,6 +24,8 @@ $footerView->setPages(1 / 25);
 $footerView->setPage(1);
 $footerView->setResults(1);
 
+$listElements = $this->getData('list:elements') ?? [];
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
@@ -37,12 +39,15 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
         <tr><td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
-                <?php foreach ($this->getData('list:elements') as $key => $value) :
+                <?php $count = 0; foreach($listElements as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/business/unit/profile?id=' . $value->getId()); ?>
         <tr>
             <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
             <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
             <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
                 <?php endforeach; ?>
+                <?php if($count === 0) : ?>
+            <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+                <?php endif; ?>
     </table>
 </div>
