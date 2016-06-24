@@ -93,7 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $head = $response->getHead();
+        $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Editor/ModuleEditor.js');
     }
 
@@ -102,7 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -121,7 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
