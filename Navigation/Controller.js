@@ -46,6 +46,22 @@
 
         this.navigation[e.id] = new jsOMS.Modules.Navigation.Models.Navigation(this.rawNavData[e.id]);
 
+        // On load
+        let open = this.navigation[e.id].getOpen();
+
+        for (let key in open) {
+            if (open.hasOwnProperty(key)) {
+                document.getElementById(key).checked = open[key];
+            }
+        }
+
+        if (!this.navigation[e.id].isVisible()) {
+            e.nextElementSibling.checked = false;
+        }
+
+        e.scrollTop  = this.navigation[e.id].getScrollPosition().y;
+        e.scrollLeft = this.navigation[e.id].getScrollPosition().x;
+
         // Bind minimize/maximize
         jsOMS.addEventListenerToAll(extend, 'click', function ()
         {
@@ -60,15 +76,6 @@
             localStorage.setItem(jsOMS.Modules.Navigation.MODULE_NAME, JSON.stringify(self.navigation));
         });
 
-        // On load
-        let open = this.navigation[e.id].getOpen();
-
-        for (let key in open) {
-            if (open.hasOwnProperty(key)) {
-                document.getElementById(key).checked = open[key];
-            }
-        }
-
         // Bind show/hide
         e.nextElementSibling.addEventListener('change', function ()
         {
@@ -76,21 +83,12 @@
             localStorage.setItem(jsOMS.Modules.Navigation.MODULE_NAME, JSON.stringify(self.navigation));
         });
 
-        // On load
-        if (!this.navigation[e.id].isVisible()) {
-            e.nextElementSibling.checked = false;
-        }
-
         // Bind scroll
         e.addEventListener('scroll', function ()
         {
             self.navigation[e.id].setScrollPosition(this.scrollLeft, this.scrollTop);
             localStorage.setItem(jsOMS.Modules.Navigation.MODULE_NAME, JSON.stringify(self.navigation));
         });
-
-        // On load
-        e.scrollTop  = this.navigation[e.id].getScrollPosition().y;
-        e.scrollLeft = this.navigation[e.id].getScrollPosition().x;
     };
 }(window.jsOMS = window.jsOMS || {}));
 
