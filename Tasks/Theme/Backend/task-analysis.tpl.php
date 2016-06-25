@@ -24,7 +24,7 @@ echo $this->getData('nav')->render(); ?>
         <form>
             <table class="layout wf-100">
                 <tr><td><label for="iAccount"><?= $this->l11n->lang['Tasks']['Account']; ?></label>
-                <tr><td><input type="text" id="iAccount" name="account" placeholder="">
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iAccount" name="account" placeholder="&#xf007; Guest" required></span>
                 <tr><td><label for="iFrom"><?= $this->l11n->lang['Tasks']['From']; ?></label>
                 <tr><td><input type="datetime-local" id="iFrom" name="from" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
                 <tr><td><label for="iTo"><?= $this->l11n->lang['Tasks']['To']; ?></label>

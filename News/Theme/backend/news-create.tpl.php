@@ -96,8 +96,9 @@ echo $this->getData('nav')->render(); ?>
         <div class="inner">
             <form id="newsForm">
                 <table class="layout wf-100">
-                    <tr><td colspan="2"><label for="permission"><?= $this->l11n->lang['News']['Permissions'] ?></label>
-                    <tr><td><input type="text" id="permission"><input type="hidden" form="newsForm" name="permission"><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
+                    <tr><td><label for="permission"><?= $this->l11n->lang['News']['Permissions'] ?></label>
+                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="permission"><input type="hidden" form="newsForm" name="permission"></span>
+                    <tr><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
                 </table>
             </form>
         </div>
@@ -107,7 +108,8 @@ echo $this->getData('nav')->render(); ?>
             <form id="newsForm">
                 <table class="layout wf-100">
                     <tr><td colspan="2"><label for="groups"><?= $this->l11n->lang['News']['Groups'] ?></label>
-                    <tr><td><input type="text" id="groups"><input type="hidden" form="newsForm" name="groups"><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
+                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input  type="text" id="groups"><input type="hidden" form="newsForm" name="groups"></span>
+                    <tr><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
                 </table>
             </form>
         </div>

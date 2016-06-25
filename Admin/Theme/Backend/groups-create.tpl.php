@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iGParentName"><?= $this->l11n->lang['Admin']['Name'] ?></label>
-                <tr><td><input id="iGParentName" name="parentname" type="text" placeholder="&#xf0c0; Guest">
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGParentName" name="parentname" type="text" placeholder="&#xf0c0; Guest" required></span>
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
             </table>
         </form>
@@ -56,7 +56,7 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iPermissionName"><?= $this->l11n->lang['Admin']['Name'] ?></label>
-                <tr><td><input id="iPermissionName" name="permissionname" type="text" placeholder="&#xf084; Admin">
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPermissionName" name="permissionname" type="text" placeholder="&#xf084; Admin" required></span>
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
             </table>
         </form>

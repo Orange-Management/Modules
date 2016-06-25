@@ -15,7 +15,7 @@
  */
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-33 floatLeft">
+<section class="box w-66 floatLeft">
     <header><h1><?= $this->l11n->lang['Admin']['Account'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
@@ -51,28 +51,28 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </section>
 
-<section class="box w-66 floatLeft">
+<section class="box w-33 floatLeft">
     <header><h1><?= $this->l11n->lang['Admin']['Groups'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iGroup"><?= $this->l11n->lang['Admin']['Name'] ?></label>
-                <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest">
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest" required></span>
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
             </table>
         </form>
     </div>
 </section>
 
-<section class="box w-66 floatLeft">
+<section class="box w-33 floatLeft">
     <header><h1><?= $this->l11n->lang['Admin']['Permissions'] ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iGroup"><?= $this->l11n->lang['Admin']['Name'] ?></label>
-                <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf084; news_create">
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGroup" name="group" type="text" placeholder="&#xf084; news_create" required></span>
                 <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Add'] ?>">
             </table>
         </form>

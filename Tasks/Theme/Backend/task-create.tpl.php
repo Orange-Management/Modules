@@ -26,9 +26,9 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tbody>
                 <tr><td colspan="2"><label for="iReceiver"><?= $this->l11n->lang['Tasks']['To']; ?></label>
-                <tr><td><input type="text" id="iReceiver" name="forward" placeholder="&#xf007; Guest"><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="2"><label for="iObserver"><?= $this->l11n->lang['Tasks']['CC']; ?></label>
-                <tr><td><input type="text" id="iObserver" name="observer" placeholder="&#xf007; Guest"><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="2"><label for="iDue"><?= $this->l11n->lang['Tasks']['Due']; ?></label>
                 <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>"><td>
                 <tr><td colspan="2"><label for="iTitle"><?= $this->l11n->lang['Tasks']['Title']; ?></label>
