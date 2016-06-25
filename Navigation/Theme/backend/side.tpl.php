@@ -17,7 +17,7 @@
  * @var \Modules\Navigation\Views\NavigationView $this
  */
 if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
-    <ul id="nav-side" role="navigation">
+    <ul id="nav-side" class="nav" role="navigation">
         <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::CATEGORY] as $key => $parent) : ?>
         <li><input id="nav-<?= $parent['nav_name']; ?>" type="checkbox">
             <ul>
