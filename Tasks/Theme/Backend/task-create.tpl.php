@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tbody>
                 <tr><td colspan="2"><label for="iReceiver"><?= $this->l11n->lang['Tasks']['To']; ?></label>
-                <tr><td><span class="input"><button type="button" data-action='[{"type": "popup", "tpl": "acc-grp-selector-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 5000}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                <tr><td><span class="input"><button type="button" data-action='[{"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 5000}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="2"><label for="iObserver"><?= $this->l11n->lang['Tasks']['CC']; ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="2"><label for="iDue"><?= $this->l11n->lang['Tasks']['Due']; ?></label>
@@ -57,8 +57,8 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </section>
 
-<template id="acc-grp-selector-tpl">
-    <section id="acc-grp-selector" class="box w-50" style="z-index: 9; position: absolute; margin: 0 auto; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+<template id="acc-grp-tpl">
+    <section id="acc-grp" class="box w-50" style="z-index: 9; position: absolute; margin: 0 auto; left: 50%; top: 50%; transform: translate(-50%, -50%);">
         <header><h1><?= $this->l11n->lang['Tasks']['Media']; ?></h1></header>
 
         <div class="inner">
