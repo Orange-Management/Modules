@@ -14,6 +14,12 @@
     /** @namespace jsOMS.Modules.Navigation.Models */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Navigation');
 
+    /**
+     * Constructor
+     *
+     * @since 1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     jsOMS.Modules.Navigation = function ()
     {
         this.navigation = {};
@@ -21,8 +27,24 @@
         this.rawNavData = this.rawNavData !== null ? this.rawNavData : {};
     };
 
+    /**
+     * Module id
+     *
+     * @var {string}
+     * @since 1.0.0
+     */
     jsOMS.Modules.Navigation.MODULE_NAME = '1000500001';
 
+    /**
+     * Bind navigation
+     *
+     * @param {string} id Navigation to bind (optional)
+     *
+     * @return {void}
+     *
+     * @since 1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     jsOMS.Modules.Navigation.prototype.bind = function (id)
     {
         let e      = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
@@ -33,9 +55,19 @@
         }
     };
 
+    /**
+     * Bind navigation element
+     *
+     * @param {Element} e Element to bind
+     *
+     * @return {void}
+     *
+     * @since 1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     jsOMS.Modules.Navigation.prototype.bindElement = function (e)
     {
-        if (typeof e === 'undefined') {
+        if (typeof e === 'undefined' || !e) {
             // todo: do logging here
 
             return;
