@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tbody>
                 <tr><td colspan="2"><label for="iReceiver"><?= $this->l11n->lang['Tasks']['To']; ?></label>
-                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
+                <tr><td><span class="input"><button type="button" data-action='[{"type": "popup", "tpl": "acc-grp-selector-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 5000}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="2"><label for="iObserver"><?= $this->l11n->lang['Tasks']['CC']; ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest" required></span><td><button><?= $this->l11n->lang[0]['Add']; ?></button>
                 <tr><td colspan="2"><label for="iDue"><?= $this->l11n->lang['Tasks']['Due']; ?></label>
@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->l11n->lang['Tasks']['Title']; ?>"><td>
                 <tr><td colspan="2"><label for="iMessage"><?= $this->l11n->lang['Tasks']['Message']; ?></label>
                 <tr><td><textarea id="iMessage" name="description" placeholder="&#xf040;"></textarea><td>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->l11n->lang[0]['Create']; ?>"><input type="hidden" name="type" value="<?= \Modules\Tasks\Models\TaskType::TASK ?>">
+                <tr><td colspan="2"><input type="submit" value="<?= $this->l11n->lang[0]['Create']; ?>"><input type="hidden" name="type" value="<?= \Modules\Tasks\Models\TaskType::SINGLE; ?>">
             </table>
         </form>
     </div>
@@ -56,3 +56,13 @@ echo $this->getData('nav')->render(); ?>
         </form>
     </div>
 </section>
+
+<template id="acc-grp-selector-tpl">
+    <section id="acc-grp-selector" class="box w-50" style="z-index: 9; position: absolute; margin: 0 auto; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        <header><h1><?= $this->l11n->lang['Tasks']['Media']; ?></h1></header>
+
+        <div class="inner">
+            This is some content
+        </div>
+    </section>
+</template>
