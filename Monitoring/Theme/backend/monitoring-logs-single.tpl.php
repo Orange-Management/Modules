@@ -33,59 +33,59 @@ $details = '* Uri: `' . trim($log['path']) . "`\n"
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
-    <header><h1><?= $this->l11n->lang['Monitoring']['Logs']; ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Monitoring', 'Logs'); ?></h1></header>
 
     <div class="inner">
         <table class="list w-100">
             <tr>
-                <td><?= $this->l11n->lang[0]['ID']; ?>
+                <td><?= $this->l11n->getText(0, 'ID'); ?>
                 <td><i class="fa fa-anchor"></i>
                 <td class="wf-100"><?= (int) $this->request->getData('id') ?? 0; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Time']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Time'); ?>
                 <td><i class="fa fa-clock-o"></i>
                 <td><?= $log['datetime']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Uri']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Uri'); ?>
                 <td><i class="fa fa-globe"></i>
                 <td><?= $log['path']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Source']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Source'); ?>
                 <td><i class="fa fa-wifi"></i>
                 <td><?= $log['ip']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Level']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Level'); ?>
                 <td>
                     <i class="fa fa-<?= in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i>
                 <td><?= $log['level']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Message']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Message'); ?>
                 <td><i class="fa fa-commenting"></i>
                 <td><?= $log['message']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['File']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'File'); ?>
                 <td><i class="fa fa-file"></i>
                 <td><?= $log['file']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Line']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Line'); ?>
                 <td><i class="fa fa-commenting"></i>
                 <td><?= $log['line']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['Version']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'Version'); ?>
                 <td><i class="fa fa-pencil"></i>
                 <td><?= $log['version']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Monitoring']['OS']; ?>
+                <td><?= $this->l11n->getText('Monitoring', 'OS'); ?>
                 <td><i class="fa fa-laptop"></i>
                 <td><?= $log['os']; ?>
             <tr>
-                <td colspan="3"><?= $this->l11n->lang['Monitoring']['Backtrace']; ?>
+                <td colspan="3"><?= $this->l11n->getText('Monitoring', 'Backtrace'); ?>
             <tr>
                 <td colspan="3">
                     <pre><?= json_encode($log['backtrace'], JSON_PRETTY_PRINT); ?></pre>
             <tr>
                 <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
-                       href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= urlencode($log['message']); ?>&details=<?= urlencode($details); ?>"><?= $this->l11n->lang['Monitoring']['Report']; ?></a>
+                       href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= urlencode($log['message']); ?>&details=<?= urlencode($details); ?>"><?= $this->l11n->getText('Monitoring', 'Report'); ?></a>
         </table>
     </div>
 </section>

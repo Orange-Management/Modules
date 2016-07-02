@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
             <ul class="l-1">
                 <li>
                     <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/single?id=' . $this->getData('name')); ?>"
-                       class="button"><?= $this->l11n->lang['Reporter']['Report']; ?></a>
+                       class="button"><?= $this->l11n->getText('Reporter', 'Report'); ?></a>
             </ul>
         </div>
     </div>
@@ -41,8 +41,8 @@ echo $this->getData('nav')->render(); ?>
     $overviwPanel    = new \Web\Views\Panel\PanelView($this->app, $this->request, $this->response);
     $permissionPanel = clone $overviwPanel;
 
-    $overviwPanel->setTitle($this->l11n->lang[0]['Create']);
-    $permissionPanel->setTitle($this->l11n->lang['Reporter']['Permission']);
+    $overviwPanel->setTitle($this->l11n->getText(0, 'Create'));
+    $permissionPanel->setTitle($this->l11n->getText('Reporter', 'Permission'));
 
     $this->addView('createFormPanel', $overviwPanel);
     $this->getView('createFormPanel')->setTemplate('/Web/Templates/Panel/BoxHalf');
@@ -56,8 +56,8 @@ echo $this->getData('nav')->render(); ?>
 
     $formOverview = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
     $formOverview->setTemplate('/Web/Templates/Forms/FormFull');
-    $formOverview->setSubmit('submit1', $this->l11n->lang['Reporter']['Edit']);
-    $formOverview->setSubmit('submit2', $this->l11n->lang[0]['Delete']);
+    $formOverview->setSubmit('submit1', $this->l11n->getText('Reporter', 'Edit'));
+    $formOverview->setSubmit('submit2', $this->l11n->getText(0, 'Delete'));
     $formOverview->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
     $formOverview->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
@@ -65,33 +65,33 @@ echo $this->getData('nav')->render(); ?>
         'type'    => \phpOMS\Html\TagType::INPUT,
         'subtype' => 'text',
         'name'    => 'rname',
-        'label'   => $this->l11n->lang['Reporter']['Name'],
+        'label'   => $this->l11n->getText('Reporter', 'Name'),
     ]);
 
     $formOverview->setElement(1, 0, [
         'type'    => \phpOMS\Html\TagType::INPUT,
         'subtype' => 'text',
         'name'    => 'mdirectory',
-        'label'   => $this->l11n->lang['Reporter']['MediaDirectory'],
+        'label'   => $this->l11n->getText('Reporter', 'MediaDirectory'),
         'active'  => false,
     ]);
 
     $formOverview->setElement(1, 1, [
         'type'    => \phpOMS\Html\TagType::BUTTON,
-        'content' => $this->l11n->lang['Reporter']['Select'],
+        'content' => $this->l11n->getText('Reporter', 'Select'),
     ]);
 
     $formOverview->setElement(2, 0, [
         'type'    => \phpOMS\Html\TagType::INPUT,
         'subtype' => 'text',
         'name'    => 'template',
-        'label'   => $this->l11n->lang['Reporter']['Template'],
+        'label'   => $this->l11n->getText('Reporter', 'Template'),
         'active'  => false,
     ]);
 
     $formOverview->setElement(2, 1, [
         'type'    => \phpOMS\Html\TagType::BUTTON,
-        'content' => $this->l11n->lang['Reporter']['Select'],
+        'content' => $this->l11n->getText('Reporter', 'Select'),
     ]);
 
     $this->getView('createFormPanel')->addView('form', $formOverview);
@@ -102,7 +102,7 @@ echo $this->getData('nav')->render(); ?>
 
     $formPermissionAdd = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
     $formPermissionAdd->setTemplate('/Web/Templates/Forms/FormFull');
-    $formPermissionAdd->setSubmit('submit1', $this->l11n->lang[0]['Add']);
+    $formPermissionAdd->setSubmit('submit1', $this->l11n->getText(0, 'Add'));
     $formPermissionAdd->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
     $formPermissionAdd->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
@@ -119,7 +119,7 @@ echo $this->getData('nav')->render(); ?>
             ],
         ],
         'selected' => '',
-        'label'    => $this->l11n->lang['Reporter']['Type'],
+        'label'    => $this->l11n->getText('Reporter', 'Type'),
         'name'     => 'type',
     ]);
 
@@ -127,14 +127,14 @@ echo $this->getData('nav')->render(); ?>
         'type'    => \phpOMS\Html\TagType::INPUT,
         'subtype' => 'text',
         'name'    => 'id',
-        'label'   => $this->l11n->lang[0]['ID'],
+        'label'   => $this->l11n->getText(0, 'ID'),
     ]);
 
     $formPermissionAdd->setElement(2, 0, [
         'type'    => \phpOMS\Html\TagType::INPUT,
         'subtype' => 'text',
         'name'    => 'perm',
-        'label'   => $this->l11n->lang['Reporter']['Permission'],
+        'label'   => $this->l11n->getText('Reporter', 'Permission'),
     ]);
 
     $this->getView('permissionFormPanel')->addView('form', $formPermissionAdd);
@@ -151,17 +151,17 @@ echo $this->getData('nav')->render(); ?>
     /*
      * Header
      */
-    $headerView->setTitle($this->l11n->lang['Reporter']['Permission']);
+    $headerView->setTitle($this->l11n->getText('Reporter', 'Permission'));
     $headerView->setHeader([
-        ['title' => $this->l11n->lang['Reporter']['Type'], 'sortable' => true],
-        ['title' => $this->l11n->lang['Reporter']['Name'], 'sortable' => true, 'full' => true],
-        ['title' => $this->l11n->lang['Reporter']['Permission'], 'sortable' => true],
+        ['title' => $this->l11n->getText('Reporter', 'Type'], 'sortable' => true),
+        ['title' => $this->l11n->getText('Reporter', 'Name'], 'sortable' => true, 'full' => true),
+        ['title' => $this->l11n->getText('Reporter', 'Permission'], 'sortable' => true),
     ]);
 
     $permissionListView->addView('header', $headerView);
     $this->addView('permissionList', $permissionListView);
 
-    $tabView->addTab($this->l11n->lang['Reporter']['Overview'], $overviwPanel->render() . $permissionPanel->render() . $permissionListView->render(), 'overview');
+    $tabView->addTab($this->l11n->getText('Reporter', 'Overview'), $overviwPanel->render() . $permissionPanel->render() . $permissionListView->render(), 'overview');
 
     /*
  * UI Logic
@@ -175,18 +175,18 @@ echo $this->getData('nav')->render(); ?>
     /*
      * Header
      */
-    $sourceListHeaderView->setTitle($this->l11n->lang['Reporter']['Sources']);
+    $sourceListHeaderView->setTitle($this->l11n->getText('Reporter', 'Sources'));
     $sourceListHeaderView->setHeader([
-        ['title' => $this->l11n->lang[0]['ID'], 'sortable' => true],
-        ['title' => $this->l11n->lang['Reporter']['Name'], 'sortable' => true, 'full' => true],
-        ['title' => $this->l11n->lang['Reporter']['Created'], 'sortable' => true],
-        ['title' => $this->l11n->lang['Reporter']['CreatedBy'], 'sortable' => true],
+        ['title' => $this->l11n->getText(0, 'ID'], 'sortable' => true),
+        ['title' => $this->l11n->getText('Reporter', 'Name'], 'sortable' => true, 'full' => true),
+        ['title' => $this->l11n->getText('Reporter', 'Created'], 'sortable' => true),
+        ['title' => $this->l11n->getText('Reporter', 'CreatedBy'], 'sortable' => true),
     ]);
 
     $sourceList->setFreeze(3, 2);
     $sourceList->addView('header', $sourceListHeaderView);
 
-    $tabView->addTab($this->l11n->lang['Reporter']['Sources'], $sourceList->render(), 'sources');
+    $tabView->addTab($this->l11n->getText('Reporter', 'Sources'), $sourceList->render(), 'sources');
 
     /*
      * Create
@@ -194,8 +194,8 @@ echo $this->getData('nav')->render(); ?>
     $createPanel = new \Web\Views\Panel\PanelView($this->app, $this->request, $this->response);
     $mediaPanel  = clone $createPanel;
 
-    $createPanel->setTitle($this->l11n->lang[0]['Create']);
-    $mediaPanel->setTitle($this->l11n->lang['Reporter']['Media']);
+    $createPanel->setTitle($this->l11n->getText(0, 'Create'));
+    $mediaPanel->setTitle($this->l11n->getText('Reporter', 'Media'));
 
     $this->addView('createFormPanel', $createPanel);
     $this->getView('createFormPanel')->setTemplate('/Web/Templates/Panel/BoxHalf');
@@ -205,7 +205,7 @@ echo $this->getData('nav')->render(); ?>
 
     $formCreateForm = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
     $formCreateForm->setTemplate('/Web/Templates/Forms/FormFull');
-    $formCreateForm->setSubmit('submit1', $this->l11n->lang[0]['Submit']);
+    $formCreateForm->setSubmit('submit1', $this->l11n->getText(0, 'Submit'));
     $formCreateForm->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
     $formCreateForm->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 
@@ -213,7 +213,7 @@ echo $this->getData('nav')->render(); ?>
         'type'    => \phpOMS\Html\TagType::INPUT,
         'subtype' => 'text',
         'name'    => 'rname',
-        'label'   => $this->l11n->lang['Reporter']['Name'],
+        'label'   => $this->l11n->getText('Reporter', 'Name'),
     ]);
 
     $createPanel->addView('createform', $formCreateForm);
@@ -224,7 +224,7 @@ echo $this->getData('nav')->render(); ?>
 
     // TODO: add media upload drop panel
 
-    $tabView->addTab($this->l11n->lang['Reporter']['New'], $createPanel->render() . $mediaPanel->render(), 'new');
+    $tabView->addTab($this->l11n->getText('Reporter', 'New'), $createPanel->render() . $mediaPanel->render(), 'new');
     ?>
     <?= $tabView->render(); ?>
 </div>

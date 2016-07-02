@@ -19,22 +19,22 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->lang['Support']['Ticket'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Support', 'Ticket') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iTitle"><?= $this->l11n->lang['Support']['Department'] ?></label>
+                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Department') ?></label>
                 <tr><td><select></select>
-                <tr><td><label for="iTitle"><?= $this->l11n->lang['Support']['Topic'] ?></label>
+                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Topic') ?></label>
                 <tr><td><select></select>
-                <tr><td><label for="iTitle"><?= $this->l11n->lang['Support']['Title'] ?></label>
+                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Title') ?></label>
                 <tr><td><input id="iTitle" name="name" type="text" required>
-                <tr><td><label for="iTitle"><?= $this->l11n->lang['Support']['Description'] ?></label>
+                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Description') ?></label>
                 <tr><td><textarea required></textarea>
-                <tr><td><label for="iFile"><?= $this->l11n->lang['Support']['Files'] ?></label>
+                <tr><td><label for="iFile"><?= $this->l11n->getText('Support', 'Files') ?></label>
                 <tr><td><input id="iFile" name="fileVisual" type="file" multiple><input id="iFileHidden" name="files" type="hidden">
-                <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Create'] ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Create') ?>">
             </table>
         </form>
     </div>

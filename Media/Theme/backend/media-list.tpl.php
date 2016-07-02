@@ -26,14 +26,14 @@ $footerView->setPage(1);
 echo $this->getData('nav')->render(); ?>
 <div class="box">
     <table class="table">
-        <caption><?= $this->l11n->lang['Media']['Media']; ?></caption>
+        <caption><?= $this->l11n->getText('Media', 'Media'); ?></caption>
         <thead>
         <tr>
-            <td class="wf-100"><?= $this->l11n->lang['Media']['Name']; ?>
-            <td><?= $this->l11n->lang['Media']['Type']; ?>
-            <td><?= $this->l11n->lang['Media']['Size']; ?>
-            <td><?= $this->l11n->lang['Media']['Creator']; ?>
-            <td><?= $this->l11n->lang['Media']['Created']; ?>
+            <td class="wf-100"><?= $this->l11n->getText('Media', 'Name'); ?>
+            <td><?= $this->l11n->getText('Media', 'Type'); ?>
+            <td><?= $this->l11n->getText('Media', 'Size'); ?>
+            <td><?= $this->l11n->getText('Media', 'Creator'); ?>
+            <td><?= $this->l11n->getText('Media', 'Created'); ?>
                 <tfoot>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

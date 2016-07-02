@@ -23,16 +23,16 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Marketing']['Events'] ?></caption>
+        <caption><?= $this->l11n->getText('Marketing', 'Events') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang['Marketing']['Status']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Marketing']['Title']; ?>
-            <td><?= $this->l11n->lang['Marketing']['Start']; ?>
-            <td><?= $this->l11n->lang['Marketing']['End']; ?>
-            <td><?= $this->l11n->lang['Marketing']['Expenses']; ?>
-            <td><?= $this->l11n->lang['Marketing']['Sales']; ?>
-            <td><?= $this->l11n->lang['Marketing']['Budget']; ?>
+            <td><?= $this->l11n->getText('Marketing', 'Status'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Marketing', 'Title'); ?>
+            <td><?= $this->l11n->getText('Marketing', 'Start'); ?>
+            <td><?= $this->l11n->getText('Marketing', 'End'); ?>
+            <td><?= $this->l11n->getText('Marketing', 'Expenses'); ?>
+            <td><?= $this->l11n->getText('Marketing', 'Sales'); ?>
+            <td><?= $this->l11n->getText('Marketing', 'Budget'); ?>
         <tfoot>
         <tr>
             <td colspan="7"><?= $footerView->render(); ?>
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="7" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="7" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

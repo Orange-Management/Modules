@@ -24,17 +24,17 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['SupplierManagement']['Suppliers'] ?></caption>
+        <caption><?= $this->l11n->getText('SupplierManagement', 'Suppliers') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Name1']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Name2']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['SupplierManagement']['Name3']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['City']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Zip']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Address']; ?>
-            <td><?= $this->l11n->lang['SupplierManagement']['Country']; ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td><?= $this->l11n->getText('SupplierManagement', 'Name1'); ?>
+            <td><?= $this->l11n->getText('SupplierManagement', 'Name2'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('SupplierManagement', 'Name3'); ?>
+            <td><?= $this->l11n->getText('SupplierManagement', 'City'); ?>
+            <td><?= $this->l11n->getText('SupplierManagement', 'Zip'); ?>
+            <td><?= $this->l11n->getText('SupplierManagement', 'Address'); ?>
+            <td><?= $this->l11n->getText('SupplierManagement', 'Country'); ?>
         <tfoot>
         <tr>
             <td colspan="8"><?= $footerView->render(); ?>
@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="8" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="8" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

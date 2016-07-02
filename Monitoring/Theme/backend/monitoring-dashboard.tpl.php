@@ -19,42 +19,42 @@ $penetrators = $this->app->logger->getHighestPerpetrator();
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->lang['Monitoring']['System'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Monitoring', 'System') ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tbody>
-                <tr><td><?= $this->l11n->lang['Monitoring']['OS'] ?><td><?= php_uname('s'); ?>
-                <tr><td><?= $this->l11n->lang['Monitoring']['Version'] ?><td><?= php_uname('v'); ?>
-                <tr><td><?= $this->l11n->lang['Monitoring']['Release'] ?><td><?= php_uname('r'); ?>
-                <tr><td><?= $this->l11n->lang['Monitoring']['RAMUsage'] ?><td><?= memory_get_usage(true)/(1024*1024); ?> MB
-                <tr><td><?= $this->l11n->lang['Monitoring']['MemoryLimit'] ?><td><?= ini_get('memory_limit'); ?>
-                <tr><td><?= $this->l11n->lang['Monitoring']['SystemRAM'] ?><td><?= \phpOMS\System\SystemUtils::getRAM()/(1024); ?> MB
-                <tr><td><?= $this->l11n->lang['Monitoring']['CPUUsage'] ?><td><?= \phpOMS\System\SystemUtils::getCpuUsage(); ?>%
-                <tr><td><?= $this->l11n->lang['Monitoring']['DiskUsage'] ?><td><?= round(\phpOMS\System\File\Directory::getFolderSize(ROOT_PATH)/1000000, true); ?> MB
+                <tr><td><?= $this->l11n->getText('Monitoring', 'OS') ?><td><?= php_uname('s'); ?>
+                <tr><td><?= $this->l11n->getText('Monitoring', 'Version') ?><td><?= php_uname('v'); ?>
+                <tr><td><?= $this->l11n->getText('Monitoring', 'Release') ?><td><?= php_uname('r'); ?>
+                <tr><td><?= $this->l11n->getText('Monitoring', 'RAMUsage') ?><td><?= memory_get_usage(true)/(1024*1024); ?> MB
+                <tr><td><?= $this->l11n->getText('Monitoring', 'MemoryLimit') ?><td><?= ini_get('memory_limit'); ?>
+                <tr><td><?= $this->l11n->getText('Monitoring', 'SystemRAM') ?><td><?= \phpOMS\System\SystemUtils::getRAM()/(1024); ?> MB
+                <tr><td><?= $this->l11n->getText('Monitoring', 'CPUUsage') ?><td><?= \phpOMS\System\SystemUtils::getCpuUsage(); ?>%
+                <tr><td><?= $this->l11n->getText('Monitoring', 'DiskUsage') ?><td><?= round(\phpOMS\System\File\Directory::getFolderSize(ROOT_PATH)/1000000, true); ?> MB
         </table>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->lang['Monitoring']['Logs'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Monitoring', 'Logs') ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tbody>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Emergencies'] ?><td><?= $logs['emergency'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Criticals'] ?><td><?= $logs['critical'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Errors'] ?><td><?= $logs['error'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Warnings'] ?><td><?= $logs['warning'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Alerts'] ?><td><?= $logs['alert'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Notices'] ?><td><?= $logs['notice'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Info'] ?><td><?= $logs['info'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Debug'] ?><td><?= $logs['debug'] ?? 0; ?>
-            <tr><td><?= $this->l11n->lang['Monitoring']['Total'] ?><td><?= array_sum($logs); ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Emergencies'] ?><td><?= $logs['emergency') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Criticals'] ?><td><?= $logs['critical') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Errors'] ?><td><?= $logs['error') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Warnings'] ?><td><?= $logs['warning') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Alerts'] ?><td><?= $logs['alert') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Notices'] ?><td><?= $logs['notice') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Info'] ?><td><?= $logs['info') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Debug'] ?><td><?= $logs['debug') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Total') ?><td><?= array_sum($logs); ?>
         </table>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->lang['Monitoring']['Penetrators'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Monitoring', 'Penetrators') ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
             <tbody>

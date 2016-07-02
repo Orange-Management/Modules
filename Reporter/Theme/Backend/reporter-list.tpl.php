@@ -36,20 +36,20 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Reporter']['Reports']; ?></caption>
+        <caption><?= $this->l11n->getText('Reporter', 'Reports'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Reporter']['Name']; ?>
-            <td><?= $this->l11n->lang['Reporter']['Creator']; ?>
-            <td><?= $this->l11n->lang['Reporter']['Updated']; ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Reporter', 'Name'); ?>
+            <td><?= $this->l11n->getText('Reporter', 'Creator'); ?>
+            <td><?= $this->l11n->getText('Reporter', 'Updated'); ?>
         <tfoot>
         <tr>
             <td colspan="4"><?= $footerView->render(); ?>
         <tbody>
         <?php if (count($templates) == 0) : ?>
         <tr class="empty">
-            <td colspan="4"><?= $this->l11n->lang[0]['Empty']; ?>
+            <td colspan="4"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
                 <?php foreach ($templates as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>
