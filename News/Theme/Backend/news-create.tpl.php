@@ -75,7 +75,7 @@ echo $this->getData('nav')->render(); ?>
                                 <option><?= $this->l11n->getText('News', 'Visible') ?>
                     <tr><td colspan="2"><label for="publish"><?= $this->l11n->getText('News', 'Publish') ?></label>
                     <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
-                    <tr><td><input type="submit" value="<?= $this->l11n->getText(0]['Delete'] ?>"><td class="rightText"><input type="submit" value="<?= $this->l11n->lang[0]['Save'] ?>"> <input type="submit" value="<?= $this->l11n->lang['News', 'Publish') ?>">
+                    <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Delete') ?>"><td class="rightText"><input type="submit" value="<?= $this->l11n->lang[0]['Save'] ?>"> <input type="submit" value="<?= $this->l11n->getText('News', 'Publish') ?>">
                 </table>
             </form>
         </div>

@@ -41,13 +41,13 @@ echo $this->getData('nav')->render(); ?>
                 ?>
                     <tr>
                         <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
-                        <td data-label="<?= $this->l11n->getText('News']['Type']; ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->lang['News', 'TYPE' . $news->getType()); ?></span></a>
+                        <td data-label="<?= $this->l11n->getText('News', 'Type'); ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->getText('News', 'TYPE' . $news->getType()); ?></span></a>
                         <td data-label="<?= $this->l11n->getText('News', 'Title'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
                         <td data-label="<?= $this->l11n->getText('News', 'Author'); ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
                         <td data-label="<?= $this->l11n->getText('News', 'Date'); ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-        <tr><td colspan="3" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
+        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

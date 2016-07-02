@@ -15,7 +15,11 @@
  */
 namespace Modules\Organization;
 
+use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
+use Modules\Organization\Models\Position;
+use Modules\Organization\Models\PositionMapper;
+use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -257,4 +261,36 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $unit = new Unit();
+        $unit->setName($request->getData('name'));
+        $unit->setDescription($request->getData('desc'));
+
+        UnitMapper::create($unit);
+
+        $response->set('unit', $unit->jsonSerialize());
+    }
+
+    public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $position = new Position();
+        $position->setName($request->getData('name'));
+        $position->setDescription($request->getData('desc'));
+
+        PositionMapper::create($position);
+
+        $response->set('unit', $position->jsonSerialize());
+    }
+
+    public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $department = new Department();
+        $department->setName($request->getData('name'));
+        $department->setDescription($request->getData('desc'));
+
+        DepartmentMapper::create($department);
+
+        $response->set('unit', $department->jsonSerialize());
+    }
 }

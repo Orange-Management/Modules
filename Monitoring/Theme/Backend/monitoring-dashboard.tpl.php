@@ -40,14 +40,14 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <table class="list wf-100">
             <tbody>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Emergencies'] ?><td><?= $logs['emergency') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Criticals'] ?><td><?= $logs['critical') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Errors'] ?><td><?= $logs['error') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Warnings'] ?><td><?= $logs['warning') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Alerts'] ?><td><?= $logs['alert') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Notices'] ?><td><?= $logs['notice') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Info'] ?><td><?= $logs['info') ?? 0; ?>
-            <tr><td><?= $this->l11n->getText('Monitoring', 'Debug'] ?><td><?= $logs['debug') ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Emergencies') ?><td><?= $logs['emergency'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Criticals') ?><td><?= $logs['critical'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Errors') ?><td><?= $logs['error'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Warnings') ?><td><?= $logs['warning'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Alerts') ?><td><?= $logs['alert'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Notices') ?><td><?= $logs['notice'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Info') ?><td><?= $logs['info'] ?? 0; ?>
+            <tr><td><?= $this->l11n->getText('Monitoring', 'Debug') ?><td><?= $logs['debug'] ?? 0; ?>
             <tr><td><?= $this->l11n->getText('Monitoring', 'Total') ?><td><?= array_sum($logs); ?>
         </table>
     </div>

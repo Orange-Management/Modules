@@ -15,7 +15,9 @@
  */
 namespace Modules\Organization\Models;
 
-class Unit
+use phpOMS\Contract\ArrayableInterface;
+
+class Unit implements ArrayableInterface, \JsonSerializable
 {
     private $id = 0;
 
@@ -45,7 +47,8 @@ class Unit
         return $this->parent;
     }
 
-    public function setParent(int $parent) {
+    public function setParent(int $parent)
+    {
         $this->parent = $parent;
     }
 
@@ -57,5 +60,40 @@ class Unit
     public function setDescription(string $desc)
     {
         $this->description = $desc;
+    }
+
+    public function toArray() : array
+    {
+        return [
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'description' => $this->description,
+        ];
+    }
+
+    /**
+     * Get string representation.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function __toString()
+    {
+        return $this->jsonSerialize();
+    }
+
+    /**
+     * Json serialize.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function jsonSerialize()
+    {
+        return json_encode($this->toArray());
     }
 }

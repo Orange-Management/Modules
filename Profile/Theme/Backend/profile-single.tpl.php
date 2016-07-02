@@ -18,6 +18,14 @@
  * @var \Modules\Tasks\Models\Task[] $tasks
  */
 $account = $this->getData('account');
+
+$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
+$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
+
+$footerView->setPages(1 / 25);
+$footerView->setPage(1);
+$footerView->setResults(1);
+
 echo $this->getData('nav')->render();
 ?>
 <section itemscope itemtype="http://schema.org/Person" class="box w-33">
@@ -87,7 +95,7 @@ echo $this->getData('nav')->render();
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
-        <?php $c = 0; foreach ($employees as $key => $value) : $c++;
+        <?php $c = 0; foreach ([] as $key => $value) : $c++;
             $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
             <tr>
                 <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>

@@ -15,7 +15,6 @@
  */
 namespace Modules\Admin;
 
-use Model\Message\Notify;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\GroupMapper;
@@ -336,7 +335,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         AccountMapper::create($account);
 
-        $response->set('account', $account->__toString());
+        $response->set('account', $account->jsonSerialize());
     }
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -354,7 +353,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $status = AccountMapper::update($account);
 
-        $response->set('account', ['status' => $status, 'account' => $account->__toString()]);
+        $response->set('account', ['status' => $status, 'account' => $account->jsonSerialize()]);
     }
 
     public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)

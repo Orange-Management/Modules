@@ -71,4 +71,40 @@ class Department
     {
         $this->description = $desc;
     }
+
+    public function toArray() : array
+    {
+        return [
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'description' => $this->description,
+            'unit'        => $this->unit,
+        ];
+    }
+
+    /**
+     * Get string representation.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function __toString()
+    {
+        return $this->jsonSerialize();
+    }
+
+    /**
+     * Json serialize.
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function jsonSerialize()
+    {
+        return json_encode($this->toArray());
+    }
 }

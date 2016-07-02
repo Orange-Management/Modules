@@ -67,7 +67,7 @@ $calendar = $this->getData('calendar');
                 <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
             </ul>
             <div class="spacer"></div>
-            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->l11n->getText(0]['Add'] ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->l11n->lang[0, 'Create') ?></button>
+            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->l11n->getText(0, 'Add'); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->l11n->getText(0, 'Create') ?></button>
         </div>
     </section>
 </section>

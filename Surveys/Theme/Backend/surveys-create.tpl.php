@@ -22,12 +22,12 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tr><td colspan="3"><label for="iName"><?= $this->l11n->getText('Surveys', 'Name') ?><label>
                 <tr><td colspan="2"><input type="text" id="iName" name="name" required><td>
-                <tr><td><label for="iStart"><?= $this->l11n->getText('Surveys']['Start'] ?><label><td><label for="iEnd"><?= $this->l11n->lang['Surveys', 'End') ?><label><td>
+                <tr><td><label for="iStart"><?= $this->l11n->getText('Surveys', 'Start') ?><label><td><label for="iEnd"><?= $this->l11n->getText('Surveys', 'End') ?><label><td>
                 <tr><td><input type="datetime-local" id="iStart" name="start" required><td><input type="datetime-local" id="iEnd" name="end" required><td>
                 <tr><td colspan="3"><label for="iDesc"><?= $this->l11n->getText('Surveys', 'Description') ?><label>
                 <tr><td colspan="2"><textarea id="iDesc" name="desc"></textarea><td>
                 <tr><td colspan="3"><span class="check"><input type="checkbox" id="iResult" name="result"><label for="iResult"><?= $this->l11n->getText('Surveys', 'ResultPublic') ?><label></span>
-                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('Surveys']['Responsibility'] ?><label><td colspan="2"><label for="iPerm"><?= $this->l11n->lang['Surveys', 'UserGroup') ?><label>
+                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('Surveys', 'Responsibility') ?><label><td colspan="2"><label for="iPerm"><?= $this->l11n->getText('Surveys', 'UserGroup') ?><label>
                 <tr><td><select id="iResponsibility" name="responsibility">
                         <option value=""><?= $this->l11n->getText('Surveys', 'Questionee') ?>
                         <option value=""><?= $this->l11n->getText('Surveys', 'Manager') ?>
