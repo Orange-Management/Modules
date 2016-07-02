@@ -55,31 +55,12 @@ class Controller extends ModuleAbstract implements WebInterface
     const MODULE_VERSION = '1.0.0';
 
     /**
-     * JavaScript files.
-     *
-     * @var string[]
-     * @since 1.0.0
-     */
-    public static $js = [
-        'backend',
-    ];
-
-    /**
      * Module name.
      *
      * @var string
      * @since 1.0.0
      */
     const MODULE_NAME = 'Navigation';
-
-    /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-    ];
 
     /**
      * Providing.

@@ -57,12 +57,4 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </section>
 
-<template id="acc-grp-tpl">
-    <section id="acc-grp" class="box w-50" style="z-index: 9; position: absolute; margin: 0 auto; left: 50%; top: 50%; transform: translate(-50%, -50%);">
-        <header><h1><?= $this->l11n->lang['Tasks']['Media']; ?></h1></header>
-
-        <div class="inner">
-            This is some content
-        </div>
-    </section>
-</template>
+<?php include ROOT_PATH . '/Modules/Profile/Theme/Backend/acc-grp-popup.tpl.php'; ?>

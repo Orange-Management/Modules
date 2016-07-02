@@ -15,6 +15,7 @@
  */
 namespace Modules\Admin;
 
+use Model\Message\Notify;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\GroupMapper;
@@ -356,4 +357,33 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('account', ['status' => $status, 'account' => $account->__toString()]);
     }
 
+    public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $module = $request->getData('module');
+        $status = $request->getData('status');
+
+        if(!$module || !$status) {
+            // todo: create failure response
+        }
+
+        switch($status) {
+            case 'activate':
+                $done = $this->app->moduleManager->activate($module);
+                break;
+            case 'deactivate':
+                $done = $this->app->moduleManager->deactivate($module);
+                break;
+            case 'install':
+                $done = $this->app->moduleManager->install($module);
+                break;
+            case 'uninstall':
+                //$done = $this->app->moduleManager->uninstall($module);
+                $done = true;
+                break;
+            default:
+                $done = false;
+        }
+
+        $response->set('module', [$status => $done, 'module' => $module]);
+    }
 }

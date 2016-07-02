@@ -15,9 +15,9 @@
  */
 namespace Modules\Accounting\Admin;
 
-
 use phpOMS\DataStorage\Database\Pool;
 use phpOMS\Module\ActivateAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Navigation class.
@@ -36,7 +36,7 @@ class Activate extends ActivateAbstract
     /**
      * {@inheritdoc}
      */
-    public static function activate(Pool $dbPool, array $info)
+    public static function activate(Pool $dbPool, InfoManager $info)
     {
         parent::activate($dbPool, $info);
     }

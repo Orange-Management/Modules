@@ -106,4 +106,11 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+
+    '^.*/api/admin/module/status.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller:apiModuleStatusUpdate',
+            'verb' => RouteVerb::SET,
+        ],
+    ],
 ];

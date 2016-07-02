@@ -49,7 +49,7 @@ $id = $this->request->getData('id') ?? 1;
                 <td colspan="2">
                     <?php if (in_array($id, $active)) : ?>
                         <button
-                            data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Deactivate'] ?></button>
+                            data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?status=deactivate&module=' . $id); ?>"><?= $this->l11n->lang['Admin']['Deactivate'] ?></button>
                     <?php elseif (in_array($id, $installed)) : ?>
                         <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Uninstall'] ?></button>
                         <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Activate'] ?></button>

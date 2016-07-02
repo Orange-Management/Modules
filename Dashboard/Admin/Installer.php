@@ -17,6 +17,7 @@ namespace Modules\Dashboard\Admin;
 
 use phpOMS\DataStorage\Database\Pool;
 use phpOMS\Module\InfoManager;
+use phpOMS\Module\InstallerAbstract;
 
 /**
  * Dashboard install class.
@@ -29,7 +30,7 @@ use phpOMS\Module\InfoManager;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Installer
+class Installer extends InstallerAbstract
 {
 
     /**
@@ -37,5 +38,6 @@ class Installer
      */
     public static function install(Pool $dbPool, InfoManager $info)
     {
+        parent::install($dbPool, $info);
     }
 }

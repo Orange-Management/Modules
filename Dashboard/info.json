@@ -24,12 +24,11 @@
     "load": [
         {
             "pid": [
-                "3788e96aebafcdf3acc1a87861d559695e9a531f",
-                "40a630e157504605e40ba241f6b1f78ab1dd97b9"
+                "3788e96aebafcdf3acc1a87861d559695e9a531f"
             ],
             "type": 4,
-            "for": 0,
-            "from": "Controlling",
+            "for": "Content",
+            "from": "Dashboard",
             "file": "Dashboard"
         },
         {
@@ -40,15 +39,6 @@
             "from": "Dashboard",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "40a630e157504605e40ba241f6b1f78ab1dd97b9"
-            ],
-            "type": 5,
-            "from": "Dashboard",
-            "for": "Navigation",
-            "file": "nav.reporter"
         }
     ]
 }
