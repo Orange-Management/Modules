@@ -31,38 +31,38 @@ $id = $this->request->getData('id') ?? 1;
         <table class="list wf-100">
             <tbody>
             <tr>
-                <td><?= $this->l11n->lang['Admin']['Name'] ?>
+                <td><?= $this->l11n->getText('Admin', 'Name') ?>
                 <td><?= $modules[$id]['name']['external']; ?>
             <tr>
-                <td><?= $this->l11n->lang['Admin']['Version'] ?>
+                <td><?= $this->l11n->getText('Admin', 'Version') ?>
                 <td><?= $modules[$id]['version'] ?>
             <tr>
-                <td><?= $this->l11n->lang['Admin']['CreatedBy'] ?>
+                <td><?= $this->l11n->getText('Admin', 'CreatedBy') ?>
                 <td><?= $modules[$id]['creator']['name'] ?>
             <tr>
-                <td><?= $this->l11n->lang['Admin']['Website'] ?>
+                <td><?= $this->l11n->getText('Admin', 'Website') ?>
                 <td><?= $modules[$id]['creator']['website'] ?>
             <tr>
-                <td><?= $this->l11n->lang['Admin']['Description'] ?>
+                <td><?= $this->l11n->getText('Admin', 'Description') ?>
                 <td><?= $modules[$id]['description'] ?>
             <tr>
                 <td colspan="2">
                     <?php if (in_array($id, $active)) : ?>
                         <button
-                            data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?status=deactivate&module=' . $id); ?>"><?= $this->l11n->lang['Admin']['Deactivate'] ?></button>
+                            data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?status=deactivate&module=' . $id); ?>"><?= $this->l11n->getText('Admin', 'Deactivate') ?></button>
                     <?php elseif (in_array($id, $installed)) : ?>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Uninstall'] ?></button>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Activate'] ?></button>
+                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->getText('Admin', 'Uninstall') ?></button>
+                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->l11n->getText('Admin', 'Activate') ?></button>
                     <?php elseif (isset($modules[$id])) : ?>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Install'] ?></button>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?id=' . $id); ?>"><?= $this->l11n->lang['Admin']['Delete'] ?></button>
+                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?id=' . $id); ?>"><?= $this->l11n->getText('Admin', 'Install') ?></button>
+                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?id=' . $id); ?>"><?= $this->l11n->getText('Admin', 'Delete') ?></button>
                     <?php endif; ?>
         </table>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->lang['Admin']['Settings'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Admin', 'Settings') ?></h1></header>
 
     <div class="inner">
 
@@ -70,7 +70,7 @@ $id = $this->request->getData('id') ?? 1;
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->lang['Admin']['Groups'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Admin', 'Groups') ?></h1></header>
 
     <div class="inner">
 
@@ -78,7 +78,7 @@ $id = $this->request->getData('id') ?? 1;
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->lang['Admin']['Permissions'] ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Admin', 'Permissions') ?></h1></header>
 
     <div class="inner">
 

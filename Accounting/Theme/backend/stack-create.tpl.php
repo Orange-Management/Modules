@@ -19,19 +19,19 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->lang['Accounting']['Stack']; ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Accounting', 'Stack'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iName"><?= $this->l11n->lang['Accounting']['Name']; ?></label>
+                <tr><td><label for="iName"><?= $this->l11n->getText('Accounting', 'Name'); ?></label>
                 <tr><td><input id="iName" name="name" type="text">
-                <tr><td><label for="iType"><?= $this->l11n->lang['Accounting']['Type']; ?></label>
+                <tr><td><label for="iType"><?= $this->l11n->getText('Accounting', 'Type'); ?></label>
                 <tr><td><select id="iType" name="type">
-                            <option value=""><?= $this->l11n->lang['Accounting']['TAccount']; ?>
-                            <option value=""><?= $this->l11n->lang['Accounting']['Incoming']; ?>
-                            <option value=""><?= $this->l11n->lang['Accounting']['Outgoing']; ?>
+                            <option value=""><?= $this->l11n->getText('Accounting', 'TAccount'); ?>
+                            <option value=""><?= $this->l11n->getText('Accounting', 'Incoming'); ?>
+                            <option value=""><?= $this->l11n->getText('Accounting', 'Outgoing'); ?>
                         </select>
-                <tr><td><input name="submit" type="submit" value="<?= $this->l11n->lang[0]['Create']; ?>">
+                <tr><td><input name="submit" type="submit" value="<?= $this->l11n->getText(0, 'Create'); ?>">
             </table>
         </form>
     </div>

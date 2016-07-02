@@ -36,14 +36,14 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="wf-25 floatLeft">
     <section class="box w-100">
-        <header><h1><?= $this->l11n->lang['Reporter']['Reports']; ?></h1></header>
+        <header><h1><?= $this->l11n->getText('Reporter', 'Reports'); ?></h1></header>
 
         <div class="inner">
             <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
                 <table class="layout wf-100">
                     <tbody>
                     <tr>
-                        <td><label for="iLang"><?= $this->l11n->lang['Reporter']['Language'] ?></label>
+                        <td><label for="iLang"><?= $this->l11n->getText('Reporter', 'Language') ?></label>
                     <tr>
                         <td><select id="iLang" name="lang">
                                 <?php foreach($reportLanguage as $key => $langauge) : ?>
@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                                 <?php endforeach; ?>
                             </select>
                     <tr>
-                        <td><label for="iReport"><?= $this->l11n->lang['Reporter']['Report'] ?></label>
+                        <td><label for="iReport"><?= $this->l11n->getText('Reporter', 'Report') ?></label>
                     <tr>
                         <td><select id="iReport" name="report">
                             </select>
@@ -61,24 +61,24 @@ echo $this->getData('nav')->render(); ?>
     </section>
 
     <section class="box w-100">
-        <header><h1><?= $this->l11n->lang['Reporter']['Export']; ?></h1></header>
+        <header><h1><?= $this->l11n->getText('Reporter', 'Export'); ?></h1></header>
 
         <div class="inner">
             <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
                 <table class="layout wf-100">
                     <tbody>
                     <tr>
-                        <td><label for="iExport"><?= $this->l11n->lang['Reporter']['Export'] ?></label>
+                        <td><label for="iExport"><?= $this->l11n->getText('Reporter', 'Export') ?></label>
                     <tr>
                         <td><select id="iExport" name="export-type">
-                                <option value="select" disabled><?= $this->l11n->lang[0]['Select'] ?>
+                                <option value="select" disabled><?= $this->l11n->getText(0, 'Select') ?>
                                 <option value="excel"<?= (!isset($tcoll['excel'])) ? ' disabled' : ''; ?>>Excel
                                 <option value="csv"<?= (!isset($tcoll['csv'])) ? ' disabled' : ''; ?>>Csv
                                 <option value="json"<?= (!isset($tcoll['json'])) ? ' disabled' : ''; ?>>Json
                                 <option value="pdf"<?= (!isset($tcoll['pdf'])) ? ' disabled' : ''; ?>>Pdf
                             </select>
                     <tr>
-                        <td><input type="button" value="<?= $this->l11n->lang['Reporter']['Export'] ?>"
+                        <td><input type="button" value="<?= $this->l11n->getText('Reporter', 'Export') ?>"
                                    data-ropen="/{#lang}/api/reporter/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
                 </table>
             </form>
@@ -86,32 +86,32 @@ echo $this->getData('nav')->render(); ?>
     </section>
 
     <section class="box w-100">
-        <header><h1><?= $this->l11n->lang['Reporter']['Info']; ?></h1></header>
+        <header><h1><?= $this->l11n->getText('Reporter', 'Info'); ?></h1></header>
 
         <div class="inner">
             <table class="list wf-100">
                 <tbody>
                 <tr>
-                    <th colspan="2"><?= $this->l11n->lang['Reporter']['Report']; ?>
+                    <th colspan="2"><?= $this->l11n->getText('Reporter', 'Report'); ?>
                 <tr>
-                    <td><?= $this->l11n->lang['Reporter']['Name'] ?>
+                    <td><?= $this->l11n->getText('Reporter', 'Name') ?>
                     <td><?= $report->getTitle(); ?>
                 <tr>
-                    <td><?= $this->l11n->lang['Reporter']['Creator'] ?>
+                    <td><?= $this->l11n->getText('Reporter', 'Creator') ?>
                     <td><?= $report->getCreatedBy(); ?>
                 <tr>
-                    <td><?= $this->l11n->lang['Reporter']['Created'] ?>
+                    <td><?= $this->l11n->getText('Reporter', 'Created') ?>
                     <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
                 <tr>
-                    <th colspan="2"><?= $this->l11n->lang['Reporter']['Template']; ?>
+                    <th colspan="2"><?= $this->l11n->getText('Reporter', 'Template'); ?>
                 <tr>
-                    <td><?= $this->l11n->lang['Reporter']['Name'] ?>
+                    <td><?= $this->l11n->getText('Reporter', 'Name') ?>
                     <td><?= $template->getName(); ?>
                 <tr>
-                    <td><?= $this->l11n->lang['Reporter']['Creator'] ?>
+                    <td><?= $this->l11n->getText('Reporter', 'Creator') ?>
                     <td><?= $template->getCreatedBy(); ?>
                 <tr>
-                    <td><?= $this->l11n->lang['Reporter']['Created'] ?>
+                    <td><?= $this->l11n->getText('Reporter', 'Created') ?>
                     <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>
             </table>
         </div>

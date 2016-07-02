@@ -28,11 +28,11 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Accounting']['Journal']; ?></caption>
+        <caption><?= $this->l11n->getText('Accounting', 'Journal'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Accounting']['Name']; ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Name'); ?>
         <tfoot>
         <tr><td colspan="5"><?= $footerView->render(); ?>
         <tbody>
@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
             <td>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

@@ -21,24 +21,24 @@ $account = $this->getData('account');
 echo $this->getData('nav')->render();
 ?>
 <section itemscope itemtype="http://schema.org/Person" class="box w-33">
-    <header><h1><?= $this->l11n->lang['Profile']['Profile']; ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Profile', 'Profile'); ?></h1></header>
     <div class="inner">
         <!-- @formatter:off -->
                 <table class="list">
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Name']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Name'); ?>
                         <td><span itemprop="familyName"><?= $account->getName3(); ?></span>, <span itemprop="givenName"><?= $account->getName1(); ?></span>
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Occupation']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Occupation'); ?>
                         <td itemprop="jobTitle">Sailor
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Birthday']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Birthday'); ?>
                         <td itemprop="birthDate">06.09.1934
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Ranks']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Ranks'); ?>
                         <td itemprop="memberOf">Gosling
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Email']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Email'); ?>
                         <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $account->getEmail(); ?></a>
                     <tr>
                         <th>Address
@@ -50,7 +50,7 @@ echo $this->getData('nav')->render();
                         <th class="vT">Work
                         <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Phone']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Phone'); ?>
                         <td>
                     <tr>
                         <th>Private
@@ -62,13 +62,13 @@ echo $this->getData('nav')->render();
                         <th>Work
                         <td itemprop="telephone">+01 12345-4567
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Registered']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Registered'); ?>
                         <td><?= $account->getCreatedAt()->format('Y-m-d'); ?>
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['LastLogin']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'LastLogin'); ?>
                         <td><?= $account->getLastActive()->format('Y-m-d'); ?>
                     <tr>
-                        <th><?= $this->l11n->lang['Profile']['Status']; ?>
+                        <th><?= $this->l11n->getText('Profile', 'Status'); ?>
                         <td><span class="tag green"><?= $account->getStatus(); ?></span>
                 </table>
                 <!-- @formatter:on -->
@@ -77,13 +77,13 @@ echo $this->getData('nav')->render();
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Profile']['Media']; ?></caption>
+        <caption><?= $this->l11n->getText('Profile', 'Media'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Profile']['Title']; ?>
-            <td><?= $this->l11n->lang['Profile']['Type']; ?>
-            <td><?= $this->l11n->lang['Profile']['Created']; ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Profile', 'Title'); ?>
+            <td><?= $this->l11n->getText('Profile', 'Type'); ?>
+            <td><?= $this->l11n->getText('Profile', 'Created'); ?>
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
@@ -96,7 +96,7 @@ echo $this->getData('nav')->render();
                 <td><a href="<?= $url; ?>"><?= $value->getNewestStatus()->getStatus(); ?></a>
         <?php endforeach; ?>
         <?php if($c === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+            <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

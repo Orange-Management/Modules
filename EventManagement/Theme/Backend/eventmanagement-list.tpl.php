@@ -23,13 +23,13 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['EventManagement']['Events'] ?></caption>
+        <caption><?= $this->l11n->getText('EventManagement', 'Events') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang['EventManagement']['Status']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['EventManagement']['Title']; ?>
-            <td><?= $this->l11n->lang['EventManagement']['Start']; ?>
-            <td><?= $this->l11n->lang['EventManagement']['End']; ?>
+            <td><?= $this->l11n->getText('EventManagement', 'Status'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('EventManagement', 'Title'); ?>
+            <td><?= $this->l11n->getText('EventManagement', 'Start'); ?>
+            <td><?= $this->l11n->getText('EventManagement', 'End'); ?>
         <tfoot>
         <tr>
             <td colspan="5"><?= $footerView->render(); ?>
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

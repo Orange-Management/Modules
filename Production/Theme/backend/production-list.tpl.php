@@ -28,17 +28,17 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Production']['Productions']; ?></caption>
+        <caption><?= $this->l11n->getText('Production', 'Productions'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang['Production']['Status']; ?>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Production']['Article']; ?>
-            <td><?= $this->l11n->lang['Production']['Quantity']; ?>
-            <td><?= $this->l11n->lang['Production']['Start']; ?>
-            <td><?= $this->l11n->lang['Production']['Due']; ?>
-            <td><?= $this->l11n->lang['Production']['Done']; ?>
+            <td><?= $this->l11n->getText('Production', 'Status'); ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Production', 'Article'); ?>
+            <td><?= $this->l11n->getText('Production', 'Quantity'); ?>
+            <td><?= $this->l11n->getText('Production', 'Start'); ?>
+            <td><?= $this->l11n->getText('Production', 'Due'); ?>
+            <td><?= $this->l11n->getText('Production', 'Done'); ?>
         <tfoot>
         <tr><td colspan="8"><?= $footerView->render(); ?>
         <tbody>
@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
         <tr>
-            <td colspan="8" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+            <td colspan="8" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

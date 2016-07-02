@@ -27,12 +27,12 @@ $accounts = $this->getData('accounts');
 
 <div class="box">
     <table class="table">
-        <caption><?= $this->l11n->lang['Profile']['Profiles']; ?></caption>
+        <caption><?= $this->l11n->getText('Profile', 'Profiles'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Profile']['Name']; ?>
-            <td><?= $this->l11n->lang['Profile']['Activity']; ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Profile', 'Name'); ?>
+            <td><?= $this->l11n->getText('Profile', 'Activity'); ?>
         <tfoot>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
@@ -45,7 +45,7 @@ $accounts = $this->getData('accounts');
                 <td><a href="<?= $url; ?>"><?= $account->getLastActive()->format('Y-m-d'); ?></a>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="3" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="3" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

@@ -23,14 +23,14 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100 floatLeft">
     <table class="table">
-        <caption><?= $this->l11n->lang['News']['News'] ?></caption>
+        <caption><?= $this->l11n->getText('News', 'News') ?></caption>
         <thead>
         <tr>
             <td>
-            <td><?= $this->l11n->lang['News']['Type']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['News']['Title']; ?>
-            <td><?= $this->l11n->lang['News']['Author']; ?>
-            <td><?= $this->l11n->lang['News']['Date']; ?>
+            <td><?= $this->l11n->getText('News', 'Type'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('News', 'Title'); ?>
+            <td><?= $this->l11n->getText('News', 'Author'); ?>
+            <td><?= $this->l11n->getText('News', 'Date'); ?>
                 <tbody>
                 <?php $count = 0; foreach($newsList as $key => $news) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/news/article?id=' . $news->getId());
@@ -41,13 +41,13 @@ echo $this->getData('nav')->render(); ?>
                 ?>
                     <tr>
                         <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
-                        <td data-label="<?= $this->l11n->lang['News']['Type']; ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->lang['News']['TYPE' . $news->getType()]; ?></span></a>
-                        <td data-label="<?= $this->l11n->lang['News']['Title']; ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
-                        <td data-label="<?= $this->l11n->lang['News']['Author']; ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
-                        <td data-label="<?= $this->l11n->lang['News']['Date']; ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
+                        <td data-label="<?= $this->l11n->getText('News']['Type']; ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->lang['News', 'TYPE' . $news->getType()); ?></span></a>
+                        <td data-label="<?= $this->l11n->getText('News', 'Title'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
+                        <td data-label="<?= $this->l11n->getText('News', 'Author'); ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
+                        <td data-label="<?= $this->l11n->getText('News', 'Date'); ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-        <tr><td colspan="3" class="empty"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr><td colspan="3" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

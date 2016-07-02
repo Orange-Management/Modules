@@ -28,19 +28,19 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->lang['Arrival']['Arrivals']; ?></caption>
+        <caption><?= $this->l11n->getText('Arrival', 'Arrivals'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->lang[0]['ID']; ?>
-            <td><?= $this->l11n->lang['Arrival']['AccountID']; ?>
-            <td class="wf-100"><?= $this->l11n->lang['Arrival']['Company']; ?>
-            <td><?= $this->l11n->lang['Arrival']['Creator']; ?>
-            <td><?= $this->l11n->lang['Arrival']['Created']; ?>
+            <td><?= $this->l11n->getText(0, 'ID'); ?>
+            <td><?= $this->l11n->getText('Arrival', 'AccountID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Arrival', 'Company'); ?>
+            <td><?= $this->l11n->getText('Arrival', 'Creator'); ?>
+            <td><?= $this->l11n->getText('Arrival', 'Created'); ?>
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
         <?php if(0 == 0) : ?>
-        <tr class="empty"><td colspan="5"><?= $this->l11n->lang[0]['Empty']; ?>
+        <tr class="empty"><td colspan="5"><?= $this->l11n->getText(0, 'Empty'); ?>
                 <?php endif; ?>
                 <?php foreach ([] as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>

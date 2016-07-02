@@ -30,9 +30,9 @@ echo $this->getData('nav')->render(); ?>
 <div class="box w-100">
     <div class="tabular">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->l11n->lang['Editor']['Start'] ?></label>
-            <li><label for="c-tab-2"><?= $this->l11n->lang['Editor']['Insert'] ?></label>
-            <li><label for="c-tab-3"><?= $this->l11n->lang['Editor']['Layout'] ?></label>
+            <li><label for="c-tab-1"><?= $this->l11n->getText('Editor', 'Start') ?></label>
+            <li><label for="c-tab-2"><?= $this->l11n->getText('Editor', 'Insert') ?></label>
+            <li><label for="c-tab-3"><?= $this->l11n->getText('Editor', 'Layout') ?></label>
         </ul>
         <div class="tab-content">
             <input type="radio" id="c-tab-1" name="tabular-1" checked>
@@ -89,8 +89,8 @@ echo $this->getData('nav')->render(); ?>
 <div class="box w-100">
     <div class="tabular">
         <ul class="tab-links">
-            <li><label for="c-tab2-1"><?= $this->l11n->lang['Editor']['Text'] ?></label>
-            <li><label for="c-tab2-2"><?= $this->l11n->lang['Editor']['Preview'] ?></label>
+            <li><label for="c-tab2-1"><?= $this->l11n->getText('Editor', 'Text') ?></label>
+            <li><label for="c-tab2-2"><?= $this->l11n->getText('Editor', 'Preview') ?></label>
         </ul>
         <div class="tab-content">
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
@@ -108,12 +108,12 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <form>
             <table class="layout">
-                <tr><td colspan="2"><label><?= $this->l11n->lang['Editor']['Permission'] ?></label>
+                <tr><td colspan="2"><label><?= $this->l11n->getText('Editor', 'Permission') ?></label>
                 <tr><td><select>
                             <option>
                         </select>
-                <tr><td colspan="2"><label><?= $this->l11n->lang['Editor']['GroupUser'] ?></label>
-                <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->l11n->lang[0]['Add'] ?></button>
+                <tr><td colspan="2"><label><?= $this->l11n->getText('Editor', 'GroupUser') ?></label>
+                <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->l11n->getText(0, 'Add') ?></button>
             </table>
         </form>
     </div>

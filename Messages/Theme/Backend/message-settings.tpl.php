@@ -20,46 +20,46 @@ $boxes = $mail->getBoxes();
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <header><h1><?= $this->l11n->lang['Messages']['Mailboxes']; ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Messages', 'Mailboxes'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout">
-                <tr><td><label for="iInbox"><?= $this->l11n->lang['Messages']['Inbox']; ?></label>
+                <tr><td><label for="iInbox"><?= $this->l11n->getText('Messages', 'Inbox'); ?></label>
                 <tr><td><select id="iInbox" name="inbox">
-                            <option value=""><?= $this->l11n->lang[0]['Select']; ?>
+                            <option value=""><?= $this->l11n->getText(0, 'Select'); ?>
                             <?php foreach($boxes as $box) : ?>
                             <option value="<?= $box; ?>"><?= $box; ?>
                             <?php endforeach; ?>
                         </select>
-                <tr><td><label for="iOutbox"><?= $this->l11n->lang['Messages']['Outbox']; ?></label>
+                <tr><td><label for="iOutbox"><?= $this->l11n->getText('Messages', 'Outbox'); ?></label>
                 <tr><td><select id="iOutbox" name="outbox">
-                            <option value=""><?= $this->l11n->lang[0]['Select']; ?>
+                            <option value=""><?= $this->l11n->getText(0, 'Select'); ?>
                             <?php foreach($boxes as $box) : ?>
                             <option value="<?= $box; ?>"><?= $box; ?>
                                 <?php endforeach; ?>
                         </select>
-                <tr><td><label for="iDraft"><?= $this->l11n->lang['Messages']['Draft']; ?></label>
+                <tr><td><label for="iDraft"><?= $this->l11n->getText('Messages', 'Draft'); ?></label>
                 <tr><td><select id="iDraft" name="draft">
-                            <option value=""><?= $this->l11n->lang[0]['Select']; ?>
+                            <option value=""><?= $this->l11n->getText(0, 'Select'); ?>
                             <?php foreach($boxes as $box) : ?>
                             <option value="<?= $box; ?>"><?= $box; ?>
                                 <?php endforeach; ?>
                         </select>
-                <tr><td><label for="iTrash"><?= $this->l11n->lang['Messages']['Trash']; ?></label>
+                <tr><td><label for="iTrash"><?= $this->l11n->getText('Messages', 'Trash'); ?></label>
                 <tr><td><select id="iTrash" name="trash">
-                            <option value=""><?= $this->l11n->lang[0]['Select']; ?>
+                            <option value=""><?= $this->l11n->getText(0, 'Select'); ?>
                             <?php foreach($boxes as $box) : ?>
                             <option value="<?= $box; ?>"><?= $box; ?>
                                 <?php endforeach; ?>
                         </select>
-                <tr><td><label for="iSpam"><?= $this->l11n->lang['Messages']['Spam']; ?></label>
+                <tr><td><label for="iSpam"><?= $this->l11n->getText('Messages', 'Spam'); ?></label>
                 <tr><td><select id="iSpam" name="spam">
-                            <option value=""><?= $this->l11n->lang[0]['Select']; ?>
+                            <option value=""><?= $this->l11n->getText(0, 'Select'); ?>
                             <?php foreach($boxes as $box) : ?>
                             <option value="<?= $box; ?>"><?= $box; ?>
                                 <?php endforeach; ?>
                         </select>
-                <tr><td><input type="submit" value="<?= $this->l11n->lang[0]['Save']; ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Save'); ?>">
             </table>
         </form>
     </div>
