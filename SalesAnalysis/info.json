@@ -1,0 +1,53 @@
+{
+    "name": {
+        "id": 1005400000,
+        "internal": "SalesAnalysis",
+        "external": "OMS Sales Analysis"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Sales module.",
+    "directory": "SalesAnalysis",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "44cbe06dd734865b28c110fbbf91d78ccf8124ae"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "SalesAnalysis",
+            "file": "SalesAnalysis"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "SalesAnalysis",
+            "for": "Navigation",
+            "file": "Navigation"
+        },
+        {
+            "pid": [
+                "44cbe06dd734865b28c110fbbf91d78ccf8124ae"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "",
+            "from": "SalesAnalysis"
+        }
+    ]
+}

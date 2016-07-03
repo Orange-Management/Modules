@@ -43,8 +43,8 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-100">
     <div class="inner">
         <table class="list wf-100">
-            <tr><th><?= $this->l11n->getText('AccountsReceivable']['DSO'] ?>:<td class="wf-33">0<th><?= $this->l11n->lang['AccountsReceivable']['Paid'] ?>:<td class="wf-33">0<th><?= $this->l11n->lang['AccountsReceivable', 'Balance') ?>:<td class="wf-33">0
-            <tr><th><?= $this->l11n->getText('AccountsReceivable']['CreditLimit'] ?>:<td class="wf-33">0<th><?= $this->l11n->lang['AccountsReceivable']['Due'] ?>:<td class="wf-33">0<th><?= $this->l11n->lang['AccountsReceivable', 'Selected') ?>:<td class="wf-33">0
+            <tr><th><?= $this->l11n->getText('AccountsReceivable', 'DSO') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Paid') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Balance') ?>:<td class="wf-33">0
+            <tr><th><?= $this->l11n->getText('AccountsReceivable', 'CreditLimit') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Due') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Selected') ?>:<td class="wf-33">0
         </table>
     </div>
 </section>
