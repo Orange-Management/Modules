@@ -29,7 +29,7 @@ use phpOMS\Localization\ISO639x1Enum;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class NewsArticle
+class NewsArticle implements ArrayableInterface, \JsonSerializable
 {
 
     /**
@@ -361,5 +361,31 @@ class NewsArticle
     public function setFeatured(bool $featured)
     {
         $this->featured = $featured;
+    }
+
+    public function toArray() : array 
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'plain' => $this->plain,
+            'content' => $this->content,
+            'type' => $this->type,
+            'status' => $this->status,
+            'featured' => $this->featured,
+            'publish' => $this->publish,
+            'createdAt' => $this->createdAt,
+            'createdBy' => $this->createdBy,
+        ];
+    }
+
+    public function __toString() 
+    {
+        return $this->jsonSerialize();
+    }
+
+    public function jsonSerialize() 
+    {
+        return json_encode($this->toArray());
     }
 }

@@ -27,4 +27,11 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+
+    '^.*/api/news.*$' => [
+        [
+            'dest' => '\Modules\News\Controller:apiNewsCreate', 
+            'verb' => RouteVerb::SET,
+        ],
+    ],
 ];

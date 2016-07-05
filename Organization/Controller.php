@@ -280,7 +280,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         PositionMapper::create($position);
 
-        $response->set('unit', $position->jsonSerialize());
+        $response->set('position', $position->jsonSerialize());
     }
 
     public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -291,6 +291,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
         DepartmentMapper::create($department);
 
-        $response->set('unit', $department->jsonSerialize());
+        $response->set('department', $department->jsonSerialize());
     }
 }

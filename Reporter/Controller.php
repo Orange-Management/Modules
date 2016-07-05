@@ -329,7 +329,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function apiCreateTemplate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $files    = json_decode($request->getData('files'));
         $expected = $request->getData('expected');
@@ -373,7 +373,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function apiCreateReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $files = json_decode($request->getData('files'));
 

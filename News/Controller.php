@@ -162,30 +162,30 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
-     * Creating news.
-     *
-     * @param array $articleElements Article elements
-     *
-     * @return NewsArticle
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function createNews(...$articleElements)
+    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $newsArticle = new NewsArticle();
-        $newsArticle->setCreatedBy($articleElements[0]);
-        $newsArticle->setCreatedAt($articleElements[1]);
-        $newsArticle->setPublish($articleElements[2]);
-        $newsArticle->setTitle($articleElements[3]);
-        $newsArticle->setPlain($articleElements[4]);
-        $newsArticle->setContent($articleElements[5]);
-        $newsArticle->setLanguage($articleElements[6]);
-        $newsArticle->setType($articleElements[7]);
-        $newsArticle->setStatus($articleElements[8]);
-        $newsArticle->setFeatured($articleElements[9]);
+        $newsArticle->setCreatedBy($requst->getAccount()->getId());
+        $newsArticle->setCreatedAt(new \DateTime('now'));
+        $newsArticle->setPublish((bool) ($request->getData('publish') ?? false));
+        $newsArticle->setTitle($request->getData('title') ?? '');
+        $newsArticle->setPlain($request->getData('plain') ?? '');
+        $newsArticle->setContent($request->getData('content') ?? '');
+        $newsArticle->setLanguage($request->getData('lang') ?? $request->getL11n()->getLanguage());
+        $newsArticle->setType((int) ($requst->getData('type') ?? 1));
+        $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
+        $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));
 
-        return NewsArticleMapper::create($newsArticle);
+        NewsArticleMapper::create($newsArticle);
+
+        $response->set('news', $newsArticle->jsonSerialize());
     }
 
     /**
