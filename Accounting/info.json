@@ -39,15 +39,6 @@
             "from": "Accounting",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "47e9d72449035cd040e0f93693fd0a925bf6e340"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Accounting"
         }
     ]
 }

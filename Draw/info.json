@@ -33,15 +33,6 @@
         },
         {
             "pid": [
-                "e19f4e17662b65bae885bc55cbb55797677ecc40"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Draw"
-        },
-        {
-            "pid": [
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,

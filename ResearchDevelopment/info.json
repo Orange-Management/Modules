@@ -39,15 +39,6 @@
             "from": "ResearchDevelopment",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "f37d0b45c43b1ee70d7b26791640cda9402d203e"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "ResearchDevelopment"
         }
     ]
 }

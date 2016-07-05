@@ -40,15 +40,6 @@
             "from": "News",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "d7470914e19522acc310a55e5cb13a6f0f7ca000"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "News"
         }
     ]
 }

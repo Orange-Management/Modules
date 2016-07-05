@@ -35,15 +35,6 @@
             "pid": [
                 "2526549ccf041e6cd685f5d41006092ba5aa791c"
             ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "AccountsPayable"
-        },
-        {
-            "pid": [
-                "2526549ccf041e6cd685f5d41006092ba5aa791c"
-            ],
             "type": 4,
             "for": "Content",
             "file": "AccountsPayable",

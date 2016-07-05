@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="2"><input type="text">
                 <tr><td colspan="2"><label for="iBudget"><?= $this->l11n->getText('Marketing', 'Backend', 'Description'); ?></label>
                 <tr><td colspan="2"><textarea></textarea>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Start') ?></label><td><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Backend', 'End') ?></label>
+                <tr><td><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Backend', 'Start') ?></label><td><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Backend', 'End') ?></label>
                 <tr><td><input type="datetime-local"><td><input type="datetime-local">
                 <tr><td colspan="2"><label for="iBudget"><?= $this->l11n->getText('Marketing', 'Backend', 'Budget'); ?></label>
                 <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder="">

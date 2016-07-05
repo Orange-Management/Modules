@@ -31,9 +31,9 @@ echo $this->getData('nav')->render(); ?>
                         </select><td>
                 <tr><td colspan="3"><label for="iFiles"><?= $this->l11n->getText('EventManagement', 'Backend', 'Files'); ?></label>
                 <tr><td colspan="2"><input type="file" id="iFiles" name="file" multiple><td>
-                <tr><td><label for="iStart"><?= $this->l11n->getText('EventManagement', 'Start') ?><label><td><label for="iEnd"><?= $this->l11n->getText('EventManagement', 'Backend', 'End') ?><label><td>
+                <tr><td><label for="iStart"><?= $this->l11n->getText('EventManagement', 'Backend', 'Start') ?><label><td><label for="iEnd"><?= $this->l11n->getText('EventManagement', 'Backend', 'End') ?><label><td>
                 <tr><td><input type="datetime-local" id="iStart" name="start" required><td><input type="datetime-local" id="iEnd" name="end" required><td>
-                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('EventManagement', 'Responsibility'); ?></label><td><label for="iUser"><?= $this->l11n->getText('EventManagement', 'Backend', 'UserGroup'); ?></label><td>
+                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('EventManagement', 'Backend', 'Responsibility'); ?></label><td><label for="iUser"><?= $this->l11n->getText('EventManagement', 'Backend', 'UserGroup'); ?></label><td>
                 <tr><td><select id="iStatus" name="status">
                             <option value="">
                         </select>

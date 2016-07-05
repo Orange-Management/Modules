@@ -40,16 +40,6 @@
             "from": "PersonnelTimeManagement",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "66503874f6c5e79e66fa47bd42847a8955fdd933",
-                "e14add4f7ed11342626a4fccc17eab017fecb028"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "PersonnelTimeManagement"
         }
     ]
 }

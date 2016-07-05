@@ -40,16 +40,6 @@
             "from": "Billing",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "722ef87be24d036db431dd65c0418e5502a6eb89",
-                "475124021da7877ef311983bb9eb769b1bd94f22"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Billing"
         }
     ]
 }

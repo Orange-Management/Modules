@@ -39,15 +39,6 @@
             "from": "Marketing",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "86580a45c595de69f4c48de08117379cdfa43e47"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Marketing"
         }
     ]
 }

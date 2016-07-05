@@ -30,15 +30,6 @@
             "from": "PaymentInformation",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "0e43881a831b0a17fe0b5937c582addd70281e3d"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "PaymentInformation"
         }
     ]
 }

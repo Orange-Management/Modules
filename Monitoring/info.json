@@ -39,15 +39,6 @@
             "for": "Content",
             "file": "Monitoring",
             "from": "Monitoring"
-        },
-        {
-            "pid": [
-                "c66e6604564259b087dc6db1e46de8cf6353c96d"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Monitoring"
         }
     ]
 }

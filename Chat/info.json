@@ -39,15 +39,6 @@
             "from": "Chat",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "a5dd2992c4ffd521e23894599418f28a07e0ff1a"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Chat"
         }
     ]
 }

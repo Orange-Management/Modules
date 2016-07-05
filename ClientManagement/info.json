@@ -39,15 +39,6 @@
             "from": "ClientManagement",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "25a25434541197e2ca3ff0164a8b02173c5fcd8b"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "ClientManagement"
         }
     ]
 }

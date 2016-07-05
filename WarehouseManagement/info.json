@@ -39,15 +39,6 @@
             "from": "WarehouseManagement",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "2bea808a85e14f973f3076105a97cd46b4551819"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "WarehouseManagement"
         }
     ]
 }

@@ -33,15 +33,6 @@
         },
         {
             "pid": [
-                "4a75c2d146b2f5695614b8a2038d053061527ba7"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Chart"
-        },
-        {
-            "pid": [
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,

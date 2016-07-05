@@ -39,15 +39,6 @@
             "from": "Calendar",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "fb78d7e421e4178d31a384fb394dcf2369fff309"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Calendar"
         }
     ]
 }

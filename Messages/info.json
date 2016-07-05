@@ -39,15 +39,6 @@
             "from": "Messages",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "ea312354fa4b4029c8a121b7da7992983d3132a9"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Messages"
         }
     ]
 }

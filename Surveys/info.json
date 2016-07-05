@@ -39,15 +39,6 @@
             "from": "Surveys",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "6c941ab5b60c49df3c7d50b935fd213c060a6664"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Surveys"
         }
     ]
 }

@@ -36,15 +36,6 @@
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,
-            "for": "Organization",
-            "file": "",
-            "from": "Admin"
-        },
-        {
-            "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
-            ],
-            "type": 5,
             "from": "Organization",
             "for": "Navigation",
             "file": "Navigation"

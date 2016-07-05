@@ -41,15 +41,6 @@
             "from": "EventManagement",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "9a017c0aa5117ed6dd28736a6d6338e7c499e64f"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "EventManagement"
         }
     ]
 }

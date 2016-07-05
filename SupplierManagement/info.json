@@ -39,15 +39,6 @@
             "from": "SupplierManagement",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "520f00a1a583e4936dc01665781e0dfafd699613"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "SupplierManagement"
         }
     ]
 }

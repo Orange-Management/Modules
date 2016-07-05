@@ -35,15 +35,6 @@
             "pid": [
                 "f4c5d042a37f2e24163e92e14121becb29bdfcb1"
             ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "AccountsReceivable"
-        },
-        {
-            "pid": [
-                "f4c5d042a37f2e24163e92e14121becb29bdfcb1"
-            ],
             "type": 4,
             "for": "Content",
             "file": "AccountsReceivable",

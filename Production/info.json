@@ -39,15 +39,6 @@
             "from": "Production",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "8bcf3571d1d43ecefeeb78a999f83418ccfd4f71"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Production"
         }
     ]
 }

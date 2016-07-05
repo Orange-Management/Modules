@@ -33,15 +33,6 @@
         },
         {
             "pid": [
-                "485c01f6ec77f5370a8060bb44b8a13a985184b5"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Checklist"
-        },
-        {
-            "pid": [
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,

@@ -41,15 +41,6 @@
             "from": "Tasks",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "43ec7cda8be033d7b20996708a2fca644e5dde86"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Tasks"
         }
     ]
 }

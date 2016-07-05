@@ -39,15 +39,6 @@
             "from": "SalesAnalysis",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "44cbe06dd734865b28c110fbbf91d78ccf8124ae"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "SalesAnalysis"
         }
     ]
 }

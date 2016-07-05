@@ -33,15 +33,6 @@
         },
         {
             "pid": [
-                "88a70f9456abff33fda791878b9c0bcbe2cb5bc4"
-            ],
-            "type": 5,
-            "for": "Content",
-            "file": "",
-            "from": "Profile"
-        },
-        {
-            "pid": [
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,
