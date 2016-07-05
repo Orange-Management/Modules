@@ -16,27 +16,27 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->getText('AccountsReceivable', 'AccountsReceivable') ?></h1></header>
+    <header><h1><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'AccountsReceivable') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->l11n->getText('AccountsReceivable', 'Status') ?></label>
+                <tr><td><label for="iStatus"><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Status') ?></label>
                 <tr><td><select id="iStatus" name="status">
                             <option>
                         </select>
-                <tr><td><label for="iStatus"><?= $this->l11n->getText('AccountsReceivable', 'DeliveryStatus') ?></label>
+                <tr><td><label for="iStatus"><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'DeliveryStatus') ?></label>
                 <tr><td><select id="iStatus" name="status">
                             <option>
                         </select>
-                <tr><td><label for="iId"><?= $this->l11n->getText(0, 'ID'); ?></label>
+                <tr><td><label for="iId"><?= $this->l11n->getText(0, 'Backend', 'ID'); ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
-                <tr><td><label for="iName1"><?= $this->l11n->getText('AccountsReceivable', 'Name1'); ?></label>
+                <tr><td><label for="iName1"><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Name1'); ?></label>
                 <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
-                <tr><td><label for="iName2"><?= $this->l11n->getText('AccountsReceivable', 'Name2'); ?></label>
+                <tr><td><label for="iName2"><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Name2'); ?></label>
                 <tr><td><input type="text" id="iName2" name="name2" placeholder="&#xf040;">
-                <tr><td><label for="iName3"><?= $this->l11n->getText('AccountsReceivable', 'Name3'); ?></label>
+                <tr><td><label for="iName3"><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Name3'); ?></label>
                 <tr><td><input type="text" id="iName3" name="name3" placeholder="&#xf040;">
-                <tr><td colspan="2"><input type="submit" value="<?= $this->l11n->getText(0, 'Create') ?>">
+                <tr><td colspan="2"><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
             </table>
         </form>
     </div>

@@ -44,7 +44,7 @@ foreach ($elements as $key => $element) : $c++;
     elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
     elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
     <section class="box w-50">
-        <div class="floatRight"><span class="tag <?= $color; ?>"><?= $this->l11n->getText('Tasks', 'S' . $element->getStatus()); ?></span></div>
+        <div class="floatRight"><span class="tag <?= $color; ?>"><?= $this->l11n->getText('Tasks', 'Backend', 'S' . $element->getStatus()); ?></span></div>
         <div><?= $element->getCreatedBy(); ?> - <?= $element->getCreatedAt()->format('Y-m-d H:i'); ?></div>
     </section>
     <?php if ($element->getDescription() !== '') : ?>
@@ -73,17 +73,17 @@ foreach ($elements as $key => $element) : $c++;
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iMessage"><?= $this->l11n->getText('Tasks', 'Message'); ?></label>
+                <tr><td><label for="iMessage"><?= $this->l11n->getText('Tasks', 'Backend', 'Message'); ?></label>
                 <tr><td><textarea></textarea>
-                <tr><td><label for="iDue"><?= $this->l11n->getText('Tasks', 'Due'); ?></label>
+                <tr><td><label for="iDue"><?= $this->l11n->getText('Tasks', 'Backend', 'Due'); ?></label>
                 <tr><td><input type="datetime-local">
-                <tr><td><label for="iReceiver"><?= $this->l11n->getText('Tasks', 'Status'); ?></label>
+                <tr><td><label for="iReceiver"><?= $this->l11n->getText('Tasks', 'Backend', 'Status'); ?></label>
                 <tr><td><select>
                             <option>
                         </select>
-                <tr><td><label for="iReceiver"><?= $this->l11n->getText('Tasks', 'To'); ?></label>
+                <tr><td><label for="iReceiver"><?= $this->l11n->getText('Tasks', 'Backend', 'To'); ?></label>
                 <tr><td><input type="text" id="iReceiver" placeholder="&#xf007; Guest">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Create'); ?>"><input type="hidden" name="type" value="1">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create'); ?>"><input type="hidden" name="type" value="1">
             </table>
         </form>
     </div>

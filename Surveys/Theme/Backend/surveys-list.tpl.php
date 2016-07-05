@@ -23,13 +23,13 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Surveys', 'Surveys') ?></caption>
+        <caption><?= $this->l11n->getText('Surveys', 'Backend', 'Surveys') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('Surveys', 'Status'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Surveys', 'Title'); ?>
-            <td><?= $this->l11n->getText('Surveys', 'Created'); ?>
-            <td><?= $this->l11n->getText('Surveys', 'Creator'); ?>
+            <td><?= $this->l11n->getText('Surveys', 'Backend', 'Status'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Surveys', 'Backend', 'Title'); ?>
+            <td><?= $this->l11n->getText('Surveys', 'Backend', 'Created'); ?>
+            <td><?= $this->l11n->getText('Surveys', 'Backend', 'Creator'); ?>
         <tfoot>
         <tr>
             <td colspan="4"><?= $footerView->render(); ?>
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
+        <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

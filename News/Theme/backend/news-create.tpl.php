@@ -47,8 +47,8 @@ echo $this->getData('nav')->render(); ?>
     <div class="box w-100">
         <div class="tabular">
             <ul class="tab-links">
-                <li><label for="c-tab-1"><?= $this->l11n->getText('News', 'Plain') ?></label>
-                <li><label for="c-tab-2"><?= $this->l11n->getText('News', 'Preview') ?></label>
+                <li><label for="c-tab-1"><?= $this->l11n->getText('News', 'Backend', 'Plain') ?></label>
+                <li><label for="c-tab-2"><?= $this->l11n->getText('News', 'Backend', 'Preview') ?></label>
             </ul>
             <div class="tab-content">
                 <input type="radio" id="c-tab-1" name="tabular-1" checked>
@@ -69,13 +69,13 @@ echo $this->getData('nav')->render(); ?>
         <div class="inner">
             <form id="newsForm">
                 <table class="layout wf-100">
-                    <tr><td colspan="2"><label for="publish"><?= $this->l11n->getText('News', 'Status') ?></label>
+                    <tr><td colspan="2"><label for="publish"><?= $this->l11n->getText('News', 'Backend', 'Status') ?></label>
                     <tr><td colspan="2"><select>
-                                <option selected><?= $this->l11n->getText('News', 'Draft') ?>
-                                <option><?= $this->l11n->getText('News', 'Visible') ?>
-                    <tr><td colspan="2"><label for="publish"><?= $this->l11n->getText('News', 'Publish') ?></label>
+                                <option selected><?= $this->l11n->getText('News', 'Backend', 'Draft') ?>
+                                <option><?= $this->l11n->getText('News', 'Backend', 'Visible') ?>
+                    <tr><td colspan="2"><label for="publish"><?= $this->l11n->getText('News', 'Backend', 'Publish') ?></label>
                     <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
-                    <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Delete') ?>"><td class="rightText"><input type="submit" value="<?= $this->l11n->lang[0]['Save'] ?>"> <input type="submit" value="<?= $this->l11n->getText('News', 'Publish') ?>">
+                    <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Delete') ?>"><td class="rightText"><input type="submit" value="<?= $this->l11n->lang[0]['Save'] ?>"> <input type="submit" value="<?= $this->l11n->getText('News', 'Backend', 'Publish') ?>">
                 </table>
             </form>
         </div>
@@ -84,10 +84,10 @@ echo $this->getData('nav')->render(); ?>
         <div class="inner">
             <form id="newsForm">
                 <table class="layout wf-100">
-                    <tr><td colspan="2"><label><?= $this->l11n->getText('News', 'Type') ?></label>
-                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="1" id="news" checked><label for="news"><?= $this->l11n->getText('News', 'News') ?></label></span>
-                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="2" id="headline"><label for="headline"><?= $this->l11n->getText('News', 'Headline') ?></label></span>
-                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="3" id="link"><label for="link"><?= $this->l11n->getText('News', 'Link') ?></label></span>
+                    <tr><td colspan="2"><label><?= $this->l11n->getText('News', 'Backend', 'Type') ?></label>
+                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="1" id="news" checked><label for="news"><?= $this->l11n->getText('News', 'Backend', 'News') ?></label></span>
+                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="2" id="headline"><label for="headline"><?= $this->l11n->getText('News', 'Backend', 'Headline') ?></label></span>
+                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="3" id="link"><label for="link"><?= $this->l11n->getText('News', 'Backend', 'Link') ?></label></span>
                 </table>
             </form>
         </div>
@@ -96,9 +96,9 @@ echo $this->getData('nav')->render(); ?>
         <div class="inner">
             <form id="newsForm">
                 <table class="layout wf-100">
-                    <tr><td><label for="permission"><?= $this->l11n->getText('News', 'Permissions') ?></label>
+                    <tr><td><label for="permission"><?= $this->l11n->getText('News', 'Backend', 'Permissions') ?></label>
                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="permission"><input type="hidden" form="newsForm" name="permission"></span>
-                    <tr><td><button><?= $this->l11n->getText(0, 'Add') ?></button>
+                    <tr><td><button><?= $this->l11n->getText(0, 'Backend', 'Add') ?></button>
                 </table>
             </form>
         </div>
@@ -107,9 +107,9 @@ echo $this->getData('nav')->render(); ?>
         <div class="inner">
             <form id="newsForm">
                 <table class="layout wf-100">
-                    <tr><td colspan="2"><label for="groups"><?= $this->l11n->getText('News', 'Groups') ?></label>
+                    <tr><td colspan="2"><label for="groups"><?= $this->l11n->getText('News', 'Backend', 'Groups') ?></label>
                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input  type="text" id="groups"><input type="hidden" form="newsForm" name="groups"></span>
-                    <tr><td><button><?= $this->l11n->getText(0, 'Add') ?></button>
+                    <tr><td><button><?= $this->l11n->getText(0, 'Backend', 'Add') ?></button>
                 </table>
             </form>
         </div>

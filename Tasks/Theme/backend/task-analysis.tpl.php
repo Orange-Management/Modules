@@ -19,32 +19,32 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50 floatLeft">
-    <header><h1><?= $this->l11n->getText('Tasks', 'Account'); ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Tasks', 'Backend', 'Account'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iAccount"><?= $this->l11n->getText('Tasks', 'Account'); ?></label>
+                <tr><td><label for="iAccount"><?= $this->l11n->getText('Tasks', 'Backend', 'Account'); ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iAccount" name="account" placeholder="&#xf007; Guest" required></span>
-                <tr><td><label for="iFrom"><?= $this->l11n->getText('Tasks', 'From'); ?></label>
+                <tr><td><label for="iFrom"><?= $this->l11n->getText('Tasks', 'Backend', 'From'); ?></label>
                 <tr><td><input type="datetime-local" id="iFrom" name="from" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
-                <tr><td><label for="iTo"><?= $this->l11n->getText('Tasks', 'To'); ?></label>
+                <tr><td><label for="iTo"><?= $this->l11n->getText('Tasks', 'Backend', 'To'); ?></label>
                 <tr><td><input type="datetime-local" id="iTo" name="to" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Submit'); ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Submit'); ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-50 floatLeft">
-    <header><h1><?= $this->l11n->getText('Tasks', 'Statistics'); ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Tasks', 'Backend', 'Statistics'); ?></h1></header>
     <div class="inner">
         <table class="list wf-100">
-            <tr><td><?= $this->l11n->getText('Tasks', 'Received'); ?><td>0
-            <tr><td><?= $this->l11n->getText('Tasks', 'Created'); ?><td>0
-            <tr><td><?= $this->l11n->getText('Tasks', 'Forwarded'); ?><td>0
-            <tr><td><?= $this->l11n->getText('Tasks', 'AverageAmount'); ?><td>0
-            <tr><td><?= $this->l11n->getText('Tasks', 'AverageProcessTime'); ?><td>0
-            <tr><td><?= $this->l11n->getText('Tasks', 'InTime'); ?><td>0
+            <tr><td><?= $this->l11n->getText('Tasks', 'Backend', 'Received'); ?><td>0
+            <tr><td><?= $this->l11n->getText('Tasks', 'Backend', 'Created'); ?><td>0
+            <tr><td><?= $this->l11n->getText('Tasks', 'Backend', 'Forwarded'); ?><td>0
+            <tr><td><?= $this->l11n->getText('Tasks', 'Backend', 'AverageAmount'); ?><td>0
+            <tr><td><?= $this->l11n->getText('Tasks', 'Backend', 'AverageProcessTime'); ?><td>0
+            <tr><td><?= $this->l11n->getText('Tasks', 'Backend', 'InTime'); ?><td>0
         </table>
     </div>
 </section>

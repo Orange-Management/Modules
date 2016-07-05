@@ -20,44 +20,44 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->getText('Admin', 'Group') ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Admin', 'Backend', 'Group') ?></h1></header>
     <div class="inner">
         <form id="group-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="<?= \phpOMS\Message\Http\RequestMethod::PUT; ?>">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iGname"><?= $this->l11n->getText('Admin', 'Name') ?></label>
+                <tr><td><label for="iGname"><?= $this->l11n->getText('Admin', 'Backend', 'Name') ?></label>
                 <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" required>
-                <tr><td><label for="iGroupDescription"><?= $this->l11n->getText('Admin', 'Description') ?></label>
+                <tr><td><label for="iGroupDescription"><?= $this->l11n->getText('Admin', 'Backend', 'Description') ?></label>
                 <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"></textarea>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-66 floatLeft">
-    <header><h1><?= $this->l11n->getText('Admin', 'Parent') ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Admin', 'Backend', 'Parent') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iGParentName"><?= $this->l11n->getText('Admin', 'Name') ?></label>
+                <tr><td><label for="iGParentName"><?= $this->l11n->getText('Admin', 'Backend', 'Name') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGParentName" name="parentname" type="text" placeholder="&#xf0c0; Guest" required></span>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Add') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-66 floatLeft">
-    <header><h1><?= $this->l11n->getText('Admin', 'Permissions') ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Admin', 'Backend', 'Permissions') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iPermissionName"><?= $this->l11n->getText('Admin', 'Name') ?></label>
+                <tr><td><label for="iPermissionName"><?= $this->l11n->getText('Admin', 'Backend', 'Name') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPermissionName" name="permissionname" type="text" placeholder="&#xf084; Admin" required></span>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Add') ?>">
             </table>
         </form>
     </div>

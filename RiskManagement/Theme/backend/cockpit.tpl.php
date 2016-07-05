@@ -29,15 +29,15 @@ echo $this->getData('nav')->render(); ?>
 <section class="wf-75 floatLeft">
     <div class="box w-100">
         <table class="table">
-            <caption><?= $this->l11n->getText('RiskManagement', 'TopRisks'); ?></caption>
+            <caption><?= $this->l11n->getText('RiskManagement', 'Backend', 'TopRisks'); ?></caption>
             <thead>
             <tr>
-                <td><?= $this->l11n->getText('RiskManagement', 'Severity'); ?>
-                <td class="wf-100"><?= $this->l11n->getText('RiskManagement', 'Name'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Department'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Category'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Process'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Project'); ?>
+                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Severity'); ?>
+                <td class="wf-100"><?= $this->l11n->getText('RiskManagement', 'Backend', 'Name'); ?>
+                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Department'); ?>
+                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Category'); ?>
+                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Process'); ?>
+                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Project'); ?>
             <tfoot>
             <tr><td colspan="6"><?= $footerView->render(); ?>
             <tbody>
@@ -51,40 +51,40 @@ echo $this->getData('nav')->render(); ?>
                 <td>
                     <?php endforeach; ?>
                     <?php if($c === 0) : ?>
-            <tr><td colspan="6" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
+            <tr><td colspan="6" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
                     <?php endif; ?>
         </table>
     </div>
 </section>
 <section class="wf-25 floatLeft">
     <section class="box w-100">
-        <header><h1><?= $this->l11n->getText('RiskManagement', 'Statistics'); ?></h1></header>
+        <header><h1><?= $this->l11n->getText('RiskManagement', 'Backend', 'Statistics'); ?></h1></header>
         <div class="inner">
             <table class="list">
                 <thead>
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Risks'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Risks'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Causes'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Causes'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Solutions'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Solutions'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Department'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Department'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Category'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Category'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Process'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Process'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Project'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Project'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Total'); ?>
+                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Total'); ?>
                     <td>0
             </table>
         </div>

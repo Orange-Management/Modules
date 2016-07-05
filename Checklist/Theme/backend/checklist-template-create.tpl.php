@@ -20,44 +20,44 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <header><h1><?= $this->l11n->getText('Checklist', 'General'); ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Checklist', 'Backend', 'General'); ?></h1></header>
     <div class="inner">
         <form id="fChecklist">
             <table class="layout wf-100">
-                <tr><td><label for="iName"><?= $this->l11n->getText('Checklist', 'Name'); ?></label><td>
+                <tr><td><label for="iName"><?= $this->l11n->getText('Checklist', 'Backend', 'Name'); ?></label><td>
                 <tr><td><input type="text" id="iName" name="name" required><td>
-                <tr><td><label for="iDescription"><?= $this->l11n->getText('Checklist', 'Description'); ?></label><td>
+                <tr><td><label for="iDescription"><?= $this->l11n->getText('Checklist', 'Backend', 'Description'); ?></label><td>
                 <tr><td><textarea id="iDescription" name="description"></textarea><td>
-                <tr><td><label for="iPermission"><?= $this->l11n->getText('Checklist', 'Permissions'); ?></label><td>
+                <tr><td><label for="iPermission"><?= $this->l11n->getText('Checklist', 'Backend', 'Permissions'); ?></label><td>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button>
                             <input type="text" id="iPermission" name="permission"></span>
-                    <td><button><?= $this->l11n->getText(0, 'Add'); ?></button>
-                <tr><td><label for="iFiles"><?= $this->l11n->getText('Checklist', 'Files'); ?></label><td>
+                    <td><button><?= $this->l11n->getText(0, 'Backend', 'Add'); ?></button>
+                <tr><td><label for="iFiles"><?= $this->l11n->getText('Checklist', 'Backend', 'Files'); ?></label><td>
                 <tr><td><input id="iFiles" name="files" type="file" multiple><td>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Create'); ?>"><td>
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create'); ?>"><td>
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-33">
-    <header><h1><?= $this->l11n->getText('Checklist', 'Tasks'); ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Checklist', 'Backend', 'Tasks'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iETitle"><?= $this->l11n->getText('Checklist', 'Title'); ?></label><td>
+                <tr><td><label for="iETitle"><?= $this->l11n->getText('Checklist', 'Backend', 'Title'); ?></label><td>
                 <tr><td><input type="text" id="iETitle" name="eTitle" required><td>
-                <tr><td><label for="iEDescription"><?= $this->l11n->getText('Checklist', 'Description'); ?></label><td>
+                <tr><td><label for="iEDescription"><?= $this->l11n->getText('Checklist', 'Backend', 'Description'); ?></label><td>
                 <tr><td><textarea id="iEDescription" name="eDescription"></textarea><td>
-                <tr><td><label for="iETime"><?= $this->l11n->getText('Checklist', 'TimeInMinutes'); ?></label><td>
+                <tr><td><label for="iETime"><?= $this->l11n->getText('Checklist', 'Backend', 'TimeInMinutes'); ?></label><td>
                 <tr><td><input type="number" min="0" step="1" id="iETime" name="eTime" value="0"><td>
-                <tr><td><label for="iEPermission"><?= $this->l11n->getText('Checklist', 'Permissions'); ?></label><td>
+                <tr><td><label for="iEPermission"><?= $this->l11n->getText('Checklist', 'Backend', 'Permissions'); ?></label><td>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button>
                             <input type="text" id="iEPermission" name="ePermission"></span>
-                    <td><button data-action=""><?= $this->l11n->getText(0, 'Add'); ?></button>
-                <tr><td><label for="iEFiles"><?= $this->l11n->getText('Checklist', 'Files'); ?></label><td>
+                    <td><button data-action=""><?= $this->l11n->getText(0, 'Backend', 'Add'); ?></button>
+                <tr><td><label for="iEFiles"><?= $this->l11n->getText('Checklist', 'Backend', 'Files'); ?></label><td>
                 <tr><td><input id="iEFiles" name="eFiles" type="file" multiple><td>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Add'); ?>" data-action=""><td>
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Add'); ?>" data-action=""><td>
             </table>
         </form>
     </div>

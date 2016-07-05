@@ -20,22 +20,22 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <header><h1><?= $this->l11n->getText('Organization', 'Position'); ?></h1></header>
+    <header><h1><?= $this->l11n->getText('Organization', 'Backend', 'Position'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iName"><?= $this->l11n->getText('Organization', 'Name'); ?></label>
+                <tr><td><label for="iName"><?= $this->l11n->getText('Organization', 'Backend', 'Name'); ?></label>
                 <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>
-                <tr><td><label for="iParent"><?= $this->l11n->getText('Organization', 'Parent'); ?></label>
+                <tr><td><label for="iParent"><?= $this->l11n->getText('Organization', 'Backend', 'Parent'); ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent"></span>
-                <tr><td><label for="iStatus"><?= $this->l11n->getText('Organization', 'Status'); ?></label>
+                <tr><td><label for="iStatus"><?= $this->l11n->getText('Organization', 'Backend', 'Status'); ?></label>
                 <tr><td><select name="status" id="iStatus">
-                            <option><?= $this->l11n->getText('Organization', 'Active'); ?>
-                            <option><?= $this->l11n->getText('Organization', 'Inactive'); ?>
+                            <option><?= $this->l11n->getText('Organization', 'Backend', 'Active'); ?>
+                            <option><?= $this->l11n->getText('Organization', 'Backend', 'Inactive'); ?>
                             </select>
-                <tr><td><label for="iDescription"><?= $this->l11n->getText('Organization', 'Description'); ?></label>
+                <tr><td><label for="iDescription"><?= $this->l11n->getText('Organization', 'Backend', 'Description'); ?></label>
                 <tr><td><textarea name="description" id="iDescription" placeholder="&#xf040;"></textarea>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
             </table>
         </form>
     </div>

@@ -31,12 +31,12 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 /*
  * Header
  */
-$headerView->setTitle($this->l11n->getText('Reporter', 'Reporter'));
+$headerView->setTitle($this->l11n->getText('Reporter', 'Backend', 'Reporter'));
 $headerView->setHeader([
-    ['title' => $this->l11n->getText(0, 'ID'], 'sortable' => true),
-    ['title' => $this->l11n->getText('Reporter', 'Name'], 'sortable' => true, 'full' => true),
-    ['title' => $this->l11n->getText('Reporter', 'Creator'], 'sortable' => true),
-    ['title' => $this->l11n->getText('Reporter', 'Created'], 'sortable' => true),
+    ['title' => $this->l11n->getText(0, 'ID'], 'Backend', 'sortable' => true),
+    ['title' => $this->l11n->getText('Reporter', 'Name'], 'sortable' => true, 'Backend', 'full' => true),
+    ['title' => $this->l11n->getText('Reporter', 'Creator'], 'Backend', 'sortable' => true),
+    ['title' => $this->l11n->getText('Reporter', 'Created'], 'Backend', 'sortable' => true),
 ]);
 
 /*

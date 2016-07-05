@@ -23,7 +23,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT])) {
         foreach ($parent as $link) {
             if ($link['nav_parent'] == $this->parent) {
                 echo '<li><a href="' . \phpOMS\Uri\UriFactory::build($link['nav_uri']) . '">'
-                     . $this->l11n->getText('Navigation', $link['nav_name']) . '</a>';
+                     . $this->l11n->getText('Navigation', 'Backend', $link['nav_name']) . '</a>';
             }
         }
     }

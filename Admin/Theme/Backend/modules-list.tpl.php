@@ -31,13 +31,13 @@ $footerView->setResults(count($modules));
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Admin', 'Modules'); ?></caption>
+        <caption><?= $this->l11n->getText('Admin', 'Backend', 'Modules'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Admin', 'Name'); ?>
-            <td><?= $this->l11n->getText('Admin', 'Version'); ?>
-            <td><?= $this->l11n->getText('Admin', 'Status'); ?>
+            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Admin', 'Backend', 'Name'); ?>
+            <td><?= $this->l11n->getText('Admin', 'Backend', 'Version'); ?>
+            <td><?= $this->l11n->getText('Admin', 'Backend', 'Status'); ?>
                 <tfoot>
         <tr>
             <td colspan="4"><?= $footerView->render(); ?>
@@ -49,14 +49,14 @@ $footerView->setResults(count($modules));
             <td><a href="<?= $url; ?>"><?= $module['name']['external']; ?></a>
             <td><a href="<?= $url; ?>"><?= $module['version']; ?></a>
             <td><a href="<?= $url; ?>"><?php if (in_array($module['name']['internal'], $active))
-                    echo strtolower($this->l11n->getText('Admin', 'Active'));
+                    echo strtolower($this->l11n->getText('Admin', 'Backend', 'Active'));
                 elseif (in_array($module['name']['internal'], $installed))
-                    echo strtolower($this->l11n->getText('Admin', 'Inactive'));
+                    echo strtolower($this->l11n->getText('Admin', 'Backend', 'Inactive'));
                 else
-                    echo strtolower($this->l11n->getText('Admin', 'Available')); ?></a>
+                    echo strtolower($this->l11n->getText('Admin', 'Backend', 'Available')); ?></a>
                 <?php endforeach; ?>
         <?php if($count === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
+            <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

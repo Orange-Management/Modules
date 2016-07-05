@@ -30,8 +30,8 @@ echo $this->getData('nav')->render(); ?>
 <div class="box w-100">
     <div class="tabular">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->l11n->getText('Draw', 'Start') ?></label>
-            <li><label for="c-tab-2"><?= $this->l11n->getText('Draw', 'Layout') ?></label>
+            <li><label for="c-tab-1"><?= $this->l11n->getText('Draw', 'Backend', 'Start') ?></label>
+            <li><label for="c-tab-2"><?= $this->l11n->getText('Draw', 'Backend', 'Layout') ?></label>
         </ul>
         <div class="tab-content">
             <input type="radio" id="c-tab-1" name="tabular-1" checked>
@@ -72,12 +72,12 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <form>
             <table class="layout">
-                <tr><td colspan="2"><label><?= $this->l11n->getText('Draw', 'Permission') ?></label>
+                <tr><td colspan="2"><label><?= $this->l11n->getText('Draw', 'Backend', 'Permission') ?></label>
                 <tr><td><select>
                             <option>
                         </select>
-                <tr><td colspan="2"><label><?= $this->l11n->getText('Draw', 'GroupUser') ?></label>
-                <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->l11n->getText(0, 'Add') ?></button>
+                <tr><td colspan="2"><label><?= $this->l11n->getText('Draw', 'Backend', 'GroupUser') ?></label>
+                <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->l11n->getText(0, 'Backend', 'Add') ?></button>
             </table>
         </form>
     </div>

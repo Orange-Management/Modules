@@ -28,16 +28,16 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Shipping', 'Shipping'); ?></caption>
+        <caption><?= $this->l11n->getText('Shipping', 'Backend', 'Shipping'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'ID'); ?>
-            <td><?= $this->l11n->getText('Shipping', 'Reference'); ?>
-            <td><?= $this->l11n->getText('Shipping', 'Status'); ?>
-            <td><?= $this->l11n->getText('Shipping', 'Service'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Shipping', 'Name'); ?>
-            <td><?= $this->l11n->getText('Shipping', 'Creator'); ?>
-            <td><?= $this->l11n->getText('Shipping', 'Created'); ?>
+            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
+            <td><?= $this->l11n->getText('Shipping', 'Backend', 'Reference'); ?>
+            <td><?= $this->l11n->getText('Shipping', 'Backend', 'Status'); ?>
+            <td><?= $this->l11n->getText('Shipping', 'Backend', 'Service'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Shipping', 'Backend', 'Name'); ?>
+            <td><?= $this->l11n->getText('Shipping', 'Backend', 'Creator'); ?>
+            <td><?= $this->l11n->getText('Shipping', 'Backend', 'Created'); ?>
         <tfoot>
         <tr><td colspan="7"><?= $footerView->render(); ?>
         <tbody>
@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
         <tr>
-            <td colspan=7" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
+            <td colspan=7" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

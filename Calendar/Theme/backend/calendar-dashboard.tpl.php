@@ -8,10 +8,10 @@ $calendar = $this->getData('calendar');
             <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
         </ul>
         <ul class="btns floatRight">
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Day') ?></a>
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Week') ?></a>
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Month') ?></a>
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Year') ?></a>
+            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Day') ?></a>
+            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Week') ?></a>
+            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Month') ?></a>
+            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Year') ?></a>
         </ul>
     </div>
     <div class="box w-100">
@@ -21,9 +21,9 @@ $calendar = $this->getData('calendar');
                 <?php for($j = 0; $j < 7; $j++) : ?>
                     <div contextmenu="calendar-day-menu" style="display: inline-block; box-sizing: border-box; width: 13.0%; height: 100px; border: 1px solid #000; margin: 0; padding: 3px; overflow: hidden">
                     <?php if($calendar->getDate()->getFirstDayOfMonth() <= $i*7+$j+1 && $calendar->getDate()->getDaysOfMonth() >= $i*7+$j+1) {
-                        echo ($i*7+$j+1) . ' ' . $this->l11n->getText(0, jddayofweek($j, 1));
+                        echo ($i*7+$j+1) . ' ' . $this->l11n->getText(0, jddayofweek($j, 'Backend', 1));
                     } else {
-                        echo (($i*7+$j+1)-$calendar->getDate()->getDaysOfMonth()) . ' ' . $this->l11n->getText(0, jddayofweek($j, 1));
+                        echo (($i*7+$j+1)-$calendar->getDate()->getDaysOfMonth()) . ' ' . $this->l11n->getText(0, jddayofweek($j, 'Backend', 1));
                     } ?>
                         <ul>
                         <?php
@@ -67,13 +67,13 @@ $calendar = $this->getData('calendar');
                 <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
             </ul>
             <div class="spacer"></div>
-            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->l11n->getText(0, 'Add'); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->l11n->getText(0, 'Create') ?></button>
+            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->l11n->getText(0, 'Add'); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->l11n->getText(0, 'Backend', 'Create') ?></button>
         </div>
     </section>
 </section>
 
 <menu type="context" id="calendar-day-menu">
-    <menuitem label="<?= $this->l11n->getText('Calendar', 'NewEvent') ?>"></menuitem>
+    <menuitem label="<?= $this->l11n->getText('Calendar', 'Backend', 'NewEvent') ?>"></menuitem>
 </menu>
 
 <menu type="context" id="calendar-event-menu">

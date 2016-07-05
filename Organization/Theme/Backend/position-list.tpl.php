@@ -30,12 +30,12 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Organization', 'Positions'); ?></caption>
+        <caption><?= $this->l11n->getText('Organization', 'Backend', 'Positions'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Organization', 'Name'); ?>
-            <td><?= $this->l11n->getText('Organization', 'Parent'); ?>
+            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
+            <td class="wf-100"><?= $this->l11n->getText('Organization', 'Backend', 'Name'); ?>
+            <td><?= $this->l11n->getText('Organization', 'Backend', 'Parent'); ?>
                 <tfoot>
         <tr><td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
             <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-            <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Empty'); ?>
+            <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

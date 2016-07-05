@@ -28,11 +28,11 @@ echo $this->getData('nav')->render(); ?>
 <div class="tabular-2">
     <div class="box">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->l11n->getText('Chart', 'Master') ?></label>
-            <li><label for="c-tab-2"><?= $this->l11n->getText('Chart', 'Text') ?></label>
-            <li><label for="c-tab-3"><?= $this->l11n->getText('Chart', 'Axis') ?></label>
-            <li><label for="c-tab-4"><?= $this->l11n->getText('Chart', 'Data') ?></label>
-            <li><label for="c-tab-5"><?= $this->l11n->getText('Chart', 'Legend') ?></label>
+            <li><label for="c-tab-1"><?= $this->l11n->getText('Chart', 'Backend', 'Master') ?></label>
+            <li><label for="c-tab-2"><?= $this->l11n->getText('Chart', 'Backend', 'Text') ?></label>
+            <li><label for="c-tab-3"><?= $this->l11n->getText('Chart', 'Backend', 'Axis') ?></label>
+            <li><label for="c-tab-4"><?= $this->l11n->getText('Chart', 'Backend', 'Data') ?></label>
+            <li><label for="c-tab-5"><?= $this->l11n->getText('Chart', 'Backend', 'Legend') ?></label>
         </ul>
     </div>
     <div class="tab-content">
@@ -42,19 +42,19 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Name'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Name'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Grid'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Grid'); ?></label>
                             <tr><td><select></select>
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Marker'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Marker'); ?></label>
                             <tr><td><select></select>
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Hover'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Hover'); ?></label>
                             <tr><td><select></select>
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Thickness'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Thickness'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Color'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Color'); ?></label>
                             <tr><td><select></select>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'ShowData'); ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'ShowData'); ?></label></span>
                         </table>
                     </form>
                 </div>
@@ -66,11 +66,11 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Title'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Title'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Size'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Position'); ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -81,11 +81,11 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Subtitle'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Subtitle'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Size'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Position'); ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -96,11 +96,11 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Footer'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Footer'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Size'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Position'); ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -114,20 +114,20 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Visible'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'ShowAxis'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'ShowTicks'); ?></label></span>
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Minimum'); ?></label>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'Visible'); ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'ShowAxis'); ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'ShowTicks'); ?></label></span>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Minimum'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Maximum'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Maximum'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Steps'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Steps'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Label'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Label'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Size'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Position'); ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -139,20 +139,20 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Visible'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'ShowAxis'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'ShowTicks'); ?></label></span>
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Minimum'); ?></label>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'Visible'); ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'ShowAxis'); ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'ShowTicks'); ?></label></span>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Minimum'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Maximum'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Maximum'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Steps'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Steps'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Label'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Label'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Size'); ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Position'); ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -165,13 +165,13 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Info'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Info'); ?></label>
                             <tr><td><input type="text" id="iName">
                             <tr><td><label for="iName">X</label>
                             <tr><td><input type="text" id="iName">
                             <tr><td><label for="iName">Y</label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><button><?= $this->l11n->getText(0, 'Add'); ?></button>
+                            <tr><td><button><?= $this->l11n->getText(0, 'Backend', 'Add'); ?></button>
                         </table>
                     </form>
                 </div>
@@ -181,7 +181,7 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Data'); ?></label>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Data'); ?></label>
                             <tr><td><textarea></textarea>
                         </table>
                     </form>
@@ -194,8 +194,8 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Visible'); ?></label></span>
-                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Position'); ?></label>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->l11n->getText('Chart', 'Backend', 'Visible'); ?></label></span>
+                            <tr><td><label for="iName"><?= $this->l11n->getText('Chart', 'Backend', 'Position'); ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
