@@ -1,5 +1,7 @@
 (function (jsOMS)
 {
+    "use strict";
+    
     jsOMS.Modules.Draw = function (app)
     {
         this.app = app;
@@ -57,6 +59,8 @@ jsOMS.ready(function ()
  */
 (function (jsOMS)
 {
+    "use strict";
+    
     jsOMS.Modules.Draw.DrawTypeEnum = Object.freeze({
         DRAW: 0,
         LINE: 1,
@@ -67,6 +71,8 @@ jsOMS.ready(function ()
 
 (function (jsOMS)
 {
+    "use strict";
+    
     jsOMS.Modules.Draw.Editor = function (editor)
     {
         this.editor = editor;

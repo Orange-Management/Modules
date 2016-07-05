@@ -1,5 +1,7 @@
 (function (jsOMS)
 {
+    "use strict";
+    
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
 
     jsOMS.Modules.Media = function (app)

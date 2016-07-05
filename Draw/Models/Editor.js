@@ -1,5 +1,7 @@
 (function (jsOMS)
 {
+    "use strict";
+    
     jsOMS.Modules.Draw.Editor = function (editor)
     {
         this.editor = editor;

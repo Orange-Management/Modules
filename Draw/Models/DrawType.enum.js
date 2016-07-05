@@ -9,6 +9,8 @@
  */
 (function (jsOMS)
 {
+    "use strict";
+    
     jsOMS.Modules.Draw.DrawTypeEnum = Object.freeze({
         DRAW: 0,
         LINE: 1,

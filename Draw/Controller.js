@@ -1,4 +1,6 @@
 (function (jsOMS) {
+    "use strict";
+    
     jsOMS.Modules.Draw = function (app) {
         this.app = app;
         this.editors = [];
