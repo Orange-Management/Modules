@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="3"><label for="iDesc"><?= $this->l11n->getText('Surveys', 'Backend', 'Description') ?><label>
                 <tr><td colspan="2"><textarea id="iDesc" name="desc"></textarea><td>
                 <tr><td colspan="3"><span class="check"><input type="checkbox" id="iResult" name="result"><label for="iResult"><?= $this->l11n->getText('Surveys', 'Backend', 'ResultPublic') ?><label></span>
-                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('Surveys', 'Responsibility') ?><label><td colspan="2"><label for="iPerm"><?= $this->l11n->getText('Surveys', 'Backend', 'UserGroup') ?><label>
+                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('Surveys', 'Backend', 'Responsibility') ?><label><td colspan="2"><label for="iPerm"><?= $this->l11n->getText('Surveys', 'Backend', 'UserGroup') ?><label>
                 <tr><td><select id="iResponsibility" name="responsibility">
                         <option value=""><?= $this->l11n->getText('Surveys', 'Backend', 'Questionee') ?>
                         <option value=""><?= $this->l11n->getText('Surveys', 'Backend', 'Manager') ?>
