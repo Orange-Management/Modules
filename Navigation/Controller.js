@@ -128,6 +128,5 @@ jsOMS.ready(function ()
 {
     "use strict";
 
-    let navigation = new jsOMS.Modules.Navigation();
-    navigation.bind('nav-side');
+    window.omsApp.moduleManager.get('Navigation').bind('nav-side');
 });

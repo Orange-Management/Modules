@@ -192,7 +192,7 @@ class UploadFile
                 $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
             } while (file_exists($this->outputDir . '/' . $rndPath));
 
-            $this->outputDir = '/../../..' . $this->outputDir . '/' . $rndPath;
+            $this->outputDir = $this->outputDir . '/' . $rndPath;
         }
     }
 

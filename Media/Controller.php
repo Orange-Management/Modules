@@ -25,6 +25,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\System\MimeType;
 use phpOMS\Views\View;
 
 /**
@@ -96,8 +97,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Models/Upload.js');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Media/Controller.js');
+        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Media/Models/Upload.js');
+        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Media/Controller.js');
     }
 
     /**
@@ -175,6 +176,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount());
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set($request->__toString(), [['uploads' => $uploads, 'type' => 'UI']]);
     }
 

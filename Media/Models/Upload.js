@@ -94,6 +94,7 @@
                     }
                 }
             } catch (exception) {
+                console.log(exception);
                 self.logger.error('Invalid media upload response: ' + xhr.response);
 
                 return false;

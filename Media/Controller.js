@@ -1,7 +1,7 @@
 (function (jsOMS)
 {
     "use strict";
-    
+
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
 
     jsOMS.Modules.Media = function (app)
@@ -9,44 +9,56 @@
         this.app = app;
     };
 
-    jsOMS.Modules.Media.prototype.bind = function ()
+    jsOMS.Modules.Media.prototype.bind = function (id)
     {
-        let forms = document.getElementsByTagName('form');
+        let e      = typeof id === 'undefined' ? document.getElementsByTagName('form') : [document.getElementById(id)],
+            length = e.length;
 
-        /* Handle media forms */
-        for (let i = 0; i < forms.length; i++) {
-            let self = this;
+        for (let i = 0; i < length; i++) {
+            this.bindElement(e[i]);
+        }
+    };
 
-            if (typeof forms[i].querySelector('input[type=file]') !== 'undefined') {
-                try {
-                    this.app.uiManager.getFormManager().get(forms[i].id).injectSubmit(function (e, requestId, requestGroup)
+    jsOMS.Modules.Media.prototype.bindElement = function (form)
+    {
+        if (typeof form === 'undefined' || !form) {
+            // todo: do logging here
+
+            return;
+        }
+
+        let self = this;
+
+        if (typeof form.querySelector('input[type=file]') !== 'undefined') {
+            try {
+                // Inject media upload into form view
+                this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId, requestGroup)
+                {
+                    let fileFields = e.querySelectorAll('input[type=file]'),
+                        uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager, self.app.logger);
+
+                    uploader.setSuccess(e.id, function (type, response)
                     {
-                        let fileFields = e.querySelectorAll('input[type=file]'),
-                            uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager, self.app.logger);
-
-                        uploader.setSuccess(e.id, function (type, response)
-                        {
-                            e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
-                            self.app.eventManager.triggerDone(requestId, requestGroup);
-                        });
-
-                        uploader.setUri(Url + '{/lang}/api/media');
-
-                        for (let i = 0; i < fileFields.length; i++) {
-                            for (let j = 0; j < fileFields[i].files.length; j++) {
-                                uploader.addFile(fileFields[i].files[j]);
-                            }
-                        }
-
-                        if (uploader.count() < 1) {
-                            return;
-                        }
-
-                        uploader.upload(e.id);
+                        e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
+                        self.app.eventManager.trigger(requestId, requestGroup);
                     });
-                } catch (e) {
-                    this.app.logger.info('Tried to add media upload support for form without an ID.');
-                }
+
+                    uploader.setUri(Url + '{/lang}/api/media');
+
+                    for (let i = 0; i < fileFields.length; i++) {
+                        for (let j = 0; j < fileFields[i].files.length; j++) {
+                            uploader.addFile(fileFields[i].files[j]);
+                        }
+                    }
+
+                    if (uploader.count() < 1) {
+                        return;
+                    }
+
+                    uploader.upload(e.id);
+                });
+            } catch (e) {
+                this.app.logger.info('Tried to add media upload support for form without an ID.');
             }
         }
     };
@@ -54,5 +66,7 @@
 
 jsOMS.ready(function ()
 {
+    "use strict";
+
     window.omsApp.moduleManager.get('Media').bind();
 });
