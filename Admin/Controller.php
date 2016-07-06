@@ -23,6 +23,7 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\System\MimeType;
 use phpOMS\Views\View;
 
 /**
@@ -324,6 +325,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set('account', AccountMapper::getByRequest($request));
     }
 
