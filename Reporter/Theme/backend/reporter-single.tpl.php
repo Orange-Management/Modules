@@ -19,19 +19,18 @@
 // TODO: load template in new view that doesn't get access to anything otherwise user can interact with app in bad ways
 $tcoll    = $this->getData('tcoll');
 $rcoll    = $this->getData('rcoll');
-$lang     = $this->getData('lang');
+$cLang     = $this->getData('lang');
 $template = $this->getData('template');
 $report   = $this->getData('report');
 
 /** @noinspection PhpIncludeInspection */
-include ROOT_PATH . '/' . $tcoll['lang']->getPath();
-
-$cLang = $reportLanguage[$lang];
+$reportLanguage = include ROOT_PATH . '/' . $tcoll['lang']->getPath();
+$lang = $reportLanguage[$cLang];
 
 echo $this->getData('nav')->render(); ?>
 <div class="wf-75 floatLeft">
     <?php /** @noinspection PhpIncludeInspection */
-    include $tcoll['template']->getPath(); ?>
+    include ROOT_PATH . '/' . $tcoll['template']->getPath(); ?>
 </div>
 
 <div class="wf-25 floatLeft">
@@ -47,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr>
                         <td><select id="iLang" name="lang">
                                 <?php foreach($reportLanguage as $key => $langauge) : ?>
-                                <option value="<?= $key; ?>"<?= $langauge[':language'] === $cLang[':language'] ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
+                                <option value="<?= $key; ?>"<?= $key === $cLang ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
                                 <?php endforeach; ?>
                             </select>
                     <tr>

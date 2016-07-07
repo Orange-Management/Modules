@@ -26,9 +26,11 @@ use Modules\Reporter\Models\ReportMapper;
 use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
+use phpOMS\Asset\AssetType;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
@@ -198,10 +200,8 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $template = TemplateMapper::get((int) $request->getData('id'));
-
-        //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
-
         $collection = CollectionMapper::get($template->getSource());
+        //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
         $tcoll = [];
         $files = $collection->getSources();
@@ -225,6 +225,10 @@ class Controller extends ModuleAbstract implements WebInterface
                 $tcoll['template'] = $tMedia;
             } elseif (StringUtils::endsWith(strtolower($path), '.css')) {
                 $tcoll['css'] = $tMedia;
+
+                /** @var Head $head */
+                $head = $response->get('Content')->getData('head');
+                $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . $tMedia->getPath());
             } elseif (StringUtils::endsWith(strtolower($path), '.js')) {
                 $tcoll['js'] = $tMedia;
             } elseif (StringUtils::endsWith(strtolower($path), '.sqlite') || StringUtils::endsWith(strtolower($path), '.db')) {
