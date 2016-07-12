@@ -14,6 +14,7 @@
  * @link       http://orange-management.com
  */
 return ['Profile' => [
+    'Account/Group'      => 'Account/Group',
     'Activity'           => 'Activity',
     'Birthday'           => 'Birthday',
     'ContactInformation' => 'Contact Information',

@@ -387,6 +387,21 @@ class Task
     }
 
     /**
+     * Set task type.
+     *
+     * @param int $type Task type
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setType(int $type = TaskType::SINGLE)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * Get schedule.
      *
      * @return Schedule

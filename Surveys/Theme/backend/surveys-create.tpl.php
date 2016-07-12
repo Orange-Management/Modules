@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tr><td colspan="3"><label for="iName"><?= $this->l11n->getText('Surveys', 'Backend', 'Name') ?><label>
                 <tr><td colspan="2"><input type="text" id="iName" name="name" required><td>
-                <tr><td><label for="iStart"><?= $this->l11n->getText('Surveys', 'Start') ?><label><td><label for="iEnd"><?= $this->l11n->getText('Surveys', 'Backend', 'End') ?><label><td>
+                <tr><td><label for="iStart"><?= $this->l11n->getText('Surveys', 'Backend', 'Start') ?><label><td><label for="iEnd"><?= $this->l11n->getText('Surveys', 'Backend', 'End') ?><label><td>
                 <tr><td><input type="datetime-local" id="iStart" name="start" required><td><input type="datetime-local" id="iEnd" name="end" required><td>
                 <tr><td colspan="3"><label for="iDesc"><?= $this->l11n->getText('Surveys', 'Backend', 'Description') ?><label>
                 <tr><td colspan="2"><textarea id="iDesc" name="desc"></textarea><td>

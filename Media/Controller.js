@@ -29,7 +29,7 @@
 
         let self = this;
 
-        if (typeof form.querySelector('input[type=file]') !== 'undefined') {
+        if (!form.querySelector('input[type=file]')|| !document.querySelector('input[type=file][form=' + form.id + ']')) {
             try {
                 // Inject media upload into form view
                 this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId, requestGroup)

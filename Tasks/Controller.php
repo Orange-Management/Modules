@@ -165,6 +165,16 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $task = new Task();
@@ -174,7 +184,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->setCreatedAt(new \DateTime('now'));
         $task->setDue(new \DateTime($request->getData('due') ?? 'now'));
         $task->setStatus(TaskStatus::OPEN);
-        $task->setType(TaskType::TASK);
+        $task->setType(TaskType::SINGLE);
 
         $element = new TaskElement();
         $element->setForwarded($request->getData('forward') ?? $request->getAccount());
