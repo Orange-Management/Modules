@@ -286,7 +286,9 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $this->app->appSettings->set([$request->getData('setting') => $request->getData('value')], true);
+        $success = $this->app->appSettings->set((array) $request->getData('settings'), true);
+
+        $response->set('settings', $success);
     }
 
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
