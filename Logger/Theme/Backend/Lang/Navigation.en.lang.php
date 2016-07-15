@@ -13,7 +13,8 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-return ['Workflow' => [
-    'Workflow'  => 'Workflow',
-    'Workflows' => 'Workflows',
+return ['Navigation' => [
+    'Logger' => 'Logger',
+    'Logs'   => 'Logs',
+    'List'   => 'List',
 ]];
