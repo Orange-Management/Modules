@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1005700000,
+        "internal": "Job",
+        "external": "OMS Job"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Job module.",
+    "directory": "Job",
+    "dependencies": {
+        "Admin" : "1.0.0",
+        "Calendar" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "f3adb43bbf6c5c625a9e3f35a44ff7034b5e063a"
+            ],
+            "type": 4,
+            "for": 0,
+            "from": "Job",
+            "file": "Job"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Job",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

@@ -13,22 +13,32 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Logger\Models;
+namespace Modules\Job\Admin;
 
 
+use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\DeactivateAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
- * Task class.
+ * Navigation class.
  *
  * @category   Modules
- * @package    Framework
+ * @package    Modules\Admin
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Log
+class Deactivate extends DeactivateAbstract
 {
 
+    /**
+     * {@inheritdoc}
+     */
+    public static function deactivate(Pool $dbPool, InfoManager $info)
+    {
+        parent::deactivate($dbPool, $info);
+    }
 }

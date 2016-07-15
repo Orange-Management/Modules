@@ -13,22 +13,37 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Logger\Models;
+namespace Modules\Job\Admin;
 
-
+use phpOMS\DataStorage\Database\DatabaseType;
+use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\InfoManager;
+use phpOMS\Module\InstallerAbstract;
 
 /**
- * Task class.
+ * Tasks install class.
  *
  * @category   Modules
- * @package    Framework
+ * @package    Modules\Tasks
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Log
+class Installer extends InstallerAbstract
 {
 
+    /**
+     * {@inheritdoc}
+     */
+    public static function install(Pool $dbPool, InfoManager $info)
+    {
+        parent::install($dbPool, $info);
+
+        switch ($dbPool->get('core')->getType()) {
+            case DatabaseType::MYSQL:
+                break;
+        }
+    }
 }

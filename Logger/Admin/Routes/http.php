@@ -11,7 +11,7 @@ return [
     ],
     '^.*/backend/admin/log/single.*$' => [
         [
-            'dest' => '\Modules\Workflow\Controller:viewLog',
+            'dest' => '\Modules\Logger\Controller:viewLog',
             'verb' => RouteVerb::GET,
         ],
     ],

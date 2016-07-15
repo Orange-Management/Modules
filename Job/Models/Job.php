@@ -13,7 +13,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Logger\Models;
+namespace Modules\Job\Models;
 
 
 
@@ -28,7 +28,7 @@ namespace Modules\Logger\Models;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Log
+class Job
 {
 
 }

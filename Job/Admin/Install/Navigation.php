@@ -13,22 +13,28 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Logger\Models;
-
-
+namespace Modules\Job\Admin\Install;
+use phpOMS\DataStorage\Database\Pool;
 
 /**
- * Task class.
+ * Navigation class.
  *
  * @category   Modules
- * @package    Framework
+ * @package    Modules\Admin
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Log
+class Navigation
 {
+    public static function install(Pool $dbPool)
+    {
+        $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
 
+        $class = '\\Modules\\Navigation\\Admin\\Installer';
+        /** @var $class \Modules\Navigation\Admin\Installer */
+        $class::installExternal($dbPool, $navData);
+    }
 }
