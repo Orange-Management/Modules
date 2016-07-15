@@ -17,6 +17,7 @@ namespace Modules\Tasks\Admin;
 
 
 use phpOMS\DataStorage\Database\Pool;
+use phpOMS\Module\InfoManager;
 use phpOMS\Module\UpdateAbstract;
 use phpOMS\System\File\Directory;
 
@@ -37,7 +38,7 @@ class Update extends UpdateAbstract
     /**
      * {@inheritdoc}
      */
-    public static function update(Pool $dbPool, array $info)
+    public static function update(Pool $dbPool, InfoManager $info)
     {
         Directory::deletePath(__DIR__ . '/Update');
         mkdir('Update');

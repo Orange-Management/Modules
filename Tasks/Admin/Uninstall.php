@@ -18,6 +18,7 @@ namespace Modules\Tasks\Admin;
 
 use phpOMS\DataStorage\Database\Pool;
 use phpOMS\DataStorage\Database\Schema\Builder;
+use phpOMS\Module\InfoManager;
 use phpOMS\Module\UninstallAbstract;
 
 /**
