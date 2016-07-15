@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="wf-75 floatLeft">
-    <?php include __DIR__ . '/../Editor/Theme/Backend/editor.tpl.php'; ?>
+    <?php include __DIR__ . '../../../Editor/Theme/Backend/editor.tpl.php'; ?>
 </section>
 <section class="wf-25 floatLeft">
     <section class="box w-100">
