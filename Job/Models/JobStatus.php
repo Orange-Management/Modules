@@ -13,32 +13,25 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Logger\Admin;
+namespace Modules\Job\Models;
 
-
-use phpOMS\DataStorage\Database\Pool;
-use phpOMS\Module\ActivateAbstract;
-use phpOMS\Module\InfoManager;
+use phpOMS\Datatypes\Enum;
 
 /**
- * Navigation class.
+ * Task status enum.
  *
- * @category   Modules
- * @package    Modules\Admin
+ * @category   Job
+ * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Activate extends ActivateAbstract
+abstract class JobStatus extends Enum
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function activate(Pool $dbPool, InfoManager $info)
-    {
-        parent::activate($dbPool, $info);
-    }
+    const RUNNING = 1;
+    const WAITING = 2;
+    const SUSPENDED = 3;
+    const DONE = 4;
 }

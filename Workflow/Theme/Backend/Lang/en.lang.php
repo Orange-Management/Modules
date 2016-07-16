@@ -14,6 +14,11 @@
  * @link       http://orange-management.com
  */
 return ['Workflow' => [
+    'Created'   => 'Created',
+    'Creator'   => 'Creator',
+    'Next'       => 'Next',
+    'Status'    => 'Status',
+    'Title'     => 'Title',
     'Workflow'  => 'Workflow',
     'Workflows' => 'Workflows',
 ]];

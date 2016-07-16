@@ -13,32 +13,27 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-namespace Modules\Logger\Admin;
+namespace Modules\Workflow\Models;
 
-
-use phpOMS\DataStorage\Database\Pool;
-use phpOMS\Module\DeactivateAbstract;
-use phpOMS\Module\InfoManager;
+use phpOMS\Datatypes\Enum;
 
 /**
- * Navigation class.
+ * Task status enum.
  *
- * @category   Modules
- * @package    Modules\Admin
+ * @category   Workflow
+ * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Deactivate extends DeactivateAbstract
+abstract class WorkflowStatus extends Enum
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function deactivate(Pool $dbPool, InfoManager $info)
-    {
-        parent::deactivate($dbPool, $info);
-    }
+    const OPEN = 1;
+    const WORKING = 2;
+    const SUSPENDED = 3;
+    const CANCELED = 4;
+    const DONE = 5;
+    const CLOSED = 6;
 }

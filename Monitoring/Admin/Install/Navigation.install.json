@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 50,
-        "from": "Admin",
+        "from": "Monitoring",
         "permission": null,
         "parent": 1000101001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": "Admin",
+                "from": "Monitoring",
                 "permission": null,
                 "parent": 1000706001,
                 "children": []
@@ -34,11 +34,11 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Logs",
-                "uri": "/{/lang}/backend/admin/monitoring/logs/list",
+                "uri": "/{/lang}/backend/admin/monitoring/log/list",
                 "target": "self",
                 "icon": null,
                 "order": 5,
-                "from": "Admin",
+                "from": "Monitoring",
                 "permission": null,
                 "parent": 1000706001,
                 "children": []

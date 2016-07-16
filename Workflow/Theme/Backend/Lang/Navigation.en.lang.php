@@ -14,6 +14,9 @@
  * @link       http://orange-management.com
  */
 return ['Navigation' => [
+    'Create'    => 'Create',
+    'Dashboard' => 'Dashboard',
+    'Templates' => 'Templates',
     'Workflows' => 'Workflows',
     'Workflow'  => 'Workflow',
 ]];

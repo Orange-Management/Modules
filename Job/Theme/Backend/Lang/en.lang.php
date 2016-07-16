@@ -14,6 +14,11 @@
  * @link       http://orange-management.com
  */
 return ['Job' => [
-    'Jobs' => 'Jobs',
-    'Job'  => 'Job',
+    'Created' => 'Created',
+    'Creator' => 'Creator',
+    'Jobs'    => 'Jobs',
+    'Job'     => 'Job',
+    'Next'    => 'Next',
+    'Status'  => 'Status',
+    'Title'   => 'Title',
 ]];

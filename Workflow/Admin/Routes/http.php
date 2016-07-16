@@ -21,6 +21,12 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/workflow/dashboard.*$' => [
+        [
+            'dest' => '\Modules\Workflow\Controller:viewWorkflowDashboard',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/workflow/single.*$' => [
         [
             'dest' => '\Modules\Workflow\Controller:viewWorkflowSingle',

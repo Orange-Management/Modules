@@ -9,13 +9,13 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/admin/monitoring/logs/list.*$' => [
+    '^.*/backend/admin/monitoring/log/list.*$' => [
         [
             'dest' => '\Modules\Monitoring\Controller:viewMonitoringLogList', 
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/admin/monitoring/logs/single.*$' => [
+    '^.*/backend/admin/monitoring/log/single.*$' => [
         [
             'dest' => '\Modules\Monitoring\Controller:viewMonitoringLogEntry', 
             'verb' => RouteVerb::GET,

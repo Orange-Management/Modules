@@ -89,8 +89,8 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewJobList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Workflow/Theme/Backend/task-dashboard');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+        $view->setTemplate('/Modules/Job/Theme/Backend/job-dashboard');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
 
         return $view;
     }
@@ -108,7 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewJob(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Workflow/Theme/Backend/task-single');
+        $view->setTemplate('/Modules/Job/Theme/Backend/job-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         return $view;
