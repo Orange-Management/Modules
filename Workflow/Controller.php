@@ -89,8 +89,8 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewWorkflowTemplates(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Workflow/Theme/Backend/task-dashboard');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+        $view->setTemplate('/Modules/Workflow/Theme/Backend/workflow-template-list');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005501001, $request, $response));
 
         return $view;
     }
@@ -109,7 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/task-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005501001, $request, $response));
 
         return $view;
     }
@@ -128,7 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/task-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005501001, $request, $response));
 
         return $view;
     }
@@ -146,8 +146,8 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewWorkflowTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Workflow/Theme/Backend/task-analysis');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+        $view->setTemplate('/Modules/Workflow/Theme/Backend/workflow-template-create');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005501001, $request, $response));
 
         return $view;
     }

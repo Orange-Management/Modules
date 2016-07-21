@@ -174,7 +174,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount());
+        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? '/Modules/Media/Files');
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set($request->__toString(), [['uploads' => $uploads, 'type' => 'UI']]);
@@ -198,22 +198,23 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
-     * @param array $files   Files
-     * @param int   $account Uploader
+     * @param array  $files    Files
+     * @param int    $account  Uploader
+     * @param string $basePath Base path
      *
      * @return array
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function uploadFiles(array $files, int $account) : array
+    public function uploadFiles(array $files, int $account, string $basePath = '/Modules/Media/Files') : array
     {
         $mediaCreated = [];
 
         if (!empty($files)) {
             $upload  = new UploadFile();
             $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
-            $path    = '/Modules/Media/Files/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
+            $path    = '/' . trim($basePath, '/\\.') . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
             $upload->setOutputDir($path);
             $upload->setFileName(false);
 
