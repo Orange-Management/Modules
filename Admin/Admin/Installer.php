@@ -121,6 +121,50 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'ips_ibfk_1` FOREIGN KEY (`ips_group`) REFERENCES `' . $dbPool->get('core')->prefix . 'group` (`group_id`);'
                 )->execute();
 
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'l11n` (
+                            `l11n_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `l11n_country` varchar(20) NOT NULL,
+                            `l11n_language` varchar(20) NOT NULL,
+                            `l11n_currency` varchar(20) NOT NULL,
+                            `l11n_number_thousand` varchar(20) NOT NULL,
+                            `l11n_number_decimal` varchar(20) NOT NULL,
+                            `l11n_angle` varchar(20) NOT NULL,
+                            `l11n_temperature` varchar(20) NOT NULL,
+                            `l11n_weight_very_light` varchar(20) NOT NULL,
+                            `l11n_weight_light` varchar(20) NOT NULL,
+                            `l11n_weight_medium` varchar(20) NOT NULL,
+                            `l11n_weight_heavy` varchar(20) NOT NULL,
+                            `l11n_weight_very_heavy` varchar(20) NOT NULL,
+                            `l11n_speed_very_slow` varchar(20) NOT NULL,
+                            `l11n_speed_slow` varchar(20) NOT NULL,
+                            `l11n_speed_medium` varchar(20) NOT NULL,
+                            `l11n_speed_fast` varchar(20) NOT NULL,
+                            `l11n_speed_very_fast` varchar(20) NOT NULL,
+                            `l11n_speed_sea` varchar(20) NOT NULL,
+                            `l11n_length_very_short` varchar(20) NOT NULL,
+                            `l11n_length_short` varchar(20) NOT NULL,
+                            `l11n_length_medium` varchar(20) NOT NULL,
+                            `l11n_length_long` varchar(20) NOT NULL,
+                            `l11n_length_very_long` varchar(20) NOT NULL,
+                            `l11n_length_sea` varchar(20) NOT NULL,
+                            `l11n_area_very_small` varchar(20) NOT NULL,
+                            `l11n_area_small` varchar(20) NOT NULL,
+                            `l11n_area_medium` varchar(20) NOT NULL,
+                            `l11n_area_large` varchar(20) NOT NULL,
+                            `l11n_area_very_large` varchar(20) NOT NULL,
+                            `l11n_volume_very_small` varchar(20) NOT NULL,
+                            `l11n_volume_small` varchar(20) NOT NULL,
+                            `l11n_volume_medium` varchar(20) NOT NULL,
+                            `l11n_volume_large` varchar(20) NOT NULL,
+                            `l11n_volume_very_large` varchar(20) NOT NULL,
+                            `l11n_volume_teaspoon` varchar(20) NOT NULL,
+                            `l11n_volume_tablespoon` varchar(20) NOT NULL,
+                            `l11n_volume_glass` varchar(20) NOT NULL,
+                            PRIMARY KEY (`l11n_id`)
+                        ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
                 /* Create account table */
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'account` (
@@ -135,9 +179,16 @@ class Installer extends InstallerAbstract
                             `account_email` varchar(70) NOT NULL,
                             `account_tries` tinyint(2) NOT NULL DEFAULT 0,
                             `account_lactive` datetime DEFAULT NULL,
+                            `account_localization` int(11) DEFAULT NULL,
                             `account_created_at` datetime NOT NULL,
-                            PRIMARY KEY (`account_id`)
+                            PRIMARY KEY (`account_id`),
+                            KEY `account_localization` (`account_localization`)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'account`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'account_ibfk_1` FOREIGN KEY (`account_localization`) REFERENCES `' . $dbPool->get('core')->prefix . 'l11n` (`l11n_id`);'
                 )->execute();
 
                 /* Create account group table */
