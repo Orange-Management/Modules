@@ -36,9 +36,9 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="2"><input type="file" id="iFiles" name="file" multiple><td>
                 <tr><td colspan="3"><label for="iBudget"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Budget'); ?></label>
                 <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder=""><td>
-                <tr><td><label for="iDue"><?= $this->l11n->getText('ResearchDevelopment', 'Start'); ?></label><td><label for="iDue"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Due'); ?></label><td>
+                <tr><td><label for="iDue"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Start'); ?></label><td><label for="iDue"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Due'); ?></label><td>
                 <tr><td><input type="datetime-local" id="iDue" name="due"><td><input type="datetime-local" id="iDue" name="due"><td>
-                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('ResearchDevelopment', 'Responsibility'); ?></label><td><label for="iUser"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'UserGroup'); ?></label><td>
+                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Responsibility'); ?></label><td><label for="iUser"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'UserGroup'); ?></label><td>
                 <tr><td><select id="iStatus" name="status">
                             <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Manager'); ?>
                             <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::OTHER ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Other'); ?>
