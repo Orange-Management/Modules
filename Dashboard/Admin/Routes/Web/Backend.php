@@ -3,7 +3,7 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/dashboard/list.*$' => [
+    '^.*/backend$' => [
         [
             'dest' => '\Modules\Dashboard\Controller:viewDashboard', 
             'verb' => RouteVerb::GET,
