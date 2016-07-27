@@ -36,20 +36,20 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Reporter', 'Backend', 'Reports'); ?></caption>
+        <caption><?= $this->getText('Reports'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Reporter', 'Backend', 'Name'); ?>
-            <td><?= $this->l11n->getText('Reporter', 'Backend', 'Creator'); ?>
-            <td><?= $this->l11n->getText('Reporter', 'Backend', 'Updated'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td><?= $this->getText('Creator'); ?>
+            <td><?= $this->getText('Updated'); ?>
         <tfoot>
         <tr>
             <td colspan="4"><?= $footerView->render(); ?>
         <tbody>
         <?php if (count($templates) == 0) : ?>
         <tr class="empty">
-            <td colspan="4"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <td colspan="4"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
                 <?php foreach ($templates as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>

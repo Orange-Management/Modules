@@ -16,35 +16,35 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Project'); ?></h1></header>
+    <header><h1><?= $this->getText('Project'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td colspan="3"><label for="iName"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Name'); ?></label>
+                <tr><td colspan="3"><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td colspan="2"><input type="text" id="iName" name="name" placeholder=""><td>
-                <tr><td colspan="3"><label for="iDescription"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Description'); ?></label>
+                <tr><td colspan="3"><label for="iDescription"><?= $this->getText('Description'); ?></label>
                 <tr><td colspan="2"><textarea id="iDescription" name="description"></textarea><td>
-                <tr><td colspan="3"><label for="iStatus"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Status'); ?></label>
+                <tr><td colspan="3"><label for="iStatus"><?= $this->getText('Status'); ?></label>
                 <tr><td colspan="2"><select id="iStatus" name="status">
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::ACTIVE ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Active'); ?>
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::INACTIVE ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Inactive'); ?>
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::FINISHED ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Finished'); ?>
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::CANCELED ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Canceled'); ?>
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::HOLD ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Hold'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::ACTIVE ?>"><?= $this->getText('Active'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::INACTIVE ?>"><?= $this->getText('Inactive'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::FINISHED ?>"><?= $this->getText('Finished'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::CANCELED ?>"><?= $this->getText('Canceled'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectStatus::HOLD ?>"><?= $this->getText('Hold'); ?>
                         </select><td>
-                <tr><td colspan="3"><label for="iFiles"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Files'); ?></label>
+                <tr><td colspan="3"><label for="iFiles"><?= $this->getText('Files'); ?></label>
                 <tr><td colspan="2"><input type="file" id="iFiles" name="file" multiple><td>
-                <tr><td colspan="3"><label for="iBudget"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Budget'); ?></label>
+                <tr><td colspan="3"><label for="iBudget"><?= $this->getText('Budget'); ?></label>
                 <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder=""><td>
-                <tr><td><label for="iDue"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Start'); ?></label><td><label for="iDue"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Due'); ?></label><td>
+                <tr><td><label for="iDue"><?= $this->getText('Start'); ?></label><td><label for="iDue"><?= $this->getText('Due'); ?></label><td>
                 <tr><td><input type="datetime-local" id="iDue" name="due"><td><input type="datetime-local" id="iDue" name="due"><td>
-                <tr><td><label for="iResponsibility"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Responsibility'); ?></label><td><label for="iUser"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'UserGroup'); ?></label><td>
+                <tr><td><label for="iResponsibility"><?= $this->getText('Responsibility'); ?></label><td><label for="iUser"><?= $this->getText('UserGroup'); ?></label><td>
                 <tr><td><select id="iStatus" name="status">
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Manager'); ?>
-                            <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::OTHER ?>"><?= $this->l11n->getText('ResearchDevelopment', 'Backend', 'Other'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER ?>"><?= $this->getText('Manager'); ?>
+                            <option value="<?= \Modules\ProjectManagement\Models\ProjectResponsibility::OTHER ?>"><?= $this->getText('Other'); ?>
                         </select>
-                    <td><input type="text" id="iUser" name="user" placeholder=""><td><button><?= $this->l11n->getText(0, 'Backend', 'Add'); ?></button>
-                <tr><td colspan="3"><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create'); ?>">
+                    <td><input type="text" id="iUser" name="user" placeholder=""><td><button><?= $this->getText('Add'); ?></button>
+                <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create'); ?>">
             </table>
         </form>
     </div>

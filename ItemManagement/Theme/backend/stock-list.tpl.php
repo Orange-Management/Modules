@@ -28,12 +28,12 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('ItemManagement', 'Backend', 'Stock'); ?></caption>
+        <caption><?= $this->getText('Stock'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('ItemManagement', 'Backend', 'Article'); ?>
-            <td><?= $this->l11n->getText('ItemManagement', 'Backend', 'Quantity'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td class="wf-100"><?= $this->getText('Article'); ?>
+            <td><?= $this->getText('Quantity'); ?>
         <tfoot>
         <tr><td colspan="8"><?= $footerView->render(); ?>
         <tbody>
@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
         <tr>
-            <td colspan="8" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <td colspan="8" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

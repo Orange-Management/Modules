@@ -19,19 +19,19 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->getText('Accounting', 'Backend', 'Stack'); ?></h1></header>
+    <header><h1><?= $this->getText('Stack'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iName"><?= $this->l11n->getText('Accounting', 'Backend', 'Name'); ?></label>
+                <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input id="iName" name="name" type="text">
-                <tr><td><label for="iType"><?= $this->l11n->getText('Accounting', 'Backend', 'Type'); ?></label>
+                <tr><td><label for="iType"><?= $this->getText('Type'); ?></label>
                 <tr><td><select id="iType" name="type">
-                            <option value=""><?= $this->l11n->getText('Accounting', 'Backend', 'TAccount'); ?>
-                            <option value=""><?= $this->l11n->getText('Accounting', 'Backend', 'Incoming'); ?>
-                            <option value=""><?= $this->l11n->getText('Accounting', 'Backend', 'Outgoing'); ?>
+                            <option value=""><?= $this->getText('TAccount'); ?>
+                            <option value=""><?= $this->getText('Incoming'); ?>
+                            <option value=""><?= $this->getText('Outgoing'); ?>
                         </select>
-                <tr><td><input name="submit" type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create'); ?>">
+                <tr><td><input name="submit" type="submit" value="<?= $this->getText('Create'); ?>">
             </table>
         </form>
     </div>

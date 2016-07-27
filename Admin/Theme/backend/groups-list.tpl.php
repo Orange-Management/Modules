@@ -28,14 +28,14 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Admin', 'Backend', 'Groups'); ?></caption>
+        <caption><?= $this->getText('Groups'); ?></caption>
         <thead>
             <tr>
-                <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-                <td class="wf-100"><?= $this->l11n->getText('Admin', 'Backend', 'Name'); ?>
-                <td><?= $this->l11n->getText('Admin', 'Backend', 'Parents'); ?>
-                <td><?= $this->l11n->getText('Admin', 'Backend', 'Children'); ?>
-                <td><?= $this->l11n->getText('Admin', 'Backend', 'Members'); ?>
+                <td><?= $this->getText('ID'); ?>
+                <td class="wf-100"><?= $this->getText('Name'); ?>
+                <td><?= $this->getText('Parents'); ?>
+                <td><?= $this->getText('Children'); ?>
+                <td><?= $this->getText('Members'); ?>
         <tfoot>
             <tr><td colspan="5"><?= $footerView->render(); ?>
         <tbody>
@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
                 <td>
             <?php endforeach; ?>
             <?php if($c === 0) : ?>
-            <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
             <?php endif; ?>
     </table>
 </div>

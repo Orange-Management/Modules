@@ -22,22 +22,22 @@ $unit = $this->getData('unit');
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <header><h1><?= $this->l11n->getText('Organization', 'Backend', 'Position'); ?></h1></header>
+    <header><h1><?= $this->getText('Position'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iName"><?= $this->l11n->getText('Organization', 'Backend', 'Name'); ?></label>
+                <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input type="text" name="name" id="iName" value="<?= $unit->getName(); ?>">
-                <tr><td><label for="iParent"><?= $this->l11n->getText('Organization', 'Backend', 'Parent'); ?></label>
+                <tr><td><label for="iParent"><?= $this->getText('Parent'); ?></label>
                 <tr><td><input type="text" name="parent" id="iParent" value="<?= $unit->getParent(); ?>">
-                <tr><td><label for="iStatus"><?= $this->l11n->getText('Organization', 'Backend', 'Status'); ?></label>
+                <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
                 <tr><td><select name="status" id="iStatus">
-                            <option><?= $this->l11n->getText('Organization', 'Backend', 'Active'); ?>
-                            <option><?= $this->l11n->getText('Organization', 'Backend', 'Inactive'); ?>
+                            <option><?= $this->getText('Active'); ?>
+                            <option><?= $this->getText('Inactive'); ?>
                         </select>
-                <tr><td><label for="iDescription"><?= $this->l11n->getText('Organization', 'Backend', 'Description'); ?></label>
+                <tr><td><label for="iDescription"><?= $this->getText('Description'); ?></label>
                 <tr><td><textarea name="description" id="iDescription"><?= $unit->getDescription(); ?></textarea>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Save') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Save') ?>">
             </table>
         </form>
     </div>

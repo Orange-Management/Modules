@@ -24,17 +24,17 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Suppliers') ?></caption>
+        <caption><?= $this->getText('Suppliers') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Name1'); ?>
-            <td><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Name2'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Name3'); ?>
-            <td><?= $this->l11n->getText('SupplierManagement', 'Backend', 'City'); ?>
-            <td><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Zip'); ?>
-            <td><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Address'); ?>
-            <td><?= $this->l11n->getText('SupplierManagement', 'Backend', 'Country'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('Name1'); ?>
+            <td><?= $this->getText('Name2'); ?>
+            <td class="wf-100"><?= $this->getText('Name3'); ?>
+            <td><?= $this->getText('City'); ?>
+            <td><?= $this->getText('Zip'); ?>
+            <td><?= $this->getText('Address'); ?>
+            <td><?= $this->getText('Country'); ?>
         <tfoot>
         <tr>
             <td colspan="8"><?= $footerView->render(); ?>
@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="8" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="8" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

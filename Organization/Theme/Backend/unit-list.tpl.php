@@ -28,21 +28,21 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Organization', 'Backend', 'Units'); ?></caption>
+        <caption><?= $this->getText('Units'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Organization', 'Backend', 'Name'); ?>
-            <td><?= $this->l11n->getText('Organization', 'Backend', 'Parent'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td><?= $this->getText('Parent'); ?>
                 <tfoot>
         <tr><td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
                 <?php foreach ($this->getData('list:elements') as $key => $value) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/unit/profile?id=' . $value->getId()); ?>
         <tr>
-            <td data-label="<?= $this->l11n->getText(0, 'Backend', 'ID'); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-            <td data-label="<?= $this->l11n->getText('Organization', 'Backend', 'Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-            <td data-label="<?= $this->l11n->getText('Organization', 'Backend', 'Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
+            <td data-label="<?= $this->getText('ID'); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+            <td data-label="<?= $this->getText('Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+            <td data-label="<?= $this->getText('Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
                 <?php endforeach; ?>
     </table>
 </div>

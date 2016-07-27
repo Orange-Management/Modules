@@ -8,10 +8,10 @@ $calendar = $this->getData('calendar');
             <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
         </ul>
         <ul class="btns floatRight">
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Day') ?></a>
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Week') ?></a>
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Month') ?></a>
-            <li><a href=""><?= $this->l11n->getText('Calendar', 'Backend', 'Year') ?></a>
+            <li><a href=""><?= $this->getText('Day') ?></a>
+            <li><a href=""><?= $this->getText('Week') ?></a>
+            <li><a href=""><?= $this->getText('Month') ?></a>
+            <li><a href=""><?= $this->getText('Year') ?></a>
         </ul>
     </div>
     <div class="box w-100">
@@ -67,13 +67,13 @@ $calendar = $this->getData('calendar');
                 <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
             </ul>
             <div class="spacer"></div>
-            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->l11n->getText(0, 'Backend', 'Add'); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->l11n->getText(0, 'Backend', 'Create') ?></button>
+            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->getText('Add'); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->getText('Create') ?></button>
         </div>
     </section>
 </section>
 
 <menu type="context" id="calendar-day-menu">
-    <menuitem label="<?= $this->l11n->getText('Calendar', 'Backend', 'NewEvent') ?>"></menuitem>
+    <menuitem label="<?= $this->getText('NewEvent') ?>"></menuitem>
 </menu>
 
 <menu type="context" id="calendar-event-menu">

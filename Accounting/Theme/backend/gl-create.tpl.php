@@ -16,17 +16,17 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->getText('Accounting', 'Backend', 'GL'); ?></h1></header>
+    <header><h1><?= $this->getText('GL'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iId"><?= $this->l11n->getText(0, 'Backend', 'ID'); ?></label>
+                <tr><td><label for="iId"><?= $this->getText('ID'); ?></label>
                 <tr><td><input type="text" id="iId" name="id">
-                <tr><td><label for="iName"><?= $this->l11n->getText('Accounting', 'Backend', 'Name'); ?></label>
+                <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input type="text" id="iName" name="name">
-                <tr><td><label for="iParent"><?= $this->l11n->getText('Accounting', 'Backend', 'Parent'); ?></label>
+                <tr><td><label for="iParent"><?= $this->getText('Parent'); ?></label>
                 <tr><td><input type="text" id="iParent" name="parent">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create'); ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create'); ?>">
             </table>
         </form>
     </div>

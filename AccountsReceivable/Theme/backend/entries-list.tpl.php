@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td style="width: 200px"><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i>
                             </button><input type="number" id="iId" min="1" name="id" required></span>
-                    <td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Search') ?>">
+                    <td><input type="submit" value="<?= $this->getText('Search') ?>">
                     <td class="rightText"><button type="button"><i class="fa fa-print"></i></button>
             </table>
         </form>
@@ -43,62 +43,62 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-100">
     <div class="inner">
         <table class="list wf-100">
-            <tr><th><?= $this->l11n->getText('AccountsReceivable', 'DSO') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Paid') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Balance') ?>:<td class="wf-33">0
-            <tr><th><?= $this->l11n->getText('AccountsReceivable', 'CreditLimit') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Due') ?>:<td class="wf-33">0<th><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Selected') ?>:<td class="wf-33">0
+            <tr><th><?= $this->getText('AccountsReceivable', 'DSO') ?>:<td class="wf-33">0<th><?= $this->getText('AccountsReceivable', 'Paid') ?>:<td class="wf-33">0<th><?= $this->getText('Balance') ?>:<td class="wf-33">0
+            <tr><th><?= $this->getText('AccountsReceivable', 'CreditLimit') ?>:<td class="wf-33">0<th><?= $this->getText('AccountsReceivable', 'Due') ?>:<td class="wf-33">0<th><?= $this->getText('Selected') ?>:<td class="wf-33">0
         </table>
     </div>
 </section>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Accounting', 'Backend', 'Entries') ?></caption>
+        <caption><?= $this->getText('Entries') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'EntryDate'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Receipt'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Debit'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Credit'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Backend', 'Text'); ?>
-            <td><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Due'); ?>
-            <td><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Paid'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ReceiptDate'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ExternalVoucher'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Creator'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Created'); ?>
+            <td><?= $this->getText('EntryDate'); ?>
+            <td><?= $this->getText('Receipt'); ?>
+            <td><?= $this->getText('Debit'); ?>
+            <td><?= $this->getText('Credit'); ?>
+            <td class="wf-100"><?= $this->getText('Text'); ?>
+            <td><?= $this->getText('Due'); ?>
+            <td><?= $this->getText('Paid'); ?>
+            <td><?= $this->getText('ReceiptDate'); ?>
+            <td><?= $this->getText('ExternalVoucher'); ?>
+            <td><?= $this->getText('Creator'); ?>
+            <td><?= $this->getText('Created'); ?>
         <tbody>
         <?php $count = 0;
         foreach ([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if ($count === 0) : ?>
         <tr>
-            <td colspan="13" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Accounting', 'Backend', 'Entries') ?></caption>
+        <caption><?= $this->getText('Entries') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'EntryDate'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Receipt'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Debit'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Credit'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Backend', 'Text'); ?>
-            <td><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Due'); ?>
-            <td><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Paid'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ReceiptDate'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ExternalVoucher'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Creator'); ?>
-            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Created'); ?>
+            <td><?= $this->getText('EntryDate'); ?>
+            <td><?= $this->getText('Receipt'); ?>
+            <td><?= $this->getText('Debit'); ?>
+            <td><?= $this->getText('Credit'); ?>
+            <td class="wf-100"><?= $this->getText('Text'); ?>
+            <td><?= $this->getText('Due'); ?>
+            <td><?= $this->getText('Paid'); ?>
+            <td><?= $this->getText('ReceiptDate'); ?>
+            <td><?= $this->getText('ExternalVoucher'); ?>
+            <td><?= $this->getText('Creator'); ?>
+            <td><?= $this->getText('Created'); ?>
         <tbody>
         <?php $count = 0;
         foreach ([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if ($count === 0) : ?>
         <tr>
-            <td colspan="13" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

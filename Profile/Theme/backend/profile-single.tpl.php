@@ -29,24 +29,24 @@ $footerView->setResults(1);
 echo $this->getData('nav')->render();
 ?>
 <section itemscope itemtype="http://schema.org/Person" class="box w-33">
-    <header><h1><?= $this->l11n->getText('Profile', 'Backend', 'Profile'); ?></h1></header>
+    <header><h1><?= $this->getText('Profile'); ?></h1></header>
     <div class="inner">
         <!-- @formatter:off -->
                 <table class="list">
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Name'); ?>
+                        <th><?= $this->getText('Name'); ?>
                         <td><span itemprop="familyName"><?= $account->getName3(); ?></span>, <span itemprop="givenName"><?= $account->getName1(); ?></span>
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Occupation'); ?>
+                        <th><?= $this->getText('Occupation'); ?>
                         <td itemprop="jobTitle">Sailor
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Birthday'); ?>
+                        <th><?= $this->getText('Birthday'); ?>
                         <td itemprop="birthDate">06.09.1934
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Ranks'); ?>
+                        <th><?= $this->getText('Ranks'); ?>
                         <td itemprop="memberOf">Gosling
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Email'); ?>
+                        <th><?= $this->getText('Email'); ?>
                         <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $account->getEmail(); ?></a>
                     <tr>
                         <th>Address
@@ -58,7 +58,7 @@ echo $this->getData('nav')->render();
                         <th class="vT">Work
                         <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Phone'); ?>
+                        <th><?= $this->getText('Phone'); ?>
                         <td>
                     <tr>
                         <th>Private
@@ -70,13 +70,13 @@ echo $this->getData('nav')->render();
                         <th>Work
                         <td itemprop="telephone">+01 12345-4567
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Registered'); ?>
+                        <th><?= $this->getText('Registered'); ?>
                         <td><?= $account->getCreatedAt()->format('Y-m-d'); ?>
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'LastLogin'); ?>
+                        <th><?= $this->getText('LastLogin'); ?>
                         <td><?= $account->getLastActive()->format('Y-m-d'); ?>
                     <tr>
-                        <th><?= $this->l11n->getText('Profile', 'Backend', 'Status'); ?>
+                        <th><?= $this->getText('Status'); ?>
                         <td><span class="tag green"><?= $account->getStatus(); ?></span>
                 </table>
                 <!-- @formatter:on -->
@@ -85,13 +85,13 @@ echo $this->getData('nav')->render();
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Profile', 'Backend', 'Media'); ?></caption>
+        <caption><?= $this->getText('Media'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Profile', 'Backend', 'Title'); ?>
-            <td><?= $this->l11n->getText('Profile', 'Backend', 'Type'); ?>
-            <td><?= $this->l11n->getText('Profile', 'Backend', 'Created'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td class="wf-100"><?= $this->getText('Title'); ?>
+            <td><?= $this->getText('Type'); ?>
+            <td><?= $this->getText('Created'); ?>
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
@@ -104,7 +104,7 @@ echo $this->getData('nav')->render();
                 <td><a href="<?= $url; ?>"><?= $value->getNewestStatus()->getStatus(); ?></a>
         <?php endforeach; ?>
         <?php if($c === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <tr><td colspan="4" class="empty"><?= $this->getText('Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

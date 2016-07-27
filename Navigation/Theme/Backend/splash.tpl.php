@@ -24,7 +24,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT])) :
                     <div class="inner centerText">
                         <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>">
                             <p><i class="fa-5x <?= $link['nav_icon']; ?>"></i></p>
-                            <p><?= $this->l11n->getText('Navigation', 'Backend', $link['nav_name']) ?></p>
+                            <p><?= $this->getText($link['nav_name']) ?></p>
                         </a>
                     </div>
                 </section>

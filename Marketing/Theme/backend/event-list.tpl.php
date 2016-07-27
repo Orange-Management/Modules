@@ -23,18 +23,18 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Marketing', 'Backend', 'Events') ?></caption>
+        <caption><?= $this->getText('Events') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Status'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Type'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Marketing', 'Backend', 'Title'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Start'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'End'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Location'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Expenses'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Sales'); ?>
-            <td><?= $this->l11n->getText('Marketing', 'Backend', 'Budget'); ?>
+            <td><?= $this->getText('Status'); ?>
+            <td><?= $this->getText('Type'); ?>
+            <td class="wf-100"><?= $this->getText('Title'); ?>
+            <td><?= $this->getText('Start'); ?>
+            <td><?= $this->getText('End'); ?>
+            <td><?= $this->getText('Location'); ?>
+            <td><?= $this->getText('Expenses'); ?>
+            <td><?= $this->getText('Sales'); ?>
+            <td><?= $this->getText('Budget'); ?>
         <tfoot>
         <tr>
             <td colspan="9"><?= $footerView->render(); ?>
@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="9" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="9" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

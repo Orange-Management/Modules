@@ -30,13 +30,13 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Monitoring', 'Backend', 'Logs'); ?></caption>
+        <caption><?= $this->getText('Logs'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Timestamp'); ?>
-            <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Level'); ?>
-            <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Source'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Monitoring', 'Backend', 'Message'); ?>
+            <td><?= $this->getText('Timestamp'); ?>
+            <td><?= $this->getText('Level'); ?>
+            <td><?= $this->getText('Source'); ?>
+            <td class="wf-100"><?= $this->getText('Message'); ?>
                 <tfoot>
         <tr>
             <td colspan="5"><?= $footerView->render(); ?>

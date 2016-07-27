@@ -27,7 +27,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::TOP])): ?>
                     <i class="<?= $link['nav_icon']; ?>"></i>
                 <?php endif; ?>
 
-                <?= $this->l11n->getText('Navigation', 'Backend', $link['nav_name']); ?></a>
+                <?= $this->getText($link['nav_name']); ?></a>
             <?php endforeach;
             endforeach; ?>
 

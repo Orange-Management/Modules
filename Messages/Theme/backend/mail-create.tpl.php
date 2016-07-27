@@ -19,13 +19,13 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td style="width: 1%"><button class="simple"><i class="fa fa-book"></i></button><td><input type="text" placeholder="&#xf007; <?= $this->l11n->getText('Messages', 'Backend', 'To'); ?>" name="to">
-                <tr><td style="width: 1%"><button class="simple"><i class="fa fa-book"></i></button><td><input type="text" placeholder="&#xf007; <?= $this->l11n->getText('Messages', 'Backend', 'CC'); ?>" name="cc">
-                <tr><td style="width: 1%"><button class="simple"><i class="fa fa-book"></i></button><td><input type="text" placeholder="&#xf007; <?= $this->l11n->getText('Messages', 'Backend', 'BCC'); ?>" name="bcc">
-                <tr><td><td><input type="text" placeholder="&#xf040; <?= $this->l11n->getText('Messages', 'Backend', 'Subject'); ?>" name="subject">
+                <tr><td style="width: 1%"><button class="simple"><i class="fa fa-book"></i></button><td><input type="text" placeholder="&#xf007; <?= $this->getText('To'); ?>" name="to">
+                <tr><td style="width: 1%"><button class="simple"><i class="fa fa-book"></i></button><td><input type="text" placeholder="&#xf007; <?= $this->getText('CC'); ?>" name="cc">
+                <tr><td style="width: 1%"><button class="simple"><i class="fa fa-book"></i></button><td><input type="text" placeholder="&#xf007; <?= $this->getText('BCC'); ?>" name="bcc">
+                <tr><td><td><input type="text" placeholder="&#xf040; <?= $this->getText('Subject'); ?>" name="subject">
                 <tr><td><td><input type="file" name="files" multiple>
                 <tr><td><td><div class="textarea" contenteditable="true" style="height: 400px;"></div><textarea placeholder="&#xf040;" style="display: none" name="mail"></textarea>
-                <tr><td><td><input type="submit" value="<?= $this->l11n->getText(0]['Send']; ?>"> <input type="submit" value="<?= $this->l11n->lang[0, 'Backend', 'Save'); ?>">
+                <tr><td><td><input type="submit" value="<?= $this->getText(0]['Send']; ?>"> <input type="submit" value="<?= $this->l11n->lang[0, 'Backend', 'Save'); ?>">
             </table>
         </form>
     </div>

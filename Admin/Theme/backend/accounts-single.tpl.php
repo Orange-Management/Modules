@@ -21,66 +21,66 @@ $account = $this->getData('account');
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->l11n->getText('Admin', 'Backend', 'Account') ?></h1></header>
+    <header><h1><?= $this->getText('Account') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iId"><?= $this->l11n->getText(0, 'Backend', 'ID') ?></label>
+                <tr><td><label for="iId"><?= $this->getText('ID') ?></label>
                 <tr><td><input id="iId" name="id" type="text" value="<?= $account->getId(); ?>" disabled>
-                <tr><td><label for="iType"><?= $this->l11n->getText('Admin', 'Backend', 'Type') ?></label>
+                <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
                 <tr><td><select id="iType" name="type">
-                            <option value="<?= \phpOMS\Account\AccountType::USER; ?>"<?= $account->getType() === \phpOMS\Account\AccountType::USER ? ' selected' : ''; ?>><?= $this->l11n->getText('Admin', 'Backend', 'Person') ?>
-                            <option value="<?= \phpOMS\Account\AccountType::GROUP; ?>"<?= $account->getType() === \phpOMS\Account\AccountType::GROUP ? ' selected' : ''; ?>><?= $this->l11n->getText('Admin', 'Backend', 'Organization') ?>
+                            <option value="<?= \phpOMS\Account\AccountType::USER; ?>"<?= $account->getType() === \phpOMS\Account\AccountType::USER ? ' selected' : ''; ?>><?= $this->getText('Person') ?>
+                            <option value="<?= \phpOMS\Account\AccountType::GROUP; ?>"<?= $account->getType() === \phpOMS\Account\AccountType::GROUP ? ' selected' : ''; ?>><?= $this->getText('Organization') ?>
                         </select>
-                <tr><td><label for="iStatus"><?= $this->l11n->getText('Admin', 'Backend', 'Status') ?></label>
+                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
                 <tr><td><select id="iStatus" name="status">
-                            <option value="<?= \phpOMS\Account\AccountStatus::ACTIVE; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE ? ' selected' : ''; ?>><?= $this->l11n->getText('Admin', 'Backend', 'Active') ?>
-                            <option value="<?= \phpOMS\Account\AccountStatus::INACTIVE; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE ? ' selected' : ''; ?>><?= $this->l11n->getText('Admin', 'Backend', 'Inactive') ?>
-                            <option value="<?= \phpOMS\Account\AccountStatus::TIMEOUT; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT ? ' selected' : ''; ?>><?= $this->l11n->getText('Admin', 'Backend', 'Timeout') ?>
-                            <option value="<?= \phpOMS\Account\AccountStatus::BANNED; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : ''; ?>><?= $this->l11n->getText('Admin', 'Backend', 'Banned') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::ACTIVE; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE ? ' selected' : ''; ?>><?= $this->getText('Active') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::INACTIVE; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE ? ' selected' : ''; ?>><?= $this->getText('Inactive') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::TIMEOUT; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT ? ' selected' : ''; ?>><?= $this->getText('Timeout') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::BANNED; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : ''; ?>><?= $this->getText('Banned') ?>
                         </select>
-                <tr><td><label for="iUsername"><?= $this->l11n->getText('Admin', 'Backend', 'Username') ?></label>
+                <tr><td><label for="iUsername"><?= $this->getText('Username') ?></label>
                 <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred" value="<?= $account->getEmail(); ?>" disabled>
-                <tr><td><label for="iName1"><?= $this->l11n->getText('Admin', 'Backend', 'Name1') ?></label>
+                <tr><td><label for="iName1"><?= $this->getText('Name1') ?></label>
                 <tr><td><input id="iName1" name="name1" type="text" placeholder="&#xf007; Donald" value="<?= $account->getName1(); ?>" required>
-                <tr><td><label for="iName2"><?= $this->l11n->getText('Admin', 'Backend', 'Name2') ?></label>
+                <tr><td><label for="iName2"><?= $this->getText('Name2') ?></label>
                 <tr><td><input id="iName2" name="name2" type="text" placeholder="&#xf007; Fauntleroy" value="<?= $account->getName2(); ?>">
-                <tr><td><label for="iName3"><?= $this->l11n->getText('Admin', 'Backend', 'Name3') ?></label>
+                <tr><td><label for="iName3"><?= $this->getText('Name3') ?></label>
                 <tr><td><input id="iName3" name="name3" type="text" placeholder="&#xf007; Duck" value="<?= $account->getName3(); ?>">
-                <tr><td><label for="iEmail"><?= $this->l11n->getText('Admin', 'Backend', 'Email') ?></label>
+                <tr><td><label for="iEmail"><?= $this->getText('Email') ?></label>
                 <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= $account->getEmail(); ?>">
-                <tr><td><label for="iPassword"><?= $this->l11n->getText('Admin', 'Backend', 'Name3') ?></label>
+                <tr><td><label for="iPassword"><?= $this->getText('Name3') ?></label>
                 <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-66 floatLeft">
-    <header><h1><?= $this->l11n->getText('Admin', 'Backend', 'Groups') ?></h1></header>
+    <header><h1><?= $this->getText('Groups') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iGroup"><?= $this->l11n->getText('Admin', 'Backend', 'Name') ?></label>
+                <tr><td><label for="iGroup"><?= $this->getText('Name') ?></label>
                 <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-66 floatLeft">
-    <header><h1><?= $this->l11n->getText('Admin', 'Backend', 'Permissions') ?></h1></header>
+    <header><h1><?= $this->getText('Permissions') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iGroup"><?= $this->l11n->getText('Admin', 'Backend', 'Name') ?></label>
+                <tr><td><label for="iGroup"><?= $this->getText('Name') ?></label>
                 <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf084; news_create">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
             </table>
         </form>
     </div>

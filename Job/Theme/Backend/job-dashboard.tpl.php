@@ -22,13 +22,13 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100 floatLeft">
     <table class="table">
-        <caption><?= $this->l11n->getText('Job', 'Backend', 'Job'); ?></caption>
+        <caption><?= $this->getText('Job'); ?></caption>
         <thead>
-        <td><?= $this->l11n->getText('Job', 'Backend', 'Status'); ?>
-        <td><?= $this->l11n->getText('Job', 'Backend', 'Next'); ?>
-        <td class="full"><?= $this->l11n->getText('Job', 'Backend', 'Title'); ?>
-        <td><?= $this->l11n->getText('Job', 'Backend', 'Creator'); ?>
-        <td><?= $this->l11n->getText('Job', 'Backend', 'Created'); ?>
+        <td><?= $this->getText('Status'); ?>
+        <td><?= $this->getText('Next'); ?>
+        <td class="full"><?= $this->getText('Title'); ?>
+        <td><?= $this->getText('Creator'); ?>
+        <td><?= $this->getText('Created'); ?>
         <tfoot>
         <tbody>
         <?php $c = 0; foreach($jobs as $key => $workflow) : $c++;
@@ -39,13 +39,13 @@ echo $this->getData('nav')->render(); ?>
         elseif($workflow->getStatus() === \Modules\Job\Models\JobStatus::DONE) { $color = 'green'; }
         elseif($workflow->getStatus() === \Modules\Job\Models\JobStatus::SUSPENDED) { $color = 'red'; } ;?>
         <tr>
-            <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->l11n->getText('Job', 'Backend', 'S' . $workflow->getStatus()); ?></span></a>
+            <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('S' . $workflow->getStatus()); ?></span></a>
             <td><a href="<?= $url; ?>"><?= $workflow->getDue()->format('Y-m-d H:i'); ?></a>
             <td><a href="<?= $url; ?>"><?= $workflow->getTitle(); ?></a>
             <td><a href="<?= $url; ?>"><?= $workflow->getCreatedBy(); ?></a>
             <td><a href="<?= $url; ?>"><?= $workflow->getCreatedAt()->format('Y-m-d H:i'); ?></a>
                 <?php endforeach; if($c == 0) : ?>
-        <tr><td colspan="6" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="6" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

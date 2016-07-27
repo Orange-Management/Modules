@@ -25,12 +25,12 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
                     <?php if (isset($parent['nav_icon'])) : ?>
                         <span class="centerText" style="width: 20px; display: inline-block;"><i class="<?= $parent['nav_icon']; ?>"></i></span>
                     <?php endif; ?>
-                    <?= $this->l11n->getText('Navigation', 'Backend', $parent['nav_name']); ?><label for="nav-<?= $parent['nav_name']; ?>"><i class="fa fa-chevron-down min"></i>
+                    <?= $this->getText($parent['nav_name']); ?><label for="nav-<?= $parent['nav_name']; ?>"><i class="fa fa-chevron-down min"></i>
                     <i class="fa fa-chevron-up max"></i></label>
                     <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
                     if ($link['nav_parent'] === $parent['nav_id']) : ?>
                 <li>
-                    <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>"><?= $this->l11n->getText('Navigation', 'Backend', $link['nav_name']); ?></a>
+                    <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>"><?= $this->getText($link['nav_name']); ?></a>
                     <?php endif;
                     endforeach; ?>
             </ul>

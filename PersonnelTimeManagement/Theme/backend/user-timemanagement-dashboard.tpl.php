@@ -21,12 +21,12 @@ echo $this->getData('nav')->render();
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('PersonnelTimeManagement', 'Backend', 'Times'); ?></caption>
+        <caption><?= $this->getText('Times'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('PersonnelTimeManagement', 'Backend', 'Start'); ?>
-            <td><?= $this->l11n->getText('PersonnelTimeManagement', 'Backend', 'End'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('PersonnelTimeManagement', 'Backend', 'Type'); ?>
+            <td><?= $this->getText('Start'); ?>
+            <td><?= $this->getText('End'); ?>
+            <td class="wf-100"><?= $this->getText('Type'); ?>
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
@@ -38,7 +38,7 @@ echo $this->getData('nav')->render();
                 <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
         <?php endforeach; ?>
         <?php if($c === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <tr><td colspan="4" class="empty"><?= $this->getText('Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

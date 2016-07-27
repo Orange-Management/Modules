@@ -25,8 +25,8 @@
     <div class="box w-100">
         <div class="tabular">
             <ul class="tab-links">
-                <li><label for="c-tab-1"><?= $this->l11n->getText('News', 'Backend', 'Plain') ?></label>
-                <li><label for="c-tab-2"><?= $this->l11n->getText('News', 'Backend', 'Preview') ?></label>
+                <li><label for="c-tab-1"><?= $this->getText('Plain') ?></label>
+                <li><label for="c-tab-2"><?= $this->getText('Preview') ?></label>
             </ul>
             <div class="tab-content">
                 <input type="radio" id="c-tab-1" name="tabular-1" checked>

@@ -31,13 +31,13 @@ $footerView->setResults(count($modules));
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Admin', 'Backend', 'Modules'); ?></caption>
+        <caption><?= $this->getText('Modules'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Admin', 'Backend', 'Name'); ?>
-            <td><?= $this->l11n->getText('Admin', 'Backend', 'Version'); ?>
-            <td><?= $this->l11n->getText('Admin', 'Backend', 'Status'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td><?= $this->getText('Version'); ?>
+            <td><?= $this->getText('Status'); ?>
                 <tfoot>
         <tr>
             <td colspan="4"><?= $footerView->render(); ?>
@@ -49,14 +49,14 @@ $footerView->setResults(count($modules));
             <td><a href="<?= $url; ?>"><?= $module['name']['external']; ?></a>
             <td><a href="<?= $url; ?>"><?= $module['version']; ?></a>
             <td><a href="<?= $url; ?>"><?php if (in_array($module['name']['internal'], $active))
-                    echo strtolower($this->l11n->getText('Admin', 'Backend', 'Active'));
+                    echo strtolower($this->getText('Active'));
                 elseif (in_array($module['name']['internal'], $installed))
-                    echo strtolower($this->l11n->getText('Admin', 'Backend', 'Inactive'));
+                    echo strtolower($this->getText('Inactive'));
                 else
-                    echo strtolower($this->l11n->getText('Admin', 'Backend', 'Available')); ?></a>
+                    echo strtolower($this->getText('Available')); ?></a>
                 <?php endforeach; ?>
         <?php if($count === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <tr><td colspan="4" class="empty"><?= $this->getText('Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

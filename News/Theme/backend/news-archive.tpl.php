@@ -25,13 +25,13 @@ $footerView->setPage(1);
 echo $this->getData('nav')->render(); ?>
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('News', 'Backend', 'Archive') ?></caption>
+        <caption><?= $this->getText('Archive') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('News', 'Backend', 'Type'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('News', 'Backend', 'Title'); ?>
-            <td><?= $this->l11n->getText('News', 'Backend', 'Author'); ?>
-            <td><?= $this->l11n->getText('News', 'Backend', 'Date'); ?>
+            <td><?= $this->getText('Type'); ?>
+            <td class="wf-100"><?= $this->getText('Title'); ?>
+            <td><?= $this->getText('Author'); ?>
+            <td><?= $this->getText('Date'); ?>
                 <tfoot>
         <tr>
             <td colspan="4"><?= $footerView->render(); ?>
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-        <tr><td colspan="4" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="4" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

@@ -23,15 +23,15 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('ItemManagement', 'Backend', 'Items') ?></caption>
+        <caption><?= $this->getText('Items') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('ItemManagement', 'Backend', 'Name'); ?>
-            <td><?= $this->l11n->getText('ItemManagement', 'Backend', 'Price'); ?>
-            <td><?= $this->l11n->getText('ItemManagement', 'Backend', 'Available'); ?>
-            <td><?= $this->l11n->getText('ItemManagement', 'Backend', 'Reserved'); ?>
-            <td><?= $this->l11n->getText('ItemManagement', 'Backend', 'Ordered'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td><?= $this->getText('Price'); ?>
+            <td><?= $this->getText('Available'); ?>
+            <td><?= $this->getText('Reserved'); ?>
+            <td><?= $this->getText('Ordered'); ?>
         <tfoot>
         <tr>
             <td colspan="6"><?= $footerView->render(); ?>
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="6" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="6" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

@@ -20,15 +20,15 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Support', 'Backend', 'Tickets'); ?></caption>
+        <caption><?= $this->getText('Tickets'); ?></caption>
         <thead>
-        <tr><td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td><?= $this->l11n->getText('Support', 'Backend', 'Status'); ?>
-            <td><?= $this->l11n->getText('Support', 'Backend', 'Priority'); ?>
-            <td class="full"><?= $this->l11n->getText('Support', 'Backend', 'Title'); ?>
-            <td><?= $this->l11n->getText('Support', 'Backend', 'Responsible'); ?>
+        <tr><td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('Status'); ?>
+            <td><?= $this->getText('Priority'); ?>
+            <td class="full"><?= $this->getText('Title'); ?>
+            <td><?= $this->getText('Responsible'); ?>
         <tfoot>
         <tbody>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
     </table>
 </div>
