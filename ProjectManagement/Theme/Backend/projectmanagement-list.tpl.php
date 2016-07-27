@@ -23,13 +23,13 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('ProjectManagement', 'Backend', 'Projects') ?></caption>
+        <caption><?= $this->getText('Projects') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText('ProjectManagement', 'Backend', 'Status'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('ProjectManagement', 'Backend', 'Title'); ?>
-            <td><?= $this->l11n->getText('ProjectManagement', 'Backend', 'Start'); ?>
-            <td><?= $this->l11n->getText('ProjectManagement', 'Backend', 'Due'); ?>
+            <td><?= $this->getText('Status'); ?>
+            <td class="wf-100"><?= $this->getText('Title'); ?>
+            <td><?= $this->getText('Start'); ?>
+            <td><?= $this->getText('Due'); ?>
         <tfoot>
         <tr>
             <td colspan="5"><?= $footerView->render(); ?>
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

@@ -28,10 +28,10 @@ $footerView->setResults(1);
         <form>
             <table class="layout wf-100">
                 <tr>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'Account'); ?></label>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'CostCenter'); ?>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'CostObject'); ?>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'EntryDate'); ?>
+                    <td><label for="iAccountStart"><?= $this->getText('Account'); ?></label>
+                    <td><label for="iAccountStart"><?= $this->getText('CostCenter'); ?>
+                    <td><label for="iAccountStart"><?= $this->getText('CostObject'); ?>
+                    <td><label for="iAccountStart"><?= $this->getText('EntryDate'); ?>
                 <tr>
                     <td><span class="input"><button type="button" id="account-start" formaction="" data-action='[{"type": "popup", "tpl": "entry-list-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 1000}]'><i class="fa fa-book"></i>
                             </button><input type="number" id="iId" min="1" name="id" required></span>
@@ -41,10 +41,10 @@ $footerView->setResults(1);
                             </button><input type="number" id="iId" min="1" name="id" required></span>
                     <td><input type="datetime-local" id="iId" min="1" name="id" required>
                 <tr>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'To'); ?></label>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'To'); ?>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'To'); ?>
-                    <td><label for="iAccountStart"><?= $this->l11n->getText('Accounting', 'Backend', 'To'); ?>
+                    <td><label for="iAccountStart"><?= $this->getText('To'); ?></label>
+                    <td><label for="iAccountStart"><?= $this->getText('To'); ?>
+                    <td><label for="iAccountStart"><?= $this->getText('To'); ?>
+                    <td><label for="iAccountStart"><?= $this->getText('To'); ?>
                 <tr>
                     <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i>
                             </button><input type="number" id="iId" min="1" name="id" required></span>
@@ -54,7 +54,7 @@ $footerView->setResults(1);
                             </button><input type="number" id="iId" min="1" name="id" required></span>
                     <td><input type="datetime-local" id="iId" min="1" name="id" required>
                 <tr>
-                    <td colspan="4"><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Search') ?>">
+                    <td colspan="4"><input type="submit" value="<?= $this->getText('Search') ?>">
             </table>
         </form>
     </div>
@@ -63,31 +63,31 @@ $footerView->setResults(1);
 <div class="box w-100">
     <div class="tabular-2">
         <ul class="tab-links">
-            <li><label for="c-tab2-1"><?= $this->l11n->getText('Accounting', 'Backend', 'List'); ?></label></li>
-            <li><label for="c-tab2-2"><?= $this->l11n->getText('Accounting', 'Backend', 'Evaluation'); ?></label></li>
-            <li><label for="c-tab2-3"><?= $this->l11n->getText('Accounting', 'Backend', 'Charts'); ?></label></li>
+            <li><label for="c-tab2-1"><?= $this->getText('List'); ?></label></li>
+            <li><label for="c-tab2-2"><?= $this->getText('Evaluation'); ?></label></li>
+            <li><label for="c-tab2-3"><?= $this->getText('Charts'); ?></label></li>
         </ul>
         <div class="tab-content">
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
                 <section class="wf-100">
                     <table class="table">
-                        <caption><?= $this->l11n->getText('Accounting', 'Backend', 'Entries') ?></caption>
+                        <caption><?= $this->getText('Entries') ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'EntryDate'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Receipt'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Debit'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Credit'); ?>
-                            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Backend', 'Text'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Account'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ContraAccount'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'CostCenter'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'CostObject'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ReceiptDate'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'ExternalVoucher'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Creator'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Created'); ?>
+                            <td><?= $this->getText('EntryDate'); ?>
+                            <td><?= $this->getText('Receipt'); ?>
+                            <td><?= $this->getText('Debit'); ?>
+                            <td><?= $this->getText('Credit'); ?>
+                            <td class="wf-100"><?= $this->getText('Text'); ?>
+                            <td><?= $this->getText('Account'); ?>
+                            <td><?= $this->getText('ContraAccount'); ?>
+                            <td><?= $this->getText('CostCenter'); ?>
+                            <td><?= $this->getText('CostObject'); ?>
+                            <td><?= $this->getText('ReceiptDate'); ?>
+                            <td><?= $this->getText('ExternalVoucher'); ?>
+                            <td><?= $this->getText('Creator'); ?>
+                            <td><?= $this->getText('Created'); ?>
                         <tfoot>
                         <tr>
                             <td colspan="13"><?= $footerView->render(); ?>
@@ -97,7 +97,7 @@ $footerView->setResults(1);
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
                                 <?php endif; ?>
                     </table>
                 </section>
@@ -106,55 +106,55 @@ $footerView->setResults(1);
             <div class="tab tab-2">
                 <section class="box w-33 floatLeft">
                     <table class="table">
-                        <caption><?= $this->l11n->getText('Accounting', 'Backend', 'Accounts') ?></caption>
+                        <caption><?= $this->getText('Accounts') ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Account'); ?>
-                            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Backend', 'Name'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Total'); ?>
+                            <td><?= $this->getText('Account'); ?>
+                            <td class="wf-100"><?= $this->getText('Name'); ?>
+                            <td><?= $this->getText('Total'); ?>
                         <tbody>
                         <?php $count = 0;
                         foreach ([] as $key => $value) : $count++; ?>
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
                                 <?php endif; ?>
                     </table>
                 </section>
                 <section class="box w-33 floatLeft">
                     <table class="table floatLeft">
-                        <caption><?= $this->l11n->getText('Accounting', 'Backend', 'CostCenter') ?></caption>
+                        <caption><?= $this->getText('CostCenter') ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'CostCenter'); ?>
-                            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Backend', 'Name'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Total'); ?>
+                            <td><?= $this->getText('CostCenter'); ?>
+                            <td class="wf-100"><?= $this->getText('Name'); ?>
+                            <td><?= $this->getText('Total'); ?>
                         <tbody>
                         <?php $count = 0;
                         foreach ([] as $key => $value) : $count++; ?>
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
                                 <?php endif; ?>
                     </table>
                 </section>
                 <section class="box w-33 floatLeft">
                     <table class="table">
-                        <caption><?= $this->l11n->getText('Accounting', 'Backend', 'CostObject') ?></caption>
+                        <caption><?= $this->getText('CostObject') ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Account'); ?>
-                            <td class="wf-100"><?= $this->l11n->getText('Accounting', 'Backend', 'Name'); ?>
-                            <td><?= $this->l11n->getText('Accounting', 'Backend', 'Total'); ?>
+                            <td><?= $this->getText('Account'); ?>
+                            <td class="wf-100"><?= $this->getText('Name'); ?>
+                            <td><?= $this->getText('Total'); ?>
                         <tbody>
                         <?php $count = 0;
                         foreach ([] as $key => $value) : $count++; ?>
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
                                 <?php endif; ?>
                     </table>
                 </section>

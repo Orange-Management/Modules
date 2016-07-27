@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner centerText">
         <a href="">
             <p><i class="fa fa-5x fa-clock-o"></i></p>
-            <p><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'Due') ?></p>
+            <p><?= $this->getText('Due') ?></p>
         </a>
     </div>
 </section>
@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner centerText">
         <a href="">
             <p><i class="fa fa-5x fa-dollar"></i></p>
-            <p><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'DSO') ?></p>
+            <p><?= $this->getText('DSO') ?></p>
         </a>
     </div>
 </section>
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner centerText">
         <a href="">
             <p><i class="fa fa-5x fa-calendar"></i></p>
-            <p><?= $this->l11n->getText('AccountsReceivable', 'Backend', 'AgePattern') ?></p>
+            <p><?= $this->getText('AgePattern') ?></p>
         </a>
     </div>
 </section>

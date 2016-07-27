@@ -26,22 +26,22 @@ $templateList   = \Modules\Reporter\Models\TemplateMapper::listResults(
 
 echo $this->getData('nav')->render(); ?>
 <section class="box w-50 floatLeft">
-    <header><h1><?= $this->l11n->getText('Reporter', 'Backend', 'Report') ?></h1></header>
+    <header><h1><?= $this->getText('Report') ?></h1></header>
     <div class="inner">
         <form id="reporter-report-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report/report'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Reporter', 'Backend', 'Title') ?></label>
+                <tr><td><label for="iTitle"><?= $this->getText('Title') ?></label>
                 <tr><td><input id="iTitle" name="name" type="text" placeholder="&#xf040; P&L Reporting 2015 December v1.0" required>
-                <tr><td><label for="iTemplate"><?= $this->l11n->getText('Reporter', 'Backend', 'Template') ?></label>
+                <tr><td><label for="iTemplate"><?= $this->getText('Template') ?></label>
                 <tr><td><select id="iTemplate" name="template">
                             <?php foreach($templateList as $key => $value) : ?>
                             <option value="<?= $key; ?>"><?= $value->getName(); ?>
                                 <?php endforeach; ?>
                         </select>
-                <tr><td><label for="iFile"><?= $this->l11n->getText('Reporter', 'Backend', 'Files') ?></label>
+                <tr><td><label for="iFile"><?= $this->getText('Files') ?></label>
                 <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden" pattern="\\[(([0-9])+(,)*( )*)+\\]" required>
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
             </table>
         </form>
     </div>

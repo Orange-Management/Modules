@@ -19,22 +19,22 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->getText('Support', 'Backend', 'Ticket') ?></h1></header>
+    <header><h1><?= $this->getText('Ticket') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Backend', 'Department') ?></label>
+                <tr><td><label for="iTitle"><?= $this->getText('Department') ?></label>
                 <tr><td><select></select>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Backend', 'Topic') ?></label>
+                <tr><td><label for="iTitle"><?= $this->getText('Topic') ?></label>
                 <tr><td><select></select>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Backend', 'Title') ?></label>
+                <tr><td><label for="iTitle"><?= $this->getText('Title') ?></label>
                 <tr><td><input id="iTitle" name="name" type="text" required>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Support', 'Backend', 'Description') ?></label>
+                <tr><td><label for="iTitle"><?= $this->getText('Description') ?></label>
                 <tr><td><textarea required></textarea>
-                <tr><td><label for="iFile"><?= $this->l11n->getText('Support', 'Backend', 'Files') ?></label>
+                <tr><td><label for="iFile"><?= $this->getText('Files') ?></label>
                 <tr><td><input id="iFile" name="fileVisual" type="file" multiple><input id="iFileHidden" name="files" type="hidden">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
             </table>
         </form>
     </div>

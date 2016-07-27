@@ -33,59 +33,59 @@ $details = '* Uri: `' . trim($log['path']) . "`\n"
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
-    <header><h1><?= $this->l11n->getText('Monitoring', 'Backend', 'Logs'); ?></h1></header>
+    <header><h1><?= $this->getText('Logs'); ?></h1></header>
 
     <div class="inner">
         <table class="list w-100">
             <tr>
-                <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
+                <td><?= $this->getText('ID'); ?>
                 <td><i class="fa fa-anchor"></i>
                 <td class="wf-100"><?= (int) $this->request->getData('id') ?? 0; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Time'); ?>
+                <td><?= $this->getText('Time'); ?>
                 <td><i class="fa fa-clock-o"></i>
                 <td><?= $log['datetime']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Uri'); ?>
+                <td><?= $this->getText('Uri'); ?>
                 <td><i class="fa fa-globe"></i>
                 <td><?= $log['path']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Source'); ?>
+                <td><?= $this->getText('Source'); ?>
                 <td><i class="fa fa-wifi"></i>
                 <td><?= $log['ip']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Level'); ?>
+                <td><?= $this->getText('Level'); ?>
                 <td>
                     <i class="fa fa-<?= in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i>
                 <td><?= $log['level']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Message'); ?>
+                <td><?= $this->getText('Message'); ?>
                 <td><i class="fa fa-commenting"></i>
                 <td><?= $log['message']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'File'); ?>
+                <td><?= $this->getText('File'); ?>
                 <td><i class="fa fa-file"></i>
                 <td><?= $log['file']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Line'); ?>
+                <td><?= $this->getText('Line'); ?>
                 <td><i class="fa fa-commenting"></i>
                 <td><?= $log['line']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'Version'); ?>
+                <td><?= $this->getText('Version'); ?>
                 <td><i class="fa fa-pencil"></i>
                 <td><?= $log['version']; ?>
             <tr>
-                <td><?= $this->l11n->getText('Monitoring', 'Backend', 'OS'); ?>
+                <td><?= $this->getText('OS'); ?>
                 <td><i class="fa fa-laptop"></i>
                 <td><?= $log['os']; ?>
             <tr>
-                <td colspan="3"><?= $this->l11n->getText('Monitoring', 'Backend', 'Backtrace'); ?>
+                <td colspan="3"><?= $this->getText('Backtrace'); ?>
             <tr>
                 <td colspan="3">
                     <pre><?= json_encode($log['backtrace'], JSON_PRETTY_PRINT); ?></pre>
             <tr>
                 <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
-                       href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= urlencode($log['message']); ?>&details=<?= urlencode($details); ?>"><?= $this->l11n->getText('Monitoring', 'Backend', 'Report'); ?></a>
+                       href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= urlencode($log['message']); ?>&details=<?= urlencode($details); ?>"><?= $this->getText('Report'); ?></a>
         </table>
     </div>
 </section>

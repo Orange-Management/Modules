@@ -20,20 +20,20 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= $this->l11n->getText('Marketing', 'Backend', 'Event') ?></h1></header>
+    <header><h1><?= $this->getText('Event') ?></h1></header>
     <div class="inner">
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td colspan="2"><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Backend', 'Type') ?></label>
+                <tr><td colspan="2"><label for="iTitle"><?= $this->getText('Type') ?></label>
                 <tr><td colspan="2"><select></select>
-                <tr><td colspan="2"><label for="iBudget"><?= $this->l11n->getText('Marketing', 'Backend', 'Title'); ?></label>
+                <tr><td colspan="2"><label for="iBudget"><?= $this->getText('Title'); ?></label>
                 <tr><td colspan="2"><input type="text">
-                <tr><td colspan="2"><label for="iBudget"><?= $this->l11n->getText('Marketing', 'Backend', 'Description'); ?></label>
+                <tr><td colspan="2"><label for="iBudget"><?= $this->getText('Description'); ?></label>
                 <tr><td colspan="2"><textarea></textarea>
-                <tr><td><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Backend', 'Start') ?></label><td><label for="iTitle"><?= $this->l11n->getText('Marketing', 'Backend', 'End') ?></label>
+                <tr><td><label for="iTitle"><?= $this->getText('Start') ?></label><td><label for="iTitle"><?= $this->getText('End') ?></label>
                 <tr><td><input type="datetime-local"><td><input type="datetime-local">
-                <tr><td colspan="2"><label for="iBudget"><?= $this->l11n->getText('Marketing', 'Backend', 'Budget'); ?></label>
+                <tr><td colspan="2"><label for="iBudget"><?= $this->getText('Budget'); ?></label>
                 <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder="">
             </table>
         </form>

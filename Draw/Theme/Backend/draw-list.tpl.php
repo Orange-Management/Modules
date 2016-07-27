@@ -25,12 +25,12 @@ $footerView->setPage(1);
 echo $this->getData('nav')->render(); ?>
 <div class="box">
     <table class="table">
-        <caption><?= $this->l11n->getText('Draw', 'Backend', 'Images'); ?></caption>
+        <caption><?= $this->getText('Images'); ?></caption>
         <thead>
         <tr>
-            <td class="wf-100"><?= $this->l11n->getText('Draw', 'Backend', 'Name'); ?>
-            <td><?= $this->l11n->getText('Draw', 'Backend', 'Creator'); ?>
-            <td><?= $this->l11n->getText('Draw', 'Backend', 'Created'); ?>
+            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td><?= $this->getText('Creator'); ?>
+            <td><?= $this->getText('Created'); ?>
         <tfoot>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

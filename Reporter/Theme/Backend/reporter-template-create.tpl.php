@@ -19,36 +19,36 @@
 
 echo $this->getData('nav')->render(); ?>
 <section class="box w-50 floatLeft">
-    <header><h1><?= $this->l11n->getText('Reporter', 'Backend', 'Template') ?></h1></header>
+    <header><h1><?= $this->getText('Template') ?></h1></header>
     <div class="inner">
         <form id="reporter-template-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report/template'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td colspan="2"><label for="iTitle"><?= $this->l11n->getText('Reporter', 'Backend', 'Title') ?></label>
+                <tr><td colspan="2"><label for="iTitle"><?= $this->getText('Title') ?></label>
                 <tr><td colspan="2"><input id="iTitle" name="name" type="text" placeholder="&#xf040; P&L Reporting" required>
-                <tr><td colspan="2"><label for="iDescription"><?= $this->l11n->getText('Reporter', 'Backend', 'Description') ?></label>
+                <tr><td colspan="2"><label for="iDescription"><?= $this->getText('Description') ?></label>
                 <tr><td colspan="2"><textarea id="iDescription" name="description"></textarea>
-                <tr><td colspan="2"><h2><?= $this->l11n->getText('Reporter', 'Backend', 'Storage') ?></h2>
+                <tr><td colspan="2"><h2><?= $this->getText('Storage') ?></h2>
                 <tr><td colspan="2">
                         <span class="radio">
                             <input id="iSourceDB" name="source" type="radio" value="<?= \Modules\Reporter\Models\TemplateDataType::GLOBAL_DB; ?>">
-                            <label for="iSourceDB"><?= $this->l11n->getText('Reporter', 'Backend', 'CentralizedDB') ?></label>
+                            <label for="iSourceDB"><?= $this->getText('CentralizedDB') ?></label>
                         </span>
                 <tr><td colspan="2">
                         <span class="radio">
                             <input id="iSourceOther" name="source" type="radio" value="<?= \Modules\Reporter\Models\TemplateDataType::GLOBAL_FILE; ?>">
-                            <label for="iSourceOther"><?= $this->l11n->getText('Reporter', 'Backend', 'CentralizedFiles') ?></label>
+                            <label for="iSourceOther"><?= $this->getText('CentralizedFiles') ?></label>
                         </span>
                 <tr><td colspan="2">
                         <span class="radio">
                             <input id="iSourceOther" name="source" type="radio" value="<?= \Modules\Reporter\Models\TemplateDataType::OTHER; ?>" checked>
-                            <label for="iSourceOther"><?= $this->l11n->getText('Reporter', 'Backend', 'Other') ?></label>
+                            <label for="iSourceOther"><?= $this->getText('Other') ?></label>
                         </span>
-                <tr><td colspan="2"><label for="iFile"><?= $this->l11n->getText('Reporter', 'Backend', 'Files') ?></label>
+                <tr><td colspan="2"><label for="iFile"><?= $this->getText('Files') ?></label>
                 <tr><td colspan="2"><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden">
-                <tr><td colspan="2"><label for="iExpected"><?= $this->l11n->getText('Reporter', 'Backend', 'Expected') ?></label>
-                <tr><td class="wf-100"><input id="iExpected" type="text" placeholder="&#xf15b; file.csv"><input name="expected" type="hidden"><td><button><?= $this->l11n->getText(0, 'Backend', 'Add') ?></button>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create') ?>">
+                <tr><td colspan="2"><label for="iExpected"><?= $this->getText('Expected') ?></label>
+                <tr><td class="wf-100"><input id="iExpected" type="text" placeholder="&#xf15b; file.csv"><input name="expected" type="hidden"><td><button><?= $this->getText('Add') ?></button>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create') ?>">
             </table>
         </form>
     </div>

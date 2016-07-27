@@ -23,35 +23,35 @@ echo $this->getData('nav')->render(); ?>
 
 <!-- Hover may be better here?!?!?!
 <section class="box w-100">
-    <header><h1><?= $this->l11n->getText('ClientManagement', 'Backend', 'Client') ?></h1></header>
+    <header><h1><?= $this->getText('Client') ?></h1></header>
     <div class="inner floatLeft wf-100">
         <form class="wf-33 floatLeft">
             <table class="layout w-100">
-                <tr><td><label for="iName1"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Name1'); ?></label>
+                <tr><td><label for="iName1"><?= $this->getText('Name1'); ?></label>
                 <tr><td><input type="text" id="iName1" disabled>
-                <tr><td><label for="iName2"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Name2'); ?></label>
+                <tr><td><label for="iName2"><?= $this->getText('Name2'); ?></label>
                 <tr><td><input type="text" id="iName2" disabled>
-                <tr><td><label for="iName3"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Name3'); ?></label>
+                <tr><td><label for="iName3"><?= $this->getText('Name3'); ?></label>
                 <tr><td><input type="text" id="iName3" disabled>
             </table>
         </form>
         <form class="wf-33 floatLeft">
             <table class="layout w-100">
-                <tr><td><label for="iAddress"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Address'); ?></label>
+                <tr><td><label for="iAddress"><?= $this->getText('Address'); ?></label>
                 <tr><td><input type="text" id="iAddress" disabled>
-                <tr><td><label for="iZip"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Zip'); ?></label>
+                <tr><td><label for="iZip"><?= $this->getText('Zip'); ?></label>
                 <tr><td><input type="text" id="iZip" disabled>
-                <tr><td><label for="iCountry"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Country'); ?></label>
+                <tr><td><label for="iCountry"><?= $this->getText('Country'); ?></label>
                 <tr><td><input type="text" id="iCountry" disabled>
             </table>
         </form>
         <form class="wf-33 floatLeft">
             <table class="layout w-100">
-                <tr><td><label for="iPhone"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Phone'); ?></label>
+                <tr><td><label for="iPhone"><?= $this->getText('Phone'); ?></label>
                 <tr><td><input type="text" id="iPhone" disabled>
-                <tr><td><label for="iFax"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Fax'); ?></label>
+                <tr><td><label for="iFax"><?= $this->getText('Fax'); ?></label>
                 <tr><td><input type="text" id="iFax" disabled>
-                <tr><td><label for="iEmail"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Email'); ?></label>
+                <tr><td><label for="iEmail"><?= $this->getText('Email'); ?></label>
                 <tr><td><input type="text" id="iEmail" disabled>
             </table>
         </form>
@@ -61,17 +61,17 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('ClientManagement', 'Backend', 'Clients') ?></caption>
+        <caption><?= $this->getText('Clients') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td><?= $this->l11n->getText('ClientManagement', 'Backend', 'Name1'); ?>
-            <td><?= $this->l11n->getText('ClientManagement', 'Backend', 'Name2'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('ClientManagement', 'Backend', 'Name3'); ?>
-            <td><?= $this->l11n->getText('ClientManagement', 'Backend', 'City'); ?>
-            <td><?= $this->l11n->getText('ClientManagement', 'Backend', 'Zip'); ?>
-            <td><?= $this->l11n->getText('ClientManagement', 'Backend', 'Address'); ?>
-            <td><?= $this->l11n->getText('ClientManagement', 'Backend', 'Country'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('Name1'); ?>
+            <td><?= $this->getText('Name2'); ?>
+            <td class="wf-100"><?= $this->getText('Name3'); ?>
+            <td><?= $this->getText('City'); ?>
+            <td><?= $this->getText('Zip'); ?>
+            <td><?= $this->getText('Address'); ?>
+            <td><?= $this->getText('Country'); ?>
         <tfoot>
         <tr>
             <td colspan="8"><?= $footerView->render(); ?>
@@ -79,7 +79,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="8" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="8" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

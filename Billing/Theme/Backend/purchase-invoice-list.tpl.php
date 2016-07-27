@@ -23,17 +23,17 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Billing', 'Backend', 'Invoices') ?></caption>
+        <caption><?= $this->getText('Invoices') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->l11n->getText(0, 'Backend', 'ID'); ?>
-            <td><?= $this->l11n->getText('Billing', 'Backend', 'Type'); ?>
-            <td><?= $this->l11n->getText('Billing', 'Backend', 'SupplierID'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Billing', 'Backend', 'Supplier'); ?>
-            <td><?= $this->l11n->getText('Billing', 'Backend', 'Net'); ?>
-            <td><?= $this->l11n->getText('Billing', 'Backend', 'Gross'); ?>
-            <td><?= $this->l11n->getText('Billing', 'Backend', 'Created'); ?>
-            <td><?= $this->l11n->getText('Billing', 'Backend', 'Due'); ?>
+            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('Type'); ?>
+            <td><?= $this->getText('SupplierID'); ?>
+            <td class="wf-100"><?= $this->getText('Supplier'); ?>
+            <td><?= $this->getText('Net'); ?>
+            <td><?= $this->getText('Gross'); ?>
+            <td><?= $this->getText('Created'); ?>
+            <td><?= $this->getText('Due'); ?>
         <tfoot>
         <tr>
             <td colspan="8"><?= $footerView->render(); ?>
@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="8" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+        <tr><td colspan="8" class="empty"><?= $this->getText('Empty'); ?>
                 <?php endif; ?>
     </table>
 </div>

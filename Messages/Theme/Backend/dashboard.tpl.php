@@ -23,21 +23,21 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <ul class="btns floatLeft">
-        <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/create'); ?>"><i class="fa fa-pencil"></i> <?= $this->l11n->getText(0, 'Backend', 'Create'); ?></a>
-        <li><a href=""><i class="fa fa-trash"></i> <?= $this->l11n->getText(0, 'Backend', 'Delete'); ?></a>
+        <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/create'); ?>"><i class="fa fa-pencil"></i> <?= $this->getText('Create'); ?></a>
+        <li><a href=""><i class="fa fa-trash"></i> <?= $this->getText('Delete'); ?></a>
     </ul>
 </section>
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->l11n->getText('Messages', 'Backend', 'Messages'); ?></caption>
+        <caption><?= $this->getText('Messages'); ?></caption>
         <thead>
         <tr>
             <td><span class="check"><input type="checkbox"></span>
-            <td><?= $this->l11n->getText('Messages', 'Backend', 'Tag'); ?>
-            <td class="wf-100"><?= $this->l11n->getText('Messages', 'Backend', 'Subject'); ?>
-            <td><?= $this->l11n->getText('Messages', 'Backend', 'From'); ?>
-            <td><?= $this->l11n->getText('Messages', 'Backend', 'Date'); ?>
+            <td><?= $this->getText('Tag'); ?>
+            <td class="wf-100"><?= $this->getText('Subject'); ?>
+            <td><?= $this->getText('From'); ?>
+            <td><?= $this->getText('Date'); ?>
         <tfoot>
         <tr><td colspan="5"><?= \phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['usage']); ?> / <?= \phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['limit']); ?>
         <tbody>
@@ -62,7 +62,7 @@ echo $this->getData('nav')->render(); ?>
                     <?php endforeach; ?>
             <?php if($count < 1) : ?>
         <tr>
-            <td colspan="5" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
         <?php endif; ?>
     </table>
 </div>

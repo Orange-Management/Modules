@@ -29,15 +29,15 @@ echo $this->getData('nav')->render(); ?>
 <section class="wf-75 floatLeft">
     <div class="box w-100">
         <table class="table">
-            <caption><?= $this->l11n->getText('RiskManagement', 'Backend', 'TopRisks'); ?></caption>
+            <caption><?= $this->getText('TopRisks'); ?></caption>
             <thead>
             <tr>
-                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Severity'); ?>
-                <td class="wf-100"><?= $this->l11n->getText('RiskManagement', 'Backend', 'Name'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Department'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Category'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Process'); ?>
-                <td><?= $this->l11n->getText('RiskManagement', 'Backend', 'Project'); ?>
+                <td><?= $this->getText('Severity'); ?>
+                <td class="wf-100"><?= $this->getText('Name'); ?>
+                <td><?= $this->getText('Department'); ?>
+                <td><?= $this->getText('Category'); ?>
+                <td><?= $this->getText('Process'); ?>
+                <td><?= $this->getText('Project'); ?>
             <tfoot>
             <tr><td colspan="6"><?= $footerView->render(); ?>
             <tbody>
@@ -51,40 +51,40 @@ echo $this->getData('nav')->render(); ?>
                 <td>
                     <?php endforeach; ?>
                     <?php if($c === 0) : ?>
-            <tr><td colspan="6" class="empty"><?= $this->l11n->getText(0, 'Backend', 'Empty'); ?>
+            <tr><td colspan="6" class="empty"><?= $this->getText('Empty'); ?>
                     <?php endif; ?>
         </table>
     </div>
 </section>
 <section class="wf-25 floatLeft">
     <section class="box w-100">
-        <header><h1><?= $this->l11n->getText('RiskManagement', 'Backend', 'Statistics'); ?></h1></header>
+        <header><h1><?= $this->getText('Statistics'); ?></h1></header>
         <div class="inner">
             <table class="list">
                 <thead>
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Risks'); ?>
+                    <th><?= $this->getText('Risks'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Causes'); ?>
+                    <th><?= $this->getText('Causes'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Solutions'); ?>
+                    <th><?= $this->getText('Solutions'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Department'); ?>
+                    <th><?= $this->getText('Department'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Category'); ?>
+                    <th><?= $this->getText('Category'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Process'); ?>
+                    <th><?= $this->getText('Process'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Project'); ?>
+                    <th><?= $this->getText('Project'); ?>
                     <td>0
                 <tr>
-                    <th><?= $this->l11n->getText('RiskManagement', 'Backend', 'Total'); ?>
+                    <th><?= $this->getText('Total'); ?>
                     <td>0
             </table>
         </div>

@@ -19,15 +19,15 @@
 
 echo $this->getData('nav')->render(); ?>
 <section class="box w-50">
-    <header><h1><?= $this->l11n->getText('Media', 'Backend', 'Upload'); ?></h1></header>
+    <header><h1><?= $this->getText('Upload'); ?></h1></header>
     <div class="inner">
         <form method="POST" id="media-uploader" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/media'); ?>">
             <table class="layout wf-100">
-                <tr><td><label for="iName"><?= $this->l11n->getText('Media', 'Backend', 'Name'); ?></label>
+                <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input type="text" id="iName" name="name" placeholder="&#xf040;">
-                <tr><td><label for="iFiles"><?= $this->l11n->getText('Media', 'Backend', 'Files'); ?></label>
+                <tr><td><label for="iFiles"><?= $this->getText('Files'); ?></label>
                 <tr><td><input type="file" id="iFiles" name="files" multiple><input name="media" type="hidden">
-                <tr><td><input type="submit" value="<?= $this->l11n->getText(0, 'Backend', 'Create'); ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create'); ?>">
             </table>
         </form>
     </div>

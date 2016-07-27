@@ -20,7 +20,7 @@
 /* Looping through all links */
 if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT_SIDE])) {
     echo '<div class="b b-5 c3-2 c3" id="i3-2-5">'
-         . '<h1>' . $this->l11n->getText(0, 'Backend', 'Navigation')
+         . '<h1>' . $this->getText('Navigation')
          . '<i class="fa fa-minus min"></i><i class="fa fa-plus max vh"></i>'
          . '</h1>'
          . '<div class="bc-1">'
@@ -31,7 +31,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT_SIDE])) 
             /** @var array $data */
             if ($link['nav_parent'] == $data[1]) {
                 echo '<li><a href="' . \phpOMS\Uri\UriFactory::build($link['nav_uri']) . '">'
-                     . $this->l11n->getText(5, 'Backend', $link['nav_name']) . '</a>';
+                     . $this->getText(5, 'Backend', $link['nav_name']) . '</a>';
             }
         }
     }
