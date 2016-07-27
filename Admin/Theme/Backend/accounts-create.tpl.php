@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com">
                 <tr><td><label for="iPassword"><?= $this->getText('Name3') ?></label>
                 <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
-                <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>
@@ -59,7 +59,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <tr><td><label for="iGroup"><?= $this->getText('Name') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest" required></span>
-                <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
             </table>
         </form>
     </div>
@@ -73,7 +73,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <tr><td><label for="iGroup"><?= $this->getText('Name') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGroup" name="group" type="text" placeholder="&#xf084; news_create" required></span>
-                <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
             </table>
         </form>
     </div>

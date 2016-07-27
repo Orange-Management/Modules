@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('Positions'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td class="wf-100"><?= $this->getText('Name'); ?>
             <td><?= $this->getText('Parent'); ?>
                 <tfoot>
@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
             <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-            <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
+            <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

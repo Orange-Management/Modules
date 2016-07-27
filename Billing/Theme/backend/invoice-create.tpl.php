@@ -56,7 +56,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><select id="iShipment" name="shipment">
                                         <option>
                                     </select>
-                            <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create') ?>">
+                            <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
                         </table>
                     </form>
                 </div>

@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('Reports'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td class="wf-100"><?= $this->getText('Name'); ?>
             <td><?= $this->getText('Creator'); ?>
             <td><?= $this->getText('Updated'); ?>
@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
         <tbody>
         <?php if (count($templates) == 0) : ?>
         <tr class="empty">
-            <td colspan="4"><?= $this->getText('Empty'); ?>
+            <td colspan="4"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
                 <?php foreach ($templates as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>

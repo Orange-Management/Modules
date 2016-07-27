@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <ul class="btns floatLeft">
-        <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/create'); ?>"><i class="fa fa-pencil"></i> <?= $this->getText('Create'); ?></a>
+        <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/create'); ?>"><i class="fa fa-pencil"></i> <?= $this->getText('Create', 0, 0); ?></a>
         <li><a href=""><i class="fa fa-trash"></i> <?= $this->getText('Delete'); ?></a>
     </ul>
 </section>
@@ -62,7 +62,7 @@ echo $this->getData('nav')->render(); ?>
                     <?php endforeach; ?>
             <?php if($count < 1) : ?>
         <tr>
-            <td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
+            <td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
         <?php endif; ?>
     </table>
 </div>

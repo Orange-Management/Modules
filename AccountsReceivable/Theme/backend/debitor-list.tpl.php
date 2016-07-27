@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('AccountsReceivable') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td><?= $this->getText('Name1'); ?>
             <td><?= $this->getText('Name2'); ?>
             <td class="wf-100"><?= $this->getText('Name3'); ?>
@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="8" class="empty"><?= $this->getText('Empty'); ?>
+        <tr><td colspan="8" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

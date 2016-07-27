@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><textarea required></textarea>
                 <tr><td><label for="iFile"><?= $this->getText('Files') ?></label>
                 <tr><td><input id="iFile" name="fileVisual" type="file" multiple><input id="iFileHidden" name="files" type="hidden">
-                <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>

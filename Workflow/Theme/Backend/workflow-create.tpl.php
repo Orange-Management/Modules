@@ -26,16 +26,16 @@ echo $this->getData('nav')->render(); ?>
             <table class="layout wf-100">
                 <tbody>
                 <tr><td colspan="2"><label for="iReceiver"><?= $this->getText('To'); ?></label>
-                <tr><td><span class="input"><button type="button" data-action='[{"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 5000}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add'); ?></button>
+                <tr><td><span class="input"><button type="button" data-action='[{"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 5000}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                 <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
-                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add'); ?></button>
+                <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                 <tr><td colspan="2"><label for="iDue"><?= $this->getText('Due'); ?></label>
                 <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>"><td>
                 <tr><td colspan="2"><label for="iTitle"><?= $this->getText('Title'); ?></label>
                 <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->getText('Title'); ?>"><td>
                 <tr><td colspan="2"><label for="iMessage"><?= $this->getText('Message'); ?></label>
                 <tr><td><textarea id="iMessage" name="description" placeholder="&#xf040;"></textarea><td>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create'); ?>"><input type="hidden" name="type" value="<?= \Modules\Tasks\Models\TaskType::SINGLE; ?>">
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>"><input type="hidden" name="type" value="<?= \Modules\Tasks\Models\TaskType::SINGLE; ?>">
             </table>
         </form>
     </div>

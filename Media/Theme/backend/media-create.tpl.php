@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input type="text" id="iName" name="name" placeholder="&#xf040;">
                 <tr><td><label for="iFiles"><?= $this->getText('Files'); ?></label>
                 <tr><td><input type="file" id="iFiles" name="files" multiple><input name="media" type="hidden">
-                <tr><td><input type="submit" value="<?= $this->getText('Create'); ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>

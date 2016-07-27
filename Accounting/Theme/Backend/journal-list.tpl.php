@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('Journal'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td class="wf-100"><?= $this->getText('Name'); ?>
         <tfoot>
         <tr><td colspan="5"><?= $footerView->render(); ?>
@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
             <td>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

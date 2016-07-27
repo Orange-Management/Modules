@@ -55,7 +55,7 @@ echo $this->getData('nav')->render(); ?>
                 <table class="layout wf-100">
                     <tr><td><label for="permission"><?= $this->getText('Permissions') ?></label>
                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="permission"><input type="hidden" form="newsForm" name="permission"></span>
-                    <tr><td><button><?= $this->getText('Add') ?></button>
+                    <tr><td><button><?= $this->getText('Add', 0, 0) ?></button>
                 </table>
             </form>
         </div>
@@ -66,7 +66,7 @@ echo $this->getData('nav')->render(); ?>
                 <table class="layout wf-100">
                     <tr><td colspan="2"><label for="groups"><?= $this->getText('Groups') ?></label>
                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input  type="text" id="groups"><input type="hidden" form="newsForm" name="groups"></span>
-                    <tr><td><button><?= $this->getText('Add') ?></button>
+                    <tr><td><button><?= $this->getText('Add', 0, 0) ?></button>
                 </table>
             </form>
         </div>

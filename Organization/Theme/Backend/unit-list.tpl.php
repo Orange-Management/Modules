@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('Units'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td class="wf-100"><?= $this->getText('Name'); ?>
             <td><?= $this->getText('Parent'); ?>
                 <tfoot>
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php foreach ($this->getData('list:elements') as $key => $value) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/unit/profile?id=' . $value->getId()); ?>
         <tr>
-            <td data-label="<?= $this->getText('ID'); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+            <td data-label="<?= $this->getText('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
             <td data-label="<?= $this->getText('Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
             <td data-label="<?= $this->getText('Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
                 <?php endforeach; ?>

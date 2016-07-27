@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                 <td>
                     <?php endforeach; ?>
                     <?php if($c === 0) : ?>
-            <tr><td colspan="6" class="empty"><?= $this->getText('Empty'); ?>
+            <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                     <?php endif; ?>
         </table>
     </div>

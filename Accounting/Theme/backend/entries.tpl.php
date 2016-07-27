@@ -97,7 +97,7 @@ $footerView->setResults(1);
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                                 <?php endif; ?>
                     </table>
                 </section>
@@ -118,7 +118,7 @@ $footerView->setResults(1);
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                                 <?php endif; ?>
                     </table>
                 </section>
@@ -136,7 +136,7 @@ $footerView->setResults(1);
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                                 <?php endif; ?>
                     </table>
                 </section>
@@ -154,7 +154,7 @@ $footerView->setResults(1);
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
                         <tr>
-                            <td colspan="13" class="empty"><?= $this->getText('Empty'); ?>
+                            <td colspan="13" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                                 <?php endif; ?>
                     </table>
                 </section>

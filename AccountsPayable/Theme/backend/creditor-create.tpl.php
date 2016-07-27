@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><select id="iStatus" name="status">
                             <option>
                         </select>
-                <tr><td><label for="iId"><?= $this->getText('ID'); ?></label>
+                <tr><td><label for="iId"><?= $this->getText('ID', 0, 0); ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
                 <tr><td><label for="iName1"><?= $this->getText('Name1'); ?></label>
                 <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input type="text" id="iName2" name="name2" placeholder="&#xf040;">
                 <tr><td><label for="iName3"><?= $this->getText('Name3'); ?></label>
                 <tr><td><input type="text" id="iName3" name="name3" placeholder="&#xf040;">
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create') ?>">
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>

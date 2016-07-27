@@ -32,8 +32,8 @@ echo $this->getData('nav')->render(); ?>
         <thead>
         <tr>
             <td><?= $this->getText('Status'); ?>
-            <td><?= $this->getText('ID'); ?>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td class="wf-100"><?= $this->getText('Article'); ?>
             <td><?= $this->getText('Quantity'); ?>
             <td><?= $this->getText('Start'); ?>
@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
         <tr>
-            <td colspan="8" class="empty"><?= $this->getText('Empty'); ?>
+            <td colspan="8" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

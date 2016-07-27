@@ -33,7 +33,7 @@ echo $this->getData('nav')->render();
         <caption><?= $this->getText('Groups'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td><?= $this->getText('Status'); ?>
             <td class="wf-100"><?= $this->getText('Name'); ?>
             <td><?= $this->getText('Activity'); ?>
@@ -51,7 +51,7 @@ echo $this->getData('nav')->render();
             <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
+                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                         <?php endif; ?>
     </table>
 </div>

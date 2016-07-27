@@ -4,7 +4,7 @@
             <caption><?= $this->getText('Accounts'); ?></caption>
             <thead>
             <tr>
-                <td><?= $this->getText('ID'); ?>
+                <td><?= $this->getText('ID', 0, 0); ?>
                 <td class="wf-100"><?= $this->getText('Account'); ?>
             <tbody>
         </table>

@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><a href="<?= $url; ?>"><?= $task->getCreatedBy(); ?></a>
                 <td><a href="<?= $url; ?>"><?= $task->getCreatedAt()->format('Y-m-d H:i'); ?></a>
         <?php endforeach; if($c == 0) : ?>
-        <tr><td colspan="6" class="empty"><?= $this->getText('Empty'); ?>
+        <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>
         <?php endif; ?>
     </table>
 </div>

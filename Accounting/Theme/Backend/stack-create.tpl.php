@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                             <option value=""><?= $this->getText('Incoming'); ?>
                             <option value=""><?= $this->getText('Outgoing'); ?>
                         </select>
-                <tr><td><input name="submit" type="submit" value="<?= $this->getText('Create'); ?>">
+                <tr><td><input name="submit" type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>

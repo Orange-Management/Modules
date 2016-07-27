@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input type="datetime-local" id="iFrom" name="from" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
                 <tr><td><label for="iTo"><?= $this->getText('To'); ?></label>
                 <tr><td><input type="datetime-local" id="iTo" name="to" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
-                <tr><td><input type="submit" value="<?= $this->getText('Submit'); ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Submit', 0, 0); ?>">
             </table>
         </form>
     </div>

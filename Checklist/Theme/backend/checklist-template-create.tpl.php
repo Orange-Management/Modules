@@ -31,10 +31,10 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iPermission"><?= $this->getText('Permissions'); ?></label><td>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button>
                             <input type="text" id="iPermission" name="permission"></span>
-                    <td><button><?= $this->getText('Add'); ?></button>
+                    <td><button><?= $this->getText('Add', 0, 0); ?></button>
                 <tr><td><label for="iFiles"><?= $this->getText('Files'); ?></label><td>
                 <tr><td><input id="iFiles" name="files" type="file" multiple><td>
-                <tr><td><input type="submit" value="<?= $this->getText('Create'); ?>"><td>
+                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>"><td>
             </table>
         </form>
     </div>
@@ -54,10 +54,10 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iEPermission"><?= $this->getText('Permissions'); ?></label><td>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button>
                             <input type="text" id="iEPermission" name="ePermission"></span>
-                    <td><button data-action=""><?= $this->getText('Add'); ?></button>
+                    <td><button data-action=""><?= $this->getText('Add', 0, 0); ?></button>
                 <tr><td><label for="iEFiles"><?= $this->getText('Files'); ?></label><td>
                 <tr><td><input id="iEFiles" name="eFiles" type="file" multiple><td>
-                <tr><td><input type="submit" value="<?= $this->getText('Add'); ?>" data-action=""><td>
+                <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0); ?>" data-action=""><td>
             </table>
         </form>
     </div>

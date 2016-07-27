@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder="">
                 <tr><td colspan="2"><label for="iBudget"><?= $this->getText('Limit'); ?></label>
                 <tr><td colspan="2"><input type="text">
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create') ?>">
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>

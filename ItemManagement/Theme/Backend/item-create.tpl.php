@@ -58,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iArticlegroup" name="articlegroup" type="text" placeholder="" required>
                             <tr><td><label for="iSSuccessor"><?= $this->getText('Successor') ?></label>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
-                            <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
                         </table>
                     </form>
                 </div>
@@ -82,7 +82,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iName" name="name" type="text" placeholder="">
                             <tr><td><label for="iDescription"><?= $this->getText('Description') ?></label>
                             <tr><td><textarea id="iDescription" name="description"></textarea>
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -104,7 +104,7 @@ echo $this->getData('nav')->render(); ?>
                                     </select>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Value') ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -123,7 +123,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Translation') ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -142,7 +142,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Translation') ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -162,7 +162,7 @@ echo $this->getData('nav')->render(); ?>
                                     </select>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Value') ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -181,7 +181,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Translation') ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -200,7 +200,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPCustomsId" name="customsid" type="text" placeholder=""></span>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Translation') ?></label>
                             <tr><td><input id="iPCustomsId" name="customsid" type="text" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -277,8 +277,8 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td colspan="2"><label for="iBonus"><?= $this->getText('Bonus') ?></label>
                             <tr><td><input id="iBonus" name="bonus" type="number" step="any" min="0" placeholder=""><td>
                             <tr><td colspan="2"><label for="iGroup"><?= $this->getText('ClientGroup') ?></label>
-                            <tr><td><input id="iGroup" name="price" type="text" placeholder=""><td><button><?= $this->getText('Add') ?></button>
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input id="iGroup" name="price" type="text" placeholder=""><td><button><?= $this->getText('Add', 0, 0) ?></button>
+                            <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -337,7 +337,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iDiscountP" name="discountp" type="number" step="any" min="0" placeholder="">
                             <tr><td><label for="iBonus"><?= $this->getText('Bonus') ?></label>
                             <tr><td><input id="iBonus" name="bonus" type="number" step="any" min="0" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -377,7 +377,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iPName" name="pname" type="text" placeholder="">
                             <tr><td><label for="iPName"><?= $this->getText('Description') ?></label>
                             <tr><td><textarea></textarea>
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -428,7 +428,7 @@ echo $this->getData('nav')->render(); ?>
                                     </select>
                             <tr><td><label for="iPName"><?= $this->getText('Info') ?></label>
                             <tr><td><textarea></textarea>
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -446,7 +446,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
                             <tr><td><label for="iDiscount"><?= $this->getText('Quantity') ?></label>
                             <tr><td><input id="iDiscount" name="discount" type="number" step="any" min="0" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -491,7 +491,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iDiscount" name="discount" type="number" step="any" min="0" placeholder="">
                             <tr><td><label for="iDiscount"><?= $this->getText('Volume') ?></label>
                             <tr><td><input id="iDiscount" name="discount" type="number" step="any" min="0" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -507,7 +507,7 @@ echo $this->getData('nav')->render(); ?>
                             <tbody>
                             <tr><td><label for="iDiscount"><?= $this->getText('Media') ?></label>
                             <tr><td><input id="iDiscount" name="discount" type="file" multiple>
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -544,7 +544,7 @@ echo $this->getData('nav')->render(); ?>
                                     </select>
                             <tr><td><label for="iPVariation"><?= $this->getText('Location') ?></label>
                             <tr><td><input id="iDiscount" name="discount" type="text"><!-- can also be empty if dynamically assigned instead of fixed -->
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -573,7 +573,7 @@ echo $this->getData('nav')->render(); ?>
                             <tbody>
                             <tr><td><label for="iDiscount"><?= $this->getText('Files') ?></label>
                             <tr><td><input id="iDiscount" name="discount" type="file" multiple>
-                            <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
                         </table>
                     </form>
                 </div>
@@ -593,7 +593,7 @@ echo $this->getData('nav')->render(); ?>
                     <thead>
                     <tr>
                         <td>IP
-                        <td><?= $this->getText('ID'); ?>
+                        <td><?= $this->getText('ID', 0, 0); ?>
                         <td><?= $this->getText('Name'); ?>
                         <td class="wf-100"><?= $this->getText('Log'); ?>
                         <td><?= $this->getText('Date'); ?>

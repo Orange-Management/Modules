@@ -34,7 +34,7 @@ $footerView->setResults(count($modules));
         <caption><?= $this->getText('Modules'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td class="wf-100"><?= $this->getText('Name'); ?>
             <td><?= $this->getText('Version'); ?>
             <td><?= $this->getText('Status'); ?>
@@ -56,7 +56,7 @@ $footerView->setResults(count($modules));
                     echo strtolower($this->getText('Available')); ?></a>
                 <?php endforeach; ?>
         <?php if($count === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->getText('Empty'); ?>
+            <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
         <?php endif; ?>
     </table>
 </div>

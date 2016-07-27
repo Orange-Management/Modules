@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('Arrivals'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td><?= $this->getText('AccountID'); ?>
             <td class="wf-100"><?= $this->getText('Company'); ?>
             <td><?= $this->getText('Creator'); ?>
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
         <?php if(0 == 0) : ?>
-        <tr class="empty"><td colspan="5"><?= $this->getText('Empty'); ?>
+        <tr class="empty"><td colspan="5"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
                 <?php foreach ([] as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>

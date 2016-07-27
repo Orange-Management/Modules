@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                         <td data-label="<?= $this->getText('Date'); ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty'); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

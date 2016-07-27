@@ -20,13 +20,13 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iId"><?= $this->getText('ID'); ?></label>
+                <tr><td><label for="iId"><?= $this->getText('ID', 0, 0); ?></label>
                 <tr><td><input type="text" id="iId" name="id">
                 <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input type="text" id="iName" name="name">
                 <tr><td><label for="iParent"><?= $this->getText('Parent'); ?></label>
                 <tr><td><input type="text" id="iParent" name="parent">
-                <tr><td><input type="submit" value="<?= $this->getText('Create'); ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>

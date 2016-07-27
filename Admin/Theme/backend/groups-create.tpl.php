@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" required>
                 <tr><td><label for="iGroupDescription"><?= $this->getText('Description') ?></label>
                 <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"></textarea>
-                <tr><td><input type="submit" value="<?= $this->getText('Create') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>
@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <tr><td><label for="iGParentName"><?= $this->getText('Name') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGParentName" name="parentname" type="text" placeholder="&#xf0c0; Guest" required></span>
-                <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
             </table>
         </form>
     </div>
@@ -57,7 +57,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <tr><td><label for="iPermissionName"><?= $this->getText('Name') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iPermissionName" name="permissionname" type="text" placeholder="&#xf084; Admin" required></span>
-                <tr><td><input type="submit" value="<?= $this->getText('Add') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
             </table>
         </form>
     </div>

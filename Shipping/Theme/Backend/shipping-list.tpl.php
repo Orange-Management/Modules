@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getText('Shipping'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID'); ?>
+            <td><?= $this->getText('ID', 0, 0); ?>
             <td><?= $this->getText('Reference'); ?>
             <td><?= $this->getText('Status'); ?>
             <td><?= $this->getText('Service'); ?>
@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
         <tr>
-            <td colspan=7" class="empty"><?= $this->getText('Empty'); ?>
+            <td colspan=7" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

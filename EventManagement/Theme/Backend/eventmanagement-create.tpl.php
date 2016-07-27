@@ -37,8 +37,8 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><select id="iStatus" name="status">
                             <option value="">
                         </select>
-                    <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getText('Add'); ?></button>
-                <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create'); ?>">
+                    <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>
     </div>
