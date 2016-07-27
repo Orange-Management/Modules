@@ -1,0 +1,44 @@
+{
+    "name": {
+        "id": 1005500000,
+        "internal": "Database",
+        "external": "OMS Database"
+    },
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Database",
+    "dependencies": {
+        "Admin" : "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "0131a69f9019c7f13664f57969a308db8cd5bb24"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Database",
+            "from": "Database"
+        },
+        {
+            "pid": [
+                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+            ],
+            "type": 5,
+            "from": "Database",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}
