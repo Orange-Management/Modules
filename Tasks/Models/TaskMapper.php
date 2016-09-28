@@ -64,10 +64,15 @@ class TaskMapper extends DataMapperAbstract
     protected static $hasMany = [
         'taskElements' => [
             'mapper'         => TaskElementMapper::class,
-            'relationmapper' => TaskElementMapper::class,
             'table'          => 'task_element',
             'dst'            => 'task_element_task',
             'src'            => null,
+        ],
+        'media' => [
+            'mapper'         => MediaMapper::class,
+            'table'          => 'task_media',
+            'dst'            => 'task_media_dst',
+            'src'            => 'task_media_src',
         ],
     ];
 

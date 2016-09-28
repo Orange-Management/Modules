@@ -32,6 +32,13 @@ class UnitMapper extends DataMapperAbstract
         'organization_unit_parent'      => ['name' => 'organization_unit_parent', 'type' => 'int', 'internal' => 'parent'],
     ];
 
+    protected static $belongsTo = [
+        'account' => [
+            'mapper'         => UnitMapper::class,
+            'dest'            => 'organization_uni_parent',
+        ],
+    ];
+
     /**
      * Primary table.
      *

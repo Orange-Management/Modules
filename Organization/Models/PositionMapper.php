@@ -33,6 +33,13 @@ class PositionMapper extends DataMapperAbstract
         'organization_position_parent'      => ['name' => 'organization_position_parent', 'type' => 'int', 'internal' => 'parent'],
     ];
 
+    protected static $belongsTo = [
+        'account' => [
+            'mapper'         => PositionMapper::class,
+            'dest'            => 'organization_position_parent',
+        ],
+    ];
+
     /**
      * Primary table.
      *
