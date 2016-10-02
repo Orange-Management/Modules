@@ -59,7 +59,7 @@ class EventMapper extends DataMapperAbstract
      * @var array<string, array>
      * @since 1.0.0
      */
-    protected static $hasOne = [
+    protected static $ownsOne = [
         'schedule' => [
             'mapper' => ScheduleMapper::class,
             'src'    => 'calendar_event_schedule',

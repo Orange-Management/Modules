@@ -23,6 +23,8 @@ class Department
 
     protected $parent = null;
 
+    protected $status = Status::INACTIVE;
+
     protected $unit = 1;
 
     protected $description = '';
@@ -50,6 +52,16 @@ class Department
     public function setParent(int $parent)
     {
         $this->parent = $parent;
+    }
+
+    public function getStatus() : int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 
     public function getUnit() : int

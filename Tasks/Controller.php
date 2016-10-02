@@ -16,8 +16,10 @@
 namespace Modules\Tasks;
 
 use Model\Message\Redirect;
+use Model\Message\Reload;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
+use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
@@ -196,7 +198,32 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->addElement($element);
 
         TaskMapper::create($task);
-        $response->set($request->__toString(), new Redirect(UriFactory::build('http://127.0.0.1/{/lang}/backend/task/single?id=' . $task->getId())));
+        $response->set($request->__toString(), new Redirect(UriFactory::build('{/base}/{/lang}/{/app}/task/single?id=' . $task->getId())));
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $element = new TaskElement();
+        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setCreatedAt(new \DateTime('now'));
+        $element->setCreatedBy($request->getAccount());
+        $element->setDue(new \DateTime($request->getData('due') ?? 'now'));
+        $element->setStatus($request->getData('status'));
+        $element->setTask($request->getData('task'));
+        $element->setDescription($request->getData('desc'));
+
+        TaskElementMapper::create($element);
+        $response->set($request->__toString(), new Reload());
     }
 
 }

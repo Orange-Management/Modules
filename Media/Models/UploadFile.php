@@ -15,7 +15,7 @@
  */
 namespace Modules\Media\Models;
 
-use phpOMS\System\File\Directory;
+use phpOMS\System\File\Local\Directory;
 
 
 /**

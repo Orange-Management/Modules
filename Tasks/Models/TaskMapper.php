@@ -64,7 +64,6 @@ class TaskMapper extends DataMapperAbstract
     protected static $hasMany = [
         'taskElements' => [
             'mapper'         => TaskElementMapper::class,
-            'relationmapper' => TaskElementMapper::class,
             'table'          => 'task_element',
             'dst'            => 'task_element_task',
             'src'            => null,
@@ -77,7 +76,7 @@ class TaskMapper extends DataMapperAbstract
      * @var array<string, array>
      * @since 1.0.0
      */
-    protected static $hasOne = [
+    protected static $ownsOne = [
         'schedule' => [
             'mapper'         => ScheduleMapper::class,
             'src'            => 'task_schedule',

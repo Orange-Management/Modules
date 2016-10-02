@@ -43,6 +43,23 @@ class ReportMapper extends DataMapperAbstract
     ];
 
     /**
+     * Has one relation.
+     *
+     * @var array<string, array>
+     * @since 1.0.0
+     */
+    protected static $ownsOne = [
+        'media' => [
+            'mapper' => \Modules\Media\Models\CollectionMapper::class,
+            'src'    => 'reporter_report_media',
+        ],
+        'template' => [
+            'mapper' => \Modules\Reporter\Models\TemplateMapper::class,
+            'src'    => 'reporter_report_template',
+        ]
+    ];
+
+    /**
      * Primary table.
      *
      * @var string
@@ -84,20 +101,20 @@ class ReportMapper extends DataMapperAbstract
             $query = new Builder(self::$db);
 
             $query->prefix(self::$db->getPrefix())
-                  ->insert(
-                      'account_permission_account',
-                      'account_permission_from',
-                      'account_permission_for',
-                      'account_permission_id1',
-                      'account_permission_id2',
-                      'account_permission_r',
-                      'account_permission_w',
-                      'account_permission_m',
-                      'account_permission_d',
-                      'account_permission_p'
-                  )
-                  ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'reporter', 'reporter', 1, $objId, 1, 1, 1, 1, 1);
+                ->insert(
+                    'account_permission_account',
+                    'account_permission_from',
+                    'account_permission_for',
+                    'account_permission_id1',
+                    'account_permission_id2',
+                    'account_permission_r',
+                    'account_permission_w',
+                    'account_permission_m',
+                    'account_permission_d',
+                    'account_permission_p'
+                )
+                ->into('account_permission')
+                ->values($obj->getCreatedBy(), 'reporter', 'reporter', 1, $objId, 1, 1, 1, 1, 1);
 
             self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
@@ -120,9 +137,9 @@ class ReportMapper extends DataMapperAbstract
     public static function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
-                     ->where('account_permission.account_permission_for', '=', 'reporter')
-                     ->where('account_permission.account_permission_id1', '=', 1)
-                     ->where('reporter_report.reporter_report_id', '=', new Column('account_permission.account_permission_id2'))
-                     ->where('account_permission.account_permission_r', '=', 1);
+            ->where('account_permission.account_permission_for', '=', 'reporter')
+            ->where('account_permission.account_permission_id1', '=', 1)
+            ->where('reporter_report.reporter_report_id', '=', new Column('account_permission.account_permission_id2'))
+            ->where('account_permission.account_permission_r', '=', 1);
     }
 }

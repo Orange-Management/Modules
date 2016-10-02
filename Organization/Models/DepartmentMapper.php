@@ -30,6 +30,7 @@ class DepartmentMapper extends DataMapperAbstract
         'organization_department_name'        => ['name' => 'organization_department_name', 'type' => 'string', 'internal' => 'name'],
         'organization_department_description' => ['name' => 'organization_department_description', 'type' => 'string', 'internal' => 'description'],
         'organization_department_parent'      => ['name' => 'organization_department_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_department_status'      => ['name' => 'organization_department_status', 'type' => 'int', 'internal' => 'status'],
         'organization_department_unit'        => ['name' => 'organization_department_unit', 'type' => 'int', 'internal' => 'unit'],
     ];
 

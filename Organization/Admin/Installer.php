@@ -49,6 +49,7 @@ class Installer extends InstallerAbstract
                             `organization_unit_name` varchar(50) DEFAULT NULL,
                             `organization_unit_description` varchar(255) DEFAULT NULL,
                             `organization_unit_parent` int(11) DEFAULT NULL,
+                            `organization_unit_status` int(3) DEFAULT NULL,
                             PRIMARY KEY (`organization_unit_id`),
                             KEY `organization_unit_parent` (`organization_unit_parent`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
@@ -65,6 +66,7 @@ class Installer extends InstallerAbstract
                             `organization_department_name` varchar(30) DEFAULT NULL,
                             `organization_department_description` varchar(255) DEFAULT NULL,
                             `organization_department_parent` int(11) DEFAULT NULL,
+                            `organization_department_status` int(3) DEFAULT NULL,
                             `organization_department_unit` int(11) NOT NULL,
                             PRIMARY KEY (`organization_department_id`),
                             KEY `organization_department_parent` (`organization_department_parent`),
@@ -84,6 +86,7 @@ class Installer extends InstallerAbstract
                             `organization_position_name` varchar(50) DEFAULT NULL,
                             `organization_position_description` varchar(255) DEFAULT NULL,
                             `organization_position_parent` int(11) DEFAULT NULL,
+                            `organization_position_status` int(3) DEFAULT NULL,
                             PRIMARY KEY (`organization_position_id`),
                             KEY `organization_position_parent` (`organization_position_parent`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'

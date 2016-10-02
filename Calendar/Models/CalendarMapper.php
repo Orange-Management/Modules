@@ -65,7 +65,6 @@ class CalendarMapper extends DataMapperAbstract
     protected static $hasMany = [
         'events' => [
             'mapper'         => EventMapper::class,
-            'relationmapper' => EventMapper::class,
             'table'          => 'calendar_event',
             'dst'            => 'calendar_event_calendar',
             'src'            => null,

@@ -15,10 +15,12 @@
  */
 namespace Modules\Admin;
 
+use Model\Message\FormValidation;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
-use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\Group;
+use Modules\Admin\Models\GroupMapper;
+use phpOMS\Account\GroupStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -298,8 +300,25 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $val = [];
+        if (
+        $val['name'] = empty($request->getData('name'))
+            || $val['parent'] = (
+                    $request->getData('parent') !== null
+                    && !is_numeric($request->getData('parent'))
+                )
+                || $val['status'] = (
+                    $request->getData('status') === null
+                    || !GroupStatus::isValidValue((int) $request->getData('status'))
+                )
+        ) {
+            $response->set('group_create_validation', new FormValidation($val));
+
+            return;
+        }
         $group = new Group();
         $group->setName($request->getData('name'));
+        $group->setName((int) $request->getData('status'));
         $group->setDescription($request->getData('desc'));
 
         GroupMapper::create($group);
@@ -365,11 +384,11 @@ class Controller extends ModuleAbstract implements WebInterface
         $module = $request->getData('module');
         $status = $request->getData('status');
 
-        if(!$module || !$status) {
+        if (!$module || !$status) {
             // todo: create failure response
         }
 
-        switch($status) {
+        switch ($status) {
             case 'activate':
                 $done = $this->app->moduleManager->activate($module);
                 break;

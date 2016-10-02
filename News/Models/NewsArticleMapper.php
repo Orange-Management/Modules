@@ -15,6 +15,7 @@
  */
 namespace Modules\News\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
@@ -40,6 +41,13 @@ class NewsArticleMapper extends DataMapperAbstract
         'news_type'       => ['name' => 'news_type', 'type' => 'int', 'internal' => 'type'],
         'news_featured'   => ['name' => 'news_featured', 'type' => 'bool', 'internal' => 'featured'],
         'news_created_at' => ['name' => 'news_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+    ];
+
+    static protected $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'news_created_by',
+        ],
     ];
 
     /**
@@ -83,20 +91,20 @@ class NewsArticleMapper extends DataMapperAbstract
             $objId = parent::create($obj, $relations);
             $query = new Builder(self::$db);
             $query->prefix(self::$db->getPrefix())
-                  ->insert(
-                      'account_permission_account',
-                      'account_permission_from',
-                      'account_permission_for',
-                      'account_permission_id1',
-                      'account_permission_id2',
-                      'account_permission_r',
-                      'account_permission_w',
-                      'account_permission_m',
-                      'account_permission_d',
-                      'account_permission_p'
-                  )
-                  ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'news', 'news', 1, $objId, 1, 1, 1, 1, 1);
+                ->insert(
+                    'account_permission_account',
+                    'account_permission_from',
+                    'account_permission_for',
+                    'account_permission_id1',
+                    'account_permission_id2',
+                    'account_permission_r',
+                    'account_permission_w',
+                    'account_permission_m',
+                    'account_permission_d',
+                    'account_permission_p'
+                )
+                ->into('account_permission')
+                ->values($obj->getCreatedBy(), 'news', 'news', 1, $objId, 1, 1, 1, 1, 1);
 
             self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
@@ -119,9 +127,9 @@ class NewsArticleMapper extends DataMapperAbstract
     public static function find(...$columns) : Builder
     {
         return parent::find(...$columns)->from('account_permission')
-                     ->where('account_permission.account_permission_for', '=', 'news')
-                     ->where('account_permission.account_permission_id1', '=', 1)
-                     ->where('news.news_id', '=', new Column('account_permission.account_permission_id2'))
-                     ->where('account_permission.account_permission_r', '=', 1);
+            ->where('account_permission.account_permission_for', '=', 'news')
+            ->where('account_permission.account_permission_id1', '=', 1)
+            ->where('news.news_id', '=', new Column('account_permission.account_permission_id2'))
+            ->where('account_permission.account_permission_r', '=', 1);
     }
 }

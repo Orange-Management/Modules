@@ -31,6 +31,7 @@ class PositionMapper extends DataMapperAbstract
         'organization_position_name'        => ['name' => 'organization_position_name', 'type' => 'string', 'internal' => 'name'],
         'organization_position_description' => ['name' => 'organization_position_description', 'type' => 'string', 'internal' => 'description'],
         'organization_position_parent'      => ['name' => 'organization_position_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_position_status'      => ['name' => 'organization_position_status', 'type' => 'int', 'internal' => 'status'],
     ];
 
     /**

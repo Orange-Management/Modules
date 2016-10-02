@@ -30,6 +30,7 @@ class UnitMapper extends DataMapperAbstract
         'organization_unit_name'        => ['name' => 'organization_unit_name', 'type' => 'string', 'internal' => 'name'],
         'organization_unit_description' => ['name' => 'organization_unit_description', 'type' => 'string', 'internal' => 'description'],
         'organization_unit_parent'      => ['name' => 'organization_unit_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_unit_status'      => ['name' => 'organization_unit_status', 'type' => 'int', 'internal' => 'status'],
     ];
 
     /**

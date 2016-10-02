@@ -15,10 +15,12 @@
  */
 namespace Modules\Organization;
 
+use Model\Message\FormValidation;
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
+use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 use phpOMS\Message\RequestAbstract;
@@ -263,8 +265,26 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $val = [];
+        if (
+        $val['name'] = empty($request->getData('name'))
+            || $val['parent'] = (
+                    $request->getData('parent') !== null
+                    && !is_numeric($request->getData('parent'))
+                )
+                || $val['status'] = (
+                    $request->getData('status') === null
+                    || !Status::isValidValue((int) $request->getData('status'))
+                )
+        ) {
+            $response->set('unit_create_validation', new FormValidation($val));
+
+            return;
+        }
+
         $unit = new Unit();
         $unit->setName($request->getData('name'));
+        $unit->setStatus((int) $request->getData('status'));
         $unit->setDescription($request->getData('desc'));
 
         UnitMapper::create($unit);
@@ -274,8 +294,26 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $val = [];
+        if (
+        $val['name'] = empty($request->getData('name'))
+            || $val['parent'] = (
+                    $request->getData('parent') !== null
+                    && !is_numeric($request->getData('parent'))
+                )
+                || $val['status'] = (
+                    $request->getData('status') === null
+                    || !Status::isValidValue((int) $request->getData('status'))
+                )
+        ) {
+            $response->set('position_create_validation', new FormValidation($val));
+
+            return;
+        }
+
         $position = new Position();
         $position->setName($request->getData('name'));
+        $position->setStatus((int) $request->getData('status'));
         $position->setDescription($request->getData('desc'));
 
         PositionMapper::create($position);
@@ -285,8 +323,26 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $val = [];
+        if (
+        $val['name'] = empty($request->getData('name'))
+            || $val['parent'] = (
+                    $request->getData('parent') !== null
+                    && !is_numeric((int) $request->getData('parent'))
+                )
+                || $val['status'] = (
+                    $request->getData('status') === null
+                    || !Status::isValidValue($request->getData('status'))
+                )
+        ) {
+            $response->set('department_create_validation', new FormValidation($val));
+
+            return;
+        }
+
         $department = new Department();
         $department->setName($request->getData('name'));
+        $department->setStatus((int) $request->getData('status'));
         $department->setDescription($request->getData('desc'));
 
         DepartmentMapper::create($department);

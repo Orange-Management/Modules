@@ -172,14 +172,14 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $newsArticle = new NewsArticle();
-        $newsArticle->setCreatedBy($requst->getAccount()->getId());
+        $newsArticle->setCreatedBy($request->getAccount()->getId());
         $newsArticle->setCreatedAt(new \DateTime('now'));
-        $newsArticle->setPublish((bool) ($request->getData('publish') ?? false));
+        $newsArticle->setPublish(new \DateTime($request->getData('publish') ?? false));
         $newsArticle->setTitle($request->getData('title') ?? '');
         $newsArticle->setPlain($request->getData('plain') ?? '');
         $newsArticle->setContent($request->getData('content') ?? '');
         $newsArticle->setLanguage($request->getData('lang') ?? $request->getL11n()->getLanguage());
-        $newsArticle->setType((int) ($requst->getData('type') ?? 1));
+        $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));
 

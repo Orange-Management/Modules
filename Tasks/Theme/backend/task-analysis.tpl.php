@@ -48,3 +48,11 @@ echo $this->getData('nav')->render(); ?>
         </table>
     </div>
 </section>
+
+<div class="clear"></div>
+
+<section class="box w-100 floatLeft">
+    <header><h1><?= $this->getText('History'); ?></h1></header>
+    <div class="inner" style="height: 300px">
+    </div>
+</section>

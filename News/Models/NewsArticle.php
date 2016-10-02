@@ -15,6 +15,7 @@
  */
 namespace Modules\News\Models;
 
+use phpOMS\Contract\ArrayableInterface;
 use phpOMS\Datatypes\Exception\InvalidEnumValue;
 use phpOMS\Localization\ISO639x1Enum;
 
@@ -55,6 +56,14 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @since 1.0.0
      */
     private $content = '';
+
+    /**
+     * Unparsed.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private $plain = '';
 
     /**
      * News type.
@@ -146,6 +155,30 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     public function setContent(string $content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @param string $plain
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setPlain(string $plain)
+    {
+        $this->plain = $plain;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getPlain() : string
+    {
+        return $this->plain;
     }
 
     /**

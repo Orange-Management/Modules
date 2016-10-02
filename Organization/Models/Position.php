@@ -27,6 +27,8 @@ class Position implements ArrayableInterface, \JsonSerializable
 
     private $description = '';
 
+    protected $status = Status::INACTIVE;
+
     public function getId() : int
     {
         return $this->id;
@@ -50,6 +52,16 @@ class Position implements ArrayableInterface, \JsonSerializable
     public function setParent(int $parent)
     {
         $this->parent = $parent;
+    }
+
+    public function getStatus() : int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 
     public function getDescription() : string

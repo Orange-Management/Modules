@@ -46,23 +46,24 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'eventmanagement_event` (
                             `eventmanagement_event_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `eventmanagement_event_name` varchar(255) NOT NULL,
                             `eventmanagement_event_type` tinyint(2) NOT NULL,
-                            `eventmanagement_event_event` int(11) NOT NULL,
+                            `eventmanagement_event_calendar` int(11) NOT NULL,
                             `eventmanagement_event_costs` int(11) NOT NULL,
                             `eventmanagement_event_budget` int(11) NOT NULL,
                             `eventmanagement_event_earnings` int(11) NOT NULL,
                             `eventmanagement_event_created_by` int(11) NOT NULL,
                             `eventmanagement_event_created_at` datetime NOT NULL,
                             PRIMARY KEY (`eventmanagement_event_id`),
-                            KEY `eventmanagement_event_event` (`eventmanagement_event_event`),
+                            KEY `eventmanagement_event_calendar` (`eventmanagement_event_calendar`),
                             KEY `eventmanagement_event_created_by` (`eventmanagement_event_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'eventmanagement_event`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_event_ibfk_1` FOREIGN KEY (`eventmanagement_event_event`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar_event` (`calendar_event_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_event_ibfk_2` FOREIGN KEY (`eventmanagement_event_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account_id` (`calendar_event_created_by`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_event_ibfk_1` FOREIGN KEY (`eventmanagement_event_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_event_ibfk_2` FOREIGN KEY (`eventmanagement_event_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
