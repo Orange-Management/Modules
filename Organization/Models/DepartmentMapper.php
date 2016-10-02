@@ -34,6 +34,13 @@ class DepartmentMapper extends DataMapperAbstract
         'organization_department_unit'        => ['name' => 'organization_department_unit', 'type' => 'int', 'internal' => 'unit'],
     ];
 
+    protected static $belongsTo = [
+        'account' => [
+            'mapper'         => UnitMapper::class,
+            'dest'            => 'organization_department_unit',
+        ],
+    ];
+
     /**
      * Primary table.
      *

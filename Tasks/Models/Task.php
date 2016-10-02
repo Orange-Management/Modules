@@ -119,6 +119,8 @@ class Task
      */
     protected $schedule = null;
 
+    protected $media = null;
+
     /**
      * Constructor.
      *

@@ -68,6 +68,12 @@ class TaskMapper extends DataMapperAbstract
             'dst'            => 'task_element_task',
             'src'            => null,
         ],
+        'media' => [
+            'mapper'         => MediaMapper::class,
+            'table'          => 'task_media',
+            'dst'            => 'task_media_dst',
+            'src'            => 'task_media_src',
+        ],
     ];
 
     /**

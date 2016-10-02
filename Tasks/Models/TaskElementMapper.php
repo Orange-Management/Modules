@@ -50,6 +50,21 @@ class TaskElementMapper extends DataMapperAbstract
     ];
 
     /**
+     * Has many relation.
+     *
+     * @var array<string, array>
+     * @since 1.0.0
+     */
+    protected static $hasMany = [
+        'media' => [
+            'mapper'         => MediaMapper::class,
+            'table'          => 'task_element_media',
+            'dst'            => 'task_element_media_dst',
+            'src'            => 'task_element_media_src',
+        ],
+    ];
+
+    /**
      * Primary table.
      *
      * @var string
