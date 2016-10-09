@@ -267,15 +267,15 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (
-        $val['name'] = empty($request->getData('name'))
-            || $val['parent'] = (
+        ($val['name'] = empty($request->getData('name')))
+            || ($val['parent'] = (
                     $request->getData('parent') !== null
                     && !is_numeric($request->getData('parent'))
-                )
-                || $val['status'] = (
+                ))
+                || ($val['status'] = (
                     $request->getData('status') === null
                     || !Status::isValidValue((int) $request->getData('status'))
-                )
+                ))
         ) {
             $response->set('unit_create_validation', new FormValidation($val));
 
@@ -296,15 +296,15 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (
-        $val['name'] = empty($request->getData('name'))
-            || $val['parent'] = (
+        ($val['name'] = empty($request->getData('name')))
+            || ($val['parent'] = (
                     $request->getData('parent') !== null
                     && !is_numeric($request->getData('parent'))
-                )
-                || $val['status'] = (
+                ))
+                || ($val['status'] = (
                     $request->getData('status') === null
                     || !Status::isValidValue((int) $request->getData('status'))
-                )
+                ))
         ) {
             $response->set('position_create_validation', new FormValidation($val));
 
@@ -325,14 +325,14 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (
-        $val['name'] = empty($request->getData('name'))
-            || $val['parent'] = (
+        ($val['name'] = empty($request->getData('name')))
+            || ($val['parent'] = (
                     $request->getData('parent') !== null
                     && !is_numeric((int) $request->getData('parent'))
-                )
-                || $val['status'] = (
+                ))
+                || ($val['status'] = (
                     $request->getData('status') === null
-                    || !Status::isValidValue($request->getData('status'))
+                    || !Status::isValidValue($request->getData('status')))
                 )
         ) {
             $response->set('department_create_validation', new FormValidation($val));

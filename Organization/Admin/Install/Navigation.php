@@ -32,7 +32,7 @@ class Navigation
     /**
      * {@inheritdoc}
      */
-    public static function install(Pool $dbPool)
+    public static function install(string $path, Pool $dbPool)
     {
         $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
 

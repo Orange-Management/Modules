@@ -45,9 +45,9 @@ class Installer extends InstallerAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public static function install(Pool $dbPool, InfoManager $info)
+    public static function install(string $path, Pool $dbPool, InfoManager $info)
     {
-        parent::install($dbPool, $info);
+        parent::install($path, $dbPool, $info);
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:

@@ -302,15 +302,15 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (
-        $val['name'] = empty($request->getData('name'))
-            || $val['parent'] = (
+        ($val['name'] = empty($request->getData('name')))
+            || ($val['parent'] = (
                     $request->getData('parent') !== null
                     && !is_numeric($request->getData('parent'))
-                )
-                || $val['status'] = (
+                ))
+                || ($val['status'] = (
                     $request->getData('status') === null
                     || !GroupStatus::isValidValue((int) $request->getData('status'))
-                )
+                ))
         ) {
             $response->set('group_create_validation', new FormValidation($val));
 

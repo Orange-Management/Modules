@@ -15,6 +15,7 @@
  */
 namespace Modules\Tasks\Models;
 
+use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\RelationType;
 

@@ -15,9 +15,13 @@
  */
 namespace Modules\News;
 
+use Model\Message\FormValidation;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
+use Modules\News\Models\NewsStatus;
+use Modules\News\Models\NewsType;
 use phpOMS\Account\Account;
+use phpOMS\Localization\ISO639Enum;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -171,6 +175,28 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['plain'] = empty($request->getData('plain')))
+            || ($val['lang'] = (
+                $request->getData('lang') !== null
+                && !ISO639Enum::isValidValue(strtolower($request->getData('lang')))
+            ))
+            || ($val['type'] = (
+                $request->getData('type') === null
+                || !NewsType::isValidValue((int) $request->getData('type'))
+            ))
+            || ($val['status'] = (
+                $request->getData('status') === null
+                || !NewsStatus::isValidValue((int) $request->getData('status'))
+            ))
+        ) {
+            $response->set('news_create', new FormValidation($val));
+
+            return;
+        }
+
         $newsArticle = new NewsArticle();
         $newsArticle->setCreatedBy($request->getAccount()->getId());
         $newsArticle->setCreatedAt(new \DateTime('now'));
@@ -178,7 +204,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle->setTitle($request->getData('title') ?? '');
         $newsArticle->setPlain($request->getData('plain') ?? '');
         $newsArticle->setContent($request->getData('content') ?? '');
-        $newsArticle->setLanguage($request->getData('lang') ?? $request->getL11n()->getLanguage());
+        $newsArticle->setLanguage(strtolower($request->getData('lang') ?? $request->getL11n()->getLanguage()));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));

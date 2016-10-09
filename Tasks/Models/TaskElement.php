@@ -94,6 +94,8 @@ class TaskElement
      */
     private $forwarded = 0;
 
+    private $media = [];
+
     /**
      * Constructor.
      *
