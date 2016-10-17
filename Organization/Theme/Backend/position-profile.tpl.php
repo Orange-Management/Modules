@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                         </select>
                 <tr><td><label for="iDescription"><?= $this->getText('Description'); ?></label>
                 <tr><td><textarea name="description" id="iDescription"><?= $unit->getDescription(); ?></textarea>
-                <tr><td><input type="submit" value="<?= $this->getText('Save') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
             </table>
         </form>
     </div>

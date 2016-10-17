@@ -44,7 +44,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     <tr><td><input id="iOname" name="oname" type="text" value="<?= $_oname; ?>" placeholder="&#xf12e; Money Bin" required>
                     <tr><td><label for="iPassword"><?= $this->getText('PasswordRegex') ?></label>
                     <tr><td><input id="iPassword" name="passpattern" type="text" value="<?= $_password; ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
-                    <tr><td><input type="submit" value="<?= $this->getText('Save') ?>">
+                    <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
             </table>
         </form>
     </div>
@@ -91,7 +91,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     <td><label for="iThousandSep"><?= $this->getText('ThousandsSeparator') ?></label>
                 <tr><td><input id="iDecimalPoint" name="decimalpoint" type="text" value="<?= $_decimal_point; ?>" placeholder="." required>
                     <td><input id="iThousandSep" name="thousandsep" type="text" value="<?= $_thousands_sep; ?>" placeholder="," required>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Save') ?>">
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Save', 0) ?>">
             </table>
         </form>
     </div>

@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                                 <option><?= $this->getText('Visible') ?>
                     <tr><td colspan="2"><label for="publish"><?= $this->getText('Publish') ?></label>
                     <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
-                    <tr><td><input type="submit" value="<?= $this->getText('Delete') ?>"><td class="rightText"><input type="submit" value="<?= $this->getText('Save') ?>"> <input type="submit" value="<?= $this->getText('Publish') ?>">
+                    <tr><td><input type="submit" value="<?= $this->getText('Delete', 0) ?>"><td class="rightText"><input type="submit" value="<?= $this->getText('Save', 0) ?>"> <input type="submit" value="<?= $this->getText('Publish') ?>">
                 </table>
             </form>
         </div>

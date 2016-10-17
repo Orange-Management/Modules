@@ -361,7 +361,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iPName" name="pname" type="text" placeholder="">
                             <tr><td><label for="iPName"><?= $this->getText('Leadtime') ?></label>
                             <tr><td><input id="iPName" name="pname" type="number" min="0" step="1" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getText('Save') ?>">
+                            <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
                         </table>
                     </form>
                 </div>

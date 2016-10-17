@@ -85,13 +85,13 @@ echo $this->getData('nav')->render();
 
 <div class="box w-100">
     <table class="table">
-        <caption><?= $this->getText('Media'); ?></caption>
+        <caption><?= $this->getText('Media', 'Media'); ?></caption>
         <thead>
         <tr>
             <td><?= $this->getText('ID', 0, 0); ?>
-            <td class="wf-100"><?= $this->getText('Title'); ?>
-            <td><?= $this->getText('Type'); ?>
-            <td><?= $this->getText('Created'); ?>
+            <td class="wf-100"><?= $this->getText('Name', 'Media'); ?>
+            <td><?= $this->getText('Type', 'Media'); ?>
+            <td><?= $this->getText('Created', 'Media'); ?>
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
