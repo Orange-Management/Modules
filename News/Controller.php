@@ -165,15 +165,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    private function validateNewsCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (
@@ -192,6 +184,23 @@ class Controller extends ModuleAbstract implements WebInterface
                 || !NewsStatus::isValidValue((int) $request->getData('status'))
             ))
         ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateNewsCreate($request))) {
             $response->set('news_create', new FormValidation($val));
 
             return;

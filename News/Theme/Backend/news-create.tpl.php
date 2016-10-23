@@ -27,9 +27,9 @@ echo $this->getData('nav')->render(); ?>
             <form id="newsForm" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/news?csrf={$CSRF}'); ?>">
                 <table class="layout wf-100">
                     <tr><td colspan="2"><label for="publish"><?= $this->getText('Status') ?></label>
-                    <tr><td colspan="2"><select>
-                                <option selected><?= $this->getText('Draft') ?>
-                                <option><?= $this->getText('Visible') ?>
+                    <tr><td colspan="2"><select name="status">
+                                <option value="<?= Modules\News\Models\NewsStatus::DRAFT; ?>" selected><?= $this->getText('Draft') ?>
+                                <option value="<?= Modules\News\Models\NewsStatus::VISIBLE; ?>"><?= $this->getText('Visible') ?>
                     <tr><td colspan="2"><label for="publish"><?= $this->getText('Publish') ?></label>
                     <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>">
                     <tr><td><input type="submit" value="<?= $this->getText('Delete', 0) ?>"><td class="rightText"><input type="submit" value="<?= $this->getText('Save', 0) ?>"> <input type="submit" value="<?= $this->getText('Publish') ?>">
@@ -41,9 +41,9 @@ echo $this->getData('nav')->render(); ?>
         <div class="inner">
             <table class="layout wf-100">
                 <tr><td colspan="2"><label><?= $this->getText('Type') ?></label>
-                <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="1" id="news" checked><label for="news"><?= $this->getText('News') ?></label></span>
-                <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="2" id="headline"><label for="headline"><?= $this->getText('Headline') ?></label></span>
-                <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="3" id="link"><label for="link"><?= $this->getText('Link') ?></label></span>
+                <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="<?= Modules\News\Models\NewsType::ARTICLE; ?>" id="news" checked><label for="news"><?= $this->getText('News') ?></label></span>
+                <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="<?= Modules\News\Models\NewsType::HEADLINE; ?>" id="headline"><label for="headline"><?= $this->getText('Headline') ?></label></span>
+                <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="newsForm" value="<?= Modules\News\Models\NewsType::LINK; ?>" id="link"><label for="link"><?= $this->getText('Link') ?></label></span>
             </table>
         </div>
     </section>

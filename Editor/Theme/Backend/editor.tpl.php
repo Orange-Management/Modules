@@ -1,6 +1,6 @@
 <section class="box w-100">
         <div class="inner">
-            <input type="text" placeholder="&#xf040; This is a news title" form="newsForm">
+            <input type="text" name="title" placeholder="&#xf040; This is a news title" form="newsForm">
         </div>
     </section>
 
@@ -32,7 +32,7 @@
                 <input type="radio" id="c-tab-1" name="tabular-1" checked>
 
                 <div class="tab">
-                    <textarea style="height: 300px" placeholder="&#xf040;" form="newsForm"></textarea><input type="hidden" id="iParsed" name="parsed">
+                    <textarea style="height: 300px" placeholder="&#xf040;" name="plain" form="newsForm"></textarea><input type="hidden" id="iParsed" name="parsed">
                 </div>
                 <input type="radio" id="c-tab-2" name="tabular-1">
 
