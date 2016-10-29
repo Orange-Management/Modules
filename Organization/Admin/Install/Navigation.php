@@ -14,7 +14,7 @@
  * @link       http://orange-management.com
  */
 namespace Modules\Organization\Admin\Install;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 
 /**
  * Navigation class.
@@ -32,7 +32,7 @@ class Navigation
     /**
      * {@inheritdoc}
      */
-    public static function install(string $path, Pool $dbPool)
+    public static function install(string $path, DatabasePool $dbPool)
     {
         $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
 

@@ -15,7 +15,7 @@
  */
 namespace Modules\Accounting\Admin;
 
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\DeactivateAbstract;
 use phpOMS\Module\InfoManager;
 
@@ -36,7 +36,7 @@ class Deactivate extends DeactivateAbstract
     /**
      * {@inheritdoc}
      */
-    public static function deactivate(Pool $dbPool, InfoManager $info)
+    public static function deactivate(DatabasePool $dbPool, InfoManager $info)
     {
         parent::deactivate($dbPool, $info);
     }

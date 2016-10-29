@@ -16,7 +16,7 @@
 namespace Modules\Navigation\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
@@ -37,7 +37,7 @@ class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(string $path, Pool $dbPool, InfoManager $info)
+    public static function install(string $path, DatabasePool $dbPool, InfoManager $info)
     {
         parent::install($path, $dbPool, $info);
 
@@ -75,7 +75,7 @@ class Installer extends InstallerAbstract
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public static function installExternal(Pool $dbPool, array $data)
+    public static function installExternal(DatabasePool $dbPool, array $data)
     {
         try {
             $dbPool->get('core')->con->query('select 1 from `' . $dbPool->get('core')->prefix . 'nav`');

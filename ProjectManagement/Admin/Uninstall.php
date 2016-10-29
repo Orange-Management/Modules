@@ -16,7 +16,7 @@
 namespace Modules\ProjectManagement\Admin;
 
 
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\UninstallAbstract;
 
 /**
@@ -36,7 +36,7 @@ class Uninstall extends UninstallAbstract
     /**
      * {@inheritdoc}
      */
-    public static function uninstall(Pool $dbPool, InfoManager $info)
+    public static function uninstall(DatabasePool $dbPool, InfoManager $info)
     {
         parent::uninstall($dbPool, $info);
     }

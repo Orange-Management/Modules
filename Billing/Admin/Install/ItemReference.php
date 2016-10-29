@@ -16,7 +16,7 @@
 namespace Modules\Billing\Admin\Install;
 
 use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 
 /**
  * Media addition class.
@@ -35,7 +35,7 @@ class ItemReference
     /**
      * {@inheritdoc}
      */
-    public static function install(string $path, Pool $dbPool, InfoManager $info)
+    public static function install(string $path, DatabasePool $dbPool, InfoManager $info)
     {
 
         switch ($dbPool->get('core')->getType()) {
