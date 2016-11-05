@@ -30,8 +30,8 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent"></span>
                 <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
                 <tr><td><select name="status" id="iStatus">
-                            <option><?= $this->getText('Active'); ?>
-                            <option><?= $this->getText('Inactive'); ?>
+                            <option value="<?= \Modules\Organization\Models\Status::ACTIVE; ?>"><?= $this->getText('Active'); ?>
+                            <option value="<?= \Modules\Organization\Models\Status::INACTIVE; ?>"><?= $this->getText('Inactive'); ?>
                             </select>
                 <tr><td><label for="iDescription"><?= $this->getText('Description'); ?></label>
                 <tr><td><textarea name="description" id="iDescription" placeholder="&#xf040;"></textarea>

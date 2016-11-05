@@ -23,7 +23,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     private $name = '';
 
-    private $parent = 0;
+    private $parent = null;
 
     private $description = '';
 
@@ -44,7 +44,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
         $this->name = $name;
     }
 
-    public function getParent() : int
+    public function getParent()
     {
         return $this->parent;
     }

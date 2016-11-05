@@ -263,29 +263,38 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    private function validateUnitCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (
-        ($val['name'] = empty($request->getData('name')))
+            ($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
-                    $request->getData('parent') !== null
-                    && !is_numeric($request->getData('parent'))
-                ))
-                || ($val['status'] = (
-                    $request->getData('status') === null
-                    || !Status::isValidValue((int) $request->getData('status'))
-                ))
+                !empty($request->getData('parent'))
+                && !is_numeric($request->getData('parent'))
+            ))
+            || ($val['status'] = (
+                $request->getData('status') === null
+                || !Status::isValidValue((int) $request->getData('status'))
+            ))
         ) {
-            $response->set('unit_create_validation', new FormValidation($val));
+            return $val;
+        }
+
+        return [];
+    }
+
+    public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateUnitCreate($request))) {
+            $response->set('unit_create', new FormValidation($val));
 
             return;
         }
 
         $unit = new Unit();
         $unit->setName($request->getData('name'));
+        $unit->setDescription($request->getData('description') ?? '');
         $unit->setStatus((int) $request->getData('status'));
-        $unit->setDescription($request->getData('desc'));
 
         UnitMapper::create($unit);
 
