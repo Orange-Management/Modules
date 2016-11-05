@@ -15,6 +15,7 @@
  */
 namespace Modules\Tasks;
 
+use Model\Message\FormValidation;
 use Model\Message\Redirect;
 use Model\Message\Reload;
 use Modules\Tasks\Models\Task;
@@ -167,6 +168,21 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    private function validateTaskCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['description'] = empty($request->getData('description')))
+            || ($val['due'] = !((bool)strtotime($request->getData('due'))))
+            || ($val['forward'] = !(is_numeric($request->getData('forward') ?? 0)))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -179,6 +195,12 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateTaskCreate($request))) {
+            $response->set('task_create', new FormValidation($val));
+
+            return;
+        }
+
         $task = new Task();
         $task->setTitle($request->getData('title') ?? '');
         $task->setDescription($request->getData('description') ?? '');
@@ -198,7 +220,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->addElement($element);
 
         TaskMapper::create($task);
-        $response->set($request->__toString(), new Redirect(UriFactory::build('{/base}/{/lang}/{/app}/task/single?id=' . $task->getId())));
+        $response->set($request->__toString(), $task->jsonSerialize());
     }
 
     /**
