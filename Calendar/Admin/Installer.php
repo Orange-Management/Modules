@@ -75,7 +75,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'calendar_permission`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_permission_ibfk_2` FOREIGN KEY (`calendar_permission_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'calendar_permission_ibfk_1` FOREIGN KEY (`calendar_permission_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
@@ -93,8 +93,14 @@ class Installer extends InstallerAbstract
                             `schedule_end` datetime DEFAULT NULL,
                             `schedule_created_at` datetime NOT NULL,
                             `schedule_created_by` int(11) NOT NULL,
-                            PRIMARY KEY (`schedule_id`)
+                            PRIMARY KEY (`schedule_id`),
+                            KEY `schedule_created_by` (`schedule_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'schedule`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'schedule_ibfk_1` FOREIGN KEY (`schedule_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
