@@ -3,7 +3,7 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/task$' => [
+    '^.*/api/task(\?.*|$)' => [
         [
             'dest' => '\Modules\Tasks\Controller:apiTaskCreate',
             'verb' => RouteVerb::SET,
