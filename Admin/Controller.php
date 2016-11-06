@@ -298,28 +298,34 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('group', GroupMapper::getByRequest($request));
     }
 
-    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    private function validateGroupCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (
-        ($val['name'] = empty($request->getData('name')))
-            || ($val['parent'] = (
-                    $request->getData('parent') !== null
-                    && !is_numeric($request->getData('parent'))
-                ))
-                || ($val['status'] = (
-                    $request->getData('status') === null
-                    || !GroupStatus::isValidValue((int) $request->getData('status'))
-                ))
+            ($val['name'] = empty($request->getData('name')))
+            || ($val['status'] = (
+                $request->getData('status') === null
+                || !GroupStatus::isValidValue((int) $request->getData('status'))
+            ))
         ) {
-            $response->set('group_create_validation', new FormValidation($val));
+            return $val;
+        }
+
+        return [];
+    }
+
+    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateGroupCreate($request))) {
+            $response->set('group_create', new FormValidation($val));
 
             return;
         }
+
         $group = new Group();
-        $group->setName($request->getData('name'));
-        $group->setName((int) $request->getData('status'));
-        $group->setDescription($request->getData('desc'));
+        $group->setName($request->getData('name') ?? '');
+        $group->setStatus((int) $request->getData('status'));
+        $group->setDescription($request->getData('description') ?? '');
 
         GroupMapper::create($group);
 
