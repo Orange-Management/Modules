@@ -34,9 +34,9 @@ use phpOMS\DataStorage\Database\RelationType;
 class CalendarMapper extends DataMapperAbstract
 {
     /**
-     * Class name for .
+     * Class name.
      *
-     * @var array<string, array>
+     * @var string
      * @since 1.0.0
      */
     protected static $CLASS = __CLASS__;
@@ -44,7 +44,7 @@ class CalendarMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -59,7 +59,7 @@ class CalendarMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $hasMany = [

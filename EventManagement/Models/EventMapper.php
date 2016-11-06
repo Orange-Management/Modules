@@ -37,7 +37,7 @@ class EventMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -55,7 +55,7 @@ class EventMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $ownsOne = [
@@ -68,7 +68,7 @@ class EventMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $hasMany = [

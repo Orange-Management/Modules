@@ -32,12 +32,12 @@ $headerView->setTemplate('/Web/Templates/Lists/Header/HeaderTable');
 $headerView->setTitle($this->getText('TimeManagement'));
 $headerView->setHeader([
     ['title' => '', 'sortable' => false],
-    ['title' => $this->getText('PersonnelTimeManagement', 'Date'], 'Backend', 'sortable' => true),
-    ['title' => $this->getText('PersonnelTimeManagement', 'Status'], 'Backend', 'sortable' => true),
-    ['title' => $this->getText('PersonnelTimeManagement', 'Type'], 'sortable' => true, 'Backend', 'full' => true),
-    ['title' => $this->getText('PersonnelTimeManagement', 'Start'], 'Backend', 'sortable' => true),
-    ['title' => $this->getText('PersonnelTimeManagement', 'End'], 'Backend', 'sortable' => true),
-    ['title' => $this->getText('PersonnelTimeManagement', 'Duration'], 'Backend', 'sortable' => true),
+    ['title' => $this->getText('Date'), 'sortable' => true],
+    ['title' => $this->getText('Status'), 'sortable' => true],
+    ['title' => $this->getText('Type'), 'sortable' => true, 'full' => true],
+    ['title' => $this->getText('Start'), 'sortable' => true],
+    ['title' => $this->getText('End'), 'sortable' => true],
+    ['title' => $this->getText('Duration'), 'sortable' => true],
 ]);
 $timeMgmtView->addView('header', $headerView);
 
@@ -62,11 +62,11 @@ $settingsFormView->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 $settingsFormView->setElement(0, 0, [
     'type'    => \phpOMS\Html\TagType::SELECT,
     'options' => [
-        ['value' => 0, 'content' => $this->getText('All']),
-        ['value' => 1, 'content' => $this->getText('Day']),
-        ['value' => 2, 'content' => $this->getText('Week']),
-        ['value' => 3, 'content' => $this->getText('PersonnelTimeManagement', 'Month'], 'Backend', 'selected' => true),
-        ['value' => 4, 'content' => $this->getText('Year']),
+        ['value' => 0, 'content' => $this->getText('All')],
+        ['value' => 1, 'content' => $this->getText('Day')],
+        ['value' => 2, 'content' => $this->getText('Week')],
+        ['value' => 3, 'content' => $this->getText('Month'), 'Backend', 'selected' => true],
+        ['value' => 4, 'content' => $this->getText('Year')],
     ],
     'label'   => $this->getText('Interval'),
     'name'    => 'interval',
@@ -85,14 +85,14 @@ $this->addView('stats', $panelStatView);
 $statTableView = new \Web\Views\Lists\ListView($this->app, $this->request, $this->response);
 $statTableView->setTemplate('/Web/Templates/Lists/AssocList');
 $statTableView->setElements([
-    [$this->getText('PersonnelTimeManagement', 'Surplus'], 'Backend', '-2.4 hours'),
-    [$this->getText('PersonnelTimeManagement', 'Working'], 'Backend', '136 hours'),
-    [$this->getText('PersonnelTimeManagement', 'Late'], 'Backend', '3'),
-    [$this->getText('PersonnelTimeManagement', 'Vacation'], 'Backend', '5'),
-    [$this->getText('PersonnelTimeManagement', 'Sick'], 'Backend', '1'),
-    [$this->getText('PersonnelTimeManagement', 'Travel'], 'Backend', '17'),
-    [$this->getText('PersonnelTimeManagement', 'Remote'], 'Backend', '2'),
-    [$this->getText('PersonnelTimeManagement', 'Other'], 'Backend', '0'),
+    [$this->getText('Surplus'), '-2.4 hours'],
+    [$this->getText('Working'), '136 hours'],
+    [$this->getText('Late'), '3'],
+    [$this->getText('Vacation'), '5'],
+    [$this->getText('Sick'), '1'],
+    [$this->getText('Travel'), '17'],
+    [$this->getText('Remote'), '2'],
+    [$this->getText('Other'), '0'],
 ]);
 
 $this->getView('stats')->addView('stat::table', $statTableView);

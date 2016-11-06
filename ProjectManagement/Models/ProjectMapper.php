@@ -38,7 +38,7 @@ class ProjectMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -56,7 +56,7 @@ class ProjectMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $ownsOne = [
@@ -69,7 +69,7 @@ class ProjectMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $hasMany = [

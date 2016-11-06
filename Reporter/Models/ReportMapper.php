@@ -26,7 +26,7 @@ class ReportMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     static protected $columns = [
@@ -45,7 +45,7 @@ class ReportMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $ownsOne = [

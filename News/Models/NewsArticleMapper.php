@@ -27,7 +27,7 @@ class NewsArticleMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     static protected $columns = [

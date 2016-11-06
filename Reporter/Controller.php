@@ -192,7 +192,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return \Serializable
      *
-     * @throws
+     * @throws \Exception
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
