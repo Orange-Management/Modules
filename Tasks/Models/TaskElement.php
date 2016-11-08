@@ -27,7 +27,7 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class TaskElement
+class TaskElement implements \JsonSerializable
 {
 
     /**
@@ -295,5 +295,22 @@ class TaskElement
     public function setTask(int $task)
     {
         $this->task = $task;
+    }
+
+    public function toArray() : array {
+        return [
+            'id' => $this->id,
+            'task' => $this->task,
+            'createdBy' => $this->createdBy,
+            'createdAt' => $this->createdAt,
+            'description' => $this->description,
+            'status' => $this->status,
+            'forward' => $this->forwarded,
+            'due' => isset($this->due) ? $this->due->format('Y-m-d H:i:s') : null,
+        ];
+    }
+
+    public function jsonSerialize() {
+        return json_encode($this->toArray());
     }
 }

@@ -420,9 +420,12 @@ class Task implements \JsonSerializable
     {
         return [
             'id' => $this->id,
+            'createdBy' => $this->createdBy,
+            'createdAt' => $this->createdAt,
             'title' => $this->title,
             'description' => $this->description,
             'status' => $this->status,
+            'type' => $this->type,
             'type' => $this->type,
             'due' => $this->due->format('Y-m-d H:i:s'),
             'done' => (!isset($this->done) ? null : $this->done->format('Y-m-d H:i:s')),

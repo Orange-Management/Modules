@@ -74,15 +74,19 @@ foreach ($elements as $key => $element) : $c++;
         <form id="taskElementCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task/element?csrf={$CSRF}'); ?>">
             <table class="layout wf-100">
                 <tr><td><label for="iMessage"><?= $this->getText('Message'); ?></label>
-                <tr><td><textarea id="iMessage" name="desc"></textarea>
+                <tr><td><textarea id="iMessage" name="description"></textarea>
                 <tr><td><label for="iDue"><?= $this->getText('Due'); ?></label>
-                <tr><td><input type="datetime-local" id="iDue" name="due">
+                <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= end($elements)->getDue()->format('Y-m-d\TH:i:s'); ?>">
                 <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
                 <tr><td><select id="iStatus" name="status">
-                            <option>
+                            <option value="<?= \Modules\Tasks\Models\TaskStatus::OPEN; ?>" selected>Open
+                            <option value="<?= \Modules\Tasks\Models\TaskStatus::WORKING; ?>">Working
+                            <option value="<?= \Modules\Tasks\Models\TaskStatus::SUSPENDED; ?>">Suspended
+                            <option value="<?= \Modules\Tasks\Models\TaskStatus::CANCELED; ?>">Canceled
+                            <option value="<?= \Modules\Tasks\Models\TaskStatus::DONE; ?>">Done
                         </select>
                 <tr><td><label for="iReceiver"><?= $this->getText('To'); ?></label>
-                <tr><td><input type="text" id="iReceiver" name="forward" placeholder="&#xf007; Guest">
+                <tr><td><input type="text" id="iReceiver" name="forward" value="<?= $this->request->getAccount(); ?>" placeholder="&#xf007; Guest">
                 <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>"><input type="hidden" name="task" value="<?= $this->request->getData('id') ?>"><input type="hidden" name="type" value="1">
             </table>
         </form>

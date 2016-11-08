@@ -223,6 +223,21 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $task->jsonSerialize());
     }
 
+    private function validateTaskElementCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
+            || ($val['due'] = !((bool)strtotime($request->getData('due'))))
+            || ($val['task'] = !(is_numeric($request->getData('task'))))
+            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getAccount() : $request->getData('forward'))))
+        ) { // todo: validate correct task
+            return $val;
+        }
+
+        return [];
+    }
+
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -235,6 +250,12 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateTaskElementCreate($request))) {
+            $response->set('task_element_create', new FormValidation($val));
+
+            return;
+        }
+
         $element = new TaskElement();
         $element->setForwarded($request->getData('forward') ?? $request->getAccount());
         $element->setCreatedAt(new \DateTime('now'));
@@ -242,10 +263,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $element->setDue(new \DateTime($request->getData('due') ?? 'now'));
         $element->setStatus($request->getData('status'));
         $element->setTask($request->getData('task'));
-        $element->setDescription($request->getData('desc'));
+        $element->setDescription($request->getData('description'));
 
         TaskElementMapper::create($element);
-        $response->set($request->__toString(), new Reload());
+        $response->set($request->__toString(), $element->jsonSerialize());
     }
 
 }
