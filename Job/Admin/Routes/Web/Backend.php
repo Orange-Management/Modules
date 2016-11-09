@@ -15,4 +15,10 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/admin/job/create.*$' => [
+        [
+            'dest' => '\Modules\Job\Controller:viewJobCreate',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
 ];
