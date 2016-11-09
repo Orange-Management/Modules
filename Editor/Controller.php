@@ -94,7 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Editor/ModuleEditor.js');
+        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Editor/Controller.js');
     }
 
     /**
@@ -133,6 +133,42 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
         return $view;
+    }
+
+    private function validateEditorCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['plain'] = empty($request->getData('plain')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateEditorCreate($request))) {
+            $response->set('editor_create', new FormValidation($val));
+
+            return;
+        }
+
+        $editorArticle = new Editor();
+        
+        EditorMapper::create($editorArticle);
+
+        $response->set('editor', $editorArticle->jsonSerialize());
     }
 
 }
