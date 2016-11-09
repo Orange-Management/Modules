@@ -138,15 +138,17 @@ class UploadFile
             if (!$this->fileName || empty($this->fileName) || file_exists($path . '/' . $this->fileName)) {
                 $rnd = '';
 
+                // todo: implement limit since this could get exploited
                 do {
                     $sha = sha1_file($f['tmp_name'] . $rnd);
-                    $sha .= '.' . $extension;
 
                     if ($sha === false) {
                         $result[$key]['status'] = UploadStatus::FAILED_HASHING;
 
                         return $result;
                     }
+
+                    $sha .= '.' . $extension;
 
                     $this->fileName = $sha;
                     $rnd            = mt_rand();

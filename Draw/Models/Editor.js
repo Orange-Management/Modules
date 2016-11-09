@@ -1,6 +1,9 @@
 (function (jsOMS)
 {
     "use strict";
+
+    /** @namespace jsOMS.Uri.UriFactory */
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
     
     jsOMS.Modules.Draw.Editor = function (editor)
     {

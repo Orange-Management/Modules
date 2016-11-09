@@ -92,7 +92,9 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Draw/ModuleDraw.js');
+        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Draw/Controller.js');
+        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Draw/Models/DrawType.enum.js');
+        $head->addAsset(AssetType::JSLATE, $request->getUri()->getBase() . 'Modules/Draw/Models/Editor.js');
     }
 
     /**
@@ -131,6 +133,79 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
         return $view;
+    }
+
+    private function validateDrawCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['image'] = empty($request->getData('plain')))
+            || ($val['status'] = (
+                $request->getData('status') === null
+                || !NewsStatus::isValidValue((int) $request->getData('status'))
+            ))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateDrawCreate($request))) {
+            $response->set('draw_create', new FormValidation($val));
+
+            return;
+        }
+
+        $path = MediaController::createMediaPath();
+        $extension = 'png';
+        $filename = '';
+        $rnd = '';
+
+        // todo: implement limit since this could get exploited
+        do {
+            $filename = sha1($request->getData('image') . $rnd);
+            $filename .= '.' . $extension;
+
+            $rnd      = mt_rand();
+        } while (file_exists($path . '/' . $filename));
+
+        $fullPath = $path . '/' . $filename;
+
+        $this->createLocalFile($fullPath, $request->getData('image'));
+
+        $status = [
+            'path' => $path,
+            'filename' => $filename,
+            'size' => File::size($fullPath),
+            'extension' => $extension,
+        ];
+
+        $media = MediaController::createDbEntries($status, $request->getAccount());
+        $draw = Draw::fromMedia(end($media));
+        
+        DrawMapper::create($draw);
+
+        $response->set('image', $draw->jsonSerialize());
+    }
+
+    private function createLocalFile(string $outputPath, string $raw) : bool
+    {
+        $imageData = ImageUtils::decodeBase64Image($raw);
+        File::put($outputPath, $imageData);
+
+        return true;
     }
 
 }

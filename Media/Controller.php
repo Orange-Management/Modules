@@ -213,16 +213,21 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if (!empty($files)) {
             $upload  = new UploadFile();
-            $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
-            $path    = '/' . trim($basePath, '/\\.') . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
+            $path = self::createMediaPath($basePath);
             $upload->setOutputDir($path);
             $upload->setFileName(false);
 
             $status       = $upload->upload($files);
-            $mediaCreated = $this->createDbEntries($status, $account);
+            $mediaCreated = self::createDbEntries($status, $account);
         }
 
         return $mediaCreated;
+    }
+
+    public static function createMediaPath(string $basePath = '/Modules/Media/Files') : string
+    {
+        $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+        return '/' . trim($basePath, '/\\.') . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
     }
 
     /**
@@ -234,7 +239,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function createDbEntries(array $status, int $account) : array
+    public static function createDbEntries(array $status, int $account) : array
     {
         $mediaCreated = [];
 
