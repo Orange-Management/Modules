@@ -43,6 +43,39 @@ class Installer extends InstallerAbstract
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'editor_doc` (
+                            `editor_doc_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `editor_doc_title` varchar(250) NOT NULL,
+                            `editor_doc_content` text NOT NULL,
+                            `editor_doc_lang` varchar(2) NOT NULL,
+                            `editor_doc_path` varchar(255) NOT NULL,
+                            `editor_doc_created_at` datetime NOT NULL,
+                            `editor_doc_created_by` int(11) NOT NULL,
+                            PRIMARY KEY (`editor_doc_id`),
+                            KEY `editor_doc_created_by` (`editor_doc_created_by`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'editor`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'editor_doc_ibfk_1` FOREIGN KEY (`editor_doc_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'editor_tag` (
+                            `editor_tag_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `editor_tag_doc` int(11) NOT NULL,
+                            `editor_tag_tag` varchar(20) NOT NULL,
+                            PRIMARY KEY (`editor_tag_id`),
+                            KEY `editor_tag_doc` (`editor_tag_doc`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'editor_tag`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'editor_tag_ibfk_1` FOREIGN KEY (`editor_tag_doc`) REFERENCES `' . $dbPool->get('core')->prefix . 'editor_doc` (`editor_doc_id`);'
+                )->execute();
                 break;
         }
     }
