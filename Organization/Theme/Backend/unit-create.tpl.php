@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-33">
     <header><h1><?= $this->getText('Unit'); ?></h1></header>
     <div class="inner">
-        <form method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}{/rootPath}{/lang}/api/organization/unit'); ?>">
+        <form id="fUnitCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}{/rootPath}{/lang}/api/organization/unit'); ?>">
             <table class="layout wf-100">
                 <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>
