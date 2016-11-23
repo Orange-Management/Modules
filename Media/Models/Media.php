@@ -330,4 +330,9 @@ class Media
     {
         $this->versioned = $versioned;
     }
+
+    public function toArray()
+    {
+        return [];
+    }
 }

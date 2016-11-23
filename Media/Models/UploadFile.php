@@ -31,6 +31,7 @@ use phpOMS\System\File\Local\Directory;
  */
 class UploadFile
 {
+    const PATH_GENERATION_LIMIT = 1000;
 
     /**
      * Upload max size.
@@ -54,7 +55,7 @@ class UploadFile
      * @var string
      * @since 1.0.0
      */
-    private $outputDir = '/Modules/Media/Files';
+    private $outputDir = 'Modules/Media/Files';
 
     /**
      * Output file name.
@@ -78,6 +79,8 @@ class UploadFile
      * @param array $files File data ($_FILE)
      *
      * @return array
+     *
+     * @throws \Exception
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -138,7 +141,7 @@ class UploadFile
             if (!$this->fileName || empty($this->fileName) || file_exists($path . '/' . $this->fileName)) {
                 $rnd = '';
 
-                // todo: implement limit since this could get exploited
+                $limit = 0;
                 do {
                     $sha = sha1_file($f['tmp_name'] . $rnd);
 
@@ -152,11 +155,16 @@ class UploadFile
 
                     $this->fileName = $sha;
                     $rnd            = mt_rand();
-                } while (file_exists($path . '/' . $this->fileName));
+                    $limit++;
+                } while (file_exists($path . '/' . $this->fileName) && $limit < self::PATH_GENERATION_LIMIT);
+
+                if($limit >= self::PATH_GENERATION_LIMIT) {
+                    throw new \Exception('No file path could be found. Potential attack!');
+                }
             }
 
             if (!is_dir($path)) {
-                Directory::createPath($path, '0655', true);
+                Directory::create($path, '0655', true);
             }
 
             if (!is_uploaded_file($f['tmp_name'])) {

@@ -207,7 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function uploadFiles(array $files, int $account, string $basePath = '/Modules/Media/Files') : array
+    public function uploadFiles(array $files, int $account, string $basePath = 'Modules/Media/Files') : array
     {
         $mediaCreated = [];
 
@@ -224,10 +224,10 @@ class Controller extends ModuleAbstract implements WebInterface
         return $mediaCreated;
     }
 
-    public static function createMediaPath(string $basePath = '/Modules/Media/Files') : string
+    public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
     {
         $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
-        return '/' . trim($basePath, '/\\.') . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
+        return $basePath . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
     }
 
     /**
@@ -244,20 +244,29 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
-            if ($uFile['status'] === UploadStatus::OK) {
-                $media = new Media();
-                $media->setPath(trim($uFile['path'], '/') . '/' . $uFile['filename']);
-                $media->setName($uFile['filename']);
-                $media->setSize($uFile['size']);
-                $media->setCreatedBy($account);
-                $media->setCreatedAt(new \DateTime('NOW'));
-                $media->setExtension($uFile['extension']);
-
-                $mediaCreated[] = MediaMapper::create($media);
-            }
+            $mediaCreated[] = self::createDbEntry($uFile, $account);
         }
 
         return $mediaCreated;
+    }
+
+    public static function createDbEntry(array $status, int $account)
+    {
+        $media = null;
+        
+        if ($status['status'] === UploadStatus::OK) {
+            $media = new Media();
+            $media->setPath(trim($status['path'], '/') . '/' . $status['filename']);
+            $media->setName($status['name']);
+            $media->setSize($status['size']);
+            $media->setCreatedBy($account);
+            $media->setCreatedAt(new \DateTime('NOW'));
+            $media->setExtension($status['extension']);
+
+            MediaMapper::create($media);
+        }
+
+        return $media;
     }
 
 }
