@@ -49,6 +49,7 @@ class Installer extends InstallerAbstract
                             `news_title` varchar(250) NOT NULL,
                             `news_featured` tinyint(1) DEFAULT NULL,
                             `news_content` text NOT NULL,
+                            `news_plain` text NOT NULL,
                             `news_type` tinyint(2) NOT NULL,
                             `news_status` tinyint(1) NOT NULL,
                             `news_lang` varchar(2) NOT NULL,
