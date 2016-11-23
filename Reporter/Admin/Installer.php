@@ -35,15 +35,7 @@ class Installer extends InstallerAbstract
 {
 
     /**
-     * Install module.
-     *
-     * @param DatabasePool $dbPool Database pool instance
-     * @param array                             $info   Module info
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     * {@inheritdoc}
      */
     public static function install(string $path, DatabasePool $dbPool, InfoManager $info)
     {
