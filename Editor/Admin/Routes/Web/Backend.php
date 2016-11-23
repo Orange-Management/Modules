@@ -19,4 +19,10 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/editor/single.*$' => [
+        [
+            'dest' => '\Modules\Editor\Controller:viewEditorSingle', 
+            'verb' => RouteVerb::GET,
+        ],
+    ],
 ];

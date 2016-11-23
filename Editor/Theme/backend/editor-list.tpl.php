@@ -22,20 +22,27 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(20);
 $footerView->setPage(1);
 
+$docs = $this->getData('docs');
+
 echo $this->getData('nav')->render(); ?>
 <div class="box">
     <table class="table">
         <caption><?= $this->getText('Documents'); ?></caption>
         <thead>
         <tr>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td class="wf-100"><?= $this->getText('Title'); ?>
             <td><?= $this->getText('Creator'); ?>
             <td><?= $this->getText('Created'); ?>
         <tfoot>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
         <tbody>
-        <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+        <?php $count = 0; foreach($docs as $key => $value) : $count++;
+        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/editor/single?id=' . $value->getId()); ?>
+            <tr>
+                <td><a href="<?= $url; ?>"><?= $value->getTitle(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $value->getCreatedBy(); ?></a>
+                <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
         <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
