@@ -19,4 +19,10 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/draw/single.*$' => [
+        [
+            'dest' => '\Modules\Draw\Controller:viewDrawSingle', 
+            'verb' => RouteVerb::GET,
+        ],
+    ],
 ];

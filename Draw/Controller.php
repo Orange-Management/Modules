@@ -15,12 +15,19 @@
  */
 namespace Modules\Draw;
 
+use Model\Message\FormValidation;
+use Modules\Draw\Models\DrawImage;
+use Modules\Draw\Models\DrawImageMapper;
+use Modules\Media\Models\UploadStatus;
 use phpOMS\Asset\AssetType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use Modules\Media\Controller as MediaController;
+use phpOMS\System\File\Local\File;
+use phpOMS\Utils\ImageUtils;
 use phpOMS\Views\View;
 
 /**
@@ -132,6 +139,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
+        $images = DrawImageMapper::getNewest(25);
+        $view->addData('images', $images);
+
         return $view;
     }
 
@@ -140,11 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $val = [];
         if (
             ($val['title'] = empty($request->getData('title')))
-            || ($val['image'] = empty($request->getData('plain')))
-            || ($val['status'] = (
-                $request->getData('status') === null
-                || !NewsStatus::isValidValue((int) $request->getData('status'))
-            ))
+            || ($val['image'] = empty($request->getData('image')))
         ) {
             return $val;
         }
@@ -181,21 +187,23 @@ class Controller extends ModuleAbstract implements WebInterface
             $rnd      = mt_rand();
         } while (file_exists($path . '/' . $filename));
 
-        $fullPath = $path . '/' . $filename;
+        $fullPath = __DIR__ . '/../../' . $path . '/' . $filename;
 
         $this->createLocalFile($fullPath, $request->getData('image'));
 
         $status = [
             'path' => $path,
             'filename' => $filename,
+            'name' => $request->getData('title'),
             'size' => File::size($fullPath),
             'extension' => $extension,
+            'status' => UploadStatus::OK,
         ];
 
-        $media = MediaController::createDbEntries($status, $request->getAccount());
-        $draw = Draw::fromMedia(end($media));
-        
-        DrawMapper::create($draw);
+        $media = MediaController::createDbEntry($status, $request->getAccount());
+        $draw = DrawImage::fromMedia($media);
+
+        DrawImageMapper::create($draw);
 
         $response->set('image', $draw->jsonSerialize());
     }

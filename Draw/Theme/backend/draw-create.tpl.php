@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-100">
     <div class="inner">
         <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/draw?csrf={$CSRF}'); ?>" method="POST">
-            <input type="text" class="wf-100"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+            <input type="text" id="iTitle" name="title" class="wf-100"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
         </form>
     </div>
 </section>

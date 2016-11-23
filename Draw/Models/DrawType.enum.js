@@ -18,6 +18,6 @@
         DRAW: 0,
         LINE: 1,
         RECTANGLE: 2,
-        CIRCLE: 3,
+        CIRCLE: 3
     });
 }(window.jsOMS = window.jsOMS || {}));
