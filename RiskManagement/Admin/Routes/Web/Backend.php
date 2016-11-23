@@ -15,6 +15,12 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/controlling/riskmanagement/risk/create.*$' => [
+        [
+            'dest' => '\Modules\RiskManagement\Controller:viewRiskCreate', 
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/controlling/riskmanagement/cause/list.*$' => [
         [
             'dest' => '\Modules\RiskManagement\Controller:viewRiskCauseList', 

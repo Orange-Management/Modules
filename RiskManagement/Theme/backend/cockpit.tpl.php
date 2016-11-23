@@ -58,6 +58,11 @@ echo $this->getData('nav')->render(); ?>
 </section>
 <section class="wf-25 floatLeft">
     <section class="box w-100">
+        <div class="inner">
+            <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/controlling/riskmanagement/risk/create'); ?>"><?= $this->getText('NewRisk'); ?></a>
+        </div>
+    </section>
+    <section class="box w-100">
         <header><h1><?= $this->getText('Statistics'); ?></h1></header>
         <div class="inner">
             <table class="list">
