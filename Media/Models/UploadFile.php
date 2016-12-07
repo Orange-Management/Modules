@@ -34,6 +34,14 @@ class UploadFile
     const PATH_GENERATION_LIMIT = 1000;
 
     /**
+     * Image interlaced.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $interlaced = true;
+
+    /**
      * Upload max size.
      *
      * @var int
@@ -179,6 +187,14 @@ class UploadFile
                 return $result;
             }
 
+            if($this->interlaced && in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
+                $img = fopen($f['tmp_name'], $path . '/' . $this->fileName);
+                flock($img, LOCK_EX);
+                imageinterlace($img, (int) $this->interlaced);
+                flock($img, LOCK_UN);
+                fclose($img);
+            }
+
             $result[$key]['path'] = $this->outputDir;
         }
 
@@ -239,6 +255,11 @@ class UploadFile
     public function getMaxSize() : int
     {
         return $this->maxSize;
+    }
+
+    public function setInterlaced(bool $interlaced) /* : void */
+    {
+        $this->interlaced = $interlaced;
     }
 
     /**
