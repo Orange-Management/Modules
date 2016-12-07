@@ -30,6 +30,6 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class ProjectResponsibility extends Enum
 {
-    const MANAGER = 0;
-    const OTHER   = 1;
+    /* public */ const MANAGER = 0;
+    /* public */ const OTHER   = 1;
 }

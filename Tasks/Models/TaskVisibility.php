@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class TaskVisibility extends Enum
 {
-    const TO  = 1;
-    const CC  = 2;
-    const BCC = 3;
+    /* public */ const TO  = 1;
+    /* public */ const CC  = 2;
+    /* public */ const BCC = 3;
 }

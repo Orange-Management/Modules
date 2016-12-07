@@ -30,6 +30,6 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class ScheduleStatus extends Enum
 {
-    const ACTIVE   = 1;
-    const INACTIVE = 1;
+    /* public */ const ACTIVE   = 1;
+    /* public */ const INACTIVE = 1;
 }

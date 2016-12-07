@@ -30,13 +30,13 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class ArrivalStatus extends Enum
 {
-    const NONE = 0;
+    /* public */ const NONE = 0;
 
-    const PENDING = 1;
+    /* public */ const PENDING = 1;
 
-    const CHECKING = 2;
+    /* public */ const CHECKING = 2;
 
-    const SORTING = 3;
+    /* public */ const SORTING = 3;
 
-    const FINISHED = 4;
+    /* public */ const FINISHED = 4;
 }

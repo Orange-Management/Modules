@@ -30,13 +30,13 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class TaskPriority extends Enum
 {
-    const VLOW = 1;
+    /* public */ const VLOW = 1;
 
-    const LOW = 2;
+    /* public */ const LOW = 2;
 
-    const MEDIUM = 3;
+    /* public */ const MEDIUM = 3;
 
-    const HIGH = 4;
+    /* public */ const HIGH = 4;
 
-    const VHIGH = 5;
+    /* public */ const VHIGH = 5;
 }

@@ -30,8 +30,8 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class JobStatus extends Enum
 {
-    const RUNNING = 1;
-    const WAITING = 2;
-    const SUSPENDED = 3;
-    const DONE = 4;
+    /* public */ const RUNNING = 1;
+    /* public */ const WAITING = 2;
+    /* public */ const SUSPENDED = 3;
+    /* public */ const DONE = 4;
 }

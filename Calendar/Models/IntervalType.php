@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class IntervalType extends Enum
 {
-    const ABSOLUTE = 1;
+    /* public */ const ABSOLUTE = 1;
 
-    const RELATIVE = 2;
+    /* public */ const RELATIVE = 2;
 }

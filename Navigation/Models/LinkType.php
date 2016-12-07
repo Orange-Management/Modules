@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class LinkType extends Enum
 {
-    const CATEGORY = 0;
+    /* public */ const CATEGORY = 0;
 
-    const LINK = 1;
+    /* public */ const LINK = 1;
 }

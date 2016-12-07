@@ -30,9 +30,9 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class TemplateDataType extends Enum
 {
-    const OTHER = 0;
+    /* public */ const OTHER = 0;
 
-    const GLOBAL_DB = 1;
+    /* public */ const GLOBAL_DB = 1;
 
-    const GLOBAL_FILE = 2;
+    /* public */ const GLOBAL_FILE = 2;
 }

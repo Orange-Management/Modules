@@ -30,8 +30,8 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class States extends Enum
 {
-    const DEFAULT = 0;
-    const PENDING = 1;
-    const APPROVED = 2;
-    const DISMISSED = 3;
+    /* public */ const DEFAULT = 0;
+    /* public */ const PENDING = 1;
+    /* public */ const APPROVED = 2;
+    /* public */ const DISMISSED = 3;
 }

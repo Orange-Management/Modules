@@ -30,17 +30,17 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class WorkType extends Enum
 {
-    const OFF = 0;
+    /* public */ const OFF = 0;
 
-    const WORKING = 1;
+    /* public */ const WORKING = 1;
 
-    const LATE = 2;
+    /* public */ const LATE = 2;
 
-    const SICK = 3;
+    /* public */ const SICK = 3;
 
-    const VACATION = 4;
+    /* public */ const VACATION = 4;
 
-    const REMOTE = 5;
+    /* public */ const REMOTE = 5;
 
-    const TRAVEL = 6;
+    /* public */ const TRAVEL = 6;
 }

@@ -30,27 +30,27 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class EventType extends Enum
 {
-    const DEFAULT = 0;
+    /* public */ const DEFAULT = 0;
 
-    const COURSE = 1;
+    /* public */ const COURSE = 1;
 
-    const EVENT = 2;
+    /* public */ const EVENT = 2;
 
-    const FAIR = 3;
+    /* public */ const FAIR = 3;
 
-    const CONGRESS = 4;
+    /* public */ const CONGRESS = 4;
 
-    const DEMO = 5;
+    /* public */ const DEMO = 5;
 
-    const CONFERENCE = 6;
+    /* public */ const CONFERENCE = 6;
 
-    const SEMINAR = 7;
+    /* public */ const SEMINAR = 7;
 
-    const MEETING = 8;
+    /* public */ const MEETING = 8;
 
-    const TRADESHOW = 9;
+    /* public */ const TRADESHOW = 9;
 
-    const LAUNCH = 10;
+    /* public */ const LAUNCH = 10;
 
-    const CELEBRATION = 11;
+    /* public */ const CELEBRATION = 11;
 }

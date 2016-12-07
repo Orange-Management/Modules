@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class TimeStatus extends Enum
 {
-    const ACCEPTED = 0;
+    /* public */ const ACCEPTED = 0;
 
-    const OPEN = 1;
+    /* public */ const OPEN = 1;
 }

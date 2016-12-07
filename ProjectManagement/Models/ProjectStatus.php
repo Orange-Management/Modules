@@ -30,9 +30,9 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class ProjectStatus extends Enum
 {
-    const ACTIVE   = 0;
-    const INACTIVE = 1;
-    const HOLD     = 2;
-    const CANCELED = 3;
-    const FINISHED = 4;
+    /* public */ const ACTIVE   = 0;
+    /* public */ const INACTIVE = 1;
+    /* public */ const HOLD     = 2;
+    /* public */ const CANCELED = 3;
+    /* public */ const FINISHED = 4;
 }
