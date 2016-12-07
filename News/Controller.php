@@ -26,6 +26,7 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 
 /**
@@ -206,13 +207,15 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $mardkownParser = new Markdown();
+
         $newsArticle = new NewsArticle();
         $newsArticle->setCreatedBy($request->getAccount());
         $newsArticle->setCreatedAt(new \DateTime('now'));
         $newsArticle->setPublish(new \DateTime($request->getData('publish') ?? false));
         $newsArticle->setTitle($request->getData('title') ?? '');
         $newsArticle->setPlain($request->getData('plain') ?? '');
-        $newsArticle->setContent($request->getData('content') ?? '');
+        $newsArticle->setContent($mardkownParser->parse($request->getData('plain') ?? ''));
         $newsArticle->setLanguage(strtolower($request->getData('lang') ?? $request->getL11n()->getLanguage()));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));

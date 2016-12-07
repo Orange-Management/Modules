@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><i class="fa fa-anchor"></i>
                 <td><?= $job->getNextRunTime() !== null ? $job->getNextRunTime()->format('Y-m-d') : ''; ?>
             <tr>
-                <td><?= $this->getText('Comment'); ?>
+                <td><?= $this->getText('Description'); ?>
                 <td><i class="fa fa-anchor"></i>
                 <td><blockquote><?= $job->getComment(); ?></blockquote>
     </table>

@@ -17,12 +17,11 @@
  * @var \phpOMS\Views\View $this
  */
 
-$doc = $this->getData('doc');
-
-echo $this->getData('nav')->render(); ?>
-<section class="box w-100">
+$doc = $this->getData('doc') ?? null;
+?>
+    <section class="box w-100">
         <div class="inner">
-            <input type="text" name="title" placeholder="&#xf040; This is a news title" form="newsForm">
+            <input type="text" name="title" form="docForm">
         </div>
     </section>
 
@@ -47,19 +46,19 @@ echo $this->getData('nav')->render(); ?>
     <div class="box w-100">
         <div class="tabular">
             <ul class="tab-links">
-                <li><label for="c-tab-1"><?= $this->getText('Plain') ?></label>
+                <li><label for="c-tab-1"><?= $this->getText('Text') ?></label>
                 <li><label for="c-tab-2"><?= $this->getText('Preview') ?></label>
             </ul>
             <div class="tab-content">
                 <input type="radio" id="c-tab-1" name="tabular-1" checked>
 
                 <div class="tab">
-                    <textarea style="height: 300px" placeholder="&#xf040;" name="plain" form="newsForm"><?= $doc->getPlain(); ?></textarea><input type="hidden" id="iParsed" name="parsed">
+                    <textarea style="height: 300px" placeholder="&#xf040;" name="plain" form="docForm"><?= isset($doc) ? $doc->getPlain() : ''; ?></textarea><input type="hidden" id="iParsed" name="parsed">
                 </div>
                 <input type="radio" id="c-tab-2" name="tabular-1">
 
                 <div class="tab">
-                    <?= $doc->getContent(); ?>
+                    <?= isset($doc) ? $doc->getContent() : ''; ?>
                 </div>
             </div>
         </div>
