@@ -1,4 +1,4 @@
-z<?php
+<?php
 /**
  * Orange Management
  *
@@ -13,7 +13,7 @@ z<?php
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-return [
+return ['Billing' => [
     'Address'      => 'Address',
     'Addresses'    => 'Addresses',
     'Bonus'        => 'Bonus',
@@ -35,9 +35,11 @@ return [
     'Invoices'     => 'Invoices',
     'Item'         => 'Item',
     'Items'        => 'Items',
+    'Media'         => 'Media',
     'Name'         => 'Name',
     'Net'          => 'Net',
     'Offer'        => 'Offer',
+    'Payment'        => 'Payment',
     'Price'        => 'Price',
     'Quantity'     => 'Quantity',
     'Recipient'    => 'Recipient',
@@ -46,8 +48,9 @@ return [
     'Supplier'     => 'Supplier',
     'SupplierID'   => 'Supplier ID',
     'Tax'          => 'Tax',
+    'TermsOfDelivery'        => 'Terms Of Delivery',
     'Total'        => 'Total',
     'Type'         => 'Type',
     'Variation'    => 'Variation',
     'Zip'          => 'Zip',
-];
+]];

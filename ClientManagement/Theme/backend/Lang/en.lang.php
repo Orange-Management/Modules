@@ -36,6 +36,7 @@ return ['ClientManagement' => [
     'Files'        => 'Files',
     'Freightage'   => 'Freightage',
     'Group'        => 'Group',
+    'ID'         => 'ID',
     'Info'         => 'Info',
     'Invoice'      => 'Invoice',
     'IsDefault'    => 'Is default?',

@@ -24,6 +24,8 @@ echo $this->getData('nav')->render(); ?>
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getText('Invoice') ?></label></li>
             <li><label for="c-tab-2"><?= $this->getText('Items') ?></label></li>
+            <li><label for="c-tab-3"><?= $this->getText('Payment') ?></label></li>
+            <li><label for="c-tab-4"><?= $this->getText('Media') ?></label></li>
         </ul>
     </div>
     <div class="tab-content">
@@ -54,6 +56,10 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input type="number" id="iFreightage" name="freightage">
                             <tr><td><label for="iShipment"><?= $this->getText('Shipment') ?></label>
                             <tr><td><select id="iShipment" name="shipment">
+                                        <option>
+                                    </select>
+                            <tr><td><label for="iTermsOfDelivery"><?= $this->getText('TermsOfDelivery') ?></label>
+                            <tr><td><select id="iTermsOfDelivery" name="termsofdelivery">
                                         <option>
                                     </select>
                             <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
@@ -144,7 +150,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><input type="number" min="0">
                         <td><input type="number" min="0" max="100" step="any">
                         <td><input type="number" min="0" step="any">
-                        <td>
+                        <td><input type="number" min="0" step="any">
                         <td>
                 </table>
             </div>

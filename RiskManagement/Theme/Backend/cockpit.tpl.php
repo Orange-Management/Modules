@@ -38,6 +38,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $this->getText('Category'); ?>
                 <td><?= $this->getText('Process'); ?>
                 <td><?= $this->getText('Project'); ?>
+                <td><?= $this->getText('Unit'); ?>
             <tfoot>
             <tr><td colspan="6"><?= $footerView->render(); ?>
             <tbody>
@@ -49,9 +50,10 @@ echo $this->getData('nav')->render(); ?>
                 <td>
                 <td>
                 <td>
+                <td>
                     <?php endforeach; ?>
                     <?php if($c === 0) : ?>
-            <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+            <tr><td colspan="7" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                     <?php endif; ?>
         </table>
     </div>
@@ -62,6 +64,7 @@ echo $this->getData('nav')->render(); ?>
             <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/controlling/riskmanagement/risk/create'); ?>"><?= $this->getText('NewRisk'); ?></a>
         </div>
     </section>
+
     <section class="box w-100">
         <header><h1><?= $this->getText('Statistics'); ?></h1></header>
         <div class="inner">
