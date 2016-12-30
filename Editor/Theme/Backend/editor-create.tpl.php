@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <form id="fEditor" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/editor?csrf={$CSRF}'); ?>">
             <input name="title" type="text" class="wf-100">
-            <input type="submit" value="<?= $this->getText('Save') ?>">
+            <input type="submit" value="<?= $this->getText('Save'); ?>">
         </form>
     </div>
 </section>

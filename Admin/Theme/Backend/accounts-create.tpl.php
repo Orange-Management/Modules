@@ -18,20 +18,20 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-66 floatLeft">
     <header><h1><?= $this->getText('Account') ?></h1></header>
     <div class="inner">
-        <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
+        <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="put">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
                 <tr><td><select id="iType" name="type">
-                            <option><?= $this->getText('Person') ?>
-                            <option><?= $this->getText('Organization') ?>
+                            <option value="<?= \phpOMS\Account\AccountType::USER; ?>"><?= $this->getText('Person') ?>
+                            <option value="<?= \phpOMS\Account\AccountType::GROUP; ?>"><?= $this->getText('Organization') ?>
                         </select>
                 <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
                 <tr><td><select id="iStatus" name="status">
-                            <option><?= $this->getText('Active') ?>
-                            <option><?= $this->getText('Inactive') ?>
-                            <option><?= $this->getText('Timeout') ?>
-                            <option><?= $this->getText('Banned') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::ACTIVE; ?>"><?= $this->getText('Active') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::INACTIVE; ?>"><?= $this->getText('Inactive') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::TIMEOUT; ?>"><?= $this->getText('Timeout') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::BANNED; ?>"><?= $this->getText('Banned') ?>
                         </select>
                 <tr><td><label for="iUsername"><?= $this->getText('Username') ?></label>
                 <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred">

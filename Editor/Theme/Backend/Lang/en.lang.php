@@ -24,6 +24,7 @@ return ['Editor' => [
     'Name'       => 'Name',
     'Permission' => 'Permission',
     'Preview'    => 'Preview',
+    'Save'      => 'Save',
     'Start'      => 'Start',
     'Text'       => 'Text',
     'Title'      => 'Title',

@@ -21,10 +21,10 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Calendar install class.
+ * Editor install class.
  *
  * @category   Modules
- * @package    Modules\Calendar
+ * @package    Modules\Editor
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0

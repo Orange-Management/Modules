@@ -17,6 +17,8 @@ namespace Modules\Admin;
 
 use Model\Message\FormValidation;
 use Modules\Admin\Models\Account;
+use phpOMS\Account\AccountStatus;
+use phpOMS\Account\AccountType;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
@@ -356,11 +358,37 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('account', AccountMapper::getByRequest($request));
     }
 
+    private function validateAccountCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['name'] = empty($request->getData('name')))
+            || ($val['name1'] = empty($request->getData('name1')))
+            || ($val['type'] = !AccountType::isValidValue((int) $request->getData('type')))
+            || ($val['status'] = !AccountStatus::isValidValue((int) $request->getData('status')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
     public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateAccountCreate($request))) {
+            $response->set('account_create', new FormValidation($val));
+
+            return;
+        }
+
         $account = new Account();
+        $account->setStatus($request->getData('status'));
+        $account->setType($request->getData('type'));
         $account->setName($request->getData('name'));
-        $account->setDescription($request->getData('desc'));
+        $account->setName1($request->getData('name1'));
+        $account->setName2($request->getData('name2'));
+        $account->setName3($request->getData('name3'));
+        $account->setEmail($request->getData('email'));
 
         AccountMapper::create($account);
 

@@ -41,6 +41,7 @@ return ['ItemManagement' => [
     'GrossWeight'      => 'Gross Weight',
     'Group'            => 'Group',
     'Height'           => 'Height',
+    'ID'             => 'ID',
     'Info'             => 'Info',
     'Item'             => 'Item',
     'Items'            => 'Items',
