@@ -17,14 +17,8 @@
  * @var \phpOMS\Views\View $this
  */
 
-$templates = \Modules\Reporter\Models\TemplateMapper::listResults(
-    \Modules\Reporter\Models\TemplateMapper::find('reporter_template.reporter_template_id',
-        'reporter_template.reporter_template_title',
-        'reporter_template.reporter_template_creator',
-        'reporter_template.reporter_template_created')
-//->newest('reporter_template.reporter_template_created')
-);
 
+$templates = $this->getData('reports');
 $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 

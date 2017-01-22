@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iEmail"><?= $this->getText('Email') ?></label>
                 <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com">
                 <tr><td><label for="iPassword"><?= $this->getText('Name3') ?></label>
-                <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
+                <tr><td><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?">
                 <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>

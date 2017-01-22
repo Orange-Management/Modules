@@ -119,6 +119,14 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
+        $reports = TemplateMapper::listResults(
+            TemplateMapper::find('reporter_template.reporter_template_id',
+                'reporter_template.reporter_template_title',
+                'reporter_template.reporter_template_creator',
+                'reporter_template.reporter_template_created')
+        //->newest('reporter_template.reporter_template_created')
+        );
+        $view->addData('reports', $reports);
 
         return $view;
     }
@@ -207,31 +215,31 @@ class Controller extends ModuleAbstract implements WebInterface
         $files = $collection->getSources();
 
         foreach ($files as $tMedia) {
-            $path = $tMedia->getPath();
+            $lowerPath = strtolower($tMedia->getPath());
 
-            if (StringUtils::endsWith(strtolower($path), '.lang.php')) {
+            if (StringUtils::endsWith($lowerPath, '.lang.php')) {
                 $tcoll['lang'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), 'worker.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, 'worker.php')) {
                 $tcoll['worker'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.xlsx.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php')) {
                 $tcoll['excel'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.pdf.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.pdf.php')) {
                 $tcoll['pdf'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.csv.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.csv.php')) {
                 $tcoll['csv'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.json.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.json.php')) {
                 $tcoll['json'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.tpl.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.tpl.php')) {
                 $tcoll['template'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.css')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.css')) {
                 $tcoll['css'] = $tMedia;
 
                 /** @var Head $head */
                 $head = $response->get('Content')->getData('head');
                 $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . $tMedia->getPath());
-            } elseif (StringUtils::endsWith(strtolower($path), '.js')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.js')) {
                 $tcoll['js'] = $tMedia;
-            } elseif (StringUtils::endsWith(strtolower($path), '.sqlite') || StringUtils::endsWith(strtolower($path), '.db')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.sqlite') || StringUtils::endsWith($lowerPath, '.db')) {
                 $tcoll['db'][] = $tMedia;
             } else {
                 // Do nothing; only the creator knows how to deal with this type of file :)
@@ -360,9 +368,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
-        $templateId = TemplateMapper::create($reporterTemplate);
+        $template = TemplateMapper::create($reporterTemplate);
 
-        $response->set($request->__toString(), $templateId);
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set($request->__toString(), $template);
     }
 
     /**

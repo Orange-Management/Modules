@@ -141,6 +141,7 @@ class UploadFile
             }
 
             $split                     = explode('.', $f['name']);
+            $result[$key]['name'] = $split[0];
             $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 
@@ -181,24 +182,44 @@ class UploadFile
                 return $result;
             }
 
-            if (!move_uploaded_file($f['tmp_name'], $path . '/' . $this->fileName)) {
+            if (!move_uploaded_file($f['tmp_name'], $dest = $path . '/' . $this->fileName)) {
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
             }
 
             if($this->interlaced && in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
-                $img = fopen($f['tmp_name'], $path . '/' . $this->fileName);
-                flock($img, LOCK_EX);
-                imageinterlace($img, (int) $this->interlaced);
-                flock($img, LOCK_UN);
-                fclose($img);
+                $this->interlace($extension, $dest);
             }
 
             $result[$key]['path'] = $this->outputDir;
         }
 
         return $result;
+    }
+
+    private function interlace(string $extension, string $path) /* : void */
+    {
+        
+                if($extension === 'png') {
+                    $img = imagecreatefrompng($path);
+                } elseif($extension === 'jpg' || $extension === 'jpeg') {
+                    $img = imagecreatefromjpeg($path);
+                } else {
+                    $img = imagecreatefromgif($path);
+                }
+
+                imageinterlace($img, (int) $this->interlaced);
+
+                if($extension === 'png') {
+                    imagepng($img, $path);
+                } elseif($extension === 'jpg' || $extension === 'jpeg') {
+                    imagejpeg($img, $path);
+                } else {
+                    imagegif($img, $path);
+                }
+
+                imagedestroy($img);
     }
 
     /**

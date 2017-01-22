@@ -104,7 +104,7 @@ class Department
      */
     public function __toString()
     {
-        return $this->jsonSerialize();
+        return json_encode($this->toArray());
     }
 
     /**
@@ -117,6 +117,6 @@ class Department
      */
     public function jsonSerialize()
     {
-        return json_encode($this->toArray());
+        return $this->toArray();
     }
 }

@@ -117,6 +117,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
+        $media = MediaMapper::getNewest(25);
+        $view->addData('media', $media);
+
         return $view;
     }
 
@@ -176,8 +179,13 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? '/Modules/Media/Files');
 
+        $ids = [];
+        foreach($uploads as $file) {
+            $ids[] = $file->getId();
+        }
+
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), [['uploads' => $uploads, 'type' => 'UI']]);
+        $response->set($request->__toString(), [['uploads' => $ids, 'type' => 'UI']]);
     }
 
     /**
@@ -244,7 +252,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
-            $mediaCreated[] = self::createDbEntry($uFile, $account);
+            if(!is_null($created = self::createDbEntry($uFile, $account))) {
+                $mediaCreated[] = $created;
+            }
         }
 
         return $mediaCreated;
@@ -253,7 +263,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public static function createDbEntry(array $status, int $account)
     {
         $media = null;
-        
+
         if ($status['status'] === UploadStatus::OK) {
             $media = new Media();
             $media->setPath(trim($status['path'], '/') . '/' . $status['filename']);

@@ -108,9 +108,9 @@ class AccountMapper extends DataMapperAbstract
 
             return false;
         }
-    }
 
-        
+        return $objId;
+    }
 
     /**
      * Get object.

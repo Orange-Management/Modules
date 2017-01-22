@@ -23,7 +23,7 @@ $calendar = $this->getData('calendar');
                     <?php if($calendar->getDate()->getFirstDayOfMonth() <= $i*7+$j+1 && $calendar->getDate()->getDaysOfMonth() >= $i*7+$j+1) {
                         echo ($i*7+$j+1) . ' ' . jddayofweek($j, 1);
                     } else {
-                        echo (($i*7+$j+1)-$calendar->getDate()->getDaysOfMonth()) . ' ' . jddayofweek($j, 1);
+                        echo $current->createModify(0, 0, -2)->format('d') . ' ' . jddayofweek($j, 1);
                     } ?>
                         <ul>
                         <?php

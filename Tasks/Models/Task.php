@@ -441,6 +441,6 @@ class Task implements \JsonSerializable
      */
     public function jsonSerialize()
     {
-        return json_encode($this->toArray());
+        return $this->toArray();
     }
 }

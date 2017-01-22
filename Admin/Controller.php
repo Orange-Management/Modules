@@ -389,6 +389,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account->setName2($request->getData('name2'));
         $account->setName3($request->getData('name3'));
         $account->setEmail($request->getData('email'));
+        $account->generatePassword($request->getData('password'));
 
         AccountMapper::create($account);
 
