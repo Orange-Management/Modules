@@ -250,7 +250,9 @@ class Controller extends ModuleAbstract implements WebInterface
             throw new \Exception('No template file detected.');
         }
 
-        $report = ReportMapper::getNewest(1, (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())); /* todo newest that belongs to template x. right now always newest no matter the template */
+        $report = ReportMapper::getNewest(1, 
+            (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())
+        ); /* todo newest that belongs to template x. right now always newest no matter the template */
         $rcoll  = [];
 
         if (!($report instanceof NullReport)) {
@@ -259,7 +261,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $files = $collection->getSources();
 
             foreach ($files as $media) {
-                $rcoll[$media->getName()] = $media;
+                $rcoll[$media->getName() . '.' . $media->getExtension()] = $media;
             }
         }
 
