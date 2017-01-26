@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -27,6 +27,7 @@ return ['ClientManagement' => [
     'Contact'      => 'Contact',
     'Country'      => 'Country',
     'Creditcard'   => 'Creditcard',
+    'Date'      => 'Date',
     'Default'      => 'Default',
     'Delivery'     => 'Delivery',
     'Discount'     => 'Discount',
@@ -36,9 +37,12 @@ return ['ClientManagement' => [
     'Files'        => 'Files',
     'Freightage'   => 'Freightage',
     'Group'        => 'Group',
+    'ID'         => 'ID',
     'Info'         => 'Info',
     'Invoice'      => 'Invoice',
     'IsDefault'    => 'Is default?',
+    'Log'       => 'Log',
+    'Logs'       => 'Logs',
     'Master'       => 'Master',
     'Name'         => 'Name',
     'Name1'        => 'Name1',

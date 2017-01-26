@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,7 +15,10 @@
  */
 namespace Modules\Admin\Models;
 
+use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
 class AccountMapper extends DataMapperAbstract
@@ -23,7 +26,7 @@ class AccountMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -65,6 +68,49 @@ class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $createdAt = 'account_created_at';
+
+    /**
+     * Create object.
+     *
+     * @param mixed $obj       Object
+     * @param int   $relations Behavior for relations creation
+     *
+     * @return mixed
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public static function create($obj, int $relations = RelationType::ALL)
+    {
+        try {
+            $objId = parent::create($obj, $relations);
+            $query = new Builder(self::$db);
+
+            $query->prefix(self::$db->getPrefix())
+                  ->insert(
+                      'account_permission_account',
+                      'account_permission_from',
+                      'account_permission_for',
+                      'account_permission_id1',
+                      'account_permission_id2',
+                      'account_permission_r',
+                      'account_permission_w',
+                      'account_permission_m',
+                      'account_permission_d',
+                      'account_permission_p'
+                  )
+                  ->into('account_permission')
+                  ->values(1, 'account', 'account', 1, $objId, 1, 1, 1, 1, 1);
+
+            self::$db->con->prepare($query->toSql())->execute();
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
+
+            return false;
+        }
+
+        return $objId;
+    }
 
     /**
      * Get object.

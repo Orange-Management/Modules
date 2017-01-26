@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,9 +30,9 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class AvailableStatus extends Enum
 {
-    const AVAILABLE = 0;
+    /* public */ const AVAILABLE = 0;
 
-    const BUSY = 1;
+    /* public */ const BUSY = 1;
 
-    const AWAY = 2;
+    /* public */ const AWAY = 2;
 }

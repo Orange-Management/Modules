@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class ReporterStatus extends Enum
 {
-    const INACTIVE = 0;
+    /* public */ const INACTIVE = 0;
 
-    const ACTIVE = 1;
+    /* public */ const ACTIVE = 1;
 }

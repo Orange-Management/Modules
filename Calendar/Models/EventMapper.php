@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -37,7 +37,7 @@ class EventMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -56,10 +56,10 @@ class EventMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
-    protected static $hasOne = [
+    protected static $ownsOne = [
         'schedule' => [
             'mapper' => ScheduleMapper::class,
             'src'    => 'calendar_event_schedule',

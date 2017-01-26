@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -22,6 +22,8 @@ class Department
     protected $name = '';
 
     protected $parent = null;
+
+    protected $status = Status::INACTIVE;
 
     protected $unit = 1;
 
@@ -50,6 +52,16 @@ class Department
     public function setParent(int $parent)
     {
         $this->parent = $parent;
+    }
+
+    public function getStatus() : int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 
     public function getUnit() : int
@@ -92,7 +104,7 @@ class Department
      */
     public function __toString()
     {
-        return $this->jsonSerialize();
+        return json_encode($this->toArray());
     }
 
     /**
@@ -105,6 +117,6 @@ class Department
      */
     public function jsonSerialize()
     {
-        return json_encode($this->toArray());
+        return $this->toArray();
     }
 }

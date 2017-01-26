@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -28,7 +28,7 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Task
+class Task implements \JsonSerializable
 {
 
     /**
@@ -119,6 +119,8 @@ class Task
      */
     protected $schedule = null;
 
+    protected $media = [];
+
     /**
      * Constructor.
      *
@@ -195,6 +197,7 @@ class Task
     public function setCreatedBy(int $id)
     {
         $this->createdBy = $id;
+        $this->schedule->setCreatedBy($id);
     }
 
     /**
@@ -288,7 +291,7 @@ class Task
     /**
      * @param int $status
      *
-     * @throws
+     * @throws InvalidEnumValue
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -413,4 +416,31 @@ class Task
         return $this->schedule;
     }
 
+    private function toArray() : array
+    {
+        return [
+            'id' => $this->id,
+            'createdBy' => $this->createdBy,
+            'createdAt' => $this->createdAt,
+            'title' => $this->title,
+            'description' => $this->description,
+            'status' => $this->status,
+            'type' => $this->type,
+            'type' => $this->type,
+            'due' => $this->due->format('Y-m-d H:i:s'),
+            'done' => (!isset($this->done) ? null : $this->done->format('Y-m-d H:i:s')),
+        ];
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link  http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
 }

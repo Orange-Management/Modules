@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,13 +15,18 @@
  */
 namespace Modules\News;
 
+use Model\Message\FormValidation;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
+use Modules\News\Models\NewsStatus;
+use Modules\News\Models\NewsType;
 use phpOMS\Account\Account;
+use phpOMS\Localization\ISO639Enum;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 
 /**
@@ -44,7 +49,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_PATH = __DIR__;
+    /* public */ const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -52,7 +57,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_VERSION = '1.0.0';
+    /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -60,7 +65,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'News';
+    /* public */ const MODULE_NAME = 'News';
 
     /**
      * Providing.
@@ -161,6 +166,31 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    private function validateNewsCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['plain'] = empty($request->getData('plain')))
+            || ($val['lang'] = (
+                $request->getData('lang') !== null
+                && !ISO639Enum::isValidValue(strtolower($request->getData('lang')))
+            ))
+            || ($val['type'] = (
+                $request->getData('type') === null
+                || !NewsType::isValidValue((int) $request->getData('type'))
+            ))
+            || ($val['status'] = (
+                $request->getData('status') === null
+                || !NewsStatus::isValidValue((int) $request->getData('status'))
+            ))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -171,15 +201,23 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateNewsCreate($request))) {
+            $response->set('news_create', new FormValidation($val));
+
+            return;
+        }
+
+        $mardkownParser = new Markdown();
+
         $newsArticle = new NewsArticle();
-        $newsArticle->setCreatedBy($requst->getAccount()->getId());
+        $newsArticle->setCreatedBy($request->getAccount());
         $newsArticle->setCreatedAt(new \DateTime('now'));
-        $newsArticle->setPublish((bool) ($request->getData('publish') ?? false));
+        $newsArticle->setPublish(new \DateTime($request->getData('publish') ?? false));
         $newsArticle->setTitle($request->getData('title') ?? '');
         $newsArticle->setPlain($request->getData('plain') ?? '');
-        $newsArticle->setContent($request->getData('content') ?? '');
-        $newsArticle->setLanguage($request->getData('lang') ?? $request->getL11n()->getLanguage());
-        $newsArticle->setType((int) ($requst->getData('type') ?? 1));
+        $newsArticle->setContent($mardkownParser->parse($request->getData('plain') ?? ''));
+        $newsArticle->setLanguage(strtolower($request->getData('lang') ?? $request->getL11n()->getLanguage()));
+        $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));
 

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
         <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
-                <tr><td><label for="iId"><?= $this->getText('ID') ?></label>
+                <tr><td><label for="iId"><?= $this->getText('ID', 0, 0) ?></label>
                 <tr><td><input id="iId" name="id" type="text" value="<?= $account->getId(); ?>" disabled>
                 <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
                 <tr><td><select id="iType" name="type">
@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                             <option value="<?= \phpOMS\Account\AccountStatus::BANNED; ?>"<?= $account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : ''; ?>><?= $this->getText('Banned') ?>
                         </select>
                 <tr><td><label for="iUsername"><?= $this->getText('Username') ?></label>
-                <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred" value="<?= $account->getEmail(); ?>" disabled>
+                <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred" value="<?= $account->getName(); ?>" disabled>
                 <tr><td><label for="iName1"><?= $this->getText('Name1') ?></label>
                 <tr><td><input id="iName1" name="name1" type="text" placeholder="&#xf007; Donald" value="<?= $account->getName1(); ?>" required>
                 <tr><td><label for="iName2"><?= $this->getText('Name2') ?></label>
@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= $account->getEmail(); ?>">
                 <tr><td><label for="iPassword"><?= $this->getText('Name3') ?></label>
                 <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
-                <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Save', 0, 0); ?>">
             </table>
         </form>
     </div>

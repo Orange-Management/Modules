@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class LinkType extends Enum
 {
-    const CATEGORY = 0;
+    /* public */ const CATEGORY = 0;
 
-    const LINK = 1;
+    /* public */ const LINK = 1;
 }

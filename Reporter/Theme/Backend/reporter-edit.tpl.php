@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -153,15 +153,15 @@ echo $this->getData('nav')->render(); ?>
      */
     $headerView->setTitle($this->getText('Permission'));
     $headerView->setHeader([
-        ['title' => $this->getText('Reporter', 'Type'], 'Backend', 'sortable' => true),
-        ['title' => $this->getText('Reporter', 'Name'], 'sortable' => true, 'Backend', 'full' => true),
-        ['title' => $this->getText('Reporter', 'Permission'], 'Backend', 'sortable' => true),
+        ['title' => $this->getText('Type'), 'sortable' => true],
+        ['title' => $this->getText('Name'), 'sortable' => true, 'full' => true],
+        ['title' => $this->getText('Permission'), 'sortable' => true],
     ]);
 
     $permissionListView->addView('header', $headerView);
     $this->addView('permissionList', $permissionListView);
 
-    $tabView->addTab($this->getText('Reporter', 'Overview'), $overviwPanel->render() . $permissionPanel->render() . $permissionListView->render(), 'Backend', 'overview');
+    $tabView->addTab($this->getText('Overview'), $overviwPanel->render() . $permissionPanel->render() . $permissionListView->render(), 'Backend', 'overview');
 
     /*
  * UI Logic
@@ -177,10 +177,10 @@ echo $this->getData('nav')->render(); ?>
      */
     $sourceListHeaderView->setTitle($this->getText('Sources'));
     $sourceListHeaderView->setHeader([
-        ['title' => $this->getText('ID'], 'Backend', 'sortable' => true),
-        ['title' => $this->getText('Reporter', 'Name'], 'sortable' => true, 'Backend', 'full' => true),
-        ['title' => $this->getText('Reporter', 'Created'], 'Backend', 'sortable' => true),
-        ['title' => $this->getText('Reporter', 'CreatedBy'], 'Backend', 'sortable' => true),
+        ['title' => $this->getText('ID'), 'sortable' => true],
+        ['title' => $this->getText('Name'), 'sortable' => true, 'full' => true],
+        ['title' => $this->getText('Created'), 'sortable' => true],
+        ['title' => $this->getText('CreatedBy'), 'sortable' => true],
     ]);
 
     $sourceList->setFreeze(3, 2);

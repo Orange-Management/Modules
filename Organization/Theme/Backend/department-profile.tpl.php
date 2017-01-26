@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -22,7 +22,7 @@ $department = $this->getData('department');
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33">
-    <h1><?= $this->getText('Position'); ?></h1>
+    <header><h1><?= $this->getText('Department'); ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout wf-100">
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                         </select>
                 <tr><td><label for="iDescription"><?= $this->getText('Description'); ?></label>
                 <tr><td><textarea name="description" id="iDescription"><?= $department->getDescription(); ?></textarea>
-                <tr><td><input type="submit" value="<?= $this->getText('Save') ?>">
+                <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
             </table>
         </form>
     </div>

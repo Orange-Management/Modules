@@ -1,7 +1,7 @@
 {
     "name": {
         "id": 1000800000,
-        "internal": "Survys",
+        "internal": "Surveys",
         "external": "OMS Surveys"
     },
     "version": "1.0.0",

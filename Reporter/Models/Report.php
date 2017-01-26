@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -252,12 +252,12 @@ class Report
     }
 
     /**
-     * @return int
+     * @return Template
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getTemplate() : int
+    public function getTemplate()
     {
         return $this->template;
     }

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                                 <?php endforeach; ?>
                         </select>
                 <tr><td><label for="iFile"><?= $this->getText('Files') ?></label>
-                <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden" pattern="\\[(([0-9])+(,)*( )*)+\\]" required>
+                <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden" pattern="\[(([0-9])+(,)*( )*)+\]" required>
                 <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>

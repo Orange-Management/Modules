@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,8 +30,8 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class TimeRangeType extends Enum
 {
-    const ENTRY_DATE      = 0; /* Date of when the entry happened */
-    const DUE_DATE        = 1; /* Date of when the entry is due (only for invoices) */
-    const RECEIPT_DATE    = 2; /* Date of the receipt */
-    const ASSOCIATED_DATE = 3; /* Date of the association (e.g. when did the articles arrive) */
+    /* public */ const ENTRY_DATE      = 0; /* Date of when the entry happened */
+    /* public */ const DUE_DATE        = 1; /* Date of when the entry is due (only for invoices) */
+    /* public */ const RECEIPT_DATE    = 2; /* Date of the receipt */
+    /* public */ const ASSOCIATED_DATE = 3; /* Date of the association (e.g. when did the articles arrive) */
 }

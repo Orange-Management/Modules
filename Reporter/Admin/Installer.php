@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -16,7 +16,7 @@
 namespace Modules\Reporter\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
@@ -35,19 +35,11 @@ class Installer extends InstallerAbstract
 {
 
     /**
-     * Install module.
-     *
-     * @param Pool $dbPool Database pool instance
-     * @param array                             $info   Module info
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     * {@inheritdoc}
      */
-    public static function install(Pool $dbPool, InfoManager $info)
+    public static function install(string $path, DatabasePool $dbPool, InfoManager $info)
     {
-        parent::install($dbPool, $info);
+        parent::install($path, $dbPool, $info);
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -20,6 +20,8 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Utils\TaskSchedule\SchedulerFactory;
+use phpOMS\Utils\TaskSchedule\SchedulerAbstract;
 
 /**
  * Task class.
@@ -41,7 +43,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_PATH = __DIR__;
+    /* public */ const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -49,7 +51,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_VERSION = '1.0.0';
+    /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -57,7 +59,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'Job';
+    /* public */ const MODULE_NAME = 'Job';
 
     /**
      * Providing.
@@ -92,6 +94,31 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Job/Theme/Backend/job-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
 
+        SchedulerAbstract::setBin($this->app->getConfig()['jobs']['path']);
+        $scheduler = SchedulerFactory::create();
+        $jobs = $scheduler->getAllByName('Adobe', false);
+
+        $view->addData('jobs', $jobs);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewJobCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Job/Theme/Backend/job-create');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
+
         return $view;
     }
 
@@ -109,7 +136,13 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Job/Theme/Backend/job-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
+
+        SchedulerAbstract::setBin($this->app->getConfig()['jobs']['path']);
+        $scheduler = SchedulerFactory::create();
+        $job = $scheduler->getAllByName('Adobe', false);
+
+        $view->addData('job', end($job));
 
         return $view;
     }

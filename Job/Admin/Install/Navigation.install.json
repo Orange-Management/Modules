@@ -27,6 +27,21 @@
                 "permission": null,
                 "parent": 1005701001,
                 "children": []
+            },
+            {
+                "id": 1005702002,
+                "pid": "f3adb43bbf6c5c625a9e3f35a44ff7034b5e063a",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "/{/lang}/backend/admin/job/create",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Job",
+                "permission": null,
+                "parent": 1005701001,
+                "children": []
             }
         ]
     }

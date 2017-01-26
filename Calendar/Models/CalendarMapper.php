@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -34,9 +34,9 @@ use phpOMS\DataStorage\Database\RelationType;
 class CalendarMapper extends DataMapperAbstract
 {
     /**
-     * Class name for .
+     * Class name.
      *
-     * @var array<string, array>
+     * @var string
      * @since 1.0.0
      */
     protected static $CLASS = __CLASS__;
@@ -44,7 +44,7 @@ class CalendarMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -59,13 +59,12 @@ class CalendarMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $hasMany = [
         'events' => [
             'mapper'         => EventMapper::class,
-            'relationmapper' => EventMapper::class,
             'table'          => 'calendar_event',
             'dst'            => 'calendar_event_calendar',
             'src'            => null,

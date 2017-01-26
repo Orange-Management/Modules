@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,9 +30,9 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class NewsType extends Enum
 {
-    const ARTICLE = 0;
+    /* public */ const ARTICLE = 0;
 
-    const LINK = 1;
+    /* public */ const LINK = 1;
 
-    const HEADLINE = 2;
+    /* public */ const HEADLINE = 2;
 }

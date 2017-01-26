@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,14 +30,14 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class FrequencyInterval extends Enum
 {
-    const SUNDAY     = 1;
-    const MONDAY     = 2;
-    const TUESDAY    = 4;
-    const WEDNESDAY  = 8;
-    const THURSDAY   = 16;
-    const FRIDAY     = 32;
-    const SATURDAY   = 64;
-    const DAY        = 128;
-    const WEEKDAY    = 256;
-    const WEEKENDDAY = 512;
+    /* public */ const SUNDAY     = 1;
+    /* public */ const MONDAY     = 2;
+    /* public */ const TUESDAY    = 4;
+    /* public */ const WEDNESDAY  = 8;
+    /* public */ const THURSDAY   = 16;
+    /* public */ const FRIDAY     = 32;
+    /* public */ const SATURDAY   = 64;
+    /* public */ const DAY        = 128;
+    /* public */ const WEEKDAY    = 256;
+    /* public */ const WEEKENDDAY = 512;
 }

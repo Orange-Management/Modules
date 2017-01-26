@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -329,5 +329,10 @@ class Media
     public function setVersioned(bool $versioned)
     {
         $this->versioned = $versioned;
+    }
+
+    public function toArray()
+    {
+        return [];
     }
 }

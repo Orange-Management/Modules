@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,6 +15,7 @@
  */
 namespace Modules\Media\Models;
 
+use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 
@@ -22,8 +23,7 @@ class CollectionMapper extends MediaMapper
 {
     protected static $hasMany = [
         'sources' => [
-            'mapper'         => \Modules\Media\Models\MediaMapper::class, /* mapper of the related object */
-            'relationmapper' => null, /* if the relation itself is a more complex object that has it's own mapper */
+            'mapper'         => MediaMapper::class, /* mapper of the related object */
             'table'          => 'media_relation', /* table of the related object, null if no relation table is used (many->1) */
             'dst'            => 'media_relation_dst',
             'src'            => 'media_relation_src',

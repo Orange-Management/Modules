@@ -40,7 +40,7 @@
                     uploader.setSuccess(e.id, function (type, response)
                     {
                         e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
-                        self.app.eventManager.trigger(requestId, requestGroup);
+                        self.app.eventManager.trigger(requestGroup, requestId);
                     });
 
                     uploader.setUri(Url + '{/lang}/api/media');

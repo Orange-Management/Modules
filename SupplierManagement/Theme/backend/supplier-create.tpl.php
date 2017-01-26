@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -27,6 +27,7 @@ echo $this->getData('nav')->render(); ?>
             <li><label for="c-tab-4"><?= $this->getText('PaymentTerm') ?></label></li>
             <li><label for="c-tab-5"><?= $this->getText('Payment') ?></label></li>
             <li><label for="c-tab-6"><?= $this->getText('Files') ?></label></li>
+            <li><label for="c-tab-7"><?= $this->getText('Logs') ?></label>
         </ul>
     </div>
     <div class="tab-content">
@@ -158,6 +159,37 @@ echo $this->getData('nav')->render(); ?>
         </div>
         <input type="radio" id="c-tab-6" name="tabular-2">
         <div class="tab">
+        </div>
+        <input type="radio" id="c-tab-7" name="tabular-2">
+        <div class="tab">
+            <?php
+            $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
+            $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
+            $footerView->setPages(20);
+            $footerView->setPage(1);
+            ?>
+            <div class="box w-100">
+                <table class="table">
+                    <caption><?= $this->getText('Logs') ?></caption>
+                    <thead>
+                    <tr>
+                        <td>IP
+                        <td><?= $this->getText('ID', 0, 0); ?>
+                        <td><?= $this->getText('Name'); ?>
+                        <td class="wf-100"><?= $this->getText('Log'); ?>
+                        <td><?= $this->getText('Date'); ?>
+                    <tfoot>
+                    <tr>
+                        <td colspan="6"><?= $footerView->render(); ?>
+                    <tbody>
+                    <tr>
+                        <td><?= $this->request->getOrigin(); ?>
+                        <td><?= $this->request->getAccount(); ?>
+                        <td><?= $this->request->getAccount(); ?>
+                        <td>Creating suppier
+                        <td><?= (new \DateTime('now'))->format('Y-m-d H:i:s') ?>
+                </table>
+            </div>
         </div>
     </div>
 </div>

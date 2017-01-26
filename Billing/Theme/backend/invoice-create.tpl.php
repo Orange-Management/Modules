@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -24,6 +24,9 @@ echo $this->getData('nav')->render(); ?>
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getText('Invoice') ?></label></li>
             <li><label for="c-tab-2"><?= $this->getText('Items') ?></label></li>
+            <li><label for="c-tab-3"><?= $this->getText('Payment') ?></label></li>
+            <li><label for="c-tab-4"><?= $this->getText('Media') ?></label></li>
+            <li><label for="c-tab-5"><?= $this->getText('Logs') ?></label></li>
         </ul>
     </div>
     <div class="tab-content">
@@ -54,6 +57,10 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input type="number" id="iFreightage" name="freightage">
                             <tr><td><label for="iShipment"><?= $this->getText('Shipment') ?></label>
                             <tr><td><select id="iShipment" name="shipment">
+                                        <option>
+                                    </select>
+                            <tr><td><label for="iTermsOfDelivery"><?= $this->getText('TermsOfDelivery') ?></label>
+                            <tr><td><select id="iTermsOfDelivery" name="termsofdelivery">
                                         <option>
                                     </select>
                             <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
@@ -144,10 +151,95 @@ echo $this->getData('nav')->render(); ?>
                         <td><input type="number" min="0">
                         <td><input type="number" min="0" max="100" step="any">
                         <td><input type="number" min="0" step="any">
+                        <td><input type="number" min="0" step="any">
                         <td>
-                        <td>
+                </table>
+            </div>
+        </div>
+        <input type="radio" id="c-tab-3" name="tabular-2">
+        <div class="tab">
+            <section class="box w-50 floatLeft">
+                <header><h1><?= $this->getText('Payment') ?></h1></header>
+                <div class="inner">
+                    <form>
+                        <table class="layout wf-100">
+                            <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
+                            <tr><td><select id="iType" name="type">
+                                        <option>
+                                    </select>
+                            <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
+                            <tr><td><select id="iType" name="type">
+                                        <option><?= $this->getText('MoneyTransfer') ?>
+                                        <option><?= $this->getText('Prepaid') ?>
+                                        <option><?= $this->getText('AlreadyPaid') ?>
+                                        <option><?= $this->getText('CreditCard') ?>
+                                        <option><?= $this->getText('DirectDebit') ?>
+                                    </select>
+                            <tr><td><label for="iDue"><?= $this->getText('Due') ?></label>
+                            <tr><td><input type="datetime-local" id="iDue" name="due">
+                            <tr><td><label for="iDue"><?= $this->getText('Due') ?> - <?= $this->getText('Cashback') ?></label>
+                            <tr><td><input type="datetime-local" id="iDue" name="due">
+                            <tr><td><label for="iCashBack"><?= $this->getText('Cashback') ?></label>
+                            <tr><td><input type="number" id="iCashBack" name="cashback">
+                            <tr><td><label for="iDue"><?= $this->getText('Due') ?> - <?= $this->getText('Cashback') ?> 2</label>
+                            <tr><td><input type="datetime-local" id="iDue" name="due">
+                            <tr><td><label for="iCashBack2"><?= $this->getText('Cashback') ?> 2</label>
+                            <tr><td><input type="number" id="iCashBack2" name="cashback2">
+                            <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                        </table>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <input type="radio" id="c-tab-4" name="tabular-2">
+        <div class="tab">
+            <section class="box w-50 floatLeft">
+                <header><h1><?= $this->getText('Media'); ?></h1></header>
+
+                <div class="inner">
+                    <form>
+                        <table class="layout wf-100">
+                            <tbody>
+                            <tr><td colspan="2"><label for="iMedia"><?= $this->getText('Media'); ?></label>
+                            <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getText('Select'); ?></button>
+                            <tr><td colspan="2"><label for="iUpload"><?= $this->getText('Upload'); ?></label>
+                            <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
+                        </table>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <input type="radio" id="c-tab-5" name="tabular-2">
+        <div class="tab">
+            <?php
+            $footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
+            $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
+            $footerView->setPages(20);
+            $footerView->setPage(1);
+            ?>
+            <div class="box w-100">
+                <table class="table">
+                    <caption><?= $this->getText('Logs') ?></caption>
+                    <thead>
+                    <tr>
+                        <td>IP
+                        <td><?= $this->getText('ID', 0, 0); ?>
+                        <td><?= $this->getText('Name'); ?>
+                        <td class="wf-100"><?= $this->getText('Log'); ?>
+                        <td><?= $this->getText('Date'); ?>
+                    <tfoot>
+                    <tr>
+                        <td colspan="6"><?= $footerView->render(); ?>
+                    <tbody>
+                    <tr>
+                        <td><?= $this->request->getOrigin(); ?>
+                        <td><?= $this->request->getAccount(); ?>
+                        <td><?= $this->request->getAccount(); ?>
+                        <td>Create Invoice
+                        <td><?= (new \DateTime('now'))->format('Y-m-d H:i:s') ?>
                 </table>
             </div>
         </div>
     </div>
 </div>
+

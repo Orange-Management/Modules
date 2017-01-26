@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-33">
     <header><h1><?= $this->getText('Department'); ?></h1></header>
     <div class="inner">
-        <form>
+        <form id="fDepartmentCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}{/rootPath}{/lang}/api/organization/department'); ?>">
             <table class="layout wf-100">
                 <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
                 <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; R&D" required>

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -25,8 +25,12 @@ echo $this->getData('nav')->render(); ?>
         <form id="group-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="<?= \phpOMS\Message\Http\RequestMethod::PUT; ?>">
             <table class="layout wf-100">
                 <tbody>
+                <tr><td colspan="2"><label for="iStatus"><?= $this->getText('Status') ?></label>
+                <tr><td colspan="2"><select id="iStatus" name="status">
+                            <option value="<?= \phpOMS\Account\GroupStatus::ACTIVE; ?>" selected><?= $this->getText('Active') ?>
+                            <option value="<?= \phpOMS\Account\GroupStatus::INACTIVE; ?>"><?= $this->getText('Inactive') ?>
                 <tr><td><label for="iGname"><?= $this->getText('Name') ?></label>
-                <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" required>
+                <tr><td><input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" required>
                 <tr><td><label for="iGroupDescription"><?= $this->getText('Description') ?></label>
                 <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"></textarea>
                 <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">

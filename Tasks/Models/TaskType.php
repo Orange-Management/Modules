@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class TaskType extends Enum
 {
-    const TEMPLATE = 1;
-    const SINGLE   = 2;
-    const HIDDEN   = 3;
+    /* public */ const TEMPLATE = 1;
+    /* public */ const SINGLE   = 2;
+    /* public */ const HIDDEN   = 3;
 }

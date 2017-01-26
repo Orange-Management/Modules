@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,11 +30,11 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class InvoiceType extends Enum
 {
-    const OFFER = 0;
+    /* public */ const OFFER = 0;
 
-    const CONTRACT_NOTE = 1;
+    /* public */ const CONTRACT_NOTE = 1;
 
-    const DELIVERY_NOTE = 2;
+    /* public */ const DELIVERY_NOTE = 2;
 
-    const BILL = 3;
+    /* public */ const BILL = 3;
 }

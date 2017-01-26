@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class EventType extends Enum
 {
-    const TEMPLATE = 1;
+    /* public */ const TEMPLATE = 1;
 
-    const SINGLE = 2;
+    /* public */ const SINGLE = 2;
 }

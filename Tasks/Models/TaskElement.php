@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -27,7 +27,7 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class TaskElement
+class TaskElement implements \JsonSerializable
 {
 
     /**
@@ -93,6 +93,8 @@ class TaskElement
      * @since 1.0.0
      */
     private $forwarded = 0;
+
+    private $media = [];
 
     /**
      * Constructor.
@@ -257,7 +259,7 @@ class TaskElement
      *
      * @return void
      *
-     * @throws
+     * @throws InvalidEnumValue
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -293,5 +295,22 @@ class TaskElement
     public function setTask(int $task)
     {
         $this->task = $task;
+    }
+
+    public function toArray() : array {
+        return [
+            'id' => $this->id,
+            'task' => $this->task,
+            'createdBy' => $this->createdBy,
+            'createdAt' => $this->createdAt,
+            'description' => $this->description,
+            'status' => $this->status,
+            'forward' => $this->forwarded,
+            'due' => isset($this->due) ? $this->due->format('Y-m-d H:i:s') : null,
+        ];
+    }
+
+    public function jsonSerialize() {
+        return $this->toArray();
     }
 }

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,7 +15,7 @@
  */
 namespace Modules\EventManagement\Models;
 
-use Modules\Calendar\Models\Event as CalendarEvent;
+use Modules\Calendar\Models\Calendar;
 use Modules\Tasks\Models\Task;
 use phpOMS\Datatypes\Exception\InvalidEnumValue;
 use phpOMS\Localization\Money;
@@ -44,7 +44,9 @@ class Event
 
     private $type = EventType::DEFAULT;
 
-    private $event = null;
+    private $name = '';
+
+    private $calendar = null;
 
     private $costs = null;
 
@@ -72,33 +74,33 @@ class Event
 
     public function __construct(string $name = '')
     {
-        $this->event = new CalendarEvent();
-        $this->costs = new Money();
-        $this->budget = new Money();
-        $this->earnings = new Money();
+        $this->calendar  = new Calendar();
+        $this->costs     = new Money();
+        $this->budget    = new Money();
+        $this->earnings  = new Money();
         $this->createdAt = new \DateTime('now');
 
         $this->setName($name);
     }
 
-    public function getEvent() : CalendarEvent
+    public function getCalendar() : Calendar
     {
-        return $this->event;
+        return $this->calendar;
     }
 
-    public function setName(string $name) 
+    public function setName(string $name)
     {
-        $this->event->setName($name);
+        $this->name = $name;
     }
 
     public function getName() : string
     {
-        return $this->event->getName();
+        return $this->name;
     }
 
     public function addTask(Task $task)
     {
-        if($task->getId() !== 0) {
+        if ($task->getId() !== 0) {
             $this->tasks[$task->getId()] = $task;
         } else {
             $this->tasks[] = $task;
@@ -107,7 +109,7 @@ class Event
 
     public function removeTask(int $id) : bool
     {
-        if(isset($this->tasks[$id])) {
+        if (isset($this->tasks[$id])) {
             unset($this->tasks[$id]);
 
             return true;
@@ -121,12 +123,12 @@ class Event
         return $this->tasks[$id] ?? new Task();
     }
 
-    public function getTasks() : array 
+    public function getTasks() : array
     {
         return $this->tasks;
     }
 
-    public function countTasks() : int 
+    public function countTasks() : int
     {
         return count($this->tasks);
     }
@@ -138,7 +140,7 @@ class Event
 
     public function setType(int $type)
     {
-        if(!EventType::isValidValue($type)) {
+        if (!EventType::isValidValue($type)) {
             throw new InvalidEnumValue($type);
         }
 
@@ -150,32 +152,32 @@ class Event
         return $this->type;
     }
 
-    public function getCosts() : Money 
+    public function getCosts() : Money
     {
         return $this->costs;
     }
 
-    public function getBudget() : Money 
+    public function getBudget() : Money
     {
         return $this->budget;
     }
 
-    public function getEarnings() : Money 
+    public function getEarnings() : Money
     {
         return $this->earnings;
     }
 
-    public function setCosts(Money $costs) 
+    public function setCosts(Money $costs)
     {
         $this->costs = $costs;
     }
 
-    public function setBudget(Money $budget) 
+    public function setBudget(Money $budget)
     {
         $this->budget = $budget;
     }
 
-    public function setEarnings(Money $earnings) 
+    public function setEarnings(Money $earnings)
     {
         $this->earnings = $earnings;
     }
@@ -200,7 +202,7 @@ class Event
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
-        $this->event->setCreatedAt($this->createdAt);
+        $this->calendar->setCreatedAt($this->createdAt);
     }
 
     /**
@@ -223,6 +225,6 @@ class Event
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
-        $this->event->setCreatedBy($this->createdBy);
+        $this->calendar->setCreatedBy($this->createdBy);
     }
 }

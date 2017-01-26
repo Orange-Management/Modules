@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,10 +30,10 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class WorkflowStatus extends Enum
 {
-    const OPEN = 1;
-    const WORKING = 2;
-    const SUSPENDED = 3;
-    const CANCELED = 4;
-    const DONE = 5;
-    const CLOSED = 6;
+    /* public */ const OPEN = 1;
+    /* public */ const WORKING = 2;
+    /* public */ const SUSPENDED = 3;
+    /* public */ const CANCELED = 4;
+    /* public */ const DONE = 5;
+    /* public */ const CLOSED = 6;
 }

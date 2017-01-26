@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,6 +15,7 @@
  */
 namespace Modules\Tasks\Models;
 
+use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\RelationType;
 
@@ -35,7 +36,7 @@ class TaskElementMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -47,6 +48,21 @@ class TaskElementMapper extends DataMapperAbstract
         'task_element_task'       => ['name' => 'task_element_task', 'type' => 'int', 'internal' => 'task'],
         'task_element_created_by' => ['name' => 'task_element_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'task_element_created_at' => ['name' => 'task_element_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+    ];
+
+    /**
+     * Has many relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $hasMany = [
+        'media' => [
+            'mapper'         => MediaMapper::class,
+            'table'          => 'task_element_media',
+            'dst'            => 'task_element_media_dst',
+            'src'            => 'task_element_media_src',
+        ],
     ];
 
     /**

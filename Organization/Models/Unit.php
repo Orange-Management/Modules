@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -23,9 +23,11 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     private $name = '';
 
-    private $parent = 0;
+    private $parent = null;
 
     private $description = '';
+
+    protected $status = Status::INACTIVE;
 
     public function getId() : int
     {
@@ -42,7 +44,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
         $this->name = $name;
     }
 
-    public function getParent() : int
+    public function getParent()
     {
         return $this->parent;
     }
@@ -50,6 +52,16 @@ class Unit implements ArrayableInterface, \JsonSerializable
     public function setParent(int $parent)
     {
         $this->parent = $parent;
+    }
+
+    public function getStatus() : int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
     }
 
     public function getDescription() : string
@@ -81,7 +93,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      */
     public function __toString()
     {
-        return $this->jsonSerialize();
+        return json_encode($this->toArray());
     }
 
     /**
@@ -94,6 +106,6 @@ class Unit implements ArrayableInterface, \JsonSerializable
      */
     public function jsonSerialize()
     {
-        return json_encode($this->toArray());
+        return $this->toArray();
     }
 }

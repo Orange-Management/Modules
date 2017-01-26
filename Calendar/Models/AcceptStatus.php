@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,7 +30,7 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class AcceptStatus extends Enum
 {
-    const ACCEPTED = 0;
+    /* public */ const ACCEPTED = 0;
 
-    const DENIED = 1;
+    /* public */ const DENIED = 1;
 }

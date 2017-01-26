@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -16,7 +16,7 @@
 namespace Modules\Tasks\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
@@ -37,9 +37,9 @@ class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(Pool $dbPool, InfoManager $info)
+    public static function install(string $path, DatabasePool $dbPool, InfoManager $info)
     {
-        parent::install($dbPool, $info);
+        parent::install($path, $dbPool, $info);
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:
@@ -67,6 +67,23 @@ class Installer extends InstallerAbstract
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'task`
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_1` FOREIGN KEY (`task_schedule`) REFERENCES `' . $dbPool->get('core')->prefix . 'schedule` (`schedule_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_2` FOREIGN KEY (`task_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'task_media` (
+                            `task_media_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `task_media_src`  int(11) NULL,
+                            `task_media_dst` int(11) NULL,
+                            PRIMARY KEY (`task_media_id`),
+                            KEY `task_media_src` (`task_media_src`),
+                            KEY `task_media_dst` (`task_media_dst`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'task_media`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_media_ibfk_1` FOREIGN KEY (`task_media_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_media_ibfk_2` FOREIGN KEY (`task_media_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
@@ -110,6 +127,23 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_1` FOREIGN KEY (`task_element_task`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_2` FOREIGN KEY (`task_element_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_ibfk_3` FOREIGN KEY (`task_element_forwarded`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'task_element_media` (
+                            `task_element_media_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `task_element_media_src`  int(11) NULL,
+                            `task_element_media_dst` int(11) NULL,
+                            PRIMARY KEY (`task_element_media_id`),
+                            KEY `task_element_media_src` (`task_element_media_src`),
+                            KEY `task_element_media_dst` (`task_element_media_dst`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'task_element_media`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_media_ibfk_1` FOREIGN KEY (`task_element_media_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'task_element` (`task_element_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_element_media_ibfk_2` FOREIGN KEY (`task_element_media_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->commit();

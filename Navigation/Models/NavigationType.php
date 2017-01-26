@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,15 +30,15 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class NavigationType extends Enum
 {
-    const TOP = 1;
+    /* public */ const TOP = 1;
 
-    const SIDE = 2;
+    /* public */ const SIDE = 2;
 
-    const CONTENT = 3;
+    /* public */ const CONTENT = 3;
 
-    const TAB = 4;
+    /* public */ const TAB = 4;
 
-    const CONTENT_SIDE = 5;
+    /* public */ const CONTENT_SIDE = 5;
 
-    const BOTTOM = 6;
+    /* public */ const BOTTOM = 6;
 }

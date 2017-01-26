@@ -49,8 +49,6 @@ return [
         [
             'dest' => '\Modules\Messages\Controller:viewMessageView', 
             'verb' => RouteVerb::GET,
-            'result' => ViewType::JSON,
-            'layout' => ViewLayout::MAIN,
         ],
     ],
 ];

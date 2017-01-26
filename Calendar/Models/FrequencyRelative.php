@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,13 +30,13 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class FrequencyRelative extends Enum
 {
-    const FIRST = 1;
+    /* public */ const FIRST = 1;
 
-    const SECOND = 2;
+    /* public */ const SECOND = 2;
 
-    const THIRD = 4;
+    /* public */ const THIRD = 4;
 
-    const FOURTH = 8;
+    /* public */ const FOURTH = 8;
 
-    const LAST = 64;
+    /* public */ const LAST = 64;
 }

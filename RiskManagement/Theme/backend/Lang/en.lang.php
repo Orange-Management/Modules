@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -16,6 +16,7 @@
 return ['RiskManagement' => [
     'Active'            => 'Active',
     'All'               => 'All',
+    'Assessment'               => 'Assessment',
     'AvgRiskAmount'     => 'Avg. Risk Amount',
     'Basic'             => 'Basic',
     'Categories'        => 'Categories',
@@ -31,6 +32,7 @@ return ['RiskManagement' => [
     'Due'               => 'Due',
     'Evaluation'        => 'Evaluation',
     'Export'            => 'Export',
+    'Frequency'             => 'Frequency',
     'Front'             => 'Front',
     'History'           => 'History',
     'Interval'          => 'Interval',
@@ -42,9 +44,11 @@ return ['RiskManagement' => [
     'MainCategory'      => 'Main Category',
     'MainDepartment'    => 'Main Department',
     'Manager'           => 'Manager',
+    'Media'           => 'Media',
     'Name'              => 'Name',
     'Navigation'        => 'Navigation',
     'New'               => 'New',
+    'NewRisk'               => 'New Risk',
     'NextReevaluation'  => 'Next Reevaluation',
     'Outdated'          => 'Outdated',
     'OverallRisk'       => 'Overall Risk',
@@ -59,13 +63,22 @@ return ['RiskManagement' => [
     'Reduction'         => 'Reduction',
     'RemainingRisk'     => 'Remaining Risk',
     'Responsible'       => 'Responsible',
+    'Responsibility'       => 'Responsibility',
+    'Review'            => 'Review',
     'Risk'              => 'Risk',
     'RiskAcceptance'    => 'Risk Acceptance',
+    'RiskConsequence'    => 'Risk Consequence',
     'RiskIndex'         => 'Risk Index',
     'RiskLevels'        => 'Risk Levels',
+    'RiskLikelihood'    => 'Risk Likelihood',
+    'RiskObject'        => 'Risk Object',
+    'RiskObjects'        => 'Risk Objects',
+    'RiskObjectStatus'        => 'Risk Object Status',
     'RiskProbabilities' => 'Risk Probabilities',
     'RiskProtection'    => 'Risk Protection',
+    'RiskStatus'    => 'Risk Status',
     'Risks'             => 'Risks',
+    'Select'          => 'Select',
     'Severity'          => 'Severity',
     'Solution'          => 'Solution',
     'Solutions'         => 'Solutions',
@@ -78,5 +91,8 @@ return ['RiskManagement' => [
     'Type'              => 'Type',
     'Unit'              => 'Unit',
     'Units'             => 'Units',
+    'Upload'             => 'Upload',
+    'UserGroup'             => 'User/Group',
+    'Value'         => 'Value',
     'Watchlist'         => 'Watchlist',
 ]];

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -22,6 +22,7 @@ return ['SupplierManagement' => [
     'Contact'      => 'Contact',
     'Country'      => 'Country',
     'Creditcard'   => 'Creditcard',
+    'Date'      => 'Date',
     'Default'      => 'Default',
     'Delivery'     => 'Delivery',
     'Email'        => 'Email',
@@ -32,6 +33,8 @@ return ['SupplierManagement' => [
     'Info'         => 'Info',
     'Invoice'      => 'Invoice',
     'IsDefault'    => 'Is default',
+    'Log'       => 'Log',
+    'Logs'       => 'Logs',
     'Master'       => 'Master',
     'Name'         => 'Name',
     'Name1'        => 'Name1',

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -48,7 +48,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_PATH = __DIR__;
+    /* public */ const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -56,7 +56,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_VERSION = '1.0.0';
+    /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -64,7 +64,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'Media';
+    /* public */ const MODULE_NAME = 'Media';
 
     /**
      * Providing.
@@ -116,6 +116,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
+
+        $media = MediaMapper::getNewest(25);
+        $view->addData('media', $media);
 
         return $view;
     }
@@ -176,8 +179,13 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? '/Modules/Media/Files');
 
+        $ids = [];
+        foreach($uploads as $file) {
+            $ids[] = $file->getId();
+        }
+
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), [['uploads' => $uploads, 'type' => 'UI']]);
+        $response->set($request->__toString(), [['uploads' => $ids, 'type' => 'UI']]);
     }
 
     /**
@@ -207,22 +215,27 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function uploadFiles(array $files, int $account, string $basePath = '/Modules/Media/Files') : array
+    public function uploadFiles(array $files, int $account, string $basePath = 'Modules/Media/Files') : array
     {
         $mediaCreated = [];
 
         if (!empty($files)) {
             $upload  = new UploadFile();
-            $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
-            $path    = '/' . trim($basePath, '/\\.') . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
+            $path = self::createMediaPath($basePath);
             $upload->setOutputDir($path);
             $upload->setFileName(false);
 
             $status       = $upload->upload($files);
-            $mediaCreated = $this->createDbEntries($status, $account);
+            $mediaCreated = self::createDbEntries($status, $account);
         }
 
         return $mediaCreated;
+    }
+
+    public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
+    {
+        $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+        return $basePath . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
     }
 
     /**
@@ -234,25 +247,36 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function createDbEntries(array $status, int $account) : array
+    public static function createDbEntries(array $status, int $account) : array
     {
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
-            if ($uFile['status'] === UploadStatus::OK) {
-                $media = new Media();
-                $media->setPath(trim($uFile['path'], '/') . '/' . $uFile['filename']);
-                $media->setName($uFile['filename']);
-                $media->setSize($uFile['size']);
-                $media->setCreatedBy($account);
-                $media->setCreatedAt(new \DateTime('NOW'));
-                $media->setExtension($uFile['extension']);
-
-                $mediaCreated[] = MediaMapper::create($media);
+            if(!is_null($created = self::createDbEntry($uFile, $account))) {
+                $mediaCreated[] = $created;
             }
         }
 
         return $mediaCreated;
+    }
+
+    public static function createDbEntry(array $status, int $account)
+    {
+        $media = null;
+
+        if ($status['status'] === UploadStatus::OK) {
+            $media = new Media();
+            $media->setPath(trim($status['path'], '/') . '/' . $status['filename']);
+            $media->setName($status['name']);
+            $media->setSize($status['size']);
+            $media->setCreatedBy($account);
+            $media->setCreatedAt(new \DateTime('NOW'));
+            $media->setExtension($status['extension']);
+
+            MediaMapper::create($media);
+        }
+
+        return $media;
     }
 
 }

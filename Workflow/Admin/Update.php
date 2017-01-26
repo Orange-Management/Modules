@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -16,7 +16,7 @@
 namespace Modules\Workflow\Admin;
 
 
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\UpdateAbstract;
 use phpOMS\System\File\Directory;
@@ -38,7 +38,7 @@ class Update extends UpdateAbstract
     /**
      * {@inheritdoc}
      */
-    public static function update(Pool $dbPool, InfoManager $info)
+    public static function update(DatabasePool $dbPool, InfoManager $info)
     {
         Directory::deletePath(__DIR__ . '/Update');
         mkdir('Update');

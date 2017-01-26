@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,10 +15,14 @@
  */
 namespace Modules\Admin;
 
+use Model\Message\FormValidation;
 use Modules\Admin\Models\Account;
+use phpOMS\Account\AccountStatus;
+use phpOMS\Account\AccountType;
 use Modules\Admin\Models\AccountMapper;
-use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\Group;
+use Modules\Admin\Models\GroupMapper;
+use phpOMS\Account\GroupStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -46,7 +50,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_PATH = __DIR__;
+    /* public */ const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -54,7 +58,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_VERSION = '1.0.0';
+    /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -62,7 +66,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'Admin';
+    /* public */ const MODULE_NAME = 'Admin';
 
     /**
      * Providing.
@@ -296,11 +300,34 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('group', GroupMapper::getByRequest($request));
     }
 
+    private function validateGroupCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['name'] = empty($request->getData('name')))
+            || ($val['status'] = (
+                $request->getData('status') === null
+                || !GroupStatus::isValidValue((int) $request->getData('status'))
+            ))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
     public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateGroupCreate($request))) {
+            $response->set('group_create', new FormValidation($val));
+
+            return;
+        }
+
         $group = new Group();
-        $group->setName($request->getData('name'));
-        $group->setDescription($request->getData('desc'));
+        $group->setName($request->getData('name') ?? '');
+        $group->setStatus((int) $request->getData('status'));
+        $group->setDescription($request->getData('description') ?? '');
 
         GroupMapper::create($group);
 
@@ -331,11 +358,38 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('account', AccountMapper::getByRequest($request));
     }
 
+    private function validateAccountCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['name'] = empty($request->getData('name')))
+            || ($val['name1'] = empty($request->getData('name1')))
+            || ($val['type'] = !AccountType::isValidValue((int) $request->getData('type')))
+            || ($val['status'] = !AccountStatus::isValidValue((int) $request->getData('status')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
     public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateAccountCreate($request))) {
+            $response->set('account_create', new FormValidation($val));
+
+            return;
+        }
+
         $account = new Account();
+        $account->setStatus($request->getData('status'));
+        $account->setType($request->getData('type'));
         $account->setName($request->getData('name'));
-        $account->setDescription($request->getData('desc'));
+        $account->setName1($request->getData('name1'));
+        $account->setName2($request->getData('name2'));
+        $account->setName3($request->getData('name3'));
+        $account->setEmail($request->getData('email'));
+        $account->generatePassword($request->getData('password'));
 
         AccountMapper::create($account);
 
@@ -365,11 +419,11 @@ class Controller extends ModuleAbstract implements WebInterface
         $module = $request->getData('module');
         $status = $request->getData('status');
 
-        if(!$module || !$status) {
+        if (!$module || !$status) {
             // todo: create failure response
         }
 
-        switch($status) {
+        switch ($status) {
             case 'activate':
                 $done = $this->app->moduleManager->activate($module);
                 break;

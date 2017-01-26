@@ -1,5 +1,5 @@
 <?php
-
+/**
 class Account implements StructureElementInterface {
 	private $id = 0;
 	private $name = '';
@@ -94,3 +94,4 @@ class Account implements StructureElementInterface {
 		return $this->total;
 	}
 }
+*/

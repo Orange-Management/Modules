@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -22,7 +22,7 @@ class DepartmentMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -30,7 +30,15 @@ class DepartmentMapper extends DataMapperAbstract
         'organization_department_name'        => ['name' => 'organization_department_name', 'type' => 'string', 'internal' => 'name'],
         'organization_department_description' => ['name' => 'organization_department_description', 'type' => 'string', 'internal' => 'description'],
         'organization_department_parent'      => ['name' => 'organization_department_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_department_status'      => ['name' => 'organization_department_status', 'type' => 'int', 'internal' => 'status'],
         'organization_department_unit'        => ['name' => 'organization_department_unit', 'type' => 'int', 'internal' => 'unit'],
+    ];
+
+    protected static $belongsTo = [
+        'account' => [
+            'mapper'         => UnitMapper::class,
+            'dest'            => 'organization_department_unit',
+        ],
     ];
 
     /**

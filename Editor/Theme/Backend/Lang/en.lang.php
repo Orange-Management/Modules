@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -24,6 +24,8 @@ return ['Editor' => [
     'Name'       => 'Name',
     'Permission' => 'Permission',
     'Preview'    => 'Preview',
+    'Save'      => 'Save',
     'Start'      => 'Start',
     'Text'       => 'Text',
+    'Title'      => 'Title',
 ]];

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,7 +15,7 @@
  */
 namespace Modules\Media\Models;
 
-use phpOMS\System\File\Directory;
+use phpOMS\System\File\Local\Directory;
 
 
 /**
@@ -31,6 +31,15 @@ use phpOMS\System\File\Directory;
  */
 class UploadFile
 {
+    /* public */ const PATH_GENERATION_LIMIT = 1000;
+
+    /**
+     * Image interlaced.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $interlaced = true;
 
     /**
      * Upload max size.
@@ -54,7 +63,7 @@ class UploadFile
      * @var string
      * @since 1.0.0
      */
-    private $outputDir = '/Modules/Media/Files';
+    private $outputDir = 'Modules/Media/Files';
 
     /**
      * Output file name.
@@ -78,6 +87,8 @@ class UploadFile
      * @param array $files File data ($_FILE)
      *
      * @return array
+     *
+     * @throws \Exception
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -130,6 +141,7 @@ class UploadFile
             }
 
             $split                     = explode('.', $f['name']);
+            $result[$key]['name'] = $split[0];
             $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 
@@ -138,9 +150,9 @@ class UploadFile
             if (!$this->fileName || empty($this->fileName) || file_exists($path . '/' . $this->fileName)) {
                 $rnd = '';
 
+                $limit = 0;
                 do {
                     $sha = sha1_file($f['tmp_name'] . $rnd);
-                    $sha .= '.' . $extension;
 
                     if ($sha === false) {
                         $result[$key]['status'] = UploadStatus::FAILED_HASHING;
@@ -148,13 +160,20 @@ class UploadFile
                         return $result;
                     }
 
+                    $sha .= '.' . $extension;
+
                     $this->fileName = $sha;
                     $rnd            = mt_rand();
-                } while (file_exists($path . '/' . $this->fileName));
+                    $limit++;
+                } while (file_exists($path . '/' . $this->fileName) && $limit < self::PATH_GENERATION_LIMIT);
+
+                if($limit >= self::PATH_GENERATION_LIMIT) {
+                    throw new \Exception('No file path could be found. Potential attack!');
+                }
             }
 
             if (!is_dir($path)) {
-                Directory::create($path, '0655', true);
+                Directory::create($path, 0655, true);
             }
 
             if (!is_uploaded_file($f['tmp_name'])) {
@@ -163,16 +182,44 @@ class UploadFile
                 return $result;
             }
 
-            if (!move_uploaded_file($f['tmp_name'], $path . '/' . $this->fileName)) {
+            if (!move_uploaded_file($f['tmp_name'], $dest = $path . '/' . $this->fileName)) {
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
+            }
+
+            if($this->interlaced && in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
+                $this->interlace($extension, $dest);
             }
 
             $result[$key]['path'] = $this->outputDir;
         }
 
         return $result;
+    }
+
+    private function interlace(string $extension, string $path) /* : void */
+    {
+        
+                if($extension === 'png') {
+                    $img = imagecreatefrompng($path);
+                } elseif($extension === 'jpg' || $extension === 'jpeg') {
+                    $img = imagecreatefromjpeg($path);
+                } else {
+                    $img = imagecreatefromgif($path);
+                }
+
+                imageinterlace($img, (int) $this->interlaced);
+
+                if($extension === 'png') {
+                    imagepng($img, $path);
+                } elseif($extension === 'jpg' || $extension === 'jpeg') {
+                    imagejpeg($img, $path);
+                } else {
+                    imagegif($img, $path);
+                }
+
+                imagedestroy($img);
     }
 
     /**
@@ -229,6 +276,11 @@ class UploadFile
     public function getMaxSize() : int
     {
         return $this->maxSize;
+    }
+
+    public function setInterlaced(bool $interlaced) /* : void */
+    {
+        $this->interlaced = $interlaced;
     }
 
     /**

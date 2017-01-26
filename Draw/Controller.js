@@ -2,7 +2,7 @@
     "use strict";
     /** @namespace jsOMS.Modules */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
-    
+
     jsOMS.Modules.Draw = function (app) {
         this.app = app;
         this.editors = [];

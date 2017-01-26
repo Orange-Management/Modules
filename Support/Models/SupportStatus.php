@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,17 +30,17 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class SupportStatus extends Enum
 {
-    const OPEN = 0;
+    /* public */ const OPEN = 0;
 
-    const REVIEW = 1;
+    /* public */ const REVIEW = 1;
 
-    const LIVE = 2;
+    /* public */ const LIVE = 2;
 
-    const HOLD = 3;
+    /* public */ const HOLD = 3;
 
-    const UNSOLVABLE = 4;
+    /* public */ const UNSOLVABLE = 4;
 
-    const SOLVED = 5;
+    /* public */ const SOLVED = 5;
 
-    const CLOSED = 6;
+    /* public */ const CLOSED = 6;
 }

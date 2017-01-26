@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -21,8 +21,8 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <div class="inner">
-        <form>
-            <input type="text" class="wf-100">
+        <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/draw?csrf={$CSRF}'); ?>" method="POST">
+            <input type="text" id="iTitle" name="title" class="wf-100"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
         </form>
     </div>
 </section>
@@ -63,7 +63,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="m-draw">
     <section class="box w-100" style="height: 30%;">
         <div class="inner">
-            <canvas></canvas>
+            <canvas id="canvasImage" name="image" form="drawForm"></canvas>
         </div>
     </section>
 </div>

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -17,7 +17,7 @@
  * @var \phpOMS\Views\View $this
  */
 
-$unit = $this->getData('unit');
+$position = $this->getData('position');
 
 echo $this->getData('nav')->render(); ?>
 
@@ -27,17 +27,17 @@ echo $this->getData('nav')->render(); ?>
         <form>
             <table class="layout wf-100">
                 <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
-                <tr><td><input type="text" name="name" id="iName" value="<?= $unit->getName(); ?>">
+                <tr><td><input type="text" name="name" id="iName" value="<?= $position->getName(); ?>">
                 <tr><td><label for="iParent"><?= $this->getText('Parent'); ?></label>
-                <tr><td><input type="text" name="parent" id="iParent" value="<?= $unit->getParent(); ?>">
+                <tr><td><input type="text" name="parent" id="iParent" value="<?= $position->getParent(); ?>">
                 <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
                 <tr><td><select name="status" id="iStatus">
                             <option><?= $this->getText('Active'); ?>
                             <option><?= $this->getText('Inactive'); ?>
                         </select>
                 <tr><td><label for="iDescription"><?= $this->getText('Description'); ?></label>
-                <tr><td><textarea name="description" id="iDescription"><?= $unit->getDescription(); ?></textarea>
-                <tr><td><input type="submit" value="<?= $this->getText('Save') ?>">
+                <tr><td><textarea name="description" id="iDescription"><?= $position->getDescription(); ?></textarea>
+                <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
             </table>
         </form>
     </div>

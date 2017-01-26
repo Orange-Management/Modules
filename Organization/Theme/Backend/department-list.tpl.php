@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="4"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/business/department/profile?id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/department/profile?id=' . $value->getId()); ?>
         <tr>
             <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
             <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>

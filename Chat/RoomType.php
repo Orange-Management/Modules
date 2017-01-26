@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,9 +30,9 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class RoomType extends Enum
 {
-    const PUBLIC_CHAT = 0;
+    /* public */ const PUBLIC_CHAT = 0;
 
-    const PRIVATE_CHAT = 1;
+    /* public */ const PRIVATE_CHAT = 1;
 
-    const TEMP_CHAT = 2;
+    /* public */ const TEMP_CHAT = 2;
 }

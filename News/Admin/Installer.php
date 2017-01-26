@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -16,7 +16,7 @@
 namespace Modules\News\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
@@ -37,9 +37,9 @@ class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(Pool $dbPool, InfoManager $info)
+    public static function install(string $path, DatabasePool $dbPool, InfoManager $info)
     {
-        parent::install($dbPool, $info);
+        parent::install($path, $dbPool, $info);
 
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:
@@ -49,6 +49,7 @@ class Installer extends InstallerAbstract
                             `news_title` varchar(250) NOT NULL,
                             `news_featured` tinyint(1) DEFAULT NULL,
                             `news_content` text NOT NULL,
+                            `news_plain` text NOT NULL,
                             `news_type` tinyint(2) NOT NULL,
                             `news_status` tinyint(1) NOT NULL,
                             `news_lang` varchar(2) NOT NULL,

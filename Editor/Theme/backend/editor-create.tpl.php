@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -21,8 +21,9 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <div class="inner">
-        <form>
-            <input type="text" class="wf-100">
+        <form id="fEditor" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/editor?csrf={$CSRF}'); ?>">
+            <input name="title" type="text" class="wf-100">
+            <input type="submit" value="<?= $this->getText('Save'); ?>">
         </form>
     </div>
 </section>
@@ -95,7 +96,7 @@ echo $this->getData('nav')->render(); ?>
         <div class="tab-content">
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
-                <textarea class="wf-100"></textarea>
+                <textarea name="plain" class="wf-100" form="fEditor"></textarea>
             </div>
             <input type="radio" id="c-tab2-2" name="tabular-2">
             <div class="tab">
@@ -113,7 +114,7 @@ echo $this->getData('nav')->render(); ?>
                             <option>
                         </select>
                 <tr><td colspan="2"><label><?= $this->getText('GroupUser') ?></label>
-                <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->getText('Add', 0, 0) ?></button>
+                <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->getText('Add') ?></button>
             </table>
         </form>
     </div>

@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,7 +15,7 @@
  */
 namespace Modules\Navigation\Models;
 
-use phpOMS\DataStorage\Database\Pool;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Message\RequestAbstract;
 
 /**
@@ -67,7 +67,7 @@ class Navigation
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    private function __construct(RequestAbstract $request, Pool $dbPool = null)
+    private function __construct(RequestAbstract $request, DatabasePool $dbPool = null)
     {
         $this->dbPool = $dbPool;
         $this->load($request->getHash());
@@ -126,7 +126,7 @@ class Navigation
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public static function getInstance(RequestAbstract $request = null, Pool $dbPool = null)
+    public static function getInstance(RequestAbstract $request = null, DatabasePool $dbPool = null)
     {
         if (!isset(self::$instance)) {
             if(!isset($request) || !isset($dbPool)) {

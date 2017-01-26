@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,15 +30,15 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class InvoiceStatus extends Enum
 {
-    const BLOCKED        = 0; /* Invoice needs approval */
-    const DRAFT          = 1; /* Invoice is still in draft */
-    const READY          = 2; /* Invoice is ready for accounting transfer */
-    const UNPAID         = 3; /* Invoice is not paid */
-    const PAID_PARTIALLY = 4; /* Invoice is partially paid */
-    const PAID           = 5; /* Invoice is paid */
-    const OFFSETTING     = 6; /* This invoice may receive a credit */
-    const OPEN           = 7; /* offer & confirmation */
-    const CHANGED        = 8; /* offer & confirmation */
-    const CLOSED         = 9; /* offer & confirmation */
-    const ACCEPTED       = 10; /* offer & confirmation */
+    /* public */ const BLOCKED        = 0; /* Invoice needs approval */
+    /* public */ const DRAFT          = 1; /* Invoice is still in draft */
+    /* public */ const READY          = 2; /* Invoice is ready for accounting transfer */
+    /* public */ const UNPAID         = 3; /* Invoice is not paid */
+    /* public */ const PAID_PARTIALLY = 4; /* Invoice is partially paid */
+    /* public */ const PAID           = 5; /* Invoice is paid */
+    /* public */ const OFFSETTING     = 6; /* This invoice may receive a credit */
+    /* public */ const OPEN           = 7; /* offer & confirmation */
+    /* public */ const CHANGED        = 8; /* offer & confirmation */
+    /* public */ const CLOSED         = 9; /* offer & confirmation */
+    /* public */ const ACCEPTED       = 10; /* offer & confirmation */
 }

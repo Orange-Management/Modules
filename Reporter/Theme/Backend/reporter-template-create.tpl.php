@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -36,8 +36,8 @@ echo $this->getData('nav')->render(); ?>
                         </span>
                 <tr><td colspan="2">
                         <span class="radio">
-                            <input id="iSourceOther" name="source" type="radio" value="<?= \Modules\Reporter\Models\TemplateDataType::GLOBAL_FILE; ?>">
-                            <label for="iSourceOther"><?= $this->getText('CentralizedFiles') ?></label>
+                            <input id="iSourceFile" name="source" type="radio" value="<?= \Modules\Reporter\Models\TemplateDataType::GLOBAL_FILE; ?>">
+                            <label for="iSourceFile"><?= $this->getText('CentralizedFiles') ?></label>
                         </span>
                 <tr><td colspan="2">
                         <span class="radio">

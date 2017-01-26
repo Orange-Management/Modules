@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -16,6 +16,7 @@
 namespace Modules\Tasks\Models;
 
 use Modules\Calendar\Models\ScheduleMapper;
+use Modules\Media\Models\MediaMapper;
 use Modules\Tasks\Models\TaskElementMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
@@ -39,7 +40,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
@@ -58,26 +59,31 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $hasMany = [
         'taskElements' => [
             'mapper'         => TaskElementMapper::class,
-            'relationmapper' => TaskElementMapper::class,
             'table'          => 'task_element',
             'dst'            => 'task_element_task',
             'src'            => null,
+        ],
+        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => MediaMapper::class,
+            'table'          => 'task_media',
+            'dst'            => 'task_media_dst',
+            'src'            => 'task_media_src',
         ],
     ];
 
     /**
      * Has one relation.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
-    protected static $hasOne = [
+    protected static $ownsOne = [
         'schedule' => [
             'mapper'         => ScheduleMapper::class,
             'src'            => 'task_schedule',

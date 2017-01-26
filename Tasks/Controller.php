@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,9 +15,12 @@
  */
 namespace Modules\Tasks;
 
+use Model\Message\FormValidation;
 use Model\Message\Redirect;
+use Model\Message\Reload;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
+use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
@@ -48,7 +51,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_PATH = __DIR__;
+    /* public */ const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -56,7 +59,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_VERSION = '1.0.0';
+    /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -64,7 +67,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'Tasks';
+    /* public */ const MODULE_NAME = 'Tasks';
 
     /**
      * Providing.
@@ -165,6 +168,21 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    private function validateTaskCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['description'] = empty($request->getData('description')))
+            || ($val['due'] = !((bool)strtotime($request->getData('due'))))
+            || ($val['forward'] = !(is_numeric($request->getData('forward') ?? 0)))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -177,6 +195,12 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!empty($val = $this->validateTaskCreate($request))) {
+            $response->set('task_create', new FormValidation($val));
+
+            return;
+        }
+
         $task = new Task();
         $task->setTitle($request->getData('title') ?? '');
         $task->setDescription($request->getData('description') ?? '');
@@ -196,7 +220,53 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->addElement($element);
 
         TaskMapper::create($task);
-        $response->set($request->__toString(), new Redirect(UriFactory::build('http://127.0.0.1/{/lang}/backend/task/single?id=' . $task->getId())));
+        $response->set($request->__toString(), $task->jsonSerialize());
+    }
+
+    private function validateTaskElementCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
+            || ($val['due'] = !((bool)strtotime($request->getData('due'))))
+            || ($val['task'] = !(is_numeric($request->getData('task'))))
+            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getAccount() : $request->getData('forward'))))
+        ) { // todo: validate correct task
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateTaskElementCreate($request))) {
+            $response->set('task_element_create', new FormValidation($val));
+
+            return;
+        }
+
+        $element = new TaskElement();
+        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setCreatedAt(new \DateTime('now'));
+        $element->setCreatedBy($request->getAccount());
+        $element->setDue(new \DateTime($request->getData('due') ?? 'now'));
+        $element->setStatus($request->getData('status'));
+        $element->setTask($request->getData('task'));
+        $element->setDescription($request->getData('description'));
+
+        TaskElementMapper::create($element);
+        $response->set($request->__toString(), $element->jsonSerialize());
     }
 
 }

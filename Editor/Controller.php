@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -15,8 +15,11 @@
  */
 namespace Modules\Editor;
 
+use Model\Message\FormValidation;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+use Modules\Editor\Models\EditorDoc;
+use Modules\Editor\Models\EditorDocMapper;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
@@ -46,7 +49,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_PATH = __DIR__;
+    /* public */ const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -54,7 +57,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_VERSION = '1.0.0';
+    /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -62,7 +65,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    const MODULE_NAME = 'Editor';
+    /* public */ const MODULE_NAME = 'Editor';
 
     /**
      * Providing.
@@ -94,7 +97,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Editor/ModuleEditor.js');
+        $head->addAsset(AssetType::JS, $request->getUri()->getBase() . 'Modules/Editor/Controller.js');
     }
 
     /**
@@ -132,7 +135,73 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Editor/Theme/Backend/editor-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
+        $docs = EditorDocMapper::getNewest(50);
+        $view->addData('docs', $docs);
+
         return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewEditorSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Editor/Theme/Backend/editor');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
+
+        $doc = EditorDocMapper::get((int) $request->getData('id'));
+        $view->addData('doc', $doc);
+
+        return $view;
+    }
+
+    private function validateEditorCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+            || ($val['plain'] = empty($request->getData('plain')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function apiEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateEditorCreate($request))) {
+            $response->set('editor_create', new FormValidation($val));
+
+            return;
+        }
+
+        $doc = new EditorDoc();
+        $doc->setTitle($request->getData('title') ?? '');
+        $doc->setPlain($request->getData('plain') ?? '');
+        $doc->setContent($request->getData('plain') ?? '');
+        $doc->setCreatedAt(new \DateTime('now'));
+        $doc->setCreatedBy($request->getAccount());
+        
+        EditorDocMapper::create($doc);
+
+        $response->set('editor', $doc->jsonSerialize());
     }
 
 }

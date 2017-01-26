@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -28,6 +28,7 @@ return ['Tasks' => [
     'Forwarded'          => 'Forwarded',
     'From'               => 'From',
     'Group'              => 'Group',
+    'History'            => 'History',
     'Interval'           => 'Interval',
     'InTime'             => 'In Time',
     'Message'            => 'Message',
@@ -49,6 +50,7 @@ return ['Tasks' => [
     'Task'               => 'Task',
     'Tasks'              => 'Tasks',
     'Template'           => 'Template',
+    'Time'               => 'Time',
     'Title'              => 'Title',
     'To'                 => 'To',
     'Today'              => 'Today',

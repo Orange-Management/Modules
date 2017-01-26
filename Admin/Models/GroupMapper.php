@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -24,12 +24,13 @@ class GroupMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array>
+     * @var array
      * @since 1.0.0
      */
     protected static $columns = [
         'group_id'      => ['name' => 'group_id', 'type' => 'int', 'internal' => 'id'],
         'group_name'    => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name'],
+        'group_status'    => ['name' => 'group_status', 'type' => 'int', 'internal' => 'status'],
         'group_desc'    => ['name' => 'group_desc', 'type' => 'string', 'internal' => 'description'],
         'group_created' => ['name' => 'group_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
