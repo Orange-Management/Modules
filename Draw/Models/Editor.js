@@ -1,7 +1,9 @@
 (function (jsOMS)
 {
     "use strict";
-    
+    /** @namespace jsOMS.Modules.Draw */
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
+
     jsOMS.Modules.Draw.Editor = function (editor)
     {
         this.editor = editor;
@@ -9,8 +11,8 @@
         this.canvasContainer = this.canvas.parentElement;
         this.ctx = this.canvas.getContext("2d");
 
-        var canvasStyle = window.getComputedStyle(this.canvas, null);
-        var canvasContainerStyle = window.getComputedStyle(this.canvasContainer, null);
+        const canvasStyle = window.getComputedStyle(this.canvas, null),
+            canvasContainerStyle = window.getComputedStyle(this.canvasContainer, null);
 
         this.resize({
             width: parseFloat(canvasContainerStyle.width) - parseFloat(canvasContainerStyle.paddingLeft) - parseFloat(canvasContainerStyle.paddingRight) - parseFloat(canvasContainerStyle.borderLeftWidth) - parseFloat(canvasStyle.borderLeftWidth),
@@ -36,7 +38,7 @@
 
     jsOMS.Modules.Draw.Editor.prototype.bind = function ()
     {
-        var self = this;
+        const self = this;
 
         // Handle draw and resize
         this.canvas.addEventListener('mousemove', function (evt)
@@ -154,7 +156,7 @@
 
     jsOMS.Modules.Draw.Editor.prototype.toImage = function (callback)
     {
-        var image = new Image();
+        const image = new Image();
         image.onload = function ()
         {
             callback(image);
@@ -167,7 +169,7 @@
 
     jsOMS.Modules.Draw.Editor.prototype.mousePosition = function (evt)
     {
-        var rect = this.canvas.getBoundingClientRect();
+        const rect = this.canvas.getBoundingClientRect();
         return {
             x: evt.clientX - rect.left - 0.5,
             y: evt.clientY - rect.top - 0.5
@@ -176,7 +178,7 @@
 
     jsOMS.Modules.Draw.Editor.prototype.resize = function (size)
     {
-        var tmpCanvas = document.createElement('canvas');
+        const tmpCanvas = document.createElement('canvas');
         tmpCanvas.width = this.canvas.width;
         tmpCanvas.height = this.canvas.height;
 
@@ -190,7 +192,7 @@
 
     jsOMS.Modules.Draw.Editor.prototype.scale = function (scale)
     {
-        var tmpCanvas = document.createElement('canvas');
+        const tmpCanvas = document.createElement('canvas');
         tmpCanvas.width = this.canvas.width;
         tmpCanvas.height = this.canvas.height;
 
