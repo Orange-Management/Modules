@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -18,20 +18,20 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-66 floatLeft">
     <header><h1><?= $this->getText('Account') ?></h1></header>
     <div class="inner">
-        <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
+        <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="put">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
                 <tr><td><select id="iType" name="type">
-                            <option><?= $this->getText('Person') ?>
-                            <option><?= $this->getText('Organization') ?>
+                            <option value="<?= \phpOMS\Account\AccountType::USER; ?>"><?= $this->getText('Person') ?>
+                            <option value="<?= \phpOMS\Account\AccountType::GROUP; ?>"><?= $this->getText('Organization') ?>
                         </select>
                 <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
                 <tr><td><select id="iStatus" name="status">
-                            <option><?= $this->getText('Active') ?>
-                            <option><?= $this->getText('Inactive') ?>
-                            <option><?= $this->getText('Timeout') ?>
-                            <option><?= $this->getText('Banned') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::ACTIVE; ?>"><?= $this->getText('Active') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::INACTIVE; ?>"><?= $this->getText('Inactive') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::TIMEOUT; ?>"><?= $this->getText('Timeout') ?>
+                            <option value="<?= \phpOMS\Account\AccountStatus::BANNED; ?>"><?= $this->getText('Banned') ?>
                         </select>
                 <tr><td><label for="iUsername"><?= $this->getText('Username') ?></label>
                 <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred">
@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iEmail"><?= $this->getText('Email') ?></label>
                 <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com">
                 <tr><td><label for="iPassword"><?= $this->getText('Name3') ?></label>
-                <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
+                <tr><td><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?">
                 <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
             </table>
         </form>

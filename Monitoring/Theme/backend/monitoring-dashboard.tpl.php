@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -30,7 +30,6 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><?= $this->getText('MemoryLimit') ?><td><?= ini_get('memory_limit'); ?>
                 <tr><td><?= $this->getText('SystemRAM') ?><td><?= \phpOMS\System\SystemUtils::getRAM()/(1024); ?> MB
                 <tr><td><?= $this->getText('CPUUsage') ?><td><?= \phpOMS\System\SystemUtils::getCpuUsage(); ?>%
-                <tr><td><?= $this->getText('Monitoring', 'DiskUsage') ?><td><?= round(\phpOMS\System\File\Directory::getFolderSize(ROOT_PATH)/1000000, 'Backend', true); ?> MB
         </table>
     </div>
 </section>

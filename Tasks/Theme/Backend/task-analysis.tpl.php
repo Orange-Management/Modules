@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -46,5 +46,13 @@ echo $this->getData('nav')->render(); ?>
             <tr><td><?= $this->getText('AverageProcessTime'); ?><td>0
             <tr><td><?= $this->getText('InTime'); ?><td>0
         </table>
+    </div>
+</section>
+
+<div class="clear"></div>
+
+<section class="box w-100 floatLeft">
+    <header><h1><?= $this->getText('History'); ?></h1></header>
+    <div class="inner" style="height: 300px">
     </div>
 </section>

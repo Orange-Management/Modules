@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.0
+ * PHP Version 7.1
  *
  * @category   TBD
  * @package    TBD
@@ -22,6 +22,8 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(20);
 $footerView->setPage(1);
 
+$images = $this->getData('images');
+
 echo $this->getData('nav')->render(); ?>
 <div class="box">
     <table class="table">
@@ -35,7 +37,12 @@ echo $this->getData('nav')->render(); ?>
         <tr>
             <td colspan="3"><?= $footerView->render(); ?>
         <tbody>
-        <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+        <?php $count = 0; foreach($images as $key => $value) : $count++;
+        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/draw/single?id=' . $value->getId()); ?>
+            <tr>
+                <td><?= $value->getMedia()->getName(); ?>
+                <td><?= $value->getMedia()->getCreatedBy(); ?>
+                <td><?= $value->getMedia()->getCreatedAt()->format('Y-m-d'); ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
         <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
