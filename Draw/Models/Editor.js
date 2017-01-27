@@ -11,7 +11,7 @@
         this.canvasContainer = this.canvas.parentElement;
         this.ctx = this.canvas.getContext("2d");
 
-        const canvasStyle = window.getComputedStyle(this.canvas, null),
+        let canvasStyle = window.getComputedStyle(this.canvas, null),
             canvasContainerStyle = window.getComputedStyle(this.canvasContainer, null);
 
         this.resize({
@@ -40,32 +40,22 @@
     {
         const self = this;
 
+        this.canvasContainer.addEventListener('DOMAttrModified', function(evt) {
+            self.canvasStyle = window.getComputedStyle(self.canvas, null);
+            self.canvasContainerStyle = window.getComputedStyle(self.canvasContainer, null);
+
+            this.resize({
+                width: parseFloat(self.canvasContainerStyle.width) - parseFloat(self.canvasContainerStyle.paddingLeft) - parseFloat(self.canvasContainerStyle.paddingRight) - parseFloat(self.canvasContainerStyle.borderLeftWidth) - parseFloat(self.canvasStyle.borderLeftWidth),
+                height: parseFloat(self.canvasContainerStyle.height) - parseFloat(self.canvasContainerStyle.paddingTop) - parseFloat(self.canvasContainerStyle.paddingBottom) - parseFloat(self.canvasContainerStyle.borderRightWidth) - parseFloat(self.canvasStyle.borderRightWidth)
+            });
+        });
+
         // Handle draw and resize
         this.canvas.addEventListener('mousemove', function (evt)
         {
             if (!self.drawFlag || self.type === jsOMS.Modules.Draw.DrawTypeEnum.DRAW) {
                 self.oldPos = self.newPos;
                 self.newPos = self.mousePosition(evt);
-
-                if (self.newPos.x < self.canvas.width - 1 && self.newPos.x > self.canvas.width - 5 && self.newPos.y < self.canvas.height - 1 && self.newPos.y > self.canvas.height - 5) {
-                    document.body.style.cursor = 'nwse-resize';
-                } else if (self.newPos.x > 1 && self.newPos.x < 5 && self.newPos.y > 1 && self.newPos.y < 5) {
-                    document.body.style.cursor = 'nwse-resize';
-                } else if (self.newPos.x > 1 && self.newPos.x < 5 && self.newPos.y < self.canvas.height - 1 && self.newPos.y > self.canvas.height - 5) {
-                    document.body.style.cursor = 'nesw-resize';
-                } else if (self.newPos.x < self.canvas.width - 1 && self.newPos.x > self.canvas.width - 5 && self.newPos.y > 1 && self.newPos.y < 5) {
-                    document.body.style.cursor = 'nesw-resize';
-                } else if (self.newPos.x < self.canvas.width - 1 && self.newPos.x > self.canvas.width - 5 && self.newPos.y > 5 && self.newPos.y < self.canvas.height - 5) {
-                    document.body.style.cursor = 'ew-resize';
-                } else if (self.newPos.x > 1 && self.newPos.x < 5 && self.newPos.y > 5 && self.newPos.y < self.canvas.height - 5) {
-                    document.body.style.cursor = 'ew-resize';
-                } else if (self.newPos.x > 5 && self.newPos.x < self.canvas.width - 5 && self.newPos.y < self.canvas.height - 1 && self.newPos.y > self.canvas.height - 5) {
-                    document.body.style.cursor = 'ns-resize';
-                } else if (self.newPos.x > 5 && self.newPos.x < self.canvas.width - 5 && self.newPos.y > 1 && self.newPos.y < 5) {
-                    document.body.style.cursor = 'ns-resize';
-                } else {
-                    document.body.style.cursor = 'default';
-                }
 
                 if (self.type === jsOMS.Modules.Draw.DrawTypeEnum.DRAW) {
                     self.draw(self.oldPos, self.newPos);
