@@ -62,8 +62,8 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="m-draw">
     <section class="box w-100" style="height: 30%;">
-        <div class="inner">
-            <canvas id="canvasImage" name="image" form="drawForm"></canvas>
+        <div class="inner resizable">
+            <canvas id="canvasImage resizable" name="image" form="drawForm"></canvas>
         </div>
     </section>
 </div>
