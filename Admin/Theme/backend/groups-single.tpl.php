@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                 <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
-                        <tr><td><label for="iGid"><?= $this->getText('ID') ?></label>
+                        <tr><td><label for="iGid"><?= $this->getText('ID', 0, 0) ?></label>
                         <tr><td><input id="iGid" name="gid" type="text" value="<?= $group->getId(); ?>" disabled>
                         <tr><td><label for="iGname"><?= $this->getText('Name') ?></label>
                         <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= $group->getName(); ?>">
