@@ -20,31 +20,35 @@ $job      = $this->getData('job');
 
 echo $this->getData('nav')->render(); ?>
 
-<section class="box w-50">
-    <header><h1><?= $job->getId(); ?></h1></header>
-    <div class="inner">
-    <table class="list w-100">
-            <tr>
-                <td><?= $this->getText('Status'); ?>
-                <td><i class="fa fa-anchor"></i>
-                <td class="wf-100"><?= $job->getStatus(); ?>
-            <tr>
-                <td><?= $this->getText('Run'); ?>
-                <td><i class="fa fa-anchor"></i>
-                <td><?= $job->getRun(); ?>
-            <tr>
-                <td><?= $this->getText('LastRunTime'); ?>
-                <td><i class="fa fa-anchor"></i>
-                <td><?= $job->getLastRunTime() !== null ? $job->getLastRunTime()->format('Y-m-d') : ''; ?>
-            <tr>
-                <td><?= $this->getText('NextRunTime'); ?>
-                <td><i class="fa fa-anchor"></i>
-                <td><?= $job->getNextRunTime() !== null ? $job->getNextRunTime()->format('Y-m-d') : ''; ?>
-            <tr>
-                <td><?= $this->getText('Description'); ?>
-                <td><i class="fa fa-anchor"></i>
-                <td><blockquote><?= $job->getComment(); ?></blockquote>
-    </table>
-        
+<div class="row">
+    <div class="col-xs-12">
+        <section class="box wf-100">
+            <header><h1><?= $job->getId(); ?></h1></header>
+            <div class="inner">
+            <table class="list w-100">
+                    <tr>
+                        <td><?= $this->getText('Status'); ?>
+                        <td><i class="fa fa-anchor"></i>
+                        <td class="wf-100"><?= $job->getStatus(); ?>
+                    <tr>
+                        <td><?= $this->getText('Run'); ?>
+                        <td><i class="fa fa-anchor"></i>
+                        <td><?= $job->getRun(); ?>
+                    <tr>
+                        <td><?= $this->getText('LastRunTime'); ?>
+                        <td><i class="fa fa-anchor"></i>
+                        <td><?= $job->getLastRunTime() !== null ? $job->getLastRunTime()->format('Y-m-d') : ''; ?>
+                    <tr>
+                        <td><?= $this->getText('NextRunTime'); ?>
+                        <td><i class="fa fa-anchor"></i>
+                        <td><?= $job->getNextRunTime() !== null ? $job->getNextRunTime()->format('Y-m-d') : ''; ?>
+                    <tr>
+                        <td><?= $this->getText('Description'); ?>
+                        <td><i class="fa fa-anchor"></i>
+                        <td><blockquote><?= $job->getComment(); ?></blockquote>
+            </table>
+                
+            </div>
+        </section>
     </div>
-</section>
+</div>
