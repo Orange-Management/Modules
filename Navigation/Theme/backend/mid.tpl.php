@@ -17,7 +17,7 @@
  * @var \Modules\Navigation\Views\NavigationView $this
  */
 if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT])) {
-    echo '<ul class="nav-top" role="navigation">';
+    echo '<div class="row"><div class="col-xs-12"><ul class="nav-top" role="navigation">';
 
     foreach ($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT] as $key => $parent) {
         foreach ($parent as $link) {
@@ -28,5 +28,5 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT])) {
         }
     }
 
-    echo '</ul>';
+    echo '</ul></div></div>';
 }

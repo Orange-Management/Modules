@@ -35,7 +35,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
 ?>
 
 <div class="tabular-2">
-    <div class="box">
+    <div class="box wf-100">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getText('General') ?></label></li>
             <li><label for="c-tab-2"><?= $this->getText('Localization') ?></label></li>
@@ -44,85 +44,95 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
-            <section class="box w-50 floatLeft">
-                <header><h1><?= $this->getText('Settings') ?></h1></header>
-                <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/general'); ?>" method="post">
-                        <table class="layout wf-100">
-                            <tbody>
-                                <tr><td><label for="iOname"><?= $this->getText('OrganizationName') ?></label>
-                                <tr><td><input id="iOname" name="oname" type="text" value="<?= $_oname; ?>" placeholder="&#xf12e; Money Bin" required>
-                                <tr><td><label for="iPassword"><?= $this->getText('PasswordRegex') ?></label>
-                                <tr><td><input id="iPassword" name="passpattern" type="text" value="<?= $_password; ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
-                                <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
-                        </table>
-                    </form>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <section class="box wf-100">
+                        <header><h1><?= $this->getText('Settings') ?></h1></header>
+                        <div class="inner">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/general'); ?>" method="post">
+                                <table class="layout wf-100">
+                                    <tbody>
+                                        <tr><td><label for="iOname"><?= $this->getText('OrganizationName') ?></label>
+                                        <tr><td><input id="iOname" name="oname" type="text" value="<?= $_oname; ?>" placeholder="&#xf12e; Money Bin" required>
+                                        <tr><td><label for="iPassword"><?= $this->getText('PasswordRegex') ?></label>
+                                        <tr><td><input id="iPassword" name="passpattern" type="text" value="<?= $_password; ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
+                                        <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
+                                </table>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </div>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
-            <section class="box w-33 floatLeft">
-                <header><h1><?= $this->getText('Localization') ?></h1></header>
-                <div class="inner">
-                    <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
-                        <table class="layout wf-100">
-                            <tbody>
-                            <tr><td colspan="2"><label for="iCountries"><?= $this->getText('Country') ?></label>
-                            <tr><td colspan="2"><select id="iCountries" name="country">
-                                        <?php foreach($countries as $code => $country) : ?>
-                                        <option value="<?= $code; ?>"<?= strtolower($code) == strtolower($_country) ? ' selected' : ''; ?>><?= $country; ?>
-                                            <?php endforeach; ?>
-                                    </select>
-                            <tr><td colspan="2"><label for="iTimezones"><?= $this->getText('Timezone') ?></label>
-                            <tr><td colspan="2"><select id="iTimezones" name="timezone">
-                                        <?php foreach($timezones as $code => $timezone) : ?>
-                                        <option value="<?= $code; ?>"<?= $timezone == $_timezone ? ' selected' : ''; ?>><?= $timezone; ?>
-                                            <?php endforeach; ?>
-                                    </select>
-                            <tr><td colspan="2"><label for="iTimeformats"><?= $this->getText('Timeformat') ?></label>
-                            <tr><td colspan="2"><select id="iTimeformats" name="timeformat">
-                                        <?php foreach($timeformats as $code => $timeformat) : ?>
-                                        <option value="<?= $code; ?>"<?= strtolower($timeformat) == strtolower($_timeformat) ? ' selected' : ''; ?>><?= $timeformat; ?>
-                                            <?php endforeach; ?>
-                                    </select>
-                            <tr><td colspan="2"><label for="iLanguages"><?= $this->getText('Language') ?></label>
-                            <tr><td colspan="2"><select id="iLanguages" name="language">
-                                        <?php foreach($languages as $code => $language) : ?>
-                                        <option value="<?= $code; ?>"<?= strtolower($code) == strtolower($_language) ? ' selected' : ''; ?>><?= $language; ?>
-                                            <?php endforeach; ?>
-                                    </select>
-                            <tr><td colspan="2"><label for="iTemperature"><?= $this->getText('Temperature') ?></label>
-                            <tr><td colspan="2"><select id="iTemperature" name="temperature">
-                                    </select>
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Save', 0) ?>">
-                        </table>
-                    </form>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <section class="box wf-100">
+                        <header><h1><?= $this->getText('Localization') ?></h1></header>
+                        <div class="inner">
+                            <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
+                                <table class="layout wf-100">
+                                    <tbody>
+                                    <tr><td colspan="2"><label for="iCountries"><?= $this->getText('Country') ?></label>
+                                    <tr><td colspan="2"><select id="iCountries" name="country">
+                                                <?php foreach($countries as $code => $country) : ?>
+                                                <option value="<?= $code; ?>"<?= strtolower($code) == strtolower($_country) ? ' selected' : ''; ?>><?= $country; ?>
+                                                    <?php endforeach; ?>
+                                            </select>
+                                    <tr><td colspan="2"><label for="iTimezones"><?= $this->getText('Timezone') ?></label>
+                                    <tr><td colspan="2"><select id="iTimezones" name="timezone">
+                                                <?php foreach($timezones as $code => $timezone) : ?>
+                                                <option value="<?= $code; ?>"<?= $timezone == $_timezone ? ' selected' : ''; ?>><?= $timezone; ?>
+                                                    <?php endforeach; ?>
+                                            </select>
+                                    <tr><td colspan="2"><label for="iTimeformats"><?= $this->getText('Timeformat') ?></label>
+                                    <tr><td colspan="2"><select id="iTimeformats" name="timeformat">
+                                                <?php foreach($timeformats as $code => $timeformat) : ?>
+                                                <option value="<?= $code; ?>"<?= strtolower($timeformat) == strtolower($_timeformat) ? ' selected' : ''; ?>><?= $timeformat; ?>
+                                                    <?php endforeach; ?>
+                                            </select>
+                                    <tr><td colspan="2"><label for="iLanguages"><?= $this->getText('Language') ?></label>
+                                    <tr><td colspan="2"><select id="iLanguages" name="language">
+                                                <?php foreach($languages as $code => $language) : ?>
+                                                <option value="<?= $code; ?>"<?= strtolower($code) == strtolower($_language) ? ' selected' : ''; ?>><?= $language; ?>
+                                                    <?php endforeach; ?>
+                                            </select>
+                                    <tr><td colspan="2"><label for="iTemperature"><?= $this->getText('Temperature') ?></label>
+                                    <tr><td colspan="2"><select id="iTemperature" name="temperature">
+                                            </select>
+                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Save', 0) ?>">
+                                </table>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-            </section>
 
-            <section class="box w-33 floatLeft">
-                <header><h1><?= $this->getText('Numeric') ?></h1></header>
-                <div class="inner">
-                    <form>
-                        <table class="layout wf-100">
-                                <tr><td colspan="2"><label for="iCurrencies"><?= $this->getText('Currency') ?></label>
-                            <tr><td colspan="2"><select form="fLocalization" id="iCurrencies" name="currency">
-                                        <?php foreach($currencies as $code => $currency) : ?>
-                                        <option value="<?= $code; ?>"<?= strtolower($code) == strtolower($_currency) ? ' selected' : ''; ?>><?= $currency; ?>
-                                            <?php endforeach; ?>
-                                    </select>
-                            <tr><td colspan="2"><h2><?= $this->getText('Numberformat') ?></h2>
-                            <tr><td><label for="iDecimalPoint"><?= $this->getText('DecimalPoint') ?></label>
-                                <td><label for="iThousandSep"><?= $this->getText('ThousandsSeparator') ?></label>
-                            <tr><td><input form="fLocalization" id="iDecimalPoint" name="decimalpoint" type="text" value="<?= $_decimal_point; ?>" placeholder="." required>
-                                <td><input form="fLocalization" id="iThousandSep" name="thousandsep" type="text" value="<?= $_thousands_sep; ?>" placeholder="," required>
-                        </table>
-                    </form>
-                </div>
-            </section>
+            <div class="col-xs-12 col-md-4">
+                <section class="box wf-100">
+                    <header><h1><?= $this->getText('Numeric') ?></h1></header>
+                    <div class="inner">
+                        <form>
+                            <table class="layout wf-100">
+                                    <tr><td colspan="2"><label for="iCurrencies"><?= $this->getText('Currency') ?></label>
+                                <tr><td colspan="2"><select form="fLocalization" id="iCurrencies" name="currency">
+                                            <?php foreach($currencies as $code => $currency) : ?>
+                                            <option value="<?= $code; ?>"<?= strtolower($code) == strtolower($_currency) ? ' selected' : ''; ?>><?= $currency; ?>
+                                                <?php endforeach; ?>
+                                        </select>
+                                <tr><td colspan="2"><h2><?= $this->getText('Numberformat') ?></h2>
+                                <tr><td><label for="iDecimalPoint"><?= $this->getText('DecimalPoint') ?></label>
+                                    <td><label for="iThousandSep"><?= $this->getText('ThousandsSeparator') ?></label>
+                                <tr><td><input form="fLocalization" id="iDecimalPoint" name="decimalpoint" type="text" value="<?= $_decimal_point; ?>" placeholder="." required>
+                                    <td><input form="fLocalization" id="iThousandSep" name="thousandsep" type="text" value="<?= $_thousands_sep; ?>" placeholder="," required>
+                            </table>
+                        </form>
+                    </div>
+                </section>
+            </div>
 
-            <section class="box w-33 floatLeft">
+<div class="col-xs-12 col-md-4">
+            <section class="box wf-100">
                 <header><h1><?= $this->getText('Weight') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -147,8 +157,12 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     </form>
                 </div>
             </section>
+            </div>
+            </div>
 
-            <section class="box w-33 floatLeft">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+            <section class="box wf-100">
                 <header><h1><?= $this->getText('Speed') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -176,8 +190,10 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     </form>
                 </div>
             </section>
+            </div>
 
-            <section class="box w-33 floatLeft">
+<div class="col-xs-12 col-md-4">
+            <section class="box wf-100">
                 <header><h1><?= $this->getText('Length') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -205,8 +221,10 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     </form>
                 </div>
             </section>
+            </div>
 
-            <section class="box w-33 floatLeft">
+<div class="col-xs-12 col-md-4">
+            <section class="box wf-100">
                 <header><h1><?= $this->getText('Area') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -231,8 +249,12 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     </form>
                 </div>
             </section>
+            </div>
+            </div>
 
-            <section class="box w-33 floatLeft">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+            <section class="box wf-100">
                 <header><h1><?= $this->getText('Volume') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -266,6 +288,8 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     </form>
                 </div>
             </section>
+            </div>
+            </div>
         </div>
     </div>
 </div>

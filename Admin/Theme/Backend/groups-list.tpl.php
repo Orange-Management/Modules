@@ -26,30 +26,32 @@ $footerView->setResults($this->getData('list:count') ?? 1);
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="box w-100">
-    <table class="table">
-        <caption><?= $this->getText('Groups'); ?></caption>
-        <thead>
-            <tr>
-                <td><?= $this->getText('ID', 0, 0); ?>
-                <td class="wf-100"><?= $this->getText('Name'); ?>
-                <td><?= $this->getText('Parents'); ?>
-                <td><?= $this->getText('Children'); ?>
-                <td><?= $this->getText('Members'); ?>
-        <tfoot>
-            <tr><td colspan="5"><?= $footerView->render(); ?>
-        <tbody>
-            <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
-            <tr>
-                <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                <td>
-                <td>
-                <td>
-            <?php endforeach; ?>
-            <?php if($c === 0) : ?>
-            <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
-            <?php endif; ?>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="box table">
+            <caption><?= $this->getText('Groups'); ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getText('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getText('Name'); ?>
+                    <td><?= $this->getText('Parents'); ?>
+                    <td><?= $this->getText('Children'); ?>
+                    <td><?= $this->getText('Members'); ?>
+            <tfoot>
+                <tr><td colspan="5"><?= $footerView->render(); ?>
+            <tbody>
+                <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
+                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
+                <tr>
+                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                    <td>
+                    <td>
+                    <td>
+                <?php endforeach; ?>
+                <?php if($c === 0) : ?>
+                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <?php endif; ?>
+        </table>
+    </div>
 </div>
