@@ -24,63 +24,73 @@ $installed = $this->app->moduleManager->getInstalledModules();
 $id = $this->request->getData('id') ?? 1;
 ?>
 
-<section class="box w-33 floatLeft">
-    <header><h1><?= $modules[$id]['name']['external'] ?></h1></header>
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+        <section class="box wf-100">
+            <header><h1><?= $modules[$id]['name']['external'] ?></h1></header>
 
-    <div class="inner">
-        <table class="list wf-100">
-            <tbody>
-            <tr>
-                <td><?= $this->getText('Name') ?>
-                <td><?= $modules[$id]['name']['external']; ?>
-            <tr>
-                <td><?= $this->getText('Version') ?>
-                <td><?= $modules[$id]['version'] ?>
-            <tr>
-                <td><?= $this->getText('CreatedBy') ?>
-                <td><?= $modules[$id]['creator']['name'] ?>
-            <tr>
-                <td><?= $this->getText('Website') ?>
-                <td><?= $modules[$id]['creator']['website'] ?>
-            <tr>
-                <td><?= $this->getText('Description') ?>
-                <td><?= $modules[$id]['description'] ?>
-            <tr>
-                <td colspan="2">
-                    <?php if (in_array($id, $active)) : ?>
-                        <button
-                            data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?status=deactivate&module=' . $id); ?>"><?= $this->getText('Deactivate') ?></button>
-                    <?php elseif (in_array($id, $installed)) : ?>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->getText('Uninstall') ?></button>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->getText('Activate') ?></button>
-                    <?php elseif (isset($modules[$id])) : ?>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?id=' . $id); ?>"><?= $this->getText('Install') ?></button>
-                        <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?id=' . $id); ?>"><?= $this->getText('Delete', 0) ?></button>
-                    <?php endif; ?>
-        </table>
+            <div class="inner">
+                <table class="list wf-100">
+                    <tbody>
+                    <tr>
+                        <td><?= $this->getText('Name') ?>
+                        <td><?= $modules[$id]['name']['external']; ?>
+                    <tr>
+                        <td><?= $this->getText('Version') ?>
+                        <td><?= $modules[$id]['version'] ?>
+                    <tr>
+                        <td><?= $this->getText('CreatedBy') ?>
+                        <td><?= $modules[$id]['creator']['name'] ?>
+                    <tr>
+                        <td><?= $this->getText('Website') ?>
+                        <td><?= $modules[$id]['creator']['website'] ?>
+                    <tr>
+                        <td><?= $this->getText('Description') ?>
+                        <td><?= $modules[$id]['description'] ?>
+                    <tr>
+                        <td colspan="2">
+                            <?php if (in_array($id, $active)) : ?>
+                                <button
+                                    data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?status=deactivate&module=' . $id); ?>"><?= $this->getText('Deactivate') ?></button>
+                            <?php elseif (in_array($id, $installed)) : ?>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->getText('Uninstall') ?></button>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->getText('Activate') ?></button>
+                            <?php elseif (isset($modules[$id])) : ?>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?id=' . $id); ?>"><?= $this->getText('Install') ?></button>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?id=' . $id); ?>"><?= $this->getText('Delete', 0) ?></button>
+                            <?php endif; ?>
+                </table>
+            </div>
+        </section>
     </div>
-</section>
 
-<section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Settings') ?></h1></header>
+    <div class="col-xs-12 col-md-4">
+        <section class="box wf-100">
+            <header><h1><?= $this->getText('Settings') ?></h1></header>
 
-    <div class="inner">
+            <div class="inner">
 
+            </div>
+        </section>
     </div>
-</section>
 
-<section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Groups') ?></h1></header>
+    <div class="col-xs-12 col-md-4">
+        <section class="box wf-100">
+            <header><h1><?= $this->getText('Groups') ?></h1></header>
 
-    <div class="inner">
+            <div class="inner">
 
+            </div>
+        </section>
     </div>
-</section>
 
-<section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Permissions') ?></h1></header>
+    <div class="col-xs-12 col-md-4">
+        <section class="box wf-100">
+            <header><h1><?= $this->getText('Permissions') ?></h1></header>
 
-    <div class="inner">
+            <div class="inner">
 
+            </div>
+        </section>
     </div>
-</section>
+</div>
