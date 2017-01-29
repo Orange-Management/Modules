@@ -21,26 +21,30 @@ $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="box w-100">
-    <table class="table">
-        <caption><?= $this->getText('Events') ?></caption>
-        <thead>
-        <tr>
-            <td><?= $this->getText('Status'); ?>
-            <td class="wf-100"><?= $this->getText('Title'); ?>
-            <td><?= $this->getText('Start'); ?>
-            <td><?= $this->getText('End'); ?>
-            <td><?= $this->getText('Expenses'); ?>
-            <td><?= $this->getText('Sales'); ?>
-            <td><?= $this->getText('Budget'); ?>
-        <tfoot>
-        <tr>
-            <td colspan="7"><?= $footerView->render(); ?>
-        <tbody>
-        <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
-        <?php endforeach; ?>
-        <?php if($count === 0) : ?>
-        <tr><td colspan="7" class="empty"><?= $this->getText('Empty', 0, 0); ?>
-                <?php endif; ?>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table">
+                <caption><?= $this->getText('Events') ?></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getText('Status'); ?>
+                    <td class="wf-100"><?= $this->getText('Title'); ?>
+                    <td><?= $this->getText('Start'); ?>
+                    <td><?= $this->getText('End'); ?>
+                    <td><?= $this->getText('Expenses'); ?>
+                    <td><?= $this->getText('Sales'); ?>
+                    <td><?= $this->getText('Budget'); ?>
+                <tfoot>
+                <tr>
+                    <td colspan="7"><?= $footerView->render(); ?>
+                <tbody>
+                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php endforeach; ?>
+                <?php if($count === 0) : ?>
+                <tr><td colspan="7" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                        <?php endif; ?>
+            </table>
+        </div>
+    </div>
 </div>
