@@ -28,31 +28,34 @@ $footerView->setResults(count($templates));
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="box w-100">
-    <table class="table">
-        <caption><?= $this->getText('Reports'); ?></caption>
-        <thead>
-        <tr>
-            <td><?= $this->getText('ID', 0, 0); ?>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Updated'); ?>
-        <tfoot>
-        <tr>
-            <td colspan="4"><?= $footerView->render(); ?>
-        <tbody>
-        <?php if (count($templates) == 0) : ?>
-        <tr class="empty">
-            <td colspan="4"><?= $this->getText('Empty', 0, 0); ?>
-                <?php endif; ?>
-                <?php foreach ($templates as $key => $template) :
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>
-        <tr>
-            <td><a href="<?= $url; ?>"><?= $template->getId(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $template->getName(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $template->getCreatedBy(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $template->getCreatedAt()->format('Y-m-d'); ?></a>
-                <?php endforeach; ?>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table">
+                <caption><?= $this->getText('Reports'); ?></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getText('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getText('Name'); ?>
+                    <td><?= $this->getText('Creator'); ?>
+                    <td><?= $this->getText('Updated'); ?>
+                <tfoot>
+                <tr>
+                    <td colspan="4"><?= $footerView->render(); ?>
+                <tbody>
+                <?php if (count($templates) == 0) : ?>
+                <tr class="empty">
+                    <td colspan="4"><?= $this->getText('Empty', 0, 0); ?>
+                        <?php endif; ?>
+                        <?php foreach ($templates as $key => $template) :
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/reporter/report/view?id=' . $template->getId()); ?>
+                <tr>
+                    <td><a href="<?= $url; ?>"><?= $template->getId(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $template->getName(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $template->getCreatedBy(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $template->getCreatedAt()->format('Y-m-d'); ?></a>
+                        <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
 </div>
-

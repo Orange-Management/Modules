@@ -19,13 +19,13 @@
 
 $doc = $this->getData('doc') ?? null;
 ?>
-    <section class="box w-100">
+    <section class="box wf-100">
         <div class="inner">
             <input type="text" name="title" form="docForm">
         </div>
     </section>
 
-    <section class="box w-100">
+    <section class="box wf-100">
         <div class="inner">
             <i class="fa fa-header"></i>
             <i class="fa fa-link"></i>
@@ -43,7 +43,7 @@ $doc = $this->getData('doc') ?? null;
         </div>
     </section>
 
-    <div class="box w-100">
+    <div class="box wf-100">
         <div class="tabular">
             <ul class="tab-links">
                 <li><label for="c-tab-1"><?= $this->getText('Text') ?></label>

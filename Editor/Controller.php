@@ -154,7 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewEditorSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Editor/Theme/Backend/editor');
+        $view->setTemplate('/Modules/Editor/Theme/Backend/editor-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
         $doc = EditorDocMapper::get((int) $request->getData('id'));

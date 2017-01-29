@@ -28,91 +28,95 @@ $reportLanguage = include ROOT_PATH . '/' . $tcoll['lang']->getPath();
 $lang = $reportLanguage[$cLang];
 
 echo $this->getData('nav')->render(); ?>
-<div class="wf-75 floatLeft">
-    <?php /** @noinspection PhpIncludeInspection */
-    include ROOT_PATH . '/' . $tcoll['template']->getPath(); ?>
-</div>
+<div class="row">
+    <div class="col-xs-12 col-md-9">
+        <div class="wf-100">
+            <?php /** @noinspection PhpIncludeInspection */
+            include ROOT_PATH . '/' . $tcoll['template']->getPath(); ?>
+        </div>
+    </div>
 
-<div class="wf-25 floatLeft">
-    <section class="box w-100">
-        <header><h1><?= $this->getText('Reports'); ?></h1></header>
+    <div class="col-xs-12 col-md-3">
+        <section class="box wf-100">
+            <header><h1><?= $this->getText('Reports'); ?></h1></header>
 
-        <div class="inner">
-            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
-                <table class="layout wf-100">
+            <div class="inner">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
+                    <table class="layout wf-100">
+                        <tbody>
+                        <tr>
+                            <td><label for="iLang"><?= $this->getText('Language') ?></label>
+                        <tr>
+                            <td><select id="iLang" name="lang">
+                                    <?php foreach($reportLanguage as $key => $langauge) : ?>
+                                    <option value="<?= $key; ?>"<?= $key === $cLang ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
+                                    <?php endforeach; ?>
+                                </select>
+                        <tr>
+                            <td><label for="iReport"><?= $this->getText('Report') ?></label>
+                        <tr>
+                            <td><select id="iReport" name="report">
+                                </select>
+                    </table>
+                </form>
+            </div>
+        </section>
+
+        <section class="box wf-100">
+            <header><h1><?= $this->getText('Export'); ?></h1></header>
+
+            <div class="inner">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
+                    <table class="layout wf-100">
+                        <tbody>
+                        <tr>
+                            <td><label for="iExport"><?= $this->getText('Export') ?></label>
+                        <tr>
+                            <td><select id="iExport" name="export-type">
+                                    <option value="select" disabled><?= $this->getText('Select') ?>
+                                    <option value="excel"<?= (!isset($tcoll['excel'])) ? ' disabled' : ''; ?>>Excel
+                                    <option value="csv"<?= (!isset($tcoll['csv'])) ? ' disabled' : ''; ?>>Csv
+                                    <option value="json"<?= (!isset($tcoll['json'])) ? ' disabled' : ''; ?>>Json
+                                    <option value="pdf"<?= (!isset($tcoll['pdf'])) ? ' disabled' : ''; ?>>Pdf
+                                </select>
+                        <tr>
+                            <td><input type="button" value="<?= $this->getText('Export') ?>"
+                                    data-ropen="/{#lang}/api/reporter/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
+                    </table>
+                </form>
+            </div>
+        </section>
+
+        <section class="box wf-100">
+            <header><h1><?= $this->getText('Info'); ?></h1></header>
+
+            <div class="inner">
+                <table class="list wf-100">
                     <tbody>
                     <tr>
-                        <td><label for="iLang"><?= $this->getText('Language') ?></label>
+                        <th colspan="2"><?= $this->getText('Report'); ?>
                     <tr>
-                        <td><select id="iLang" name="lang">
-                                <?php foreach($reportLanguage as $key => $langauge) : ?>
-                                <option value="<?= $key; ?>"<?= $key === $cLang ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
-                                <?php endforeach; ?>
-                            </select>
+                        <td><?= $this->getText('Name') ?>
+                        <td><?= $report->getTitle(); ?>
                     <tr>
-                        <td><label for="iReport"><?= $this->getText('Report') ?></label>
+                        <td><?= $this->getText('Creator') ?>
+                        <td><?= $report->getCreatedBy(); ?>
                     <tr>
-                        <td><select id="iReport" name="report">
-                            </select>
+                        <td><?= $this->getText('Created') ?>
+                        <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
+                    <tr>
+                        <th colspan="2"><?= $this->getText('Template'); ?>
+                    <tr>
+                        <td><?= $this->getText('Name') ?>
+                        <td><?= $template->getName(); ?>
+                    <tr>
+                        <td><?= $this->getText('Creator') ?>
+                        <td><?= $template->getCreatedBy(); ?>
+                    <tr>
+                        <td><?= $this->getText('Created') ?>
+                        <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>
                 </table>
-            </form>
-        </div>
-    </section>
-
-    <section class="box w-100">
-        <header><h1><?= $this->getText('Export'); ?></h1></header>
-
-        <div class="inner">
-            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
-                <table class="layout wf-100">
-                    <tbody>
-                    <tr>
-                        <td><label for="iExport"><?= $this->getText('Export') ?></label>
-                    <tr>
-                        <td><select id="iExport" name="export-type">
-                                <option value="select" disabled><?= $this->getText('Select') ?>
-                                <option value="excel"<?= (!isset($tcoll['excel'])) ? ' disabled' : ''; ?>>Excel
-                                <option value="csv"<?= (!isset($tcoll['csv'])) ? ' disabled' : ''; ?>>Csv
-                                <option value="json"<?= (!isset($tcoll['json'])) ? ' disabled' : ''; ?>>Json
-                                <option value="pdf"<?= (!isset($tcoll['pdf'])) ? ' disabled' : ''; ?>>Pdf
-                            </select>
-                    <tr>
-                        <td><input type="button" value="<?= $this->getText('Export') ?>"
-                                   data-ropen="/{#lang}/api/reporter/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
-                </table>
-            </form>
-        </div>
-    </section>
-
-    <section class="box w-100">
-        <header><h1><?= $this->getText('Info'); ?></h1></header>
-
-        <div class="inner">
-            <table class="list wf-100">
-                <tbody>
-                <tr>
-                    <th colspan="2"><?= $this->getText('Report'); ?>
-                <tr>
-                    <td><?= $this->getText('Name') ?>
-                    <td><?= $report->getTitle(); ?>
-                <tr>
-                    <td><?= $this->getText('Creator') ?>
-                    <td><?= $report->getCreatedBy(); ?>
-                <tr>
-                    <td><?= $this->getText('Created') ?>
-                    <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
-                <tr>
-                    <th colspan="2"><?= $this->getText('Template'); ?>
-                <tr>
-                    <td><?= $this->getText('Name') ?>
-                    <td><?= $template->getName(); ?>
-                <tr>
-                    <td><?= $this->getText('Creator') ?>
-                    <td><?= $template->getCreatedBy(); ?>
-                <tr>
-                    <td><?= $this->getText('Created') ?>
-                    <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>
-            </table>
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
 </div>

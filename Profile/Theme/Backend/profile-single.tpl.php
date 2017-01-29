@@ -28,83 +28,89 @@ $footerView->setResults(1);
 
 echo $this->getData('nav')->render();
 ?>
-<section itemscope itemtype="http://schema.org/Person" class="box w-33">
-    <header><h1><?= $this->getText('Profile'); ?></h1></header>
-    <div class="inner">
-        <!-- @formatter:off -->
-                <table class="list">
-                    <tr>
-                        <th><?= $this->getText('Name'); ?>
-                        <td><span itemprop="familyName"><?= $account->getName3(); ?></span>, <span itemprop="givenName"><?= $account->getName1(); ?></span>
-                    <tr>
-                        <th><?= $this->getText('Occupation'); ?>
-                        <td itemprop="jobTitle">Sailor
-                    <tr>
-                        <th><?= $this->getText('Birthday'); ?>
-                        <td itemprop="birthDate">06.09.1934
-                    <tr>
-                        <th><?= $this->getText('Ranks'); ?>
-                        <td itemprop="memberOf">Gosling
-                    <tr>
-                        <th><?= $this->getText('Email'); ?>
-                        <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $account->getEmail(); ?></a>
-                    <tr>
-                        <th>Address
-                        <td>
-                    <tr>
-                        <th class="vT">Private
-                        <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
-                    <tr>
-                        <th class="vT">Work
-                        <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
-                    <tr>
-                        <th><?= $this->getText('Phone'); ?>
-                        <td>
-                    <tr>
-                        <th>Private
-                        <td itemprop="telephone">+01 12345-4567
-                    <tr>
-                        <th>Mobile
-                        <td itemprop="telephone">+01 12345-4567
-                    <tr>
-                        <th>Work
-                        <td itemprop="telephone">+01 12345-4567
-                    <tr>
-                        <th><?= $this->getText('Registered'); ?>
-                        <td><?= $account->getCreatedAt()->format('Y-m-d'); ?>
-                    <tr>
-                        <th><?= $this->getText('LastLogin'); ?>
-                        <td><?= $account->getLastActive()->format('Y-m-d'); ?>
-                    <tr>
-                        <th><?= $this->getText('Status'); ?>
-                        <td><span class="tag green"><?= $account->getStatus(); ?></span>
-                </table>
-                <!-- @formatter:on -->
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
+            <header><h1><?= $this->getText('Profile'); ?></h1></header>
+            <div class="inner">
+                <!-- @formatter:off -->
+                        <table class="list">
+                            <tr>
+                                <th><?= $this->getText('Name'); ?>
+                                <td><span itemprop="familyName"><?= $account->getName3(); ?></span>, <span itemprop="givenName"><?= $account->getName1(); ?></span>
+                            <tr>
+                                <th><?= $this->getText('Occupation'); ?>
+                                <td itemprop="jobTitle">Sailor
+                            <tr>
+                                <th><?= $this->getText('Birthday'); ?>
+                                <td itemprop="birthDate">06.09.1934
+                            <tr>
+                                <th><?= $this->getText('Ranks'); ?>
+                                <td itemprop="memberOf">Gosling
+                            <tr>
+                                <th><?= $this->getText('Email'); ?>
+                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $account->getEmail(); ?></a>
+                            <tr>
+                                <th>Address
+                                <td>
+                            <tr>
+                                <th class="vT">Private
+                                <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
+                            <tr>
+                                <th class="vT">Work
+                                <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
+                            <tr>
+                                <th><?= $this->getText('Phone'); ?>
+                                <td>
+                            <tr>
+                                <th>Private
+                                <td itemprop="telephone">+01 12345-4567
+                            <tr>
+                                <th>Mobile
+                                <td itemprop="telephone">+01 12345-4567
+                            <tr>
+                                <th>Work
+                                <td itemprop="telephone">+01 12345-4567
+                            <tr>
+                                <th><?= $this->getText('Registered'); ?>
+                                <td><?= $account->getCreatedAt()->format('Y-m-d'); ?>
+                            <tr>
+                                <th><?= $this->getText('LastLogin'); ?>
+                                <td><?= $account->getLastActive()->format('Y-m-d'); ?>
+                            <tr>
+                                <th><?= $this->getText('Status'); ?>
+                                <td><span class="tag green"><?= $account->getStatus(); ?></span>
+                        </table>
+                        <!-- @formatter:on -->
+            </div>
+        </section>
     </div>
-</section>
 
-<div class="box w-100">
-    <table class="table">
-        <caption><?= $this->getText('Media', 'Media'); ?></caption>
-        <thead>
-        <tr>
-            <td><?= $this->getText('ID', 0, 0); ?>
-            <td class="wf-100"><?= $this->getText('Name', 'Media'); ?>
-            <td><?= $this->getText('Type', 'Media'); ?>
-            <td><?= $this->getText('Created', 'Media'); ?>
-        <tfoot>
-        <tr><td colspan="4"><?= $footerView->render(); ?>
-        <tbody>
-        <?php $c = 0; foreach ([] as $key => $value) : $c++;
-            $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
-            <tr>
-                <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $value->getNewestStatus()->getStatus(); ?></a>
-        <?php endforeach; ?>
-        <?php if($c === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
-        <?php endif; ?>
-    </table>
+    <div class="col-xs-12 col-md-6">
+        <div class="box wf-100">
+            <table class="table">
+                <caption><?= $this->getText('Media', 'Media'); ?></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getText('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getText('Name', 'Media'); ?>
+                    <td><?= $this->getText('Type', 'Media'); ?>
+                    <td><?= $this->getText('Created', 'Media'); ?>
+                <tfoot>
+                <tr><td colspan="4"><?= $footerView->render(); ?>
+                <tbody>
+                <?php $c = 0; foreach ([] as $key => $value) : $c++;
+                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?id=' . $value->getId()); ?>
+                    <tr>
+                        <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $value->getNewestStatus()->getStatus(); ?></a>
+                <?php endforeach; ?>
+                <?php if($c === 0) : ?>
+                    <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <?php endif; ?>
+            </table>
+        </div>
+    </div>
 </div>
