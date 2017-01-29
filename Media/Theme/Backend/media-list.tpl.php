@@ -24,31 +24,36 @@ $footerView->setPages(count($media) / 25);
 $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
-<div class="box">
-    <table class="table">
-        <caption><?= $this->getText('Media'); ?></caption>
-        <thead>
-        <tr>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
-            <td><?= $this->getText('Type'); ?>
-            <td><?= $this->getText('Size'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Created'); ?>
-                <tfoot>
-        <tr>
-            <td colspan="3"><?= $footerView->render(); ?>
-                <tbody>
-                <?php $count = 0; foreach($media as $key => $value) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?id=' . $value->getId()); ?>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table">
+                <caption><?= $this->getText('Media'); ?></caption>
+                <thead>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getExtension(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getSize(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getCreatedBy(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
-                <?php endforeach; ?>
-                <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
-                <?php endif; ?>
-    </table>
+                    <td class="wf-100"><?= $this->getText('Name'); ?>
+                    <td><?= $this->getText('Type'); ?>
+                    <td><?= $this->getText('Size'); ?>
+                    <td><?= $this->getText('Creator'); ?>
+                    <td><?= $this->getText('Created'); ?>
+                        <tfoot>
+                <tr>
+                    <td colspan="3"><?= $footerView->render(); ?>
+                        <tbody>
+                        <?php $count = 0; foreach($media as $key => $value) : $count++;
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?id=' . $value->getId()); ?>
+                        <tr>
+                            <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $value->getExtension(); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $value->getSize(); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $value->getCreatedBy(); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
+                        <?php endforeach; ?>
+                        <?php if($count === 0) : ?>
+                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                        <?php endif; ?>
+            </table>
+        </div>
+    </div>
 </div>

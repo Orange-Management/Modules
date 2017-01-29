@@ -23,29 +23,33 @@ $media = $this->getData('media');
 echo $this->getData('nav')->render();
 ?>
 
-<section class="box w-100">
-    <header><h1><?= $media->getName() ?></h1></header>
-    <div class="inner">
-        <table class="list w-100">
-            <tbody>
-                <tr><td>Size<td class="wf-100"><?= $media->getSize(); ?>
-                <tr><td>Created at<td><?= $media->getCreatedAt()->format('Y-m-d'); ?>
-                <tr><td>Created by<td><?= $media->getCreatedBy(); ?>
-                <tr><td>Description<td><?= $media->getDescription(); ?>
-                <tr><td colspan="2">Content
-        </table>
-        <?php if(in_array($media->getExtension(), ['gif', 'bmp', 'jpg', 'jpeg', 'png'])) : ?>
-            <img src="<?= $this->request->getUri()->getBase() . $media->getPath(); ?>">
-        <?php elseif($media->getExtension() === 'collection') : ?>
-            collection
-        <?php else : ?>
-            <pre>
-            <?php
-            $output = htmlspecialchars(file_get_contents(ROOT_PATH . '/' . $media->getPath()));
-            $output = str_replace(["\r\n", "\r"], "\n", $output);
-            $output = explode("\n", $output);
-            foreach($output as $line) : ?><span><?= $line; ?></span><?php endforeach; ?>
-            </pre>
-        <?php endif; ?>
+<div class="row">
+    <div class="col-xs-12">
+        <section class="box wf-100">
+            <header><h1><?= $media->getName() ?></h1></header>
+            <div class="inner">
+                <table class="list w-100">
+                    <tbody>
+                        <tr><td>Size<td class="wf-100"><?= $media->getSize(); ?>
+                        <tr><td>Created at<td><?= $media->getCreatedAt()->format('Y-m-d'); ?>
+                        <tr><td>Created by<td><?= $media->getCreatedBy(); ?>
+                        <tr><td>Description<td><?= $media->getDescription(); ?>
+                        <tr><td colspan="2">Content
+                </table>
+                <?php if(in_array($media->getExtension(), ['gif', 'bmp', 'jpg', 'jpeg', 'png'])) : ?>
+                    <img src="<?= $this->request->getUri()->getBase() . $media->getPath(); ?>">
+                <?php elseif($media->getExtension() === 'collection') : ?>
+                    collection
+                <?php else : ?>
+                    <pre>
+                    <?php
+                    $output = htmlspecialchars(file_get_contents(ROOT_PATH . '/' . $media->getPath()));
+                    $output = str_replace(["\r\n", "\r"], "\n", $output);
+                    $output = explode("\n", $output);
+                    foreach($output as $line) : ?><span><?= $line; ?></span><?php endforeach; ?>
+                    </pre>
+                <?php endif; ?>
+            </div>
+        </section>
     </div>
-</section>
+</div>
