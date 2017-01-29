@@ -115,6 +115,40 @@ class Controller extends ModuleAbstract implements WebInterface
         return $navView;
     }
 
+    public function getView(RequestAbstract $request, ResponseAbstract $response)
+    {
+        $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->dbPool);
+        $nav = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
+        $nav->setNav($navObj->getNav());
+        $nav->setLanguage($request->getL11n()->getLanguage());
+        $unread = [];
+
+        foreach($this->receiving as $receiving) {
+            $unread[$receiving] = $this->app->moduleManager->get($receiving)->openNav($request->getAccount());
+        }
+
+        $nav->setData('unread', $unread);
+
+        return $nav;
+    }
+
+    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) {
+        $languages = $this->app->moduleManager->getLanguageFiles($request);
+
+        foreach ($languages as $path) {
+            if ($path[strlen($path) - 1] === '/') {
+                // Is not a navigation file
+                continue;
+            }
+
+            $path =  __DIR__ . '/../..' . $path . '.' . $response->getL11n()->getLanguage() . '.lang.php';
+
+            /** @noinspection PhpIncludeInspection */
+            $lang = include $path;
+            $this->app->l11nManager->loadLanguage($response->getL11n()->getLanguage(), 'Navigation', $lang);
+        }
+    }
+
     /**
      * @param int              $pageId   Page/parent Id for navigation
      * @param RequestAbstract  $request  Request

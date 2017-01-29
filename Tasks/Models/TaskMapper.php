@@ -157,6 +157,30 @@ class TaskMapper extends DataMapperAbstract
         return $objId;
     }
 
+    public static function countUnread(int $user) : int
+    {
+        try {
+            $query = new Builder(self::$db);
+
+            $query->prefix(self::$db->getPrefix())
+                  ->count()
+                  ->from(self::$table)
+                  ->where(self::$table . '.task_created_by', '=', $user)
+                  ->where(self::$table . '.task_status', '=', TaskStatus::OPEN, 'and');
+
+            $sth = self::$db->con->prepare($query->toSql());
+            $sth->execute();
+
+            $count = $sth->fetchAll()[0][0] ?? 0;
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
+
+            return false;
+        }
+
+        return $count;
+    }
+
     /**
      * Find.
      *
