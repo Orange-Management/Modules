@@ -26,23 +26,27 @@ $footerView->setResults(1);
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="box w-100">
-    <table class="table">
-        <caption><?= $this->getText('Units'); ?></caption>
-        <thead>
-        <tr>
-            <td><?= $this->getText('ID', 0, 0); ?>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
-            <td><?= $this->getText('Parent'); ?>
-                <tfoot>
-        <tr><td colspan="3"><?= $footerView->render(); ?>
-                <tbody>
-                <?php foreach ($this->getData('list:elements') as $key => $value) :
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/unit/profile?id=' . $value->getId()); ?>
-        <tr>
-            <td data-label="<?= $this->getText('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-            <td data-label="<?= $this->getText('Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-            <td data-label="<?= $this->getText('Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
-                <?php endforeach; ?>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table">
+                <caption><?= $this->getText('Units'); ?></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getText('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getText('Name'); ?>
+                    <td><?= $this->getText('Parent'); ?>
+                        <tfoot>
+                <tr><td colspan="3"><?= $footerView->render(); ?>
+                        <tbody>
+                        <?php foreach ($this->getData('list:elements') as $key => $value) :
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/unit/profile?id=' . $value->getId()); ?>
+                <tr>
+                    <td data-label="<?= $this->getText('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                    <td data-label="<?= $this->getText('Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                    <td data-label="<?= $this->getText('Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
+                        <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
 </div>
