@@ -32,6 +32,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getText('Media'); ?></caption>
                 <thead>
                 <tr>
+                    <td>
                     <td class="wf-100"><?= $this->getText('Name'); ?>
                     <td><?= $this->getText('Type'); ?>
                     <td><?= $this->getText('Size'); ?>
@@ -42,8 +43,37 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="3"><?= $footerView->render(); ?>
                         <tbody>
                         <?php $count = 0; foreach($media as $key => $value) : $count++;
-                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?id=' . $value->getId()); ?>
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?id=' . $value->getId()); 
+
+                        $icon = '';
+                        $extensionType = \phpOMS\System\File\FileUtils::getExtensionType($value->getExtension());
+
+                        if($extensionType === \phpOMS\System\File\ExtensionType::CODE) {
+                            $icon = 'file-code-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::TEXT) {
+                            $icon = 'file-text-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::PRESENTATION) {
+                           $icon = 'file-powerpoint-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::PDF) {
+                            $icon = 'file-pdf-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::ARCHIVE) {
+                            $icon = 'file-zip-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::AUDIO) {
+                            $icon = 'file-audio-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::VIDEO) {
+                            $icon = 'file-video-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::IMAGE) {
+                            $icon = 'file-image-o';
+                        } elseif($extensionType === \phpOMS\System\File\ExtensionType::SPREADSHEET) {
+                            $icon = 'file-excel-o';
+                        } elseif($value->getExtension() === 'collection') {
+                            $icon = 'folder-open-o';
+                        } else {
+                            $icon = 'file-o';
+                        }
+                        ?>
                         <tr>
+                            <td><a href="<?= $url; ?>"><i class="fa fa-<?= $icon; ?>"></i></a>
                             <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
                             <td><a href="<?= $url; ?>"><?= $value->getExtension(); ?></a>
                             <td><a href="<?= $url; ?>"><?= $value->getSize(); ?></a>
