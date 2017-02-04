@@ -15,9 +15,7 @@
     },
     "description": "Risk Management module.",
     "directory": "RiskManagement",
-    "dependencies": [
-        "RiskManagement"
-    ],
+    "dependencies": {},
     "providing": {
         "Navigation": "*"
     },
