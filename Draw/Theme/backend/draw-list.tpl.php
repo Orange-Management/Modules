@@ -42,9 +42,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach($images as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/draw/single?id=' . $value->getId()); ?>
                     <tr>
-                        <td><?= $value->getMedia()->getName(); ?>
-                        <td><?= $value->getMedia()->getCreatedBy(); ?>
-                        <td><?= $value->getMedia()->getCreatedAt()->format('Y-m-d'); ?>
+                        <td><a href="<?= $url; ?>"><?= $value->getMedia()->getName(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $value->getMedia()->getCreatedBy(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $value->getMedia()->getCreatedAt()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>

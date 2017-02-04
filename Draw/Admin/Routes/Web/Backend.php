@@ -21,6 +21,10 @@ return [
     ],
     '^.*/backend/draw/single.*$' => [
         [
+            'dest' => '\Modules\Draw\Controller:setUpDrawEditor', 
+            'verb' => RouteVerb::GET,
+        ],
+        [
             'dest' => '\Modules\Draw\Controller:viewDrawSingle', 
             'verb' => RouteVerb::GET,
         ],

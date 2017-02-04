@@ -40,6 +40,8 @@
     {
         const self = this;
 
+        this.initCanvas();
+
         this.canvasContainer.addEventListener('DOMAttrModified', function(evt) {
             self.canvasStyle = window.getComputedStyle(self.canvas, null);
             self.canvasContainerStyle = window.getComputedStyle(self.canvasContainer, null);
@@ -98,6 +100,15 @@
             self.drawFlag = false;
             document.body.style.cursor = 'default';
         }, false);
+    };
+
+    jsOMS.Modules.Draw.Editor.prototype.initCanvas = function()
+    {
+        const img = this.editor.getElementsByTagName('img');
+
+        if(img.length > 0) {
+            this.canvas.getContext("2d").drawImage(img[0], 0, 0);
+        }
     };
 
     jsOMS.Modules.Draw.Editor.prototype.draw = function (start, end)

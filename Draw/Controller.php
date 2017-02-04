@@ -123,6 +123,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -133,11 +134,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function viewDrawImage(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Draw/Theme/Backend/draw-create');
+        $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+
+        $view->addData('image', DrawImageMapper::get($request->getData('id')));
 
         return $view;
     }
