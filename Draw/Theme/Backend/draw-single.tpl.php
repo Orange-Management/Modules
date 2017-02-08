@@ -75,8 +75,7 @@ echo $this->getData('nav')->render(); ?>
         <div class="m-draw">
             <section class="box wf-100" style="height: 30%;">
                 <div class="inner resizable">
-                    <img class="hidden" src="<?= $this->request->getUri()->getBase() . $image->getMedia()->getPath(); ?>">
-                    <canvas id="canvasImage resizable" name="image" form="drawForm"></canvas>
+                    <canvas data-src="<?= $this->request->getUri()->getBase() . $image->getMedia()->getPath(); ?>" id="canvasImage resizable" name="image" form="drawForm"></canvas>
                 </div>
             </section>
         </div>

@@ -104,10 +104,19 @@
 
     jsOMS.Modules.Draw.Editor.prototype.initCanvas = function()
     {
-        const img = this.editor.getElementsByTagName('img');
+        const img = this.canvas.getAttribute('data-src'),
+            self = this;
 
-        if(img.length > 0) {
-            this.canvas.getContext("2d").drawImage(img[0], 0, 0);
+        if(typeof img !== 'undefined' && img.length > 0) {
+            let imgObj = new Image();
+
+            imgObj.addEventListener('load', function() {
+                self.canvas.width = imgObj.width;
+                self.canvas.height = imgObj.height;
+                self.canvas.getContext("2d").drawImage(imgObj, 0, 0);
+            });
+
+            imgObj.src = img;
         }
     };
 

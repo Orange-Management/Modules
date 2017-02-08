@@ -36,8 +36,8 @@ echo $this->getData('nav')->render();
                         <tr><td>Description<td><?= $media->getDescription(); ?>
                         <tr><td colspan="2">Content
                 </table>
-                <?php if(in_array($media->getExtension(), ['gif', 'bmp', 'jpg', 'jpeg', 'png'])) : ?>
-                    <img src="<?= $this->request->getUri()->getBase() . $media->getPath(); ?>">
+                <?php if(\phpOMS\System\File\FileUtils::getExtensionType($media->getExtension()) === \phpOMS\System\File\ExtensionType::IMAGE) : ?>
+                    <div class="h-overflow"><img src="<?= $this->request->getUri()->getBase() . $media->getPath(); ?>"></div>
                 <?php elseif($media->getExtension() === 'collection') : ?>
                     collection
                 <?php else : ?>
