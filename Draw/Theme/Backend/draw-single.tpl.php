@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <section class="box wf-100">
             <div class="inner">
-                <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/draw?csrf={$CSRF}'); ?>" method="POST">
+                <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/draw?{?}csrf={$CSRF}'); ?>" method="POST">
                     <input type="text" id="iTitle" name="title" class="wf-100" value="<?= $image->getMedia()->getName(); ?>"><input type="submit" value="<?= $this->getText('Save', 0, 0); ?>">
                 </form>
             </div>

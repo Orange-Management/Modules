@@ -51,13 +51,13 @@ $id = $this->request->getData('id') ?? 1;
                         <td colspan="2">
                             <?php if (in_array($id, $active)) : ?>
                                 <button
-                                    data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?status=deactivate&module=' . $id); ?>"><?= $this->getText('Deactivate') ?></button>
+                                    data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?{?}status=deactivate&module=' . $id); ?>"><?= $this->getText('Deactivate') ?></button>
                             <?php elseif (in_array($id, $installed)) : ?>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->getText('Uninstall') ?></button>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?id=' . $id); ?>"><?= $this->getText('Activate') ?></button>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?{?}id=' . $id); ?>"><?= $this->getText('Uninstall') ?></button>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?{?}id=' . $id); ?>"><?= $this->getText('Activate') ?></button>
                             <?php elseif (isset($modules[$id])) : ?>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?id=' . $id); ?>"><?= $this->getText('Install') ?></button>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?id=' . $id); ?>"><?= $this->getText('Delete', 0) ?></button>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?{?}id=' . $id); ?>"><?= $this->getText('Install') ?></button>
+                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?{?}id=' . $id); ?>"><?= $this->getText('Delete', 0) ?></button>
                             <?php endif; ?>
                 </table>
             </div>

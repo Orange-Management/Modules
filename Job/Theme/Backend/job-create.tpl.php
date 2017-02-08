@@ -26,7 +26,7 @@ $system = \phpOMS\System\OperatingSystem::getSystem();
             <header><h1><?= $this->getText('Job'); ?></h1></header>
 
             <div class="inner">
-                <form id="fJob"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/job?csrf={$CSRF}'); ?>">
+                <form id="fJob"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/job?{?}csrf={$CSRF}'); ?>">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
