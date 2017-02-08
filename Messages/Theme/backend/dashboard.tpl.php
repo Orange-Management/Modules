@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="5"><?= \phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['usage']); ?> / <?= \phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['limit']); ?>
         <tbody>
             <?php $count = 0; foreach($unseen as $key => $value) : $count++;
-            $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/single?{?}id=' . $value->uid); ?>
+            $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/single?{?}&id=' . $value->uid); ?>
             <tr>
                 <td><span class="check"><input type="checkbox"></span>
                 <td><a href="<?= $url; ?>"<?= $value->seen == 0 ? ' class="unseen"' : ''; ?>></a>
@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
             <?php endforeach; ?>
 
                     <?php foreach($seen as $key => $value) : $count++;
-                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/single?{?}id=' . $value->uid); ?>
+                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/messages/mail/single?{?}&id=' . $value->uid); ?>
             <tr>
                 <td><span class="check"><input type="checkbox"></span>
                 <td><a href="<?= $url; ?>"<?= $value->seen == 0 ? ' class="unseen"' : ''; ?>></a>

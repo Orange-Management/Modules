@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
                 <tbody>
                 <?php $c = 0; foreach($jobs as $key => $job) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/job/single?{?}id=' . $job->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/job/single?{?}&id=' . $job->getId()); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= $job->getStatus(); ?></a>
                     <td><a href="<?= $url; ?>"><?= !empty($job->getLastRunTime()) ? $job->getLastRunTime()->format('Y-m-d') : ''; ?></a>
