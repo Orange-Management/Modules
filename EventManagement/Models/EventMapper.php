@@ -19,6 +19,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Tasks\Models\TaskMapper;
 
 /**
  * Mapper class.
@@ -53,6 +54,21 @@ class EventMapper extends DataMapperAbstract
     ];
 
     /**
+     * Has many relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $hasMany = [
+        'tasks' => [
+            'mapper'         => TaskMapper::class,
+            'table'          => 'eventmanagement_task_relation',
+            'dst'            => 'eventmanagement_task_relation_dst',
+            'src'            => 'eventmanagement_task_relation_src',
+        ],
+    ];
+
+    /**
      * Has one relation.
      *
      * @var array
@@ -63,15 +79,6 @@ class EventMapper extends DataMapperAbstract
             'mapper' => \Modules\Calendar\Models\CalendarMapper::class,
             'src'    => 'eventmanagement_event_calendar',
         ],
-    ];
-
-    /**
-     * Has many relation.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $hasMany = [
     ];
 
     /**

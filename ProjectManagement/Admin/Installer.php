@@ -54,14 +54,18 @@ class Installer extends InstallerAbstract
                             `projectmanagement_project_earnings` int(11) NOT NULL,
                             `projectmanagement_project_start` datetime NOT NULL,
                             `projectmanagement_project_end` datetime NOT NULL,
+                            `projectmanagement_project_created_at` datetime NOT NULL,
+                            `projectmanagement_project_created_by` int(11) NOT NULL,
                             PRIMARY KEY (`projectmanagement_project_id`),
-                            KEY `projectmanagement_project_calendar` (`projectmanagement_project_calendar`)
+                            KEY `projectmanagement_project_calendar` (`projectmanagement_project_calendar`),
+                            KEY `projectmanagement_project_created_by` (`projectmanagement_project_created_by`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'projectmanagement_project`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'projectmanagement_project_ibfk_1` FOREIGN KEY (`projectmanagement_project_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'projectmanagement_project_ibfk_1` FOREIGN KEY (`projectmanagement_project_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'projectmanagement_project_ibfk_2` FOREIGN KEY (`projectmanagement_project_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

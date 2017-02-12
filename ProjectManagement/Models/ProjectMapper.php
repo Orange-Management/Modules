@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Tasks\Models\TaskMapper;
 
 /**
  * Mapper class.
@@ -51,6 +52,23 @@ class ProjectMapper extends DataMapperAbstract
         'projectmanagement_project_earnings'    => ['name' => 'projectmanagement_project_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
         'projectmanagement_project_start'       => ['name' => 'projectmanagement_project_start', 'type' => 'DateTime', 'internal' => 'start'],
         'projectmanagement_project_end'         => ['name' => 'projectmanagement_project_end', 'type' => 'DateTime', 'internal' => 'end'],
+        'projectmanagement_project_created_by' => ['name' => 'projectmanagement_project_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'projectmanagement_project_created_at'  => ['name' => 'projectmanagement_project_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+    ];
+
+    /**
+     * Has many relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $hasMany = [
+        'tasks' => [
+            'mapper'         => TaskMapper::class,
+            'table'          => 'projectmanagement_task_relation',
+            'dst'            => 'projectmanagement_task_relation_dst',
+            'src'            => 'projectmanagement_task_relation_src',
+        ],
     ];
 
     /**
@@ -67,21 +85,20 @@ class ProjectMapper extends DataMapperAbstract
     ];
 
     /**
-     * Has many relation.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $hasMany = [
-    ];
-
-    /**
      * Primary table.
      *
      * @var string
      * @since 1.0.0
      */
     protected static $table = 'projectmanagement_project';
+
+    /**
+     * Created at.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static $createdAt = 'projectmanagement_project_created_at';
 
     /**
      * Primary field name.

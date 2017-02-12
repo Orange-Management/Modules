@@ -63,4 +63,5 @@ return ['Tasks' => [
     'S3'                 => 'Suspended',
     'S4'                 => 'Canceled',
     'S5'                 => 'Done',
+    'S6'                 => 'Closed',
 ]];
