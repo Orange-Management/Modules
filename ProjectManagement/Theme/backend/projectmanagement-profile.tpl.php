@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="datetime-local" id="iStart" name="start" value="<?= $project->getStart()->format('Y-m-d\TH:i:s'); ?>">
                             <td><input type="datetime-local" id="iEnd" name="end" value="<?= $project->getEnd()->format('Y-m-d\TH:i:s'); ?>">
                         <tr><td colspan="2"><label for="iDescription"><?= $this->getText('Description'); ?></label>
-                        <tr><td colspan="2"><textarea id="iDescription" name="desc" value="<?= $project->getDescription(); ?>"></textarea>
+                        <tr><td colspan="2"><textarea id="iDescription" name="desc"><?= $project->getDescription(); ?></textarea>
                         <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Save', 0, 0); ?>">
                     </table>
                 </form>

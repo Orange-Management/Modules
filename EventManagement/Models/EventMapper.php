@@ -44,6 +44,7 @@ class EventMapper extends DataMapperAbstract
     protected static $columns = [
         'eventmanagement_event_id'         => ['name' => 'eventmanagement_event_id', 'type' => 'int', 'internal' => 'id'],
         'eventmanagement_event_name'       => ['name' => 'eventmanagement_event_name', 'type' => 'string', 'internal' => 'name'],
+        'eventmanagement_event_description'       => ['name' => 'eventmanagement_event_description', 'type' => 'string', 'internal' => 'description'],
         'eventmanagement_event_type'       => ['name' => 'eventmanagement_event_type', 'type' => 'int', 'internal' => 'type'],
         'eventmanagement_event_calendar'   => ['name' => 'eventmanagement_event_calendar', 'type' => 'int', 'internal' => 'calendar'],
         'eventmanagement_event_start'       => ['name' => 'eventmanagement_event_start', 'type' => 'DateTime', 'internal' => 'start'],

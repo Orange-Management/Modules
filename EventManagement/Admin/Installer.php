@@ -47,6 +47,7 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'eventmanagement_event` (
                             `eventmanagement_event_id` int(11) NOT NULL AUTO_INCREMENT,
                             `eventmanagement_event_name` varchar(255) NOT NULL,
+                            `eventmanagement_event_description` text NOT NULL,
                             `eventmanagement_event_type` tinyint(2) NOT NULL,
                             `eventmanagement_event_calendar` int(11) NOT NULL,
                             `eventmanagement_event_start` datetime NOT NULL,
