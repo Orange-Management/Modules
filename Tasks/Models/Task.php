@@ -130,7 +130,8 @@ class Task implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
-        $this->due = (new \DateTime('now'))->modify('+1 day');
+        $this->due = new \DateTime('now');
+        $this->due->modify('+1 day');
         $this->schedule = new Schedule();
     }
 

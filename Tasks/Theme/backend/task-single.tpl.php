@@ -91,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iMessage"><?= $this->getText('Message'); ?></label>
                         <tr><td><textarea id="iMessage" name="description"></textarea>
                         <tr><td><label for="iDue"><?= $this->getText('Due'); ?></label>
-                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= end($elements)->getDue()->format('Y-m-d\TH:i:s'); ?>">
+                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= !empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s'); ?>">
                         <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
                         <tr><td><select id="iStatus" name="status">
                                     <option value="<?= \Modules\Tasks\Models\TaskStatus::OPEN; ?>" selected>Open

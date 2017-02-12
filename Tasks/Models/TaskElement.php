@@ -104,7 +104,8 @@ class TaskElement implements \JsonSerializable
      */
     public function __construct()
     {
-        $this->due       = (new \DateTime('now'))->modify('+1 day');
+        $this->due       = new \DateTime('now');
+        $this->due->modify('+1 day');
         $this->createdAt = new \DateTime('now');
     }
 
