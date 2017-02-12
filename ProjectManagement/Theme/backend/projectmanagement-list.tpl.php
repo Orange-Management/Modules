@@ -19,6 +19,8 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(20);
 $footerView->setPage(1);
 
+$list = $this->getData('projects');
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -28,7 +30,6 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getText('Projects') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('Status'); ?>
                     <td class="wf-100"><?= $this->getText('Title'); ?>
                     <td><?= $this->getText('Start'); ?>
                     <td><?= $this->getText('Due'); ?>
@@ -36,7 +37,11 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="5"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php $count = 0; foreach($list as $key => $value) : $count++; 
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/projectmanagement/profile?{?}&id=' . $value->getId());?>
+                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getStart()->format('Y-m-d'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getEnd()->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>

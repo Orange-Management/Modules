@@ -44,7 +44,13 @@ class Event
 
     private $type = EventType::DEFAULT;
 
+    private $start = null;
+
+    private $end = null;
+
     private $name = '';
+
+    private $description = '';
 
     private $calendar = null;
 
@@ -74,6 +80,8 @@ class Event
 
     public function __construct(string $name = '')
     {
+        $this->start = new \DateTime('now');
+        $this->end = new \DateTime('now');
         $this->calendar  = new Calendar();
         $this->costs     = new Money();
         $this->budget    = new Money();
@@ -83,9 +91,39 @@ class Event
         $this->setName($name);
     }
 
+    public function getStart() : \DateTime
+    {
+        return $this->start;
+    }
+
+    public function setStart(\DateTime $start)
+    {
+        $this->start = $start;
+    }
+
+    public function setEnd(\DateTime $end)
+    {
+        $this->end = $end;
+    }
+
+    public function getEnd() : \DateTime
+    {
+        return $this->end;
+    }
+
     public function getCalendar() : Calendar
     {
         return $this->calendar;
+    }
+
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription() : string
+    {
+        return $this->description;
     }
 
     public function setName(string $name)

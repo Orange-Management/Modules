@@ -20,6 +20,8 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use Modules\EventManagement\Models\EventMapper;
+use Modules\EventManagement\Models\Event;
 
 /**
  * Event Management controller class.
@@ -92,6 +94,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/EventManagement/Theme/Backend/eventmanagement-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004201001, $request, $response));
 
+        $events = EventMapper::getNewest(25);
+        $view->addData('events', $events);
+
         return $view;
     }
 
@@ -129,6 +134,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/EventManagement/Theme/Backend/eventmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004201001, $request, $response));
+
+        $event = EventMapper::get((int) $request->getData('id'));
+        $view->addData('event', $event);
 
         return $view;
     }

@@ -49,6 +49,8 @@ class Installer extends InstallerAbstract
                             `eventmanagement_event_name` varchar(255) NOT NULL,
                             `eventmanagement_event_type` tinyint(2) NOT NULL,
                             `eventmanagement_event_calendar` int(11) NOT NULL,
+                            `eventmanagement_event_start` datetime NOT NULL,
+                            `eventmanagement_event_end` datetime NOT NULL,
                             `eventmanagement_event_costs` int(11) NOT NULL,
                             `eventmanagement_event_budget` int(11) NOT NULL,
                             `eventmanagement_event_earnings` int(11) NOT NULL,

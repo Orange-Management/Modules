@@ -46,6 +46,8 @@ class EventMapper extends DataMapperAbstract
         'eventmanagement_event_name'       => ['name' => 'eventmanagement_event_name', 'type' => 'string', 'internal' => 'name'],
         'eventmanagement_event_type'       => ['name' => 'eventmanagement_event_type', 'type' => 'int', 'internal' => 'type'],
         'eventmanagement_event_calendar'   => ['name' => 'eventmanagement_event_calendar', 'type' => 'int', 'internal' => 'calendar'],
+        'eventmanagement_event_start'       => ['name' => 'eventmanagement_event_start', 'type' => 'DateTime', 'internal' => 'start'],
+        'eventmanagement_event_end'         => ['name' => 'eventmanagement_event_end', 'type' => 'DateTime', 'internal' => 'end'],
         'eventmanagement_event_costs'      => ['name' => 'eventmanagement_event_costs', 'type' => 'Serializable', 'internal' => 'costs'],
         'eventmanagement_event_budget'     => ['name' => 'eventmanagement_event_budget', 'type' => 'Serializable', 'internal' => 'budget'],
         'eventmanagement_event_earnings'   => ['name' => 'eventmanagement_event_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],

@@ -24,6 +24,8 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
+use Modules\ProjectManagement\Models\ProjectMapper;
+use Modules\ProjectManagement\Models\Project;
 
 /**
  * Event Management controller class.
@@ -96,6 +98,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));
 
+        $projects = ProjectMapper::getNewest(25);
+        $view->addData('projects', $projects);
+
         return $view;
     }
 
@@ -133,6 +138,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));
+
+        $project = ProjectMapper::get((int) $request->getData('id'));
+        $view->addData('project', $project);
 
         return $view;
     }
