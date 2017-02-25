@@ -2,8 +2,9 @@
     "name": {
         "id": 1004600000,
         "internal": "BudgetManagement",
-        "external": "OMS Budget Management"
+        "external": "Budget Management"
     },
+    "category": "Finance",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

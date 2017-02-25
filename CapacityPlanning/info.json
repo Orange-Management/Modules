@@ -2,8 +2,9 @@
     "name": {
         "id": 1100500000,
         "internal": "CapacityPlanning",
-        "external": "OMS Organization"
+        "external": "Capacity Planning"
     },
+    "category": "Production",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

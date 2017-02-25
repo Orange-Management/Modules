@@ -2,8 +2,9 @@
     "name": {
         "id": 1001400000,
         "internal": "PaymentInformation",
-        "external": "OMS Payment Information"
+        "external": "Payment Information"
     },
+    "category": "Sales",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

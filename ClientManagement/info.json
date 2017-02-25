@@ -2,8 +2,9 @@
     "name": {
         "id": 1003100000,
         "internal": "ClientManagement",
-        "external": "OMS Client Management"
+        "external": "Client Management"
     },
+    "category": "Sales",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

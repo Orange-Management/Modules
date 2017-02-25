@@ -2,8 +2,9 @@
     "name": {
         "id": 1002000000,
         "internal": "AreaManager",
-        "external": "OMS Area Manager"
+        "external": "Area Manager"
     },
+    "category": "Sales",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

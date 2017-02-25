@@ -2,8 +2,9 @@
     "name": {
         "id": 1004100000,
         "internal": "Chart",
-        "external": "OMS Chart"
+        "external": "Chart"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

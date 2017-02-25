@@ -2,8 +2,9 @@
     "name": {
         "id": 1001200000,
         "internal": "Messages",
-        "external": "OMS Messages"
+        "external": "Messages"
     },
+    "category": "Communication",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1003500000,
         "internal": "PersonnelTimeManagement",
-        "external": "OMS Tasks"
+        "external": "Personnel Time Management"
     },
+    "category": "HR",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

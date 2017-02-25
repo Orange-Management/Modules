@@ -2,8 +2,9 @@
     "name": {
         "id": 1002700000,
         "internal": "Reporter",
-        "external": "OMS Reporter"
+        "external": "Reporter"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

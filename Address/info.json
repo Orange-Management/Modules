@@ -2,8 +2,9 @@
     "name": {
         "id": 1003700000,
         "internal": "Address",
-        "external": "OMS Address"
+        "external": "Address"
     },
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

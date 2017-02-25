@@ -2,8 +2,9 @@
     "name": {
         "id": 1001500000,
         "internal": "Arrival",
-        "external": "OMS Area Manager"
+        "external": "Area Manager"
     },
+    "category": "Logistics",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

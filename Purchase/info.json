@@ -2,8 +2,9 @@
     "name": {
         "id": 1002100000,
         "internal": "Purchase",
-        "external": "OMS Purchase"
+        "external": "Purchase"
     },
+    "category": "Purchase",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

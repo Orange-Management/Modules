@@ -2,8 +2,9 @@
     "name": {
         "id": 1000100000,
         "internal": "Admin",
-        "external": "OMS Admin"
+        "external": "Admin"
     },
+    "category": "Admin",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

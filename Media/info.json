@@ -2,8 +2,9 @@
     "name": {
         "id": 1000400000,
         "internal": "Media",
-        "external": "OMS Media"
+        "external": "Media"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

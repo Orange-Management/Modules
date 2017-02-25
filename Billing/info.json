@@ -2,8 +2,9 @@
     "name": {
         "id": 1005100000,
         "internal": "Billing",
-        "external": "OMS Accounts Receivable"
+        "external": "Billing"
     },
+    "category": "Sales",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

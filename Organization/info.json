@@ -2,8 +2,9 @@
     "name": {
         "id": 1004700000,
         "internal": "Organization",
-        "external": "OMS Organization"
+        "external": "Organization"
     },
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

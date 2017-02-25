@@ -2,8 +2,9 @@
     "name": {
         "id": 1001900000,
         "internal": "Marketing",
-        "external": "OMS Marketing"
+        "external": "Marketing"
     },
+    "category": "Marketing",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

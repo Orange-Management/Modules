@@ -2,8 +2,9 @@
     "name": {
         "id": 1004300000,
         "internal": "Production",
-        "external": "OMS Production"
+        "external": "Production"
     },
+    "category": "Production",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

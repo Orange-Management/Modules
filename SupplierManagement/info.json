@@ -2,8 +2,9 @@
     "name": {
         "id": 1003200000,
         "internal": "SupplierManagement",
-        "external": "OMS Purchase"
+        "external": "Supplier Management"
     },
+    "category": "Purchase",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

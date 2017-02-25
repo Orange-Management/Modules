@@ -2,8 +2,9 @@
     "name": {
         "id": 1001300000,
         "internal": "WarehouseManagement",
-        "external": "OMS Warehousing"
+        "external": "Warehousing"
     },
+    "category": "Logistics",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

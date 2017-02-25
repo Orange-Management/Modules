@@ -2,8 +2,9 @@
     "name": {
         "id": 1004800000,
         "internal": "ItemManagement",
-        "external": "OMS Item Reference"
+        "external": "Item Management"
     },
+    "category": "Logistics",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1001800000,
         "internal": "Chat",
-        "external": "OMS Chat"
+        "external": "Chat"
     },
+    "category": "Communication",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

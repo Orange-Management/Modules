@@ -2,8 +2,9 @@
     "name": {
         "id": 1005400000,
         "internal": "SalesAnalysis",
-        "external": "OMS Sales Analysis"
+        "external": "Sales Analysis"
     },
+    "category": "Sales",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1001100000,
         "internal": "Tasks",
-        "external": "OMS Tasks"
+        "external": "Tasks"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

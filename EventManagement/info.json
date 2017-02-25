@@ -2,8 +2,9 @@
     "name": {
         "id": 1004200000,
         "internal": "EventManagement",
-        "external": "OMS Event Management"
+        "external": "Event Management"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

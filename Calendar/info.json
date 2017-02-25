@@ -2,8 +2,9 @@
     "name": {
         "id": 1000900000,
         "internal": "Calendar",
-        "external": "OMS Calendar"
+        "external": "Calendar"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

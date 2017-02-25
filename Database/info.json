@@ -2,8 +2,9 @@
     "name": {
         "id": 1005600000,
         "internal": "Database",
-        "external": "OMS Database"
+        "external": "Database"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

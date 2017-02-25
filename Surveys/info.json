@@ -2,8 +2,9 @@
     "name": {
         "id": 1000800000,
         "internal": "Surveys",
-        "external": "OMS Surveys"
+        "external": "Surveys"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

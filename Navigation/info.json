@@ -2,8 +2,9 @@
     "name": {
         "id": 1000500000,
         "internal": "Navigation",
-        "external": "OMS Navigation"
+        "external": "Navigation"
     },
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

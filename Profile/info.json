@@ -2,8 +2,9 @@
     "name": {
         "id": 1000300000,
         "internal": "Profile",
-        "external": "OMS Profile"
+        "external": "Profile"
     },
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1005700000,
         "internal": "Job",
-        "external": "OMS Job"
+        "external": "Job"
     },
+    "category": "Admin",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1002200000,
         "internal": "ResearchDevelopment",
-        "external": "OMS Research & Development"
+        "external": "Research & Development"
     },
+    "category": "R&D",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

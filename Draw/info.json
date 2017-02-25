@@ -2,8 +2,9 @@
     "name": {
         "id": 1005200000,
         "internal": "Draw",
-        "external": "OMS Draw"
+        "external": "Draw"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1001700000,
         "internal": "ProjectManagement",
-        "external": "OMS Project Management"
+        "external": "Project Management"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

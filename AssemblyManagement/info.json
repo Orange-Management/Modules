@@ -2,8 +2,9 @@
     "name": {
         "id": 1100100000,
         "internal": "AssemblyManagement",
-        "external": "OMS Organization"
+        "external": "Assembly Management"
     },
+    "category": "Production",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

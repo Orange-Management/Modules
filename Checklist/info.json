@@ -2,8 +2,9 @@
     "name": {
         "id": 1003600000,
         "internal": "Checklist",
-        "external": "OMS Checklist"
+        "external": "Checklist"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

@@ -2,8 +2,9 @@
     "name": {
         "id": 1000600000,
         "internal": "News",
-        "external": "OMS News"
+        "external": "News"
     },
+    "category": "Content",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

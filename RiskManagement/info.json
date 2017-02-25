@@ -2,8 +2,9 @@
     "name": {
         "id": 1003000000,
         "internal": "RiskManagement",
-        "external": "OMS Risk Management"
+        "external": "Risk Management"
     },
+    "category": "Finance",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

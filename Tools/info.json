@@ -2,8 +2,9 @@
     "name": {
         "id": 1003300000,
         "internal": "Tools",
-        "external": "OMS Tools"
+        "external": "Tools"
     },
+    "category": "Tools",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

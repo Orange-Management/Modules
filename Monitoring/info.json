@@ -2,8 +2,9 @@
     "name": {
         "id": 1000700000,
         "internal": "Monitoring",
-        "external": "OMS Monitoring"
+        "external": "Monitoring"
     },
+    "category": "Admin",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

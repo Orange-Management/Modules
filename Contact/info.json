@@ -2,8 +2,9 @@
     "name": {
         "id": 1003800000,
         "internal": "Contact",
-        "external": "OMS Contact"
+        "external": "Contact"
     },
+    "category": "Communication",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

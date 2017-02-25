@@ -2,8 +2,9 @@
     "name": {
         "id": 1000200000,
         "internal": "Dashboard",
-        "external": "OMS Backend Dashboard"
+        "external": "Backend Dashboard"
     },
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

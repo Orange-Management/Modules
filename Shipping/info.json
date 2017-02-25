@@ -2,8 +2,9 @@
     "name": {
         "id": 1004000000,
         "internal": "Shipping",
-        "external": "OMS Shipping"
+        "external": "Shipping"
     },
+    "category": "Logistics",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

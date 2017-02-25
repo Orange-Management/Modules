@@ -2,8 +2,9 @@
     "name": {
         "id": 1005800000,
         "internal": "Comments",
-        "external": "OMS Comments"
+        "external": "Comments"
     },
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",

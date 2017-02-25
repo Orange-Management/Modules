@@ -2,8 +2,9 @@
     "name": {
         "id": 1002600000,
         "internal": "Accounting",
-        "external": "OMS Accounting"
+        "external": "Accounting"
     },
+    "category": "Finance",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",
