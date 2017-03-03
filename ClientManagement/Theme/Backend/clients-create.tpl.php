@@ -35,55 +35,63 @@ echo $this->getData('nav')->render(); ?>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
-            <section class="box w-33 floatLeft">
-                <header><h1><?= $this->getText('Client') ?></h1></header>
-                <div class="inner">
-                    <form>
-                        <table class="layout w-100">
-                            <tr><td><label for="iId"><?= $this->getText('ID', 0, 0); ?></label>
-                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
-                            <tr><td><label for="iName1"><?= $this->getText('Name1'); ?></label>
-                            <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
-                            <tr><td><label for="iName2"><?= $this->getText('Name2'); ?></label>
-                            <tr><td><input type="text" id="iName2" name="name2" placeholder="&#xf040;">
-                            <tr><td><label for="iName3"><?= $this->getText('Name3'); ?></label>
-                            <tr><td><input type="text" id="iName3" name="name3" placeholder="&#xf040;">
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
-                        </table>
-                    </form>
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <section class="box wf-100">
+                        <header><h1><?= $this->getText('Client') ?></h1></header>
+                        <div class="inner">
+                            <form>
+                                <table class="layout w-100">
+                                    <tr><td><label for="iId"><?= $this->getText('ID', 0, 0); ?></label>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
+                                    <tr><td><label for="iName1"><?= $this->getText('Name1'); ?></label>
+                                    <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
+                                    <tr><td><label for="iName2"><?= $this->getText('Name2'); ?></label>
+                                    <tr><td><input type="text" id="iName2" name="name2" placeholder="&#xf040;">
+                                    <tr><td><label for="iName3"><?= $this->getText('Name3'); ?></label>
+                                    <tr><td><input type="text" id="iName3" name="name3" placeholder="&#xf040;">
+                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                                </table>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </div>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
-            <section class="box w-33 floatLeft">
-                <header><h1><?= $this->getText('Contact') ?></h1></header>
-                <div class="inner">
-                    <form>
-                        <table class="layout w-100">
-                            <tr><td><label for="iCType"><?= $this->getText('Type'); ?></label>
-                            <tr><td><select id="iCType" name="actype">
-                                        <option><?= $this->getText('Email'); ?>
-                                        <option><?= $this->getText('Fax'); ?>
-                                        <option><?= $this->getText('Phone'); ?>
-                                    </select>
-                            <tr><td><label for="iCStype"><?= $this->getText('Subtype'); ?></label>
-                            <tr><td><select id="iCStype" name="acstype">
-                                        <option><?= $this->getText('Office'); ?>
-                                        <option><?= $this->getText('Sales'); ?>
-                                        <option><?= $this->getText('Purchase'); ?>
-                                        <option><?= $this->getText('Accounting'); ?>
-                                        <option><?= $this->getText('Support'); ?>
-                                    </select>
-                            <tr><td><label for="iCInfo"><?= $this->getText('Info'); ?></label>
-                            <tr><td><input type="text" id="iCInfo" name="cinfo">
-                            <tr><td><label for="iCData"><?= $this->getText('Contact'); ?></label>
-                            <tr><td><input type="text" id="iCData" name="cdata">
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
-                        </table>
-                    </form>
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <section class="box wf-100">
+                        <header><h1><?= $this->getText('Contact') ?></h1></header>
+                        <div class="inner">
+                            <form>
+                                <table class="layout w-100">
+                                    <tr><td><label for="iCType"><?= $this->getText('Type'); ?></label>
+                                    <tr><td><select id="iCType" name="actype">
+                                                <option><?= $this->getText('Email'); ?>
+                                                <option><?= $this->getText('Fax'); ?>
+                                                <option><?= $this->getText('Phone'); ?>
+                                            </select>
+                                    <tr><td><label for="iCStype"><?= $this->getText('Subtype'); ?></label>
+                                    <tr><td><select id="iCStype" name="acstype">
+                                                <option><?= $this->getText('Office'); ?>
+                                                <option><?= $this->getText('Sales'); ?>
+                                                <option><?= $this->getText('Purchase'); ?>
+                                                <option><?= $this->getText('Accounting'); ?>
+                                                <option><?= $this->getText('Support'); ?>
+                                            </select>
+                                    <tr><td><label for="iCInfo"><?= $this->getText('Info'); ?></label>
+                                    <tr><td><input type="text" id="iCInfo" name="cinfo">
+                                    <tr><td><label for="iCData"><?= $this->getText('Contact'); ?></label>
+                                    <tr><td><input type="text" id="iCData" name="cdata">
+                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
+                                </table>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </div>
         <input type="radio" id="c-tab-3" name="tabular-2">
         <div class="tab">
