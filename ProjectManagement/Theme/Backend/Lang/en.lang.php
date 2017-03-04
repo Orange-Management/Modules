@@ -21,6 +21,7 @@ return ['ProjectManagement' => [
     'Creator'        => 'Creator',
     'Description'    => 'Description',
     'End'            => 'End',
+    'Due'            => 'Due',
     'Files'          => 'Files',
     'Finished'       => 'Finished',
     'Hold'           => 'Hold',
