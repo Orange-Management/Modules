@@ -86,7 +86,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -96,6 +96,11 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
+
+        $view->addData('panels', [
+            $this->app->moduleManager->get('News')->viewDashboard($request, $response, $data),
+            $this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data)
+        ]);
 
         return $view;
     }

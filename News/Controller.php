@@ -107,6 +107,17 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/News/Theme/Backend/dashboard-news');
+
+        $news = NewsArticleMapper::getNewest(50);
+        $view->addData('news', $news);
+
+        return $view;
+    }
+
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
