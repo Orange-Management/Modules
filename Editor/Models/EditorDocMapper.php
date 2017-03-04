@@ -33,7 +33,7 @@ class EditorDocMapper extends DataMapperAbstract
      */
     static protected $columns = [
         'editor_doc_id'         => ['name' => 'editor_doc_id', 'type' => 'int', 'internal' => 'id'],
-        'editor_doc_created_by' => ['name' => 'editor_doc_created_by', 'type' => 'string', 'internal' => 'createdBy'],
+        'editor_doc_created_by' => ['name' => 'editor_doc_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'editor_doc_title'      => ['name' => 'editor_doc_title', 'type' => 'string', 'internal' => 'title'],
         'editor_doc_plain'    => ['name' => 'editor_doc_plain', 'type' => 'string', 'internal' => 'plain'],
         'editor_doc_content'    => ['name' => 'editor_doc_content', 'type' => 'string', 'internal' => 'content'],

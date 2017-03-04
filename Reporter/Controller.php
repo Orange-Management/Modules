@@ -365,7 +365,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate = new Template();
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
         $reporterTemplate->setDescription($request->getData('description') ?? '');
-        $reporterTemplate->setSource($collectionId);
+        $reporterTemplate->setSource((int) $collectionId);
         $reporterTemplate->setExpected(!empty($expected) ? json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getAccount());
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
@@ -441,7 +441,7 @@ class Controller extends ModuleAbstract implements WebInterface
         /* Create template */
         $reporterReport = new Report();
         $reporterReport->setTitle($request->getData('name'));
-        $reporterReport->setSource($collectionId);
+        $reporterReport->setSource((int) $collectionId);
         $reporterReport->setTemplate((int) $request->getData('template'));
         $reporterReport->setCreatedBy($request->getAccount());
         $reporterReport->setCreatedAt(new \DateTime('NOW'));
