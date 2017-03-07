@@ -16,13 +16,12 @@
 declare(strict_types=1);
 namespace Modules\Profile\Models;
 
-use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class AccountMapper extends DataMapperAbstract
+class ContactElementMapper extends DataMapperAbstract
 {
     /**
      * Columns.
@@ -31,7 +30,7 @@ class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_account_id'         => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
+        'profile_contact_id'         => ['name' => 'profile_contact_id', 'type' => 'int', 'internal' => 'id'],
     ];
 
     /**
@@ -40,7 +39,7 @@ class AccountMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile';
+    protected static $table = 'profile_contact';
 
     /**
      * Primary field name.
@@ -48,15 +47,7 @@ class AccountMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_id';
-
-    /**
-     * Created at column
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $createdAt = 'profile_created_at';
+    protected static $primaryField = 'profile_contact_id';
 
     /**
      * Create object.

@@ -13,9 +13,10 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
-namespace Modules\Profile\Models;
+declare(strict_types = 1);
+namespace Modules\ClientManagement\Models;
 
+use Modules\Media\Models\Media;
 use Modules\Profile\Models\Account;
 
 /**
@@ -29,95 +30,144 @@ use Modules\Profile\Models\Account;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Client extends Account
+class Client
 {
-	private $number = 0;
+    private $id = 0;
 
-	private $numberReverse = 0;
+    private $number = 0;
 
-	private $status = 0;
+    private $numberReverse = 0;
 
-	private $type = 0;
+    private $status = 0;
 
-	private $taxId = '';
+    private $type = 0;
 
-	private $info = '';
+    private $taxId = '';
 
-	private $createdAt = null;
+    private $info = '';
 
-	public function __construct(int $id = 0) 
-	{
-		$this->createdAt = new \DateTime('now');
+    private $createdAt = null;
 
-		parent::__construct($id);
-	}
+    private $profile = null;
 
-	public function getNumber() : int
-	{
-		return $this->number;
-	}
+    private $files = [];
 
-	public function setNumber(int $number) /* : void */
-	{
-		$this->number = $number;
-	}
+    private $contactElements = [];
 
-	public function getReverseNumber() 
-	{
-		return $this->numberReverse;
-	}
+    private $address = [];
 
-	public function setReverseNumber($rev_no) /* : void */
-	{
-		if(!is_scalar($rev_no)) {
-			throw new \Exception();
-		}
+    public function __construct(int $id = 0)
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->profile   = new Account();
+    }
 
-		$this->numberReverse = $rev_no;
-	}
+    public function getId() : int
+    {
+        return $this->id;
+    }
 
-	public function getStatus() : int
-	{
-		return $this->status;
-	}
+    public function getNumber() : int
+    {
+        return $this->number;
+    }
 
-	public function setStatus(int $status) /* : void */
-	{
-		$this->status = $status;
-	}
+    public function setNumber(int $number) /* : void */
+    {
+        $this->number = $number;
+    }
 
-	public function getType() : int
-	{
-		return $this->type;
-	}
+    public function getReverseNumber()
+    {
+        return $this->numberReverse;
+    }
 
-	public function setType(int $type) /* : void */
-	{
-		$this->type = $type;
-	}
+    public function setReverseNumber($rev_no) /* : void */
+    {
+        if (!is_scalar($rev_no)) {
+            throw new \Exception();
+        }
 
-	public function getTaxId() : string
-	{
-		return $this->taxId;
-	}
+        $this->numberReverse = $rev_no;
+    }
 
-	public function setTaxId(string $taxId) /* : void */
-	{
-		$this->taxId = $taxId;
-	}
+    public function getStatus() : int
+    {
+        return $this->status;
+    }
 
-	public function getInfo() : string
-	{
-		return $this->info;
-	}
+    public function setStatus(int $status) /* : void */
+    {
+        $this->status = $status;
+    }
 
-	public function setInfo(string $info)  /* : void */
-	{
-		return $this->info;
-	}
+    public function getType() : int
+    {
+        return $this->type;
+    }
 
-	public function getCreatedAt() : \DateTime
-	{
-		return $this->createdAt;
-	}
+    public function setType(int $type) /* : void */
+    {
+        $this->type = $type;
+    }
+
+    public function getTaxId() : string
+    {
+        return $this->taxId;
+    }
+
+    public function setTaxId(string $taxId) /* : void */
+    {
+        $this->taxId = $taxId;
+    }
+
+    public function getInfo() : string
+    {
+        return $this->info;
+    }
+
+    public function setInfo(string $info)  /* : void */
+    {
+        return $this->info;
+    }
+
+    public function getCreatedAt() : \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function getAccount() : Account
+    {
+        return $this->profile;
+    }
+
+    public function setAccount(Account $account) /* : void */
+    {
+        $this->profile = $account;
+    }
+
+    public function getFiles() : array
+    {
+        return $this->files;
+    }
+
+    public function addFile(Media $file) /* : void */
+    {
+        $this->files[] = $file;
+    }
+
+    public function getAddresses() : array
+    {
+        return $this->address;
+    }
+
+    public function getContactElements() : array
+    {
+        return $this->contactElements;
+    }
+
+    public function getProfile() : Account
+    {
+        return $this->profile;
+    }
 }

@@ -58,6 +58,24 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemreference_segmentation` (
+                            `itemreference_segmentation_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `itemreference_segmentation_type` varchar(30) DEFAULT NULL,
+                            `itemreference_segmentation_no` varchar(30) DEFAULT NULL,
+                            PRIMARY KEY (`itemreference_segmentation_id`)
+                        )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemreference_segmentation_l11n` (
+                            `itemreference_segmentation_l11n_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `itemreference_segmentation_no` varchar(30) DEFAULT NULL,
+                            `itemreference_segmentation_name` varchar(30) DEFAULT NULL,
+                            PRIMARY KEY (`itemreference_segmentation_l11n_id`)
+                        )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemreference_media` (
                             `itemreference_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemreference_media_item` int(11) DEFAULT NULL,
@@ -76,15 +94,15 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemreference_localization` (
-                            `itemreference_localization_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `itemreference_localization_language` varchar(30) DEFAULT NULL,
-                            `itemreference_localization_name1` varchar(30) DEFAULT NULL,
-                            `itemreference_localization_name2` varchar(30) DEFAULT NULL,
-                            `itemreference_localization_name3` varchar(30) DEFAULT NULL,
-                            `itemreference_localization_desc` text DEFAULT NULL,
-                            `itemreference_localization_item` text DEFAULT NULL,
-                            PRIMARY KEY (`itemreference_localization_id`)
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemreference_item_l11n` (
+                            `itemreference_item_l11n_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `itemreference_item_l11n_language` varchar(30) DEFAULT NULL,
+                            `itemreference_item_l11n_name1` varchar(30) DEFAULT NULL,
+                            `itemreference_item_l11n_name2` varchar(30) DEFAULT NULL,
+                            `itemreference_item_l11n_name3` varchar(30) DEFAULT NULL,
+                            `itemreference_item_l11n_desc` text DEFAULT NULL,
+                            `itemreference_item_l11n_item` text DEFAULT NULL,
+                            PRIMARY KEY (`itemreference_item_l11n_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 

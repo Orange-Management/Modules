@@ -49,6 +49,7 @@ class Installer extends InstallerAbstract
                             `profile_account_id` int(11) NOT NULL,
                             `profile_account_begin` datetime NOT NULL,
                             `profile_account_image` varchar(255) NOT NULL,
+                            `profile_account_birthday` varchar(255) NOT NULL,
                             `profile_account_cv` text NOT NULL,
                             `profile_account_account` int(11) DEFAULT NULL,
                             PRIMARY KEY (`profile_account_id`),
@@ -61,20 +62,63 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_account_ibfk_1` FOREIGN KEY (`profile_account_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
+                // real contacts that you also save in your email contact list. this is to store other accounts
                 $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_phone` (
-                            `profile_phone_id` int(11) NOT NULL,
-                            `profile_phone_type` tinyint(2) NOT NULL,
-                            `profile_phone_number` varchar(50) NOT NULL,
-                            `profile_phone_account` int(11) NOT NULL,
-                            PRIMARY KEY (`profile_phone_id`),
-                            KEY `profile_phone_account` (`profile_phone_account`)
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_contact` (
+                            `profile_contact_id` int(11) NOT NULL,
+                            `profile_contact_name1` varchar(250) NOT NULL,
+                            `profile_contact_name2` varchar(250) NOT NULL,
+                            `profile_contact_name3` varchar(250) NOT NULL,
+                            `profile_contact_company` varchar(250) NOT NULL,
+                            `profile_contact_company_job` varchar(250) NOT NULL,
+                            `profile_contact_address` varchar(250) NOT NULL,
+                            `profile_contact_website` varchar(250) NOT NULL,
+                            `profile_contact_birthday` varchar(11) NOT NULL,
+                            `profile_contact_description` text NOT NULL,
+                            `profile_contact_account` int(11) NOT NULL,
+                            PRIMARY KEY (`profile_contact_id`),
+                            KEY `profile_contact_account` (`profile_contact_account`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_phone`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_phone_ibfk_1` FOREIGN KEY (`profile_phone_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_contact`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_contact_ibfk_1` FOREIGN KEY (`profile_contact_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_account` (`profile_account_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_contact_element` (
+                            `profile_contact_element_id` int(11) NOT NULL,
+                            `profile_contact_element_type` tinyint(2) NOT NULL,
+                            `profile_contact_element_subtype` tinyint(2) NOT NULL,
+                            `profile_contact_element_content` varchar(50) NOT NULL,
+                            `profile_contact_element_contact` int(11) NOT NULL,
+                            PRIMARY KEY (`profile_contact_element_id`),
+                            KEY `profile_contact_element_account` (`profile_contact_element_account`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_contact_element`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_contact_element_ibfk_1` FOREIGN KEY (`profile_contact_element_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_contact` (`profile_contact_id`);'
+                )->execute();
+
+                // not a full contact only the element like email, phone etc. for the accounts themselves
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_contactelement` (
+                            `profile_contactelement_id` int(11) NOT NULL,
+                            `profile_contactelement_type` tinyint(2) NOT NULL,
+                            `profile_contactelement_subtype` tinyint(2) NOT NULL,
+                            `profile_contactelement_content` varchar(50) NOT NULL,
+                            `profile_contactelement_account` int(11) NOT NULL,
+                            PRIMARY KEY (`profile_contactelement_id`),
+                            KEY `profile_contactelement_account` (`profile_contactelement_account`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_contactelement`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_contactelement_ibfk_1` FOREIGN KEY (`profile_contactelement_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

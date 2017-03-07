@@ -63,7 +63,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/controlling/riskmanagement/risk/create'); ?>"><?{?}= $this->getText('NewRisk'); ?></a>
+                <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/controlling/riskmanagement/risk/create'); ?>"><?= $this->getText('NewRisk'); ?></a>
             </div>
         </section>
 
