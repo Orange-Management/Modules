@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace Modules\ClientManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
-use Modules\Profile\Models\AccountMapper;
+use Modules\Profile\Models\ProfileMapper;
 use Modules\Profile\Models\ContactElement;
 use Modules\Profile\Models\ContactElementMapper;
 use Modules\Profile\Models\ContactMapper;
@@ -78,7 +78,7 @@ class ClientMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'profile' => [
-            'mapper'         => AccountMapper::class,
+            'mapper'         => ProfileMapper::class,
             'src'            => 'clientmgmt_client_account',
         ],
     ];

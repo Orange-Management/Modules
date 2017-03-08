@@ -48,18 +48,19 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_account` (
                             `profile_account_id` int(11) NOT NULL,
                             `profile_account_begin` datetime NOT NULL,
-                            `profile_account_image` varchar(255) NOT NULL,
-                            `profile_account_birthday` varchar(255) NOT NULL,
-                            `profile_account_cv` text NOT NULL,
+                            `profile_account_image` int(11) NOT NULL,
+                            `profile_account_birthday` datetime NOT NULL,
                             `profile_account_account` int(11) DEFAULT NULL,
                             PRIMARY KEY (`profile_account_id`),
+                            KEY `profile_account_image` (`profile_account_image`),
                             KEY `profile_account_account` (`profile_account_account`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_account`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_account_ibfk_1` FOREIGN KEY (`profile_account_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_account_ibfk_1` FOREIGN KEY (`profile_account_image`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_account_ibfk_2` FOREIGN KEY (`profile_account_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 // real contacts that you also save in your email contact list. this is to store other accounts
@@ -73,7 +74,7 @@ class Installer extends InstallerAbstract
                             `profile_contact_company_job` varchar(250) NOT NULL,
                             `profile_contact_address` varchar(250) NOT NULL,
                             `profile_contact_website` varchar(250) NOT NULL,
-                            `profile_contact_birthday` varchar(11) NOT NULL,
+                            `profile_contact_birthday` datetime NOT NULL,
                             `profile_contact_description` text NOT NULL,
                             `profile_contact_account` int(11) NOT NULL,
                             PRIMARY KEY (`profile_contact_id`),

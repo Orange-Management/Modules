@@ -17,7 +17,7 @@ declare(strict_types = 1);
 namespace Modules\ClientManagement\Models;
 
 use Modules\Media\Models\Media;
-use Modules\Profile\Models\Account;
+use Modules\Profile\Models\Profile;
 
 /**
  * Account class.
@@ -59,7 +59,7 @@ class Client
     public function __construct(int $id = 0)
     {
         $this->createdAt = new \DateTime('now');
-        $this->profile   = new Account();
+        $this->profile   = new Profile();
     }
 
     public function getId() : int
@@ -136,12 +136,12 @@ class Client
         return $this->createdAt;
     }
 
-    public function getAccount() : Account
+    public function getProfile() : Account
     {
         return $this->profile;
     }
 
-    public function setAccount(Account $account) /* : void */
+    public function setProfile(Account $account) /* : void */
     {
         $this->profile = $account;
     }
@@ -164,10 +164,5 @@ class Client
     public function getContactElements() : array
     {
         return $this->contactElements;
-    }
-
-    public function getProfile() : Account
-    {
-        return $this->profile;
     }
 }

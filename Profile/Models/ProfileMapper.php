@@ -21,8 +21,9 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Admin\Account;
 
-class AccountMapper extends DataMapperAbstract
+class ProfileMapper extends DataMapperAbstract
 {
     /**
      * Columns.
@@ -32,6 +33,25 @@ class AccountMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'profile_account_id'         => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
+        'profile_account_image'         => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
+        'profile_account_birthday'         => ['name' => 'profile_account_birthday', 'type' => '\DateTime', 'internal' => 'birthday'],
+    ];
+
+    /**
+     * Has one relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $ownsOne = [
+        'profile' => [
+            'mapper'         => AccountMapper::class,
+            'src'            => 'profile_account_account',
+        ],
+        'image' => [
+            'mapper'         => MediaMapper::class,
+            'src'            => 'profile_account_image',
+        ],
     ];
 
     /**
@@ -49,14 +69,6 @@ class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'profile_id';
-
-    /**
-     * Created at column
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $createdAt = 'profile_created_at';
 
     /**
      * Create object.
