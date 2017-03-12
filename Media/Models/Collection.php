@@ -69,14 +69,14 @@ class Collection extends Media
     /**
      * Set sources.
      *
-     * @param int $source Source
+     * @param int|Media $source Source
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function addSource(int $source)
+    public function addSource($source)
     {
         $this->sources[] = $source;
     }

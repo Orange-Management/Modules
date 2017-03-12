@@ -46,11 +46,10 @@ class Installer extends InstallerAbstract
             case DatabaseType::MYSQL:
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_account` (
-                            `profile_account_id` int(11) NOT NULL,
-                            `profile_account_begin` datetime NOT NULL,
-                            `profile_account_image` int(11) NOT NULL,
-                            `profile_account_birthday` datetime NOT NULL,
-                            `profile_account_account` int(11) DEFAULT NULL,
+                            `profile_account_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `profile_account_image` int(11) DEFAULT NULL,
+                            `profile_account_birthday` datetime DEFAULT NULL,
+                            `profile_account_account` int(11) NOT NULL,
                             PRIMARY KEY (`profile_account_id`),
                             KEY `profile_account_image` (`profile_account_image`),
                             KEY `profile_account_account` (`profile_account_account`)
@@ -66,7 +65,7 @@ class Installer extends InstallerAbstract
                 // real contacts that you also save in your email contact list. this is to store other accounts
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_contact` (
-                            `profile_contact_id` int(11) NOT NULL,
+                            `profile_contact_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_contact_name1` varchar(250) NOT NULL,
                             `profile_contact_name2` varchar(250) NOT NULL,
                             `profile_contact_name3` varchar(250) NOT NULL,
@@ -87,27 +86,28 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_contact_ibfk_1` FOREIGN KEY (`profile_contact_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_account` (`profile_account_id`);'
                 )->execute();
 
+                // email, phone etc for profile_contact
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_contact_element` (
-                            `profile_contact_element_id` int(11) NOT NULL,
+                            `profile_contact_element_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_contact_element_type` tinyint(2) NOT NULL,
                             `profile_contact_element_subtype` tinyint(2) NOT NULL,
                             `profile_contact_element_content` varchar(50) NOT NULL,
                             `profile_contact_element_contact` int(11) NOT NULL,
                             PRIMARY KEY (`profile_contact_element_id`),
-                            KEY `profile_contact_element_account` (`profile_contact_element_account`)
+                            KEY `profile_contact_element_contact` (`profile_contact_element_contact`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_contact_element`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_contact_element_ibfk_1` FOREIGN KEY (`profile_contact_element_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_contact` (`profile_contact_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_contact_element_ibfk_1` FOREIGN KEY (`profile_contact_element_contact`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_contact` (`profile_contact_id`);'
                 )->execute();
 
-                // not a full contact only the element like email, phone etc. for the accounts themselves
+                // not a full contact only the element like email, phone etc. for the accounts themselves (not profile_account)
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_contactelement` (
-                            `profile_contactelement_id` int(11) NOT NULL,
+                            `profile_contactelement_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_contactelement_type` tinyint(2) NOT NULL,
                             `profile_contactelement_subtype` tinyint(2) NOT NULL,
                             `profile_contactelement_content` varchar(50) NOT NULL,
@@ -124,7 +124,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_address` (
-                            `profile_address_id` int(11) NOT NULL,
+                            `profile_address_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_address_type` tinyint(2) NOT NULL,
                             `profile_address_address` varchar(50) NOT NULL,
                             `profile_address_street` varchar(50) NOT NULL,
@@ -139,12 +139,12 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'profile_address`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_address_ibfk_1` FOREIGN KEY (`profile_address_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'profile_address_ibfk_1` FOREIGN KEY (`profile_address_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_account` (`profile_account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_account_relation` (
-                            `profile_account_relation_id` int(11) NOT NULL,
+                            `profile_account_relation_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_account_relation_type` tinyint(2) NOT NULL,
                             `profile_account_relation_relation` int(11) DEFAULT NULL,
                             `profile_account_relation_account` int(11) DEFAULT NULL,
@@ -160,7 +160,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_account_setting` (
-                            `profile_account_setting_id` int(11) NOT NULL,
+                            `profile_account_setting_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_account_setting_module` int(11) NOT NULL,
                             `profile_account_setting_type` varchar(20) NOT NULL,
                             `profile_account_setting_value` varchar(32) DEFAULT NULL,

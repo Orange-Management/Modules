@@ -21,7 +21,8 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
-use Modules\Admin\Account;
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\AccountMapper;
 
 class ProfileMapper extends DataMapperAbstract
 {
@@ -34,7 +35,8 @@ class ProfileMapper extends DataMapperAbstract
     protected static $columns = [
         'profile_account_id'         => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
         'profile_account_image'         => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
-        'profile_account_birthday'         => ['name' => 'profile_account_birthday', 'type' => '\DateTime', 'internal' => 'birthday'],
+        'profile_account_birthday'         => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday'],
+        'profile_account_account'         => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
     ];
 
     /**
@@ -44,7 +46,7 @@ class ProfileMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $ownsOne = [
-        'profile' => [
+        'account' => [
             'mapper'         => AccountMapper::class,
             'src'            => 'profile_account_account',
         ],
@@ -60,7 +62,7 @@ class ProfileMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile';
+    protected static $table = 'profile_account';
 
     /**
      * Primary field name.
@@ -68,7 +70,7 @@ class ProfileMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_id';
+    protected static $primaryField = 'profile_account_id';
 
     /**
      * Create object.
@@ -85,6 +87,11 @@ class ProfileMapper extends DataMapperAbstract
     {
         try {
             $objId = parent::create($obj, $relations);
+
+            if($objId === null || !is_scalar($objId)) {
+                return $objId;
+            }
+
             $query = new Builder(self::$db);
 
             $query->prefix(self::$db->getPrefix())

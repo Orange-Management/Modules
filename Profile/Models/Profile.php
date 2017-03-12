@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Modules\Profile\Models;
 
 use Modules\Admin\Models\Account;
+use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
 
 /**
@@ -43,7 +44,7 @@ class Profile
 	public function __construct() 
 	{
 		$this->image = new NullMedia();
-		$this->birthday = new \DateTime();
+		$this->birthday = new \DateTime('now');
 		$this->account = new Account();
 	}
 
@@ -70,5 +71,15 @@ class Profile
 	public function getAccount() : Account
 	{
 		return $this->account;
+	}
+
+	public function setBirthday(\DateTime $birthday) /* : void */
+	{
+		$this->birthday = $birthday;
+	}
+
+	public function getBirthday() : \DateTime
+	{
+		return $this->birthday;
 	}
 }

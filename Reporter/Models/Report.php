@@ -253,7 +253,7 @@ class Report
     }
 
     /**
-     * @return Template
+     * @return mixed
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
@@ -264,38 +264,38 @@ class Report
     }
 
     /**
-     * @param int $template Report template
+     * @param mixed $template Report template
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setTemplate(int $template)
+    public function setTemplate($template)
     {
         $this->template = $template;
     }
 
     /**
-     * @param int $source Report source
+     * @param mixed $source Report source
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setSource(int $source)
+    public function setSource($source)
     {
         $this->source = $source;
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getSource() : int
+    public function getSource()
     {
         return $this->source;
     }

@@ -71,6 +71,7 @@ class Installer extends InstallerAbstract
                             `itemreference_segmentation_l11n_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemreference_segmentation_no` varchar(30) DEFAULT NULL,
                             `itemreference_segmentation_name` varchar(30) DEFAULT NULL,
+                            `itemreference_segmentation_language` varchar(30) DEFAULT NULL,
                             PRIMARY KEY (`itemreference_segmentation_l11n_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -80,16 +81,7 @@ class Installer extends InstallerAbstract
                             `itemreference_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemreference_media_item` int(11) DEFAULT NULL,
                             `itemreference_media_media` int(11) DEFAULT NULL,
-                            PRIMARY KEY (`itemreference_partslist_id`)
-                        )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemreference_docs` (
-                            `itemreference_docs_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `itemreference_docs_item` int(11) DEFAULT NULL,
-                            `itemreference_docs_media` int(11) DEFAULT NULL,
-                            PRIMARY KEY (`itemreference_partslist_id`)
+                            PRIMARY KEY (`itemreference_media_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 

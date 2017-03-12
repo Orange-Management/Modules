@@ -87,6 +87,11 @@ class EditorDocMapper extends DataMapperAbstract
     {
         try {
             $objId = parent::create($obj, $relations);
+
+            if($objId === null || !is_scalar($objId)) {
+                return $objId;
+            }
+
             $query = new Builder(self::$db);
             $query->prefix(self::$db->getPrefix())
                 ->insert(

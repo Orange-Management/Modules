@@ -42,7 +42,7 @@ class ClientMapper extends DataMapperAbstract
         'clientmgmt_client_type'    => ['name' => 'clientmgmt_client_type', 'type' => 'int', 'internal' => 'type'],
         'clientmgmt_client_taxid'      => ['name' => 'clientmgmt_client_taxid', 'type' => 'string', 'internal' => 'taxId'],
         'clientmgmt_client_info'      => ['name' => 'clientmgmt_client_info', 'type' => 'string', 'internal' => 'info'],
-        'clientmgmt_client_at' => ['name' => 'clientmgmt_client_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'clientmgmt_client_created_at' => ['name' => 'clientmgmt_client_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'clientmgmt_client_account' => ['name' => 'clientmgmt_client_account', 'type' => 'int', 'internal' => 'profile'],
     ];
 
@@ -68,7 +68,7 @@ class ClientMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'clientmgmt_client_at';
+    protected static $createdAt = 'clientmgmt_client_created_at';
 
     /**
      * Has one relation.
@@ -90,7 +90,7 @@ class ClientMapper extends DataMapperAbstract
             'dst'            => 'clientmgmt_client_media_dst',
             'src'            => 'clientmgmt_client_media_src',
         ],
-        'contact' => [
+        'contactElements' => [
             'mapper'         => ContactElementMapper::class,
             'table'          => 'clientmgmt_client_contactelement',
             'dst'            => 'clientmgmt_client_contactelement_dst',
@@ -113,6 +113,11 @@ class ClientMapper extends DataMapperAbstract
     {
         try {
             $objId = parent::create($obj, $relations);
+
+            if($objId === null || !is_scalar($objId)) {
+                return $objId;
+            }
+
             $query = new Builder(self::$db);
 
             $query->prefix(self::$db->getPrefix())

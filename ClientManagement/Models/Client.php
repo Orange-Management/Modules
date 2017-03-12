@@ -128,7 +128,7 @@ class Client
 
     public function setInfo(string $info)  /* : void */
     {
-        return $this->info;
+        $this->info = $info;
     }
 
     public function getCreatedAt() : \DateTime
@@ -136,14 +136,14 @@ class Client
         return $this->createdAt;
     }
 
-    public function getProfile() : Account
+    public function getProfile() : Profile
     {
         return $this->profile;
     }
 
-    public function setProfile(Account $account) /* : void */
+    public function setProfile(Profile $profile) /* : void */
     {
-        $this->profile = $account;
+        $this->profile = $profile;
     }
 
     public function getFiles() : array
