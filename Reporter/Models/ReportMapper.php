@@ -50,7 +50,7 @@ class ReportMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $ownsOne = [
-        'media' => [
+        'source' => [
             'mapper' => \Modules\Media\Models\CollectionMapper::class,
             'src'    => 'reporter_report_media',
         ],
@@ -125,6 +125,8 @@ class ReportMapper extends DataMapperAbstract
             self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             echo $e->getMessage();
+
+            return false;
         }
 
         return $objId;

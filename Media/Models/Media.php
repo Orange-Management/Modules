@@ -127,6 +127,7 @@ class Media
      */
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -229,14 +230,14 @@ class Media
     }
 
     /**
-     * @param int $createdBy Creator
+     * @param mixed $createdBy Creator
      *
      * @return void
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreatedBy(int $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
     }

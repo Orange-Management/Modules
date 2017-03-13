@@ -209,11 +209,10 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $template = TemplateMapper::get((int) $request->getData('id'));
-        $collection = CollectionMapper::get($template->getSource());
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
         $tcoll = [];
-        $files = $collection->getSources();
+        $files = $template->getSource()->getSources();
 
         foreach ($files as $tMedia) {
             $lowerPath = strtolower($tMedia->getPath());
@@ -256,10 +255,11 @@ class Controller extends ModuleAbstract implements WebInterface
         ); /* todo newest that belongs to template x. right now always newest no matter the template */
         $rcoll  = [];
 
+        $report = end($report);
+
         if (!($report instanceof NullReport)) {
-            $collection = CollectionMapper::get(end($report)->getSource());
             /** @var Media[] $files */
-            $files = $collection->getSources();
+            $files = $report->getSource()->getSources();
 
             foreach ($files as $media) {
                 $rcoll[$media->getName() . '.' . $media->getExtension()] = $media;
@@ -271,7 +271,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getL11n()->getLanguage());
         $view->addData('template', $template);
-        $view->addData('report', end($report));
+        $view->addData('report', $report);
         $view->addData('rcoll', $rcoll);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 

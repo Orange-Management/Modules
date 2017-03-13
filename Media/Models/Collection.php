@@ -39,6 +39,7 @@ class Collection extends Media
     private $sources = [];
 
     protected $extension = 'collection';
+
     protected $versioned = false;
 
     /**
@@ -49,6 +50,7 @@ class Collection extends Media
      */
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
     }
 
     /**

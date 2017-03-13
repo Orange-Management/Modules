@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Media\Models\CollectionMapper;
 
 class TemplateMapper extends DataMapperAbstract
 {
@@ -43,6 +44,19 @@ class TemplateMapper extends DataMapperAbstract
                                          'internal' => 'createdBy'],
         'reporter_template_created'  => ['name'     => 'reporter_template_created', 'type' => 'DateTime',
                                          'internal' => 'createdAt'],
+    ];
+
+    /**
+     * Has one relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $ownsOne = [
+        'source' => [
+            'mapper'         => CollectionMapper::class,
+            'src'            => 'reporter_template_media',
+        ],
     ];
 
     /**
