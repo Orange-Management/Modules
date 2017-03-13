@@ -13,11 +13,14 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
+
+$client = $this->getData('client');
+
 /**
  * @var \phpOMS\Views\View $this
  */
-echo $this->getData('nav')->render(); ?>
-
+echo $this->getData('nav')->render(); 
+?>
 <div class="tabular-2">
     <div class="box">
         <ul class="tab-links">
@@ -43,14 +46,14 @@ echo $this->getData('nav')->render(); ?>
                             <form>
                                 <table class="layout w-100">
                                     <tr><td><label for="iId"><?= $this->getText('ID', 0, 0); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" value="<?= $client->getNumber(); ?>" disabled></span>
                                     <tr><td><label for="iName1"><?= $this->getText('Name1'); ?></label>
-                                    <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
+                                    <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" value="<?= $client->getProfile()->getAccount()->getName1(); ?>" required>
                                     <tr><td><label for="iName2"><?= $this->getText('Name2'); ?></label>
-                                    <tr><td><input type="text" id="iName2" name="name2" placeholder="&#xf040;">
+                                    <tr><td><input type="text" id="iName2" name="name2" value="<?= $client->getProfile()->getAccount()->getName2(); ?>" placeholder="&#xf040;">
                                     <tr><td><label for="iName3"><?= $this->getText('Name3'); ?></label>
-                                    <tr><td><input type="text" id="iName3" name="name3" placeholder="&#xf040;">
-                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                                    <tr><td><input type="text" id="iName3" name="name3" value="<?= $client->getProfile()->getAccount()->getName3(); ?>" placeholder="&#xf040;">
+                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Save', 0, 0); ?>"> <input type="submit" value="<?= $this->getText('Delete', 0, 0); ?>">
                                 </table>
                             </form>
                         </div>

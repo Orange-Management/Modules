@@ -18,6 +18,8 @@ namespace Modules\ClientManagement;
 
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+use Modules\ClientManagement\Models\Client;
+use Modules\ClientManagement\Models\ClientMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -97,6 +99,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003102001, $request, $response));
 
+        $client = ClientMapper::getNewest(50);
+        $view->addData('client', $client);
+
         return $view;
     }
 
@@ -134,6 +139,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003102001, $request, $response));
+
+        $client = ClientMapper::get((int) $request->getData('id'));
+        $view->setData('client', $client);
 
         return $view;
     }

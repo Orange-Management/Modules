@@ -19,6 +19,8 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(20);
 $footerView->setPage(1);
 
+$clients = $this->getData('client');
+
 echo $this->getData('nav')->render(); ?>
 
 <!-- Hover may be better here?!?!?!
@@ -78,7 +80,17 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="8"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php $count = 0; foreach($clients as $key => $value) : $count++; 
+                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
+                <tr>
+                    <td><a href="<?= $url; ?>"><?= $value->getNumber(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getProfile()->getAccount()->getName1(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getProfile()->getAccount()->getName2(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->getProfile()->getAccount()->getName3(); ?></a>
+                    <td>
+                    <td>
+                    <td>
+                    <td>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="8" class="empty"><?= $this->getText('Empty', 0, 0); ?>
