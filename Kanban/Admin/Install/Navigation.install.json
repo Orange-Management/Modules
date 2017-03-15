@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1005801001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Kanban",
+        "uri": "/{/lang}/backend/kanban/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 45,
+        "from": "Kanban",
+        "permission": null,
+        "parent": 1000101001,
+        "children": [
+        ]
+    }
+]
