@@ -19,6 +19,8 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(20);
 $footerView->setPage(1);
 
+$items = $this->getData('items');
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -38,7 +40,14 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="6"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php $count = 0; foreach($items as $key => $value) : $count++; ?>
+                <tr>
+                    <td><?= $value->getNumber(); ?>
+                    <td>
+                    <td>
+                    <td>
+                    <td>
+                    <td>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>

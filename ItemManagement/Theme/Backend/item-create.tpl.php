@@ -40,53 +40,59 @@ echo $this->getData('nav')->render(); ?>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
-            <section class="box w-33 floatLeft">
-                <header><h1><?= $this->getText('Item') ?></h1></header>
-                <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
-                        <table class="layout wf-100">
-                            <tbody>
-                            <tr><td><label for="iSource"><?= $this->getText('ID') ?></label>
-                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
-                            <tr><td><label for="iSegment"><?= $this->getText('Segment') ?></label>
-                            <tr><td><input id="iSegment" name="segment" type="text" placeholder="" required>
-                            <tr><td><label for="iProductgroup"><?= $this->getText('Productgroup') ?></label>
-                            <tr><td><input id="iProductgroup" name="productgroup" type="text" placeholder="" required>
-                            <tr><td><label for="iGroup"><?= $this->getText('Group') ?></label>
-                            <tr><td><input id="iGroup" name="group" type="text" placeholder="" required>
-                            <tr><td><label for="iArticlegroup"><?= $this->getText('Articlegroup') ?></label>
-                            <tr><td><input id="iArticlegroup" name="articlegroup" type="text" placeholder="" required>
-                            <tr><td><label for="iSSuccessor"><?= $this->getText('Successor') ?></label>
-                            <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
-                            <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
-                        </table>
-                    </form>
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <section class="box wf-100">
+                        <header><h1><?= $this->getText('Item') ?></h1></header>
+                        <div class="inner">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                                <table class="layout wf-100">
+                                    <tbody>
+                                    <tr><td><label for="iSource"><?= $this->getText('ID') ?></label>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder="" required></span>
+                                    <tr><td><label for="iSegment"><?= $this->getText('Segment') ?></label>
+                                    <tr><td><input id="iSegment" name="segment" type="text" placeholder="" required>
+                                    <tr><td><label for="iProductgroup"><?= $this->getText('Productgroup') ?></label>
+                                    <tr><td><input id="iProductgroup" name="productgroup" type="text" placeholder="" required>
+                                    <tr><td><label for="iGroup"><?= $this->getText('Group') ?></label>
+                                    <tr><td><input id="iGroup" name="group" type="text" placeholder="" required>
+                                    <tr><td><label for="iArticlegroup"><?= $this->getText('Articlegroup') ?></label>
+                                    <tr><td><input id="iArticlegroup" name="articlegroup" type="text" placeholder="" required>
+                                    <tr><td><label for="iSSuccessor"><?= $this->getText('Successor') ?></label>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iSource" name="source" type="text" placeholder=""></span>
+                                    <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                                </table>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-            </section>
 
-            <section class="box w-33 floatLeft">
-                <header><h1><?= $this->getText('Language') ?></h1></header>
-                <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
-                        <table class="layout wf-100">
-                            <tbody>
-                            <tr><td><label for="iLanguage"><?= $this->getText('Language') ?></label>
-                            <tr><td><select id="iLanguage" name="language">
-                                        <option>
-                                    </select>
-                            <tr><td><label for="iName"><?= $this->getText('Name1') ?></label>
-                            <tr><td><input id="iName" name="name" type="text" placeholder="">
-                            <tr><td><label for="iName"><?= $this->getText('Name2') ?></label>
-                            <tr><td><input id="iName" name="name" type="text" placeholder="">
-                            <tr><td><label for="iName"><?= $this->getText('Name3') ?></label>
-                            <tr><td><input id="iName" name="name" type="text" placeholder="">
-                            <tr><td><label for="iDescription"><?= $this->getText('Description') ?></label>
-                            <tr><td><textarea id="iDescription" name="description"></textarea>
-                            <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
-                        </table>
-                    </form>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <section class="box wf-100">
+                        <header><h1><?= $this->getText('Language') ?></h1></header>
+                        <div class="inner">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                                <table class="layout wf-100">
+                                    <tbody>
+                                    <tr><td><label for="iLanguage"><?= $this->getText('Language') ?></label>
+                                    <tr><td><select id="iLanguage" name="language">
+                                                <option>
+                                            </select>
+                                    <tr><td><label for="iName"><?= $this->getText('Name1') ?></label>
+                                    <tr><td><input id="iName" name="name" type="text" placeholder="">
+                                    <tr><td><label for="iName"><?= $this->getText('Name2') ?></label>
+                                    <tr><td><input id="iName" name="name" type="text" placeholder="">
+                                    <tr><td><label for="iName"><?= $this->getText('Name3') ?></label>
+                                    <tr><td><input id="iName" name="name" type="text" placeholder="">
+                                    <tr><td><label for="iDescription"><?= $this->getText('Description') ?></label>
+                                    <tr><td><textarea id="iDescription" name="description"></textarea>
+                                    <tr><td><input type="submit" value="<?= $this->getText('Add', 0, 0) ?>">
+                                </table>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </div>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">

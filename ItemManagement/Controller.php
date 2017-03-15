@@ -18,6 +18,8 @@ namespace Modules\ItemManagement;
 
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+use Modules\ItemManagement\Models\Item;
+use Modules\ItemManagement\Models\ItemMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -96,6 +98,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/sales-item-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004805001, $request, $response));
+
+        $items = ItemMapper::getNewest(50);
+        $view->addData('items', $items);
 
         return $view;
     }
