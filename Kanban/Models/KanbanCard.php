@@ -43,6 +43,8 @@ class KanbanCard implements \JsonSerializable
 
     private $column = 0;
 
+    private $order = 0;
+
     private $ref = 0;
 
     private $createdBy = 0;
@@ -58,6 +60,16 @@ class KanbanCard implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+    }
+
+    public function getOrder() : int
+    {
+        return $this->order;
+    }
+
+    public function setOrder(int $order) /* : void */
+    {
+        $this->order = $order;
     }
 
     public function getId() : int
@@ -145,7 +157,7 @@ class KanbanCard implements \JsonSerializable
         return $this->comments;
     }
 
-    public function addComment(KanbanCardComment $comment) /* : void */
+    public function addComment($comment) /* : void */
     {
         $this->comments[] = $comment;
     }
@@ -166,13 +178,26 @@ class KanbanCard implements \JsonSerializable
         return $this->media;
     }
 
-    public function addMedia(Media $media) /* : void */
+    public function addMedia($media) /* : void */
     {
         $this->media[] = $media;
     }
 
-    public function jsonSerealize() : array
+    public function getLabels() : array
+    {
+        return $this->labels;
+    }
+
+    public function addLabel($label) /* : void */
+    {
+        $this->labels[] = $label;
+    }
+
+    public function jsonSerialize() : array
     {
         return [];
     }
+
+    /* todo: create function to create card from task etc... this fills the values here. what happens if task changes? bad idea! */
+    /* todo: maybe allow ref to be an object and datamapper creates that object? how does the datamapper know what kind of datamapper to use? Just assume it's called ObjectMapper? bad isn't it?! */
 }

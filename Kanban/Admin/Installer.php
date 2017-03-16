@@ -85,6 +85,7 @@ class Installer extends InstallerAbstract
                             `kanban_card_description` text NOT NULL,
                             `kanban_card_type` int(2) NOT NULL,
                             `kanban_card_status` int(2) NOT NULL,
+                            `kanban_card_order` int(11) NOT NULL,
                             `kanban_card_ref` int(11) DEFAULT NULL,
                             `kanban_card_column` int(11) NOT NULL,
                             `kanban_card_created_at` datetime DEFAULT NULL,
@@ -107,7 +108,7 @@ class Installer extends InstallerAbstract
                             `kanban_card_media_dst` int(11) NOT NULL,
                             `kanban_card_media_src` int(11) NOT NULL,
                             PRIMARY KEY (`kanban_card_media_id`),
-                            KEY `kanban_card_media_dst` (`kanban_card_card`),
+                            KEY `kanban_card_media_dst` (`kanban_card_media_dst`),
                             KEY `kanban_card_media_src` (`kanban_card_media_src`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -133,12 +134,18 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'kanban_card_comment`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'kanban_card_comment_ibfk_1` FOREIGN KEY (`kanban_card_comment_card`) REFERENCES `' . $dbPool->get('core')->prefix . 'kanban_card` (`kanban_card_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'kanban_card_comment_ibfk_2` FOREIGN KEY (`kanban_card_comment_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'kanban_card_comment_media` (
                             `kanban_card_comment_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `kanban_card_comment_media_dst` int(11) NOT NULL,
                             `kanban_card_comment_media_src` int(11) NOT NULL,
                             PRIMARY KEY (`kanban_card_comment_media_id`),
-                            KEY `kanban_card_comment_media_dst` (`kanban_card_comment_card`),
+                            KEY `kanban_card_comment_media_dst` (`kanban_card_comment_media_dst`),
                             KEY `kanban_card_comment_media_src` (`kanban_card_comment_media_src`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -159,9 +166,13 @@ class Installer extends InstallerAbstract
                             `kanban_activity_new` varchar(255) NOT NULL,
                             `kanban_activity_by` int(11) DEFAULT NULL,
                             PRIMARY KEY (`kanban_activity_id`),
-                            KEY `kanban_activity` (`kanban_activity`),
                             KEY `kanban_activity_by` (`kanban_activity_by`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'kanban_activity`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'kanban_activity_ibfk_1` FOREIGN KEY (`kanban_activity_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

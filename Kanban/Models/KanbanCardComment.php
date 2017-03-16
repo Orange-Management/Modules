@@ -88,11 +88,6 @@ class KanbanCardComment implements \JsonSerializable
         return $this->createdAt;
     }
 
-    public function getComments() : array
-    {
-        return $this->comments;
-    }
-
     public function getMedia() : array
     {
         return $this->media;
@@ -103,7 +98,7 @@ class KanbanCardComment implements \JsonSerializable
         $this->media[] = $media;
     }
 
-    public function jsonSerealize() : array
+    public function jsonSerialize() : array
     {
         return [];
     }

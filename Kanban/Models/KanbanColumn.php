@@ -14,7 +14,7 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Column\Models;
+namespace Modules\Kanban\Models;
 
 
 /**
@@ -49,6 +49,26 @@ class KanbanColumn implements \JsonSerializable
         return $this->id;
     }
 
+    public function getOrder() : int
+    {
+        return $this->order;
+    }
+
+    public function setOrder(int $order) /* : void */
+    {
+        $this->order = $order;
+    }
+
+    public function setBoard(int $board) /* : void */
+    {
+        $this->board = $board;
+    }
+
+    public function getBoard() : int
+    {
+        return $this->board;
+    }
+
     public function getName() : string
     {
         return $this->name;
@@ -80,7 +100,7 @@ class KanbanColumn implements \JsonSerializable
         return false;
     }
 
-    public function jsonSerealize() : array
+    public function jsonSerialize() : array
     {
         return [];
     }

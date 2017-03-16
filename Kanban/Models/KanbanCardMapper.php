@@ -33,7 +33,7 @@ use Modules\Media\Models\MediaMapper;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class KanbanBoardMapper extends DataMapperAbstract
+class KanbanCardMapper extends DataMapperAbstract
 {
 
     /**
@@ -48,6 +48,7 @@ class KanbanBoardMapper extends DataMapperAbstract
         'kanban_card_description'   => ['name' => 'kanban_card_description', 'type' => 'string', 'internal' => 'description'],
         'kanban_card_type'    => ['name' => 'kanban_card_type', 'type' => 'int', 'internal' => 'type'],
         'kanban_card_status'    => ['name' => 'kanban_card_status', 'type' => 'int', 'internal' => 'status'],
+        'kanban_card_order'    => ['name' => 'kanban_card_order', 'type' => 'int', 'internal' => 'order'],
         'kanban_card_ref'    => ['name' => 'kanban_card_ref', 'type' => 'int', 'internal' => 'ref'],
         'kanban_card_column'    => ['name' => 'kanban_card_column', 'type' => 'int', 'internal' => 'column'],
         'kanban_card_created_at'  => ['name' => 'kanban_card_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
@@ -68,16 +69,16 @@ class KanbanBoardMapper extends DataMapperAbstract
             'src'            => 'kanban_card_media_src',
         ],
         'labels' => [
-            'mapper'         => LabelMapper::class,
-            'table'          => 'kanban_card_label',
-            'dst'            => 'kanban_card_label_dst',
-            'src'            => 'kanban_card_label_src',
+            'mapper'         => KanbanLabelMapper::class,
+            'table'          => 'kanban_label_relation',
+            'dst'            => 'kanban_label_relation_card',
+            'src'            => 'kanban_label_relation_label',
         ],
         'comments' => [
             'mapper'         => KanbanCardCommentMapper::class,
-            'table'          => 'kanban_card_label',
-            'dst'            => 'kanban_card_label_dst',
-            'src'            => 'kanban_card_label_src',
+            'table'          => 'kanban_card_comment',
+            'dst'            => 'kanban_card_comment_card',
+            'src'            => null,
         ],
     ];
 

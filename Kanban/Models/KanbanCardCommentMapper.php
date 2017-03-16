@@ -33,7 +33,7 @@ use Modules\Media\Models\MediaMapper;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class KanbanBoardMapper extends DataMapperAbstract
+class KanbanCardCommentMapper extends DataMapperAbstract
 {
 
     /**

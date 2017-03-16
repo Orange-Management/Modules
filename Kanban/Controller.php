@@ -21,8 +21,18 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Utils\TaskSchedule\SchedulerFactory;
-use phpOMS\Utils\TaskSchedule\SchedulerAbstract;
+
+use Modules\Kanban\Models\KanbanBoard;
+use Modules\Kanban\Models\KanbanBoardMapper;
+use Modules\Kanban\Models\KanbanColumn;
+use Modules\Kanban\Models\KanbanColumnMapper;
+use Modules\Kanban\Models\KanbanCard;
+use Modules\Kanban\Models\KanbanCardMapper;
+use Modules\Kanban\Models\KanbanCardComment;
+use Modules\Kanban\Models\KanbanCardCommentMapper;
+use Modules\Kanban\Models\CardStatus;
+use Modules\Kanban\Models\CardType;
+use Modules\Kanban\Models\BoardStatus;
 
 /**
  * Task class.
@@ -116,6 +126,33 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-board');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
+
+        $view->setData('board', KanbanBoardMapper::get((int) $request->getData('id')));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewKanbanCard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-card');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
+
+        $card = KanbanCardMapper::get((int) $request->getData('id'));
+        $view->setData('card', $card);
+
+        $list = KanbanCardCommentMapper::getNewest(50);
+        $view->setData('comments', $list);
 
         return $view;
     }

@@ -16,7 +16,6 @@
 declare(strict_types=1);
 namespace Modules\Kanban\Models;
 
-
 /**
  * Task class.
  *
@@ -120,7 +119,7 @@ class KanbanBoard implements \JsonSerializable
         return false;
     }
 
-    public function jsonSerealize() : array
+    public function jsonSerialize() : array
     {
         return [];
     }

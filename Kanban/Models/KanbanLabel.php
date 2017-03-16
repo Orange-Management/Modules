@@ -47,7 +47,7 @@ class KanbanLabel implements \JsonSerializable
     {
         return $this->id;
     }
-    public function getName() : int
+    public function getName() : string
     {
         return $this->name;
     }
@@ -75,6 +75,11 @@ class KanbanLabel implements \JsonSerializable
     public function setBoard(int $board) /* : void */
     {
         $this->board = $board;
+    }
+
+    public function jsonSerialize() : array
+    {
+        return [];
     }
 
 }

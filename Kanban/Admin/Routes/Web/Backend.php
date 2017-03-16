@@ -3,7 +3,7 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/kanban/dashbaord.*$' => [
+    '^.*/backend/kanban/dashboard.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller:viewKanbanDashboard',
             'verb' => RouteVerb::GET,
@@ -12,6 +12,12 @@ return [
     '^.*/backend/kanban/board.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller:viewKanbanBoard',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/backend/kanban/card.*$' => [
+        [
+            'dest' => '\Modules\Kanban\Controller:viewKanbanCard',
             'verb' => RouteVerb::GET,
         ],
     ],
