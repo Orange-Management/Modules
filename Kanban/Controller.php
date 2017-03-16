@@ -95,6 +95,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
 
+        $list = KanbanBoardMapper::getNewest(50);
+        $view->setData('boards', $list);
+
         return $view;
     }
 
