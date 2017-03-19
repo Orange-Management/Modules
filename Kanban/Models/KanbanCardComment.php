@@ -93,7 +93,7 @@ class KanbanCardComment implements \JsonSerializable
         return $this->media;
     }
 
-    public function addMedia(Media $media) /* : void */
+    public function addMedia($media) /* : void */
     {
         $this->media[] = $media;
     }

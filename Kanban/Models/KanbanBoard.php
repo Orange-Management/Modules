@@ -103,7 +103,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->columns;
     }
 
-    public function addColumn(KanbanColumn $column) /* : void */
+    public function addColumn($column) /* : void */
     {
         $this->columns[] = $column;
     }

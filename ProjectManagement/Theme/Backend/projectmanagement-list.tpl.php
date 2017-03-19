@@ -39,6 +39,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($list as $key => $value) : $count++; 
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/projectmanagement/profile?{?}&id=' . $value->getId());?>
+                <tr>
                     <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getStart()->format('Y-m-d'); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getEnd()->format('Y-m-d'); ?></a>

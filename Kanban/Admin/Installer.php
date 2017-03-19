@@ -47,9 +47,9 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'kanban_board` (
                             `kanban_board_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `kanban_board_name` varchar(50) NOT NULL,
+                            `kanban_board_name` varchar(255) NOT NULL,
                             `kanban_board_status` int(11) NOT NULL,
-                            `kanban_board_desc` varchar(100) DEFAULT NULL,
+                            `kanban_board_desc` text DEFAULT NULL,
                             `kanban_board_created_at` datetime DEFAULT NULL,
                             `kanban_board_created_by` int(11) DEFAULT NULL,
                             PRIMARY KEY (`kanban_board_id`),
@@ -65,7 +65,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'kanban_column` (
                             `kanban_column_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `kanban_column_name` varchar(50) NOT NULL,
+                            `kanban_column_name` varchar(255) NOT NULL,
                             `kanban_column_order` int(11) NOT NULL,
                             `kanban_column_board` int(11) NOT NULL,
                             PRIMARY KEY (`kanban_column_id`),
@@ -81,7 +81,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'kanban_card` (
                             `kanban_card_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `kanban_card_name` varchar(50) NOT NULL,
+                            `kanban_card_name` varchar(255) NOT NULL,
                             `kanban_card_description` text NOT NULL,
                             `kanban_card_type` int(2) NOT NULL,
                             `kanban_card_status` int(2) NOT NULL,
@@ -178,7 +178,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'kanban_label` (
                             `kanban_label_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `kanban_label_name` varchar(50) NOT NULL,
+                            `kanban_label_name` varchar(255) NOT NULL,
                             `kanban_label_color` int(11) NOT NULL,
                             `kanban_label_board` int(11) NOT NULL,
                             PRIMARY KEY (`kanban_label_id`),

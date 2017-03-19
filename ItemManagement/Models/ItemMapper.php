@@ -41,7 +41,7 @@ class ItemMapper extends DataMapperAbstract
         'itemmgmt_item_productgroup'    => ['name' => 'itemmgmt_item_productgroup', 'type' => 'int', 'internal' => 'productGroup'],
         'itemmgmt_item_salesgroup'      => ['name' => 'itemmgmt_item_salesgroup', 'type' => 'int', 'internal' => 'salesGroup'],
         'itemmgmt_item_articlegroup'      => ['name' => 'itemmgmt_item_articlegroup', 'type' => 'int', 'internal' => 'articleGroup'],
-        'itemmgmt_item_successor' => ['name' => 'itemmgmt_item_successor', 'type' => 'int', 'internal' => 'sucessor'],
+        'itemmgmt_item_successor' => ['name' => 'itemmgmt_item_successor', 'type' => 'int', 'internal' => 'successor'],
         'itemmgmt_item_info' => ['name' => 'itemmgmt_item_info', 'type' => 'string', 'internal' => 'info'],
     ];
 

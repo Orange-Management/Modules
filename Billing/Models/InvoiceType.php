@@ -14,15 +14,15 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Sales\Models;
+namespace Modules\Billing\Models;
 
 use phpOMS\Datatypes\Enum;
 
 /**
- * Invoice types enum.
+ * Task type enum.
  *
- * @category   Modules
- * @package    Sales
+ * @category   Tasks
+ * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
@@ -31,11 +31,10 @@ use phpOMS\Datatypes\Enum;
  */
 abstract class InvoiceType extends Enum
 {
-    /* public */ const OFFER = 0;
-
-    /* public */ const CONTRACT_NOTE = 1;
-
-    /* public */ const DELIVERY_NOTE = 2;
-
-    /* public */ const BILL = 3;
+    /* public */ const BILL = 1;
+    /* public */ const DELIVERY_NOTE  = 2;
+    /* public */ const CREDIT_NOTE   = 3;
+    /* public */ const DEBIT_NOTE   = 4;
+    /* public */ const OFFER   = 5;
+    /* public */ const ORDER_CONFIRMATION = 6;
 }

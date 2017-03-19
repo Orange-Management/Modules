@@ -47,7 +47,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'projectmanagement_project` (
                             `projectmanagement_project_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `projectmanagement_project_name` varchar(254) NOT NULL,
+                            `projectmanagement_project_name` varchar(255) NOT NULL,
                             `projectmanagement_project_description` text NOT NULL,
                             `projectmanagement_project_calendar` int(11) NOT NULL,
                             `projectmanagement_project_costs` int(11) NOT NULL,
