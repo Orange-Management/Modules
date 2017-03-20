@@ -1,8 +1,8 @@
 {
     "name": {
-        "id": 1005900000,
-        "internal": "Knowledgebase",
-        "external": "Knowledgebase"
+        "id": 1006000000,
+        "internal": "QA",
+        "external": "QA"
     },
     "category": "Tools",
     "version": "1.0.0",
@@ -14,8 +14,8 @@
         "name": "Orange Management",
         "website": "www.spl1nes.com"
     },
-    "description": "Knowledgebase module.",
-    "directory": "Knowledgebase",
+    "description": "QA module.",
+    "directory": "QA",
     "dependencies": {
         "Admin" : "1.0.0",
         "Tasks" : "1.0.0",
@@ -27,19 +27,19 @@
     "load": [
         {
             "pid": [
-                "0e47995e728ecc121561ee553b7be752ffebbaa7"
+                "7322d5765c8b18b14c20d406e89c628fd0998688"
             ],
             "type": 4,
             "for": 0,
-            "from": "Knowledgebase",
-            "file": "Knowledgebase"
+            "from": "QA",
+            "file": "QA"
         },
         {
             "pid": [
                 "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
             ],
             "type": 5,
-            "from": "Knowledgebase",
+            "from": "QA",
             "for": "Navigation",
             "file": "Navigation"
         }
