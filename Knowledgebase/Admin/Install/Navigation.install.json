@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1005901001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Wiki",
+        "uri": "/{/lang}/backend/knowledgebase/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 50,
+        "from": "Knowledgebase",
+        "permission": null,
+        "parent": 1003301001,
+        "children": [
+        ]
+    }
+]
