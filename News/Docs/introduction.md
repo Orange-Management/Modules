@@ -22,6 +22,10 @@ Articles can be written in advanced and stored as a draft for further adjustment
 
 By assigning permissions and groups to articles it's possible to only make them visible to intended audiences and different pages (e.g. intranet, website, blog etc.).
 
+## Localization
+
+News articles can get assigned to a language upon which it will be visible only to those who have the same language configuration. This allows organizations to target news articles not only by groups and permissions but also by localization.
+
 ## Markdown
 
 The module makes use of an extended markdown version for easy writing and modifications. 
