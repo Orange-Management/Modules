@@ -65,7 +65,7 @@ class QAQuestionMapper extends DataMapperAbstract
             'dst'            => 'qa_question_badge_badge',
             'src'            => 'qa_question_badge_question',
         ],
-        'badges' => [
+        'answers' => [
             'mapper'         => QAAnswerMapper::class,
             'table'          => 'qa_answer',
             'dst'            => 'qa_answer_question',
