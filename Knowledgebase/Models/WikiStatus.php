@@ -29,7 +29,7 @@ use phpOMS\Datatypes\Enum;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class WikiStauts extends Enum
+abstract class WikiStatus extends Enum
 {
     /* public */ const ACTIVE = 1;
 

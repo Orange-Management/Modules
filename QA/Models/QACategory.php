@@ -33,7 +33,7 @@ class QACategory implements \JsonSerializable
 
     private $name = '';
 
-    private $parent = 0;
+    private $parent = null;
 
     public function __construct()
     {
@@ -54,7 +54,7 @@ class QACategory implements \JsonSerializable
         $this->name = $name;
     }
 
-    public function getParent() : int
+    public function getParent() /* : ?int */
     {
         return $this->parent;
     }

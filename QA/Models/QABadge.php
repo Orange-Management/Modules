@@ -14,7 +14,7 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Badge\Models;
+namespace Modules\QA\Models;
 
 /**
  * Task class.

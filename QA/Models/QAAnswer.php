@@ -27,11 +27,11 @@ namespace Modules\QA\Models;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class QAQuestion implements \JsonSerializable
+class QAAnswer implements \JsonSerializable
 {
     private $id = 0;
 
-    private $status = QAStatus::ACTIVE;
+    private $status = QAAnswerStatus::ACTIVE;
 
     private $answer = '';
 
@@ -61,7 +61,7 @@ class QAQuestion implements \JsonSerializable
         $this->answer = $answer;
     }
 
-    public function getQuestion() : string
+    public function getQuestion() : int
     {
         return $this->question;
     }

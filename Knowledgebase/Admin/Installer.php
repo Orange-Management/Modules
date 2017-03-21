@@ -63,7 +63,7 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'wiki_badge` (
                             `wiki_badge_id` int(11) NOT NULL AUTO_INCREMENT,
                             `wiki_badge_name` varchar(255) NOT NULL,
-                            PRIMARY KEY (`wiki_category_id`)
+                            PRIMARY KEY (`wiki_badge_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
@@ -92,9 +92,9 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'wiki_article_badge` (
                             `wiki_article_badge_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `wiki_article_badge_article` varchar(255) NOT NULL,
+                            `wiki_article_badge_article` int(11) NOT NULL,
                             `wiki_article_badge_badge` int(11) DEFAULT NULL,
-                            PRIMARY KEY (`wiki_category_id`),
+                            PRIMARY KEY (`wiki_article_badge_id`),
                             KEY `wiki_article_badge_article` (`wiki_article_badge_article`),
                             KEY `wiki_article_badge_badge` (`wiki_article_badge_badge`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'

@@ -99,7 +99,7 @@ class QAQuestion implements \JsonSerializable
         $this->status = $status;
     }
 
-    public function getCategory() : int
+    public function getCategory()
     {
         return $this->category;
     }

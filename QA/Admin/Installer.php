@@ -63,7 +63,7 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'qa_badge` (
                             `qa_badge_id` int(11) NOT NULL AUTO_INCREMENT,
                             `qa_badge_name` varchar(255) NOT NULL,
-                            PRIMARY KEY (`qa_category_id`)
+                            PRIMARY KEY (`qa_badge_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
@@ -92,9 +92,9 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'qa_question_badge` (
                             `qa_question_badge_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `qa_question_badge_question` varchar(255) NOT NULL,
+                            `qa_question_badge_question` int(11) NOT NULL,
                             `qa_question_badge_badge` int(11) DEFAULT NULL,
-                            PRIMARY KEY (`qa_category_id`),
+                            PRIMARY KEY (`qa_question_badge_id`),
                             KEY `qa_question_badge_question` (`qa_question_badge_question`),
                             KEY `qa_question_badge_badge` (`qa_question_badge_badge`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
