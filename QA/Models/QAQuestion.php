@@ -33,7 +33,7 @@ class QAQuestion implements \JsonSerializable
 
     private $name = '';
 
-    private $status = QAStatus::ACTIVE;
+    private $status = QAQuestionStatus::ACTIVE;
 
     private $question = '';
 

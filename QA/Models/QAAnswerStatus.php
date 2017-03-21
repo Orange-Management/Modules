@@ -29,13 +29,11 @@ use phpOMS\Datatypes\Enum;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class QAStauts extends Enum
+abstract class QAAnswerStatus extends Enum
 {
     /* public */ const ACTIVE = 1;
 
     /* public */ const INACTIVE = 2;
 
-    /* public */ const DRAFT = 3;
-    
     /* public */ const BLOCKED = 4;
 }
