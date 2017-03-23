@@ -19,7 +19,7 @@ namespace Modules\QA\Models;
 use phpOMS\Datatypes\Enum;
 
 /**
- * Task status enum.
+ * QA answer status enum.
  *
  * @category   QA
  * @package    Modules

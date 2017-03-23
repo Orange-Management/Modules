@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\RelationType;
 /**
  * Mapper class.
  *
- * @category   Tasks
+ * @category   QA
  * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>

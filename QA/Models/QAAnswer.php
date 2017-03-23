@@ -17,9 +17,9 @@ declare(strict_types=1);
 namespace Modules\QA\Models;
 
 /**
- * Task class.
+ * Answer class.
  *
- * @category   Kanban
+ * @category   QA
  * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
