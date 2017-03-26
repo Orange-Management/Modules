@@ -110,6 +110,7 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'qa_answer` (
                             `qa_answer_id` int(11) NOT NULL AUTO_INCREMENT,
                             `qa_answer_status` int(11) NOT NULL,
+                            `qa_answer_accepted` tinyint(1) NOT NULL,
                             `qa_answer_answer` text NOT NULL,
                             `qa_answer_created_by` int(11) NOT NULL,
                             `qa_answer_created_at` datetime NOT NULL,

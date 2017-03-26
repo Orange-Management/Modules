@@ -5,7 +5,7 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/backend/qa/dashboard.*$' => [
         [
-            'dest' => '\Modules\Knowledgebase\Controller:viewQADashboard',
+            'dest' => '\Modules\QA\Controller:viewQADashboard',
             'verb' => RouteVerb::GET,
         ],
     ],

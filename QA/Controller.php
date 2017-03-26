@@ -22,6 +22,8 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 
+use Modules\QA\Models\QAQuestionMapper;
+
 /**
  * Task class.
  *
@@ -76,5 +78,27 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewQADashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/QA/Theme/Backend/qa-dashboard');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
+
+        $list = QAQuestionMapper::getNewest(50);
+        $view->setData('questions', $list);
+
+        return $view;
+    }
 
 }

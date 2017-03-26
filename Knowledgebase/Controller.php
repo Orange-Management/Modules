@@ -22,6 +22,8 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 
+use Modules\Knowledgebase\Models\WikiCategoryMapper;
+
 /**
  * Task class.
  *
@@ -76,5 +78,27 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewKnowledgebaseDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-dashboard');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
+
+        $list = WikiCategoryMapper::getNewest(50);
+        $view->setData('categories', $list);
+
+        return $view;
+    }
 
 }

@@ -37,6 +37,8 @@ class QAAnswer implements \JsonSerializable
 
     private $question = 0;
 
+    private $isAccepted = false;
+
     private $createdBy = 0;
 
     private $createdAt = null;
@@ -80,6 +82,17 @@ class QAAnswer implements \JsonSerializable
     {
         $this->status = $status;
     }
+    
+    public function setAccepted(bool $accepted) /* : void */
+    {
+        $this->isAccepted = $accepted;
+    }
+
+    public function isAccepted() : bool
+    {
+        return $this->isAccepted;
+    }
+
     public function getCreatedBy() : int
     {
         return $this->createdBy;
