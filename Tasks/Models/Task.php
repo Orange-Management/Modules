@@ -120,6 +120,8 @@ class Task implements \JsonSerializable
      */
     protected $schedule = null;
 
+    protected $priority = TaskPriority::MEDIUM;
+
     protected $media = [];
 
     /**
@@ -305,6 +307,34 @@ class Task implements \JsonSerializable
         }
 
         $this->status = $status;
+    }
+
+    /**
+     * @return int
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function getPriority() : int
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     *
+     * @throws InvalidEnumValue
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setPriority(int $priority)
+    {
+        if(!TaskStatus::isValidValue($priority)) {
+            throw new InvalidEnumValue($priority);
+        }
+
+        $this->priority = $priority;
     }
 
     /**
