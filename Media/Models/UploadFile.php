@@ -64,7 +64,7 @@ class UploadFile
      * @var string
      * @since 1.0.0
      */
-    private $outputDir = 'Modules/Media/Files';
+    private $outputDir = __DIR__ . '/../../Modules/Media/Files';
 
     /**
      * Output file name.
@@ -103,7 +103,7 @@ class UploadFile
         }
 
         $this->findOutputDir($files);
-        $path = ROOT_PATH . $this->outputDir;
+        $path = $this->outputDir;
 
         foreach ($files as $key => $f) {
             $result[$key]           = [];
