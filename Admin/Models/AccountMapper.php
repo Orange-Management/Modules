@@ -21,6 +21,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\DataStorage\Database\DatabaseType;
 
 class AccountMapper extends DataMapperAbstract
 {
@@ -136,14 +137,14 @@ class AccountMapper extends DataMapperAbstract
         try {
             $result = null;
 
-            switch ($this->connection->getType()) {
+            switch (self::$db->getType()) {
                 case DatabaseType::MYSQL:
 
-                    $sth = $this->connection->con->prepare(
+                    $sth = self::$db->con->prepare(
                         'SELECT
-                            `' . $this->connection->prefix . 'account`.*
+                            `' . self::$db->prefix . 'account`.*
                         FROM
-                            `' . $this->connection->prefix . 'account`
+                            `' . self::$db->prefix . 'account`
                         WHERE
                             `account_login` = :login'
                     );
@@ -167,10 +168,7 @@ class AccountMapper extends DataMapperAbstract
             }
 
             if (password_verify($password, $result['account_password'])) {
-                $this->session->set('UID', $result['account_id']);
-                $this->session->save();
-
-                return LoginReturnType::OK;
+                return $result['account_id'];
             }
 
             return LoginReturnType::WRONG_PASSWORD;
