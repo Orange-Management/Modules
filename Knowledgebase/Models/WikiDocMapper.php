@@ -62,8 +62,8 @@ class WikiDocMapper extends DataMapperAbstract
         'badges' => [
             'mapper'         => WikiBadgeMapper::class,
             'table'          => 'wiki_article_badge',
-            'dst'            => 'wiki_article_badge_badge',
-            'src'            => 'wiki_article_badge_article',
+            'src'            => 'wiki_article_badge_badge',
+            'dst'            => 'wiki_article_badge_article',
         ],
     ];
 

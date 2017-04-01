@@ -46,7 +46,7 @@ class QAAnswerMapper extends DataMapperAbstract
         'qa_answer_answer'    => ['name' => 'qa_answer_answer', 'type' => 'string', 'internal' => 'answer'],
         'qa_answer_question'    => ['name' => 'qa_answer_question', 'type' => 'int', 'internal' => 'question'],
         'qa_answer_status'  => ['name' => 'qa_answer_status', 'type' => 'int', 'internal' => 'status'],
-        'qa_answer_accepted'  => ['name' => 'qa_answer_accepted', 'type' => 'int', 'internal' => 'isAccepted'],
+        'qa_answer_accepted'  => ['name' => 'qa_answer_accepted', 'type' => 'bool', 'internal' => 'isAccepted'],
         'qa_answer_created_by' => ['name' => 'qa_answer_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'qa_answer_created_at' => ['name' => 'qa_answer_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
