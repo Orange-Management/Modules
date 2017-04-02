@@ -45,40 +45,6 @@ class Installer extends InstallerAbstract
         switch ($dbPool->get('core')->getType()) {
             case DatabaseType::MYSQL:
                 $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_unit` (
-                            `riskmngmt_unit_id` int(11) NOT NULL,
-                            `riskmngmt_unit_unit` int(11) NOT NULL,
-                            `riskmngmt_unit_responsible` int(11) NOT NULL,
-                            PRIMARY KEY (`riskmngmt_unit_id`),
-                            KEY `riskmngmt_unit_unit` (`riskmngmt_unit_unit`),
-                            KEY `riskmngmt_unit_responsible` (`riskmngmt_unit_responsible`)
-                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_unit`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_unit_ibfk_1` FOREIGN KEY (`riskmngmt_unit_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_unit_ibfk_2` FOREIGN KEY (`riskmngmt_unit_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_department` (
-                            `riskmngmt_department_id` int(11) NOT NULL,
-                            `riskmngmt_department_parent` int(11) NOT NULL,
-                            `riskmngmt_department_responsible` int(11) NOT NULL,
-                            PRIMARY KEY (`riskmngmt_department_id`),
-                            KEY `riskmngmt_department_parent` (`riskmngmt_department_parent`),
-                            KEY `riskmngmt_department_responsible` (`riskmngmt_department_responsible`)
-                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_department`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_department_ibfk_1` FOREIGN KEY (`riskmngmt_department_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_department` (`organization_department_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_department_ibfk_2` FOREIGN KEY (`riskmngmt_department_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_category` (
                             `riskmngmt_category_id` int(11) NOT NULL,
                             `riskmngmt_category_name` varchar(50) NOT NULL,
@@ -98,30 +64,8 @@ class Installer extends InstallerAbstract
 
                 // TODO: more (media, start, end etc...)
                 $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_project` (
-                            `riskmngmt_project_id` int(11) NOT NULL,
-                            `riskmngmt_project_name` varchar(50) NOT NULL,
-                            `riskmngmt_project_description` text NOT NULL,
-                            `riskmngmt_project_unit` int(11) NOT NULL,
-                            `riskmngmt_project_responsible` int(11) NOT NULL,
-                            PRIMARY KEY (`riskmngmt_project_id`),
-                            KEY `riskmngmt_project_unit` (`riskmngmt_project_unit`),
-                            KEY `riskmngmt_project_responsible` (`riskmngmt_project_responsible`)
-                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_project`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_project_ibfk_1` FOREIGN KEY (`riskmngmt_project_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_project_ibfk_2` FOREIGN KEY (`riskmngmt_project_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
-                )->execute();
-
-                // TODO: more (media, start, end etc...)
-                $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_process` (
                             `riskmngmt_process_id` int(11) NOT NULL,
-                            `riskmngmt_process_name` varchar(50) NOT NULL,
-                            `riskmngmt_process_description` text NOT NULL,
                             `riskmngmt_process_unit` int(11) NOT NULL,
                             `riskmngmt_process_responsible` int(11) NOT NULL,
                             PRIMARY KEY (`riskmngmt_process_id`),
@@ -139,15 +83,15 @@ class Installer extends InstallerAbstract
                 $dbPool->get('core')->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_risk` (
                             `riskmngmt_risk_id` int(11) NOT NULL,
-                            `riskmngmt_risk_name` varchar(50) NOT NULL,
+                            `riskmngmt_risk_name` varchar(255) NOT NULL,
                             `riskmngmt_risk_description` text NOT NULL,
                             `riskmngmt_risk_unit` int(11) NOT NULL,
-                            `riskmngmt_risk_deptartment` int(11) NOT NULL,
-                            `riskmngmt_risk_category` int(11) NOT NULL,
-                            `riskmngmt_risk_project` int(11) NOT NULL,
-                            `riskmngmt_risk_process` int(11) NOT NULL,
-                            `riskmngmt_risk_responsible` int(11) NOT NULL,
-                            `riskmngmt_risk_backup` int(11) NOT NULL,
+                            `riskmngmt_risk_deptartment` int(11) DEFAULT NULL,
+                            `riskmngmt_risk_category` int(11) DEFAULT NULL,
+                            `riskmngmt_risk_project` int(11) DEFAULT NULL,
+                            `riskmngmt_risk_process` int(11) DEFAULT NULL,
+                            `riskmngmt_risk_responsible` int(11) DEFAULT NULL,
+                            `riskmngmt_risk_deputy` int(11) DEFAULT NULL,
                             PRIMARY KEY (`riskmngmt_risk_id`),
                             KEY `riskmngmt_risk_unit` (`riskmngmt_risk_unit`),
                             KEY `riskmngmt_risk_responsible` (`riskmngmt_risk_responsible`)
@@ -158,6 +102,27 @@ class Installer extends InstallerAbstract
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_risk`
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_ibfk_1` FOREIGN KEY (`riskmngmt_risk_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_ibfk_2` FOREIGN KEY (`riskmngmt_risk_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_eval` (
+                            `riskmngmt_risk_eval_id` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_gross_probability` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_gross_risk` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_gross_score` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_net_probability` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_net_risk` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_net_score` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_risk` int(11) NOT NULL,
+                            `riskmngmt_risk_eval_date` datetime NOT NULL,
+                            PRIMARY KEY (`riskmngmt_risk_eval_id`),
+                            KEY `riskmngmt_risk_eval_risk` (`riskmngmt_risk_eval_risk`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get('core')->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_eval`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_eval_ibfk_1` FOREIGN KEY (`riskmngmt_risk_eval_risk`) REFERENCES `' . $dbPool->get('core')->prefix . 'riskmngmt_risk` (`riskmngmt_risk_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
@@ -176,18 +141,19 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_eval` (
-                            `riskmngmt_risk_eval_id` int(11) NOT NULL,
-                            `riskmngmt_risk_eval_val` decimal(11,4) NOT NULL,
-                            `riskmngmt_risk_eval_object` int(11) NOT NULL,
-                            PRIMARY KEY (`riskmngmt_risk_eval_id`),
-                            KEY `riskmngmt_risk_eval_object` (`riskmngmt_risk_eval_object`)
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_object_eval` (
+                            `riskmngmt_risk_object_eval_id` int(11) NOT NULL,
+                            `riskmngmt_risk_object_eval_val` decimal(11,4) NOT NULL,
+                            `riskmngmt_risk_object_eval_object` int(11) NOT NULL,
+                            `riskmngmt_risk_object_eval_date` datetime NOT NULL,
+                            PRIMARY KEY (`riskmngmt_risk_object_eval_id`),
+                            KEY `riskmngmt_risk_object_eval_object` (`riskmngmt_risk_object_eval_object`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_eval`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_evaluation_ibfk_1` FOREIGN KEY (`riskmngmt_risk_eval_object`) REFERENCES `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_object` (`riskmngmt_risk_object_id`);'
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_object_eval`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_object_eval_ibfk_1` FOREIGN KEY (`riskmngmt_risk_object_eval_object`) REFERENCES `' . $dbPool->get('core')->prefix . 'riskmngmt_risk_object` (`riskmngmt_risk_object_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(

@@ -1,0 +1,211 @@
+<?php
+/**
+ * Orange Management
+ *
+ * PHP Version 7.1
+ *
+ * @category   TBD
+ * @package    TBD
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @copyright  Dennis Eichhorn
+ * @license    OMS License 1.0
+ * @version    1.0.0
+ * @link       http://orange-management.com
+ */
+declare(strict_types=1);
+namespace Modules\RiskManagement\Models;
+
+/**
+ * Risk Management class.
+ *
+ * @category   Modules
+ * @package    Modules\RiskManagement
+ * @author     OMS Development Team <dev@oms.com>
+ * @author     Dennis Eichhorn <d.eichhorn@oms.com>
+ * @license    OMS License 1.0
+ * @link       http://orange-management.com
+ * @since      1.0.0
+ */
+class Risk
+{
+    private $id = 0;
+
+    private $name = '';
+
+    private $description = '';
+
+    private $unit = 0;
+
+    private $department = 0;
+
+    private $category = 0;
+
+    private $project = 0;
+
+    private $process = 0;
+
+    private $responseible = 0;
+
+    private $deputy = 0;
+
+    private $histScore = [];
+
+    private $causes = [];
+
+    private $solutions = [];
+
+    private $riskObjects = [];
+
+    private $media = [];
+
+    public function __construct()
+    {
+        
+    }
+
+    public function getId() : int
+    {
+        return $this->id;
+    }
+
+    public function addCause($cause) /* : void */
+    {
+        $this->causes[] = $cause;
+    }
+
+    public function getCauses() : array
+    {
+        return $this->causes;
+    }
+
+    public function addSolution($solution) /* : solution */
+    {
+        $this->solutions[] = $solution;
+    }
+
+    public function getSolutions() : array
+    {
+        return $this->solutions;
+    }
+
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
+    }
+
+    public function addRiskObject($object) /* : void */
+    {
+        $this->riskObjects[] = $object;
+    }
+
+    public function getRiskObjects() : array
+    {
+        return $this->riskObjects;
+    }
+
+    public function addHistory($history) /* : void */
+    {
+        $this->histScore[] = $history;
+    }
+
+    public function getHistory() : array
+    {
+        return $this->histScore;
+    }
+
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name) /* : void */
+    {
+        $this->name = $name;
+    }
+
+    public function getDescription() : string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description) /* : void */
+    {
+        $this->description = $description;
+    }
+
+    public function getUnit() 
+    {
+        return $this->unit;
+    }
+
+    public function setUnit($unit) /* : void */
+    {
+        $this->unit = $unit;
+    }
+
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+
+    public function setDepartment($department) /* : void */
+    {
+        $this->department = $department;
+    }
+
+    public function getcategory() 
+    {
+        return $this->category;
+    }
+
+    public function setCategory($category) /* : void */
+    {
+        $this->category = $category;
+    }
+
+    public function getProject() 
+    {
+        return $this->project;
+    }
+
+    public function setProject($project) /* : void */
+    {
+        $this->project = $project;
+    }
+
+    public function getProcess() 
+    {
+        return $this->process;
+    }
+
+    public function setProcess($process) /* : void */
+    {
+        $this->process = $process;
+    }
+
+    public function getResponsible() 
+    {
+        return $this->responsible;
+    }
+
+    public function setResponsible() /* : void */
+    {
+        $this->responsible = $responseible;
+    }
+
+    public function getDeputy() 
+    {
+        return $this->deputy;
+    }
+
+    public function setDeputy($deputy) /* : void */
+    {
+        $this->deputy = $deputy;
+    }
+}
