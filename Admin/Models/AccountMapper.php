@@ -22,6 +22,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Database\DatabaseType;
+use phpOMS\Auth\LoginReturnType;
 
 class AccountMapper extends DataMapperAbstract
 {
