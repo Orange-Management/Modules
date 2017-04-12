@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iReceiver"><?= $this->getText('To'); ?></label>
-                        <tr><td><span class="input"><button type="button" data-action='[{"listener": "click", "action": [{"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn", "aniOut": "fadeOut", "stay": 5000}]}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <tr><td><span class="input"><button type="button" data-action='[{"listener": "click", "action": [{"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"}]}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getText('Due'); ?></label>
@@ -63,4 +63,4 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </div>
 
-<?php include ROOT_PATH . '/Modules/Profile/Theme/Backend/acc-grp-popup.tpl.php'; ?>
+<?php include __DIR__ . '/../../../Profile/Theme/Backend/acc-grp-popup.tpl.php'; ?>
