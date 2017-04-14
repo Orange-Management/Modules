@@ -128,22 +128,4 @@ class ScheduleMapper extends DataMapperAbstract
         return $objId;
     }
 
-    /**
-     * Find.
-     *
-     * @param array $columns Columns to select
-     *
-     * @return Builder
-     *
-     * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
-     */
-    public static function find(...$columns) : Builder
-    {
-        return parent::find(...$columns)->from('account_permission')
-                     ->where('account_permission.account_permission_for', '=', 'calendar')
-                     ->where('account_permission.account_permission_id1', '=', 1)
-                     ->where('calendar.calendar_id', '=', new Column('account_permission.account_permission_id2'))
-                     ->where('account_permission.account_permission_r', '=', 1);
-    }
 }

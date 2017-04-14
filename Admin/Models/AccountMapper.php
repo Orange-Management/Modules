@@ -33,15 +33,15 @@ class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'account_id'         => ['name' => 'account_id', 'type' => 'int', 'internal' => 'id'],
+        'account_id'         => ['name' => 'account_id', 'type' => 'int', 'internal' => 'id', 'autocomplete' => true],
         'account_status'     => ['name' => 'account_status', 'type' => 'int', 'internal' => 'status'],
         'account_type'       => ['name' => 'account_type', 'type' => 'int', 'internal' => 'type'],
-        'account_login'    => ['name' => 'account_login', 'type' => 'string', 'internal' => 'login'],
-        'account_name1'      => ['name' => 'account_name1', 'type' => 'string', 'internal' => 'name1'],
-        'account_name2'      => ['name' => 'account_name2', 'type' => 'string', 'internal' => 'name2'],
-        'account_name3'      => ['name' => 'account_name3', 'type' => 'string', 'internal' => 'name3'],
+        'account_login'    => ['name' => 'account_login', 'type' => 'string', 'internal' => 'login', 'autocomplete' => true],
+        'account_name1'      => ['name' => 'account_name1', 'type' => 'string', 'internal' => 'name1', 'autocomplete' => true],
+        'account_name2'      => ['name' => 'account_name2', 'type' => 'string', 'internal' => 'name2', 'autocomplete' => true],
+        'account_name3'      => ['name' => 'account_name3', 'type' => 'string', 'internal' => 'name3', 'autocomplete' => true],
         'account_password' => ['name' => 'account_password', 'type' => 'string', 'internal' => 'password'],
-        'account_email'      => ['name' => 'account_email', 'type' => 'string', 'internal' => 'email'],
+        'account_email'      => ['name' => 'account_email', 'type' => 'string', 'internal' => 'email', 'autocomplete' => true],
         //'account_tries'    => ['name' => 'account_tries', 'type' => 'int', 'internal' => 'tries'],
         'account_lactive'    => ['name'     => 'account_lactive', 'type' => 'DateTime',
                                  'internal' => 'lastActive'],

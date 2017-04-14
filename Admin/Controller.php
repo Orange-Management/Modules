@@ -359,6 +359,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('account', array_values(AccountMapper::getByRequest($request)));
     }
 
+    public function apiAccountFind()
+    {
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set('account', array_values(AccountMapper::find($request->getData('search'))));
+    }
+
     private function validateAccountCreate(RequestAbstract $request) : array
     {
         $val = [];
