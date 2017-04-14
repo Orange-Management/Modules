@@ -32,7 +32,8 @@ echo $this->getData('nav')->render(); ?>
                             {
                                 "listener": "click", "action": [
                                     {"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
-                                    {"type": "request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?id=1'); ?>",  "method": "GET", "request_type": "json"}
+                                    {"type": "request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?id=1'); ?>",  "method": "GET", "request_type": "json"},
+                                    {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
                                 ]
                             }
                         ]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>

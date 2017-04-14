@@ -9,9 +9,15 @@
                     <tr><td colspan="2"><label for="iReceiver">Search</label>
                     <tr><td><input type="text" id="iDue" name="due" value=""><td>
                     <tr><td colspan="2">
-                        <table class="table">
+                        <table id="acc-grp-table" class="table">
                             <thead>
-                                <tr><th>ID<th>Name<th>Address<th>City<th>Zip<th>Country
+                                <tr>
+                                    <th data-name="id">ID
+                                    <th data-name="name">Name
+                                    <th data-name="address">Address
+                                    <th data-name="city">City
+                                    <th data-name="zip">Zip
+                                    <th data-name="country">Country
                             <tbody>
                             <tfoot>
                         </table>
