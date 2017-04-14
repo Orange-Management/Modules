@@ -28,7 +28,14 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iReceiver"><?= $this->getText('To'); ?></label>
-                        <tr><td><span class="input"><button type="button" data-action='[{"listener": "click", "action": [{"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"}]}]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <tr><td><span class="input"><button type="button" data-action='[
+                            {
+                                "listener": "click", "action": [
+                                    {"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
+                                    {"type": "request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?id=1'); ?>",  "method": "GET", "request_type": "json"}
+                                ]
+                            }
+                        ]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getText('Due'); ?></label>
