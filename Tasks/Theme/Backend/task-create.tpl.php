@@ -31,8 +31,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><span class="input"><button type="button" data-action='[
                             {
                                 "listener": "click", "action": [
-                                    {"type": "popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
-                                    {"type": "request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>",  "method": "GET", "request_type": "json"},
+                                    {"type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
+                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>",  "method": "GET", "request_type": "json"},
                                     {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
                                 ]
                             }

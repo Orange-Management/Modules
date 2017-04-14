@@ -15,6 +15,7 @@
  */
 return ['Admin' => [
     'Account'            => 'Account',
+    'Account/Group'            => 'Account/Group',
     'Accounts'           => 'Accounts',
     'Active'             => 'Active',
     'Activate'           => 'Activate',
@@ -25,6 +26,7 @@ return ['Admin' => [
     'Banned'             => 'Banned',
     'Cache'              => 'Cache',
     'Children'           => 'Children',
+    'Close'           => 'Close',
     'Country'            => 'Country',
     'Created'            => 'Created',
     'CreatedBy'          => 'Created By',
