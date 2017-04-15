@@ -32,11 +32,18 @@ echo $this->getData('nav')->render(); ?>
                             {
                                 "listener": "click", "action": [
                                     {"type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
-                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>",  "method": "GET", "request_type": "json"},
+                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
                                     {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
                                 ]
                             }
-                        ]' formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        ]' formaction=""><i class="fa fa-book"></i></button><input type="text" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" data-action='[
+                            {
+                                "listener": "input", "action": [
+                                    {"type": "utils.timer", "id": "iReceiver", "delay": 500, "resets": true},
+                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiver}", "method": "GET", "request_type": "json"}
+                                ]
+                            }
+                        ]' required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getText('Due'); ?></label>
