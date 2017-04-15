@@ -36,14 +36,17 @@ echo $this->getData('nav')->render(); ?>
                                     {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
                                 ]
                             }
-                        ]' formaction=""><i class="fa fa-book"></i></button><input type="text" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" data-action='[
+                        ]' formaction=""><i class="fa fa-book"></i></button><input list="iReceiver-datalist" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" data-action='[
                             {
                                 "listener": "input", "action": [
                                     {"type": "utils.timer", "id": "iReceiver", "delay": 500, "resets": true},
-                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiver}", "method": "GET", "request_type": "json"}
+                                    {"type": "dom.datalist.clear", "id": "iReceiver-datalist"},
+                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiver}", "method": "GET", "request_type": "json"},
+                                    {"type": "dom.datalist.append", "id": "iReceiver-datalist", "value": "id", "text": "name"}
                                 ]
                             }
-                        ]' required></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        ]' required>
+                        <datalist id="iReceiver-datalist"></datalist></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getText('Due'); ?></label>
