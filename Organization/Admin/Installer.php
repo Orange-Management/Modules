@@ -123,7 +123,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get('core')->con->prepare(
                     'INSERT INTO `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_name`, `organization_unit_description`, `organization_unit_parent`) VALUES
-                            (\'Default\', \'Default unit.\', NULL);'
+                            (\'Orange Management\', \'Orange Management\', NULL);'
                 )->execute();
                 break;
         }
