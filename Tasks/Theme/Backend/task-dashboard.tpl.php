@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-9">
-        <div class="box">
+        <div class="box wf-100">
             <table class="table">
                 <caption><?= $this->getText('Tasks'); ?></caption>
                 <thead>

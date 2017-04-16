@@ -88,7 +88,11 @@
         }
 
         if (!this.navigation[e.id].isVisible()) {
-            e.nextElementSibling.checked = false;
+            let width = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+
+            e.nextElementSibling.checked = width < 800 ? true : false;
         }
 
         e.scrollTop  = this.navigation[e.id].getScrollPosition().y;
