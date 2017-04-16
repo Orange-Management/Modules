@@ -594,7 +594,7 @@ echo $this->getData('nav')->render(); ?>
             $footerView->setPage(1);
             ?>
             <div class="box w-100">
-                <table class="table">
+                <table class="table red">
                     <caption><?= $this->getText('Logs') ?></caption>
                     <thead>
                     <tr>

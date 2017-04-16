@@ -71,7 +71,7 @@ $footerView->setResults(1);
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
                 <section class="wf-100">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('Entries') ?></caption>
                         <thead>
                         <tr>
@@ -105,7 +105,7 @@ $footerView->setResults(1);
             <input type="radio" id="c-tab2-2" name="tabular-2">
             <div class="tab tab-2">
                 <section class="box w-33 floatLeft">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('Accounts') ?></caption>
                         <thead>
                         <tr>
@@ -141,7 +141,7 @@ $footerView->setResults(1);
                     </table>
                 </section>
                 <section class="box w-33 floatLeft">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('CostObject') ?></caption>
                         <thead>
                         <tr>

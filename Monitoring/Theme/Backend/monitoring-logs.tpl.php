@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="box col-xs-12 wf-100">
-        <table class="table">
+        <table class="table red">
             <caption><?= $this->getText('Logs'); ?></caption>
             <thead>
             <tr>

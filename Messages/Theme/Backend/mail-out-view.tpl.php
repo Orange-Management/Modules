@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <div class="box w-100">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Messages'); ?></caption>
         <thead>
         <tr>

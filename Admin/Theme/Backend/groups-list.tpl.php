@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <table class="box table">
+        <table class="box table red">
             <caption><?= $this->getText('Groups'); ?></caption>
             <thead>
                 <tr>

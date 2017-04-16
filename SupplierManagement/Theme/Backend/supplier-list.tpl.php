@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
 
 
 <div class="box w-100">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Suppliers') ?></caption>
         <thead>
         <tr>

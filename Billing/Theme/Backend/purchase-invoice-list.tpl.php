@@ -22,7 +22,7 @@ $footerView->setPage(1);
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Invoices') ?></caption>
         <thead>
         <tr>

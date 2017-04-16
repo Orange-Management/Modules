@@ -27,7 +27,7 @@ $footerView->setResults(0);
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Arrivals'); ?></caption>
         <thead>
         <tr>

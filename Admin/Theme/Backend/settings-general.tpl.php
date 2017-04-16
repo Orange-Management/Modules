@@ -68,7 +68,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100 orange">
+                    <section class="box wf-100">
                         <header><h1><?= $this->getText('Localization') ?></h1></header>
                         <div class="inner">
                             <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">

@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
 
     <div class="col-xs-12 col-md-6">
         <div class="box wf-100">
-            <table class="table">
+            <table class="table red">
                 <caption><?= $this->getText('Tasks', 'Tasks'); ?></caption>
                 <thead>
                     <td><?= $this->getText('Status'); ?>

@@ -21,7 +21,7 @@ $workflows = [];
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100 floatLeft">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Workflow'); ?></caption>
         <thead>
         <td><?= $this->getText('Status'); ?>

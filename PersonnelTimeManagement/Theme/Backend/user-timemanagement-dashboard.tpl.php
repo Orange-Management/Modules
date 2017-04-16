@@ -20,7 +20,7 @@ echo $this->getData('nav')->render();
 ?>
 
 <div class="box w-100">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Times'); ?></caption>
         <thead>
         <tr>

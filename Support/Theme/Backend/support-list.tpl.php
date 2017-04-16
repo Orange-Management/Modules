@@ -19,7 +19,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
-    <table class="table">
+    <table class="table red">
         <caption><?= $this->getText('Tickets'); ?></caption>
         <thead>
         <tr><td><?= $this->getText('ID', 0, 0); ?>

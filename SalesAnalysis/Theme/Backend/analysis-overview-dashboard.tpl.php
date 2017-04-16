@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
                 <section class="box wf-100 floatLeft">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('Overview') ?></caption>
                         <thead>
                         <tr>
@@ -63,7 +63,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
 
                 <section class="box wf-100 floatLeft">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('Misc') ?></caption>
                         <thead>
                         <tr>
@@ -83,7 +83,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-2" name="tabular-2">
             <div class="tab tab-2">
                 <section class="box wf-100 floatLeft">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('Month') ?></caption>
                         <thead>
                         <tr>
@@ -101,7 +101,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-3" name="tabular-2">
             <div class="tab tab-3">
                 <section class="box wf-100 floatLeft">
-                    <table class="table">
+                    <table class="table red">
                         <caption><?= $this->getText('Year') ?></caption>
                         <thead>
                         <tr>
