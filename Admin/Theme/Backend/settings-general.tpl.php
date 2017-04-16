@@ -68,7 +68,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100">
+                    <section class="box wf-100 orange">
                         <header><h1><?= $this->getText('Localization') ?></h1></header>
                         <div class="inner">
                             <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
@@ -109,7 +109,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                 </div>
 
             <div class="col-xs-12 col-md-4">
-                <section class="box wf-100">
+                <section class="box wf-100 green">
                     <header><h1><?= $this->getText('Numeric') ?></h1></header>
                     <div class="inner">
                         <form>
@@ -132,7 +132,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
             </div>
 
 <div class="col-xs-12 col-md-4">
-            <section class="box wf-100">
+            <section class="box wf-100 red">
                 <header><h1><?= $this->getText('Weight') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -162,7 +162,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
 
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-            <section class="box wf-100">
+            <section class="box wf-100 blue">
                 <header><h1><?= $this->getText('Speed') ?></h1></header>
                 <div class="inner">
                     <form>
@@ -192,8 +192,8 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
             </section>
             </div>
 
-<div class="col-xs-12 col-md-4">
-            <section class="box wf-100">
+        <div class="col-xs-12 col-md-4">
+            <section class="box wf-100 purple">
                 <header><h1><?= $this->getText('Length') ?></h1></header>
                 <div class="inner">
                     <form>

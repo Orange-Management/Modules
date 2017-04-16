@@ -21,7 +21,7 @@ $tasks = $this->getData('tasks');
 ?>
 <div class="col-xs-12 col-md-6">
     <div class="box">
-        <table class="table">
+        <table class="table red">
             <caption><?= $this->getText('Tasks'); ?></caption>
             <thead>
             <td><?= $this->getText('Status'); ?>
