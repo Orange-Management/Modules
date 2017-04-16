@@ -20,7 +20,7 @@
 $tasks = $this->getData('tasks');
 ?>
 <div class="col-xs-12 col-md-6">
-    <div class="box">
+    <div class="box wf-100">
         <table class="table red">
             <caption><?= $this->getText('Tasks'); ?></caption>
             <thead>
