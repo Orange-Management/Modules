@@ -28,8 +28,6 @@ $newsList = $this->getData('news');
                 <td>
                 <td><?= $this->getText('Type', 'News'); ?>
                 <td class="wf-100"><?= $this->getText('Title', 'News'); ?>
-                <td><?= $this->getText('Author', 'News'); ?>
-                <td><?= $this->getText('Date', 'News'); ?>
             <tbody>
             <?php $count = 0; foreach($newsList as $key => $news) : $count++;
             $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/news/article?{?}&id=' . $news->getId());
@@ -42,8 +40,6 @@ $newsList = $this->getData('news');
                 <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
                 <td data-label="<?= $this->getText('Type', 'News'); ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType(), 'News'); ?></span></a>
                 <td data-label="<?= $this->getText('Title', 'News'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
-                <td data-label="<?= $this->getText('Author', 'News'); ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
-                <td data-label="<?= $this->getText('Date', 'News'); ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                     <?php endforeach; ?>
                     <?php if($count === 0) : ?>
             <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>

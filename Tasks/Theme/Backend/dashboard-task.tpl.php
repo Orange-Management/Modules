@@ -27,8 +27,6 @@ $tasks = $this->getData('tasks');
             <td><?= $this->getText('Status'); ?>
             <td><?= $this->getText('Due'); ?>
             <td class="full"><?= $this->getText('Title'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Created'); ?>
             <tfoot>
             <tbody>
             <?php $c = 0; foreach($tasks as $key => $task) : $c++;
@@ -43,8 +41,6 @@ $tasks = $this->getData('tasks');
                 <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('S' . $task->getStatus()); ?></span></a>
                 <td><a href="<?= $url; ?>"><?= $task->getDue()->format('Y-m-d H:i'); ?></a>
                 <td><a href="<?= $url; ?>"><?= $task->getTitle(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $task->getCreatedBy(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $task->getCreatedAt()->format('Y-m-d H:i'); ?></a>
                     <?php endforeach; if($c == 0) : ?>
             <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>
                     <?php endif; ?>
