@@ -6,8 +6,17 @@
             <form id="fAccGrp"  method="GET" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/accgrp'); ?>">
                 <table class="layout wf-100">
                     <tbody>
-                    <tr><td colspan="2"><label for="iReceiver">Search</label>
-                    <tr><td><input type="text" id="iDue" name="due" value=""><td>
+                    <tr><td colspan="2"><label for="iReceiverSearch">Search</label>
+                    <tr><td><input type="text" id="iReceiverSearch" name="receiver-search" data-action='[
+                        {
+                            "listener": "keyup", "action": [
+                                {"type": "utils.timer", "id": "iReceiverSearch", "delay": 500, "resets": true},
+                                {"type": "dom.table.clear", "id": "acc-grp-table"},
+                                {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiverSearch}", "method": "GET", "request_type": "json"},
+                                {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
+                            ]
+                        }
+                    ]' autocomplete="off"><td>
                     <tr><td colspan="2">
                         <table id="acc-grp-table" class="table">
                             <thead>
