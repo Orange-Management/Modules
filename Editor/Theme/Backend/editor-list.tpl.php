@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($docs as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
-                    <tr>
+                    <tr data-href="<?= $url; ?>">
                         <td><a href="<?= $url; ?>"><?= $value->getTitle(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $value->getCreatedBy(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>

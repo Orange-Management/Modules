@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 elseif($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }
                 elseif($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; }
                 ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
                     <td data-label="<?= $this->getText('Type'); ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType()); ?></span></a>
                     <td data-label="<?= $this->getText('Title'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>

@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                         <tbody>
                         <?php $count = 0; foreach($listElements as $key => $value) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>

@@ -45,7 +45,7 @@ echo $this->getData('nav')->render();
                         <tbody>
                         <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getStatus(); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getName1(); ?></a>

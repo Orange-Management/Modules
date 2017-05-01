@@ -25,6 +25,7 @@ return ['Tasks' => [
     'Default'            => 'Default',
     'Day'                => 'Day',
     'Due'                => 'Due',
+    'Forward'          => 'Forward',
     'Forwarded'          => 'Forwarded',
     'From'               => 'From',
     'Group'              => 'Group',
@@ -64,4 +65,9 @@ return ['Tasks' => [
     'S4'                 => 'Canceled',
     'S5'                 => 'Done',
     'S6'                 => 'Closed',
+    'P1'                 => 'Very Low',
+    'P2'                 => 'Low',
+    'P3'                 => 'Medium',
+    'P4'                 => 'High',
+    'P5'                 => 'Very High',
 ]];

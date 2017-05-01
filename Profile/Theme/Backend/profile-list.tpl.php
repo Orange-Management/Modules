@@ -41,7 +41,7 @@ $accounts = $this->getData('accounts');
                 <tbody>
                 <?php $count = 0; foreach($accounts as $key => $account) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/profile/single?{?}&id=' . $account->getId()); ?>
-                    <tr>
+                    <tr data-href="<?= $url; ?>">
                         <td><a href="<?= $url; ?>"><?= $account->getId(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $account->getName3() . ' ' . $account->getName2() . ' ' . $account->getName1(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $account->getLastActive()->format('Y-m-d'); ?></a>

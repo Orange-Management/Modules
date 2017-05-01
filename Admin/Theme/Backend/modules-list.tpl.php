@@ -46,7 +46,7 @@ $footerView->setResults(count($modules));
                         <tbody>
                         <?php $count = 0; foreach ($modules as $key => $module) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/module/settings?{?}&id=' . $module['name']['internal']); ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $module['name']['internal']; ?></a>
                     <td><a href="<?= $url; ?>"><?= $module['name']['external']; ?></a>
                     <td><a href="<?= $url; ?>"><?= $module['version']; ?></a>

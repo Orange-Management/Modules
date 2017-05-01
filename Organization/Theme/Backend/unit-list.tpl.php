@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                         <tbody>
                         <?php foreach ($this->getData('list:elements') as $key => $value) :
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/unit/profile?{?}&id=' . $value->getId()); ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getText('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
                     <td data-label="<?= $this->getText('Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
                     <td data-label="<?= $this->getText('Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>

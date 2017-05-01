@@ -72,7 +72,7 @@ echo $this->getData('nav')->render(); ?>
                             $icon = 'file-o';
                         }
                         ?>
-                        <tr>
+                        <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $icon; ?>"></i></a>
                             <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
                             <td><a href="<?= $url; ?>"><?= $value->getExtension(); ?></a>

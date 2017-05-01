@@ -48,12 +48,39 @@ echo $this->getData('nav')->render(); ?>
                         ]' required>
                         <datalist id="iReceiver-datalist"></datalist></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
-                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <tr><td><span class="input"><button type="button" data-action='[
+                            {
+                                "listener": "click", "action": [
+                                    {"type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
+                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
+                                    {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
+                                ]
+                            }
+                        ]' formaction=""><i class="fa fa-book"></i></button><input type="text" list="iCC-datalist" id="iCC" name="receiver" placeholder="&#xf007; Guest" data-action='[
+                            {
+                                "listener": "keyup", "action": [
+                                    {"type": "utils.timer", "id": "iCC", "delay": 500, "resets": true},
+                                    {"type": "dom.datalist.clear", "id": "iCC-datalist"},
+                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iCC}", "method": "GET", "request_type": "json"},
+                                    {"type": "dom.datalist.append", "id": "iCC-datalist", "value": "id", "text": "name"}
+                                ]
+                            }
+                        ]' required>
+                        <datalist id="iCC-datalist"></datalist></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <tr><td colspan="2"><label for="iPriority"><?= $this->getText('Priority'); ?></label>
+                        <tr><td><select id="iPriority" name="priority">
+                                <option value="<?= \Modules\Tasks\Models\TaskPriority::VLOW; ?>"><?= $this->getText('P1'); ?>
+                                <option value="<?= \Modules\Tasks\Models\TaskPriority::LOW; ?>"><?= $this->getText('P2'); ?>
+                                <option value="<?= \Modules\Tasks\Models\TaskPriority::MEDIUM; ?>" selected><?= $this->getText('P3'); ?>
+                                <option value="<?= \Modules\Tasks\Models\TaskPriority::HIGH; ?>"><?= $this->getText('P4'); ?>
+                                <option value="<?= \Modules\Tasks\Models\TaskPriority::VHIGH; ?>"><?= $this->getText('P5'); ?>Done
+                            </select><td>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getText('Due'); ?></label>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= (new \DateTime('NOW'))->format('Y-m-d\TH:i:s') ?>"><td>
                         <tr><td colspan="2"><label for="iTitle"><?= $this->getText('Title'); ?></label>
                         <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->getText('Title'); ?>" required><td>
                         <tr><td colspan="2"><label for="iMessage"><?= $this->getText('Message'); ?></label>
+                        <tr><td><?php //include __DIR__ . '/../../../Editor/Theme/Backend/inline-editor-tools.tpl.php'; ?>
                         <tr><td><textarea id="iMessage" name="description" placeholder="&#xf040;" required></textarea><td>
                         <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>"><input type="hidden" name="type" value="<?= \Modules\Tasks\Models\TaskType::SINGLE; ?>">
                     </table>
