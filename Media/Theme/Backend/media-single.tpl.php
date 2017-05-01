@@ -43,7 +43,7 @@ echo $this->getData('nav')->render();
                 <?php else : ?>
                     <pre>
                     <?php
-                    $output = htmlspecialchars(file_get_contents(ROOT_PATH . '/' . $media->getPath()));
+                    $output = htmlspecialchars(file_get_contents(__DIR__ . '/../../../../' . $media->getPath()));
                     $output = str_replace(["\r\n", "\r"], "\n", $output);
                     $output = explode("\n", $output);
                     foreach($output as $line) : ?><span><?= $line; ?></span><?php endforeach; ?>
