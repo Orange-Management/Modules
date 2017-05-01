@@ -112,7 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/News/Theme/Backend/dashboard-news');
 
-        $news = NewsArticleMapper::getNewest(50);
+        $news = NewsArticleMapper::getNewest(5);
         $view->addData('news', $news);
 
         return $view;

@@ -21,87 +21,129 @@ $task      = $this->getData('task');
 $elements  = $task->getTaskElements();
 $cElements = count($elements);
 
-if($task->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; }
+$statusColor = '';
+if($task->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $statusColor = 'green'; }
+elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $statusColor = 'darkblue'; }
+elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $statusColor = 'purple'; }
+elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $statusColor = 'red'; }
+elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $statusColor = 'yellow'; }
+
+$priorityColor = '';
+if($task->getPriority() === \Modules\Tasks\Models\TaskPriority::VLOW) { $priorityColor = 'green'; }
+elseif($task->getPriority() === \Modules\Tasks\Models\TaskPriority::LOW) { $priorityColor = 'blue'; }
+elseif($task->getPriority() === \Modules\Tasks\Models\TaskPriority::MEDIUM) { $priorityColor = 'darkblue'; }
+elseif($task->getPriority() === \Modules\Tasks\Models\TaskPriority::HIGH) { $priorityColor = 'yellow'; }
+elseif($task->getPriority() === \Modules\Tasks\Models\TaskPriority::VHIGH) { $priorityColor = 'red'; }
 
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <section class="box wf-100">
-            <header><h1><?= $task->getTitle(); ?></h1></header>
+        <section class="box wf-100 <?= $statusColor; ?>">
+            <header><h1 id="taskTitleText" data-action='[
+                            {
+                                "listener": "click", "action": [
+                                    {"type": "dom.hide", "id": "taskTitleText"},
+                                    {"type": "dom.show", "id": "taskTitleInput"},
+                                    {"type": "dom.focus", "id": "taskTitleInput"}
+                                ]
+                            }
+                        ]'><?= $task->getTitle(); ?></h1><input type="text" id="taskTitleInput" class="vh" value="<?= $task->getTitle(); ?>"></header>
             <div class="inner">
-                <div class="floatRight">Due <?= $task->getDue()->format('Y-m-d H:i'); ?></div>
+                <div class="floatRight">
+                    Due <?= $task->getDue()->format('Y-m-d H:i'); ?>
+                    <span class="vCenterTable nobreak tag <?= $priorityColor; ?>"><?= $this->getText('P' . $task->getPriority()); ?></span>
+                </div>
                 <div>Created <?= $task->getCreatedAt()->format('Y-m-d H:i'); ?></div>
             </div>
             <div class="inner">
-                <blockquote>
-                    <?= $task->getDescription(); ?>
-                </blockquote>
+                <blockquote id="taskText" data-action='[
+                            {
+                                "listener": "click", "action": [
+                                    {"type": "dom.hide", "id": "taskText"},
+                                    {"type": "dom.show", "id": "taskTextArea"},
+                                    {"type": "dom.focus", "id": "taskTextArea"}
+                                ]
+                            }
+                        ]'><?= $task->getDescription(); ?></blockquote><textarea class="vh" id="taskTextArea"><?= $task->getDescription(); ?></textarea>
             </div>
             <div class="inner">
-                <div class="pAlignTable">
+                <div class="pAlignTable nobreak">
                     <div class="vCenterTable wf-100">Created <?= $task->getCreatedBy(); ?></div>
-                    <span class="vCenterTable nobreak tag <?= $color; ?>"><?= $this->getText('S' . $task->getStatus()); ?></span>
+                    <span class="vCenterTable nobreak tag <?= $statusColor; ?>"><?= $this->getText('S' . $task->getStatus()); ?></span>
                 </div>
             </div>
         </section>
 
         <?php $c = 0;
+        $previous = null;
         foreach ($elements as $key => $element) : $c++;
-            if($element->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
-            <section class="box wf-100">
+            if($element->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $statusColor = 'green'; }
+            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $statusColor = 'darkblue'; }
+            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $statusColor = 'purple'; }
+            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $statusColor = 'red'; }
+            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $statusColor = 'yellow'; } ?>
+            <section class="box wf-100 <?= $statusColor; ?>">
                 <div class="inner pAlignTable">
                     <div class="vCenterTable wf-100"><?= $element->getCreatedBy(); ?> - <?= $element->getCreatedAt()->format('Y-m-d H:i'); ?></div>
-                    <span class="vCenterTable tag <?= $color; ?>"><?= $this->getText('S' . $element->getStatus()); ?></span>
+                    <span class="vCenterTable tag <?= $statusColor; ?>"><?= $this->getText('S' . $element->getStatus()); ?></span>
                 </div>
 
             <?php if ($element->getDescription() !== '') : ?>
                     <div class="inner">
-                        <blockquote>
-                            <?= $element->getDescription(); ?>
-                        </blockquote>
+                        <blockquote id="elementText<?= $c; ?>" data-action='[
+                            {
+                                "listener": "click", "action": [
+                                    {"type": "dom.hide", "id": "elementText<?= $c; ?>"},
+                                    {"type": "dom.show", "id": "elementTextArea<?= $c; ?>"},
+                                    {"type": "dom.focus", "id": "elementTextArea<?= $c; ?>"}
+                                ]
+                            }
+                        ]'><?= $element->getDescription(); ?></blockquote><textarea class="vh" id="elementTextArea<?= $c; ?>"><?= $element->getDescription(); ?></textarea>
                     </div>
             <?php endif; ?>
-
                 <div class="inner pAlignTable">
                 <?php if ($element->getForwarded() !== 0) : ?>
                     <div class="vCenterTable wf-100">Forwarded <?= $element->getForwarded(); ?></div>
                 <?php endif; ?>
-                <?php if ($element->getStatus() !== \Modules\Tasks\Models\TaskStatus::CANCELED ||
-                    $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::DONE ||
-                    $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::SUSPENDED || $c != $cElements
-                ) : ?>
-                    <div class="vCenterTable nobreak">Due <?= $element->getDue()->format('Y-m-d H:i'); ?></div>
-                <?php endif; ?>
             </section>
-        <?php endforeach; ?>
+        <?php $previous = $element; endforeach; ?>
 
         <section class="box wf-100">
             <div class="inner">
                 <form id="taskElementCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task/element?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100">
                         <tr><td><label for="iMessage"><?= $this->getText('Message'); ?></label>
+                        <tr><td><?php //include __DIR__ . '/../../../Editor/Theme/Backend/inline-editor-tools.tpl.php'; ?>
                         <tr><td><textarea id="iMessage" name="description"></textarea>
-                        <tr><td><label for="iDue"><?= $this->getText('Due'); ?></label>
-                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= !empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s'); ?>">
                         <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::OPEN; ?>" selected>Open
-                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::WORKING; ?>">Working
-                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::SUSPENDED; ?>">Suspended
-                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::CANCELED; ?>">Canceled
-                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::DONE; ?>">Done
+                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::OPEN; ?>"><?= $this->getText('S1'); ?>
+                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::WORKING; ?>" selected><?= $this->getText('S2'); ?>
+                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::SUSPENDED; ?>"><?= $this->getText('S3'); ?>
+                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::CANCELED; ?>"><?= $this->getText('S4'); ?>
+                                    <option value="<?= \Modules\Tasks\Models\TaskStatus::DONE; ?>"><?= $this->getText('S5'); ?>
                                 </select>
-                        <tr><td><label for="iReceiver"><?= $this->getText('To'); ?></label>
-                        <tr><td><input type="text" id="iReceiver" name="forward" value="<?= $this->request->getAccount(); ?>" placeholder="&#xf007; Guest">
+                        <tr><td colspan="2"><label for="iReceiver"><?= $this->getText('Forward'); ?></label>
+                        <tr><td><span class="input"><button type="button" data-action='[
+                            {
+                                "listener": "click", "action": [
+                                    {"type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
+                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
+                                    {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
+                                ]
+                            }
+                        ]' formaction=""><i class="fa fa-book"></i></button><input type="text" list="iReceiver-datalist" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" data-action='[
+                            {
+                                "listener": "keyup", "action": [
+                                    {"type": "utils.timer", "id": "iReceiver", "delay": 500, "resets": true},
+                                    {"type": "dom.datalist.clear", "id": "iReceiver-datalist"},
+                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiver}", "method": "GET", "request_type": "json"},
+                                    {"type": "dom.datalist.append", "id": "iReceiver-datalist", "value": "id", "text": "name"}
+                                ]
+                            }
+                        ]' required>
+                        <datalist id="iReceiver-datalist"></datalist></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iMedia"><?= $this->getText('Media'); ?></label>
                         <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getText('Select'); ?></button>
                         <tr><td colspan="2"><label for="iUpload"><?= $this->getText('Upload'); ?></label>
@@ -113,3 +155,5 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 </div>
+
+<?php include __DIR__ . '/../../../Profile/Theme/Backend/acc-grp-popup.tpl.php'; ?>
