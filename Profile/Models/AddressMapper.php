@@ -21,8 +21,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
-use Modules\Admin\Models\Account;
-use Modules\Admin\Models\AccountMapper;
+use phpOMS\Datatypes\Location;
 
 class ProfileMapper extends DataMapperAbstract
 {
@@ -33,42 +32,13 @@ class ProfileMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_account_id'         => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
-        'profile_account_image'         => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
-        'profile_account_birthday'         => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday'],
-        'profile_account_account'         => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
-    ];
-
-    /**
-     * Has one relation.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $ownsOne = [
-        'account' => [
-            'mapper'         => AccountMapper::class,
-            'src'            => 'profile_account_account',
-        ],
-        'image' => [
-            'mapper'         => MediaMapper::class,
-            'src'            => 'profile_account_image',
-        ],
-    ];
-
-    /**
-     * Has many relation.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected static $hasMany = [
-        'location' => [
-            'mapper'         => AddressMapper::class,
-            'table'          => 'profile_address',
-            'dst'            => 'profile_address_account',
-            'src'            => null,
-        ],
+        'profile_address_id'         => ['name' => 'profile_address_id', 'type' => 'int', 'internal' => 'id'],
+        'profile_address_type'         => ['name' => 'profile_address_type', 'type' => 'int', 'internal' => 'type'],
+        'profile_address_address'         => ['name' => 'profile_address_address', 'type' => 'string', 'internal' => 'address'],
+        'profile_address_street'         => ['name' => 'profile_address_street', 'type' => 'string', 'internal' => 'street'],
+        'profile_address_city'         => ['name' => 'profile_address_city', 'type' => 'string', 'internal' => 'city'],
+        'profile_address_zip'         => ['name' => 'profile_address_zip', 'type' => 'string', 'internal' => 'postal'],
+        'profile_address_country'         => ['name' => 'profile_address_country', 'type' => 'string', 'internal' => 'country'],
     ];
 
     /**
@@ -77,7 +47,7 @@ class ProfileMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile_account';
+    protected static $table = 'profile_address';
 
     /**
      * Primary field name.
@@ -85,7 +55,7 @@ class ProfileMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_account_id';
+    protected static $primaryField = 'profile_address_id';
 
     /**
      * Create object.

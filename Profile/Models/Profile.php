@@ -41,6 +41,8 @@ class Profile
 
 	private $account = null;
 
+	private $location = [];
+
 	public function __construct() 
 	{
 		$this->image = new NullMedia();
@@ -51,6 +53,16 @@ class Profile
 	public function getId() : int
 	{
 		return $this->id;
+	}
+
+	public function getLocation() : array
+	{
+		return $this->location;
+	}
+
+	public function addLocation(Location $location) 
+	{
+		$this->location[] = $location;
 	}
 
 	public function getImage() : Media

@@ -126,11 +126,11 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'profile_address` (
                             `profile_address_id` int(11) NOT NULL AUTO_INCREMENT,
                             `profile_address_type` tinyint(2) NOT NULL,
-                            `profile_address_address` varchar(50) NOT NULL,
-                            `profile_address_street` varchar(50) NOT NULL,
-                            `profile_address_city` varchar(50) NOT NULL,
-                            `profile_address_zip` varchar(50) NOT NULL,
-                            `profile_address_country` varchar(50) NOT NULL,
+                            `profile_address_address` varchar(255) NOT NULL,
+                            `profile_address_street` varchar(255) NOT NULL,
+                            `profile_address_city` varchar(255) NOT NULL,
+                            `profile_address_zip` varchar(255) NOT NULL,
+                            `profile_address_country` varchar(255) NOT NULL,
                             `profile_address_account` int(11) DEFAULT NULL,
                             PRIMARY KEY (`profile_address_id`),
                             KEY `profile_address_account` (`profile_address_account`)

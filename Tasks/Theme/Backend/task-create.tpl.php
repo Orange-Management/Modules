@@ -46,7 +46,8 @@ echo $this->getData('nav')->render(); ?>
                                 ]
                             }
                         ]' required>
-                        <datalist id="iReceiver-datalist"></datalist></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <datalist id="iReceiver-datalist"></datalist>
+                        <input type="hidden" id="iReceiver-list"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
                         <tr><td><span class="input"><button type="button" data-action='[
                             {
@@ -66,7 +67,8 @@ echo $this->getData('nav')->render(); ?>
                                 ]
                             }
                         ]' required>
-                        <datalist id="iCC-datalist"></datalist></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <datalist id="iCC-datalist"></datalist>
+                        <input type="hidden" id="iCC-list"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iPriority"><?= $this->getText('Priority'); ?></label>
                         <tr><td><select id="iPriority" name="priority">
                                 <option value="<?= \Modules\Tasks\Models\TaskPriority::VLOW; ?>"><?= $this->getText('P1'); ?>
