@@ -45,6 +45,6 @@ class BaseView extends View
     public function render(...$data) : string
     {
         $this->id = $data[0];
-        return parent::render(null);
+        return parent::render();
     }
 }
