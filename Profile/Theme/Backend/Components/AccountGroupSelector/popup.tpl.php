@@ -6,13 +6,13 @@
             <form id="fAccGrp"  method="GET" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/accgrp'); ?>">
                 <table class="layout wf-100">
                     <tbody>
-                    <tr><td colspan="2"><label for="iReceiverSearch">Search</label>
-                    <tr><td><input type="text" id="iReceiverSearch" name="receiver-search" data-action='[
+                    <tr><td colspan="2"><label for="iSearch">Search</label>
+                    <tr><td><input type="text" id="iSearch" name="receiver-search" data-action='[
                         {
                             "listener": "keyup", "action": [
-                                {"type": "utils.timer", "id": "iReceiverSearch", "delay": 500, "resets": true},
+                                {"type": "utils.timer", "id": "iSearch", "delay": 500, "resets": true},
                                 {"type": "dom.table.clear", "id": "acc-grp-table"},
-                                {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiverSearch}", "method": "GET", "request_type": "json"},
+                                {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iSearch}", "method": "GET", "request_type": "json"},
                                 {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
                             ]
                         }

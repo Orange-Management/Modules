@@ -28,47 +28,9 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iReceiver"><?= $this->getText('To'); ?></label>
-                        <tr><td><span class="input"><button type="button" data-action='[
-                            {
-                                "listener": "click", "action": [
-                                    {"type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
-                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
-                                    {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
-                                ]
-                            }
-                        ]' formaction=""><i class="fa fa-book"></i></button><input type="text" list="iReceiver-datalist" id="iReceiver" name="receiver" placeholder="&#xf007; Guest" data-action='[
-                            {
-                                "listener": "keyup", "action": [
-                                    {"type": "utils.timer", "id": "iReceiver", "delay": 500, "resets": true},
-                                    {"type": "dom.datalist.clear", "id": "iReceiver-datalist"},
-                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iReceiver}", "method": "GET", "request_type": "json"},
-                                    {"type": "dom.datalist.append", "id": "iReceiver-datalist", "value": "id", "text": "name"}
-                                ]
-                            }
-                        ]' required>
-                        <datalist id="iReceiver-datalist"></datalist>
-                        <input type="hidden" id="iReceiver-list"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver'); ?><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getText('CC'); ?></label>
-                        <tr><td><span class="input"><button type="button" data-action='[
-                            {
-                                "listener": "click", "action": [
-                                    {"type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
-                                    {"type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
-                                    {"type": "dom.table.append", "id": "acc-grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
-                                ]
-                            }
-                        ]' formaction=""><i class="fa fa-book"></i></button><input type="text" list="iCC-datalist" id="iCC" name="receiver" placeholder="&#xf007; Guest" data-action='[
-                            {
-                                "listener": "keyup", "action": [
-                                    {"type": "utils.timer", "id": "iCC", "delay": 500, "resets": true},
-                                    {"type": "dom.datalist.clear", "id": "iCC-datalist"},
-                                    {"type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iCC}", "method": "GET", "request_type": "json"},
-                                    {"type": "dom.datalist.append", "id": "iCC-datalist", "value": "id", "text": "name"}
-                                ]
-                            }
-                        ]' required>
-                        <datalist id="iCC-datalist"></datalist>
-                        <input type="hidden" id="iCC-list"></span><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iCC'); ?><td><button><?= $this->getText('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iPriority"><?= $this->getText('Priority'); ?></label>
                         <tr><td><select id="iPriority" name="priority">
                                 <option value="<?= \Modules\Tasks\Models\TaskPriority::VLOW; ?>"><?= $this->getText('P1'); ?>
@@ -110,4 +72,4 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </div>
 
-<?php include __DIR__ . '/../../../Profile/Theme/Backend/acc-grp-popup.tpl.php'; ?>
+<?= $this->getData('accGrpSelector')->getData('popup')->render(); ?>

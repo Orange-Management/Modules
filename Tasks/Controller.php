@@ -171,6 +171,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
+        $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
+        $view->addData('accGrpSelector', $accGrpSelector);
+
         return $view;
     }
 
