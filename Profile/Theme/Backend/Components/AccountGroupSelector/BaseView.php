@@ -33,7 +33,6 @@ class BaseView extends View
 
         $view = new View($app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/Components/AccountGroupSelector/popup');
-
         $this->addData('popup', $view);
     }
 
