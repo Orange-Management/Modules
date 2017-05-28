@@ -40,9 +40,10 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="6"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach($items as $key => $value) : $count++; ?>
-                <tr>
-                    <td><?= $value->getNumber(); ?>
+                <?php $count = 0; foreach($items as $key => $value) : $count++; 
+                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/sales/item/single?{?}&id=' . $value->getId()); ?>
+                <tr data-href="<?= $url; ?>">
+                    <td><a href="<?= $url; ?>"><?= $value->getNumber(); ?></a>
                     <td>
                     <td>
                     <td>

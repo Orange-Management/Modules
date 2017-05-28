@@ -23,7 +23,7 @@ use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Datatypes\Location;
 
-class ProfileMapper extends DataMapperAbstract
+class AddressMapper extends DataMapperAbstract
 {
     /**
      * Columns.

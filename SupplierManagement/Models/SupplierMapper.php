@@ -14,9 +14,10 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\ItemManagement\Models;
+namespace Modules\SupplierManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
+use Modules\Profile\Models\ProfileMapper;
 use Modules\Profile\Models\ContactElement;
 use Modules\Profile\Models\ContactElementMapper;
 use Modules\Profile\Models\ContactMapper;
@@ -25,7 +26,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class ItemMapper extends DataMapperAbstract
+class SupplierMapper extends DataMapperAbstract
 {
     /**
      * Columns.
@@ -34,14 +35,15 @@ class ItemMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'itemmgmt_item_id'         => ['name' => 'itemmgmt_item_id', 'type' => 'int', 'internal' => 'id'],
-        'itemmgmt_item_no'     => ['name' => 'itemmgmt_item_no', 'type' => 'int', 'internal' => 'number'],
-        'itemmgmt_item_segment'    => ['name' => 'itemmgmt_item_segment', 'type' => 'int', 'internal' => 'segment'],
-        'itemmgmt_item_productgroup'    => ['name' => 'itemmgmt_item_productgroup', 'type' => 'int', 'internal' => 'productGroup'],
-        'itemmgmt_item_salesgroup'      => ['name' => 'itemmgmt_item_salesgroup', 'type' => 'int', 'internal' => 'salesGroup'],
-        'itemmgmt_item_articlegroup'      => ['name' => 'itemmgmt_item_articlegroup', 'type' => 'int', 'internal' => 'articleGroup'],
-        'itemmgmt_item_successor' => ['name' => 'itemmgmt_item_successor', 'type' => 'int', 'internal' => 'successor'],
-        'itemmgmt_item_info' => ['name' => 'itemmgmt_item_info', 'type' => 'string', 'internal' => 'info'],
+        'suppliermgmt_supplier_id'         => ['name' => 'suppliermgmt_supplier_id', 'type' => 'int', 'internal' => 'id'],
+        'suppliermgmt_supplier_no'     => ['name' => 'suppliermgmt_supplier_no', 'type' => 'int', 'internal' => 'number'],
+        'suppliermgmt_supplier_no_reverse'       => ['name' => 'suppliermgmt_supplier_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
+        'suppliermgmt_supplier_status'    => ['name' => 'suppliermgmt_supplier_status', 'type' => 'int', 'internal' => 'status'],
+        'suppliermgmt_supplier_type'    => ['name' => 'suppliermgmt_supplier_type', 'type' => 'int', 'internal' => 'type'],
+        'suppliermgmt_supplier_taxid'      => ['name' => 'suppliermgmt_supplier_taxid', 'type' => 'string', 'internal' => 'taxId'],
+        'suppliermgmt_supplier_info'      => ['name' => 'suppliermgmt_supplier_info', 'type' => 'string', 'internal' => 'info'],
+        'suppliermgmt_supplier_created_at' => ['name' => 'suppliermgmt_supplier_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'suppliermgmt_supplier_account' => ['name' => 'suppliermgmt_supplier_account', 'type' => 'int', 'internal' => 'profile'],
     ];
 
     /**
@@ -50,7 +52,7 @@ class ItemMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'itemmgmt_item';
+    protected static $table = 'suppliermgmt_supplier';
 
     /**
      * Primary field name.
@@ -58,14 +60,41 @@ class ItemMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'itemmgmt_item_id';
+    protected static $primaryField = 'suppliermgmt_supplier_id';
+
+    /**
+     * Created at column
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static $createdAt = 'suppliermgmt_supplier_created_at';
+
+    /**
+     * Has one relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $ownsOne = [
+        'profile' => [
+            'mapper'         => ProfileMapper::class,
+            'src'            => 'suppliermgmt_supplier_account',
+        ],
+    ];
 
     protected static $hasMany = [
-        'media' => [
+        'files' => [
             'mapper'         => MediaMapper::class, /* mapper of the related object */
-            'table'          => 'itemmgmt_item_media', /* table of the related object, null if no relation table is used (many->1) */
-            'dst'            => 'itemmgmt_item_media_dst',
-            'src'            => 'itemmgmt_item_media_src',
+            'table'          => 'suppliermgmt_supplier_media', /* table of the related object, null if no relation table is used (many->1) */
+            'dst'            => 'suppliermgmt_supplier_media_dst',
+            'src'            => 'suppliermgmt_supplier_media_src',
+        ],
+        'contactElements' => [
+            'mapper'         => ContactElementMapper::class,
+            'table'          => 'suppliermgmt_supplier_contactelement',
+            'dst'            => 'suppliermgmt_supplier_contactelement_dst',
+            'src'            => 'suppliermgmt_supplier_contactelement_src',
         ],
     ];
 
@@ -105,7 +134,7 @@ class ItemMapper extends DataMapperAbstract
                     'account_permission_p'
                 )
                 ->into('account_permission')
-                ->values(1, 'itemmgmt_item', 'itemmgmt_item', 1, $objId, 1, 1, 1, 1, 1);
+                ->values(1, 'suppliermgmt_supplier', 'suppliermgmt_supplier', 1, $objId, 1, 1, 1, 1, 1);
 
             self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
@@ -124,7 +153,7 @@ class ItemMapper extends DataMapperAbstract
      * @param int   $relations  Load relations
      * @param mixed $fill       Object to fill
      *
-     * @return Client
+     * @return supplier
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
