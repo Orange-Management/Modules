@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                 <td colspan="5"><?= $footerView->render(); ?>
                     <tbody>
                     <?php foreach ($logs as $key => $value) :
-                    $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/monitoring/logs/single?{?}&id=' . $key);?>
+                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/monitoring/logs/single?{?}&id=' . $key);?>
             <tr>
                 <td><a href=<?= $url; ?>><i class="fa fa-clock-o"></i> <?= $value[0] ?? ''; ?></a>
                 <td><a href=<?= $url; ?>><i class="fa fa-<?= in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i> <?= $value[1] ?? ''; ?></a>

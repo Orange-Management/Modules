@@ -81,7 +81,7 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="8"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($clients as $key => $value) : $count++; 
-                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
+                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= $value->getNumber(); ?></a>
                     <td><a href="<?= $url; ?>"><?= $value->getProfile()->getAccount()->getName1(); ?></a>

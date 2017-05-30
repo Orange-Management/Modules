@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-25 floatLeft">
     <header><h1>Line Chart</h1></header>
     <div class="inner">
-        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/line'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/chart/create/line'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/thumb-line-chart.png">
         </a>
     </div>
@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-25 floatLeft">
     <header><h1>Area Chart</h1></header>
     <div class="inner">
-        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/area'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/chart/create/area'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/thumb-area-chart.png">
         </a>
     </div>
@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-25 floatLeft">
     <header><h1>Grouped Column Chart</h1></header>
     <div class="inner">
-        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/column?{?}&subtype=grouped'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/chart/create/column?{?}&subtype=grouped'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/thumb-grouped-column-chart.png">
         </a>
     </div>
@@ -58,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-25 floatLeft">
     <header><h1>Stacked Column Chart</h1></header>
     <div class="inner">
-        <a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/chart/create/column?{?}&suptype=stacked'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
+        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/chart/create/column?{?}&suptype=stacked'); ?>" class="wf-100 centerText" style="background: #fff; display: inline-block">
             <img src="/Modules/Chart/Img/thumb-stacked-column-chart.png">
         </a>
     </div>

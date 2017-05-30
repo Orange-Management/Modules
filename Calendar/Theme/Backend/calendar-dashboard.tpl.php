@@ -4,8 +4,8 @@ $calendar = $this->getData('calendar');
 <section class="wf-75 floatLeft">
     <div class="box w-100">
         <ul class="btns floatLeft">
-            <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-left"></i></a>
-            <li><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
+            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-left"></i></a>
+            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
         </ul>
         <ul class="btns floatRight">
             <li><a href=""><?= $this->getText('Day') ?></a>

@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "Kanban",
-        "uri": "/{/lang}/backend/kanban/dashboard?{?}",
+        "uri": "{/base}/{/lang}/backend/kanban/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 45,

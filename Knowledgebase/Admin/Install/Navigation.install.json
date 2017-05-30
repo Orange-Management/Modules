@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "Wiki",
-        "uri": "/{/lang}/backend/wiki/dashboard?{?}",
+        "uri": "{/base}/{/lang}/backend/wiki/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 50,

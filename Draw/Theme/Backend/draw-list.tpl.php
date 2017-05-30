@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($images as $key => $value) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/draw/single?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/draw/single?{?}&id=' . $value->getId()); ?>
                     <tr>
                         <td><a href="<?= $url; ?>"><?= $value->getMedia()->getName(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $value->getMedia()->getCreatedBy(); ?></a>
