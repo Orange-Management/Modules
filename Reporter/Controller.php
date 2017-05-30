@@ -120,13 +120,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
-        $reports = TemplateMapper::listResults(
-            TemplateMapper::find('reporter_template.reporter_template_id',
-                'reporter_template.reporter_template_title',
-                'reporter_template.reporter_template_creator',
-                'reporter_template.reporter_template_created')
-        //->newest('reporter_template.reporter_template_created')
-        );
+        $reports = TemplateMapper::getNewest(25);
         $view->addData('reports', $reports);
 
         return $view;
