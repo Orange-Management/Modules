@@ -8,8 +8,7 @@
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
  * @author     Dennis Eichhorn <d.eichhorn@oms.com>
- * @copyright  Dennis EichhornONE) { $color = 'green'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus:
+ * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://orange-management.com
@@ -22,7 +21,7 @@ $task      = $this->getData('task');
 $elements  = $task->getTaskElements();
 $cElements = count($elements);
 
-if($task->getStatus() === \Modules\Tasks\Models\TaskStatus::D:OPEN) { $color = 'darkblue'; }
+if($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
 elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
 elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
 elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; }
