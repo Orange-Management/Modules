@@ -178,7 +178,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? '/Modules/Media/Files');
+        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files');
 
         $ids = [];
         foreach($uploads as $file) {
@@ -216,14 +216,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function uploadFiles(array $files, int $account, string $basePath = 'Modules/Media/Files') : array
+    public function uploadFiles(array $files, int $account, string $basePath = '/Modules/Media/Files') : array
     {
         $mediaCreated = [];
 
         if (!empty($files)) {
             $upload  = new UploadFile();
-            $path = self::createMediaPath($basePath);
-            $upload->setOutputDir($path);
+            $upload->setOutputDir(self::createMediaPath($basePath));
 
             $status       = $upload->upload($files);
             $mediaCreated = self::createDbEntries($status, $account);
@@ -232,7 +231,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $mediaCreated;
     }
 
-    public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
+    public static function createMediaPath(string $basePath = '/Modules/Media/Files') : string
     {
         $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
         return $basePath . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
@@ -266,7 +265,8 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($status['status'] === UploadStatus::OK) {
             $media = new Media();
-            $media->setPath(trim($status['path'], '/') . '/' . $status['filename']);
+
+            $media->setPath(self::normalizeDbPath($status['path']) . '/' . $status['filename']);
             $media->setName($status['name']);
             $media->setSize($status['size']);
             $media->setCreatedBy($account);
@@ -277,6 +277,11 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         return $media;
+    }
+
+    private static function normalizeDbPath(string $path) : string
+    {
+        return str_replace('\\', '/', str_replace(realpath(__DIR__ . '/../../'), '', rtrim($path, '/')));
     }
 
 }

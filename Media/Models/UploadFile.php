@@ -193,7 +193,7 @@ class UploadFile
                 $this->interlace($extension, $dest);
             }
 
-            $result[$key]['path'] = $this->outputDir;
+            $result[$key]['path'] = realpath($this->outputDir);
         }
 
         return $result;

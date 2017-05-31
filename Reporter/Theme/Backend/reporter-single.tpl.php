@@ -24,7 +24,7 @@ $template = $this->getData('template');
 $report   = $this->getData('report');
 
 /** @noinspection PhpIncludeInspection */
-$reportLanguage = include __DIR__ . '/../../../../' . $tcoll['lang']->getPath();
+$reportLanguage = include __DIR__ . '/../../../..' . $tcoll['lang']->getPath();
 $lang = $reportLanguage[$cLang];
 
 echo $this->getData('nav')->render(); ?>
@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-9">
         <div class="wf-100">
             <?php /** @noinspection PhpIncludeInspection */
-            include  __DIR__ . '/../../../../' . $tcoll['template']->getPath(); ?>
+            include  __DIR__ . '/../../../..' . $tcoll['template']->getPath(); ?>
         </div>
     </div>
 
