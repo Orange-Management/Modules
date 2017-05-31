@@ -43,7 +43,7 @@
                         self.app.eventManager.trigger(requestGroup, requestId);
                     });
 
-                    uploader.setUri(Url + '{/lang}/api/media');
+                    uploader.setUri('{/base}/{/lang}/api/media');
 
                     for (let i = 0; i < fileFields.length; i++) {
                         for (let j = 0; j < fileFields[i].files.length; j++) {
