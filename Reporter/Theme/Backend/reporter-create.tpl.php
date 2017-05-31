@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getText('Report') ?></h1></header>
             <div class="inner">
-                <form id="reporter-report-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/report/report'); ?>" method="post">
+                <form id="reporter-report-create" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/report/report'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iTitle"><?= $this->getText('Title') ?></label>

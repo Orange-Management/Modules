@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getText('Item') ?></h1></header>
                         <div class="inner">
-                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iSource"><?= $this->getText('ID') ?></label>
@@ -71,7 +71,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getText('Language') ?></h1></header>
                         <div class="inner">
-                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iLanguage"><?= $this->getText('Language') ?></label>
@@ -99,7 +99,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Property') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Name') ?></label>
@@ -118,7 +118,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Language') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPTradingUnit"><?= $this->getText('Language') ?></label>
@@ -137,7 +137,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Language') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPTradingUnit"><?= $this->getText('Language') ?></label>
@@ -157,7 +157,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Attribute') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPCustomsId"><?= $this->getText('Name') ?></label>
@@ -176,7 +176,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Language') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPTradingUnit"><?= $this->getText('Language') ?></label>
@@ -195,7 +195,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Language') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPTradingUnit"><?= $this->getText('Language') ?></label>
@@ -217,7 +217,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Sales') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPType"><?= $this->getText('Status') ?></label>
@@ -259,7 +259,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Price') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td colspan="2"><label for="iPName"><?= $this->getText('Name') ?></label>
@@ -295,7 +295,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Purchase') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iSupplierId"><?= $this->getText('Supplier') ?></label>
@@ -328,7 +328,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Price') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPName"><?= $this->getText('Name') ?></label>
@@ -352,7 +352,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Stock') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPVariation"><?= $this->getText('Stock') ?></label>
@@ -376,7 +376,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Supplier') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPName"><?= $this->getText('Name') ?></label>
@@ -394,7 +394,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Accounting') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td colspan="2"><label for="iACostIndicator"><?= $this->getText('CostIndicator') ?></label>
@@ -415,7 +415,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Production') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPType"><?= $this->getText('Status') ?></label>
@@ -445,7 +445,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('StockList') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iSource"><?= $this->getText('ID') ?></label>
@@ -463,7 +463,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('QM') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                         </table>
@@ -476,7 +476,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Packaging') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPVariation"><?= $this->getText('Container') ?></label>
@@ -508,7 +508,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Media') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iDiscount"><?= $this->getText('Media') ?></label>
@@ -524,7 +524,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Stock') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPVariation"><?= $this->getText('ShelfLife') ?></label>
@@ -537,7 +537,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Stock') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iPVariation"><?= $this->getText('Stock') ?></label>
@@ -561,7 +561,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Disposal') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                         </table>
@@ -574,7 +574,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box w-33 floatLeft">
                 <header><h1><?= $this->getText('Files') ?></h1></header>
                 <div class="inner">
-                    <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                    <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td><label for="iDiscount"><?= $this->getText('Files') ?></label>

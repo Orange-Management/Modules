@@ -13,7 +13,7 @@
             <div class="tab-content">
                 <input type="radio" id="c-tab-1" name="tabular-2" checked>
                 <div class="tab">
-                    <form id="fAccSelector"  method="GET" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/accgrp'); ?>">
+                    <form id="fAccSelector"  method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/accgrp'); ?>">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td colspan="2"><label for="iSearchAcc">Search</label>
@@ -52,7 +52,7 @@
                 </div>
                 <input type="radio" id="c-tab-2" name="tabular-2">
                 <div class="tab">
-                <form id="fGrpSelector"  method="GET" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/accgrp'); ?>">
+                <form id="fGrpSelector"  method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/accgrp'); ?>">
                         <table class="layout wf-100">
                             <tbody>
                             <tr><td colspan="2"><label for="iSearchGrp">Search</label>

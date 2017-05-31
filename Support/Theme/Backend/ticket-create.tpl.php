@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
 <section class="box w-50">
     <header><h1><?= $this->getText('Ticket') ?></h1></header>
     <div class="inner">
-        <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
+        <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/template'); ?>" method="post">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iTitle"><?= $this->getText('Department') ?></label>

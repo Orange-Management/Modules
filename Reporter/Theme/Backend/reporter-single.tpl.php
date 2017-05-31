@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getText('Reports'); ?></h1></header>
 
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr>
@@ -66,7 +66,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getText('Export'); ?></h1></header>
 
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/reporter/template'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr>

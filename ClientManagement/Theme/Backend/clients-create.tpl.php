@@ -186,7 +186,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getText('Price') ?></h1></header>
                         <div class="inner">
-                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iPType"><?= $this->getText('Type') ?></label>
@@ -228,7 +228,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getText('AreaManager') ?></h1></header>
                         <div class="inner">
-                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/...'); ?>" method="post">
+                            <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/...'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iManager"><?= $this->getText('AreaManager') ?></label>

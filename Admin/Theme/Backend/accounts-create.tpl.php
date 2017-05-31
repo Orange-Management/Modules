@@ -20,7 +20,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getText('Account') ?></h1></header>
             <div class="inner">
-                <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="put">
+                <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account'); ?>" method="put">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
@@ -58,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getText('Groups') ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getText('Name') ?></label>
@@ -74,7 +74,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getText('Permissions') ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getText('Name') ?></label>
