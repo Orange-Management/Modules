@@ -16,13 +16,7 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-$templateList   = \Modules\Reporter\Models\TemplateMapper::listResults(
-    \Modules\Reporter\Models\TemplateMapper::find('reporter_template.reporter_template_id',
-                'reporter_template.reporter_template_title',
-                'reporter_template.reporter_template_creator',
-                'reporter_template.reporter_template_created')
-            ->where('account_permission.account_permission_w', '=', 1)
-    );
+$templateList = \Modules\Reporter\Models\TemplateMapper::getAll();
 
 echo $this->getData('nav')->render(); ?>
 
