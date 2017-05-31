@@ -55,6 +55,14 @@ class Template
     private $datatype = TemplateDataType::OTHER;
 
     /**
+     * Template doesn't need reports.
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    private $isStandalone = false;
+
+    /**
      * Template name.
      *
      * @var string
@@ -343,5 +351,29 @@ class Template
     public function getDatatype() : int
     {
         return $this->datatype;
+    }
+
+    /**
+     * @param bool $isStandalone Is template standalone
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function setStandalone(bool $isStandalone)
+    {
+        $this->isStandalone = $isStandalone;
+    }
+
+    /**
+     * @return bool
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function isStandalone() : bool
+    {
+        return $this->isStandalone;
     }
 }

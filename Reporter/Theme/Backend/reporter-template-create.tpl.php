@@ -31,6 +31,11 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><input id="iTitle" name="name" type="text" placeholder="&#xf040; P&L Reporting" required>
                         <tr><td colspan="2"><label for="iDescription"><?= $this->getText('Description') ?></label>
                         <tr><td colspan="2"><textarea id="iDescription" name="description"></textarea>
+                        <tr><td colspan="2">
+                                <span class="checkbox">
+                                    <input id="iStandalone" name="standalone" type="checkbox" value="1">
+                                    <label for="iStandalone"><?= $this->getText('Standalone') ?></label>
+                                </span>
                         <tr><td colspan="2"><h2><?= $this->getText('Storage') ?></h2>
                         <tr><td colspan="2">
                                 <span class="radio">

@@ -36,6 +36,7 @@ class TemplateMapper extends DataMapperAbstract
         'reporter_template_status'   => ['name' => 'reporter_template_status', 'type' => 'int', 'internal' => 'status'],
         'reporter_template_title'    => ['name' => 'reporter_template_title', 'type' => 'string', 'internal' => 'name'],
         'reporter_template_data'     => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
+        'reporter_template_standalone'     => ['name' => 'reporter_template_standalone', 'type' => 'bool', 'internal' => 'isStandalone'],
         'reporter_template_expected' => ['name' => 'reporter_template_expected', 'type' => 'Json', 'internal' => 'expected'],
         'reporter_template_desc'     => ['name'     => 'reporter_template_desc', 'type' => 'string',
                                          'internal' => 'description'],

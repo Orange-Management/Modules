@@ -247,8 +247,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $report = ReportMapper::getNewest(1, 
             (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())
         );
-        $rcoll  = [];
 
+        $rcoll  = [];
         $report = end($report);
 
         if (!($report instanceof NullReport)) {
@@ -360,6 +360,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
         $reporterTemplate->setDescription($request->getData('description') ?? '');
         $reporterTemplate->setSource((int) $collectionId);
+        $reporterTemplate->setStandalone((bool) $request->getData('standalone') ?? false);
         $reporterTemplate->setExpected(!empty($expected) ? json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getAccount());
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));

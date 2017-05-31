@@ -48,6 +48,7 @@ return ['Reporter' => [
     'Storage'          => 'Storage',
     'Source'           => 'Source',
     'Sources'          => 'Sources',
+    'Standalone'       => 'Standalone',
     'Template'         => 'Template',
     'Title'            => 'Title',
     'Type'             => 'Type',
