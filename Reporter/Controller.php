@@ -246,7 +246,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $report = ReportMapper::getNewest(1, 
             (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())
-        ); /* todo newest that belongs to template x. right now always newest no matter the template */
+        );
         $rcoll  = [];
 
         $report = end($report);
