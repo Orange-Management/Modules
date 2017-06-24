@@ -13,6 +13,36 @@
         "permission": null,
         "parent": 1003301001,
         "children": [
+            {
+                "id": 1005902001,
+                "pid": "abdd1b174820c45d7b68be012afcb82d7ad44aed",
+                "type": 3,
+                "subtype": 1,
+                "name": "Wiki",
+                "uri": "{/base}/{/lang}/backend/wiki/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Knowledgebase",
+                "permission": null,
+                "parent": 1005901001,
+                "children": []
+            },
+            {
+                "id": 1005903001,
+                "pid": "abdd1b174820c45d7b68be012afcb82d7ad44aed",
+                "type": 3,
+                "subtype": 1,
+                "name": "Create",
+                "uri": "{/base}/{/lang}/backend/wiki/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Knowledgebase",
+                "permission": null,
+                "parent": 1005901001,
+                "children": []
+            }
         ]
     }
 ]

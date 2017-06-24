@@ -1,6 +1,6 @@
 <?php
 $categories = $this->getData('categories');
-?>
+echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

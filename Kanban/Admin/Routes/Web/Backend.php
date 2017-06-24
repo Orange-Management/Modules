@@ -9,6 +9,12 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/kanban/archive.*$' => [
+        [
+            'dest' => '\Modules\Kanban\Controller:viewKanbanArchive',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/kanban/board.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller:viewKanbanBoard',

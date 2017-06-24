@@ -23,22 +23,28 @@ $footerView->setPages(20);
 $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
-<div class="box">
-    <table class="table red">
-        <caption><?= $this->getText('Charts'); ?></caption>
-        <thead>
-        <tr>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Created'); ?>
-        <tfoot>
-        <tr>
-            <td colspan="3"><?= $footerView->render(); ?>
-        <tbody>
-        <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
-        <?php endforeach; ?>
-        <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
-                <?php endif; ?>
-    </table>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table red">
+                <caption><?= $this->getText('Charts'); ?></caption>
+                <thead>
+                <tr>
+                    <td class="wf-100"><?= $this->getText('Name'); ?>
+                    <td><?= $this->getText('Creator'); ?>
+                    <td><?= $this->getText('Created'); ?>
+                <tfoot>
+                <tr>
+                    <td colspan="3"><?= $footerView->render(); ?>
+                <tbody>
+                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php endforeach; ?>
+                <?php if($count === 0) : ?>
+                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                        <?php endif; ?>
+            </table>
+        </div>
+    </div>
 </div>
