@@ -3,6 +3,12 @@
 use phpOMS\Router\RouteVerb;
 
 return [
+    '^.*/backend/qa.*$' => [
+        [
+            'dest' => '\Modules\QA\Controller:setUpBackend',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/qa/dashboard.*$' => [
         [
             'dest' => '\Modules\QA\Controller:viewQADashboard',

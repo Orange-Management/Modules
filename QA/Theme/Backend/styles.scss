@@ -1,0 +1,27 @@
+.qa-list {
+    .score {
+        &.closed {
+            background: #f00;
+        }
+
+        &.open {
+            background: #ff0;
+        }
+
+        &.done {
+            background: #0f0;
+        }
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .date {
+
+    }
+
+    .user {
+        
+    }
+}

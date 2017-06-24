@@ -1,0 +1,8 @@
+.qa-list .score.closed {
+  background: #f00; }
+.qa-list .score.open {
+  background: #ff0; }
+.qa-list .score.done {
+  background: #0f0; }
+.qa-list h1 {
+  font-size: 2rem; }
