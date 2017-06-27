@@ -93,7 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-dashboard');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
         $list = WikiCategoryMapper::getNewest(50);
         $view->setData('categories', $list);

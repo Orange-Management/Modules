@@ -14,6 +14,8 @@
  * @link       http://orange-management.com
  */
 return ['Navigation' => [
-    'Kanban' => 'Kanban',
+    'Archive' => 'Archive',
+    'Boards' => 'Boards',
     'Create' => 'Create',
+    'Kanban' => 'Kanban',
 ]];

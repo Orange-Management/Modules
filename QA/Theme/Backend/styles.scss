@@ -11,17 +11,23 @@
         &.done {
             background: #0f0;
         }
+
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
     }
 
-    h1 {
-        font-size: 2rem;
+    .scores {
+        flex-basis: min-content;
     }
 
-    .date {
-
+    .title {
+        a {
+            font-size: 2rem;
+        }
     }
 
-    .user {
-        
+    .tags {
+        margin-top: 10px;
     }
 }
