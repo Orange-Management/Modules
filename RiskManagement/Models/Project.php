@@ -27,17 +27,15 @@ namespace Modules\RiskManagement\Models;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class RiskObject
+class Project
 {
     private $id = 0;
 
-    private $title = '';
+    private $project = 0;
 
-    private $description = '';
+    private $responsible = 0;
 
-    private $descriptionRaw = '';
-    
-    private $risk = 0;
+    private $deputy = 0;
 
     public function __construct()
     {
@@ -48,38 +46,33 @@ class RiskObject
         return $this->id;
     }
 
-    public function getRisk() 
+    public function getProject()
     {
-        return $this->risk;
+        return $this->project;
     }
 
-    public function setRisk($risk) /* : void */
+    public function setProject(string $project)
     {
-        $this->risk = $risk;
+        $this->project = $project;
     }
 
-    public function getTitle() : string
+    public function getResponsible() 
     {
-        return $this->title;
+        return $this->responsible;
     }
 
-    public function setTitle(string $title) /* : void */
+    public function setResponsible($responsible) /* : void */
     {
-        $this->title = $title;
+        $this->responsible = $responsible;
     }
 
-    public function getDescription() : string
+    public function getDeputy() 
     {
-        return $this->description;
+        return $this->deputy;
     }
 
-    public function getDescriptionRaw() : string
+    public function setDeputy($deputy) /* : void */
     {
-        return $this->descriptionRaw;
-    }
-
-    public function setDescriptionRaw(string $description) /* : void */
-    {
-        $this->descriptionRaw = $description;
+        $this->deputy = $deputy;
     }
 }
