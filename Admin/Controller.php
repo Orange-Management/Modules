@@ -388,6 +388,14 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $account = createAccountModel($request);
+        AccountMapper::create($account);
+
+        $response->set('account', $account->jsonSerialize());
+    }
+
+    private function createAccountModel($request) : Account
+    {
         $account = new Account();
         $account->setStatus($request->getData('status'));
         $account->setType($request->getData('type'));
@@ -397,10 +405,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $account->setName3($request->getData('name3'));
         $account->setEmail($request->getData('email'));
         $account->generatePassword($request->getData('password'));
-
-        AccountMapper::create($account);
-
-        $response->set('account', $account->jsonSerialize());
     }
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
