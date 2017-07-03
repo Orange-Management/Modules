@@ -39,9 +39,9 @@ class Solution
 
     private $probability = 0.0;
 
-    private $cause = 0;
+    private $cause = null;
 
-    private $risk = 0;
+    private $risk = null;
 
     public function __construct()
     {

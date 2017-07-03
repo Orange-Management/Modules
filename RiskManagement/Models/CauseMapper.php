@@ -34,10 +34,25 @@ class CauseMapper extends DataMapperAbstract
         'riskmngmt_cause_name'     => ['name' => 'riskmngmt_cause_name', 'type' => 'string', 'internal' => 'title'],
         'riskmngmt_cause_description'     => ['name' => 'riskmngmt_cause_description', 'type' => 'string', 'internal' => 'description'],
         'riskmngmt_cause_descriptionraw'     => ['name' => 'riskmngmt_cause_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'riskmngmt_cause_department'     => ['name' => 'riskmngmt_cause_department', 'type' => 'string', 'internal' => 'department'],
-        'riskmngmt_cause_category'     => ['name' => 'riskmngmt_cause_category', 'type' => 'string', 'internal' => 'category'],
-        'riskmngmt_cause_risk'     => ['name' => 'riskmngmt_cause_risk', 'type' => 'string', 'internal' => 'risk'],
+        'riskmngmt_cause_department'     => ['name' => 'riskmngmt_cause_department', 'type' => 'int', 'internal' => 'department'],
+        'riskmngmt_cause_category'     => ['name' => 'riskmngmt_cause_category', 'type' => 'int', 'internal' => 'category'],
+        'riskmngmt_cause_risk'     => ['name' => 'riskmngmt_cause_risk', 'type' => 'int', 'internal' => 'risk'],
         'riskmngmt_cause_probability'     => ['name' => 'riskmngmt_cause_probability', 'type' => 'int', 'internal' => 'probability'],
+    ];
+
+    protected static $belongsTo = [
+        'risk' => [
+            'mapper'         => RiskMapper::class,
+            'dest'            => 'riskmngmt_cause_risk',
+        ],
+        'category' => [
+            'mapper'         => CategoryMapper::class,
+            'dest'            => 'riskmngmt_cause_category',
+        ],
+        'department' => [
+            'mapper'         => DepartmentMapper::class,
+            'dest'            => 'riskmngmt_cause_department',
+        ],
     ];
 
     /**

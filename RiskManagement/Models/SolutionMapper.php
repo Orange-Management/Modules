@@ -40,6 +40,17 @@ class SolutionMapper extends DataMapperAbstract
         'riskmngmt_solution_risk'     => ['name' => 'riskmngmt_solution_risk', 'type' => 'int', 'internal' => 'risk'],
     ];
 
+    protected static $belongsTo = [
+        'risk' => [
+            'mapper'         => RiskMapper::class,
+            'dest'            => 'riskmngmt_cause_risk',
+        ],
+        'cause' => [
+            'mapper'         => CauseMapper::class,
+            'dest'            => 'riskmngmt_solution_cause',
+        ],
+    ];
+
     /**
      * Primary table.
      *

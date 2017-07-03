@@ -37,19 +37,19 @@ class Risk
 
     private $descriptionRaw = '';
 
-    private $unit = 0;
+    private $unit = 1;
 
-    private $department = 0;
+    private $department = null;
 
-    private $category = 0;
+    private $category = null;
 
-    private $project = 0;
+    private $project = null;
 
-    private $process = 0;
+    private $process = null;
 
-    private $responsible = 0;
+    private $responsible = null;
 
-    private $deputy = 0;
+    private $deputy = null;
 
     private $histScore = [];
 
@@ -200,7 +200,7 @@ class Risk
         return $this->responsible;
     }
 
-    public function setResponsible() /* : void */
+    public function setResponsible($responsible) /* : void */
     {
         $this->responsible = $responsible;
     }

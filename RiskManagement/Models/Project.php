@@ -31,11 +31,11 @@ class Project
 {
     private $id = 0;
 
-    private $project = 0;
+    private $project = null;
 
-    private $responsible = 0;
+    private $responsible = null;
 
-    private $deputy = 0;
+    private $deputy = null;
 
     public function __construct()
     {

@@ -39,11 +39,11 @@ class Cause
 
     private $probability = 0.0;
 
-    private $department = 0;
+    private $department = null;
 
-    private $risk = 0;
+    private $risk = null;
 
-    private $category = 0;
+    private $category = null;
 
     public function __construct()
     {

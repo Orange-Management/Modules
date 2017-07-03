@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
+use Modules\Organization\Models\UnitMapper;
 use Modules\RiskManagement\Models\RiskObject;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
@@ -60,10 +61,33 @@ class RiskMapper extends DataMapperAbstract
             'src'            => 'riskmngmt_risk_media_risk',
         ],
         'riskObjects' => [ 
-            'mapper'         => RiskObject::class,
+            'mapper'         => RiskObjectMapper::class,
             'table'          => 'riskmngmt_risk_object',
             'dst'            => 'riskmngmt_risk_object_risk',
             'src'            => null,
+        ],
+    ];
+
+    protected static $belongsTo = [
+        'project' => [
+            'mapper'         => ProjectMapper::class,
+            'dest'            => 'riskmngmt_risk_project',
+        ],
+        'process' => [
+            'mapper'         => ProcessMapper::class,
+            'dest'            => 'riskmngmt_risk_process',
+        ],
+        'category' => [
+            'mapper'         => CategoryMapper::class,
+            'dest'            => 'riskmngmt_risk_category',
+        ],
+        'department' => [
+            'mapper'         => DepartmentMapper::class,
+            'dest'            => 'riskmngmt_risk_department',
+        ],
+        'unit' => [
+            'mapper'         => UnitMapper::class,
+            'dest'            => 'riskmngmt_risk_unit',
         ],
     ];
 

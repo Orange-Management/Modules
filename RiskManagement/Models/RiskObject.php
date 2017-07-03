@@ -37,7 +37,7 @@ class RiskObject
 
     private $descriptionRaw = '';
     
-    private $risk = 0;
+    private $risk = null;
 
     public function __construct()
     {

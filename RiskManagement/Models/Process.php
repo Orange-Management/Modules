@@ -37,13 +37,13 @@ class Process
 
     private $descriptionRaw = '';
 
-    private $department = 0;
+    private $department = null;
 
-    private $responsible = 0;
+    private $responsible = null;
 
-    private $deputy = 0;
+    private $deputy = null;
 
-    private $unit = 0;
+    private $unit = 1;
 
     public function __construct()
     {
@@ -87,6 +87,16 @@ class Process
     public function setUnit($unit)
     {
         $this->unit = $unit;
+    }
+
+    public function getDepartment() 
+    {
+        return $this->department;
+    }
+
+    public function setDepartment($department)
+    {
+        $this->department = $department;
     }
 
     public function getResponsible() 

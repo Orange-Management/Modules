@@ -32,7 +32,7 @@ class DepartmentMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'riskmngmt_department_id'         => ['name' => 'riskmngmt_department_id', 'type' => 'int', 'internal' => 'id'],
-        'riskmngmt_department_department'     => ['name' => 'riskmngmt_department_department', 'type' => 'int', 'internal' => 'project'],
+        'riskmngmt_department_department'     => ['name' => 'riskmngmt_department_department', 'type' => 'int', 'internal' => 'department'],
         'riskmngmt_department_responsible'     => ['name' => 'riskmngmt_department_responsible', 'type' => 'int', 'internal' => 'responsible'],
         'riskmngmt_department_deputy'     => ['name' => 'riskmngmt_department_deputy', 'type' => 'int', 'internal' => 'deputy'],
     ];
@@ -59,10 +59,10 @@ class DepartmentMapper extends DataMapperAbstract
      * @var array
      * @since 1.0.0
      */
-    protected static $ownsOne = [
-        'source' => [
+    protected static $belongsTo = [
+        'department' => [
             'mapper' => \Modules\Organization\Models\DepartmentMapper::class,
-            'src'    => 'riskmngmt_department_department',
+            'dest'    => 'riskmngmt_department_department',
         ],
     ];
 

@@ -31,11 +31,11 @@ class Department
 {
     private $id = 0;
 
-    private $department = 0;
+    private $department = null;
 
-    private $responsible = 0;
+    private $responsible = null;
 
-    private $deputy = 0;
+    private $deputy = null;
 
     public function __construct()
     {

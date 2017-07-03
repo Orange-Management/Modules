@@ -17,7 +17,8 @@
     "description": "Risk Management module.",
     "directory": "RiskManagement",
     "dependencies": {
-        "Media": "*"
+        "Media": "*",
+        "Organization": "*"
     },
     "providing": {
         "Navigation": "*"

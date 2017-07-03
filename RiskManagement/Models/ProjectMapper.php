@@ -59,10 +59,10 @@ class ProjectMapper extends DataMapperAbstract
      * @var array
      * @since 1.0.0
      */
-    protected static $ownsOne = [
-        'source' => [
+    protected static $belongsTo = [
+        'project' => [
             'mapper' => \Modules\ProjectManagement\Models\ProjectMapper::class,
-            'src'    => 'riskmngmt_project_project',
+            'dest'    => 'riskmngmt_project_project',
         ],
     ];
 
