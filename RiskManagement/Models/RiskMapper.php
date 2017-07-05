@@ -57,8 +57,8 @@ class RiskMapper extends DataMapperAbstract
         'media' => [ 
             'mapper'         => MediaMapper::class,
             'table'          => 'riskmngmt_risk_media',
-            'dst'            => 'riskmngmt_risk_media_media',
-            'src'            => 'riskmngmt_risk_media_risk',
+            'dst'            => 'riskmngmt_risk_media_risk',
+            'src'            => 'riskmngmt_risk_media_media',
         ],
         'riskObjects' => [ 
             'mapper'         => RiskObjectMapper::class,

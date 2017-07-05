@@ -165,7 +165,7 @@ class Risk
         $this->department = $department;
     }
 
-    public function getcategory() 
+    public function getCategory() 
     {
         return $this->category;
     }
