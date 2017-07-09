@@ -325,14 +325,20 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $group = $this->createGroupFromRequest($request);
+
+        GroupMapper::create($group);
+        $response->set('group', $group->__toString());
+    }
+
+    private function createGroupFromRequest(RequestAbstract $request) : Group
+    {
         $group = new Group();
         $group->setName($request->getData('name') ?? '');
         $group->setStatus((int) $request->getData('status'));
         $group->setDescription($request->getData('description') ?? '');
 
-        GroupMapper::create($group);
-
-        $response->set('group', $group->__toString());
+        return $group;
     }
 
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -388,6 +394,14 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $account = $this->createAccountFromRequest($request);
+
+        AccountMapper::create($account);
+        $response->set('account', $account->jsonSerialize());
+    }
+
+    private function createAccountFromRequest(RequestAbstract $request) : Account
+    {
         $account = new Account();
         $account->setStatus($request->getData('status'));
         $account->setType($request->getData('type'));
@@ -398,9 +412,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account->setEmail($request->getData('email'));
         $account->generatePassword($request->getData('password'));
 
-        AccountMapper::create($account);
-
-        $response->set('account', $account->jsonSerialize());
+        return $account;   
     }
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)

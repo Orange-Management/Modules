@@ -219,6 +219,14 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $newsArticle = $this->createNewsArticleFromRequest($request);
+
+        NewsArticleMapper::create($newsArticle);
+        $response->set('news', $newsArticle->jsonSerialize());
+    }
+
+    private function createNewsArticleFromRequest(RequestAbstract $request) : NewsArticle
+    {
         $mardkownParser = new Markdown();
 
         $newsArticle = new NewsArticle();
@@ -233,9 +241,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));
 
-        NewsArticleMapper::create($newsArticle);
-
-        $response->set('news', $newsArticle->jsonSerialize());
+        return $newsArticle;
     }
 
     /**

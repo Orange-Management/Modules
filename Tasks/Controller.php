@@ -234,6 +234,14 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $task = $this->createTaskFromRequest($request);
+
+        TaskMapper::create($task);
+        $response->set($request->__toString(), $task->jsonSerialize());
+    }
+
+    private function createTaskFromRequest(RequestAbstract $request) : Task
+    {
         $task = new Task();
         $task->setTitle($request->getData('title') ?? '');
         $task->setDescription($request->getData('description') ?? '');
@@ -252,8 +260,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $task->addElement($element);
 
-        TaskMapper::create($task);
-        $response->set($request->__toString(), $task->jsonSerialize());
+        return $task;
     }
 
     private function validateTaskElementCreate(RequestAbstract $request) : array
@@ -289,6 +296,14 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $element = $this->createTaskElementFromRequest($request);
+
+        TaskElementMapper::create($element);
+        $response->set($request->__toString(), $element->jsonSerialize());
+    }
+
+    private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
+    {
         $element = new TaskElement();
         $element->setForwarded($request->getData('forward') ?? $request->getAccount());
         $element->setCreatedAt(new \DateTime('now'));
@@ -298,8 +313,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $element->setTask($request->getData('task'));
         $element->setDescription($request->getData('description'));
 
-        TaskElementMapper::create($element);
-        $response->set($request->__toString(), $element->jsonSerialize());
+        return $element;
     }
 
 }
