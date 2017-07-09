@@ -160,6 +160,6 @@ class SupplierMapper extends DataMapperAbstract
      */
     public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
     {
-        return parent::get((int) $primaryKey, $relations, $fill);
+        return parent::get($primaryKey, $relations, $fill);
     }
 }

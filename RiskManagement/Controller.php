@@ -25,6 +25,13 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
+use Modules\RiskManagement\Models\SolutionMapper;
+use Modules\RiskManagement\Models\CauseMapper;
+use Modules\RiskManagement\Models\RiskMapper;
+use Modules\RiskManagement\Models\DepartmentMapper;
+use Modules\RiskManagement\Models\CategoryMapper;
+use Modules\RiskManagement\Models\ProjectMapper;
+use Modules\RiskManagement\Models\ProcessMapper;
 
 /**
  * Risk Management class.
@@ -117,6 +124,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
+        $risks = RiskMapper::getAll();
+        $view->addData('risks', $risks);
+
         return $view;
     }
 
@@ -155,6 +165,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
+        $causes = CauseMapper::getAll();
+        $view->addData('causes', $causes);
+
         return $view;
     }
 
@@ -173,6 +186,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $solutions = SolutionMapper::getAll();
+        $view->addData('solutions', $solutions);
 
         return $view;
     }
@@ -212,6 +228,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
+        $departments = DepartmentMapper::getAll();
+        $view->addData('departments', $departments);
+
         return $view;
     }
 
@@ -230,6 +249,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $categories = CategoryMapper::getAll();
+        $view->addData('categories', $categories);
 
         return $view;
     }
@@ -250,6 +272,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
+        $projects = ProjectMapper::getAll();
+        $view->addData('projects', $projects);
+
         return $view;
     }
 
@@ -268,6 +293,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $processes = ProcessMapper::getAll();
+        $view->addData('processes', $processes);
 
         return $view;
     }

@@ -43,7 +43,7 @@ class SolutionMapper extends DataMapperAbstract
     protected static $belongsTo = [
         'risk' => [
             'mapper'         => RiskMapper::class,
-            'dest'            => 'riskmngmt_cause_risk',
+            'dest'            => 'riskmngmt_solution_risk',
         ],
         'cause' => [
             'mapper'         => CauseMapper::class,
@@ -129,6 +129,6 @@ class SolutionMapper extends DataMapperAbstract
      */
     public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
     {
-        return parent::get((int) $primaryKey, $relations, $fill);
+        return parent::get($primaryKey, $relations, $fill);
     }
 }

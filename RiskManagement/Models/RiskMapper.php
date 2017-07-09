@@ -66,6 +66,18 @@ class RiskMapper extends DataMapperAbstract
             'dst'            => 'riskmngmt_risk_object_risk',
             'src'            => null,
         ],
+        'causes' => [ 
+            'mapper'         => CauseMapper::class,
+            'table'          => 'riskmngmt_cause',
+            'dst'            => 'riskmngmt_cause_risk',
+            'src'            => null,
+        ],
+        'solutions' => [ 
+            'mapper'         => SolutionMapper::class,
+            'table'          => 'riskmngmt_solution',
+            'dst'            => 'riskmngmt_solution_risk',
+            'src'            => null,
+        ],
     ];
 
     protected static $belongsTo = [
@@ -177,6 +189,6 @@ class RiskMapper extends DataMapperAbstract
      */
     public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null)
     {
-        return parent::get((int) $primaryKey, $relations, $fill);
+        return parent::get($primaryKey, $relations, $fill);
     }
 }
