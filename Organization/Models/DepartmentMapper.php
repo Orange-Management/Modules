@@ -36,7 +36,7 @@ class DepartmentMapper extends DataMapperAbstract
     ];
 
     protected static $belongsTo = [
-        'account' => [
+        'unit' => [
             'mapper'         => UnitMapper::class,
             'dest'            => 'organization_department_unit',
         ],

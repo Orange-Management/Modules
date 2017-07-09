@@ -14,16 +14,15 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Profile\Models;
+namespace Modules\RiskManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
-use phpOMS\Datatypes\Location;
 
-class AddressMapper extends DataMapperAbstract
+class CategoryMapper extends DataMapperAbstract
 {
     /**
      * Columns.
@@ -32,13 +31,13 @@ class AddressMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_address_id'         => ['name' => 'profile_address_id', 'type' => 'int', 'internal' => 'id'],
-        'profile_address_type'         => ['name' => 'profile_address_type', 'type' => 'int', 'internal' => 'type'],
-        'profile_address_address'         => ['name' => 'profile_address_address', 'type' => 'string', 'internal' => 'address'],
-        'profile_address_street'         => ['name' => 'profile_address_street', 'type' => 'string', 'internal' => 'street'],
-        'profile_address_city'         => ['name' => 'profile_address_city', 'type' => 'string', 'internal' => 'city'],
-        'profile_address_zip'         => ['name' => 'profile_address_zip', 'type' => 'string', 'internal' => 'postal'],
-        'profile_address_country'         => ['name' => 'profile_address_country', 'type' => 'string', 'internal' => 'country'],
+        'riskmngmt_category_id'         => ['name' => 'riskmngmt_category_id', 'type' => 'int', 'internal' => 'id'],
+        'riskmngmt_category_name'     => ['name' => 'riskmngmt_category_name', 'type' => 'string', 'internal' => 'title'],
+        'riskmngmt_category_description'     => ['name' => 'riskmngmt_category_description', 'type' => 'string', 'internal' => 'description'],
+        'riskmngmt_category_descriptionraw'     => ['name' => 'riskmngmt_category_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'riskmngmt_category_parent'     => ['name' => 'riskmngmt_category_parent', 'type' => 'int', 'internal' => 'parent'],
+        'riskmngmt_category_responsible' => ['name' => 'riskmngmt_category_responsible', 'type' => 'int', 'internal' => 'responsible'],
+        'riskmngmt_category_deputy' => ['name' => 'riskmngmt_category_deputy', 'type' => 'int', 'internal' => 'deputy'],
     ];
 
     /**
@@ -47,7 +46,7 @@ class AddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile_address';
+    protected static $table = 'riskmngmt_category';
 
     /**
      * Primary field name.
@@ -55,7 +54,7 @@ class AddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_address_id';
+    protected static $primaryField = 'riskmngmt_category_id';
 
     /**
      * Create object.
@@ -93,7 +92,7 @@ class AddressMapper extends DataMapperAbstract
                     'account_permission_p'
                 )
                 ->into('account_permission')
-                ->values(1, 'account', 'account', 1, $objId, 1, 1, 1, 1, 1);
+                ->values(1, 'riskmngmt_category', 'riskmngmt_category', 1, $objId, 1, 1, 1, 1, 1);
 
             self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
@@ -112,7 +111,7 @@ class AddressMapper extends DataMapperAbstract
      * @param int   $relations  Load relations
      * @param mixed $fill       Object to fill
      *
-     * @return Account
+     * @return Cause
      *
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>

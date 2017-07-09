@@ -175,7 +175,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -186,7 +186,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @since  1.0.0
      * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
-    public function setCreatedBy(int $id)
+    public function setCreatedBy($id)
     {
         $this->createdBy = $id;
     }

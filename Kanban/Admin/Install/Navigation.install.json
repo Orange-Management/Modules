@@ -48,7 +48,7 @@
                 "pid": "7322d5765c8b18b14c20d406e89c628fd0998688",
                 "type": 3,
                 "subtype": 1,
-                "name": "Archive",
+                "name": "Create",
                 "uri": "{/base}/{/lang}/backend/kanban/create?{?}",
                 "target": "self",
                 "icon": null,

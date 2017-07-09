@@ -65,12 +65,12 @@ class Department
         $this->status = $status;
     }
 
-    public function getUnit() : int
+    public function getUnit()
     {
         return $this->unit;
     }
 
-    public function setUnit(int $unit)
+    public function setUnit($unit)
     {
         $this->unit = $unit;
     }

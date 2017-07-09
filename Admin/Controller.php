@@ -412,7 +412,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account->setEmail($request->getData('email'));
         $account->generatePassword($request->getData('password'));
 
-        return $account;   
+        return $account;
     }
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)

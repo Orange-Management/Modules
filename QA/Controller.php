@@ -21,6 +21,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Asset\AssetType;
 
 use Modules\QA\Models\QAQuestionMapper;
 
@@ -79,7 +80,7 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
-    public function setUpBackend()
+    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/QA/Theme/Backend/styles.css');
@@ -107,4 +108,15 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    public function viewQADoc(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/QA/Theme/Backend/qa-question');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
+
+        $question = QAQuestionMapper::get((int) $request->getData('id'));
+        $view->addData('question', $question);
+
+        return $view;
+    }
 }

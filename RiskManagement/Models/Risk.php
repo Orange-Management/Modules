@@ -35,19 +35,21 @@ class Risk
 
     private $description = '';
 
-    private $unit = 0;
+    private $descriptionRaw = '';
 
-    private $department = 0;
+    private $unit = 1;
 
-    private $category = 0;
+    private $department = null;
 
-    private $project = 0;
+    private $category = null;
 
-    private $process = 0;
+    private $project = null;
 
-    private $responseible = 0;
+    private $process = null;
 
-    private $deputy = 0;
+    private $responsible = null;
+
+    private $deputy = null;
 
     private $histScore = [];
 
@@ -61,7 +63,6 @@ class Risk
 
     public function __construct()
     {
-        
     }
 
     public function getId() : int
@@ -134,9 +135,14 @@ class Risk
         return $this->description;
     }
 
-    public function setDescription(string $description) /* : void */
+    public function setDescriptionRaw(string $description) /* : void */
     {
-        $this->description = $description;
+        $this->descriptionRaw = $description;
+    }
+
+    public function getDescriptionRaw() : string
+    {
+        return $this->descriptionRaw;
     }
 
     public function getUnit() 
@@ -159,7 +165,7 @@ class Risk
         $this->department = $department;
     }
 
-    public function getcategory() 
+    public function getCategory() 
     {
         return $this->category;
     }
@@ -194,9 +200,9 @@ class Risk
         return $this->responsible;
     }
 
-    public function setResponsible() /* : void */
+    public function setResponsible($responsible) /* : void */
     {
-        $this->responsible = $responseible;
+        $this->responsible = $responsible;
     }
 
     public function getDeputy() 

@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                     <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
                     <td data-label="<?= $this->getText('Type'); ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType()); ?></span></a>
                     <td data-label="<?= $this->getText('Title'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
-                    <td data-label="<?= $this->getText('Author'); ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy(); ?></a>
+                    <td data-label="<?= $this->getText('Author'); ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy()->getName1(); ?></a>
                     <td data-label="<?= $this->getText('Date'); ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>

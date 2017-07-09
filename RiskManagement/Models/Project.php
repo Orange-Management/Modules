@@ -27,17 +27,11 @@ namespace Modules\RiskManagement\Models;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Category
+class Project
 {
     private $id = 0;
 
-    private $title = '';
-
-    private $description = '';
-
-    private $descriptionRaw = '';
-
-    private $parent = null;
+    private $project = null;
 
     private $responsible = null;
 
@@ -52,14 +46,14 @@ class Category
         return $this->id;
     }
 
-    public function getParent() 
+    public function getProject()
     {
-        return $this->parent;
+        return $this->project;
     }
 
-    public function setParent($parent) /* : void */
+    public function setProject(string $project)
     {
-        $this->parent = $parent;
+        $this->project = $project;
     }
 
     public function getResponsible() 
@@ -72,38 +66,13 @@ class Category
         $this->responsible = $responsible;
     }
 
-    public function setDeputy($deputy) /* : void */
-    {
-        $this->deputy = $deputy;
-    }
-
     public function getDeputy() 
     {
         return $this->deputy;
     }
-    
-    public function getTitle() : string
-    {
-        return $this->title;
-    }
 
-    public function setTitle(string $title)
+    public function setDeputy($deputy) /* : void */
     {
-        $this->title = $title;
-    }
-
-    public function getDescription() : string
-    {
-        return $this->description;
-    }
-
-    public function getDescriptionRaw() : string
-    {
-        return $this->descriptionRaw;
-    }
-
-    public function setDescriptionRaw(string $description) /* : void */
-    {
-        $this->descriptionRaw = $description;
+        $this->deputy = $deputy;
     }
 }
