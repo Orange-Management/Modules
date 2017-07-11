@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getText('Title'); ?>
                     <td><?= $this->getText('Causes'); ?>
                     <td><?= $this->getText('Solutions'); ?>
-                    <td><?= $this->getText('Risk Objects'); ?>
+                    <td><?= $this->getText('RiskObjects'); ?>
                         <tfoot>
                 <tr><td colspan="3">
                         <tbody>

@@ -18,17 +18,21 @@
  */
 echo $this->getData('nav')->render(); ?>
 
-<div class="box w-100">
-    <table class="table red">
-        <caption><?= $this->getText('Tickets'); ?></caption>
-        <thead>
-        <tr><td><?= $this->getText('ID', 0, 0); ?>
-            <td><?= $this->getText('Status'); ?>
-            <td><?= $this->getText('Priority'); ?>
-            <td class="full"><?= $this->getText('Title'); ?>
-            <td><?= $this->getText('Responsible'); ?>
-        <tfoot>
-        <tbody>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table red">
+                <caption><?= $this->getText('Tickets'); ?></caption>
+                <thead>
+                <tr><td><?= $this->getText('ID', 0, 0); ?>
+                    <td><?= $this->getText('Status'); ?>
+                    <td><?= $this->getText('Priority'); ?>
+                    <td class="full"><?= $this->getText('Title'); ?>
+                    <td><?= $this->getText('Responsible'); ?>
+                <tfoot>
+                <tbody>
+                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+            </table>
+        </div>
+    </div>
 </div>

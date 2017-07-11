@@ -19,7 +19,7 @@
  */
 $tasks = $this->getData('tasks');
 ?>
-<div class="col-xs-12 col-md-6">
+<div id="task-dashboard" class="col-xs-12 col-md-6" draggable="true">
     <div class="box wf-100">
         <table class="table red">
             <caption><?= $this->getText('Tasks'); ?></caption>

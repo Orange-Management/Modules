@@ -19,7 +19,7 @@
 
 $newsList = $this->getData('news');
 ?>
-<div id="news-dashboard" class="col-xs-12 col-md-6" draggable>
+<div id="news-dashboard" class="col-xs-12 col-md-6" draggable="true">
     <div class="box wf-100">
         <table class="table blue">
             <caption><?= $this->getText('News', 'News') ?></caption>

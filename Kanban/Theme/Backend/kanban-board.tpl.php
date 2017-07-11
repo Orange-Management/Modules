@@ -5,11 +5,11 @@ $columns = $board->getColumns();
 ?>
 <div class="row">
     <?php foreach($columns as $column) : $cards = $column->getCards(); ?>
-    <div class="col-xs-12 col-sm-3" draggable>
+    <div class="col-xs-12 col-sm-3" draggable="true">
         <header><?= $column->getName(); ?></header>
         <?php foreach($cards as $card) : $labels = $card->getLabels(); ?>
             <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/kanban/card?{?}&id=' . $card->getId()) ?>">
-            <section class="box wf-100" draggable>
+            <section class="box wf-100" draggable="true">
                 <header><h1><?= $card->getName(); ?></h1></header>
                 <div class="inner">
                     <?= $card->getDescription(); ?>
