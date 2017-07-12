@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace Modules\Admin\Models;
 
 use phpOMS\Utils\IO\Zip\Zip;
+use Modules\Admin\Models\Exceptions\InvalidSignatureException;
+use Modules\Admin\Models\Exceptions\InvalidVersionException;
 
 class Package
 {
@@ -38,14 +40,14 @@ class Package
         return true;
     }
 
-    public function validated() : bool;
+    public function validated() : bool
     {
         if(!$this->validateSignature()) {
-            throw new InvalidSignature();
+            throw new InvalidSignatureException();
         }
         
         if(!$this->validateVersion()) {
-            throw new InvalidVersion();
+            throw new InvalidVersionException();
         }
         
         return true;
