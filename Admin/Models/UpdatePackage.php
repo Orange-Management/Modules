@@ -16,30 +16,48 @@
 declare(strict_types=1);
 namespace Modules\Admin\Models;
 
+use phpOMS\Utils\IO\Zip\Zip;
+
 class UpdatePackage
 {
+    private $src = '';
+    private $dest = '';
+    
     public function __construct(string $src, string $dest)
     {
-
+        $this->src = $src;
+        $this->dest = $dest;
+    }
+    
+    public function unpack() : bool
+    {
+        if(!Zip::unpack($this->src, $this->dest)) {
+            return false;
+        }
+        
+        return true;
     }
 
-    protected function unpack()
+    public function validated() : bool;
     {
-
+        if(!$this->validateSignature()) {
+            throw new InvalidSignature();
+        }
+        
+        if(!$this->validateVersion()) {
+            throw new InvalidVersion();
+        }
+        
+        return true;
     }
 
-    protected function validated()
+    private function validateSignature() : bool
     {
-
+        return true;
     }
 
-    private function validateSignature()
+    private function validateVersion() : bool
     {
-
-    }
-
-    private function validateVersion()
-    {
-
+        return true;
     }
 }
