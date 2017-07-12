@@ -18,7 +18,7 @@ namespace Modules\Admin\Models;
 
 use phpOMS\Utils\IO\Zip\Zip;
 
-class UpdatePackage
+class Package
 {
     private $src = '';
     private $dest = '';
