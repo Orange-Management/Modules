@@ -21,6 +21,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Asset\AssetType;
 
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 
@@ -78,6 +79,12 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
+
+    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Knowledgebase/Theme/Backend/styles.css');
+    }
 
     /**
      * @param RequestAbstract  $request  Request
