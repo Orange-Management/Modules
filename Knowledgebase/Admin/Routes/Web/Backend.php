@@ -3,6 +3,12 @@
 use phpOMS\Router\RouteVerb;
 
 return [
+    '^.*/backend/wiki.*$' => [
+        [
+            'dest' => '\Modules\Knowledgebase\Controller:setUpBackend',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/wiki/dashboard.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseDashboard',
