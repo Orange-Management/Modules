@@ -24,6 +24,7 @@ use phpOMS\Views\View;
 use phpOMS\Asset\AssetType;
 
 use Modules\QA\Models\QAQuestionMapper;
+use Modules\QA\Models\QABadgeMapper;
 
 /**
  * Task class.
@@ -104,6 +105,50 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $list = QAQuestionMapper::getNewest(50);
         $view->setData('questions', $list);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewQABadgeList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/QA/Theme/Backend/qa-tag-list');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
+
+        $list = QABadgeMapper::getAll();
+        $view->setData('tags', $list);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @author Dennis Eichhorn <d.eichhorn@oms.com>
+     */
+    public function viewQABadgeEdit(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/QA/Theme/Backend/qa-tag-edit');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
+
+        $tag = QABadgeMapper::get((int) $request->getData('id'));
+        $view->setData('tag', $tag);
 
         return $view;
     }

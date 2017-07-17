@@ -42,6 +42,21 @@
                 "permission": null,
                 "parent": 1006001001,
                 "children": []
+            },
+            {
+                "id": 1006004001,
+                "pid": "c3ebc146eec492fbcf5ed5d9d43ca6d0cc253583",
+                "type": 3,
+                "subtype": 1,
+                "name": "Badges",
+                "uri": "{/base}/{/lang}/backend/qa/badge/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "QA",
+                "permission": null,
+                "parent": 1006001001,
+                "children": []
             }
         ]
     }

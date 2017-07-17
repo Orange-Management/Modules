@@ -15,9 +15,15 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/qa/category.*$' => [
+    '^.*/backend/qa/badge/list.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQACategory',
+            'dest' => '\Modules\QA\Controller:viewQABadgeList',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/backend/qa/badge/single.*$' => [
+        [
+            'dest' => '\Modules\QA\Controller:viewQABadgeEdit',
             'verb' => RouteVerb::GET,
         ],
     ],
