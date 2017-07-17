@@ -48,11 +48,11 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'media` (
                             `media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `media_name`  varchar(100) DEFAULT NULL,
+                            `media_description` text DEFAULT NULL,
                             `media_versioned`  tinyint(1) NOT NULL,
                             `media_file` varchar(255) NOT NULL,
                             `media_extension` varchar(10) DEFAULT NULL,
                             `media_collection` tinyint(1) DEFAULT NULL,
-                            `media_description` varchar(255) DEFAULT NULL,
                             `media_size` int(11) DEFAULT NULL,
                             `media_created_by` int(11) DEFAULT NULL,
                             `media_created_at` datetime DEFAULT NULL,

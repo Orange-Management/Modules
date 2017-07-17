@@ -21,6 +21,7 @@ return ['Media' => [
     'Created'     => 'Created',
     'Creator'     => 'Creator',
     'Data'        => 'Data',
+    'Description'        => 'Description',
     'Editability' => 'Editability',
     'Extension'   => 'Extension',
     'Files'       => 'Files',

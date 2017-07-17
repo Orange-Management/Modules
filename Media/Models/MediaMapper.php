@@ -33,6 +33,7 @@ class MediaMapper extends DataMapperAbstract
     protected static $columns = [
         'media_id'          => ['name' => 'media_id', 'type' => 'int', 'internal' => 'id'],
         'media_name'        => ['name' => 'media_name', 'type' => 'string', 'internal' => 'name'],
+        'media_description'        => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description'],
         'media_versioned'   => ['name' => 'media_versioned', 'type' => 'bool', 'internal' => 'versioned'],
         'media_file'        => ['name' => 'media_file', 'type' => 'string', 'internal' => 'path'],
         'media_extension'   => ['name' => 'media_extension', 'type' => 'string', 'internal' => 'extension'],
