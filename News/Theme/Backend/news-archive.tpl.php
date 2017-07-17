@@ -22,6 +22,8 @@ $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 $footerView->setPages(20);
 $footerView->setPage(1);
 
+$articles = $this->getData('articles');
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -39,7 +41,17 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="4"><?= $footerView->render(); ?>
                         <tbody>
-                        <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                        <?php $count = 0; foreach($articles as $key => $news) : $count++; $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
+                            $color = 'darkred';
+                            if($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }
+                            elseif($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }
+                            elseif($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; } 
+                        ?>
+                            <tr>
+                                <td><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType()); ?></span></a>
+                                <td><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $news->getCreatedBy()->getName1(); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
                 <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>

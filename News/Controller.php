@@ -156,6 +156,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/News/Theme/Backend/news-archive');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
+        $articles = NewsArticleMapper::getNewest(50);
+        $view->addData('articles', $articles);
+
         return $view;
     }
 
