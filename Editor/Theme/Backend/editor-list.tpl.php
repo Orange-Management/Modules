@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td><a href="<?= $url; ?>"><?= $value->getTitle(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $value->getCreatedBy(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $value->getCreatedBy()->getName1(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
