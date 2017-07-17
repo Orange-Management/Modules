@@ -59,6 +59,17 @@ class QAQuestion implements \JsonSerializable
         return $this->id;
     }
 
+    public function hasAccepted() : bool 
+    {
+        foreach($this->answers as $answer) {
+            if($answer->isAccepted()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function getLanguage() : string
     {
         return $this->language;

@@ -9,7 +9,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <div class="row middle-xs">
                     <div class="col-xs-1 scores">
-                        <span class="score"><?= count($question->getAnswers()); ?></span>
+                        <span class="score<?= $question->hasAccepted() ? ' done' : ''; ?>"><?= count($question->getAnswers()); ?></span>
                     </div>
                     <div class="title col-xs-11">
                         <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/qa/question?{?}&id=' . $question->getId()) ?>"><?= $question->getName(); ?></a>
