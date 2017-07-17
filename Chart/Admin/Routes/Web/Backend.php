@@ -3,7 +3,7 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/chart/create$' => [
+    '^.*/backend/chart/create($|\?.*)' => [
         [
             'dest' => '\Modules\Chart\Controller:viewChartCreate', 
             'verb' => RouteVerb::GET,
