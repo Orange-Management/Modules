@@ -15,7 +15,13 @@ $calendar = $this->getData('calendar');
         </ul>
     </div>
     <div class="box w-100">
-        <div class="m-calendar-month">
+        <div id="calendar" class="m-calendar-month" data-action='[
+                            {
+                                "listener": "click", "selector": "#calendar span.tag", "action": [
+                                    {"key": 1, "type": "dom.popup", "tpl": "calendar-event-popup-tpl", "aniIn": "fadeIn"}
+                                ]
+                            }
+                        ]'>
             <?php $current = new \phpOMS\Datatypes\SmartDateTime($calendar->getDate()->format('Y') . '-' . $calendar->getDate()->format('m') . '-' . '01'); for($i = 0; $i < 6; $i++) : ?>
                 <div class="wf-100">
                 <?php for($j = 0; $j < 7; $j++) : ?>
@@ -30,7 +36,7 @@ $calendar = $this->getData('calendar');
                         $events = $calendar->getEventByDate($current);
                         $current->smartModify(0, 0, 1);
                     foreach($events as $event) : ?>
-                        <li><span class="tag purple" style="white-space: nowrap;"><?= $event->getName(); ?></span>
+                        <li><span id="event-tag-<?= $event->getId()?>" class="tag purple" style="white-space: nowrap;"><?= $event->getName(); ?></span>
                     <?php endforeach; ?>
                         </ul>
                     </div>
@@ -84,21 +90,4 @@ $calendar = $this->getData('calendar');
     <menuitem label="Delete"></menuitem>
 </menu>
 
-<div class="hidden">
-    <section class="box">
-        <div class="inner">
-            <form>
-                <table class="layout">
-                    <tr><td><label for="iTitle">Title</label>
-                    <tr><td><input type="text" id="">
-                    <tr><td><label for="iTitle">Description</label>
-                    <tr><td><textarea></textarea>
-                    <tr><td><label for="iTitle">To</label>
-                    <tr><td><input type="text" id="">
-                    <tr><td><label for="iTitle">Files</label>
-                    <tr><td><input type="text" id="">
-                </table>
-            </form>
-        </div>
-    </section>
-</div>
+<?= $this->getData('calendarEventPopup')->render('iCalendarEvent'); ?>

@@ -103,6 +103,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
         $view->addData('calendar', $calendar);
 
+        $calendarEventPopup = new \Modules\Calendar\Theme\Backend\Components\Event\BaseView($this->app, $request, $response);
+        $view->addData('calendarEventPopup', $calendarEventPopup);
+
         return $view;
     }
 

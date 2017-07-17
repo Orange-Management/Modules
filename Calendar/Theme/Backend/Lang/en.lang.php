@@ -15,7 +15,9 @@
  */
 return ['Calendar' => [
     'Blocks'   => 'Blocks',
+    'Close'   => 'Close',
     'Day'      => 'Day',
+    'Event'      => 'Event',
     'Interval' => 'Interval',
     'Layout'   => 'Layout',
     'List'     => 'List',
