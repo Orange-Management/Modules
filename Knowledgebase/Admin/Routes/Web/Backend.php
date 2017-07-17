@@ -15,21 +15,33 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/wiki/category.*$' => [
+    '^.*/backend/wiki/category/list.*$' => [
+        [
+            'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseCategoryList',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/backend/wiki/category/single.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseCategory',
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/wiki/doc.*$' => [
+    '^.*/backend/wiki/category/create.*$' => [
+        [
+            'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseCategoryCreate',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/backend/wiki/doc/single.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseDoc',
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/wiki/create.*$' => [
+    '^.*/backend/wiki/doc/create.*$' => [
         [
-            'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseCreate',
+            'dest' => '\Modules\Knowledgebase\Controller:viewKnowledgebaseDocCreate',
             'verb' => RouteVerb::GET,
         ],
     ],
