@@ -25,6 +25,8 @@ class Position implements ArrayableInterface, \JsonSerializable
     private $name = '';
 
     private $parent = null;
+    
+    private $department = null;
 
     private $description = '';
 
@@ -53,6 +55,16 @@ class Position implements ArrayableInterface, \JsonSerializable
     public function setParent(int $parent)
     {
         $this->parent = $parent;
+    }
+    
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+
+    public function setDepartment(int $department)
+    {
+        $this->department = $department;
     }
 
     public function getStatus() : int
