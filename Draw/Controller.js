@@ -24,7 +24,7 @@
 
             /* Handle media forms */
             for (let c = 0; c < canvas.length; c++) {
-                temp = new jsOMS.Modules.Draw.Editor(canvas[c]);
+                temp = new jsOMS.Modules.Draw.Editor(canvas[c], this.app);
                 temp.bind();
 
                 this.editors.push(temp);

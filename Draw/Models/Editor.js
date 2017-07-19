@@ -4,9 +4,10 @@
     /** @namespace jsOMS.Modules.Draw */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
 
-    jsOMS.Modules.Draw.Editor = function (editor)
+    jsOMS.Modules.Draw.Editor = function (editor, app)
     {
         this.editor = editor;
+        this.app = app;
         this.canvas = document.getElementsByTagName('canvas')[0];
         this.canvasContainer = this.canvas.parentElement;
         this.ctx = this.canvas.getContext("2d");
@@ -42,7 +43,9 @@
 
         this.initCanvas();
 
-        this.canvasContainer.addEventListener('DOMAttrModified', function(evt) {
+        console.log(this.canvasContainer);
+
+        this.app.eventManager.attach(this.canvasContainer.id, function(evt) {
             self.canvasStyle = window.getComputedStyle(self.canvas, null);
             self.canvasContainerStyle = window.getComputedStyle(self.canvasContainer, null);
 
@@ -51,6 +54,7 @@
                 height: parseFloat(self.canvasContainerStyle.height) - parseFloat(self.canvasContainerStyle.paddingTop) - parseFloat(self.canvasContainerStyle.paddingBottom) - parseFloat(self.canvasContainerStyle.borderRightWidth) - parseFloat(self.canvasStyle.borderRightWidth)
             });
         });
+        this.app.uiManager.getDOMObserver().observe(this.canvasContainer, {childList: true, subtree: true});
 
         // Handle draw and resize
         this.canvas.addEventListener('mousemove', function (evt)
