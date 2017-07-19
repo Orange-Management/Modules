@@ -87,15 +87,18 @@ class Installer extends InstallerAbstract
                             `organization_position_name` varchar(50) DEFAULT NULL,
                             `organization_position_description` varchar(255) DEFAULT NULL,
                             `organization_position_parent` int(11) DEFAULT NULL,
+                            `organization_position_department` int(11) DEFAULT NULL,
                             `organization_position_status` int(3) DEFAULT NULL,
                             PRIMARY KEY (`organization_position_id`),
-                            KEY `organization_position_parent` (`organization_position_parent`)
+                            KEY `organization_position_parent` (`organization_position_parent`),
+                            KEY `organization_position_department` (`organization_position_department`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
                     'ALTER TABLE `' . $dbPool->get('core')->prefix . 'organization_position`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_position_ibfk_1` FOREIGN KEY (`organization_position_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_position` (`organization_position_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_position_ibfk_1` FOREIGN KEY (`organization_position_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_position` (`organization_position_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_position_ibfk_2` FOREIGN KEY (`organization_position_department`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_department` (`organization_department_id`);'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
