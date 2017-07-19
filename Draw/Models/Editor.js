@@ -107,7 +107,7 @@
         const img = this.canvas.getAttribute('data-src'),
             self = this;
 
-        if(typeof img !== 'undefined' && img.length > 0) {
+        if(img !== null && typeof img !== 'undefined' && img.length > 0) {
             let imgObj = new Image();
 
             imgObj.addEventListener('load', function() {
