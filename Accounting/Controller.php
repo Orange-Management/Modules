@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -32,7 +31,6 @@ use phpOMS\Views\ViewLayout;
  * @category   Modules
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -90,7 +88,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -109,7 +106,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -128,7 +124,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -147,7 +142,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -166,7 +160,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -185,7 +178,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -204,7 +196,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -223,7 +214,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -242,7 +232,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -261,7 +250,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

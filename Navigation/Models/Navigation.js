@@ -2,7 +2,6 @@
  * Navigation class.
  *
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -21,7 +20,6 @@
      * @param {Object} data Initialization (optional)
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation = function (data)
     {
@@ -47,7 +45,6 @@
      * @return {void}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.setScrollPosition = function (x, y)
     {
@@ -61,7 +58,6 @@
      * @return {Object}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.getScrollPosition = function ()
     {
@@ -76,7 +72,6 @@
      * @return {void}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.setOpen = function (id)
     {
@@ -91,7 +86,6 @@
      * @return {void}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.setClose = function (id)
     {
@@ -104,7 +98,6 @@
      * @return {Object}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.getOpen = function ()
     {
@@ -133,7 +126,6 @@
      * @return {bool}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.setVisible = function (visible)
     {
@@ -146,7 +138,6 @@
      * @return {bool}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.Models.Navigation.prototype.isVisible = function ()
     {

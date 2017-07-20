@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -34,7 +33,6 @@ use phpOMS\Views\ViewLayout;
  * @category   Modules
  * @package    Modules\ItemManagement
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -91,7 +89,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -113,7 +110,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -132,7 +128,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -151,7 +146,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -170,7 +164,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -189,7 +182,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

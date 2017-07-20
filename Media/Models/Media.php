@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +21,6 @@ namespace Modules\Media\Models;
  * @category   Modules
  * @package    Modules\Media
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -123,7 +121,6 @@ class Media
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -134,7 +131,6 @@ class Media
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -145,7 +141,6 @@ class Media
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -156,7 +151,6 @@ class Media
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -167,7 +161,6 @@ class Media
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getExtension() : string
     {
@@ -178,7 +171,6 @@ class Media
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPath() : string
     {
@@ -189,7 +181,6 @@ class Media
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getName() : string
     {
@@ -200,7 +191,6 @@ class Media
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -211,7 +201,6 @@ class Media
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getSize() : int
     {
@@ -222,7 +211,6 @@ class Media
      * @return bool
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function isVersioned() : bool
     {
@@ -235,7 +223,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy($createdBy)
     {
@@ -248,7 +235,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      * @deprecated
      */
     public function setCreatedAt(\DateTime $createdAt)
@@ -262,7 +248,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setExtension(string $extension)
     {
@@ -275,7 +260,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPath(string $path)
     {
@@ -288,7 +272,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setName(string $name)
     {
@@ -301,7 +284,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $description)
     {
@@ -314,7 +296,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setSize(int $size)
     {
@@ -327,7 +308,6 @@ class Media
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setVersioned(bool $versioned)
     {

@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +21,6 @@ namespace Modules\Admin\Models;
  * @category   Framework
  * @package    phpOMS\Account
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -51,7 +49,6 @@ class Group extends \phpOMS\Account\Group
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -64,7 +61,6 @@ class Group extends \phpOMS\Account\Group
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {

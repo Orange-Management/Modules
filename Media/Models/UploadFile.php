@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -25,7 +24,6 @@ use phpOMS\System\File\Local\Directory;
  * @category   Modules
  * @package    Modules\Media
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -92,7 +90,6 @@ class UploadFile
      * @throws \Exception
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function upload(array $files) : array
     {
@@ -231,7 +228,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     private function findOutputDir(array $files)
     {
@@ -252,7 +248,6 @@ class UploadFile
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     private function getUploadError($error) : int
     {
@@ -272,7 +267,6 @@ class UploadFile
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getMaxSize() : int
     {
@@ -290,7 +284,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setMaxSize(int $maxSize)
     {
@@ -301,7 +294,6 @@ class UploadFile
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getAllowedTypes() : array
     {
@@ -314,7 +306,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setAllowedTypes(array $allowedTypes)
     {
@@ -327,7 +318,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function addAllowedTypes($allowedTypes)
     {
@@ -338,7 +328,6 @@ class UploadFile
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getOutputDir() : string
     {
@@ -351,7 +340,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setOutputDir(string $outputDir)
     {
@@ -362,7 +350,6 @@ class UploadFile
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getFileName() : string
     {
@@ -375,7 +362,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setFileName(string $fileName)
     {
@@ -388,7 +374,6 @@ class UploadFile
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPreserveFileName(bool $preserveFileName)
     {

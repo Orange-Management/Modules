@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -35,7 +34,6 @@ use phpOMS\Views\View;
  * @category   Modules
  * @package    Modules\Media
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -92,7 +90,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -110,7 +107,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewMediaList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -132,7 +128,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -153,7 +148,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -174,7 +168,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -199,7 +192,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function apiMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -214,7 +206,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function uploadFiles(array $files, int $account, string $basePath = '/Modules/Media/Files') : array
     {
@@ -244,7 +235,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public static function createDbEntries(array $status, int $account) : array
     {

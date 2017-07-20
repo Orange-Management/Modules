@@ -2,7 +2,6 @@
  * Navigation controller.
  *
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -19,7 +18,6 @@
      * Constructor
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation = function ()
     {
@@ -44,7 +42,6 @@
      * @return {void}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.prototype.bind = function (id)
     {
@@ -64,7 +61,6 @@
      * @return {void}
      *
      * @since 1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     jsOMS.Modules.Navigation.prototype.bindElement = function (e)
     {

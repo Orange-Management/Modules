@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -27,7 +26,6 @@ use phpOMS\Localization\Money;
  * @category   EventManager
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -225,7 +223,6 @@ class Event
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -236,7 +233,6 @@ class Event
      * @param \DateTime $createdAt Event created at
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -248,7 +244,6 @@ class Event
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -259,7 +254,6 @@ class Event
      * @param int $createdBy Creator
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $createdBy)
     {

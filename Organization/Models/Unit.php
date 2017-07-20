@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -90,7 +89,6 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __toString()
     {
@@ -103,7 +101,6 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function jsonSerialize()
     {

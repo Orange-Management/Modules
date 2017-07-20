@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +21,6 @@ namespace Modules\Accounting\Models;
  * @category   Modules
  * @package    Modules\Accounting\Models
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -84,7 +82,6 @@ abstract class AccountBalance
      * @param int $id Account id
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct(int $id)
     {
@@ -95,7 +92,6 @@ abstract class AccountBalance
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStart()
     {
@@ -108,7 +104,6 @@ abstract class AccountBalance
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStart($start)
     {
@@ -119,7 +114,6 @@ abstract class AccountBalance
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getEnd()
     {
@@ -132,7 +126,6 @@ abstract class AccountBalance
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setEnd($end)
     {
@@ -143,7 +136,6 @@ abstract class AccountBalance
      * @return TimeRangeType
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getRangetype()
     {
@@ -156,7 +148,6 @@ abstract class AccountBalance
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setRangetype($rangetype)
     {
@@ -167,7 +158,6 @@ abstract class AccountBalance
      * @return AccountInterface
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getAccount()
     {
@@ -180,7 +170,6 @@ abstract class AccountBalance
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setAccount($account)
     {
@@ -191,7 +180,6 @@ abstract class AccountBalance
      * @return float
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getBalance()
     {
@@ -204,7 +192,6 @@ abstract class AccountBalance
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setBalance($balance)
     {

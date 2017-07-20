@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -23,7 +22,6 @@ use phpOMS\Pattern\Multition;
  * @category   Warehousing
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -147,7 +145,6 @@ class Article implements Multition
      * @param int $id Article ID
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct($id)
     {
@@ -176,7 +173,6 @@ class Article implements Multition
      * @return \Modules\Warehousing\Models\Article
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getInstance($id)
     {
@@ -193,7 +189,6 @@ class Article implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId()
     {
@@ -206,7 +201,6 @@ class Article implements Multition
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getName()
     {
@@ -221,7 +215,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setName($name)
     {
@@ -234,7 +227,6 @@ class Article implements Multition
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getMatchcode()
     {
@@ -249,7 +241,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setMatchcode($matchcode)
     {
@@ -262,7 +253,6 @@ class Article implements Multition
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription()
     {
@@ -277,7 +267,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription($desc)
     {
@@ -290,7 +279,6 @@ class Article implements Multition
      * @return \Datetime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreated()
     {
@@ -305,7 +293,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreated($created)
     {
@@ -318,7 +305,6 @@ class Article implements Multition
      * @return \phpOMS\Models\User
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreator()
     {
@@ -333,7 +319,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreator($creator)
     {
@@ -349,7 +334,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function addPrice($price, $db = true)
     {
@@ -366,7 +350,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function removePrice($id, $db = true)
     {
@@ -385,7 +368,6 @@ class Article implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function editPrice($id, $price, $db = true)
     {

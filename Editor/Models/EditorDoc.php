@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  2013 Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Contract\ArrayableInterface;
  * @category   Module
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -92,7 +90,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -103,7 +100,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getContent() : string
     {
@@ -116,7 +112,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setContent(string $content)
     {
@@ -129,7 +124,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPlain(string $plain)
     {
@@ -140,7 +134,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPlain() : string
     {
@@ -151,7 +144,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -162,7 +154,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -173,7 +164,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy()
     {
@@ -184,7 +174,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @param int $id
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy($id)
     {
@@ -197,7 +186,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -208,7 +196,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTitle() : string
     {
@@ -221,7 +208,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return mixed
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTitle(string $title)
     {
@@ -232,7 +218,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPath() : string
     {
@@ -245,7 +230,6 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      * @return mixed
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPath(string $path)
     {

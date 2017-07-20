@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Pattern\Multition;
  * @category   Warehousing
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -104,7 +102,6 @@ class Arrival implements Multition
      * @param int $id Arrival ID
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     private function __construct($id)
     {
@@ -133,7 +130,6 @@ class Arrival implements Multition
      * @return \Modules\Warehousing\Models\Arrival
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getInstance($id)
     {
@@ -150,7 +146,6 @@ class Arrival implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId()
     {
@@ -163,7 +158,6 @@ class Arrival implements Multition
      * @return \Datetime Date of arrival
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDate()
     {
@@ -178,7 +172,6 @@ class Arrival implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDate($date)
     {
@@ -191,7 +184,6 @@ class Arrival implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getOrder()
     {
@@ -206,7 +198,6 @@ class Arrival implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setOrder($order)
     {
@@ -219,7 +210,6 @@ class Arrival implements Multition
      * @return \phpOMS\Datatypes\Address
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getFrom()
     {
@@ -234,7 +224,6 @@ class Arrival implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setFrom($from)
     {
@@ -247,7 +236,6 @@ class Arrival implements Multition
      * @return \Modules\Warehousing\Models\ArrivalStatus
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus()
     {
@@ -262,7 +250,6 @@ class Arrival implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus($status)
     {
@@ -275,7 +262,6 @@ class Arrival implements Multition
      * @return \Modules\Warehousing\Models\Warehouse
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getWarehouse()
     {
@@ -288,7 +274,6 @@ class Arrival implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getAcceptor()
     {
@@ -303,7 +288,6 @@ class Arrival implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setAcceptor($acceptor)
     {

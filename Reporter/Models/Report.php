@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +21,6 @@ namespace Modules\Reporter\Models;
  * @category   Framework
  * @package    phpOMS\Auth
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -115,7 +113,6 @@ class Report
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -125,7 +122,6 @@ class Report
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -136,7 +132,6 @@ class Report
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -149,7 +144,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
@@ -160,7 +154,6 @@ class Report
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTitle() : string
     {
@@ -173,7 +166,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTitle(string $title)
     {
@@ -184,7 +176,6 @@ class Report
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -197,7 +188,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $description)
     {
@@ -208,7 +198,6 @@ class Report
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -221,7 +210,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $created)
     {
@@ -232,7 +220,6 @@ class Report
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -245,7 +232,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $creator)
     {
@@ -256,7 +242,6 @@ class Report
      * @return mixed
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTemplate()
     {
@@ -269,7 +254,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTemplate($template)
     {
@@ -282,7 +266,6 @@ class Report
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setSource($source)
     {
@@ -293,7 +276,6 @@ class Report
      * @return mixed
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getSource()
     {

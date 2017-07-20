@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -26,7 +25,6 @@ use phpOMS\Localization\ISO639x1Enum;
  * @category   Module
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -126,7 +124,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -138,7 +135,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getContent() : string
     {
@@ -151,7 +147,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setContent(string $content)
     {
@@ -164,7 +159,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPlain(string $plain)
     {
@@ -175,7 +169,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPlain() : string
     {
@@ -186,7 +179,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -197,7 +189,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -208,7 +199,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getLanguage() : string
     {
@@ -219,7 +209,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPublish() : \DateTime
     {
@@ -232,7 +221,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setLanguage(string $language)
     {
@@ -249,7 +237,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPublish(\DateTime $publish)
     {
@@ -260,7 +247,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy()
     {
@@ -271,7 +257,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @param int $id
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy($id)
     {
@@ -284,7 +269,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -295,7 +279,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTitle() : string
     {
@@ -308,7 +291,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return mixed
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTitle(string $title)
     {
@@ -319,7 +301,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getType() : int
     {
@@ -332,7 +313,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setType(int $type)
     {
@@ -347,7 +327,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -362,7 +341,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @throws InvalidEnumValue
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
@@ -377,7 +355,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return bool
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function isFeatured() : bool
     {
@@ -390,7 +367,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setFeatured(bool $featured)
     {

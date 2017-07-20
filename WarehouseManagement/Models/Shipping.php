@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Pattern\Multition;
  * @category   Warehousing
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -102,7 +100,6 @@ class Shipping implements Multition
      * @param int $id Article ID
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct($id)
     {
@@ -117,7 +114,6 @@ class Shipping implements Multition
      * @return \Modules\Warehousing\Models\Article
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public static function getInstance($id)
     {
@@ -148,7 +144,6 @@ class Shipping implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId()
     {
@@ -161,7 +156,6 @@ class Shipping implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getOrder()
     {
@@ -176,7 +170,6 @@ class Shipping implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setOrder($order)
     {
@@ -189,7 +182,6 @@ class Shipping implements Multition
      * @return \Datetime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDelivered()
     {
@@ -204,7 +196,6 @@ class Shipping implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDelivered($delivered)
     {
@@ -217,7 +208,6 @@ class Shipping implements Multition
      * @return \phpOMS\Datatypes\Address
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTo()
     {
@@ -232,7 +222,6 @@ class Shipping implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTo($to)
     {
@@ -245,7 +234,6 @@ class Shipping implements Multition
      * @return \Modules\Warehousing\Models\ArrivalStatus
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus()
     {
@@ -260,7 +248,6 @@ class Shipping implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus($status)
     {
@@ -273,7 +260,6 @@ class Shipping implements Multition
      * @return \Modules\Warehousing\Models\Warehouse
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getWarehouse()
     {
@@ -286,7 +272,6 @@ class Shipping implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getSender()
     {
@@ -301,7 +286,6 @@ class Shipping implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setSender($sender)
     {

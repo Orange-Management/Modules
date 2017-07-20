@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
  * @category   Calendar
  * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -139,7 +137,6 @@ class Schedule
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -153,7 +150,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -164,7 +160,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -177,7 +172,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
@@ -194,7 +188,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getFreqType() : int
     {
@@ -207,7 +200,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setFreqType(int $freqType)
     {
@@ -224,7 +216,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getIntervalType() : int
     {
@@ -237,7 +228,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setIntervalType(int $intervalType)
     {
@@ -254,7 +244,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getFrequencyRelative() : int
     {
@@ -267,7 +256,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setFrequencyRelative(int $relativeInterval)
     {
@@ -286,7 +274,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setFreqInterval(int $freqInterval)
     {
@@ -303,7 +290,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getFreqInterval() : int
     {
@@ -314,7 +300,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getRecurrenceFactor() : int
     {
@@ -327,7 +312,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setRecurrenceFactor(int $recurrence)
     {
@@ -340,7 +324,6 @@ class Schedule
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStart() : \DateTime
     {
@@ -353,7 +336,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStart(\DateTime $start)
     {
@@ -366,7 +348,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDuration() : int
     {
@@ -379,7 +360,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDuration(int $duration)
     {
@@ -396,7 +376,6 @@ class Schedule
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getEnd() : \DateTime
     {
@@ -409,7 +388,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setEnd(\DateTime $end)
     {
@@ -424,7 +402,6 @@ class Schedule
      * @return $this
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $creator)
     {
@@ -437,7 +414,6 @@ class Schedule
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {

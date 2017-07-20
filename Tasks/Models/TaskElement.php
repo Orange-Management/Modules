@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -23,7 +22,6 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
  * @category   Modules
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -101,7 +99,6 @@ class TaskElement implements \JsonSerializable
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -114,7 +111,6 @@ class TaskElement implements \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -127,7 +123,6 @@ class TaskElement implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $created)
     {
@@ -138,7 +133,6 @@ class TaskElement implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -151,7 +145,6 @@ class TaskElement implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $creator)
     {
@@ -166,7 +159,6 @@ class TaskElement implements \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -179,7 +171,6 @@ class TaskElement implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $description)
     {
@@ -190,7 +181,6 @@ class TaskElement implements \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDue() : \DateTime
     {
@@ -203,7 +193,6 @@ class TaskElement implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDue(\DateTime $due)
     {
@@ -214,7 +203,6 @@ class TaskElement implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getForwarded() : int
     {
@@ -227,7 +215,6 @@ class TaskElement implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setForwarded(int $forwarded)
     {
@@ -238,7 +225,6 @@ class TaskElement implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -249,7 +235,6 @@ class TaskElement implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -264,7 +249,6 @@ class TaskElement implements \JsonSerializable
      * @throws InvalidEnumValue
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
@@ -279,7 +263,6 @@ class TaskElement implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTask() : int
     {
@@ -292,7 +275,6 @@ class TaskElement implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTask(int $task)
     {

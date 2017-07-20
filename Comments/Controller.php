@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  2013 Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -33,7 +32,6 @@ use phpOMS\Views\ViewLayout;
  * @category   Modules
  * @package    Editor
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -90,7 +88,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setUpCommentEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -106,7 +103,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -125,7 +121,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function viewCommentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -155,7 +150,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function apiCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {

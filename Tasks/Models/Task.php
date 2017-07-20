@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Datatypes\Exception\InvalidEnumValue;
  * @category   Tasks
  * @package    Modules
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -128,7 +126,6 @@ class Task implements \JsonSerializable
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -146,7 +143,6 @@ class Task implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function addElement(TaskElement $element) : int
     {
@@ -163,7 +159,6 @@ class Task implements \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -174,7 +169,6 @@ class Task implements \JsonSerializable
      * @param \DateTime $created
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $created)
     {
@@ -185,7 +179,6 @@ class Task implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -196,7 +189,6 @@ class Task implements \JsonSerializable
      * @param int $id
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $id)
     {
@@ -208,7 +200,6 @@ class Task implements \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -219,7 +210,6 @@ class Task implements \JsonSerializable
      * @param string $description
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $description)
     {
@@ -230,7 +220,6 @@ class Task implements \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDone() : \DateTime
     {
@@ -241,7 +230,6 @@ class Task implements \JsonSerializable
      * @param \DateTime $done
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDone(\DateTime $done)
     {
@@ -252,7 +240,6 @@ class Task implements \JsonSerializable
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDue() : \DateTime
     {
@@ -263,7 +250,6 @@ class Task implements \JsonSerializable
      * @param \DateTime $due
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDue(\DateTime $due)
     {
@@ -274,7 +260,6 @@ class Task implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -285,7 +270,6 @@ class Task implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -298,7 +282,6 @@ class Task implements \JsonSerializable
      * @throws InvalidEnumValue
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status)
     {
@@ -313,7 +296,6 @@ class Task implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPriority() : int
     {
@@ -326,7 +308,6 @@ class Task implements \JsonSerializable
      * @throws InvalidEnumValue
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPriority(int $priority)
     {
@@ -341,7 +322,6 @@ class Task implements \JsonSerializable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTitle() : string
     {
@@ -352,7 +332,6 @@ class Task implements \JsonSerializable
      * @param string $title
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setTitle(string $title)
     {
@@ -367,7 +346,6 @@ class Task implements \JsonSerializable
      * @return bool
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function removeElement($id) : bool
     {
@@ -386,7 +364,6 @@ class Task implements \JsonSerializable
      * @return TaskElement[]
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTaskElements() : array
     {
@@ -401,7 +378,6 @@ class Task implements \JsonSerializable
      * @return TaskElement
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getTaskElement(int $id) : TaskElement
     {
@@ -414,7 +390,6 @@ class Task implements \JsonSerializable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getType() : int
     {
@@ -429,7 +404,6 @@ class Task implements \JsonSerializable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setType(int $type = TaskType::SINGLE)
     {
@@ -442,7 +416,6 @@ class Task implements \JsonSerializable
      * @return Schedule
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getSchedule() : Schedule {
         return $this->schedule;

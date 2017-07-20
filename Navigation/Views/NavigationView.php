@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Views\View;
  * @category   Modules
  * @package    Modules\Navigation
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -81,7 +79,6 @@ class NavigationView extends View
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getNavId() : int
     {
@@ -96,7 +93,6 @@ class NavigationView extends View
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setNavId(int $navId)
     {
@@ -107,7 +103,6 @@ class NavigationView extends View
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getNav() : array
     {
@@ -120,7 +115,6 @@ class NavigationView extends View
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setNav(array $nav)
     {
@@ -131,7 +125,6 @@ class NavigationView extends View
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getLanguage() : string
     {
@@ -144,7 +137,6 @@ class NavigationView extends View
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setLanguage(string $language)
     {
@@ -155,7 +147,6 @@ class NavigationView extends View
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getParent() : int
     {
@@ -168,7 +159,6 @@ class NavigationView extends View
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setParent(int $parent)
     {

@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @category   Module
  * @package    Accounting
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -76,7 +74,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -88,7 +85,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId()
     {
@@ -103,7 +99,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setId($id)
     {
@@ -116,7 +111,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription()
     {
@@ -131,7 +125,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription($desc)
     {
@@ -143,7 +136,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return \Datetime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreated()
     {
@@ -158,7 +150,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreated($created)
     {
@@ -171,7 +162,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreator()
     {
@@ -186,7 +176,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreator($creator)
     {
@@ -201,7 +190,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return \Modules\Accounting\Models\PostingAbstract
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPosting($id)
     {
@@ -216,7 +204,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function removePosting($id)
     {
@@ -231,7 +218,6 @@ class BatchPosting implements ExchangeInterface, \Countable
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function addPosting($posting)
     {

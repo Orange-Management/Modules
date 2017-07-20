@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Datatypes\SmartDateTime;
  * @category   Calendar
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -100,7 +98,6 @@ class Calendar
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -112,7 +109,6 @@ class Calendar
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -123,7 +119,6 @@ class Calendar
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getName() : string
     {
@@ -134,7 +129,6 @@ class Calendar
      * @param string $name Calendar name/title
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setName(string $name)
     {
@@ -145,7 +139,6 @@ class Calendar
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPassword()
     {
@@ -156,7 +149,6 @@ class Calendar
      * @param string $password Calendar password/title
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setPassword($password)
     {
@@ -167,7 +159,6 @@ class Calendar
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -178,7 +169,6 @@ class Calendar
      * @param string $desc Calendar description
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $desc)
     {
@@ -191,7 +181,6 @@ class Calendar
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function addEvent(Event $event) : int
     {
@@ -208,7 +197,6 @@ class Calendar
      * @return Event[]
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getEvents() : array
     {
@@ -221,7 +209,6 @@ class Calendar
      * @return bool
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function removeEvent(int $id) : bool
     {
@@ -240,7 +227,6 @@ class Calendar
      * @return Event
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getEvent(int $id) : Event
     {
@@ -251,7 +237,6 @@ class Calendar
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -262,7 +247,6 @@ class Calendar
      * @param \DateTime $createdAt Calendar created at
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -273,7 +257,6 @@ class Calendar
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -284,7 +267,6 @@ class Calendar
      * @param int $createdBy Creator
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $createdBy)
     {
@@ -297,7 +279,6 @@ class Calendar
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDate() : \DateTime
     {
@@ -310,7 +291,6 @@ class Calendar
      * @param \DateTime $date Current date
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDate(\DateTime $date)
     {
@@ -325,7 +305,6 @@ class Calendar
      * @return Event[]
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getEventByDate(\DateTime $date) : array
     {

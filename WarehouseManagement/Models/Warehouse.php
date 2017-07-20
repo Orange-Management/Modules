@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -24,7 +23,6 @@ use phpOMS\Pattern\Multition;
  * @category   Warehousing
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -70,7 +68,6 @@ class Warehouse implements Multition
      * @param int $id Warehouse ID
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct($id)
     {
@@ -85,7 +82,6 @@ class Warehouse implements Multition
      * @return \Modules\Warehousing\Models\Warehouse
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public static function getInstance($id)
     {
@@ -116,7 +112,6 @@ class Warehouse implements Multition
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId()
     {
@@ -129,7 +124,6 @@ class Warehouse implements Multition
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getName()
     {
@@ -144,7 +138,6 @@ class Warehouse implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setName($name)
     {
@@ -157,7 +150,6 @@ class Warehouse implements Multition
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription()
     {
@@ -172,7 +164,6 @@ class Warehouse implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription($description)
     {
@@ -185,7 +176,6 @@ class Warehouse implements Multition
      * @return \phpOMS\Datatypes\Location
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getLocation()
     {
@@ -200,7 +190,6 @@ class Warehouse implements Multition
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setLocation($location)
     {

@@ -7,7 +7,6 @@
  * @category   TBD
  * @package    TBD
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -26,7 +25,6 @@ use phpOMS\Datatypes\Location;
  * @category   Calendar
  * @package    Framework
  * @author     OMS Development Team <dev@oms.com>
- * @author     Dennis Eichhorn <d.eichhorn@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
@@ -130,7 +128,6 @@ class Event
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -143,7 +140,6 @@ class Event
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -154,7 +150,6 @@ class Event
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getName() : string
     {
@@ -165,7 +160,6 @@ class Event
      * @return Account[]
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPeople() : array
     {
@@ -178,7 +172,6 @@ class Event
      * @return Account
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getPerson(int $id) : Account
     {
@@ -191,7 +184,6 @@ class Event
      * @return int Account id/position
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function addPerson(Account $person)
     {
@@ -212,7 +204,6 @@ class Event
      * @return bool
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function removePerson(int $id) : bool
     {
@@ -229,7 +220,6 @@ class Event
      * @param string $name Event name/title
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setName(string $name)
     {
@@ -240,7 +230,6 @@ class Event
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -251,7 +240,6 @@ class Event
      * @param string $desc Event description
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $desc)
     {
@@ -262,7 +250,6 @@ class Event
      * @return \DateTime
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedAt() : \DateTime
     {
@@ -273,7 +260,6 @@ class Event
      * @param \DateTime $createdAt Event created at
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -284,7 +270,6 @@ class Event
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCreatedBy() : int
     {
@@ -295,7 +280,6 @@ class Event
      * @param int $createdBy Creator
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCreatedBy(int $createdBy)
     {
@@ -307,7 +291,6 @@ class Event
      * @param Location $location Event location
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setLocation(Location $location)
     {
@@ -318,7 +301,6 @@ class Event
      * @return Location
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getLocation() : Location
     {
@@ -329,7 +311,6 @@ class Event
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getCalendar() : int
     {
@@ -340,7 +321,6 @@ class Event
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getType() : int
     {
@@ -351,7 +331,6 @@ class Event
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -362,7 +341,6 @@ class Event
      * @param int $calendar Calendar
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setCalendar(int $calendar)
     {
@@ -373,7 +351,6 @@ class Event
      * @return Schedule
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getSchedule() : Schedule
     {
