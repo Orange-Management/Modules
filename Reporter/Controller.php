@@ -243,6 +243,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $rcoll  = [];
         $report = end($report);
 
+        $report = $report === false ? new NullReport() : $report;
+
         if (!($report instanceof NullReport)) {
             /** @var Media[] $files */
             $files = $report->getSource()->getSources();
