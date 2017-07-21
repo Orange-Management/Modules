@@ -176,21 +176,21 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
     /**
-     * @param int $id
+     * @param mixed $id
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $id)
+    public function setCreatedBy($id)
     {
         $this->createdBy = $id;
         $this->schedule->setCreatedBy($id);

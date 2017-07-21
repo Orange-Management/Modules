@@ -130,23 +130,23 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
     /**
-     * @param int $creator
+     * @param mixed $creator
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $creator)
+    public function setCreatedBy($creator)
     {
         $this->createdBy = $creator;
 
@@ -200,23 +200,23 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getForwarded() : int
+    public function getForwarded()
     {
         return $this->forwarded;
     }
 
     /**
-     * @param int $forwarded
+     * @param mixed $forwarded
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setForwarded(int $forwarded)
+    public function setForwarded($forwarded)
     {
         $this->forwarded = $forwarded;
     }

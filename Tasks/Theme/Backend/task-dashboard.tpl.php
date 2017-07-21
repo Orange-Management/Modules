@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('S' . $task->getStatus()); ?></span></a>
                         <td><a href="<?= $url; ?>"><?= $task->getDue()->format('Y-m-d H:i'); ?></a>
                         <td><a href="<?= $url; ?>"><?= $task->getTitle(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $task->getCreatedBy(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $task->getCreatedBy()->getName1(); ?></a>
                         <td><a href="<?= $url; ?>"><?= $task->getCreatedAt()->format('Y-m-d H:i'); ?></a>
                 <?php endforeach; if($c == 0) : ?>
                 <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>

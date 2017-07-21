@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
             </div>
             <div class="inner">
                 <div class="pAlignTable">
-                    <div class="vCenterTable wf-100">Created <?= $task->getCreatedBy(); ?></div>
+                    <div class="vCenterTable wf-100">Created <?= $task->getCreatedBy()->getName1(); ?></div>
                     <span class="vCenterTable nobreak tag <?= $color; ?>"><?= $this->getText('S' . $task->getStatus()); ?></span>
                 </div>
             </div>
@@ -57,7 +57,7 @@ echo $this->getData('nav')->render(); ?>
             elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
-                    <div class="vCenterTable wf-100"><?= $element->getCreatedBy(); ?> - <?= $element->getCreatedAt()->format('Y-m-d H:i'); ?></div>
+                    <div class="vCenterTable wf-100"><?= $element->getCreatedBy()->getName1(); ?> - <?= $element->getCreatedAt()->format('Y-m-d H:i'); ?></div>
                     <span class="vCenterTable tag <?= $color; ?>"><?= $this->getText('S' . $element->getStatus()); ?></span>
                 </div>
 
@@ -71,7 +71,7 @@ echo $this->getData('nav')->render(); ?>
 
                 <div class="inner pAlignTable">
                 <?php if ($element->getForwarded() !== 0) : ?>
-                    <div class="vCenterTable wf-100">Forwarded <?= $element->getForwarded(); ?></div>
+                    <div class="vCenterTable wf-100">Forwarded <?= $element->getForwarded()->getName1(); ?></div>
                 <?php endif; ?>
                 <?php if ($element->getStatus() !== \Modules\Tasks\Models\TaskStatus::CANCELED ||
                     $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::DONE ||

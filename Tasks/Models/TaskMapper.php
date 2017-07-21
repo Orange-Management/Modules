@@ -15,6 +15,7 @@
 declare(strict_types=1);
 namespace Modules\Tasks\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Calendar\Models\ScheduleMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Tasks\Models\TaskElementMapper;
@@ -74,6 +75,13 @@ class TaskMapper extends DataMapperAbstract
             'table'          => 'task_media',
             'dst'            => 'task_media_dst',
             'src'            => 'task_media_src',
+        ],
+    ];
+
+    protected static $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'task_created_by',
         ],
     ];
 

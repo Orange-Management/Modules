@@ -15,6 +15,7 @@
 declare(strict_types=1);
 namespace Modules\Tasks\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\RelationType;
@@ -61,6 +62,17 @@ class TaskElementMapper extends DataMapperAbstract
             'table'          => 'task_element_media',
             'dst'            => 'task_element_media_dst',
             'src'            => 'task_element_media_src',
+        ],
+    ];
+
+    protected static $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'task_element_created_by',
+        ],
+        'forwarded' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'task_element_forwarded',
         ],
     ];
 
