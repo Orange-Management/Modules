@@ -51,7 +51,6 @@ class PackageInfoManager
      * @param string $path Info file path
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function __construct($path)
     {
@@ -63,7 +62,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getPath() : string
     {
@@ -75,7 +73,6 @@ class PackageInfoManager
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function load() /* : void */
     {
@@ -91,7 +88,6 @@ class PackageInfoManager
      * @return void
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function update() /* : void */
     {
@@ -108,7 +104,6 @@ class PackageInfoManager
      * @param string $delim Delimiter of path
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function set(string $path, $data, string $delim = '/') /* : void */
     {
@@ -123,7 +118,6 @@ class PackageInfoManager
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function get() : array
     {
@@ -136,7 +130,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getSystem() : string
     {
@@ -149,7 +142,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getSubSystem() : string
     {
@@ -162,7 +154,6 @@ class PackageInfoManager
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getDependencies() : array
     {
@@ -175,7 +166,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getChangelog() : string
     {
@@ -188,7 +178,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getType() : string
     {
@@ -201,7 +190,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getSubType() : string
     {
@@ -214,7 +202,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getVersion() : array
     {
@@ -227,7 +214,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getVersionOld() : string
     {
@@ -240,7 +226,6 @@ class PackageInfoManager
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getVersionNew() : string
     {
@@ -253,7 +238,6 @@ class PackageInfoManager
      * @return array
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn
      */
     public function getChanges() : array
     {
