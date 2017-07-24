@@ -22,21 +22,21 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table red">
-        <caption><?= $this->getText('Surveys') ?></caption>
+        <caption><?= $this->getHtml('Surveys'); ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('Status'); ?>
-            <td class="wf-100"><?= $this->getText('Title'); ?>
-            <td><?= $this->getText('Created'); ?>
-            <td><?= $this->getText('Creator'); ?>
+            <td><?= $this->getHtml('Status') ?>
+            <td class="wf-100"><?= $this->getHtml('Title') ?>
+            <td><?= $this->getHtml('Created') ?>
+            <td><?= $this->getHtml('Creator') ?>
         <tfoot>
         <tr>
-            <td colspan="4"><?= $footerView->render(); ?>
+            <td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
         <tbody>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+        <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

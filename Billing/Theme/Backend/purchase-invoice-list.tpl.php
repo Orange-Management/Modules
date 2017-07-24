@@ -24,25 +24,25 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Invoices') ?></caption>
+                <caption><?= $this->getHtml('Invoices'); ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td><?= $this->getText('Type'); ?>
-                    <td><?= $this->getText('SupplierID'); ?>
-                    <td class="wf-100"><?= $this->getText('Supplier'); ?>
-                    <td><?= $this->getText('Net'); ?>
-                    <td><?= $this->getText('Gross'); ?>
-                    <td><?= $this->getText('Created'); ?>
-                    <td><?= $this->getText('Due'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('Type') ?>
+                    <td><?= $this->getHtml('SupplierID') ?>
+                    <td class="wf-100"><?= $this->getHtml('Supplier') ?>
+                    <td><?= $this->getHtml('Net') ?>
+                    <td><?= $this->getHtml('Gross') ?>
+                    <td><?= $this->getHtml('Created') ?>
+                    <td><?= $this->getHtml('Due') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="8"><?= $footerView->render(); ?>
+                    <td colspan="8"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-                <tr><td colspan="8" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
             </table>
         </div>

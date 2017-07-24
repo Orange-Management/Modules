@@ -23,22 +23,22 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Department'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Department') ?></h1></header>
             <div class="inner">
                 <form>
                     <table class="layout wf-100">
-                        <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
-                        <tr><td><input type="text" name="name" id="iName" value="<?= $department->getName(); ?>">
-                        <tr><td><label for="iParent"><?= $this->getText('Parent'); ?></label>
-                        <tr><td><input type="text" name="parent" id="iParent" value="<?= $department->getParent(); ?>">
-                        <tr><td><label for="iStatus"><?= $this->getText('Status'); ?></label>
+                        <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
+                        <tr><td><input type="text" name="name" id="iName" value="<?= htmlspecialchars($department->getName(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
+                        <tr><td><input type="text" name="parent" id="iParent" value="<?= htmlspecialchars($department->getParent(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select name="status" id="iStatus">
-                                    <option><?= $this->getText('Active'); ?>
-                                    <option><?= $this->getText('Inactive'); ?>
+                                    <option><?= $this->getHtml('Active') ?>
+                                    <option><?= $this->getHtml('Inactive') ?>
                                 </select>
-                        <tr><td><label for="iDescription"><?= $this->getText('Description'); ?></label>
-                        <tr><td><textarea name="description" id="iDescription"><?= $department->getDescription(); ?></textarea>
-                        <tr><td><input type="submit" value="<?= $this->getText('Save', 0) ?>">
+                        <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
+                        <tr><td><textarea name="description" id="iDescription"><?= htmlspecialchars($department->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>
             </div>

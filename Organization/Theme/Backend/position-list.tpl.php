@@ -31,24 +31,24 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Positions'); ?></caption>
+                <caption><?= $this->getHtml('Positions') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Name'); ?>
-                    <td><?= $this->getText('Parent'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Parent') ?>
                         <tfoot>
-                <tr><td colspan="3"><?= $footerView->render(); ?>
+                <tr><td colspan="3"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                         <tbody>
                         <?php $count = 0; foreach($listElements as $key => $value) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
-                    <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                    <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

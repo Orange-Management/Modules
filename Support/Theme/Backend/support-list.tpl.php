@@ -21,16 +21,16 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Tickets'); ?></caption>
+                <caption><?= $this->getHtml('Tickets') ?></caption>
                 <thead>
-                <tr><td><?= $this->getText('ID', 0, 0); ?>
-                    <td><?= $this->getText('Status'); ?>
-                    <td><?= $this->getText('Priority'); ?>
-                    <td class="full"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Responsible'); ?>
+                <tr><td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('Status') ?>
+                    <td><?= $this->getHtml('Priority') ?>
+                    <td class="full"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Responsible') ?>
                 <tfoot>
                 <tbody>
-                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
             </table>
         </div>
     </div>

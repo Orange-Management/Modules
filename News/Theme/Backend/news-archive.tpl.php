@@ -29,16 +29,16 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Archive') ?></caption>
+                <caption><?= $this->getHtml('Archive'); ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('Type'); ?>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Author'); ?>
-                    <td><?= $this->getText('Date'); ?>
+                    <td><?= $this->getHtml('Type') ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Author') ?>
+                    <td><?= $this->getHtml('Date') ?>
                         <tfoot>
                 <tr>
-                    <td colspan="4"><?= $footerView->render(); ?>
+                    <td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                         <tbody>
                         <?php $count = 0; foreach($articles as $key => $news) : $count++; $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
                             $color = 'darkred';
@@ -47,13 +47,13 @@ echo $this->getData('nav')->render(); ?>
                             elseif($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; } 
                         ?>
                             <tr>
-                                <td><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType()); ?></span></a>
-                                <td><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $news->getCreatedBy()->getName1(); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
+                                <td><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>
+                                <td><a href="<?= $url; ?>"><?= htmlspecialchars($news->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+                                <td><a href="<?= $url; ?>"><?= htmlspecialchars($news->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
+                                <td><a href="<?= $url; ?>"><?= htmlspecialchars($news->getPublish()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
-                <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

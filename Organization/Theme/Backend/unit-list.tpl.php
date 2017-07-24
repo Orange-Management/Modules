@@ -29,21 +29,21 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Units'); ?></caption>
+                <caption><?= $this->getHtml('Units') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Name'); ?>
-                    <td><?= $this->getText('Parent'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Parent') ?>
                         <tfoot>
-                <tr><td colspan="3"><?= $footerView->render(); ?>
+                <tr><td colspan="3"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                         <tbody>
                         <?php foreach ($this->getData('list:elements') as $key => $value) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/unit/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td data-label="<?= $this->getText('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td data-label="<?= $this->getText('Name'); ?>"><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                    <td data-label="<?= $this->getText('Parent'); ?>"><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId() ?></a>
+                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td data-label="<?= $this->getHtml('Parent') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
             </table>
         </div>

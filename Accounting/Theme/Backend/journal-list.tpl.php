@@ -27,25 +27,25 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table red">
-        <caption><?= $this->getText('Journal'); ?></caption>
+        <caption><?= $this->getHtml('Journal') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID', 0, 0); ?>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
+            <td><?= $this->getHtml('ID', 0, 0); ?>
+            <td class="wf-100"><?= $this->getHtml('Name') ?>
         <tfoot>
-        <tr><td colspan="5"><?= $footerView->render(); ?>
+        <tr><td colspan="5"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
         <tbody>
         <?php $c = 0; foreach ([] as $key => $value) : $c++;
         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
         <tr>
-            <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
             <td>
             <td>
             <td>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

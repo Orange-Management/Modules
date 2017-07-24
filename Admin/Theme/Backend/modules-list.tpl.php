@@ -32,32 +32,32 @@ $footerView->setResults(count($modules));
     <div class="col-xs-12">
         <div class="box w-100">
             <table class="table red">
-                <caption><?= $this->getText('Modules'); ?></caption>
+                <caption><?= $this->getHtml('Modules') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Name'); ?>
-                    <td><?= $this->getText('Version'); ?>
-                    <td><?= $this->getText('Status'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Version') ?>
+                    <td><?= $this->getHtml('Status') ?>
                         <tfoot>
                 <tr>
-                    <td colspan="4"><?= $footerView->render(); ?>
+                    <td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                         <tbody>
                         <?php $count = 0; foreach ($modules as $key => $module) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/module/settings?{?}&id=' . $module['name']['internal']); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $module['name']['internal']; ?></a>
-                    <td><a href="<?= $url; ?>"><?= $module['name']['external']; ?></a>
-                    <td><a href="<?= $url; ?>"><?= $module['version']; ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($module['name']['internal'], ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($module['name']['external'], ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($module['version'], ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?php if (in_array($module['name']['internal'], $active))
-                            echo strtolower($this->getText('Active'));
+                            echo strtolower($this->getHtml('Active'));
                         elseif (in_array($module['name']['internal'], $installed))
-                            echo strtolower($this->getText('Inactive'));
+                            echo strtolower($this->getHtml('Inactive'));
                         else
-                            echo strtolower($this->getText('Available')); ?></a>
+                            echo strtolower($this->getHtml('Available')); ?></a>
                         <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-                    <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
             </table>
         </div>

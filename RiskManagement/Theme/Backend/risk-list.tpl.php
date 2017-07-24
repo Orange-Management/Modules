@@ -19,28 +19,28 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Causes'); ?></caption>
+                <caption><?= $this->getHtml('Causes') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Causes'); ?>
-                    <td><?= $this->getText('Solutions'); ?>
-                    <td><?= $this->getText('RiskObjects'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Causes') ?>
+                    <td><?= $this->getHtml('Solutions') ?>
+                    <td><?= $this->getHtml('RiskObjects') ?>
                         <tfoot>
                 <tr><td colspan="3">
                         <tbody>
                         <?php $c = 0; foreach ($risks as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= count($value->getCauses()) ?></a>
-                    <td><a href="<?= $url; ?>"><?= count($value->getSolutions()) ?></a>
-                    <td><a href="<?= $url; ?>"><?= count($value->getRiskObjects()) ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getCauses()) , ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getSolutions()) , ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getRiskObjects()) , ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
-                        <tr><td colspan="3" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                        <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                                 <?php endif; ?>
             </table>
         </div>

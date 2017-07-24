@@ -31,28 +31,28 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Reports'); ?></caption>
+                <caption><?= $this->getHtml('Reports') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Name'); ?>
-                    <td><?= $this->getText('Creator'); ?>
-                    <td><?= $this->getText('Updated'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Creator') ?>
+                    <td><?= $this->getHtml('Updated') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="4"><?= $footerView->render(); ?>
+                    <td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php if (count($templates) == 0) : ?>
                 <tr class="empty">
-                    <td colspan="4"><?= $this->getText('Empty', 0, 0); ?>
+                    <td colspan="4"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
                         <?php foreach ($templates as $key => $template) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/reporter/report/view?{?}&id=' . $template->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= $template->getId(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $template->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $template->getCreatedBy(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $template->getCreatedAt()->format('Y-m-d'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
             </table>
         </div>

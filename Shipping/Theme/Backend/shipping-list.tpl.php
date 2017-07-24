@@ -27,30 +27,30 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table red">
-        <caption><?= $this->getText('Shipping'); ?></caption>
+        <caption><?= $this->getHtml('Shipping') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID', 0, 0); ?>
-            <td><?= $this->getText('Reference'); ?>
-            <td><?= $this->getText('Status'); ?>
-            <td><?= $this->getText('Service'); ?>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Created'); ?>
+            <td><?= $this->getHtml('ID', 0, 0); ?>
+            <td><?= $this->getHtml('Reference') ?>
+            <td><?= $this->getHtml('Status') ?>
+            <td><?= $this->getHtml('Service') ?>
+            <td class="wf-100"><?= $this->getHtml('Name') ?>
+            <td><?= $this->getHtml('Creator') ?>
+            <td><?= $this->getHtml('Created') ?>
         <tfoot>
-        <tr><td colspan="7"><?= $footerView->render(); ?>
+        <tr><td colspan="7"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
         <tbody>
         <?php $c = 0; foreach ([] as $key => $value) : $c++;
         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>
         <tr>
-            <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $value->getUnit(); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent(), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getUnit(), ENT_COMPAT, 'utf-8'); ?></a>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
         <tr>
-            <td colspan=7" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+            <td colspan=7" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

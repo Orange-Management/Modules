@@ -27,11 +27,11 @@ echo $this->getData('nav')->render(); ?>
 <div class="tabular-2">
     <div class="box">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->getText('Master') ?></label>
-            <li><label for="c-tab-2"><?= $this->getText('Text') ?></label>
-            <li><label for="c-tab-3"><?= $this->getText('Axis') ?></label>
-            <li><label for="c-tab-4"><?= $this->getText('Data') ?></label>
-            <li><label for="c-tab-5"><?= $this->getText('Legend') ?></label>
+            <li><label for="c-tab-1"><?= $this->getHtml('Master'); ?></label>
+            <li><label for="c-tab-2"><?= $this->getHtml('Text'); ?></label>
+            <li><label for="c-tab-3"><?= $this->getHtml('Axis'); ?></label>
+            <li><label for="c-tab-4"><?= $this->getHtml('Data'); ?></label>
+            <li><label for="c-tab-5"><?= $this->getHtml('Legend'); ?></label>
         </ul>
     </div>
     <div class="tab-content">
@@ -41,19 +41,19 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->getText('Name'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Grid'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Grid') ?></label>
                             <tr><td><select></select>
-                            <tr><td><label for="iName"><?= $this->getText('Marker'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Marker') ?></label>
                             <tr><td><select></select>
-                            <tr><td><label for="iName"><?= $this->getText('Hover'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Hover') ?></label>
                             <tr><td><select></select>
-                            <tr><td><label for="iName"><?= $this->getText('Thickness'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Thickness') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Color'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Color') ?></label>
                             <tr><td><select></select>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('ShowData'); ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('ShowData') ?></label></span>
                         </table>
                     </form>
                 </div>
@@ -65,11 +65,11 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->getText('Title'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Title') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Size') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Position') ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -80,11 +80,11 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->getText('Subtitle'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Subtitle') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Size') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Position') ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -95,11 +95,11 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->getText('Footer'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Footer') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Size') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Position') ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -113,20 +113,20 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('Visible'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('ShowAxis'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('ShowTicks'); ?></label></span>
-                            <tr><td><label for="iName"><?= $this->getText('Minimum'); ?></label>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('Visible') ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('ShowAxis') ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('ShowTicks') ?></label></span>
+                            <tr><td><label for="iName"><?= $this->getHtml('Minimum') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Maximum'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Maximum') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Steps'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Steps') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Label'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Label') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Size') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Position') ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -138,20 +138,20 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('Visible'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('ShowAxis'); ?></label></span>
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('ShowTicks'); ?></label></span>
-                            <tr><td><label for="iName"><?= $this->getText('Minimum'); ?></label>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('Visible') ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('ShowAxis') ?></label></span>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('ShowTicks') ?></label></span>
+                            <tr><td><label for="iName"><?= $this->getHtml('Minimum') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Maximum'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Maximum') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Steps'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Steps') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Label'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Label') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Size'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Size') ?></label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><label for="iName"><?= $this->getText('Position'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Position') ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>
@@ -164,13 +164,13 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->getText('Info'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Info') ?></label>
                             <tr><td><input type="text" id="iName">
                             <tr><td><label for="iName">X</label>
                             <tr><td><input type="text" id="iName">
                             <tr><td><label for="iName">Y</label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><button><?= $this->getText('Add', 0, 0); ?></button>
+                            <tr><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
                         </table>
                     </form>
                 </div>
@@ -180,7 +180,7 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><label for="iName"><?= $this->getText('Data'); ?></label>
+                            <tr><td><label for="iName"><?= $this->getHtml('Data') ?></label>
                             <tr><td><textarea></textarea>
                         </table>
                     </form>
@@ -193,8 +193,8 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="wf-100">
-                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getText('Visible'); ?></label></span>
-                            <tr><td><label for="iName"><?= $this->getText('Position'); ?></label>
+                            <tr><td><span class="check"><input type="checkbox"><label><?= $this->getHtml('Visible') ?></label></span>
+                            <tr><td><label for="iName"><?= $this->getHtml('Position') ?></label>
                             <tr><td><select></select>
                         </table>
                     </form>

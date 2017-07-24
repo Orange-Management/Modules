@@ -29,31 +29,31 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('TopRisks'); ?></caption>
+                <caption><?= $this->getHtml('TopRisks') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('Severity'); ?>
-                    <td class="wf-100"><?= $this->getText('Name'); ?>
-                    <td><?= $this->getText('Department'); ?>
-                    <td><?= $this->getText('Category'); ?>
-                    <td><?= $this->getText('Process'); ?>
-                    <td><?= $this->getText('Project'); ?>
-                    <td><?= $this->getText('Unit'); ?>
+                    <td><?= $this->getHtml('Severity') ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Department') ?>
+                    <td><?= $this->getHtml('Category') ?>
+                    <td><?= $this->getHtml('Process') ?>
+                    <td><?= $this->getHtml('Project') ?>
+                    <td><?= $this->getHtml('Unit') ?>
                 <tfoot>
-                <tr><td colspan="6"><?= $footerView->render(); ?>
+                <tr><td colspan="6"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td>
                     <td>
                     <td>
                     <td>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
-                <tr><td colspan="7" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="7" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>
@@ -62,38 +62,38 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/controlling/riskmanagement/risk/create'); ?>"><?= $this->getText('NewRisk'); ?></a>
+                <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/controlling/riskmanagement/risk/create'); ?>"><?= $this->getHtml('NewRisk') ?></a>
             </div>
         </section>
 
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Statistics'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Statistics') ?></h1></header>
             <div class="inner">
                 <table class="list">
                     <thead>
                     <tr>
-                        <th><?= $this->getText('Risks'); ?>
+                        <th><?= $this->getHtml('Risks') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Causes'); ?>
+                        <th><?= $this->getHtml('Causes') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Solutions'); ?>
+                        <th><?= $this->getHtml('Solutions') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Department'); ?>
+                        <th><?= $this->getHtml('Department') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Category'); ?>
+                        <th><?= $this->getHtml('Category') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Process'); ?>
+                        <th><?= $this->getHtml('Process') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Project'); ?>
+                        <th><?= $this->getHtml('Project') ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getText('Total'); ?>
+                        <th><?= $this->getHtml('Total') ?>
                         <td>0
                 </table>
             </div>

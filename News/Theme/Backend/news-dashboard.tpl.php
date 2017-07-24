@@ -24,14 +24,14 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('News') ?></caption>
+                <caption><?= $this->getHtml('News'); ?></caption>
                 <thead>
                 <tr>
                     <td>
-                    <td><?= $this->getText('Type'); ?>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Author'); ?>
-                    <td><?= $this->getText('Date'); ?>
+                    <td><?= $this->getHtml('Type') ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Author') ?>
+                    <td><?= $this->getHtml('Date') ?>
                 <tbody>
                 <?php $count = 0; foreach($newsList as $key => $news) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
@@ -42,13 +42,13 @@ echo $this->getData('nav')->render(); ?>
                 ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
-                    <td data-label="<?= $this->getText('Type'); ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType()); ?></span></a>
-                    <td data-label="<?= $this->getText('Title'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
-                    <td data-label="<?= $this->getText('Author'); ?>"><a href="<?= $url; ?>"><?= $news->getCreatedBy()->getName1(); ?></a>
-                    <td data-label="<?= $this->getText('Date'); ?>"><a href="<?= $url; ?>"><?= $news->getPublish()->format('Y-m-d'); ?></a>
+                    <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>
+                    <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td data-label="<?= $this->getHtml('Author') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td data-label="<?= $this->getHtml('Date') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getPublish()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

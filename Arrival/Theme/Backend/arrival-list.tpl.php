@@ -27,19 +27,19 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table red">
-        <caption><?= $this->getText('Arrivals'); ?></caption>
+        <caption><?= $this->getHtml('Arrivals') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('ID', 0, 0); ?>
-            <td><?= $this->getText('AccountID'); ?>
-            <td class="wf-100"><?= $this->getText('Company'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Created'); ?>
+            <td><?= $this->getHtml('ID', 0, 0); ?>
+            <td><?= $this->getHtml('AccountID') ?>
+            <td class="wf-100"><?= $this->getHtml('Company') ?>
+            <td><?= $this->getHtml('Creator') ?>
+            <td><?= $this->getHtml('Created') ?>
         <tfoot>
-        <tr><td colspan="4"><?= $footerView->render(); ?>
+        <tr><td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
         <tbody>
         <?php if(0 == 0) : ?>
-        <tr class="empty"><td colspan="5"><?= $this->getText('Empty', 0, 0); ?>
+        <tr class="empty"><td colspan="5"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
                 <?php foreach ([] as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/reporter/report/view?{?}&id=' . $template->getId()); ?>

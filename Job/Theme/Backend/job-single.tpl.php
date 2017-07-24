@@ -22,29 +22,29 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">
-            <header><h1><?= $job->getId(); ?></h1></header>
+            <header><h1><?= htmlspecialchars($job->getId(), ENT_COMPAT, 'utf-8'); ?></h1></header>
             <div class="inner">
             <table class="list w-100">
                     <tr>
-                        <td><?= $this->getText('Status'); ?>
+                        <td><?= $this->getHtml('Status') ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td class="wf-100"><?= $job->getStatus(); ?>
+                        <td class="wf-100"><?= htmlspecialchars($job->getStatus(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Run'); ?>
+                        <td><?= $this->getHtml('Run') ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td><?= $job->getRun(); ?>
+                        <td><?= htmlspecialchars($job->getRun(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('LastRunTime'); ?>
+                        <td><?= $this->getHtml('LastRunTime') ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td><?= $job->getLastRunTime() !== null ? $job->getLastRunTime()->format('Y-m-d') : ''; ?>
+                        <td><?= htmlspecialchars($job->getLastRunTime() !== null ? $job->getLastRunTime()->format('Y-m-d') : '', ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('NextRunTime'); ?>
+                        <td><?= $this->getHtml('NextRunTime') ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td><?= $job->getNextRunTime() !== null ? $job->getNextRunTime()->format('Y-m-d') : ''; ?>
+                        <td><?= htmlspecialchars($job->getNextRunTime() !== null ? $job->getNextRunTime()->format('Y-m-d') : '', ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Description'); ?>
+                        <td><?= $this->getHtml('Description') ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td><blockquote><?= $job->getComment(); ?></blockquote>
+                        <td><blockquote><?= htmlspecialchars($job->getComment(), ENT_COMPAT, 'utf-8'); ?></blockquote>
             </table>
                 
             </div>

@@ -4,14 +4,14 @@ $calendar = $this->getData('calendar');
 <section class="wf-75 floatLeft">
     <div class="box w-100">
         <ul class="btns floatLeft">
-            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-left"></i></a>
-            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) ?>"><i class="fa fa-arrow-right"></i></a>
+            <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')) , ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-left"></i></a>
+            <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')) , ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-right"></i></a>
         </ul>
         <ul class="btns floatRight">
-            <li><a href=""><?= $this->getText('Day') ?></a>
-            <li><a href=""><?= $this->getText('Week') ?></a>
-            <li><a href=""><?= $this->getText('Month') ?></a>
-            <li><a href=""><?= $this->getText('Year') ?></a>
+            <li><a href=""><?= $this->getHtml('Day'); ?></a>
+            <li><a href=""><?= $this->getHtml('Week'); ?></a>
+            <li><a href=""><?= $this->getHtml('Month'); ?></a>
+            <li><a href=""><?= $this->getHtml('Year'); ?></a>
         </ul>
     </div>
     <div class="box w-100">
@@ -36,7 +36,7 @@ $calendar = $this->getData('calendar');
                         $events = $calendar->getEventByDate($current);
                         $current->smartModify(0, 0, 1);
                     foreach($events as $event) : ?>
-                        <li><span id="event-tag-<?= $event->getId()?>" class="tag purple" style="white-space: nowrap;"><?= $event->getName(); ?></span>
+                        <li><span id="event-tag-<?= htmlspecialchars($event->getId(), ENT_COMPAT, 'utf-8'); ?>" class="tag purple" style="white-space: nowrap;"><?= htmlspecialchars($event->getName(), ENT_COMPAT, 'utf-8'); ?></span>
                     <?php endforeach; ?>
                         </ul>
                     </div>
@@ -73,13 +73,13 @@ $calendar = $this->getData('calendar');
                 <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
             </ul>
             <div class="spacer"></div>
-            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->getText('Add', 0, 0); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->getText('Create', 0, 0); ?></button>
+            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->getHtml('Add', 0, 0); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->getHtml('Create', 0, 0); ?></button>
         </div>
     </section>
 </section>
 
 <menu type="context" id="calendar-day-menu">
-    <menuitem label="<?= $this->getText('NewEvent') ?>"></menuitem>
+    <menuitem label="<?= $this->getHtml('NewEvent'); ?>"></menuitem>
 </menu>
 
 <menu type="context" id="calendar-event-menu">
@@ -90,4 +90,4 @@ $calendar = $this->getData('calendar');
     <menuitem label="Delete"></menuitem>
 </menu>
 
-<?= $this->getData('calendarEventPopup')->render('iCalendarEvent'); ?>
+<?= htmlspecialchars($this->getData('calendarEventPopup')->render('iCalendarEvent'), ENT_COMPAT, 'utf-8'); ?>

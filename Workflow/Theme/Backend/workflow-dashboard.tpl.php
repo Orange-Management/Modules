@@ -21,13 +21,13 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100 floatLeft">
     <table class="table red">
-        <caption><?= $this->getText('Workflow'); ?></caption>
+        <caption><?= $this->getHtml('Workflow') ?></caption>
         <thead>
-        <td><?= $this->getText('Status'); ?>
-        <td><?= $this->getText('Next'); ?>
-        <td class="full"><?= $this->getText('Title'); ?>
-        <td><?= $this->getText('Creator'); ?>
-        <td><?= $this->getText('Created'); ?>
+        <td><?= $this->getHtml('Status') ?>
+        <td><?= $this->getHtml('Next') ?>
+        <td class="full"><?= $this->getHtml('Title') ?>
+        <td><?= $this->getHtml('Creator') ?>
+        <td><?= $this->getHtml('Created') ?>
         <tfoot>
         <tbody>
         <?php $c = 0; foreach($workflows as $key => $workflow) : $c++;
@@ -39,13 +39,13 @@ echo $this->getData('nav')->render(); ?>
         elseif($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::CANCELED) { $color = 'red'; }
         elseif($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::SUSPENDED) { $color = 'yellow'; } ;?>
         <tr>
-            <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('S' . $workflow->getStatus()); ?></span></a>
-            <td><a href="<?= $url; ?>"><?= $workflow->getDue()->format('Y-m-d H:i'); ?></a>
-            <td><a href="<?= $url; ?>"><?= $workflow->getTitle(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $workflow->getCreatedBy(); ?></a>
-            <td><a href="<?= $url; ?>"><?= $workflow->getCreatedAt()->format('Y-m-d H:i'); ?></a>
+            <td><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $workflow->getStatus()) ?></span></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getDue()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getCreatedAt()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></a>
                 <?php endforeach; if($c == 0) : ?>
-        <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+        <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

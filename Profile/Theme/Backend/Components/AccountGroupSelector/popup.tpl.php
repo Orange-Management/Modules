@@ -1,13 +1,13 @@
 <template id="acc-grp-tpl">
     <section id="acc-grp" class="box w-50" style="z-index: 9; position: absolute; margin: 0 auto; left: 50%; top: 50%; transform: translate(-50%, -50%);">
-        <header><h1><?= $this->getText('Account/Group', 'Admin'); ?></h1></header>
+        <header><h1><?= $this->getHtml('Account/Group', 'Admin') ?></h1></header>
 
         <div class="inner">
         <div class="tabular-2">
             <div class="box wf-100">
                 <ul class="tab-links">
-                    <li><label for="c-tab-1"><?= $this->getText('Account', 'Admin'); ?></label>
-                    <li><label for="c-tab-2"><?= $this->getText('Group', 'Admin'); ?></label>
+                    <li><label for="c-tab-1"><?= $this->getHtml('Account', 'Admin') ?></label>
+                    <li><label for="c-tab-2"><?= $this->getHtml('Group', 'Admin') ?></label>
                 </ul>
             </div>
             <div class="tab-content">
@@ -46,7 +46,7 @@
                                             {"key": 1, "type": "dom.remove", "tpl": "acc-grp", "aniOut": "fadeOut"}
                                         ]
                                     }
-                                ]'><?= $this->getText('Close', 'Admin'); ?></button>
+                                ]'><?= $this->getHtml('Close', 'Admin') ?></button>
                         </table>
                     </form>
                 </div>
@@ -82,7 +82,7 @@
                                             {"key": 1, "type": "dom.remove", "tpl": "acc-grp", "aniOut": "fadeOut"}
                                         ]
                                     }
-                                ]'><?= $this->getText('Close', 'Admin'); ?></button>
+                                ]'><?= $this->getHtml('Close', 'Admin') ?></button>
                         </table>
                     </form>
                 </div>

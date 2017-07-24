@@ -34,59 +34,59 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Logs'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Logs') ?></h1></header>
 
             <div class="inner">
                 <table class="list w-100">
                     <tr>
-                        <td><?= $this->getText('ID', 0, 0); ?>
+                        <td><?= $this->getHtml('ID', 0, 0); ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td class="wf-100"><?= (int) $this->request->getData('id') ?? 0; ?>
+                        <td class="wf-100"><?= htmlspecialchars((int) $this->request->getData('id') ?? 0, ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Time'); ?>
+                        <td><?= $this->getHtml('Time') ?>
                         <td><i class="fa fa-clock-o"></i>
-                        <td><?= $log['datetime']; ?>
+                        <td><?= htmlspecialchars($log['datetime'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Uri'); ?>
+                        <td><?= $this->getHtml('Uri') ?>
                         <td><i class="fa fa-globe"></i>
-                        <td><?= $log['path']; ?>
+                        <td><?= htmlspecialchars($log['path'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Source'); ?>
+                        <td><?= $this->getHtml('Source') ?>
                         <td><i class="fa fa-wifi"></i>
-                        <td><?= $log['ip']; ?>
+                        <td><?= htmlspecialchars($log['ip'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Level'); ?>
+                        <td><?= $this->getHtml('Level') ?>
                         <td>
-                            <i class="fa fa-<?= in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i>
-                        <td><?= $log['level']; ?>
+                            <i class="fa fa-<?= htmlspecialchars(in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning', ENT_COMPAT, 'utf-8'); ?>"></i>
+                        <td><?= htmlspecialchars($log['level'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Message'); ?>
+                        <td><?= $this->getHtml('Message') ?>
                         <td><i class="fa fa-commenting"></i>
-                        <td><?= $log['message']; ?>
+                        <td><?= htmlspecialchars($log['message'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('File'); ?>
+                        <td><?= $this->getHtml('File') ?>
                         <td><i class="fa fa-file"></i>
-                        <td><?= $log['file']; ?>
+                        <td><?= htmlspecialchars($log['file'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Line'); ?>
+                        <td><?= $this->getHtml('Line') ?>
                         <td><i class="fa fa-commenting"></i>
-                        <td><?= $log['line']; ?>
+                        <td><?= htmlspecialchars($log['line'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Version'); ?>
+                        <td><?= $this->getHtml('Version') ?>
                         <td><i class="fa fa-pencil"></i>
-                        <td><?= $log['version']; ?>
+                        <td><?= htmlspecialchars($log['version'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('OS'); ?>
+                        <td><?= $this->getHtml('OS') ?>
                         <td><i class="fa fa-laptop"></i>
-                        <td><?= $log['os']; ?>
+                        <td><?= htmlspecialchars($log['os'], ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td colspan="3"><?= $this->getText('Backtrace'); ?>
+                        <td colspan="3"><?= $this->getHtml('Backtrace') ?>
                     <tr>
                         <td colspan="3">
-                            <pre><?= json_encode($log['backtrace'], JSON_PRETTY_PRINT); ?></pre>
+                            <pre><?= htmlspecialchars(json_encode($log['backtrace'], JSON_PRETTY_PRINT), ENT_COMPAT, 'utf-8'); ?></pre>
                     <tr>
                         <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
-                            href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= urlencode($log['message']); ?>&details=<?= urlencode($details); ?>"><?= $this->getText('Report'); ?></a>
+                            href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= htmlspecialchars(urlencode($log['message']), ENT_COMPAT, 'utf-8'); ?>&details=<?= htmlspecialchars(urlencode($details), ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Report') ?></a>
                 </table>
             </div>
         </section>

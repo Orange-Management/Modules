@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner centerText">
         <a href="">
             <p><i class="fa fa-5x fa-clock-o"></i></p>
-            <p><?= $this->getText('Due') ?></p>
+            <p><?= $this->getHtml('Due'); ?></p>
         </a>
     </div>
 </section>
@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner centerText">
         <a href="">
             <p><i class="fa fa-5x fa-dollar"></i></p>
-            <p><?= $this->getText('DSO') ?></p>
+            <p><?= $this->getHtml('DSO'); ?></p>
         </a>
     </div>
 </section>
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner centerText">
         <a href="">
             <p><i class="fa fa-5x fa-calendar"></i></p>
-            <p><?= $this->getText('AgePattern') ?></p>
+            <p><?= $this->getHtml('AgePattern'); ?></p>
         </a>
     </div>
 </section>

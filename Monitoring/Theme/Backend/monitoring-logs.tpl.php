@@ -30,24 +30,24 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="box col-xs-12 wf-100">
         <table class="table red">
-            <caption><?= $this->getText('Logs'); ?></caption>
+            <caption><?= $this->getHtml('Logs') ?></caption>
             <thead>
             <tr>
-                <td><?= $this->getText('Timestamp'); ?>
-                <td><?= $this->getText('Level'); ?>
-                <td><?= $this->getText('Source'); ?>
-                <td class="wf-100"><?= $this->getText('Message'); ?>
+                <td><?= $this->getHtml('Timestamp') ?>
+                <td><?= $this->getHtml('Level') ?>
+                <td><?= $this->getHtml('Source') ?>
+                <td class="wf-100"><?= $this->getHtml('Message') ?>
                     <tfoot>
             <tr>
-                <td colspan="5"><?= $footerView->render(); ?>
+                <td colspan="5"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                     <tbody>
                     <?php foreach ($logs as $key => $value) :
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/monitoring/logs/single?{?}&id=' . $key);?>
             <tr>
-                <td><a href=<?= $url; ?>><i class="fa fa-clock-o"></i> <?= $value[0] ?? ''; ?></a>
-                <td><a href=<?= $url; ?>><i class="fa fa-<?= in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'; ?>"></i> <?= $value[1] ?? ''; ?></a>
-                <td><a href=<?= $url; ?>><i class="fa fa-wifi"></i> <?= $value[2] ?? ''; ?></a>
-                <td><a href=<?= $url; ?>><i class="fa fa-commenting"></i> <?= $value[7] ?? ''; ?></a>
+                <td><a href=<?= htmlspecialchars($url, ENT_COMPAT, 'utf-8'); ?>><i class="fa fa-clock-o"></i> <?= htmlspecialchars($value[0] ?? '', ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href=<?= htmlspecialchars($url, ENT_COMPAT, 'utf-8'); ?>><i class="fa fa-<?= htmlspecialchars(in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning', ENT_COMPAT, 'utf-8'); ?>"></i> <?= htmlspecialchars($value[1] ?? '', ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href=<?= htmlspecialchars($url, ENT_COMPAT, 'utf-8'); ?>><i class="fa fa-wifi"></i> <?= htmlspecialchars($value[2] ?? '', ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href=<?= htmlspecialchars($url, ENT_COMPAT, 'utf-8'); ?>><i class="fa fa-commenting"></i> <?= htmlspecialchars($value[7] ?? '', ENT_COMPAT, 'utf-8'); ?></a>
                     <?php endforeach;
                     if (!isset($key)) : ?>
             <tr>

@@ -26,23 +26,23 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Items') ?></caption>
+                <caption><?= $this->getHtml('Items'); ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Name'); ?>
-                    <td><?= $this->getText('Price'); ?>
-                    <td><?= $this->getText('Available'); ?>
-                    <td><?= $this->getText('Reserved'); ?>
-                    <td><?= $this->getText('Ordered'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('Price') ?>
+                    <td><?= $this->getHtml('Available') ?>
+                    <td><?= $this->getHtml('Reserved') ?>
+                    <td><?= $this->getHtml('Ordered') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="6"><?= $footerView->render(); ?>
+                    <td colspan="6"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $count = 0; foreach($items as $key => $value) : $count++; 
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/item/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $value->getNumber(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNumber(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td>
                     <td>
                     <td>
@@ -50,7 +50,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

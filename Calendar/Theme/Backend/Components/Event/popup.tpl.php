@@ -1,6 +1,6 @@
 <template id="calendar-event-popup-tpl">
     <section id="calendar-event-popup" class="box w-50" style="z-index: 9; position: absolute; margin: 0 auto; left: 50%; top: 50%; transform: translate(-50%, -50%);">
-        <header><h1><?= $this->getText('Event', 'Calendar'); ?></h1></header>
+        <header><h1><?= $this->getHtml('Event', 'Calendar') ?></h1></header>
 
         <div class="inner">
             <form>
@@ -19,7 +19,7 @@
                                             {"key": 1, "type": "dom.remove", "tpl": "calendar-event-popup", "aniOut": "fadeOut"}
                                         ]
                                     }
-                                ]'><?= $this->getText('Close', 'Calendar'); ?></button>
+                                ]'><?= $this->getHtml('Close', 'Calendar') ?></button>
                 </table>
             </form>
         </div>

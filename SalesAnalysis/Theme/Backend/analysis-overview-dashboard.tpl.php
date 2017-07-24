@@ -21,61 +21,61 @@ echo $this->getData('nav')->render(); ?>
 <div class="box w-100">
     <div class="tabular-2">
         <ul class="tab-links">
-            <li><label for="c-tab2-1"><?= $this->getText('Overview'); ?></label>
-            <li><label for="c-tab2-2"><?= $this->getText('Month'); ?></label>
-            <li><label for="c-tab2-3"><?= $this->getText('Year'); ?></label>
-            <li><label for="c-tab2-4"><?= $this->getText('Top10'); ?></label>
-            <li><label for="c-tab2-5"><?= $this->getText('Charts'); ?></label>
+            <li><label for="c-tab2-1"><?= $this->getHtml('Overview') ?></label>
+            <li><label for="c-tab2-2"><?= $this->getHtml('Month') ?></label>
+            <li><label for="c-tab2-3"><?= $this->getHtml('Year') ?></label>
+            <li><label for="c-tab2-4"><?= $this->getHtml('Top10') ?></label>
+            <li><label for="c-tab2-5"><?= $this->getHtml('Charts') ?></label>
         </ul>
         <div class="tab-content">
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
                 <section class="box wf-100 floatLeft">
                     <table class="table red">
-                        <caption><?= $this->getText('Overview') ?></caption>
+                        <caption><?= $this->getHtml('Overview'); ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->getText('Type'); ?>
-                            <td><?= $this->getText('LastMonth'); ?>
-                            <td><?= $this->getText('CurrentMonth'); ?>
-                            <td><?= $this->getText('Change'); ?>
-                            <td><?= $this->getText('LastYear'); ?>
-                            <td><?= $this->getText('CurrentYear'); ?>
-                            <td><?= $this->getText('Change'); ?>
-                            <td><?= $this->getText('LastYearAcc'); ?>
-                            <td><?= $this->getText('CurrentYearAcc'); ?>
-                            <td><?= $this->getText('Change'); ?>
-                            <td><?= $this->getText('LastYear'); ?>
-                            <td><?= $this->getText('Forecast'); ?>
-                            <td><?= $this->getText('Change'); ?>
+                            <td><?= $this->getHtml('Type') ?>
+                            <td><?= $this->getHtml('LastMonth') ?>
+                            <td><?= $this->getHtml('CurrentMonth') ?>
+                            <td><?= $this->getHtml('Change') ?>
+                            <td><?= $this->getHtml('LastYear') ?>
+                            <td><?= $this->getHtml('CurrentYear') ?>
+                            <td><?= $this->getHtml('Change') ?>
+                            <td><?= $this->getHtml('LastYearAcc') ?>
+                            <td><?= $this->getHtml('CurrentYearAcc') ?>
+                            <td><?= $this->getHtml('Change') ?>
+                            <td><?= $this->getHtml('LastYear') ?>
+                            <td><?= $this->getHtml('Forecast') ?>
+                            <td><?= $this->getHtml('Change') ?>
                         <tbody>
-                            <tr><th><?= $this->getText('Domestic'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Export'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Developed'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Undeveloped'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Europe'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('America'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Asia'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Africa'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Total'); ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Domestic') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Export') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Developed') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Undeveloped') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Europe') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('America') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Asia') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Africa') ?><td><td><td><td><td><td><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Total') ?><td><td><td><td><td><td><td><td><td><td><td><td>
                     </table>
                 </section>
 
                 <section class="box wf-100 floatLeft">
                     <table class="table red">
-                        <caption><?= $this->getText('Misc') ?></caption>
+                        <caption><?= $this->getHtml('Misc'); ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->getText('Type'); ?>
-                            <td><?= $this->getText('LastYear'); ?>
-                            <td><?= $this->getText('CurrentYear'); ?>
-                            <td><?= $this->getText('LastMonth'); ?>
-                            <td><?= $this->getText('CurrentMonth'); ?>
-                            <td><?= $this->getText('Yesterday'); ?>
-                            <td><?= $this->getText('Today'); ?>
+                            <td><?= $this->getHtml('Type') ?>
+                            <td><?= $this->getHtml('LastYear') ?>
+                            <td><?= $this->getHtml('CurrentYear') ?>
+                            <td><?= $this->getHtml('LastMonth') ?>
+                            <td><?= $this->getHtml('CurrentMonth') ?>
+                            <td><?= $this->getHtml('Yesterday') ?>
+                            <td><?= $this->getHtml('Today') ?>
                         <tbody>
-                            <tr><th><?= $this->getText('Customers'); ?><td><td><td><td><td><td>
-                            <tr><th><?= $this->getText('Invoices'); ?><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Customers') ?><td><td><td><td><td><td>
+                            <tr><th><?= $this->getHtml('Invoices') ?><td><td><td><td><td><td>
                     </table>
                 </section>
             </div>
@@ -83,15 +83,15 @@ echo $this->getData('nav')->render(); ?>
             <div class="tab tab-2">
                 <section class="box wf-100 floatLeft">
                     <table class="table red">
-                        <caption><?= $this->getText('Month') ?></caption>
+                        <caption><?= $this->getHtml('Month'); ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->getText('Day'); ?>
-                            <td><?= $this->getText('Day'); ?>
-                            <td><?= $this->getText('LastMonth'); ?>
-                            <td><?= $this->getText('CurrentMonth'); ?>
-                            <td><?= $this->getText('Change'); ?>
-                            <td><?= $this->getText('ChangeAcc'); ?>
+                            <td><?= $this->getHtml('Day') ?>
+                            <td><?= $this->getHtml('Day') ?>
+                            <td><?= $this->getHtml('LastMonth') ?>
+                            <td><?= $this->getHtml('CurrentMonth') ?>
+                            <td><?= $this->getHtml('Change') ?>
+                            <td><?= $this->getHtml('ChangeAcc') ?>
                         <tbody>
                         <tr><td><td><td><td><td><td>
                     </table>
@@ -101,22 +101,22 @@ echo $this->getData('nav')->render(); ?>
             <div class="tab tab-3">
                 <section class="box wf-100 floatLeft">
                     <table class="table red">
-                        <caption><?= $this->getText('Year') ?></caption>
+                        <caption><?= $this->getHtml('Year'); ?></caption>
                         <thead>
                         <tr>
-                            <td><?= $this->getText('Year'); ?>
-                            <td><?= $this->getText('January'); ?>
-                            <td><?= $this->getText('February'); ?>
-                            <td><?= $this->getText('March'); ?>
-                            <td><?= $this->getText('April'); ?>
-                            <td><?= $this->getText('May'); ?>
-                            <td><?= $this->getText('June'); ?>
-                            <td><?= $this->getText('July'); ?>
-                            <td><?= $this->getText('August'); ?>
-                            <td><?= $this->getText('September'); ?>
-                            <td><?= $this->getText('October'); ?>
-                            <td><?= $this->getText('November'); ?>
-                            <td><?= $this->getText('December'); ?>
+                            <td><?= $this->getHtml('Year') ?>
+                            <td><?= $this->getHtml('January') ?>
+                            <td><?= $this->getHtml('February') ?>
+                            <td><?= $this->getHtml('March') ?>
+                            <td><?= $this->getHtml('April') ?>
+                            <td><?= $this->getHtml('May') ?>
+                            <td><?= $this->getHtml('June') ?>
+                            <td><?= $this->getHtml('July') ?>
+                            <td><?= $this->getHtml('August') ?>
+                            <td><?= $this->getHtml('September') ?>
+                            <td><?= $this->getHtml('October') ?>
+                            <td><?= $this->getHtml('November') ?>
+                            <td><?= $this->getHtml('December') ?>
                         <tbody>
                         <tr><th>2013<td><td><td><td><td><td><td><td><td><td><td><td>
                         <tr><th>2014<td><td><td><td><td><td><td><td><td><td><td><td>
@@ -134,21 +134,21 @@ echo $this->getData('nav')->render(); ?>
             <div class="tab tab-4">
                 <section class="box w-33 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Customers'); ?></h1>
+                        <h1><?= $this->getHtml('Customers') ?></h1>
                     </header>
                     <div class="inner">
                     </div>
                 </section>
                 <section class="box w-33 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Products'); ?></h1>
+                        <h1><?= $this->getHtml('Products') ?></h1>
                     </header>
                     <div class="inner">
                     </div>
                 </section>
                 <section class="box w-33 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Employees'); ?></h1>
+                        <h1><?= $this->getHtml('Employees') ?></h1>
                     </header>
                     <div class="inner">
                     </div>
@@ -158,28 +158,28 @@ echo $this->getData('nav')->render(); ?>
             <div class="tab tab-5">
                 <section class="box w-33 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Domestic/Export'); ?></h1>
+                        <h1><?= $this->getHtml('Domestic/Export') ?></h1>
                     </header>
                     <div class="inner">
                     </div>
                 </section>
                 <section class="box w-33 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Developed/Undeveloped'); ?></h1>
+                        <h1><?= $this->getHtml('Developed/Undeveloped') ?></h1>
                     </header>
                     <div class="inner">
                     </div>
                 </section>
                 <section class="box w-33 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Continents'); ?></h1>
+                        <h1><?= $this->getHtml('Continents') ?></h1>
                     </header>
                     <div class="inner">
                     </div>
                 </section>
                 <section class="box w-100 floatLeft">
                     <header>
-                        <h1><?= $this->getText('Development'); ?></h1>
+                        <h1><?= $this->getHtml('Development') ?></h1>
                     </header>
                     <div class="inner">
                     </div>

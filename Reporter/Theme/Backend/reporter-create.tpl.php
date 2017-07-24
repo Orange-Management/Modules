@@ -22,22 +22,22 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Report') ?></h1></header>
+            <header><h1><?= $this->getHtml('Report'); ?></h1></header>
             <div class="inner">
                 <form id="reporter-report-create" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/report/report'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
-                        <tr><td><label for="iTitle"><?= $this->getText('Title') ?></label>
+                        <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>
                         <tr><td><input id="iTitle" name="name" type="text" placeholder="&#xf040; P&L Reporting 2015 December v1.0" required>
-                        <tr><td><label for="iTemplate"><?= $this->getText('Template') ?></label>
+                        <tr><td><label for="iTemplate"><?= $this->getHtml('Template'); ?></label>
                         <tr><td><select id="iTemplate" name="template">
                                     <?php foreach($templateList as $key => $value) : ?>
-                                    <option value="<?= $key; ?>"><?= $value->getName(); ?>
+                                    <option value="<?= htmlspecialchars($key, ENT_COMPAT, 'utf-8'); ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?>
                                         <?php endforeach; ?>
                                 </select>
-                        <tr><td><label for="iFile"><?= $this->getText('Files') ?></label>
+                        <tr><td><label for="iFile"><?= $this->getHtml('Files'); ?></label>
                         <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden" pattern="\[(([0-9])+(,)*( )*)+\]" required>
-                        <tr><td><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
             </div>

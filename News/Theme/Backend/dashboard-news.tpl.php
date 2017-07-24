@@ -21,12 +21,12 @@ $newsList = $this->getData('news');
 <div id="news-dashboard" class="col-xs-12 col-md-6" draggable="true">
     <div class="box wf-100">
         <table class="table blue">
-            <caption><?= $this->getText('News', 'News') ?></caption>
+            <caption><?= $this->getHtml('News', 'News'); ?></caption>
             <thead>
             <tr>
                 <td>
-                <td><?= $this->getText('Type', 'News'); ?>
-                <td class="wf-100"><?= $this->getText('Title', 'News'); ?>
+                <td><?= $this->getHtml('Type', 'News') ?>
+                <td class="wf-100"><?= $this->getHtml('Title', 'News') ?>
             <tbody>
             <?php $count = 0; foreach($newsList as $key => $news) : $count++;
             $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
@@ -37,11 +37,11 @@ $newsList = $this->getData('news');
             ?>
             <tr data-href="<?= $url; ?>">
                 <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
-                <td data-label="<?= $this->getText('Type', 'News'); ?>"><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getText('TYPE' . $news->getType(), 'News'); ?></span></a>
-                <td data-label="<?= $this->getText('Title', 'News'); ?>"><a href="<?= $url; ?>"><?= $news->getTitle(); ?></a>
+                <td data-label="<?= $this->getHtml('Type', 'News') ?>"><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('TYPE' . $news->getType(), 'News') ?></span></a>
+                <td data-label="<?= $this->getHtml('Title', 'News') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
                     <?php endforeach; ?>
                     <?php if($count === 0) : ?>
-            <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+            <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                     <?php endif; ?>
         </table>
     </div>

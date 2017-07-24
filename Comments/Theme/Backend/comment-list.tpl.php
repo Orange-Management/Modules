@@ -24,20 +24,20 @@ $footerView->setPage(1);
 echo $this->getData('nav')->render(); ?>
 <div class="box">
     <table class="table red">
-        <caption><?= $this->getText('Documents'); ?></caption>
+        <caption><?= $this->getHtml('Documents') ?></caption>
         <thead>
         <tr>
-            <td class="wf-100"><?= $this->getText('Name'); ?>
-            <td><?= $this->getText('Creator'); ?>
-            <td><?= $this->getText('Created'); ?>
+            <td class="wf-100"><?= $this->getHtml('Name') ?>
+            <td><?= $this->getHtml('Creator') ?>
+            <td><?= $this->getHtml('Created') ?>
         <tfoot>
         <tr>
-            <td colspan="3"><?= $footerView->render(); ?>
+            <td colspan="3"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
         <tbody>
         <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
         <?php if($count === 0) : ?>
-        <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+        <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
     </table>
 </div>

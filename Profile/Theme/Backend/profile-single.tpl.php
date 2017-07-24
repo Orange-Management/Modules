@@ -30,25 +30,25 @@ echo $this->getData('nav')->render();
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
-            <header><h1><?= $this->getText('Profile'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Profile') ?></h1></header>
             <div class="inner">
                 <!-- @formatter:off -->
                         <table class="list">
                             <tr>
-                                <th><?= $this->getText('Name'); ?>
-                                <td><span itemprop="familyName"><?= $account->getName3(); ?></span>, <span itemprop="givenName"><?= $account->getName1(); ?></span>
+                                <th><?= $this->getHtml('Name') ?>
+                                <td><span itemprop="familyName"><?= htmlspecialchars($account->getName3(), ENT_COMPAT, 'utf-8'); ?></span>, <span itemprop="givenName"><?= htmlspecialchars($account->getName1(), ENT_COMPAT, 'utf-8'); ?></span>
                             <tr>
-                                <th><?= $this->getText('Occupation'); ?>
+                                <th><?= $this->getHtml('Occupation') ?>
                                 <td itemprop="jobTitle">Sailor
                             <tr>
-                                <th><?= $this->getText('Birthday'); ?>
+                                <th><?= $this->getHtml('Birthday') ?>
                                 <td itemprop="birthDate">06.09.1934
                             <tr>
-                                <th><?= $this->getText('Ranks'); ?>
+                                <th><?= $this->getHtml('Ranks') ?>
                                 <td itemprop="memberOf">Gosling
                             <tr>
-                                <th><?= $this->getText('Email'); ?>
-                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $account->getEmail(); ?></a>
+                                <th><?= $this->getHtml('Email') ?>
+                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= htmlspecialchars($account->getEmail(), ENT_COMPAT, 'utf-8'); ?></a>
                             <tr>
                                 <th>Address
                                 <td>
@@ -59,7 +59,7 @@ echo $this->getData('nav')->render();
                                 <th class="vT">Work
                                 <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
                             <tr>
-                                <th><?= $this->getText('Phone'); ?>
+                                <th><?= $this->getHtml('Phone') ?>
                                 <td>
                             <tr>
                                 <th>Private
@@ -71,14 +71,14 @@ echo $this->getData('nav')->render();
                                 <th>Work
                                 <td itemprop="telephone">+01 12345-4567
                             <tr>
-                                <th><?= $this->getText('Registered'); ?>
-                                <td><?= $account->getCreatedAt()->format('Y-m-d'); ?>
+                                <th><?= $this->getHtml('Registered') ?>
+                                <td><?= htmlspecialchars($account->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                             <tr>
-                                <th><?= $this->getText('LastLogin'); ?>
-                                <td><?= $account->getLastActive()->format('Y-m-d'); ?>
+                                <th><?= $this->getHtml('LastLogin') ?>
+                                <td><?= htmlspecialchars($account->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                             <tr>
-                                <th><?= $this->getText('Status'); ?>
-                                <td><span class="tag green"><?= $account->getStatus(); ?></span>
+                                <th><?= $this->getHtml('Status') ?>
+                                <td><span class="tag green"><?= htmlspecialchars($account->getStatus(), ENT_COMPAT, 'utf-8'); ?></span>
                         </table>
                         <!-- @formatter:on -->
             </div>
@@ -88,26 +88,26 @@ echo $this->getData('nav')->render();
     <div class="col-xs-12 col-md-6">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Media', 'Media'); ?></caption>
+                <caption><?= $this->getHtml('Media', 'Media') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Name', 'Media'); ?>
-                    <td><?= $this->getText('Type', 'Media'); ?>
-                    <td><?= $this->getText('Created', 'Media'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name', 'Media') ?>
+                    <td><?= $this->getHtml('Type', 'Media') ?>
+                    <td><?= $this->getHtml('Created', 'Media') ?>
                 <tfoot>
-                <tr><td colspan="4"><?= $footerView->render(); ?>
+                <tr><td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
                     <tr>
-                        <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $value->getNewestStatus()->getStatus(); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestHistory()->getPosition(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestHistory()->getPosition(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestStatus()->getStatus(), ENT_COMPAT, 'utf-8'); ?></a>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
-                    <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
             </table>
         </div>

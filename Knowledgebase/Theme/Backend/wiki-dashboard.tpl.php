@@ -7,7 +7,7 @@ echo $this->getData('nav')->render(); ?>
         <?php foreach($categories as $category) : ?>
         <section class="box wf-100 wiki-list">
             <div class="inner">
-                <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/wiki/category?{?}&id=' . $category->getId()) ?>"><?= $category->getName(); ?></a>
+                <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/wiki/category?{?}&id=' . $category->getId()) , ENT_COMPAT, 'utf-8'); ?>"><?= htmlspecialchars($category->getName(); ?></a>
             </div>
         </section>
         <?php endforeach; ?>

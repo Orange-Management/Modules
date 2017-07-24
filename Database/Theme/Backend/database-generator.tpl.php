@@ -15,72 +15,72 @@
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Query'); ?></h1></header>
+    <header><h1><?= $this->getHtml('Query') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Next'); ?>">
+                <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Fields'); ?></h1></header>
+    <header><h1><?= $this->getHtml('Fields') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Next'); ?>">
+                <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Action'); ?></h1></header>
+    <header><h1><?= $this->getHtml('Action') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Next'); ?>">
+                <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Interval'); ?></h1></header>
+    <header><h1><?= $this->getHtml('Interval') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Next'); ?>">
+                <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Options'); ?></h1></header>
+    <header><h1><?= $this->getHtml('Options') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Next'); ?>">
+                <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
             </table>
         </form>
     </div>
 </section>
 
 <section class="box w-33 floatLeft">
-    <header><h1><?= $this->getText('Layout'); ?></h1></header>
+    <header><h1><?= $this->getHtml('Layout') ?></h1></header>
     <div class="inner">
         <form>
             <table class="layout w-100">
-                <tr><td><label for="iStatus"><?= $this->getText('Status') ?></label>
-                <tr><td colspan="2"><input type="submit" value="<?= $this->getText('Next'); ?>">
+                <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
+                <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
             </table>
         </form>
     </div>

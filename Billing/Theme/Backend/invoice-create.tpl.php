@@ -21,12 +21,12 @@ echo $this->getData('nav')->render(); ?>
 <div class="tabular-2">
     <div class="box">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->getText('Invoice') ?></label></li>
-            <li><label for="c-tab-2"><?= $this->getText('Items') ?></label></li>
+            <li><label for="c-tab-1"><?= $this->getHtml('Invoice'); ?></label></li>
+            <li><label for="c-tab-2"><?= $this->getHtml('Items'); ?></label></li>
             <li><label for="c-tab-3">Preview</label></li>
-            <li><label for="c-tab-4"><?= $this->getText('Payment') ?></label></li>
-            <li><label for="c-tab-5"><?= $this->getText('Media') ?></label></li>
-            <li><label for="c-tab-6"><?= $this->getText('Logs') ?></label></li>
+            <li><label for="c-tab-4"><?= $this->getHtml('Payment'); ?></label></li>
+            <li><label for="c-tab-5"><?= $this->getHtml('Media'); ?></label></li>
+            <li><label for="c-tab-6"><?= $this->getHtml('Logs'); ?></label></li>
         </ul>
     </div>
     <div class="tab-content">
@@ -35,37 +35,37 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-4">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getText('Invoice') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Invoice'); ?></h1></header>
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
-                                    <tr><td><label for="iSource"><?= $this->getText('Source') ?></label>
+                                    <tr><td><label for="iSource"><?= $this->getHtml('Source'); ?></label>
                                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iSource" name="source"></span>
-                                    <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
+                                    <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                                     <tr><td><select id="iType" name="type">
-                                                <option><?= $this->getText('Invoice') ?>
-                                                <option><?= $this->getText('Offer') ?>
-                                                <option><?= $this->getText('Confirmation') ?>
-                                                <option><?= $this->getText('DeliveryNote') ?>
-                                                <option><?= $this->getText('CreditNote') ?>
+                                                <option><?= $this->getHtml('Invoice'); ?>
+                                                <option><?= $this->getHtml('Offer'); ?>
+                                                <option><?= $this->getHtml('Confirmation'); ?>
+                                                <option><?= $this->getHtml('DeliveryNote'); ?>
+                                                <option><?= $this->getHtml('CreditNote'); ?>
                                             </select>
-                                    <tr><td><label for="iClient"><?= $this->getText('Client') ?></label>
+                                    <tr><td><label for="iClient"><?= $this->getHtml('Client'); ?></label>
                                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iClient" name="client"></span>
-                                    <tr><td><label for="iDelivery"><?= $this->getText('Delivery') ?></label>
+                                    <tr><td><label for="iDelivery"><?= $this->getHtml('Delivery'); ?></label>
                                     <tr><td><input type="datetime-local" id="iDelivery" name="delivery">
-                                    <tr><td><label for="iDue"><?= $this->getText('Due') ?></label>
+                                    <tr><td><label for="iDue"><?= $this->getHtml('Due'); ?></label>
                                     <tr><td><input type="datetime-local" id="iDue" name="due">
-                                    <tr><td><label for="iFreightage"><?= $this->getText('Freightage') ?></label>
+                                    <tr><td><label for="iFreightage"><?= $this->getHtml('Freightage'); ?></label>
                                     <tr><td><input type="number" id="iFreightage" name="freightage">
-                                    <tr><td><label for="iShipment"><?= $this->getText('Shipment') ?></label>
+                                    <tr><td><label for="iShipment"><?= $this->getHtml('Shipment'); ?></label>
                                     <tr><td><select id="iShipment" name="shipment">
                                                 <option>
                                             </select>
-                                    <tr><td><label for="iTermsOfDelivery"><?= $this->getText('TermsOfDelivery') ?></label>
+                                    <tr><td><label for="iTermsOfDelivery"><?= $this->getHtml('TermsOfDelivery'); ?></label>
                                     <tr><td><select id="iTermsOfDelivery" name="termsofdelivery">
                                                 <option>
                                             </select>
-                                    <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                                    <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                                 </table>
                             </form>
                         </div>
@@ -74,23 +74,23 @@ echo $this->getData('nav')->render(); ?>
 
                 <div class="col-xs-12 col-md-6 col-lg-4">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getText('Invoice') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Invoice'); ?></h1></header>
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
-                                    <tr><td><label for="iAddressS"><?= $this->getText('Addresses') ?></label>
+                                    <tr><td><label for="iAddressS"><?= $this->getHtml('Addresses'); ?></label>
                                     <tr><td><select id="iAddressS" name="addressS">
                                                 <option>
                                             </select>
-                                    <tr><td><label for="iIRecipient"><?= $this->getText('Recipient') ?></label>
+                                    <tr><td><label for="iIRecipient"><?= $this->getHtml('Recipient'); ?></label>
                                     <tr><td><input type="text" id="iIRecipient" name="irecipient">
-                                    <tr><td><label for="iAddress"><?= $this->getText('Address') ?></label>
+                                    <tr><td><label for="iAddress"><?= $this->getHtml('Address'); ?></label>
                                     <tr><td><input type="text" id="iAddress" name="address">
-                                    <tr><td><label for="iZip"><?= $this->getText('Zip') ?></label>
+                                    <tr><td><label for="iZip"><?= $this->getHtml('Zip'); ?></label>
                                     <tr><td><input type="text" id="iZip" name="zip">
-                                    <tr><td><label for="iCity"><?= $this->getText('City') ?></label>
+                                    <tr><td><label for="iCity"><?= $this->getHtml('City'); ?></label>
                                     <tr><td><input type="text" id="iCity" name="city">
-                                    <tr><td><label for="iCountry"><?= $this->getText('Country') ?></label>
+                                    <tr><td><label for="iCountry"><?= $this->getHtml('Country'); ?></label>
                                     <tr><td><input type="text" id="iCountry" name="country">
                                 </table>
                             </form>
@@ -100,23 +100,23 @@ echo $this->getData('nav')->render(); ?>
 
                 <div class="col-xs-12 col-md-6 col-lg-4">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getText('Delivery') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Delivery'); ?></h1></header>
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
-                                    <tr><td><label for="iAddressS"><?= $this->getText('Addresses') ?></label>
+                                    <tr><td><label for="iAddressS"><?= $this->getHtml('Addresses'); ?></label>
                                     <tr><td><select id="iAddressS" name="addressS">
                                                 <option>
                                             </select>
-                                    <tr><td><label for="iDRecipient"><?= $this->getText('Recipient') ?></label>
+                                    <tr><td><label for="iDRecipient"><?= $this->getHtml('Recipient'); ?></label>
                                     <tr><td><input type="text" id="iDRecipient" name="drecipient">
-                                    <tr><td><label for="iAddress"><?= $this->getText('Address') ?></label>
+                                    <tr><td><label for="iAddress"><?= $this->getHtml('Address'); ?></label>
                                     <tr><td><input type="text" id="iAddress" name="address">
-                                    <tr><td><label for="iZip"><?= $this->getText('Zip') ?></label>
+                                    <tr><td><label for="iZip"><?= $this->getHtml('Zip'); ?></label>
                                     <tr><td><input type="text" id="iZip" name="zip">
-                                    <tr><td><label for="iCity"><?= $this->getText('City') ?></label>
+                                    <tr><td><label for="iCity"><?= $this->getHtml('City'); ?></label>
                                     <tr><td><input type="text" id="iCity" name="city">
-                                    <tr><td><label for="iCountry"><?= $this->getText('Country') ?></label>
+                                    <tr><td><label for="iCountry"><?= $this->getHtml('Country'); ?></label>
                                     <tr><td><input type="text" id="iCountry" name="country">
                                 </table>
                             </form>
@@ -131,26 +131,26 @@ echo $this->getData('nav')->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="table red">
-                            <caption><?= $this->getText('Invoice') ?></caption>
+                            <caption><?= $this->getHtml('Invoice'); ?></caption>
                             <thead>
                             <tr>
                                 <td>
-                                <td><?= $this->getText('Item'); ?>
-                                <td><?= $this->getText('Variation'); ?>
-                                <td class="wf-100"><?= $this->getText('Name'); ?>
-                                <td><?= $this->getText('Quantity'); ?>
-                                <td><?= $this->getText('Discount'); ?>
-                                <td><?= $this->getText('DiscountP'); ?>
-                                <td><?= $this->getText('Bonus'); ?>
-                                <td><?= $this->getText('Tax'); ?>
-                                <td><?= $this->getText('Net'); ?>
+                                <td><?= $this->getHtml('Item') ?>
+                                <td><?= $this->getHtml('Variation') ?>
+                                <td class="wf-100"><?= $this->getHtml('Name') ?>
+                                <td><?= $this->getHtml('Quantity') ?>
+                                <td><?= $this->getHtml('Discount') ?>
+                                <td><?= $this->getHtml('DiscountP') ?>
+                                <td><?= $this->getHtml('Bonus') ?>
+                                <td><?= $this->getHtml('Tax') ?>
+                                <td><?= $this->getHtml('Net') ?>
                             <tfoot>
                             <tr>
                                 <td colspan="8"><!-- todo: make this look nicer. even as alpha release this looks bad. -->
-                                    <?= $this->getText('Freightage'); ?>: 0.00 -
-                                    <?= $this->getText('Net'); ?>: 0.00 -
-                                    <?= $this->getText('Tax'); ?>: 0.00 -
-                                    <?= $this->getText('Total'); ?>: 0.00
+                                    <?= $this->getHtml('Freightage') ?>: 0.00 -
+                                    <?= $this->getHtml('Net') ?>: 0.00 -
+                                    <?= $this->getHtml('Tax') ?>: 0.00 -
+                                    <?= $this->getHtml('Total') ?>: 0.00
                             <tbody>
                             <tr>
                                 <td><i class="fa fa-plus"></i> <i class="fa fa-chevron-up"></i> <i class="fa fa-chevron-down"></i>
@@ -176,33 +176,33 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-4">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getText('Payment') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Payment'); ?></h1></header>
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
-                                    <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
+                                    <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                                     <tr><td><select id="iType" name="type">
                                                 <option>
                                             </select>
-                                    <tr><td><label for="iType"><?= $this->getText('Type') ?></label>
+                                    <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                                     <tr><td><select id="iType" name="type">
-                                                <option><?= $this->getText('MoneyTransfer') ?>
-                                                <option><?= $this->getText('Prepaid') ?>
-                                                <option><?= $this->getText('AlreadyPaid') ?>
-                                                <option><?= $this->getText('CreditCard') ?>
-                                                <option><?= $this->getText('DirectDebit') ?>
+                                                <option><?= $this->getHtml('MoneyTransfer'); ?>
+                                                <option><?= $this->getHtml('Prepaid'); ?>
+                                                <option><?= $this->getHtml('AlreadyPaid'); ?>
+                                                <option><?= $this->getHtml('CreditCard'); ?>
+                                                <option><?= $this->getHtml('DirectDebit'); ?>
                                             </select>
-                                    <tr><td><label for="iDue"><?= $this->getText('Due') ?></label>
+                                    <tr><td><label for="iDue"><?= $this->getHtml('Due'); ?></label>
                                     <tr><td><input type="datetime-local" id="iDue" name="due">
-                                    <tr><td><label for="iDue"><?= $this->getText('Due') ?> - <?= $this->getText('Cashback') ?></label>
+                                    <tr><td><label for="iDue"><?= $this->getHtml('Due'); ?> - <?= $this->getHtml('Cashback'); ?></label>
                                     <tr><td><input type="datetime-local" id="iDue" name="due">
-                                    <tr><td><label for="iCashBack"><?= $this->getText('Cashback') ?></label>
+                                    <tr><td><label for="iCashBack"><?= $this->getHtml('Cashback'); ?></label>
                                     <tr><td><input type="number" id="iCashBack" name="cashback">
-                                    <tr><td><label for="iDue"><?= $this->getText('Due') ?> - <?= $this->getText('Cashback') ?> 2</label>
+                                    <tr><td><label for="iDue"><?= $this->getHtml('Due'); ?> - <?= $this->getHtml('Cashback'); ?> 2</label>
                                     <tr><td><input type="datetime-local" id="iDue" name="due">
-                                    <tr><td><label for="iCashBack2"><?= $this->getText('Cashback') ?> 2</label>
+                                    <tr><td><label for="iCashBack2"><?= $this->getHtml('Cashback'); ?> 2</label>
                                     <tr><td><input type="number" id="iCashBack2" name="cashback2">
-                                    <tr><td colspan="3"><input type="submit" value="<?= $this->getText('Create', 0, 0); ?>">
+                                    <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                                 </table>
                             </form>
                         </div>
@@ -215,15 +215,15 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-4">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getText('Media'); ?></h1></header>
+                        <header><h1><?= $this->getHtml('Media') ?></h1></header>
 
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getText('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getText('Select'); ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getText('Upload'); ?></label>
+                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media') ?></label>
+                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
+                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
                             </form>
@@ -244,24 +244,24 @@ echo $this->getData('nav')->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="table red">
-                            <caption><?= $this->getText('Logs') ?></caption>
+                            <caption><?= $this->getHtml('Logs'); ?></caption>
                             <thead>
                             <tr>
                                 <td>IP
-                                <td><?= $this->getText('ID', 0, 0); ?>
-                                <td><?= $this->getText('Name'); ?>
-                                <td class="wf-100"><?= $this->getText('Log'); ?>
-                                <td><?= $this->getText('Date'); ?>
+                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('Name') ?>
+                                <td class="wf-100"><?= $this->getHtml('Log') ?>
+                                <td><?= $this->getHtml('Date') ?>
                             <tfoot>
                             <tr>
-                                <td colspan="6"><?= $footerView->render(); ?>
+                                <td colspan="6"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                             <tbody>
                             <tr>
-                                <td><?= $this->request->getOrigin(); ?>
-                                <td><?= $this->request->getAccount(); ?>
-                                <td><?= $this->request->getAccount(); ?>
+                                <td><?= htmlspecialchars($this->request->getOrigin(), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
                                 <td>Create Invoice
-                                <td><?= (new \DateTime('now'))->format('Y-m-d H:i:s') ?>
+                                <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s') , ENT_COMPAT, 'utf-8'); ?>
                         </table>
                     </div>
                 </div>

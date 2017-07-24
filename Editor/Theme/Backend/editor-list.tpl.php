@@ -28,25 +28,25 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Documents'); ?></caption>
+                <caption><?= $this->getHtml('Documents') ?></caption>
                 <thead>
                 <tr>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Creator'); ?>
-                    <td><?= $this->getText('Created'); ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Creator') ?>
+                    <td><?= $this->getHtml('Created') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="3"><?= $footerView->render(); ?>
+                    <td colspan="3"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $count = 0; foreach($docs as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td><a href="<?= $url; ?>"><?= $value->getTitle(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $value->getCreatedBy()->getName1(); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $value->getCreatedAt()->format('Y-m-d H:i:s'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedAt()->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

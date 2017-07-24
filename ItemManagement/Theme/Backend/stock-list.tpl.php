@@ -29,26 +29,26 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Stock'); ?></caption>
+                <caption><?= $this->getHtml('Stock') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Article'); ?>
-                    <td><?= $this->getText('Quantity'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Article') ?>
+                    <td><?= $this->getHtml('Quantity') ?>
                 <tfoot>
-                <tr><td colspan="8"><?= $footerView->render(); ?>
+                <tr><td colspan="8"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/business/department/profile?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getParent(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getUnit(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getUnit(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
                 <tr>
-                    <td colspan="8" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                    <td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

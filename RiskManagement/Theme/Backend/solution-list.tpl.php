@@ -20,26 +20,26 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Solutions'); ?></caption>
+                <caption><?= $this->getHtml('Solutions') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Risk'); ?>
-                    <td><?= $this->getText('Cause'); ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Risk') ?>
+                    <td><?= $this->getHtml('Cause') ?>
                         <tfoot>
                 <tr><td colspan="4">
                         <tbody>
                         <?php $c = 0; foreach ($solutions as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/solution/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getTitle(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getRisk()->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getCause()->getTitle(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getRisk()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCause()->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
-                        <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                        <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                                 <?php endif; ?>
             </table>
         </div>

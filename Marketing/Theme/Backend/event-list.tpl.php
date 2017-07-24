@@ -24,26 +24,26 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Events') ?></caption>
+                <caption><?= $this->getHtml('Events'); ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getText('Status'); ?>
-                    <td><?= $this->getText('Type'); ?>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Start'); ?>
-                    <td><?= $this->getText('End'); ?>
-                    <td><?= $this->getText('Location'); ?>
-                    <td><?= $this->getText('Expenses'); ?>
-                    <td><?= $this->getText('Sales'); ?>
-                    <td><?= $this->getText('Budget'); ?>
+                    <td><?= $this->getHtml('Status') ?>
+                    <td><?= $this->getHtml('Type') ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Start') ?>
+                    <td><?= $this->getHtml('End') ?>
+                    <td><?= $this->getHtml('Location') ?>
+                    <td><?= $this->getHtml('Expenses') ?>
+                    <td><?= $this->getHtml('Sales') ?>
+                    <td><?= $this->getHtml('Budget') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="9"><?= $footerView->render(); ?>
+                    <td colspan="9"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-                <tr><td colspan="9" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

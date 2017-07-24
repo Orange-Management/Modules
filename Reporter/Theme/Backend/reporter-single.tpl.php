@@ -37,22 +37,22 @@ echo $this->getData('nav')->render(); ?>
 
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Reports'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Reports') ?></h1></header>
 
             <div class="inner">
                 <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr>
-                            <td><label for="iLang"><?= $this->getText('Language') ?></label>
+                            <td><label for="iLang"><?= $this->getHtml('Language'); ?></label>
                         <tr>
                             <td><select id="iLang" name="lang">
                                     <?php foreach($reportLanguage as $key => $langauge) : ?>
-                                    <option value="<?= $key; ?>"<?= $key === $cLang ? ' selected' : ''; ?>><?= $langauge[':language'] ?>
+                                    <option value="<?= htmlspecialchars($key, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($key === $cLang ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($langauge[':language'] , ENT_COMPAT, 'utf-8'); ?>
                                     <?php endforeach; ?>
                                 </select>
                         <tr>
-                            <td><label for="iReport"><?= $this->getText('Report') ?></label>
+                            <td><label for="iReport"><?= $this->getHtml('Report'); ?></label>
                         <tr>
                             <td><select id="iReport" name="report">
                                 </select>
@@ -62,24 +62,24 @@ echo $this->getData('nav')->render(); ?>
         </section>
 
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Export'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Export') ?></h1></header>
 
             <div class="inner">
                 <form action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/reporter/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr>
-                            <td><label for="iExport"><?= $this->getText('Export') ?></label>
+                            <td><label for="iExport"><?= $this->getHtml('Export'); ?></label>
                         <tr>
                             <td><select id="iExport" name="export-type">
-                                    <option value="select" disabled><?= $this->getText('Select') ?>
-                                    <option value="excel"<?= (!isset($tcoll['excel'])) ? ' disabled' : ''; ?>>Excel
-                                    <option value="csv"<?= (!isset($tcoll['csv'])) ? ' disabled' : ''; ?>>Csv
-                                    <option value="json"<?= (!isset($tcoll['json'])) ? ' disabled' : ''; ?>>Json
-                                    <option value="pdf"<?= (!isset($tcoll['pdf'])) ? ' disabled' : ''; ?>>Pdf
+                                    <option value="select" disabled><?= $this->getHtml('Select'); ?>
+                                    <option value="excel"<?= htmlspecialchars((!isset($tcoll['excel'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Excel
+                                    <option value="csv"<?= htmlspecialchars((!isset($tcoll['csv'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Csv
+                                    <option value="json"<?= htmlspecialchars((!isset($tcoll['json'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Json
+                                    <option value="pdf"<?= htmlspecialchars((!isset($tcoll['pdf'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Pdf
                                 </select>
                         <tr>
-                            <td><input type="button" value="<?= $this->getText('Export') ?>"
+                            <td><input type="button" value="<?= $this->getHtml('Export'); ?>"
                                     data-ropen="/{#lang}/api/reporter/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
                     </table>
                 </form>
@@ -87,33 +87,33 @@ echo $this->getData('nav')->render(); ?>
         </section>
 
         <section class="box wf-100">
-            <header><h1><?= $this->getText('Info'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Info') ?></h1></header>
 
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
                     <tr>
-                        <th colspan="2"><?= $this->getText('Report'); ?>
+                        <th colspan="2"><?= $this->getHtml('Report') ?>
                     <tr>
-                        <td><?= $this->getText('Name') ?>
-                        <td><?= $report->getTitle(); ?>
+                        <td><?= $this->getHtml('Name'); ?>
+                        <td><?= htmlspecialchars($report->getTitle(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Creator') ?>
-                        <td><?= $report->getCreatedBy(); ?>
+                        <td><?= $this->getHtml('Creator'); ?>
+                        <td><?= htmlspecialchars($report->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Created') ?>
-                        <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
+                        <td><?= $this->getHtml('Created'); ?>
+                        <td><?= htmlspecialchars($report->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <th colspan="2"><?= $this->getText('Template'); ?>
+                        <th colspan="2"><?= $this->getHtml('Template') ?>
                     <tr>
-                        <td><?= $this->getText('Name') ?>
-                        <td><?= $template->getName(); ?>
+                        <td><?= $this->getHtml('Name'); ?>
+                        <td><?= htmlspecialchars($template->getName(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Creator') ?>
-                        <td><?= $template->getCreatedBy(); ?>
+                        <td><?= $this->getHtml('Creator'); ?>
+                        <td><?= htmlspecialchars($template->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
-                        <td><?= $this->getText('Created') ?>
-                        <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>
+                        <td><?= $this->getHtml('Created'); ?>
+                        <td><?= htmlspecialchars($template->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                 </table>
             </div>
         </section>

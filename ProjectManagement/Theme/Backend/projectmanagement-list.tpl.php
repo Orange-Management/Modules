@@ -26,25 +26,25 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getText('Projects') ?></caption>
+                <caption><?= $this->getHtml('Projects'); ?></caption>
                 <thead>
                 <tr>
-                    <td class="wf-100"><?= $this->getText('Title'); ?>
-                    <td><?= $this->getText('Start'); ?>
-                    <td><?= $this->getText('Due'); ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Start') ?>
+                    <td><?= $this->getHtml('Due') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="5"><?= $footerView->render(); ?>
+                    <td colspan="5"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
                 <tbody>
                 <?php $count = 0; foreach($list as $key => $value) : $count++; 
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/projectmanagement/profile?{?}&id=' . $value->getId());?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getStart()->format('Y-m-d'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $value->getEnd()->format('Y-m-d'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getStart()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getEnd()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>
         </div>

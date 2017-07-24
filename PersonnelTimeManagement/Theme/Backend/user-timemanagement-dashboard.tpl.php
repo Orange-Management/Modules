@@ -20,24 +20,24 @@ echo $this->getData('nav')->render();
 
 <div class="box w-100">
     <table class="table red">
-        <caption><?= $this->getText('Times'); ?></caption>
+        <caption><?= $this->getHtml('Times') ?></caption>
         <thead>
         <tr>
-            <td><?= $this->getText('Start'); ?>
-            <td><?= $this->getText('End'); ?>
-            <td class="wf-100"><?= $this->getText('Type'); ?>
+            <td><?= $this->getHtml('Start') ?>
+            <td><?= $this->getHtml('End') ?>
+            <td class="wf-100"><?= $this->getHtml('Type') ?>
         <tfoot>
-        <tr><td colspan="4"><?= $footerView->render(); ?>
+        <tr><td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
         <tbody>
         <?php $c = 0; foreach ($employees as $key => $value) : $c++;
             $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
             <tr>
-                <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
-                <td><a href="<?= $url; ?>"><?= $value->getNewestHistory()->getPosition(); ?></a>
+                <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestHistory()->getPosition(), ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestHistory()->getPosition(), ENT_COMPAT, 'utf-8'); ?></a>
         <?php endforeach; ?>
         <?php if($c === 0) : ?>
-            <tr><td colspan="4" class="empty"><?= $this->getText('Empty', 0, 0); ?>
+            <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
         <?php endif; ?>
     </table>
 </div>
