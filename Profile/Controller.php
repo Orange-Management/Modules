@@ -15,7 +15,7 @@
 declare(strict_types=1);
 namespace Modules\Profile;
 
-use Modules\Admin\Models\AccountMapper;
+use Modules\Profile\Models\ProfileMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -92,7 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
 
-        $view->setData('accounts', AccountMapper::getNewest(25));
+        $view->setData('accounts', ProfileMapper::getNewest(25));
 
         return $view;
     }
@@ -112,7 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $view->setData('account', AccountMapper::get($request->getData('id')));
+        $view->setData('account', ProfileMapper::get($request->getData('id')));
 
         return $view;
     }

@@ -207,7 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function uploadFiles(array $files, int $account, string $basePath = '/Modules/Media/Files') : array
+    public function uploadFiles(array $files, int $account, string $basePath = 'Modules/Media/Files') : array
     {
         $mediaCreated = [];
 
@@ -222,7 +222,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $mediaCreated;
     }
 
-    public static function createMediaPath(string $basePath = '/Modules/Media/Files') : string
+    public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
     {
         $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
         return $basePath . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
@@ -271,7 +271,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private static function normalizeDbPath(string $path) : string
     {
-        return str_replace('\\', '/', str_replace(realpath(__DIR__ . '/../../'), '', rtrim($path, '/')));
+        return str_replace('\\', '/', str_replace(realpath(__DIR__ . '/../../') . '/', '', rtrim($path, '/')));
     }
 
 }

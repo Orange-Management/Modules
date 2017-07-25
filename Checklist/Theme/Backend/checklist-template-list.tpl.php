@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Creator') ?>
                     <td><?= $this->getHtml('Created') ?>
                 <tfoot>
-                <tr><td colspan="5"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                <tr><td colspan="5"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>

@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Media\Models\CollectionMapper;
+use Modules\Admin\Models\AccountMapper;
 
 class TemplateMapper extends DataMapperAbstract
 {
@@ -56,6 +57,13 @@ class TemplateMapper extends DataMapperAbstract
         'source' => [
             'mapper'         => CollectionMapper::class,
             'src'            => 'reporter_template_media',
+        ],
+    ];
+
+    static protected $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'reporter_template_creator',
         ],
     ];
 

@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                 <td class="wf-100"><?= $this->getHtml('Message') ?>
                     <tfoot>
             <tr>
-                <td colspan="5"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                <td colspan="5"><?= $footerView->render(); ?>
                     <tbody>
                     <?php foreach ($logs as $key => $value) :
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/monitoring/logs/single?{?}&id=' . $key);?>

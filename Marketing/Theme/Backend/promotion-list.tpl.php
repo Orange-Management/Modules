@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Budget') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="7"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                    <td colspan="7"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
                 <?php endforeach; ?>

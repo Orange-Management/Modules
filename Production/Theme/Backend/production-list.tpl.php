@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Due') ?>
                     <td><?= $this->getHtml('Done') ?>
                 <tfoot>
-                <tr><td colspan="8"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                <tr><td colspan="8"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/business/department/profile?{?}&id=' . $value->getId()); ?>

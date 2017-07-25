@@ -35,8 +35,8 @@ echo $this->getData('nav')->render();
                 <!-- @formatter:off -->
                         <table class="list">
                             <tr>
-                                <th><?= $this->getHtml('Name') ?>
-                                <td><span itemprop="familyName"><?= htmlspecialchars($account->getName3(), ENT_COMPAT, 'utf-8'); ?></span>, <span itemprop="givenName"><?= htmlspecialchars($account->getName1(), ENT_COMPAT, 'utf-8'); ?></span>
+                                <th><?= $this->getHtml('Name') ?><img alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage()->getPath(); ?>">
+                                <td><span itemprop="familyName"><?= htmlspecialchars($account->getAccount()->getName3(), ENT_COMPAT, 'utf-8'); ?></span>, <span itemprop="givenName"><?= htmlspecialchars($account->getAccount()->getName1(), ENT_COMPAT, 'utf-8'); ?></span>
                             <tr>
                                 <th><?= $this->getHtml('Occupation') ?>
                                 <td itemprop="jobTitle">Sailor
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render();
                                 <td itemprop="memberOf">Gosling
                             <tr>
                                 <th><?= $this->getHtml('Email') ?>
-                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= htmlspecialchars($account->getEmail(), ENT_COMPAT, 'utf-8'); ?></a>
+                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= htmlspecialchars($account->getAccount()->getEmail(), ENT_COMPAT, 'utf-8'); ?></a>
                             <tr>
                                 <th>Address
                                 <td>
@@ -72,13 +72,13 @@ echo $this->getData('nav')->render();
                                 <td itemprop="telephone">+01 12345-4567
                             <tr>
                                 <th><?= $this->getHtml('Registered') ?>
-                                <td><?= htmlspecialchars($account->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= htmlspecialchars($account->getAccount()->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                             <tr>
                                 <th><?= $this->getHtml('LastLogin') ?>
-                                <td><?= htmlspecialchars($account->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= htmlspecialchars($account->getAccount()->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                             <tr>
                                 <th><?= $this->getHtml('Status') ?>
-                                <td><span class="tag green"><?= htmlspecialchars($account->getStatus(), ENT_COMPAT, 'utf-8'); ?></span>
+                                <td><span class="tag green"><?= htmlspecialchars($account->getAccount()->getStatus(), ENT_COMPAT, 'utf-8'); ?></span>
                         </table>
                         <!-- @formatter:on -->
             </div>
@@ -96,7 +96,7 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Type', 'Media') ?>
                     <td><?= $this->getHtml('Created', 'Media') ?>
                 <tfoot>
-                <tr><td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                <tr><td colspan="4"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>

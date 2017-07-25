@@ -179,7 +179,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= $this->getHtml('Date') ?>
                     <tfoot>
                     <tr>
-                        <td colspan="6"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                        <td colspan="6"><?= $footerView->render(); ?>
                     <tbody>
                     <tr>
                         <td><?= htmlspecialchars($this->request->getOrigin(), ENT_COMPAT, 'utf-8'); ?>

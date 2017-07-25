@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->getHtml('Created') ?>
                 <tfoot>
         <tr>
-            <td colspan="3"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+            <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($queries as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/database/template/single?{?}&id=' . $value->getId()); ?>

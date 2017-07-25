@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Updated') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="4"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                    <td colspan="4"><?= $footerView->render(); ?>
                 <tbody>
                 <?php if (count($templates) == 0) : ?>
                 <tr class="empty">
@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getId(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
             </table>

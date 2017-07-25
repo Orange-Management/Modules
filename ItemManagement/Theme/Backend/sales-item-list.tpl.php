@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Ordered') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="6"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                    <td colspan="6"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($items as $key => $value) : $count++; 
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/item/single?{?}&id=' . $value->getId()); ?>

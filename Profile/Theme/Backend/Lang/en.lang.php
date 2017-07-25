@@ -26,6 +26,7 @@ return ['Profile' => [
     'ON'                 => 'ON',
     'Phone'              => 'Phone',
     'Profile'            => 'Profile',
+    'ProfileImage'            => 'Profile Image',
     'Profiles'           => 'Profiles',
     'Ranks'              => 'Ranks',
     'Registered'         => 'Registered',

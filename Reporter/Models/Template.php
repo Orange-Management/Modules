@@ -211,13 +211,13 @@ class Template
     }
 
     /**
-     * @param int $createdBy Creator
+     * @param mixed $createdBy Creator
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
     }
@@ -235,11 +235,11 @@ class Template
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Parent') ?>
                         <tfoot>
-                <tr><td colspan="3"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                <tr><td colspan="3"><?= $footerView->render(); ?>
                         <tbody>
                         <?php $count = 0; foreach($listElements as $key => $value) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>

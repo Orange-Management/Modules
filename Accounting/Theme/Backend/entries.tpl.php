@@ -95,7 +95,7 @@ $footerView->setResults(1);
                                     <td><?= $this->getHtml('Created') ?>
                                 <tfoot>
                                 <tr>
-                                    <td colspan="13"><?= htmlspecialchars($footerView->render(), ENT_COMPAT, 'utf-8'); ?>
+                                    <td colspan="13"><?= $footerView->render(); ?>
                                 <tbody>
                                 <?php $count = 0;
                                 foreach ([] as $key => $value) : $count++; ?>
