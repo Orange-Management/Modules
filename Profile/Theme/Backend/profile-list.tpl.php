@@ -39,11 +39,11 @@ $accounts = $this->getData('accounts');
                     <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
                 <?php $count = 0; foreach($accounts as $key => $account) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/profile/single?{?}&id=' . $account->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/profile/single?{?}&id=' . $account->getAccount()->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getName3() . ' ' . $account->getName2() . ' ' . $account->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getAccount()->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getAccount()->getName3() . ' ' . $account->getAccount()->getName2() . ' ' . $account->getAccount()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getAccount()->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
