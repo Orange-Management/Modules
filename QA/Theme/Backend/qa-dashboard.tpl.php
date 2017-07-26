@@ -12,7 +12,7 @@ echo $this->getData('nav')->render(); ?>
                         <span class="score<?= htmlspecialchars($question->hasAccepted() ? ' done' : '', ENT_COMPAT, 'utf-8'); ?>"><?= htmlspecialchars(count($question->getAnswers()), ENT_COMPAT, 'utf-8'); ?></span>
                     </div>
                     <div class="title col-xs-11">
-                        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/qa/question?{?}&id=' . $question->getId()) , ENT_COMPAT, 'utf-8'); ?>"><?= htmlspecialchars($question->getName(); ?></a>
+                        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/qa/question?{?}&id=' . $question->getId()); ?>"><?= htmlspecialchars($question->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                     </div>
                 </div>
                 <div class="tags">

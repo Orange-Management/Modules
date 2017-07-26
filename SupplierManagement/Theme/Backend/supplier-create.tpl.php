@@ -6,7 +6,6 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -186,7 +185,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
                         <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
                         <td>Creating suppier
-                        <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s') , ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?>
                 </table>
             </div>
         </div>

@@ -8,7 +8,7 @@ $columns = $board->getColumns();
     <div id="kanban-column-<?= htmlspecialchars($i, ENT_COMPAT, 'utf-8'); ?>" class="col-xs-12 col-sm-3" draggable="true">
         <header><?= htmlspecialchars($column->getName(), ENT_COMPAT, 'utf-8'); ?></header>
         <?php $j = 0; foreach($cards as $card) : $j++; $labels = $card->getLabels(); ?>
-            <a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/kanban/card?{?}&id=' . $card->getId()) , ENT_COMPAT, 'utf-8'); ?>">
+            <a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/kanban/card?{?}&id=' . $card->getId()), ENT_COMPAT, 'utf-8'); ?>">
             <section id="kanban-card-<?= htmlspecialchars($i . '-' . $j, ENT_COMPAT, 'utf-8'); ?>" class="box wf-100" draggable="true">
                 <header><h1><?= htmlspecialchars($card->getName(), ENT_COMPAT, 'utf-8'); ?></h1></header>
                 <div class="inner">

@@ -6,7 +6,6 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -49,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><label for="iProject"><?= $this->getHtml('Project') ?></label>
                                     <tr><td><input type="text" id="iProject" name="project" placeholder="&#xf040; <?= $this->getHtml('Project') ?>">
                                     <tr><td><label for="iReview"><?= $this->getHtml('Review') ?></label>
-                                    <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s') , ENT_COMPAT, 'utf-8'); ?>">
+                                    <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
                                     <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                                 </table>
                             </form>

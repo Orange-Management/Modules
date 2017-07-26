@@ -6,7 +6,6 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -29,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="2"><label for="iObserver"><?= $this->getHtml('CC') ?></label>
                 <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iObserver" name="observer" placeholder="&#xf007; Guest" required></span><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
                 <tr><td colspan="2"><label for="iDue"><?= $this->getHtml('Due') ?></label>
-                <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s') , ENT_COMPAT, 'utf-8'); ?>"><td>
+                <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>"><td>
                 <tr><td colspan="2"><label for="iTitle"><?= $this->getHtml('Title') ?></label>
                 <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->getHtml('Title') ?>"><td>
                 <tr><td colspan="2"><label for="iMessage"><?= $this->getHtml('Message') ?></label>

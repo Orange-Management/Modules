@@ -6,8 +6,7 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
- * @copyright  2013 Dennis Eichhorn
+ * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://orange-management.com
@@ -22,7 +21,6 @@ use phpOMS\Datatypes\Enum;
  *
  * @category   Calendar
  * @package    Modules
- * @author     OMS Development Team <dev@oms.com>
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0

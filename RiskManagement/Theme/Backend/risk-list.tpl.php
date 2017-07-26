@@ -6,7 +6,6 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -35,9 +34,9 @@ echo $this->getData('nav')->render(); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getCauses()) , ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getSolutions()) , ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getRiskObjects()) , ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getCauses()), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getSolutions()), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getRiskObjects()), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
                         <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

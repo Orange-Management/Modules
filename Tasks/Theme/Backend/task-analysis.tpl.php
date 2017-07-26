@@ -6,7 +6,6 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -27,9 +26,9 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iAccount"><?= $this->getHtml('Account') ?></label>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" min="1" id="iAccount" name="account" placeholder="&#xf007; Guest" required></span>
                         <tr><td><label for="iFrom"><?= $this->getHtml('From') ?></label>
-                        <tr><td><input type="datetime-local" id="iFrom" name="from" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s') , ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input type="datetime-local" id="iFrom" name="from" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td><label for="iTo"><?= $this->getHtml('To') ?></label>
-                        <tr><td><input type="datetime-local" id="iTo" name="to" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s') , ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input type="datetime-local" id="iTo" name="to" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Submit', 0, 0); ?>">
                     </table>
                 </form>

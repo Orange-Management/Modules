@@ -6,7 +6,6 @@
  *
  * @category   TBD
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -32,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= htmlspecialchars(Modules\News\Models\NewsStatus::DRAFT, ENT_COMPAT, 'utf-8'); ?>" selected><?= $this->getHtml('Draft'); ?>
                                     <option value="<?= htmlspecialchars(Modules\News\Models\NewsStatus::VISIBLE, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Visible'); ?>
                         <tr><td colspan="2"><label for="publish"><?= $this->getHtml('Publish'); ?></label>
-                        <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s') , ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Delete', 0); ?>"><td class="rightText"><input type="submit" value="<?= $this->getHtml('Save', 0); ?>"> <input type="submit" value="<?= $this->getHtml('Publish'); ?>">
                     </table>
                 </form>
