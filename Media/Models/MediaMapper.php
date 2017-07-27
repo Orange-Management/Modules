@@ -18,6 +18,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Admin\Models\AccountMapper;
 
 class MediaMapper extends DataMapperAbstract
 {
@@ -40,6 +41,13 @@ class MediaMapper extends DataMapperAbstract
         'media_size'        => ['name' => 'media_size', 'type' => 'int', 'internal' => 'size'],
         'media_created_by'  => ['name' => 'media_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'media_created_at'  => ['name' => 'media_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+    ];
+
+    protected static $belongsTo = [
+        'createdBy' => [
+            'mapper'         => AccountMapper::class,
+            'dest'            => 'media_created_by',
+        ],
     ];
 
     /**

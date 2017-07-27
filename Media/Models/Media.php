@@ -136,11 +136,11 @@ class Media
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

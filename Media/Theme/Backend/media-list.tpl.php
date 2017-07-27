@@ -75,7 +75,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                             <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getExtension(), ENT_COMPAT, 'utf-8'); ?></a>
                             <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getSize(), ENT_COMPAT, 'utf-8'); ?></a>
-                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?></a>
+                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
                             <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedAt()->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
