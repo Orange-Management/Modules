@@ -35,9 +35,13 @@ class PositionMapper extends DataMapperAbstract
     ];
 
     protected static $belongsTo = [
-        'account' => [
+        'parent' => [
             'mapper'         => PositionMapper::class,
             'dest'            => 'organization_position_parent',
+        ],
+        'department' => [
+            'mapper'         => DepartmentMapper::class,
+            'dest'            => 'organization_position_department',
         ],
     ];
 

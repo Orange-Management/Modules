@@ -37,6 +37,10 @@ class UnitMapper extends DataMapperAbstract
             'mapper'         => UnitMapper::class,
             'dest'            => 'organization_uni_parent',
         ],
+        'parent' => [
+            'mapper'         => UnitMapper::class,
+            'dest'            => 'organization_unit_parent',
+        ],
     ];
 
     /**

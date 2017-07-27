@@ -60,7 +60,7 @@ class Position implements ArrayableInterface, \JsonSerializable
         return $this->department;
     }
 
-    public function setDepartment(int $department)
+    public function setDepartment($department)
     {
         $this->department = $department;
     }

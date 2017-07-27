@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= htmlspecialchars($position->getName(), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
-                        <tr><td><input type="text" name="parent" id="iParent" value="<?= htmlspecialchars($position->getParent(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input type="text" name="parent" id="iParent" value="<?= htmlspecialchars($position->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select name="status" id="iStatus">
                                     <option><?= $this->getHtml('Active') ?>

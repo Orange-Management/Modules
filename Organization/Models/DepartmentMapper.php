@@ -38,6 +38,10 @@ class DepartmentMapper extends DataMapperAbstract
             'mapper'         => UnitMapper::class,
             'dest'            => 'organization_department_unit',
         ],
+        'parent' => [
+            'mapper'         => DepartmentMapper::class,
+            'dest'            => 'organization_department_parent',
+        ],
     ];
 
     /**

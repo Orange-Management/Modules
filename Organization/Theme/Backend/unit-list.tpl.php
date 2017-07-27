@@ -40,9 +40,9 @@ echo $this->getData('nav')->render(); ?>
                         <?php foreach ($this->getData('list:elements') as $key => $value) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/unit/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td data-label="<?= $this->getHtml('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId() ?></a>
+                    <td data-label="<?= $this->getHtml('ID', 0, 0); ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td data-label="<?= $this->getHtml('Parent') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td data-label="<?= $this->getHtml('Parent') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
             </table>
         </div>
