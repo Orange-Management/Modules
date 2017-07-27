@@ -90,4 +90,4 @@ $calendar = $this->getData('calendar');
     <menuitem label="Delete"></menuitem>
 </menu>
 
-<?= htmlspecialchars($this->getData('calendarEventPopup')->render('iCalendarEvent'), ENT_COMPAT, 'utf-8'); ?>
+<?= $this->getData('calendarEventPopup')->render('iCalendarEvent'); ?>

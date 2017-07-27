@@ -94,7 +94,8 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('panels', [
             $this->app->moduleManager->get('News')->viewDashboard($request, $response, $data),
-            $this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data)
+            $this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data),
+            $this->app->moduleManager->get('Calendar')->viewDashboard($request, $response, $data),
         ]);
 
         return $view;
