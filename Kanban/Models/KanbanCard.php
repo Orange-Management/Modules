@@ -191,9 +191,29 @@ class KanbanCard implements \JsonSerializable
 
     public function jsonSerialize() : array
     {
-        return [];
+        return [
+            'title' => $this->name,
+            'description' => $this->description,
+            'status' => $this->status,
+            'type' => $this->type,
+            'column' => $this->name,
+            'order' => $this->name,
+            'ref' => $this->name,
+            'createdBy' => $this->name,
+            'createdAt' => $this->name,
+            'labels' => $this->name,
+            'comments' => $this->name,
+            'media' => $this->name,
+        ];
     }
 
-    /* todo: create function to create card from task etc... this fills the values here. what happens if task changes? bad idea! */
+    public static function createFromTask(Task $task) : KanbanCard
+    {
+        $card = new self();
+        $card->setRef($task->getId());
+
+        return $card;
+    }
+
     /* todo: maybe allow ref to be an object and datamapper creates that object? how does the datamapper know what kind of datamapper to use? Just assume it's called ObjectMapper? bad isn't it?! */
 }
