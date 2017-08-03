@@ -45,6 +45,7 @@ class Installer extends InstallerAbstract
                             `kanban_board_id` int(11) NOT NULL AUTO_INCREMENT,
                             `kanban_board_name` varchar(255) NOT NULL,
                             `kanban_board_status` int(11) NOT NULL,
+                            `kanban_board_order` int(11) NOT NULL,
                             `kanban_board_desc` text DEFAULT NULL,
                             `kanban_board_created_at` datetime DEFAULT NULL,
                             `kanban_board_created_by` int(11) DEFAULT NULL,

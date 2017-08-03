@@ -31,6 +31,8 @@ class KanbanBoard implements \JsonSerializable
 
     private $status = BoardStatus::ACTIVE;
 
+    private $order = 0;
+
     private $description = '';
 
     private $createdBy = 0;
@@ -67,6 +69,16 @@ class KanbanBoard implements \JsonSerializable
     public function setStatus(int $status) /* : void */
     {
         $this->status = $status;
+    }
+
+    public function getOrder() : int
+    {
+        return $this->order;
+    }
+
+    public function setOrder(int $order) /* : void */
+    {
+        $this->order = $order;
     }
 
     public function getDescription() : string
