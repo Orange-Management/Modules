@@ -238,6 +238,49 @@ class Controller extends ModuleAbstract implements WebInterface
         return $newsArticle;
     }
 
+    private function validateBadgeCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (
+            ($val['title'] = empty($request->getData('title')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @since  1.0.0
+     */
+    public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!empty($val = $this->validateBadgeCreate($request))) {
+            $response->set('badge_create', new FormValidation($val));
+
+            return;
+        }
+
+        $badge = $this->createBadgeFromRequest($request);
+
+        BadgeMapper::create($badge);
+        $response->set('badge', $badge->jsonSerialize());
+    }
+
+    private function createBadgeFromRequest(RequestAbstract $request) : Badge
+    {
+        $mardkownParser = new Markdown();
+
+        $badge = new NewsArticle();
+        $badge->setTitle($request->getData('title') ?? '');
+
+        return $badge;
+    }
+
     /**
      * Get Newslists.
      *
@@ -296,4 +339,15 @@ class Controller extends ModuleAbstract implements WebInterface
         return NewsArticleMapper::getAllByQuery($query);
     }
 
+    public function apiDeleteNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        NewsArticleMapper::delete((int) $request->getData('id'));
+        $response->set('news', (int) $request->getData('id'));
+    }
+
+    public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        BadgeMapper::delete((int) $request->getData('id'));
+        $response->set('badge', (int) $request->getData('id'));
+    }
 }
