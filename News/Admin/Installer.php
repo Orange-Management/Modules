@@ -64,33 +64,28 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news_tag` (
-                            `news_tag_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `news_tag_news` int(11) NOT NULL,
-                            `news_tag_tag` varchar(20) NOT NULL,
-                            PRIMARY KEY (`news_tag_id`),
-                            KEY `news_tag_news` (`news_tag_news`)
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news_badge` (
+                            `news_badge_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `news_badge_title` varchar(20) NOT NULL,
+                            PRIMARY KEY (`news_badge_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'news_tag`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_tag_ibfk_1` FOREIGN KEY (`news_tag_news`) REFERENCES `' . $dbPool->get('core')->prefix . 'news` (`news_id`);'
-                )->execute();
-
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news_group` (
-                            `news_group_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `news_group_news` int(11) NOT NULL,
-                            `news_group_group` int(11) NOT NULL,
-                            PRIMARY KEY (`news_group_id`),
-                            KEY `news_group_news` (`news_group_news`)
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news_badge_relation` (
+                            `news_badge_relation_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `news_badge_relation_news` int(11) NOT NULL,
+                            `news_badge_relation_badge` int(11) NOT NULL,
+                            PRIMARY KEY (`news_badge_relation_id`),
+                            KEY `news_badge_relation_news` (`news_badge_relation_news`),
+                            KEY `news_badge_relation_badge` (`news_badge_relation_badge`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'news_group`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_group_ibfk_1` FOREIGN KEY (`news_group_news`) REFERENCES `' . $dbPool->get('core')->prefix . 'news` (`news_id`);'
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'news_badge_relation`
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_badge_relation_ibfk_1` FOREIGN KEY (`news_badge_relation_news`) REFERENCES `' . $dbPool->get('core')->prefix . 'news` (`news_id`),
+                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_badge_relation_ibfk_2` FOREIGN KEY (`news_badge_relation_badge`) REFERENCES `' . $dbPool->get('core')->prefix . 'news_badge` (`news_badge_id`);'
                 )->execute();
                 break;
         }

@@ -119,6 +119,14 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     private $featured = false;
 
     /**
+     * Badge.
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    private $badges = [];
+
+    /**
      * Constructor.
      *
      * @since  1.0.0
@@ -127,6 +135,16 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     {
         $this->createdAt = new \DateTime('NOW');
         $this->publish = new \DateTime('NOW');
+    }
+
+    public function getBadges() : array
+    {
+        return $this->badges;
+    }
+
+    public function addBadge(Badge $badge) /* : void */
+    {
+        $this->badges[] = $badge;
     }
 
     /**
