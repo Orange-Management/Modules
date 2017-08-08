@@ -1,82 +1,96 @@
 <?php
 $calendar = $this->getData('calendar');
 ?>
-<section class="wf-75 floatLeft">
-    <div class="box w-100">
-        <ul class="btns floatLeft">
-            <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')), ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-left"></i></a>
-            <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')), ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-right"></i></a>
-        </ul>
-        <ul class="btns floatRight">
-            <li><a href=""><?= $this->getHtml('Day'); ?></a>
-            <li><a href=""><?= $this->getHtml('Week'); ?></a>
-            <li><a href=""><?= $this->getHtml('Month'); ?></a>
-            <li><a href=""><?= $this->getHtml('Year'); ?></a>
-        </ul>
-    </div>
-    <div class="box w-100">
-        <div id="calendar" class="m-calendar-month" data-action='[
-                            {
-                                "listener": "click", "selector": "#calendar span.tag", "action": [
-                                    {"key": 1, "type": "dom.popup", "tpl": "calendar-event-popup-tpl", "aniIn": "fadeIn"}
-                                ]
-                            }
-                        ]'>
-            <?php $current = new \phpOMS\Datatypes\SmartDateTime($calendar->getDate()->format('Y') . '-' . $calendar->getDate()->format('m') . '-' . '01'); for($i = 0; $i < 6; $i++) : ?>
-                <div class="wf-100">
-                <?php for($j = 0; $j < 7; $j++) : ?>
-                    <div contextmenu="calendar-day-menu" style="display: inline-block; box-sizing: border-box; width: 13.0%; height: 100px; border: 1px solid #000; margin: 0; padding: 3px; overflow: hidden">
-                    <?php if($calendar->getDate()->getFirstDayOfMonth() <= $i*7+$j+1 && $calendar->getDate()->getDaysOfMonth() >= $i*7+$j+1) {
-                        echo ($i*7+$j+1) . ' ' . jddayofweek($j, 1);
-                    } else {
-                        echo $current->createModify(0, 0, -2)->format('d') . ' ' . jddayofweek($j, 1);
-                    } ?>
-                        <ul>
+<div class="row">
+    <div class="col-xs-12 col-md-9">
+        <div class="box wf-100">
+            <ul class="btns floatLeft">
+                <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')), ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-left"></i></a>
+                <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')), ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-right"></i></a>
+            </ul>
+            <ul class="btns floatRight">
+                <li><a href=""><?= $this->getHtml('Day'); ?></a>
+                <li><a href=""><?= $this->getHtml('Week'); ?></a>
+                <li><a href=""><?= $this->getHtml('Month'); ?></a>
+                <li><a href=""><?= $this->getHtml('Year'); ?></a>
+            </ul>
+        </div>
+        <div class="box wf-100">
+            <div id="calendar" class="m-calendar" data-action='[
+                {
+                    "listener": "click", "selector": "#calendar span.tag", "action": [
+                        {"key": 1, "type": "dom.popup", "tpl": "calendar-event-popup-tpl", "aniIn": "fadeIn"}
+                    ]
+                }
+            ]'>
+                <ul class="weekdays green">
+                    <li><?= $this->getHtml('Sunday'); ?>
+                    <li><?= $this->getHtml('Monday'); ?>
+                    <li><?= $this->getHtml('Tuesday'); ?>
+                    <li><?= $this->getHtml('Wednesday'); ?>
+                    <li><?= $this->getHtml('Thursday'); ?>
+                    <li><?= $this->getHtml('Friday'); ?>
+                    <li><?= $this->getHtml('Saturday'); ?>
+                </ul>
+                <?php $current = new \phpOMS\Datatypes\SmartDateTime($calendar->getDate()->format('Y') . '-' . $calendar->getDate()->format('m') . '-' . '01'); 
+                for($i = 0; $i < 6; $i++) : ?>
+                <ul class="days">
+                    <?php for($j = 0; $j < 7; $j++) : ?>
+                            <?php if($calendar->getDate()->getFirstDayOfMonth() <= $i*7+$j+1 && $calendar->getDate()->getDaysOfMonth() >= $i*7+$j+1) : ?>
+                                <li class="day">
+                                    <div class="date"><?= ($i*7+$j+1); ?></div>
+                            <?php else: ?>
+                                <li class="day other-month">
+                                    <div class="date"><?= $current->createModify(0, 0, -2)->format('d'); ?></div>
+                            <?php endif; ?>
                         <?php
                         $events = $calendar->getEventByDate($current);
                         $current->smartModify(0, 0, 1);
-                    foreach($events as $event) : ?>
-                        <li><span id="event-tag-<?= htmlspecialchars($event->getId(), ENT_COMPAT, 'utf-8'); ?>" class="tag purple" style="white-space: nowrap;"><?= htmlspecialchars($event->getName(), ENT_COMPAT, 'utf-8'); ?></span>
-                    <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endfor; ?>
-                </div>
-            <?php endfor;?>
+                        foreach($events as $event) : ?> 
+                            <div id="event-tag-<?= htmlspecialchars($event->getId(), ENT_COMPAT, 'utf-8'); ?>" class="event">
+                                <div class="event-desc"><?= htmlspecialchars($event->getName(), ENT_COMPAT, 'utf-8'); ?></div>
+                                <div class="event-time">2:00pm to 5:00pm</div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endfor; ?>
+                    </li>
+                </ul>
+                <?php endfor;?>
+            </div>
         </div>
     </div>
-</section>
 
-<section class="wf-25 floatLeft">
-    <section class="box w-100">
-        <header><h1>Title</h1></header>
+    <div class="col-xs-12 col-md-3">
+        <section class="box wf-100">
+            <header><h1>Title</h1></header>
 
-        <div class="inner">
-            <form>
-                <table class="layout wf-100">
-                    <tr>
-                        <td><label>Layout</label>
-                    <tr>
-                        <td><select>
-                                <option>
-                            </select>
-                </table>
-            </form>
-        </div>
-    </section>
+            <div class="inner">
+                <form>
+                    <table class="layout wf-100">
+                        <tr>
+                            <td><label>Layout</label>
+                        <tr>
+                            <td><select>
+                                    <option>
+                                </select>
+                    </table>
+                </form>
+            </div>
+        </section>
 
-    <section class="box w-100">
-        <header><h1>Calendars</h1></header>
+        <section class="box wf-100">
+            <header><h1>Calendars</h1></header>
 
-        <div class="inner">
-            <ul class="boxed">
-                <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
-            </ul>
-            <div class="spacer"></div>
-            <button><i class="fa fa-calendar-plus-o"></i> <?= $this->getHtml('Add', 0, 0); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->getHtml('Create', 0, 0); ?></button>
-        </div>
-    </section>
-</section>
+            <div class="inner">
+                <ul class="boxed">
+                    <li><i class="fa fa-times warning"></i> <span class="check"><input type="checkbox" id="iDefault" checked><label for="iDefault">Default</label></span><i class="fa fa-cogs floatRight"></i>
+                </ul>
+                <div class="spacer"></div>
+                <button><i class="fa fa-calendar-plus-o"></i> <?= $this->getHtml('Add', 0, 0); ?></button> <button><i class="fa fa-calendar-check-o"></i> <?= $this->getHtml('Create', 0, 0); ?></button>
+            </div>
+        </section>
+    </div>
+</div>
 
 <menu type="context" id="calendar-day-menu">
     <menuitem label="<?= $this->getHtml('NewEvent'); ?>"></menuitem>
