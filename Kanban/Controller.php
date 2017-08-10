@@ -19,6 +19,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Asset\AssetType;
 
 use Modules\Kanban\Models\KanbanBoard;
 use Modules\Kanban\Models\KanbanBoardMapper;
@@ -86,6 +87,13 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
+
+    public function setupStyles(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Kanban/Theme/Backend/css/styles.css');
+    }
 
     /**
      * @param RequestAbstract  $request  Request

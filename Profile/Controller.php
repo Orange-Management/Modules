@@ -22,6 +22,7 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
+use phpOMS\Asset\AssetType;
 
 /**
  * Profile class.

@@ -3,6 +3,12 @@
 use phpOMS\Router\RouteVerb;
 
 return [
+    '^.*/backend/kanban.*$' => [
+        [
+            'dest' => '\Modules\Kanban\Controller:setupStyles',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/kanban/dashboard.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller:viewKanbanDashboard',
