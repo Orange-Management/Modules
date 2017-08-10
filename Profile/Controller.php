@@ -76,6 +76,13 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
+    public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Profile/Theme/Backend/css/styles.css');
+    }
+
     /**
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response

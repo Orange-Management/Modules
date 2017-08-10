@@ -3,6 +3,12 @@
 use phpOMS\Router\RouteVerb;
 
 return [
+    '^.*/backend/profile.*$' => [
+        [
+            'dest' => '\Modules\Profile\Controller:setupProfileStyles', 
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/profile/list.*$' => [
         [
             'dest' => '\Modules\Profile\Controller:viewProfileList', 
