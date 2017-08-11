@@ -77,9 +77,19 @@
         font-size: 0.7rem;
     }
 
-    .other-month {
-        background: #f5f5f5;
+    .day {
+        background: #fff;
         color: #666;
+
+        &.other-month {
+            background: #dfdfdf;
+        }
+    }
+
+    &.m-calendar-mini {
+        .days li {
+            height: auto;
+        }
     }
 }
 
