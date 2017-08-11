@@ -61,6 +61,9 @@
       background: #dfdfdf; }
   .m-calendar.m-calendar-mini .days li {
     height: auto; }
+  .m-calendar .has-event {
+    font-weight: bold;
+    background: #009aaf; }
 
 @media (max-width: 768px) {
   .m-calendar .weekdays, .m-calendar .other-month {

@@ -315,4 +315,24 @@ class Calendar
 
         return $events;
     }
+
+    /**
+     * Has event on date
+     *
+     * @param \DateTime $date Date of the event
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function hasEventOnDate(\DateTime $date) : bool
+    {
+        foreach ($this->events as $event) {
+            if ($event->getCreatedAt()->format('Y-m-d') === $date->format('Y-m-d')) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

@@ -91,6 +91,11 @@
             height: auto;
         }
     }
+
+    .has-event {
+        font-weight: bold;
+        background: #009aaf;
+    }
 }
 
 @media(max-width: 768px) {

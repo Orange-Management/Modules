@@ -10,6 +10,7 @@
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://orange-management.com
+ * @todo only load events of 3 month or 1 year?!
  */
 declare(strict_types=1);
 namespace Modules\Calendar\Models;
