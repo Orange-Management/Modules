@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Calendar\Models;
 
-use phpOMS\Datatypes\SmartDateTime;
+use phpOMS\Stdlib\Base\SmartDateTime;
 
 /**
  * Calendar class.

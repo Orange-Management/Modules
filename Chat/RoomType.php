@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Chat;
 
-use phpOMS\Datatypes\Enum;
+use phpOMS\Stdlib\Base\Enum;
 
 /**
  * Room type enum.

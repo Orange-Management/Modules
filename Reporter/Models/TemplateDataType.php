@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Reporter\Models;
 
-use phpOMS\Datatypes\Enum;
+use phpOMS\Stdlib\Base\Enum;
 
 /**
  * Reporter status.

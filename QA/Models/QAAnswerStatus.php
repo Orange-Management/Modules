@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\QA\Models;
 
-use phpOMS\Datatypes\Enum;
+use phpOMS\Stdlib\Base\Enum;
 
 /**
  * QA answer status enum.

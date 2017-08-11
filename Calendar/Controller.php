@@ -18,7 +18,7 @@ use Modules\Calendar\Models\CalendarMapper;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
-use phpOMS\Datatypes\SmartDateTime;
+use phpOMS\Stdlib\Base\SmartDateTime;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;

@@ -16,7 +16,7 @@ namespace Modules\Calendar\Models;
 
 use phpOMS\Account\Account;
 use phpOMS\Account\NullAccount;
-use phpOMS\Datatypes\Location;
+use phpOMS\Stdlib\Base\Location;
 
 /**
  * Event class.

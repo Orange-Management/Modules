@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Accounting\Models;
 
-use phpOMS\Datatypes\Enum;
+use phpOMS\Stdlib\Base\Enum;
 
 /**
  * Time range type enum.

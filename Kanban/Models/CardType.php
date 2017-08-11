@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 namespace Modules\Kanban\Models;
 
-use phpOMS\Datatypes\Enum;
+use phpOMS\Stdlib\Base\Enum;
 
 /**
  * Area type enum.

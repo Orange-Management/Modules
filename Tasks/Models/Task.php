@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Tasks\Models;
 use Modules\Calendar\Models\Schedule;
-use phpOMS\Datatypes\Exception\InvalidEnumValue;
+use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Task class.

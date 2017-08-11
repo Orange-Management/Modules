@@ -13,7 +13,7 @@
  */
 declare(strict_types=1);
 namespace Modules\Tasks\Models;
-use phpOMS\Datatypes\Exception\InvalidEnumValue;
+use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Task class.

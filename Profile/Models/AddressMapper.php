@@ -19,7 +19,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
-use phpOMS\Datatypes\Location;
+use phpOMS\Stdlib\Base\Location;
 
 class AddressMapper extends DataMapperAbstract
 {
