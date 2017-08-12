@@ -38,7 +38,7 @@ echo $this->getData('nav')->render();
                     <div class="h-overflow"><img src="<?= htmlspecialchars($this->request->getUri()->getBase() . $media->getPath(), ENT_COMPAT, 'utf-8'); ?>"></div>
                 <?php elseif($media->getExtension() === 'collection') : ?>
                     <ul>
-                        <?php foreach($media as $file) : $test = $file; $test2 = $file->getName(); ?>
+                        <?php foreach($media as $file) : ?>
                             <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/media/single?{?}&id=' . $file->getId()); ?>"><?= htmlspecialchars($file->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                     </ul>
