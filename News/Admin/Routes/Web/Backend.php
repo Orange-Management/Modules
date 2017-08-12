@@ -23,6 +23,10 @@ return [
     ],
     '^.*/backend/news/create.*$' => [
         [
+            'dest' => '\Modules\Editor\Controller:setUpEditorEditor', 
+            'verb' => RouteVerb::GET,
+        ],
+        [
             'dest' => '\Modules\News\Controller:viewNewsCreate', 
             'verb' => RouteVerb::GET,
         ],

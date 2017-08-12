@@ -11,7 +11,7 @@
 
     jsOMS.Modules.Media.prototype.bind = function (id)
     {
-        let e      = typeof id === 'undefined' ? document.getElementsByTagName('form') : [document.getElementById(id)],
+        const e      = typeof id === 'undefined' ? document.getElementsByTagName('form') : [document.getElementById(id)],
             length = e.length;
 
         for (let i = 0; i < length; i++) {

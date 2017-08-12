@@ -1,28 +1,45 @@
 (function (jsOMS)
+{
+    "use strict";
+
+    jsOMS.Modules.Editor.Editor = function (editor)
     {
-        "use strict";
+        this.editor = editor;
+    };
 
-        jsOMS.Modules.Editor.Editor = function (editor)
-        {
+    jsOMS.Modules.Editor.prototype.bind = function()
+    {
+        const editorButtons = this.editor.getElementsByClassName('editor-button'),
+            editorTitle = this.editor.getElementsByClassName('editor-title')[0],
+            editorContent = this.editor.getElementsByClassName('editor-content')[0],
+            editorPreview = this.editor.getElementsByClassName('editor-preview')[0],
+            length = editorButtons.length,
+            self = this;
 
-        };
+        for(let i = 0; i < length; i++) {
+            editorButtons[i].addEventListener('click', function(event) {
+                console.log('button clicked');
+                // todo: identify button by class and then call function for this class.
+            });
+        }
+    };
 
-        jsOMS.Modules.Editor.prototype.getSelectedText = function()
-        {
-            var text            = '';
-            var activeEl        = document.activeElement;
-            var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
-            if (
-                (activeElTagName === 'textarea' || activeElTagName === 'input') &&
-                /^(?:text|search|password|tel|url)$/i.test(activeEl.type) &&
-                (typeof activeEl.selectionStart === 'number')
-            ) {
-                text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
-            } else if (window.getSelection) {
-                text = window.getSelection().toString();
-            }
-            return text;
-        };
+    jsOMS.Modules.Editor.prototype.getSelectedText = function()
+    {
+        var text            = '';
+        var activeEl        = document.activeElement;
+        var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
 
-    }(window.jsOMS = window.jsOMS || {})
-);
+        if (
+            (activeElTagName === 'textarea' || activeElTagName === 'input') &&
+            /^(?:text|search|password|tel|url)$/i.test(activeEl.type) &&
+            (typeof activeEl.selectionStart === 'number')
+        ) {
+            text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+        } else if (window.getSelection) {
+            text = window.getSelection().toString();
+        }
+
+        return text;
+    };
+}(window.jsOMS = window.jsOMS || {}));
