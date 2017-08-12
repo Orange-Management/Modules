@@ -14,6 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Reporter\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
@@ -56,6 +57,13 @@ class ReportMapper extends DataMapperAbstract
             'mapper' => \Modules\Reporter\Models\TemplateMapper::class,
             'src'    => 'reporter_report_template',
         ]
+    ];
+
+    static protected $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'reporter_report_creator',
+        ],
     ];
 
     /**

@@ -215,23 +215,23 @@ class Report
     }
 
     /**
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
     /**
-     * @param int $creator Created by
+     * @param mixed $creator Created by
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $creator)
+    public function setCreatedBy($creator)
     {
         $this->createdBy = $creator;
     }

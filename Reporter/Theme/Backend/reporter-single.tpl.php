@@ -98,10 +98,10 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= htmlspecialchars($report->getTitle(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
                         <td><?= $this->getHtml('Creator'); ?>
-                        <td><?= htmlspecialchars($report->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= htmlspecialchars($report->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
                         <td><?= $this->getHtml('Created'); ?>
-                        <td><?= htmlspecialchars($report->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
                     <tr>
                         <th colspan="2"><?= $this->getHtml('Template') ?>
                     <tr>
@@ -109,10 +109,10 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= htmlspecialchars($template->getName(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
                         <td><?= $this->getHtml('Creator'); ?>
-                        <td><?= htmlspecialchars($template->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= htmlspecialchars($template->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
                     <tr>
                         <td><?= $this->getHtml('Created'); ?>
-                        <td><?= htmlspecialchars($template->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>
                 </table>
             </div>
         </section>
