@@ -2,12 +2,14 @@
 {
     "use strict";
 
-    jsOMS.Modules.Editor.Editor = function (editor)
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Editor');
+
+    jsOMS.Modules.Models.Editor.Editor = function (id)
     {
-        this.editor = editor;
+        this.editor = document.getElementById(id);
     };
 
-    jsOMS.Modules.Editor.prototype.bind = function()
+    jsOMS.Modules.Models.Editor.Editor.prototype.bind = function()
     {
         const editorButtons = this.editor.getElementsByClassName('editor-button'),
             editorTitle = this.editor.getElementsByClassName('editor-title')[0],
@@ -24,7 +26,7 @@
         }
     };
 
-    jsOMS.Modules.Editor.prototype.getSelectedText = function()
+    jsOMS.Modules.Models.Editor.Editor.prototype.getSelectedText = function()
     {
         var text            = '';
         var activeEl        = document.activeElement;

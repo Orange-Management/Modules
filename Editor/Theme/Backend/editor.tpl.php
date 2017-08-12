@@ -17,18 +17,20 @@
 
 $doc = $this->getData('doc') ?? null;
 ?>
-<section class="box wf-100">
-    <div class="inner">
-        <input type="text" name="title" form="docForm">
-    </div>
-</section>
+<div id="testEditor" class="m-editor">
+    <section class="box wf-100">
+        <div class="inner">
+            <input type="text" name="title" form="docForm">
+        </div>
+    </section>
 
-<section class="box wf-100">
-    <div class="inner">
-        <?php include __DIR__ . '/inline-editor-tools.tpl.php'; ?>
-    </div>
-</section>
+    <section class="box wf-100">
+        <div class="inner">
+            <?php include __DIR__ . '/inline-editor-tools.tpl.php'; ?>
+        </div>
+    </section>
 
-<div class="box wf-100">
-    <?php include __DIR__ . '/inline-editor.tpl.php'; ?>
+    <div class="box wf-100">
+        <?php include __DIR__ . '/inline-editor.tpl.php'; ?>
+    </div>
 </div>

@@ -2,6 +2,8 @@
 {
     "use strict";
 
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
+
     jsOMS.Modules.Editor = function(app)
     {
         this.app = app;
@@ -10,7 +12,7 @@
 
     jsOMS.Modules.Editor.prototype.bind = function(id)
     {
-        const e = typeof id === 'undefined' ? document.getElementsByClassName('editor') : [document.getElementById(id)],
+        const e = typeof id === 'undefined' ? document.getElementsByClassName('m-editor') : [document.getElementById(id)],
             length = e.length;
 
         for(let i = 0; i < length; i++) {
@@ -26,7 +28,7 @@
             return;
         }
 
-        this.editors[editor.id] = new jsOMS.Modules.Editor.Editor(this.app);
+        this.editors[editor.id] = new jsOMS.Modules.Models.Editor.Editor(editor.id);
         this.editors[editor.id].bind();
     };
 }(window.jsOMS = window.jsOMS || {}));
