@@ -28,6 +28,7 @@ echo $this->getData('nav')->render();
             <div class="inner">
                 <table class="list w-100">
                     <tbody>
+                        <tr><td>Name<td class="wf-100"><?= htmlspecialchars($media->getName(), ENT_COMPAT, 'utf-8'); ?>
                         <tr><td>Size<td class="wf-100"><?= htmlspecialchars($media->getSize(), ENT_COMPAT, 'utf-8'); ?>
                         <tr><td>Created at<td><?= htmlspecialchars($media->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
                         <tr><td>Created by<td><?= htmlspecialchars($media->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
