@@ -16,6 +16,9 @@ namespace Modules\Media;
 
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
+use Modules\Media\Models\CollectionMapper;
+use Modules\Media\Models\Collection;
+
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
 use phpOMS\Asset\AssetType;
@@ -133,7 +136,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Media/Theme/Backend/media-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
-        $view->addData('media', MediaMapper::get($request->getData('id')));
+        $media = MediaMapper::get($request->getData('id'));
+        if($media->getExtension() === 'collection') {
+            $media = CollectionMapper::get($media->getId());
+        }
+
+        $view->addData('media', $media);
 
         return $view;
     }

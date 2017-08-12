@@ -30,21 +30,25 @@ echo $this->getData('nav')->render();
                     <tbody>
                         <tr><td>Size<td class="wf-100"><?= htmlspecialchars($media->getSize(), ENT_COMPAT, 'utf-8'); ?>
                         <tr><td>Created at<td><?= htmlspecialchars($media->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td>Created by<td><?= htmlspecialchars($media->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?>
+                        <tr><td>Created by<td><?= htmlspecialchars($media->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
                         <tr><td>Description<td><?= htmlspecialchars($media->getDescription(), ENT_COMPAT, 'utf-8'); ?>
                         <tr><td colspan="2">Content
                 </table>
                 <?php if(\phpOMS\System\File\FileUtils::getExtensionType($media->getExtension()) === \phpOMS\System\File\ExtensionType::IMAGE) : ?>
                     <div class="h-overflow"><img src="<?= htmlspecialchars($this->request->getUri()->getBase() . $media->getPath(), ENT_COMPAT, 'utf-8'); ?>"></div>
                 <?php elseif($media->getExtension() === 'collection') : ?>
-                    collection
+                    <ul>
+                        <?php foreach($media as $file) : $test = $file; $test2 = $file->getName(); ?>
+                            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/media/single?{?}&id=' . $file->getId()); ?>"><?= htmlspecialchars($file->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <?php endforeach; ?>
+                    </ul>
                 <?php else : ?>
                     <pre>
                     <?php
-                    $output = htmlspecialchars(file_get_contents(__DIR__ . '/../../../../' . $media->getPath()));
+                    $output = file_get_contents(__DIR__ . '/../../../../' . $media->getPath());
                     $output = str_replace(["\r\n", "\r"], "\n", $output);
                     $output = explode("\n", $output);
-                    foreach($output as $line) : ?><span><?= htmlspecialchars($line, ENT_COMPAT, 'utf-8'); ?></span><?php endforeach; ?>
+                    foreach($output as $line) : ?><span><?= $line; ?></span><?php endforeach; ?>
                     </pre>
                 <?php endif; ?>
             </div>

@@ -23,7 +23,7 @@ namespace Modules\Media\Models;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Collection extends Media
+class Collection extends Media implements \Iterator 
 {
 
     /**
@@ -94,5 +94,30 @@ class Collection extends Media
 
     public function setVersioned(bool $versioned)
     {
+    }
+
+    public function rewind() 
+    {
+        reset($this->sources);
+    }
+
+    public function current() 
+    {
+        return current($this->sources);
+    }
+
+    public function key() 
+    {
+        return key($this->sources);
+    }
+
+    public function next() 
+    {
+        next($this->sources);
+    }
+
+    public function valid() 
+    {
+        return current($this->sources) !== false;
     }
 }
