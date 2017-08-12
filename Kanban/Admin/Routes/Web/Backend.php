@@ -35,7 +35,7 @@ return [
     ],
     '^.*/backend/kanban/create.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:viewKanbanCreate',
+            'dest' => '\Modules\Kanban\Controller:viewKanbanBoardCreate',
             'verb' => RouteVerb::GET,
         ],
     ],
