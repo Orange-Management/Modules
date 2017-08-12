@@ -105,7 +105,7 @@ class TemplateMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj, $relations);
 
-            if($objId === null || !is_scalar($objId)) {
+            if ($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
 
@@ -133,5 +133,4 @@ class TemplateMapper extends DataMapperAbstract
 
         return $objId;
     }
-
 }

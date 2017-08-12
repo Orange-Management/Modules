@@ -47,7 +47,7 @@ class Shipping implements Multition
     /**
      * From.
      *
-     * @var \phpOMS\Datatypes\Address
+     * @var \phpOMS\Stdlib\Base\Address
      * @since 1.0.0
      */
     private $to = null;
@@ -203,7 +203,7 @@ class Shipping implements Multition
     /**
      * Get To.
      *
-     * @return \phpOMS\Datatypes\Address
+     * @return \phpOMS\Stdlib\Base\Address
      *
      * @since  1.0.0
      */
@@ -215,7 +215,7 @@ class Shipping implements Multition
     /**
      * Set To.
      *
-     * @param \phpOMS\Datatypes\Address $to Receiver
+     * @param \phpOMS\Stdlib\Base\Address $to Receiver
      *
      * @return void
      *

@@ -47,7 +47,7 @@ class Warehouse implements Multition
     /**
      * Location of the warehouse.
      *
-     * @var \phpOMS\Datatypes\Location
+     * @var \phpOMS\Stdlib\Base\Location
      * @since 1.0.0
      */
     private $location = null;
@@ -171,7 +171,7 @@ class Warehouse implements Multition
     /**
      * Get location.
      *
-     * @return \phpOMS\Datatypes\Location
+     * @return \phpOMS\Stdlib\Base\Location
      *
      * @since  1.0.0
      */
@@ -183,7 +183,7 @@ class Warehouse implements Multition
     /**
      * Set location.
      *
-     * @param \phpOMS\Datatypes\Location $location Location of the warehouse
+     * @param \phpOMS\Stdlib\Base\Location $location Location of the warehouse
      *
      * @return void
      *

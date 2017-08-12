@@ -47,7 +47,7 @@ class Arrival implements Multition
     /**
      * From.
      *
-     * @var \phpOMS\Datatypes\Address
+     * @var \phpOMS\Stdlib\Base\Address
      * @since 1.0.0
      */
     private $from = null;
@@ -205,7 +205,7 @@ class Arrival implements Multition
     /**
      * Get From.
      *
-     * @return \phpOMS\Datatypes\Address
+     * @return \phpOMS\Stdlib\Base\Address
      *
      * @since  1.0.0
      */
@@ -217,7 +217,7 @@ class Arrival implements Multition
     /**
      * Set From.
      *
-     * @param \phpOMS\Datatypes\Address $from Consignor
+     * @param \phpOMS\Stdlib\Base\Address $from Consignor
      *
      * @return void
      *
