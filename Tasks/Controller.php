@@ -166,6 +166,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
         $view->addData('accGrpSelector', $accGrpSelector);
 
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 

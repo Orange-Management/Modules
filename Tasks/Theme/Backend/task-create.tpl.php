@@ -42,8 +42,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><label for="iTitle"><?= $this->getHtml('Title') ?></label>
                         <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->getHtml('Title') ?>" required><td>
                         <tr><td colspan="2"><label for="iMessage"><?= $this->getHtml('Message') ?></label>
-                        <tr><td><?php //include __DIR__ . '/../../../Editor/Theme/Backend/inline-editor-tools.tpl.php'; ?>
-                        <tr><td><textarea id="iMessage" name="description" placeholder="&#xf040;" required></textarea><td>
+                        <tr><td><?= $this->getData('editor')->render('editor-tools'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render('editor-text'); ?>
                         <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="type" value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskType::SINGLE, ENT_COMPAT, 'utf-8'); ?>">
                     </table>
                 </form>

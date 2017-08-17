@@ -18,7 +18,23 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-9">
-        <?php include __DIR__ . '/../../../Editor/Theme/Backend/editor.tpl.php'; ?>
+        <div id="testEditor" class="m-editor">
+            <section class="box wf-100">
+                <div class="inner">
+                    <input type="text" name="title" form="docForm">
+                </div>
+            </section>
+
+            <section class="box wf-100">
+                <div class="inner">
+                    <?= $this->getData('editor')->render('iNews'); ?>
+                </div>
+            </section>
+
+            <div class="box wf-100">
+            <?= $this->getData('editor')->getData('text')->render('iNews'); ?>
+            </div>
+        </div>
     </div>
 
     <div class="col-xs-12 col-md-3">
