@@ -32,86 +32,17 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
-            <div class="tabular">
-                <ul class="tab-links">
-                    <li><label for="c-tab-1"><?= $this->getHtml('Start'); ?></label>
-                    <li><label for="c-tab-2"><?= $this->getHtml('Insert'); ?></label>
-                    <li><label for="c-tab-3"><?= $this->getHtml('Layout'); ?></label>
-                </ul>
-                <div class="tab-content">
-                    <input type="radio" id="c-tab-1" name="tabular-1" checked>
-                    <div class="tab">
-                        <ul class="h-list">
-                            <li><i class="fa fa-lg fa-floppy-o"></i>
-                            <li><i class="fa fa-lg fa-cloud-download"></i>
-                            <li><i class="fa fa-lg fa-undo"></i>
-                            <li><i class="fa fa-lg fa-repeat"></i>
-                            <li><i class="fa fa-lg fa-copy"></i>
-                            <li><i class="fa fa-lg fa-paste"></i>
-                            <li><i class="fa fa-lg fa-cut"></i>
-                            <li><i class="fa fa-lg fa-bold"></i>
-                            <li><i class="fa fa-lg fa-italic"></i>
-                            <li><i class="fa fa-lg fa-underline"></i>
-                            <li><i class="fa fa-lg fa-strikethrough"></i>
-                            <li><i class="fa fa-lg fa-font"></i>
-                            <li><i class="fa fa-lg fa-subscript"></i>
-                            <li><i class="fa fa-lg fa-superscript"></i>
-                            <li><i class="fa fa-lg fa-paint-brush"></i>
-                            <li><i class="fa fa-lg fa-pencil"></i>
-                            <li><i class="fa fa-lg fa-list-ul"></i>
-                            <li><i class="fa fa-lg fa-list-ol"></i>
-                            <li><i class="fa fa-lg fa-indent"></i>
-                            <li><i class="fa fa-lg fa-dedent"></i>
-                            <li><i class="fa fa-lg fa-align-left"></i>
-                            <li><i class="fa fa-lg fa-align-justify"></i>
-                            <li><i class="fa fa-lg fa-align-right"></i>
-                        </ul>
-                    </div>
-                    <input type="radio" id="c-tab-2" name="tabular-1">
-                    <div class="tab">
-                        <ul class="h-list">
-                            <li><i class="fa fa-lg fa-table"></i>
-                            <li><i class="fa fa-lg fa-image"></i>
-                            <li><i class="fa fa-lg fa-camera"></i>
-                            <li><i class="fa fa-lg fa-paint-brush"></i>
-                            <li><i class="fa fa-lg fa-bar-chart"></i>
-                            <li><i class="fa fa-lg fa-link"></i>
-                            <li><i class="fa fa-lg fa-unlink"></i>
-                            <li><i class="fa fa-lg fa-code"></i>
-                            <li><i class="fa fa-lg fa-quote-right"></i>
-                            <li><i class="fa fa-lg fa-calendar"></i>
-                            <li><i class="fa fa-lg fa-clock"></i>
-                        </ul>
-                    </div>
-                    <input type="radio" id="c-tab-3" name="tabular-1">
-                    <div class="tab">
-                    </div>
-                </div>
+        <section class="box wf-100">
+            <div class="inner">
+                <?= $this->getData('editor')->render('editor-tools'); ?>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
-            <div class="tabular">
-                <ul class="tab-links">
-                    <li><label for="c-tab2-1"><?= $this->getHtml('Text'); ?></label>
-                    <li><label for="c-tab2-2"><?= $this->getHtml('Preview'); ?></label>
-                </ul>
-                <div class="tab-content">
-                    <input type="radio" id="c-tab2-1" name="tabular-2" checked>
-                    <div class="tab">
-                        <textarea name="plain" class="wf-100" form="fEditor"></textarea>
-                    </div>
-                    <input type="radio" id="c-tab2-2" name="tabular-2">
-                    <div class="tab">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?= $this->getData('editor')->getData('text')->render('editor-text'); ?>
     </div>
 </div>
 
