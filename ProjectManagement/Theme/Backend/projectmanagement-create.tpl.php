@@ -35,8 +35,6 @@ echo $this->getData('nav')->render(); ?>
                                 </select><td>
                         <tr><td colspan="3"><label for="iFiles"><?= $this->getHtml('Files') ?></label>
                         <tr><td colspan="2"><input type="file" id="iFiles" name="file" multiple><td>
-                        <tr><td colspan="3"><label for="iBudget"><?= $this->getHtml('Budget') ?></label>
-                        <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder=""><td>
                         <tr><td><label for="iDue"><?= $this->getHtml('Start') ?></label><td><label for="iDue"><?= $this->getHtml('Due') ?></label><td>
                         <tr><td><input type="datetime-local" id="iDue" name="due"><td><input type="datetime-local" id="iDue" name="due"><td>
                         <tr><td><label for="iResponsibility"><?= $this->getHtml('Responsibility') ?></label><td><label for="iUser"><?= $this->getHtml('UserGroup') ?></label><td>
@@ -45,6 +43,8 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= htmlspecialchars(\Modules\ProjectManagement\Models\ProjectResponsibility::OTHER , ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Other') ?>
                                 </select>
                             <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                        <tr><td colspan="3"><label for="iBudget"><?= $this->getHtml('Budget') ?></label>
+                        <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder=""><td>
                         <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>

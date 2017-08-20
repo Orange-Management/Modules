@@ -32,6 +32,8 @@ echo $this->getData('nav')->render(); ?>
                             <td><input type="datetime-local" id="iEnd" name="end" value="<?= htmlspecialchars($project->getEnd()->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td colspan="2"><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td colspan="2"><textarea id="iDescription" name="desc"><?= htmlspecialchars($project->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
+                        <tr><td><label for="iBudget"><?= $this->getHtml('Budget') ?></label><td><label for="iActual"><?= $this->getHtml('Actual') ?></label>
+                        <tr><td><input type="text" id="iBudget" name="budget" placeholder=""><td><input type="text" id="iActual" name="actual">
                         <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>

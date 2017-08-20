@@ -13,6 +13,7 @@
  */
 return ['ProjectManagement' => [
     'Active'         => 'Active',
+    'Actual'         => 'Actual',
     'Budget'         => 'Budget',
     'Canceled'       => 'Canceled',
     'Created'        => 'Created',

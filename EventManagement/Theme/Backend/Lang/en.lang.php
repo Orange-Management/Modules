@@ -13,7 +13,9 @@
  */
 return ['EventManagement' => [
     'Account'         => 'Account',
+    'Actual'         => 'Actual',
     'Amount'          => 'Amount',
+    'Budget'          => 'Budget',
     'CoreData'        => 'Core Data',
     'Description'     => 'Description',
     'Elements'        => 'Elements',
