@@ -1,7 +1,9 @@
-<?= htmlspecialchars($this->getData('nav')->render(), ENT_COMPAT, 'utf-8'); ?>
+<?= $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <?php include 'editor.tpl.php'; ?>
+        <section class="box wf-100">
+            <div class="inner"><?= $this->getData('doc')->getContent(); ?></div>
+        </section>
     </div>
 </div>
