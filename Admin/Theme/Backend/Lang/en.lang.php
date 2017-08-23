@@ -129,4 +129,9 @@ return ['Admin' => [
     'i:rem'              => 'IP address or URL for remote access.',
     'i:rc'               => 'Forcing re-cache for every user.',
     'i:timef'            => 'Time format.',
+    'Status0'            => 'None',
+    'Status1'            => 'Active',
+    'Status2'            => 'Inactive',
+    'Status3'            => 'Timehout',
+    'Status4'            => 'Banned',
 ]];

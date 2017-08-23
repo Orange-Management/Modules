@@ -42,10 +42,15 @@ echo $this->getData('nav')->render();
                 <tr><td colspan="5"><?= $footerView->render(); ?>
                         <tbody>
                         <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
-                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); ?>
+                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); 
+                        $color = 'darkred';
+                        if($value->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE) { $color = 'green'; }
+                        elseif($value->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE) { $color = 'darkblue'; }
+                        elseif($value->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT) { $color = 'purple'; }
+                        elseif($value->getStatus() === phpOMS\Account\AccountStatus::BANNED) { $color = 'red'; } ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getStatus(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getHtml('Status'. $value->getStatus()); ?></span></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getLastActive()->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedAt()->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
