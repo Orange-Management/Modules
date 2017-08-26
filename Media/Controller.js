@@ -27,7 +27,7 @@
             return;
         }
 
-        let self = this;
+        const self = this;
 
         if (!form.querySelector('input[type=file]')|| !document.querySelector('input[type=file][form=' + form.id + ']')) {
             try {
