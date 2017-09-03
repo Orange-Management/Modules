@@ -192,6 +192,9 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-single');
+
         $template = TemplateMapper::get((int) $request->getData('id'));
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
@@ -230,35 +233,35 @@ class Controller extends ModuleAbstract implements WebInterface
             }
         }
 
-        if (!isset($tcoll['template'])) {
-            throw new \Exception('No template file detected.');
-        }
-
-        $report = ReportMapper::getNewest(1, 
-            (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())
-        );
-
-        $rcoll  = [];
-        $report = end($report);
-
-        $report = $report === false ? new NullReport() : $report;
-
-        if (!($report instanceof NullReport)) {
-            /** @var Media[] $files */
-            $files = $report->getSource()->getSources();
-
-            foreach ($files as $media) {
-                $rcoll[$media->getName() . '.' . $media->getExtension()] = $media;
+        if(!$template->isStandalone()) {
+            if (!isset($tcoll['template'])) {
+                throw new \Exception('No template file detected.');
             }
-        }
 
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-single');
+            $report = ReportMapper::getNewest(1, 
+                (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())
+            );
+
+            $rcoll  = [];
+            $report = end($report);
+            $report = $report === false ? new NullReport() : $report;
+
+            if (!($report instanceof NullReport)) {
+                /** @var Media[] $files */
+                $files = $report->getSource()->getSources();
+
+                foreach ($files as $media) {
+                    $rcoll[$media->getName() . '.' . $media->getExtension()] = $media;
+                }
+            }
+
+            $view->addData('report', $report);
+            $view->addData('rcoll', $rcoll);
+        }
+        
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getL11n()->getLanguage());
         $view->addData('template', $template);
-        $view->addData('report', $report);
-        $view->addData('rcoll', $rcoll);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
         return $view;
