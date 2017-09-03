@@ -28,7 +28,7 @@
             {"key": 4, "type": "dom.setvalue", "overwrite": false, "id": "<?= htmlspecialchars($this->getId(), ENT_COMPAT, 'utf-8'); ?>-taglist", "data-path": "", "data": ""}
         ]
     }
-]' required><!-- todo: handle keyup-enter -->
+]' required>
 <datalist id="<?= htmlspecialchars($this->getId(), ENT_COMPAT, 'utf-8'); ?>-datalist"></datalist>
 <input type="hidden" id="<?= htmlspecialchars($this->getId(), ENT_COMPAT, 'utf-8'); ?>-idlist"></span>
 <div id="<?= htmlspecialchars($this->getId(), ENT_COMPAT, 'utf-8'); ?>-taglist"></div>

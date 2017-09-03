@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1006201001,
+        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "type": 2,
+        "subtype": 1,
+        "name": "Auditor",
+        "uri": "{/base}/{/lang}/backend/admin/aduit/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 75,
+        "from": "Auditor",
+        "permission": null,
+        "parent": 1000101001,
+        "children": [
+            {
+                "id": 1006202001,
+                "pid": "dbc72ec850137bfcf6cb862625c680ae0ee6def2",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/base}/{/lang}/backend/admin/aduit/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Auditor",
+                "permission": null,
+                "parent": 1006201001,
+                "children": []
+            }
+        ]
+    }
+]

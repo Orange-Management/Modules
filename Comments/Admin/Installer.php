@@ -52,7 +52,6 @@ class Installer extends InstallerAbstract
                             `comments_comment_id` int(11) NOT NULL AUTO_INCREMENT,
                             `comments_comment_title` varchar(250) NOT NULL,
                             `comments_comment_content` text NOT NULL,
-                            `comments_comment_lang` varchar(2) NOT NULL,
                             `comments_comment_list` int(11) NOT NULL,
                             `comments_comment_ref` int(11) DEFAULT NULL,
                             `comments_comment_created_at` datetime NOT NULL,
@@ -64,7 +63,7 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'editor`
+                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'comments_comment`
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'comments_comment_ibfk_1` FOREIGN KEY (`comments_comment_list`) REFERENCES `' . $dbPool->get('core')->prefix . 'comments_list` (`comments_list_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'comments_comment_ibfk_2` FOREIGN KEY (`comments_comment_ref`) REFERENCES `' . $dbPool->get('core')->prefix . 'comments_comment` (`comments_comment_id`),
                             ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'comments_comment_ibfk_3` FOREIGN KEY (`comments_comment_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
