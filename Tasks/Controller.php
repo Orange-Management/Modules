@@ -238,14 +238,14 @@ class Controller extends ModuleAbstract implements WebInterface
         $task = new Task();
         $task->setTitle($request->getData('title') ?? '');
         $task->setDescription($request->getData('description') ?? '');
-        $task->setCreatedBy($request->getAccount());
+        $task->setCreatedBy($request->getHeader()->getAccount());
         $task->setCreatedAt(new \DateTime('now'));
         $task->setDue(new \DateTime($request->getData('due') ?? 'now'));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
 
         $element = new TaskElement();
-        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setForwarded($request->getData('forward') ?? $request->getHeader()->getAccount());
         $element->setCreatedAt($task->getCreatedAt());
         $element->setCreatedBy($task->getCreatedBy());
         $element->setDue($task->getDue());
@@ -263,7 +263,7 @@ class Controller extends ModuleAbstract implements WebInterface
             ($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
             || ($val['due'] = !((bool)strtotime($request->getData('due'))))
             || ($val['task'] = !(is_numeric($request->getData('task'))))
-            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getAccount() : $request->getData('forward'))))
+            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getHeader()->getAccount() : $request->getData('forward'))))
         ) { // todo: validate correct task
             return $val;
         }
@@ -297,9 +297,9 @@ class Controller extends ModuleAbstract implements WebInterface
     private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = new TaskElement();
-        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setForwarded($request->getData('forward') ?? $request->getHeader()->getAccount());
         $element->setCreatedAt(new \DateTime('now'));
-        $element->setCreatedBy($request->getAccount());
+        $element->setCreatedBy($request->getHeader()->getAccount());
         $element->setDue(new \DateTime($request->getData('due') ?? 'now'));
         $element->setStatus($request->getData('status'));
         $element->setTask($request->getData('task'));

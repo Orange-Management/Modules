@@ -177,7 +177,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files');
+        $uploads = $this->uploadFiles($request->getFiles(), $request->getHeader()->getAccount(), $request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files');
 
         $ids = [];
         foreach($uploads as $file) {

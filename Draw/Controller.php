@@ -214,7 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
             'status' => UploadStatus::OK,
         ];
 
-        $media = MediaController::createDbEntry($status, $request->getAccount());
+        $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
         $draw = DrawImage::fromMedia($media);
 
         DrawImageMapper::create($draw);

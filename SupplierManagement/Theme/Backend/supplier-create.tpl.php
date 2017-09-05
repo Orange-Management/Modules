@@ -182,8 +182,8 @@ echo $this->getData('nav')->render(); ?>
                     <tbody>
                     <tr>
                         <td><?= htmlspecialchars($this->request->getOrigin(), ENT_COMPAT, 'utf-8'); ?>
-                        <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
-                        <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>
                         <td>Creating suppier
                         <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?>
                 </table>

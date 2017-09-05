@@ -260,7 +260,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
         
         $view->addData('tcoll', $tcoll);
-        $view->addData('lang', $request->getL11n()->getLanguage());
+        $view->addData('lang', $request->getHeader()->getL11n()->getLanguage());
         $view->addData('template', $template);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
@@ -313,7 +313,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 include_once __DIR__ . '/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.lang.php';
 
                 $exportView = new View($this->app, $request, $response);
-                $exportView->addData('lang', $reportLanguage[$this->app->accountManager->get($request->getAccount())->getL11n()->getLanguage()]);
+                $exportView->addData('lang', $reportLanguage[$this->app->accountManager->get($request->getHeader()->getAccount())->getL11n()->getLanguage()]);
                 $exportView->setTemplate('/Modules/Reporter/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.' . $request->getData('type'));
                 $response->set('export', $exportView->render());
                 break;
@@ -342,7 +342,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCollection = new Collection();
         $mediaCollection->setName($request->getData('name') ?? 'Empty');
         $mediaCollection->setDescription($request->getData('description') ?? '');
-        $mediaCollection->setCreatedBy($request->getAccount());
+        $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
 
@@ -355,7 +355,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setSource((int) $collectionId);
         $reporterTemplate->setStandalone((bool) $request->getData('standalone') ?? false);
         $reporterTemplate->setExpected(!empty($expected) ? json_decode($expected, true) : []);
-        $reporterTemplate->setCreatedBy($request->getAccount());
+        $reporterTemplate->setCreatedBy($request->getHeader()->getAccount());
         $reporterTemplate->setCreatedAt(new \DateTime('NOW'));
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
@@ -420,7 +420,7 @@ class Controller extends ModuleAbstract implements WebInterface
         /* Create collection */
         $mediaCollection = new Collection();
         $mediaCollection->setName($request->getData('name'));
-        $mediaCollection->setCreatedBy($request->getAccount());
+        $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
         $mediaCollection->setCreatedAt(new \DateTime('NOW'));
         $mediaCollection->setSources($files);
         $collectionId = CollectionMapper::create($mediaCollection);
@@ -430,12 +430,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterReport->setTitle($request->getData('name'));
         $reporterReport->setSource((int) $collectionId);
         $reporterReport->setTemplate((int) $request->getData('template'));
-        $reporterReport->setCreatedBy($request->getAccount());
+        $reporterReport->setCreatedBy($request->getHeader()->getAccount());
         $reporterReport->setCreatedAt(new \DateTime('NOW'));
 
         $reportId = ReportMapper::create($reporterReport);
 
-        $response->set($request->__toString(), new Redirect($request->getUri()->getBase() . $request->getL11n()->getLanguage() . '/backend/reporter/list'));
+        $response->set($request->__toString(), new Redirect($request->getUri()->getBase() . $request->getHeader()->getL11n()->getLanguage() . '/backend/reporter/list'));
     }
 
 }

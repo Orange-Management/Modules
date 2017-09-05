@@ -193,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $doc->setPlain($request->getData('plain') ?? '');
         $doc->setContent($request->getData('plain') ?? '');
         $doc->setCreatedAt(new \DateTime('now'));
-        $doc->setCreatedBy($request->getAccount());
+        $doc->setCreatedBy($request->getHeader()->getAccount());
         
         EditorDocMapper::create($doc);
 

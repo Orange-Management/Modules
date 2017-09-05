@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <div class="pAlignTable">
                     <div class="vCenterTable wf-100">Created <?= htmlspecialchars($task->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></div>
-                    <span class="vCenterTable nobreak tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span>
+                    <span class="vCenterTable nobreak tag"><?= $this->getHtml('S' . $task->getStatus()) ?></span>
                 </div>
             </div>
         </section>
@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskStatus::DONE, ENT_COMPAT, 'utf-8'); ?>">Done
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
-                        <tr><td><input type="text" id="iReceiver" name="forward" value="<?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>" placeholder="&#xf007; Guest">
+                        <tr><td><input type="text" id="iReceiver" name="forward" value="<?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>" placeholder="&#xf007; Guest">
                         <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media') ?></label>
                         <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
                         <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
