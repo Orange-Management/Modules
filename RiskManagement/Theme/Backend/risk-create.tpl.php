@@ -39,14 +39,16 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><input type="text" id="iName" name="name" placeholder="&#xf040; <?= $this->getHtml('Name') ?>" required>
                                     <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                                     <tr><td><textarea id="iDescription" name="description"></textarea>
+                                    <tr><td><label for="iUnit"><?= $this->getHtml('Unit') ?></label>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="unit" id="iUnit"></span>
                                     <tr><td><label for="iCategory"><?= $this->getHtml('Category') ?></label>
-                                    <tr><td><input type="text" id="iCategory" name="category" placeholder="&#xf040; <?= $this->getHtml('Category') ?>">
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="category" id="iCategory"></span>
                                     <tr><td><label for="iDepartment"><?= $this->getHtml('Department') ?></label>
-                                    <tr><td><input type="text" id="iDepartment" name="department" placeholder="&#xf040; <?= $this->getHtml('Department') ?>">
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="department" id="iDepartment"></span>
                                     <tr><td><label for="iProcess"><?= $this->getHtml('Process') ?></label>
-                                    <tr><td><input type="text" id="iProcess" name="process" placeholder="&#xf040; <?= $this->getHtml('Process') ?>">
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="process" id="iProcess"></span>
                                     <tr><td><label for="iProject"><?= $this->getHtml('Project') ?></label>
-                                    <tr><td><input type="text" id="iProject" name="project" placeholder="&#xf040; <?= $this->getHtml('Project') ?>">
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="project" id="iProject"></span>
                                     <tr><td><label for="iReview"><?= $this->getHtml('Review') ?></label>
                                     <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
                                     <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">

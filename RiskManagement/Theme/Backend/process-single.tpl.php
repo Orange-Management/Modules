@@ -11,4 +11,5 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
+$process = $this->getData('process');
 echo $this->getData('nav')->render(); ?>
