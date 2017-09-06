@@ -31,6 +31,7 @@ echo $this->getData('nav')->render(); ?>
             <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('Status') ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Parents') ?>
                     <td><?= $this->getHtml('Children') ?>
@@ -39,9 +40,14 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="5"><?= $footerView->render(); ?>
             <tbody>
                 <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
-                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
+                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); 
+                    $color = 'darkred';
+                        if($value->getStatus() === \phpOMS\Account\GroupStatus::ACTIVE) { $color = 'green'; }
+                        elseif($value->getStatus() === \phpOMS\Account\GroupStatus::INACTIVE) { $color = 'darkblue'; }
+                        elseif($value->getStatus() === \phpOMS\Account\GroupStatus::HIDDEN) { $color = 'purple'; } ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getHtml('Status'. $value->getStatus()); ?></span></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td>
                     <td>
