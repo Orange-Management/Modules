@@ -28,6 +28,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent"></span>
+                        <tr><td><label for="iDepartment"><?= $this->getHtml('Department') ?></label>
+                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="department" id="iDepartment"></span>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select name="status" id="iStatus">
                                     <option value="<?= htmlspecialchars(\Modules\Organization\Models\Status::ACTIVE, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Active') ?>

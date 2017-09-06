@@ -29,7 +29,10 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= htmlspecialchars($department->getName(), ENT_COMPAT, 'utf-8'); ?>">
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
-                        <tr><td><input type="text" name="parent" id="iParent" value="<?= htmlspecialchars($department->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent" value="<?= htmlspecialchars($department->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?>"></span>
+                        <tr><td><label for="iUnit"><?= $this->getHtml('Unit') ?></label>
+                        <tr><td><select name="unit" id="iUnit">
+                                </select>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select name="status" id="iStatus">
                                     <option><?= $this->getHtml('Active') ?>

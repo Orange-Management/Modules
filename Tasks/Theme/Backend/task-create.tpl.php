@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                                 <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::LOW, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P2') ?>
                                 <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::MEDIUM, ENT_COMPAT, 'utf-8'); ?>" selected><?= $this->getHtml('P3') ?>
                                 <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::HIGH, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P4') ?>
-                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::VHIGH, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P5') ?>Done
+                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::VHIGH, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P5') ?>
                             </select><td>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getHtml('Due') ?></label>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>"><td>
