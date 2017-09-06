@@ -35,7 +35,7 @@ return [
     ],
     '^.*/backend/qa/create.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQACreate',
+            'dest' => '\Modules\QA\Controller:viewQAQuestionCreate',
             'verb' => RouteVerb::GET,
         ],
     ],

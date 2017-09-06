@@ -158,6 +158,18 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    public function viewQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/QA/Theme/Backend/qa-question-create');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
+
+        $question = QAQuestionMapper::get((int) $request->getData('id'));
+        $view->addData('question', $question);
+
+        return $view;
+    }
+
     public function apiQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!empty($val = $this->validateQAQuestionCreate($request))) {

@@ -1,12 +1,7 @@
 <div class="slider">
     <ul class="h-list">
-        <li><i class="editor-button fa fa-lg fa-floppy-o"></i>
-        <li><i class="editor-button fa fa-lg fa-cloud-download"></i>
         <li><i class="editor-button fa fa-lg fa-undo"></i>
         <li><i class="editor-button fa fa-lg fa-repeat"></i>
-        <li><i class="editor-button fa fa-lg fa-copy"></i>
-        <li><i class="editor-button fa fa-lg fa-paste"></i>
-        <li><i class="editor-button fa fa-lg fa-cut"></i>
         <li><i class="editor-button fa fa-lg fa-bold"></i>
         <li><i class="editor-button fa fa-lg fa-italic"></i>
         <li><i class="editor-button fa fa-lg fa-underline"></i>
@@ -28,7 +23,6 @@
         <li><i class="editor-button fa fa-lg fa-table"></i>
         <li><i class="editor-button fa fa-lg fa-image"></i>
         <li><i class="editor-button fa fa-lg fa-camera"></i>
-        <li><i class="editor-button fa fa-lg fa-paint-brush"></i>
         <li><i class="editor-button fa fa-lg fa-bar-chart"></i>
         <li><i class="editor-button fa fa-lg fa-link"></i>
         <li><i class="editor-button fa fa-lg fa-unlink"></i>
