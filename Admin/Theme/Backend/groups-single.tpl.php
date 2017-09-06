@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                             </select>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>
                         <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= htmlspecialchars($group->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>
             </div>
