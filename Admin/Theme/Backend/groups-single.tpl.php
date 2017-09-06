@@ -31,6 +31,12 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iGid" name="gid" type="text" value="<?= htmlspecialchars($group->getId(), ENT_COMPAT, 'utf-8'); ?>" disabled>
                         <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
                         <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= htmlspecialchars($group->getName(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
+                        <tr><td><select id="iGstatus" status="gname">
+                            <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach($status as $stat) : ?>
+                            <option value="<?= $stat; ?>"<?= $stat === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('GroupStatus' . $stat); ?>
+                        <?php endforeach; ?>
+                            </select>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>
                         <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= htmlspecialchars($group->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
                         <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
