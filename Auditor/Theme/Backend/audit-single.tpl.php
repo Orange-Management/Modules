@@ -11,12 +11,8 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-return ['Navigation' => [
-    'Create' => 'Create',
-    'Auditor' => 'Auditor',
-    'Audit' => 'Audit',
-    'Audits' => 'Audits',
-    'List'   => 'List',
-    'Modules'   => 'Modules',
-    'Accounts'   => 'Accounts',
-]];
+/**
+ * @var \phpOMS\Views\View $this
+ */
+
+echo $this->getData('nav')->render(); ?>
