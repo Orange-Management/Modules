@@ -27,11 +27,8 @@ class ModuleMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'module_id'      => ['name' => 'module_id', 'type' => 'int', 'internal' => 'id'],
-        'module_name'    => ['name' => 'module_name', 'type' => 'string', 'internal' => 'name'],
-        'module_status'    => ['name' => 'module_status', 'type' => 'int', 'internal' => 'status'],
-        'module_desc'    => ['name' => 'module_desc', 'type' => 'string', 'internal' => 'description'],
-        'module_created' => ['name' => 'module_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'module_id'      => ['name' => 'module_id', 'type' => 'string', 'internal' => 'id'],
+        'module_active'    => ['name' => 'module_active', 'type' => 'int', 'internal' => 'status'],
     ];
 
     /**
@@ -40,7 +37,7 @@ class ModuleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'group';
+    protected static $table = 'module';
 
     /**
      * Primary field name.
@@ -48,7 +45,7 @@ class ModuleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'group_id';
+    protected static $primaryField = 'module_id';
 
     /**
      * Created at column
