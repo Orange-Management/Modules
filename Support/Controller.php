@@ -20,6 +20,9 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 
+use Modules\Support\Models\Ticket;
+use Modules\Support\Models\TicketMapper;
+
 /**
  * Support controller class.
  *
@@ -87,6 +90,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Support/Theme/Backend/support-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002901101, $request, $response));
+
+        $ticktes = TicketMapper::getNewest(50);
+        $view->setData('tickets', $tickets);
 
         return $view;
     }

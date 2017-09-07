@@ -12,17 +12,19 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Tasks\Models;
+namespace Modules\Support\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
+use Modules\Tasks\Models\Task;
+
 /**
  * Mapper class.
  *
- * @category   Tasks
+ * @category   Support
  * @package    Modules
  * @license    OMS License 1.0
  * @link       http://orange-management.com
@@ -38,8 +40,8 @@ class TicketMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'ticket_id'   => ['name' => 'ticket_id', 'type' => 'int', 'internal' => 'id'],
-        'ticket_task' => ['name' => 'ticket_task', 'type' => 'int', 'internal' => 'task'],
+        'support_ticket_id'   => ['name' => 'support_ticket_id', 'type' => 'int', 'internal' => 'id'],
+        'support_ticket_task' => ['name' => 'support_ticket_task', 'type' => 'int', 'internal' => 'task'],
     ];
 
     /**
@@ -48,10 +50,10 @@ class TicketMapper extends DataMapperAbstract
      * @var array
      * @since 1.0.0
      */
-    protected static $isExtending = [
+    protected static $ownsOne = [
         'task' => [
-            'mapper' => \Modules\Tasks\Models\TaskMapper::class,
-            'src'    => 'ticket_task',
+            'mapper' => Task::class,
+            'src'    => 'support_ticket_task',
         ],
     ];
 
@@ -61,7 +63,7 @@ class TicketMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'ticket';
+    protected static $table = 'support_ticket';
 
     /**
      * Primary field name.
