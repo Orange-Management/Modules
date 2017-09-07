@@ -18,7 +18,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getHtml('Causes') ?></caption>
+                <caption><?= $this->getHtml('Risks') ?></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Solutions') ?>
                     <td><?= $this->getHtml('RiskObjects') ?>
                         <tfoot>
-                <tr><td colspan="3">
+                <tr><td colspan="5">
                         <tbody>
                         <?php $c = 0; foreach ($risks as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getRiskObjects()), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
-                        <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                        <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                                 <?php endif; ?>
             </table>
         </div>
