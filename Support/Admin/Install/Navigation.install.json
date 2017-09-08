@@ -11,7 +11,7 @@
         "order": 80,
         "from": "Support",
         "permission": null,
-        "parent": 1000201001,
+        "parent": 0,
         "children": [
             {
                 "id": 1002901101,

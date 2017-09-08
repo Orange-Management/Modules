@@ -17,7 +17,9 @@
     "description": "Knowledgebase module.",
     "directory": "Knowledgebase",
     "dependencies": {
-        "Admin" : "1.0.0"
+        "Admin" : "1.0.0",
+        "Editor" : "1.0.0",
+        "Tools" : "1.0.0"
     },
     "providing": {
         "Navigation": "*"

@@ -18,7 +18,8 @@
     "directory": "Draw",
     "dependencies": {
         "Admin" : "1.0.0",
-        "Media" : "1.0.0"
+        "Media" : "1.0.0",
+        "Tools" : "1.0.0"
     },
     "providing": {
         "Navigation": "*"
