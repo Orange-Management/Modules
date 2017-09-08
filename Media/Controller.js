@@ -35,7 +35,7 @@
                 this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId, requestGroup)
                 {
                     let fileFields = e.querySelectorAll('input[type=file]'),
-                        uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager, self.app.logger);
+                        uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
 
                     uploader.setSuccess(e.id, function (type, response)
                     {
