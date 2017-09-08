@@ -1,7 +1,7 @@
 [
     {
         "id": 1004701001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 0,
         "name": "Organization",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1004702001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Units",
@@ -29,7 +29,7 @@
                 "children": [
                     {
                         "id": 1004702101,
-                        "pid": "bed7df3aff1a2bcb0b5e761764a93f84c2793daf",
+                        "pid": "/backend/organization/unit",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -44,7 +44,7 @@
                     },
                     {
                         "id": 1004702102,
-                        "pid": "bed7df3aff1a2bcb0b5e761764a93f84c2793daf",
+                        "pid": "/backend/organization/unit",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -61,7 +61,7 @@
             },
             {
                 "id": 1004703001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Departments",
@@ -75,7 +75,7 @@
                 "children": [
                     {
                         "id": 1004703101,
-                        "pid": "fab21c089971de13f680a30c8fdd0a8edc97af6a",
+                        "pid": "/backend/organization/department",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -90,7 +90,7 @@
                     },
                     {
                         "id": 1004703102,
-                        "pid": "fab21c089971de13f680a30c8fdd0a8edc97af6a",
+                        "pid": "/backend/organization/department",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -107,7 +107,7 @@
             },
             {
                 "id": 1004704001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Positions",
@@ -121,7 +121,7 @@
                 "children": [
                     {
                         "id": 1004704101,
-                        "pid": "67b1a05950026df723a6c35c7801234c978e85f2",
+                        "pid": "/backend/organization/position",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -136,7 +136,7 @@
                     },
                     {
                         "id": 1004704102,
-                        "pid": "67b1a05950026df723a6c35c7801234c978e85f2",
+                        "pid": "/backend/organization/position",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",

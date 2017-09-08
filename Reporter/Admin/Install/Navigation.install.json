@@ -1,7 +1,7 @@
 [
     {
         "id": 1002701001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Reporter",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1002702001,
-                "pid": "b1efeebbb9c88f70cf07184250a0c22f68c27a11",
+                "pid": "/backend/reporter",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1002703001,
-                "pid": "b1efeebbb9c88f70cf07184250a0c22f68c27a11",
+                "pid": "/backend/reporter",
                 "type": 3,
                 "subtype": 5,
                 "name": "CreateReport",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1002704001,
-                "pid": "b1efeebbb9c88f70cf07184250a0c22f68c27a11",
+                "pid": "/backend/reporter",
                 "type": 3,
                 "subtype": 5,
                 "name": "CreateTemplate",
@@ -59,36 +59,5 @@
                 "children": []
             }
         ]
-    },
-    {
-        "id": 1002705001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
-        "type": 2,
-        "subtype": 1,
-        "name": "Reporting",
-        "uri": "{/base}/{/lang}/backend/private/reporter/list?{?}",
-        "target": "self",
-        "icon": null,
-        "order": 20,
-        "from": "Reporter",
-        "permission": null,
-        "parent": 1003401001,
-        "children": []
-    },
-    {
-        "id": 1002710001,
-        "pid": "40a630e157504605e40ba241f6b1f78ab1dd97b9",
-        "type": 3,
-        "subtype": 1,
-        "name": "List",
-        "l0": "reporter",
-        "uri": "?{?}",
-        "target": "self",
-        "icon": null,
-        "order": 1,
-        "from": "Reporter",
-        "permission": null,
-        "parent": 1002710000,
-        "children": []
     }
 ]

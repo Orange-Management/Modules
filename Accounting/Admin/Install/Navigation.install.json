@@ -1,7 +1,7 @@
 [
     {
         "id": 1002601001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 0,
         "name": "Accounting",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1002602001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Accounts",
@@ -29,7 +29,7 @@
                 "children": [
                     {
                         "id": 1002602101,
-                        "pid": "1259733702c323edae599221fcbf82f0a479372a",
+                        "pid": "/backend/accounting",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -44,7 +44,7 @@
                     },
                     {
                         "id": 1002602201,
-                        "pid": "1259733702c323edae599221fcbf82f0a479372a",
+                        "pid": "/backend/accounting",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -61,7 +61,7 @@
             },
             {
                 "id": 1002605001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "BatchPostings",
@@ -75,7 +75,7 @@
                 "children": [
                     {
                         "id": 1002605101,
-                        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                        "pid": "/backend",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -90,7 +90,7 @@
                     },
                     {
                         "id": 1002605201,
-                        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                        "pid": "/backend",
                         "type": 3,
                         "subtype": 1,
                         "name": "Archive",
@@ -105,7 +105,7 @@
                     },
                     {
                         "id": 1002605301,
-                        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                        "pid": "/backend",
                         "type": 3,
                         "subtype": 1,
                         "name": "Predefined",
@@ -120,7 +120,7 @@
                     },
                     {
                         "id": 1002605401,
-                        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                        "pid": "/backend",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -137,7 +137,7 @@
             },
             {
                 "id": 1002606001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Entries",

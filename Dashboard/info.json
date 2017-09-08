@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "3788e96aebafcdf3acc1a87861d559695e9a531f"
+                "/backend"
             ],
             "type": 4,
             "for": "Content",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Dashboard",

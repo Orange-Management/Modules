@@ -1,7 +1,7 @@
 [
     {
         "id": 1003102001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Clients",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1003102101,
-                "pid": "25a25434541197e2ca3ff0164a8b02173c5fcd8b",
+                "pid": "/backend/sales/client",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -26,102 +26,11 @@
                 "from": 1003100000,
                 "permission": null,
                 "parent": 1003102001,
-                "children": [
-                    {
-                        "id": 1003103001,
-                        "pid": "734f84316536b783ab45b9777a4cdefa56ba6aa0",
-                        "type": 5,
-                        "subtype": 1,
-                        "name": "Create",
-                        "uri": "{/base}/{/lang}/backend/sales/client/create?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": 1003100000,
-                        "permission": null,
-                        "parent": 1003102101,
-                        "children": []
-                    },
-                    {
-                        "id": 1003103004,
-                        "pid": "734f84316536b783ab45b9777a4cdefa56ba6aa0",
-                        "type": 5,
-                        "subtype": 1,
-                        "name": "Profile",
-                        "uri": "{/base}/{/lang}/backend/sales/client/profile?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": 1003100000,
-                        "permission": null,
-                        "parent": 1003102101,
-                        "children": []
-                    },
-                    {
-                        "id": 1003103005,
-                        "pid": "734f84316536b783ab45b9777a4cdefa56ba6aa0",
-                        "type": 5,
-                        "subtype": 1,
-                        "name": "Turnover",
-                        "uri": "{/base}/{/lang}/backend/sales/client/turnover?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": 1003100000,
-                        "permission": null,
-                        "parent": 1003102101,
-                        "children": []
-                    },
-                    {
-                        "id": 1003103201,
-                        "pid": "734f84316536b783ab45b9777a4cdefa56ba6aa0",
-                        "type": 3,
-                        "subtype": 1,
-                        "name": "Invoices",
-                        "uri": "{/base}/{/lang}/backend/sales/client/invoice/list?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": 1003100000,
-                        "permission": null,
-                        "parent": 1003102101,
-                        "children": []
-                    },
-                    {
-                        "id": 1003103301,
-                        "pid": "734f84316536b783ab45b9777a4cdefa56ba6aa0",
-                        "type": 3,
-                        "subtype": 1,
-                        "name": "Articles",
-                        "uri": "{/base}/{/lang}/backend/sales/client/article/list?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": 1003100000,
-                        "permission": null,
-                        "parent": 1003102101,
-                        "children": []
-                    },
-                    {
-                        "id": 1003103401,
-                        "pid": "734f84316536b783ab45b9777a4cdefa56ba6aa0",
-                        "type": 3,
-                        "subtype": 1,
-                        "name": "Analysis",
-                        "uri": "{/base}/{/lang}/backend/sales/client/profile/analysis?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": 1003100000,
-                        "permission": null,
-                        "parent": 1003102101,
-                        "children": []
-                    }
-                ]
+                "children": []
             },
             {
                 "id": 1003102201,
-                "pid": "25a25434541197e2ca3ff0164a8b02173c5fcd8b",
+                "pid": "/backend/sales/client",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",

@@ -1,7 +1,7 @@
 [
     {
         "id": 1003001001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "RiskManagement",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1003002001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Cockpit",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1003007001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Units",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1003008001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Departments",
@@ -60,7 +60,7 @@
             },
             {
                 "id": 1003009001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Categories",
@@ -75,7 +75,7 @@
             },
             {
                 "id": 1003010001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Projects",
@@ -90,7 +90,7 @@
             },
             {
                 "id": 1003011001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Processes",
@@ -105,7 +105,7 @@
             },
             {
                 "id": 1003003001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Risks",
@@ -119,7 +119,7 @@
                 "children": [
                     {
                         "id": 1003003101,
-                        "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                        "pid": "/backend/riskmanagement",
                         "type": 5,
                         "subtype": 1,
                         "name": "Create",
@@ -134,7 +134,7 @@
                     },
                     {
                         "id": 1003003201,
-                        "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                        "pid": "/backend/riskmanagement",
                         "type": 5,
                         "subtype": 1,
                         "name": "Delete",
@@ -149,7 +149,7 @@
                     },
                     {
                         "id": 1003003301,
-                        "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                        "pid": "/backend/riskmanagement",
                         "type": 0,
                         "subtype": 1,
                         "name": "Risk",
@@ -166,7 +166,7 @@
             },
             {
                 "id": 1003004001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Causes",
@@ -181,7 +181,7 @@
             },
             {
                 "id": 1003005001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Solutions",
@@ -196,7 +196,7 @@
             },
             {
                 "id": 1003006001,
-                "pid": "e653e8c03bdce085c1b490e6b64ba3f747f2e5ca",
+                "pid": "/backend/riskmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Settings",

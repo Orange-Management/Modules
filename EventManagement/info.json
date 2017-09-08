@@ -28,7 +28,7 @@
     "load": [
         {
             "pid": [
-                "9a017c0aa5117ed6dd28736a6d6338e7c499e64f"
+                "/backend/eventmanagement"
             ],
             "type": 4,
             "for": "Content",
@@ -37,7 +37,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "EventManagement",

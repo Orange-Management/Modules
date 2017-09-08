@@ -15,7 +15,7 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/warehousing/stock/list.*$' => [
+    '^.*/backend/warehouse/stock/list.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingList', 
             'verb' => RouteVerb::GET,
@@ -33,7 +33,7 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
-    '.*/backend/warehousing/stock/create.*$' => [
+    '.*/backend/warehouse/stock/create.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingCreate', 
             'verb' => RouteVerb::GET,

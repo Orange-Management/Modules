@@ -27,7 +27,7 @@
     "load": [
         {
             "pid": [
-                "485c01f6ec77f5370a8060bb44b8a13a985184b5"
+                "/backend/checklist"
             ],
             "type": 4,
             "for": "Content",
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Checklist",

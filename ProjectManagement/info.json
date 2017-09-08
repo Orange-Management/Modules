@@ -28,7 +28,7 @@
     "load": [
         {
             "pid": [
-                "e8f8b3f93644a55dcaa84f20c2d7736fbd9ee62a"
+                "/backend/projectmanagement"
             ],
             "type": 4,
             "for": "Content",
@@ -37,7 +37,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "ProjectManagement",

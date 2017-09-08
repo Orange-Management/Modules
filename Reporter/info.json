@@ -27,9 +27,7 @@
     "load": [
         {
             "pid": [
-                "b1efeebbb9c88f70cf07184250a0c22f68c27a11",
-                "40a630e157504605e40ba241f6b1f78ab1dd97b9",
-                "67e0529fe538b3bd31c269f4cdc8b78bc8bd1118"
+                "/backend/reporter"
             ],
             "type": 4,
             "for": "Content",
@@ -38,21 +36,12 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Reporter",
             "for": "Navigation",
             "file": "Navigation"
-        },
-        {
-            "pid": [
-                "40a630e157504605e40ba241f6b1f78ab1dd97b9"
-            ],
-            "type": 5,
-            "from": "Reporter",
-            "for": "Navigation",
-            "file": "nav.reporter"
         }
     ]
 }

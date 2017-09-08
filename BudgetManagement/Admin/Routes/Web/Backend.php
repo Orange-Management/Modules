@@ -3,7 +3,7 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/controlling/budgeting/dashboard.*$' => [
+    '^.*/backend/controlling/budget/dashboard.*$' => [
         [
             'dest' => '\Modules\BudgetManagement\Controller:viewBudgetingDashboard', 
             'verb' => RouteVerb::GET,

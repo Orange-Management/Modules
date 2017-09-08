@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "44cbe06dd734865b28c110fbbf91d78ccf8124ae"
+                "/backend/sales/analysis"
             ],
             "type": 4,
             "for": 0,
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "SalesAnalysis",

@@ -1,7 +1,7 @@
 [
     {
         "id": 1000201001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 0,
         "name": "Home",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1000202001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Dashboard",
@@ -32,22 +32,7 @@
     },
     {
         "id": 1000200001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
-        "type": 1,
-        "subtype": 1,
-        "name": "Logout",
-        "uri": "/{/lang}/api/logout?{?}",
-        "target": "self",
-        "icon": "fa fa-power-off",
-        "order": 999,
-        "from": "Dashboard",
-        "permission": null,
-        "parent": 0,
-        "children": []
-    },
-    {
-        "id": 1000210001,
-        "pid": "40a630e157504605e40ba241f6b1f78ab1dd97b9",
+        "pid": "/backend",
         "type": 1,
         "subtype": 1,
         "name": "Logout",

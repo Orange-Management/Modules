@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "520f00a1a583e4936dc01665781e0dfafd699613"
+                "/backend/purchase/supplier"
             ],
             "type": 4,
             "for": 0,
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "SupplierManagement",

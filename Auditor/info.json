@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "dbc72ec850137bfcf6cb862625c680ae0ee6def2"
+                "/backend/admin/audit"
             ],
             "type": 4,
             "for": "Content",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Auditor",

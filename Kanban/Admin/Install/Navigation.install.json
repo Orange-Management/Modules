@@ -1,7 +1,7 @@
 [
     {
         "id": 1005801001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Kanban",
@@ -15,7 +15,7 @@
         "children": [
              {
                 "id": 1005802001,
-                "pid": "7322d5765c8b18b14c20d406e89c628fd0998688",
+                "pid": "/backend/kanban",
                 "type": 3,
                 "subtype": 1,
                 "name": "Boards",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1005803001,
-                "pid": "7322d5765c8b18b14c20d406e89c628fd0998688",
+                "pid": "/backend/kanban",
                 "type": 3,
                 "subtype": 1,
                 "name": "Archive",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1005804001,
-                "pid": "7322d5765c8b18b14c20d406e89c628fd0998688",
+                "pid": "/backend/kanban",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",

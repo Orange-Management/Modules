@@ -27,7 +27,7 @@
     "load": [
         {
             "pid": [
-                "0e47995e728ecc121561ee553b7be752ffebbaa7"
+                "/backend/wiki"
             ],
             "type": 4,
             "for": 0,
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Knowledgebase",

@@ -27,7 +27,7 @@
     "load": [
         {
             "pid": [
-                "25a25434541197e2ca3ff0164a8b02173c5fcd8b"
+                "/backend/sales/customer"
             ],
             "type": 4,
             "for": 0,
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "ClientManagement",
