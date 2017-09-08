@@ -76,11 +76,12 @@
         this.navigation[e.id] = new jsOMS.Modules.Navigation.Models.Navigation(this.rawNavData[e.id]);
 
         // On load
-        let open = this.navigation[e.id].getOpen();
+        let open = this.navigation[e.id].getOpen(),
+            ele = null;
 
         for (let key in open) {
-            if (open.hasOwnProperty(key)) {
-                document.getElementById(key).checked = open[key];
+            if (open.hasOwnProperty(key) && (ele = document.getElementById(key)) !== null) {
+                ele.checked = open[key];
             }
         }
 
