@@ -15,14 +15,14 @@
  * @var \phpOMS\Views\View $this
  * @var \Modules\Tasks\Models\Task[] $tickets
  */
-$tickets = $this->getData('tasks');
+$tickets = $this->getData('tickets');
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getHtml('Tasks') ?></caption>
+                <caption><?= $this->getHtml('Tickets') ?></caption>
                 <thead>
                     <td><?= $this->getHtml('Status') ?>
                     <td><?= $this->getHtml('Due') ?>

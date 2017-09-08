@@ -53,7 +53,7 @@ class Installer extends InstallerAbstract
             
                             $dbPool->get('core')->con->prepare(
                                 'ALTER TABLE `' . $dbPool->get('core')->prefix . 'support_ticket`
-                                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'task_ibfk_1` FOREIGN KEY (`support_ticket`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`);'
+                                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'support_ticket_ibfk_1` FOREIGN KEY (`support_ticket_task`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`);'
                             )->execute();
                       
                             $dbPool->get('core')->con->commit();

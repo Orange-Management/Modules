@@ -65,7 +65,9 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    protected static $providing = [];
+    protected static $providing = [
+        'Navigation'
+    ];
 
     /**
      * Dependencies.
@@ -91,8 +93,29 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Support/Theme/Backend/support-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002901101, $request, $response));
 
-        $ticktes = TicketMapper::getNewest(50);
+        $tickets = TicketMapper::getAll();
         $view->setData('tickets', $tickets);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     */
+    public function viewSupportTicket(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Support/Theme/Backend/ticket-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002901101, $request, $response));
+
+        $ticket = TicketMapper::get((int) $request->getData('id'));
+        $view->addData('ticket', $ticket);
 
         return $view;
     }

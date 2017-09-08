@@ -19,7 +19,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-use Modules\Tasks\Models\Task;
+use Modules\Tasks\Models\TaskMapper;
 
 /**
  * Mapper class.
@@ -52,7 +52,7 @@ class TicketMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'task' => [
-            'mapper' => Task::class,
+            'mapper' => TaskMapper::class,
             'src'    => 'support_ticket_task',
         ],
     ];
@@ -71,7 +71,7 @@ class TicketMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'ticket_id';
+    protected static $primaryField = 'support_ticket_id';
 
     /**
      * Create object.
@@ -108,7 +108,7 @@ class TicketMapper extends DataMapperAbstract
                       'account_permission_p'
                   )
                   ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'task', 'task', 1, $objId, 1, 1, 1, 1, 1);
+                  ->values($obj->getTask()->getCreatedBy(), 'ticket', 'ticket', 1, $objId, 1, 1, 1, 1, 1);
 
             self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {

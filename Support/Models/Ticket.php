@@ -12,7 +12,7 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Support;
+namespace Modules\Support\Models;
 
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskType;
@@ -37,6 +37,11 @@ class Ticket
     {
         $this->task = new Task();
         $this->task->setType(TaskType::HIDDEN);
+    }
+
+    public function getId() : int
+    {
+        return $this->id;
     }
 
     public function getTask() : Task
