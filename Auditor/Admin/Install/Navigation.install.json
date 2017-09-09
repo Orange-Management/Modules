@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1006202001,
-                "pid": "/backend/admin/aduit",
+                "pid": "/backend/admin/audit",
                 "type": 3,
                 "subtype": 1,
                 "name": "Audits",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1006203001,
-                "pid": "/backend/admin/aduit",
+                "pid": "/backend/admin/audit",
                 "type": 3,
                 "subtype": 1,
                 "name": "Modules",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1006204001,
-                "pid": "/backend/admin/aduit",
+                "pid": "/backend/admin/audit",
                 "type": 3,
                 "subtype": 1,
                 "name": "Accounts",
