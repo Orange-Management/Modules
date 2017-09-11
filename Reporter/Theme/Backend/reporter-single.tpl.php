@@ -17,7 +17,7 @@
 // TODO: load template in new view that doesn't get access to anything otherwise user can interact with app in bad ways
 $tcoll    = $this->getData('tcoll');
 $rcoll    = $this->getData('rcoll');
-$cLang     = $this->getData('lang');
+$cLang    = $this->getData('lang');
 $template = $this->getData('template');
 $report   = $this->getData('report');
 
@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr>
                             <td><label for="iLang"><?= $this->getHtml('Language'); ?></label>
                         <tr>
-                            <td><select id="iLang" name="lang">
+                            <td><select id="iLang" name="lang" data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&lang={#iLang}", "target": "self"}]}]'>
                                     <?php foreach($reportLanguage as $key => $langauge) : ?>
                                     <option value="<?= htmlspecialchars($key, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($key === $cLang ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($langauge[':language'] , ENT_COMPAT, 'utf-8'); ?>
                                     <?php endforeach; ?>

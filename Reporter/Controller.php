@@ -264,7 +264,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
         
         $view->addData('tcoll', $tcoll);
-        $view->addData('lang', $request->getHeader()->getL11n()->getLanguage());
+        $view->addData('lang', $request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage());
         $view->addData('template', $template);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
