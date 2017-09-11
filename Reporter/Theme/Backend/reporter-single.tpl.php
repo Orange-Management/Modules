@@ -73,9 +73,12 @@ echo $this->getData('nav')->render(); ?>
                             <td><select id="iExport" name="export-type">
                                     <option value="select" disabled><?= $this->getHtml('Select'); ?>
                                     <option value="excel"<?= htmlspecialchars((!isset($tcoll['excel'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Excel
+                                    <option value="pdf"<?= htmlspecialchars((!isset($tcoll['pdf'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Pdf
+                                    <option value="doc"<?= htmlspecialchars((!isset($tcoll['word'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Word
+                                    <option value="ppt"<?= htmlspecialchars((!isset($tcoll['powerpoint'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Powerpoint
                                     <option value="csv"<?= htmlspecialchars((!isset($tcoll['csv'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Csv
                                     <option value="json"<?= htmlspecialchars((!isset($tcoll['json'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Json
-                                    <option value="pdf"<?= htmlspecialchars((!isset($tcoll['pdf'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Pdf
+                                    
                                 </select>
                         <tr>
                             <td><input type="button" value="<?= $this->getHtml('Export'); ?>"

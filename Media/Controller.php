@@ -277,7 +277,11 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private static function normalizeDbPath(string $path) : string
     {
-        return str_replace('\\', '/', str_replace(realpath(__DIR__ . '/../../') . '/', '', rtrim($path, '/')));
+        return str_replace('\\', '/', 
+            str_replace(realpath(__DIR__ . '/../../'), '', 
+                rtrim($path, '/')
+            )
+        );
     }
 
 }

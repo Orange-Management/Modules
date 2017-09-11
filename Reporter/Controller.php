@@ -208,8 +208,12 @@ class Controller extends ModuleAbstract implements WebInterface
                 $tcoll['lang'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, 'worker.php')) {
                 $tcoll['worker'] = $tMedia;
-            } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php') || StringUtils::endsWith($lowerPath, '.xls.php')) {
                 $tcoll['excel'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.docx.php') || StringUtils::endsWith($lowerPath, '.doc.php')) {
+                $tcoll['word'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.pptx.php') || StringUtils::endsWith($lowerPath, '.ppt.php')) {
+                $tcoll['powerpoint'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.pdf.php')) {
                 $tcoll['pdf'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.csv.php')) {
