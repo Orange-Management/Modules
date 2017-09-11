@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 elseif($ticket->getTask()->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
                 elseif($ticket->getTask()->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
                     <tr data-href="<?= $url; ?>">
-                        <td><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $ticket->getTask()->getStatus()) ?></span></a>
+                        <td><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $ticket->getTask()->getStatus(), 'Tasks') ?></span></a>
                         <td><a href="<?= $url; ?>"><?= htmlspecialchars($ticket->getTask()->getDue()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></a>
                         <td><a href="<?= $url; ?>"><?= htmlspecialchars($ticket->getTask()->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
                         <td><a href="<?= $url; ?>"><?= htmlspecialchars($ticket->getTask()->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
