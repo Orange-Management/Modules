@@ -34,7 +34,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/base}/{/lang}/backend/qa/create?{?}",
+                "uri": "{/base}/{/lang}/backend/qa/question/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
