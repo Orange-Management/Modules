@@ -50,11 +50,12 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= htmlspecialchars($key, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($key === $cLang ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($langauge[':language'] , ENT_COMPAT, 'utf-8'); ?>
                                     <?php endforeach; ?>
                                 </select>
-                        <tr>
+                        <?php if(!$template->isStandalone()) : ?><tr>
                             <td><label for="iReport"><?= $this->getHtml('Report'); ?></label>
                         <tr>
                             <td><select id="iReport" name="report">
                                 </select>
+                        <?php endif; ?>
                     </table>
                 </form>
             </div>
@@ -94,6 +95,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
+                    <?php if(!$template->isStandalone()) : ?>
                     <tr>
                         <th colspan="2"><?= $this->getHtml('Report') ?>
                     <tr>
@@ -105,6 +107,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr>
                         <td><?= $this->getHtml('Created'); ?>
                         <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
+                    <?php endif; ?>
                     <tr>
                         <th colspan="2"><?= $this->getHtml('Template') ?>
                     <tr>
