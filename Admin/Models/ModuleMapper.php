@@ -48,14 +48,6 @@ class ModuleMapper extends DataMapperAbstract
     protected static $primaryField = 'module_id';
 
     /**
-     * Created at column
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $createdAt = 'group_created';
-
-    /**
      * Get object.
      *
      * @param mixed $primaryKey Key

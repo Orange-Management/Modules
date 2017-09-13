@@ -306,10 +306,6 @@ class Controller extends ModuleAbstract implements WebInterface
             ->offset($offset)
             ->limit($limit);
 
-        if (isset($account)) {
-            $query->where('account_permission.account_permission_account', '=', $account->getId());
-        }
-
         return NewsArticleMapper::getAllByQuery($query);
     }
 
@@ -334,10 +330,6 @@ class Controller extends ModuleAbstract implements WebInterface
             ->orderBy($orderBy, $ordered)
             ->offset($offset)
             ->limit($limit);
-
-        if (isset($account)) {
-            $query->where('account_permission.account_permission_account', '=', $account->getId());
-        }
 
         return NewsArticleMapper::getAllByQuery($query);
     }
