@@ -80,7 +80,7 @@ class Installer extends InstallerAbstract
         }
 
         foreach ($data as $link) {
-            self::installLink($dbPool, $link, $link['parent']);
+            self::installLink($dbPool, $link);
         }
     }
 
@@ -95,7 +95,7 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    private static function installLink($dbPool, $data, $parent = 0)
+    private static function installLink($dbPool, $data)
     {
         $sth = $dbPool->get('core')->con->prepare(
             'INSERT INTO `' . $dbPool->get('core')->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission`) VALUES
@@ -112,7 +112,7 @@ class Installer extends InstallerAbstract
         $sth->bindValue(':target', $data['target'] ?? "self", \PDO::PARAM_STR);
         $sth->bindValue(':from', $data['from'] ?? 0, \PDO::PARAM_INT);
         $sth->bindValue(':order', $data['order'] ?? 1, \PDO::PARAM_INT);
-        $sth->bindValue(':parent', $parent, \PDO::PARAM_INT);
+        $sth->bindValue(':parent', $data['parent'], \PDO::PARAM_INT);
         $sth->bindValue(':perm', $data['permission'] ?? 0, \PDO::PARAM_INT);
 
         $sth->execute();
