@@ -111,25 +111,6 @@ class CalendarMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-            $query->prefix(self::$db->getPrefix())
-                  ->insert(
-                      'account_permission_account',
-                      'account_permission_from',
-                      'account_permission_for',
-                      'account_permission_id1',
-                      'account_permission_id2',
-                      'account_permission_r',
-                      'account_permission_w',
-                      'account_permission_m',
-                      'account_permission_d',
-                      'account_permission_p'
-                  )
-                  ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'calendar', 'calendar', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             return false;
         }

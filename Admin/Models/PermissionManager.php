@@ -42,42 +42,16 @@ class PermissionManager
         return $this->id;
     }
 
-    public function hasPermission(int $permission, int $unit = null, int $app = null, int $module = null, int $type = null, $element = null) : bool
+    public function hasPermission(int $permission, int $unit = null, int $app = null, int $module = null, int $type = null, $element = null, $component = null) : bool
     {
-        if(!isset($unit, $app, $module, $type, $element)) {
-            return ($permission | $this->permissions['permission']->getPermission()) === $this->permissions['permission']->getPermission();
-        } elseif(isset($unit) && !isset($app, $module, $type, $element)) {
-            return ($permission | $this->permissions['permission']->getPermission()) === $this->permissions['permission']->getPermission() 
-                || ($permission | $this->permissions['unit'][$unit]['permission']->getPermission()) === $this->permissions['unit'][$unit]['permission']->getPermission();
-        } elseif(isset($unit, $app) && !isset($module, $type, $element)) {
-            return ($permission | $this->permissions['permission']->getPermission()) === $this->permissions['permission']->getPermission() 
-                || ($permission | $this->permissions['unit'][$unit]['permission']->getPermission()) === $this->permissions['unit'][$unit]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission();
-        } elseif(isset($unit, $app, $module) && !isset($type, $element)) {
-            return ($permission | $this->permissions['permission']->getPermission()) === $this->permissions['permission']->getPermission() 
-                || ($permission | $this->permissions['unit'][$unit]['permission']->getPermission()) === $this->permissions['unit'][$unit]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['permission']->getPermission();
-        } elseif(isset($unit, $app, $module, $type) && !isset($element)) {
-            return ($permission | $this->permissions['permission']->getPermission()) === $this->permissions['permission']->getPermission() 
-                || ($permission | $this->permissions['unit'][$unit]['permission']->getPermission()) === $this->permissions['unit'][$unit]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['type'][$type]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['type'][$type]['permission']->getPermission();
-        } elseif(isset($unit, $app, $module, $type) && !isset($element)) {
-            return ($permission | $this->permissions['permission']->getPermission()) === $this->permissions['permission']->getPermission() 
-                || ($permission | $this->permissions['unit'][$unit]['permission']->getPermission()) === $this->permissions['unit'][$unit]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['type'][$type]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['type'][$type]['permission']->getPermission()
-                || ($permission | $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['type'][$type]['element'][$element]['permission']->getPermission()) === $this->permissions['unit'][$unit]['app'][$app]['module'][$mdoule]['type'][$type]['element'][$element]['permission']->getPermission();
-        } 
-    }
-
-    public function hasPermission2(int $permission, int $unit = null, int $app = null, int $module = null, int $type = null, $element = null) : bool
-    {
-        foreach($this->permissions as $permission) {
-            if(($permissions | $permission->getPermission()) === $permission->getPermission()) {
+        foreach($this->permissions as $p) {
+            if(($p->getUnit() === $unit || $p->getUnit() === null)
+                && ($p->getApp() === $app || $p->getApp() === null) 
+                && ($p->getModule() === $module || $p->getModule() === null) 
+                && ($p->getType() === $type || $p->getType() === null) 
+                && ($p->getElement() === $element || $p->getElement() === null) 
+                && ($p->getComponent() === $component || $p->getComponent() === null) 
+                && ($permissions | $p->getPermission()) === $p->getPermission()) {
                 return true;
             }
         }
