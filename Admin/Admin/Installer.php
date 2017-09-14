@@ -270,4 +270,51 @@ class Installer extends InstallerAbstract
                 break;
         }
     }
+
+    public static function installExternal(DatabasePool $dbPool, array $data)
+    {
+        foreach($data as $type => $element) {
+            if($type === InstallType::PERMISSION) {
+                self::installPermission($dbPool, $element);
+            } elseif($type === InstallType::GROUP) {
+                self::installGroup($dbPool, $element);
+            }
+        }
+    }
+
+    public static function installPermission(DatabasePool $dbPool, array $data)
+    {
+        $sth = $dbPool->get('core')->con->prepare(
+            'INSERT INTO `' . $dbPool->get('core')->prefix . 'permission` (`permission_id`, `permission_name`, `permission_description`) VALUES
+                        (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
+        );
+
+        $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
+        $sth->bindValue(':pid', sha1(str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
+        $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
+        $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
+        $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);
+
+        $sth->execute();
+
+        $lastInsertID = $dbPool->get('core')->con->lastInsertId();
+    }
+
+    public static function installGroup(DatabasePool $dbPool, array $data)
+    {
+        $sth = $dbPool->get('core')->con->prepare(
+            'INSERT INTO `' . $dbPool->get('core')->prefix . 'group` (`group_id`, `group_name`, `group_description`) VALUES
+                        (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
+        );
+
+        $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
+        $sth->bindValue(':pid', sha1(str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
+        $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
+        $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
+        $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);
+
+        $sth->execute();
+
+        $lastInsertID = $dbPool->get('core')->con->lastInsertId();
+    }
 }
