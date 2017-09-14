@@ -14,6 +14,8 @@
 declare(strict_types=1);
 namespace Modules\Admin\Models;
 
+use phpOMS\Account\PermissionAbstract;
+
 /**
  * InfoManager class.
  *

@@ -30,7 +30,7 @@ class GroupPermissionMapper extends DataMapperAbstract
         'group_permission_id'      => ['name' => 'group_permission_id', 'type' => 'int', 'internal' => 'id'],
         'group_permission_group'      => ['name' => 'group_permission_group', 'type' => 'int', 'internal' => 'group'],
         'group_permission_unit'      => ['name' => 'group_permission_unit', 'type' => 'int', 'internal' => 'unit'],
-        'group_permission_app'      => ['name' => 'group_permission_app', 'type' => 'int', 'internal' => 'app'],
+        'group_permission_app'      => ['name' => 'group_permission_app', 'type' => 'string', 'internal' => 'app'],
         'group_permission_module'      => ['name' => 'group_permission_module', 'type' => 'int', 'internal' => 'module'],
         'group_permission_from'      => ['name' => 'group_permission_from', 'type' => 'int', 'internal' => 'from'],
         'group_permission_type'      => ['name' => 'group_permission_type', 'type' => 'int', 'internal' => 'type'],
