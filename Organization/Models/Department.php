@@ -45,7 +45,7 @@ class Department
 
     public function getParent()
     {
-        return $this->parent;
+        return $this->parent ?? new NullDepartment();
     }
 
     public function setParent(int $parent)
@@ -65,7 +65,7 @@ class Department
 
     public function getUnit()
     {
-        return $this->unit;
+        return $this->unit ?? new NullUnit();
     }
 
     public function setUnit($unit)
