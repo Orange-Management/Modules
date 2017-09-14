@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                     <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= 1//htmlspecialchars($value->getDepartment()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getDepartment()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
                     <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
