@@ -44,13 +44,13 @@ echo $this->getData('nav')->render();
                             <form>
                                 <table class="layout w-100">
                                     <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" value="<?= htmlspecialchars($client->getNumber(), ENT_COMPAT, 'utf-8'); ?>" disabled></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" value="<?= $this->printHtml($client->getNumber()); ?>" disabled></span>
                                     <tr><td><label for="iName1"><?= $this->getHtml('Name1') ?></label>
-                                    <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" value="<?= htmlspecialchars($client->getProfile()->getAccount()->getName1(), ENT_COMPAT, 'utf-8'); ?>" required>
+                                    <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" value="<?= $this->printHtml($client->getProfile()->getAccount()->getName1()); ?>" required>
                                     <tr><td><label for="iName2"><?= $this->getHtml('Name2') ?></label>
-                                    <tr><td><input type="text" id="iName2" name="name2" value="<?= htmlspecialchars($client->getProfile()->getAccount()->getName2(), ENT_COMPAT, 'utf-8'); ?>" placeholder="&#xf040;">
+                                    <tr><td><input type="text" id="iName2" name="name2" value="<?= $this->printHtml($client->getProfile()->getAccount()->getName2()); ?>" placeholder="&#xf040;">
                                     <tr><td><label for="iName3"><?= $this->getHtml('Name3') ?></label>
-                                    <tr><td><input type="text" id="iName3" name="name3" value="<?= htmlspecialchars($client->getProfile()->getAccount()->getName3(), ENT_COMPAT, 'utf-8'); ?>" placeholder="&#xf040;">
+                                    <tr><td><input type="text" id="iName3" name="name3" value="<?= $this->printHtml($client->getProfile()->getAccount()->getName3()); ?>" placeholder="&#xf040;">
                                     <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>"> <input type="submit" value="<?= $this->getHtml('Delete', 0, 0); ?>">
                                 </table>
                             </form>
@@ -280,11 +280,11 @@ echo $this->getData('nav')->render();
                                 <td colspan="6"><?= $footerView->render(); ?>
                             <tbody>
                             <tr>
-                                <td><?= htmlspecialchars($this->request->getOrigin(), ENT_COMPAT, 'utf-8'); ?>
-                                <td><?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>
-                                <td><?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= $this->printHtml($this->request->getOrigin()); ?>
+                                <td><?= $this->printHtml($this->request->getHeader()->getAccount()); ?>
+                                <td><?= $this->printHtml($this->request->getHeader()->getAccount()); ?>
                                 <td>Creating customer
-                                <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= $this->printHtml((new \DateTime('now'))->format('Y-m-d H:i:s')); ?>
                         </table>
                     </div>
                 </div>

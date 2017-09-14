@@ -36,9 +36,9 @@ $tasks = $this->getData('tasks');
             elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
             elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ;?>
             <tr data-href="<?= $url; ?>">
-                <td><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span></a>
-                <td><a href="<?= $url; ?>"><?= htmlspecialchars($task->getDue()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></a>
-                <td><a href="<?= $url; ?>"><?= htmlspecialchars($task->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span></a>
+                <td><a href="<?= $url; ?>"><?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?></a>
+                <td><a href="<?= $url; ?>"><?= $this->printHtml($task->getTitle()); ?></a>
                     <?php endforeach; if($c == 0) : ?>
             <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                     <?php endif; ?>

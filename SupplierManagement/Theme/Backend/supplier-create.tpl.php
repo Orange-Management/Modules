@@ -181,11 +181,11 @@ echo $this->getData('nav')->render(); ?>
                         <td colspan="6"><?= $footerView->render(); ?>
                     <tbody>
                     <tr>
-                        <td><?= htmlspecialchars($this->request->getOrigin(), ENT_COMPAT, 'utf-8'); ?>
-                        <td><?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>
-                        <td><?= htmlspecialchars($this->request->getHeader()->getAccount(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($this->request->getOrigin()); ?>
+                        <td><?= $this->printHtml($this->request->getHeader()->getAccount()); ?>
+                        <td><?= $this->printHtml($this->request->getHeader()->getAccount()); ?>
                         <td>Creating suppier
-                        <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml((new \DateTime('now'))->format('Y-m-d H:i:s')); ?>
                 </table>
             </div>
         </div>

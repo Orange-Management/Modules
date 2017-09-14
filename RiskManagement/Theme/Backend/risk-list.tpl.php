@@ -32,11 +32,11 @@ echo $this->getData('nav')->render(); ?>
                         <?php $c = 0; foreach ($risks as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/risk/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getCauses()), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getSolutions()), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getRiskObjects()), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getCauses())); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getSolutions())); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getRiskObjects())); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
                         <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

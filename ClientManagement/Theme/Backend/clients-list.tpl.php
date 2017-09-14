@@ -81,10 +81,10 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach($clients as $key => $value) : $count++; 
                  $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNumber(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getProfile()->getAccount()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getProfile()->getAccount()->getName2(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getProfile()->getAccount()->getName3(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNumber()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName1()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName2()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProfile()->getAccount()->getName3()); ?></a>
                     <td>
                     <td>
                     <td>

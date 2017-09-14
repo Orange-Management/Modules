@@ -6,11 +6,11 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <?php foreach($boards as $board) : ?>  
     <div class="col-xs-12 col-sm-6 col-lg-3">
-        <a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/kanban/board?{?}&id=' . $board->getId()), ENT_COMPAT, 'utf-8'); ?>">
+        <a href="<?= $this->printHtml(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/kanban/board?{?}&id=' . $board->getId())); ?>">
         <section class="box wf-100">
-            <header><h1><?= htmlspecialchars($board->getName(), ENT_COMPAT, 'utf-8'); ?></h1></header>
+            <header><h1><?= $this->printHtml($board->getName()); ?></h1></header>
             <div class="inner">
-                <?= htmlspecialchars($board->getDescription(), ENT_COMPAT, 'utf-8'); ?>
+                <?= $this->printHtml($board->getDescription()); ?>
             </div>
         </section>
         </a>

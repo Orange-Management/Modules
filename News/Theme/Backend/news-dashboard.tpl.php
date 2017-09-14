@@ -41,10 +41,10 @@ echo $this->getData('nav')->render(); ?>
                 ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label=""><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>
-                    <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>
-                    <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td data-label="<?= $this->getHtml('Author') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td data-label="<?= $this->getHtml('Date') ?>"><a href="<?= $url; ?>"><?= htmlspecialchars($news->getPublish()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>
+                    <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($news->getTitle()); ?></a>
+                    <td data-label="<?= $this->getHtml('Author') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($news->getCreatedBy()->getName1()); ?></a>
+                    <td data-label="<?= $this->getHtml('Date') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($news->getPublish()->format('Y-m-d')); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

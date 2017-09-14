@@ -21,10 +21,10 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">
-            <header><h1><?= htmlspecialchars($news->getTitle(), ENT_COMPAT, 'utf-8'); ?></h1></header>
+            <header><h1><?= $this->printHtml($news->getTitle()); ?></h1></header>
             <div class="inner">
                 <article>
-                    <?= htmlspecialchars($news->getContent(), ENT_COMPAT, 'utf-8'); ?>
+                    <?= $this->printHtml($news->getContent()); ?>
                 </article>
             </div>
         </section>

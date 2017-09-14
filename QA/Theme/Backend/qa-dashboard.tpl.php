@@ -9,15 +9,15 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <div class="row middle-xs">
                     <div class="col-xs-1 scores">
-                        <span class="score<?= htmlspecialchars($question->hasAccepted() ? ' done' : '', ENT_COMPAT, 'utf-8'); ?>"><?= htmlspecialchars(count($question->getAnswers()), ENT_COMPAT, 'utf-8'); ?></span>
+                        <span class="score<?= $this->printHtml($question->hasAccepted() ? ' done' : ''); ?>"><?= $this->printHtml(count($question->getAnswers())); ?></span>
                     </div>
                     <div class="title col-xs-11">
-                        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/qa/question?{?}&id=' . $question->getId()); ?>"><?= htmlspecialchars($question->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                        <a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/qa/question?{?}&id=' . $question->getId()); ?>"><?= $this->printHtml($question->getName()); ?></a>
                     </div>
                 </div>
                 <div class="tags">
                 <?php $badges = $question->getBadges(); foreach($badges as $badge) : ?>
-                    <span class="tag red"><?= htmlspecialchars($badge->getName(), ENT_COMPAT, 'utf-8'); ?></span>
+                    <span class="tag red"><?= $this->printHtml($badge->getName()); ?></span>
                 <?php endforeach; ?>
                 </div>
             </div>

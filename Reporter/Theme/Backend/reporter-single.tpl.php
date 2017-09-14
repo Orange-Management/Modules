@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr>
                             <td><select id="iLang" name="lang" data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&lang={#iLang}", "target": "self"}]}]'>
                                     <?php foreach($reportLanguage as $key => $langauge) : ?>
-                                    <option value="<?= htmlspecialchars($key, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($key === $cLang ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($langauge[':language'] , ENT_COMPAT, 'utf-8'); ?>
+                                    <option value="<?= $this->printHtml($key); ?>"<?= $this->printHtml($key === $cLang ? ' selected' : ''); ?>><?= $this->printHtml($langauge[':language'] ); ?>
                                     <?php endforeach; ?>
                                 </select>
                         <?php if(!$template->isStandalone()) : ?><tr>
@@ -73,12 +73,12 @@ echo $this->getData('nav')->render(); ?>
                         <tr>
                             <td><select id="iExport" name="export-type">
                                     <option value="select" disabled><?= $this->getHtml('Select'); ?>
-                                    <option value="excel"<?= htmlspecialchars((!isset($tcoll['excel'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Excel
-                                    <option value="pdf"<?= htmlspecialchars((!isset($tcoll['pdf'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Pdf
-                                    <option value="doc"<?= htmlspecialchars((!isset($tcoll['word'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Word
-                                    <option value="ppt"<?= htmlspecialchars((!isset($tcoll['powerpoint'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Powerpoint
-                                    <option value="csv"<?= htmlspecialchars((!isset($tcoll['csv'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Csv
-                                    <option value="json"<?= htmlspecialchars((!isset($tcoll['json'])) ? ' disabled' : '', ENT_COMPAT, 'utf-8'); ?>>Json
+                                    <option value="excel"<?= $this->printHtml((!isset($tcoll['excel'])) ? ' disabled' : ''); ?>>Excel
+                                    <option value="pdf"<?= $this->printHtml((!isset($tcoll['pdf'])) ? ' disabled' : ''); ?>>Pdf
+                                    <option value="doc"<?= $this->printHtml((!isset($tcoll['word'])) ? ' disabled' : ''); ?>>Word
+                                    <option value="ppt"<?= $this->printHtml((!isset($tcoll['powerpoint'])) ? ' disabled' : ''); ?>>Powerpoint
+                                    <option value="csv"<?= $this->printHtml((!isset($tcoll['csv'])) ? ' disabled' : ''); ?>>Csv
+                                    <option value="json"<?= $this->printHtml((!isset($tcoll['json'])) ? ' disabled' : ''); ?>>Json
                                     
                                 </select>
                         <tr>
@@ -100,10 +100,10 @@ echo $this->getData('nav')->render(); ?>
                         <th colspan="2"><?= $this->getHtml('Report') ?>
                     <tr>
                         <td><?= $this->getHtml('Name'); ?>
-                        <td><?= htmlspecialchars($report->getTitle(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($report->getTitle()); ?>
                     <tr>
                         <td><?= $this->getHtml('Creator'); ?>
-                        <td><?= htmlspecialchars($report->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($report->getCreatedBy()->getName1()); ?>
                     <tr>
                         <td><?= $this->getHtml('Created'); ?>
                         <td><?= $report->getCreatedAt()->format('Y-m-d'); ?>
@@ -112,10 +112,10 @@ echo $this->getData('nav')->render(); ?>
                         <th colspan="2"><?= $this->getHtml('Template') ?>
                     <tr>
                         <td><?= $this->getHtml('Name'); ?>
-                        <td><?= htmlspecialchars($template->getName(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($template->getName()); ?>
                     <tr>
                         <td><?= $this->getHtml('Creator'); ?>
-                        <td><?= htmlspecialchars($template->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($template->getCreatedBy()->getName1()); ?>
                     <tr>
                         <td><?= $this->getHtml('Created'); ?>
                         <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>

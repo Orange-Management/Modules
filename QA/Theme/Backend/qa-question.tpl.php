@@ -8,9 +8,9 @@ echo $this->getData('nav')->render();
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">
-            <header><h1><?= htmlspecialchars($question->getName(), ENT_COMPAT, 'utf-8'); ?></h1></header>
+            <header><h1><?= $this->printHtml($question->getName()); ?></h1></header>
             <div class="inner">
-                <?= htmlspecialchars($question->getQuestion(), ENT_COMPAT, 'utf-8'); ?>
+                <?= $this->printHtml($question->getQuestion()); ?>
             </div>
         </section>
     </div>
@@ -21,7 +21,7 @@ echo $this->getData('nav')->render();
     <div class="col-xs-12">
         <section class="box wf-100">
             <div class="inner">
-                <?= htmlspecialchars($answer->getAnswer(), ENT_COMPAT, 'utf-8'); ?><?= htmlspecialchars($answer->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?><?= htmlspecialchars($answer->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?><?= htmlspecialchars($answer->getStatus(), ENT_COMPAT, 'utf-8'); ?><?= htmlspecialchars($answer->isAccepted(), ENT_COMPAT, 'utf-8'); ?>
+                <?= $this->printHtml($answer->getAnswer()); ?><?= $this->printHtml($answer->getCreatedAt()->format('Y-m-d')); ?><?= $this->printHtml($answer->getCreatedBy()); ?><?= $this->printHtml($answer->getStatus()); ?><?= $this->printHtml($answer->isAccepted()); ?>
             </div>
         </section>
     </div>

@@ -37,17 +37,17 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><h2><?= $this->getHtml('Storage'); ?></h2>
                         <tr><td colspan="2">
                                 <span class="radio">
-                                    <input id="iSourceDB" name="source" type="radio" value="<?= htmlspecialchars(\Modules\Reporter\Models\TemplateDataType::GLOBAL_DB, ENT_COMPAT, 'utf-8'); ?>">
+                                    <input id="iSourceDB" name="source" type="radio" value="<?= $this->printHtml(\Modules\Reporter\Models\TemplateDataType::GLOBAL_DB); ?>">
                                     <label for="iSourceDB"><?= $this->getHtml('CentralizedDB'); ?></label>
                                 </span>
                         <tr><td colspan="2">
                                 <span class="radio">
-                                    <input id="iSourceFile" name="source" type="radio" value="<?= htmlspecialchars(\Modules\Reporter\Models\TemplateDataType::GLOBAL_FILE, ENT_COMPAT, 'utf-8'); ?>">
+                                    <input id="iSourceFile" name="source" type="radio" value="<?= $this->printHtml(\Modules\Reporter\Models\TemplateDataType::GLOBAL_FILE); ?>">
                                     <label for="iSourceFile"><?= $this->getHtml('CentralizedFiles'); ?></label>
                                 </span>
                         <tr><td colspan="2">
                                 <span class="radio">
-                                    <input id="iSourceOther" name="source" type="radio" value="<?= htmlspecialchars(\Modules\Reporter\Models\TemplateDataType::OTHER, ENT_COMPAT, 'utf-8'); ?>" checked>
+                                    <input id="iSourceOther" name="source" type="radio" value="<?= $this->printHtml(\Modules\Reporter\Models\TemplateDataType::OTHER); ?>" checked>
                                     <label for="iSourceOther"><?= $this->getHtml('Other'); ?></label>
                                 </span>
                         <tr><td colspan="2"><label for="iFile"><?= $this->getHtml('Files'); ?></label>

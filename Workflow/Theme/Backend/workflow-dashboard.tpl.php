@@ -38,11 +38,11 @@ echo $this->getData('nav')->render(); ?>
         elseif($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::CANCELED) { $color = 'red'; }
         elseif($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::SUSPENDED) { $color = 'yellow'; } ;?>
         <tr>
-            <td><a href="<?= $url; ?>"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $workflow->getStatus()) ?></span></a>
-            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getDue()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></a>
-            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
-            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?></a>
-            <td><a href="<?= $url; ?>"><?= htmlspecialchars($workflow->getCreatedAt()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></a>
+            <td><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $workflow->getStatus()) ?></span></a>
+            <td><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getDue()->format('Y-m-d H:i')); ?></a>
+            <td><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getTitle()); ?></a>
+            <td><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getCreatedBy()); ?></a>
+            <td><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getCreatedAt()->format('Y-m-d H:i')); ?></a>
                 <?php endforeach; if($c == 0) : ?>
         <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>

@@ -24,15 +24,15 @@ echo $this->getData('nav')->render();
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">
-            <header><h1><?= htmlspecialchars($media->getName(), ENT_COMPAT, 'utf-8'); ?></h1></header>
+            <header><h1><?= $this->printHtml($media->getName()); ?></h1></header>
             <div class="inner">
                 <table class="list w-100">
                     <tbody>
-                        <tr><td>Name<td class="wf-100"><?= htmlspecialchars($media->getName(), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td>Size<td class="wf-100"><?= htmlspecialchars($media->getSize(), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td>Created at<td><?= htmlspecialchars($media->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td>Created by<td><?= htmlspecialchars($media->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td>Description<td><?= htmlspecialchars($media->getDescription(), ENT_COMPAT, 'utf-8'); ?>
+                        <tr><td>Name<td class="wf-100"><?= $this->printHtml($media->getName()); ?>
+                        <tr><td>Size<td class="wf-100"><?= $this->printHtml($media->getSize()); ?>
+                        <tr><td>Created at<td><?= $this->printHtml($media->getCreatedAt()->format('Y-m-d')); ?>
+                        <tr><td>Created by<td><?= $this->printHtml($media->getCreatedBy()->getName1()); ?>
+                        <tr><td>Description<td><?= $this->printHtml($media->getDescription()); ?>
                 </table>
             </div>
         </section>
@@ -41,11 +41,11 @@ echo $this->getData('nav')->render();
         <section class="box wf-100">
             <div class="inner">
                 <?php if(\phpOMS\System\File\FileUtils::getExtensionType($media->getExtension()) === \phpOMS\System\File\ExtensionType::IMAGE) : ?>
-                    <div class="h-overflow"><img src="<?= htmlspecialchars($this->request->getUri()->getBase() . $media->getPath(), ENT_COMPAT, 'utf-8'); ?>"></div>
+                    <div class="h-overflow"><img src="<?= $this->printHtml($this->request->getUri()->getBase() . $media->getPath()); ?>"></div>
                 <?php elseif($media->getExtension() === 'collection') : ?>
                     <ul>
                         <?php foreach($media as $file) : ?>
-                            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/media/single?{?}&id=' . $file->getId()); ?>"><?= htmlspecialchars($file->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                            <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/media/single?{?}&id=' . $file->getId()); ?>"><?= $this->printHtml($file->getName()); ?></a>
                         <?php endforeach; ?>
                     </ul>
                 <?php else : ?>
@@ -54,7 +54,7 @@ echo $this->getData('nav')->render();
                     $output = file_get_contents(__DIR__ . '/../../../../' . $media->getPath());
                     $output = str_replace(["\r\n", "\r"], "\n", $output);
                     $output = explode("\n", $output);
-                    foreach($output as $line) : ?><span><?= htmlspecialchars($line, ENT_COMPAT, 'utf-8'); ?></span><?php endforeach; ?>
+                    foreach($output as $line) : ?><span><?= $this->printHtml($line); ?></span><?php endforeach; ?>
                     </pre>
                 <?php endif; ?>
             </div>

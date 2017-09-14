@@ -105,13 +105,13 @@ $nav->setNav($this->getData('nav'));
 $nav->setLanguage($this->l11n->language);
 $nav->setParent(1003501001);
 ?>
-<?= htmlspecialchars($nav->render(), ENT_COMPAT, 'utf-8'); ?>
+<?= $this->printHtml($nav->render()); ?>
 
 <div class="b-7" id="i3-2-1">
-    <?= htmlspecialchars($this->getView('settings')->render(), ENT_COMPAT, 'utf-8'); ?>
+    <?= $this->printHtml($this->getView('settings')->render()); ?>
 
-    <?= htmlspecialchars($this->getView('stats')->render(), ENT_COMPAT, 'utf-8'); ?>
+    <?= $this->printHtml($this->getView('stats')->render()); ?>
 </div>
 <div class="b-6">
-    <?= htmlspecialchars($timeMgmtView->render(), ENT_COMPAT, 'utf-8'); ?>
+    <?= $this->printHtml($timeMgmtView->render()); ?>
 </div>

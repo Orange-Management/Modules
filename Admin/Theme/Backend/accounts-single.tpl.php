@@ -27,29 +27,29 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
-                        <tr><td><input id="iId" name="id" type="text" value="<?= htmlspecialchars($account->getId(), ENT_COMPAT, 'utf-8'); ?>" disabled>
+                        <tr><td><input id="iId" name="id" type="text" value="<?= $this->printHtml($account->getId()); ?>" disabled>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                         <tr><td><select id="iType" name="type">
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountType::USER, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($account->getType() === \phpOMS\Account\AccountType::USER ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= $this->getHtml('Person'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountType::GROUP, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($account->getType() === \phpOMS\Account\AccountType::GROUP ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= $this->getHtml('Organization'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::USER); ?>"<?= $this->printHtml($account->getType() === \phpOMS\Account\AccountType::USER ? ' selected' : ''); ?>><?= $this->getHtml('Person'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::GROUP); ?>"<?= $this->printHtml($account->getType() === \phpOMS\Account\AccountType::GROUP ? ' selected' : ''); ?>><?= $this->getHtml('Organization'); ?>
                                 </select>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::ACTIVE, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($account->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= $this->getHtml('Active'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::INACTIVE, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($account->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= $this->getHtml('Inactive'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::TIMEOUT, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($account->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= $this->getHtml('Timeout'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::BANNED, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= $this->getHtml('Banned'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::ACTIVE); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE ? ' selected' : ''); ?>><?= $this->getHtml('Active'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::INACTIVE); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE ? ' selected' : ''); ?>><?= $this->getHtml('Inactive'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::TIMEOUT); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT ? ' selected' : ''); ?>><?= $this->getHtml('Timeout'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::BANNED); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : ''); ?>><?= $this->getHtml('Banned'); ?>
                                 </select>
                         <tr><td><label for="iUsername"><?= $this->getHtml('Username'); ?></label>
-                        <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred" value="<?= htmlspecialchars($account->getName(), ENT_COMPAT, 'utf-8'); ?>" disabled>
+                        <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred" value="<?= $this->printHtml($account->getName()); ?>" disabled>
                         <tr><td><label for="iName1"><?= $this->getHtml('Name1'); ?></label>
-                        <tr><td><input id="iName1" name="name1" type="text" placeholder="&#xf007; Donald" value="<?= htmlspecialchars($account->getName1(), ENT_COMPAT, 'utf-8'); ?>" required>
+                        <tr><td><input id="iName1" name="name1" type="text" placeholder="&#xf007; Donald" value="<?= $this->printHtml($account->getName1()); ?>" required>
                         <tr><td><label for="iName2"><?= $this->getHtml('Name2'); ?></label>
-                        <tr><td><input id="iName2" name="name2" type="text" placeholder="&#xf007; Fauntleroy" value="<?= htmlspecialchars($account->getName2(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input id="iName2" name="name2" type="text" placeholder="&#xf007; Fauntleroy" value="<?= $this->printHtml($account->getName2()); ?>">
                         <tr><td><label for="iName3"><?= $this->getHtml('Name3'); ?></label>
-                        <tr><td><input id="iName3" name="name3" type="text" placeholder="&#xf007; Duck" value="<?= htmlspecialchars($account->getName3(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input id="iName3" name="name3" type="text" placeholder="&#xf007; Duck" value="<?= $this->printHtml($account->getName3()); ?>">
                         <tr><td><label for="iEmail"><?= $this->getHtml('Email'); ?></label>
-                        <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= htmlspecialchars($account->getEmail(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= $this->printHtml($account->getEmail()); ?>">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Name3'); ?></label>
                         <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">

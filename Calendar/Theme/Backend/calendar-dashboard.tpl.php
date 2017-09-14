@@ -5,8 +5,8 @@ $calendar = $this->getData('calendar');
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
             <ul class="btns floatLeft">
-                <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d')), ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-left"></i></a>
-                <li><a href="<?= htmlspecialchars(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d')), ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-arrow-right"></i></a>
+                <li><a href="<?= $this->printHtml(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, -1, 0)->format('Y-m-d'))); ?>"><i class="fa fa-arrow-left"></i></a>
+                <li><a href="<?= $this->printHtml(\phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/calendar/dashboard?date=' . $calendar->getDate()->createModify(0, 1, 0)->format('Y-m-d'))); ?>"><i class="fa fa-arrow-right"></i></a>
             </ul>
             <ul class="btns floatRight">
                 <li><a href=""><?= $this->getHtml('Day'); ?></a>
@@ -48,8 +48,8 @@ $calendar = $this->getData('calendar');
                             <?php
                             $events = $calendar->getEventByDate($current[$i*7+$j]);
                             foreach($events as $event) : ?> 
-                                <div id="event-tag-<?= htmlspecialchars($event->getId(), ENT_COMPAT, 'utf-8'); ?>" class="event">
-                        <div class="event-desc"><?= htmlspecialchars($event->getName(), ENT_COMPAT, 'utf-8'); ?></div>
+                                <div id="event-tag-<?= $this->printHtml($event->getId()); ?>" class="event">
+                        <div class="event-desc"><?= $this->printHtml($event->getName()); ?></div>
                         <div class="event-time">2:00pm to 5:00pm</div>
                                 </div>
                             <?php endforeach; ?>

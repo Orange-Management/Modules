@@ -24,7 +24,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <div class="inner">
                 <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/draw?{?}&csrf={$CSRF}'); ?>" method="POST">
-                    <input type="text" id="iTitle" name="title" class="wf-100" value="<?= htmlspecialchars($image->getMedia()->getName(), ENT_COMPAT, 'utf-8'); ?>"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                    <input type="text" id="iTitle" name="title" class="wf-100" value="<?= $this->printHtml($image->getMedia()->getName()); ?>"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                 </form>
             </div>
         </section>
@@ -73,7 +73,7 @@ echo $this->getData('nav')->render(); ?>
         <div class="m-draw">
             <section class="box wf-100" style="height: 30%;">
                 <div class="inner resizable">
-                    <canvas data-src="<?= htmlspecialchars($this->request->getUri()->getBase() . $image->getMedia()->getPath(), ENT_COMPAT, 'utf-8'); ?>" id="canvasImage resizable" name="image" form="drawForm"></canvas>
+                    <canvas data-src="<?= $this->printHtml($this->request->getUri()->getBase() . $image->getMedia()->getPath()); ?>" id="canvasImage resizable" name="image" form="drawForm"></canvas>
                 </div>
             </section>
         </div>

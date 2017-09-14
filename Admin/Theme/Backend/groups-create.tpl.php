@@ -22,13 +22,13 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Group'); ?></h1></header>
             <div class="inner">
-                <form id="group-create" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/group'); ?>" method="<?= htmlspecialchars(\phpOMS\Message\Http\RequestMethod::PUT, ENT_COMPAT, 'utf-8'); ?>">
+                <form id="group-create" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/group'); ?>" method="<?= $this->printHtml(\phpOMS\Message\Http\RequestMethod::PUT); ?>">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
                         <tr><td colspan="2"><select id="iStatus" name="status">
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\GroupStatus::ACTIVE, ENT_COMPAT, 'utf-8'); ?>" selected><?= $this->getHtml('Active'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\GroupStatus::INACTIVE, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Inactive'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\GroupStatus::ACTIVE); ?>" selected><?= $this->getHtml('Active'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\GroupStatus::INACTIVE); ?>"><?= $this->getHtml('Inactive'); ?>
                         <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
                         <tr><td><input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" required>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>

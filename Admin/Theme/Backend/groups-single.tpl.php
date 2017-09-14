@@ -28,9 +28,9 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
-                        <tr><td><input id="iGid" name="gid" type="text" value="<?= htmlspecialchars($group->getId(), ENT_COMPAT, 'utf-8'); ?>" disabled>
+                        <tr><td><input id="iGid" name="gid" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
                         <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= htmlspecialchars($group->getName(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
                         <tr><td><label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
                         <tr><td><select id="iGstatus" status="gname">
                             <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach($status as $stat) : ?>
@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                         <?php endforeach; ?>
                             </select>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>
-                        <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= htmlspecialchars($group->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
+                        <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= $this->printHtml($group->getDescription()); ?></textarea>
                         <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>

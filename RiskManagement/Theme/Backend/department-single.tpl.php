@@ -38,9 +38,9 @@ echo $this->getData('nav')->render(); ?>
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name') ?></label><td><?= htmlspecialchars($department->getDepartment()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Description') ?>:<td><?= htmlspecialchars($department->getDepartment()->getDescription()); ?>
-                                    <tr><td><?= $this->getHtml('Unit') ?>:<td><?= htmlspecialchars($department->getDepartment()->getUnit()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Name') ?></label><td><?= $this->printHtml($department->getDepartment()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Description') ?>:<td><?= $this->printHtml($department->getDepartment()->getDescription()); ?>
+                                    <tr><td><?= $this->getHtml('Unit') ?>:<td><?= $this->printHtml($department->getDepartment()->getUnit()->getName()); ?>
                                     <tr><td><?= $this->getHtml('Risks') ?>:<td>
                                     <tr><td><?= $this->getHtml('Categories') ?>:<td>
                                     <tr><td><?= $this->getHtml('Projects') ?>:<td>
@@ -113,11 +113,11 @@ echo $this->getData('nav')->render(); ?>
 					                <?php $c = 0; foreach ($risks as $key => $value) : $c++;
 					                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
 					        <tr data-href="<?= $url; ?>">
-					            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-					            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-					            <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getCauses()), ENT_COMPAT, 'utf-8'); ?></a>
-					            <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getSolutions()), ENT_COMPAT, 'utf-8'); ?></a>
-					            <td><a href="<?= $url; ?>"><?= htmlspecialchars(count($value->getRiskObjects()), ENT_COMPAT, 'utf-8'); ?></a>
+					            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+					            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+					            <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getCauses())); ?></a>
+					            <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getSolutions())); ?></a>
+					            <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getRiskObjects())); ?></a>
 					                <?php endforeach; ?>
 					                <?php if($c === 0) : ?>
 					                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -144,8 +144,8 @@ echo $this->getData('nav')->render(); ?>
 			                        <?php $c = 0; foreach ($categories as $key => $value) : $c++;
 			                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/category/single?{?}&id=' . $value->getId()); ?>
 			                <tr data-href="<?= $url; ?>">
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
 			                        <?php endforeach; ?>
 			                        <?php if($c === 0) : ?>
 			                        <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -172,8 +172,8 @@ echo $this->getData('nav')->render(); ?>
 			                        <?php $c = 0; foreach ($projects as $key => $value) : $c++;
 			                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/project/single?{?}&id=' . $value->getId()); ?>
 			                <tr data-href="<?= $url; ?>">
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getProject()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
 			                        <?php endforeach; ?>
 			                        <?php if($c === 0) : ?>
 			                        <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -200,8 +200,8 @@ echo $this->getData('nav')->render(); ?>
 			                        <?php $c = 0; foreach ($processes as $key => $value) : $c++;
 			                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/process/single?{?}&id=' . $value->getId()); ?>
 			                <tr data-href="<?= $url; ?>">
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
 			                        <?php endforeach; ?>
 			                        <?php if($c === 0) : ?>
 			                        <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -229,9 +229,9 @@ echo $this->getData('nav')->render(); ?>
 			                        <?php $c = 0; foreach ($causes as $key => $value) : $c++;
 			                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/cause/single?{?}&id=' . $value->getId()); ?>
 			                <tr data-href="<?= $url; ?>">
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getRisk()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
 			                        <?php endforeach; ?>
 			                        <?php if($c === 0) : ?>
 			                        <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -260,10 +260,10 @@ echo $this->getData('nav')->render(); ?>
 			                        <?php $c = 0; foreach ($solutions as $key => $value) : $c++;
 			                        $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/solution/single?{?}&id=' . $value->getId()); ?>
 			                <tr data-href="<?= $url; ?>">
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getRisk()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-			                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCause()->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
+			                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCause()->getTitle()); ?></a>
 			                        <?php endforeach; ?>
 			                        <?php if($c === 0) : ?>
 			                        <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

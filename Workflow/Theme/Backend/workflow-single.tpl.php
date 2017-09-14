@@ -22,15 +22,15 @@ $cElements = count($elements);
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-50">
-    <header><h1><?= htmlspecialchars($task->getTitle(), ENT_COMPAT, 'utf-8'); ?></h1></header>
+    <header><h1><?= $this->printHtml($task->getTitle()); ?></h1></header>
     <div class="inner">
-        <div class="floatRight">Due <?= htmlspecialchars($task->getDue()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></div>
-        <div>Created <?= htmlspecialchars($task->getCreatedAt()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></div>
+        <div class="floatRight">Due <?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?></div>
+        <div>Created <?= $this->printHtml($task->getCreatedAt()->format('Y-m-d H:i')); ?></div>
         <blockquote>
-            <?= htmlspecialchars($task->getDescription(), ENT_COMPAT, 'utf-8'); ?>
+            <?= $this->printHtml($task->getDescription()); ?>
         </blockquote>
-        <div>Created <?= htmlspecialchars($task->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?></div>
-        <div>Status <?= htmlspecialchars($task->getStatus(), ENT_COMPAT, 'utf-8'); ?></div>
+        <div>Created <?= $this->printHtml($task->getCreatedBy()); ?></div>
+        <div>Status <?= $this->printHtml($task->getStatus()); ?></div>
     </div>
 </section>
 
@@ -42,14 +42,14 @@ foreach ($elements as $key => $element) : $c++;
     elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
     elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
     <section class="box w-50">
-        <div class="floatRight"><span class="tag <?= htmlspecialchars($color, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('S' . $element->getStatus()) ?></span></div>
-        <div><?= htmlspecialchars($element->getCreatedBy(), ENT_COMPAT, 'utf-8'); ?> - <?= htmlspecialchars($element->getCreatedAt()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></div>
+        <div class="floatRight"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $element->getStatus()) ?></span></div>
+        <div><?= $this->printHtml($element->getCreatedBy()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
     </section>
     <?php if ($element->getDescription() !== '') : ?>
         <section class="box w-50">
             <div class="inner">
                 <blockquote>
-                    <?= htmlspecialchars($element->getDescription(), ENT_COMPAT, 'utf-8'); ?>
+                    <?= $this->printHtml($element->getDescription()); ?>
                 </blockquote>
             </div>
         </section>
@@ -59,10 +59,10 @@ foreach ($elements as $key => $element) : $c++;
             $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::DONE ||
             $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::SUSPENDED || $c != $cElements
         ) : ?>
-            <div class="floatRight">Due <?= htmlspecialchars($element->getDue()->format('Y-m-d H:i'), ENT_COMPAT, 'utf-8'); ?></div>
+            <div class="floatRight">Due <?= $this->printHtml($element->getDue()->format('Y-m-d H:i')); ?></div>
         <?php endif; ?>
         <?php if ($element->getForwarded() !== 0) : ?>
-            <div>Forwarded <?= htmlspecialchars($element->getForwarded(), ENT_COMPAT, 'utf-8'); ?></div>
+            <div>Forwarded <?= $this->printHtml($element->getForwarded()); ?></div>
         <?php endif; ?>
     </section>
 <?php endforeach; ?>

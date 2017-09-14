@@ -36,13 +36,13 @@ echo $this->getData('nav')->render(); ?>
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name') ?><td><?= htmlspecialchars($risk->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Description') ?><td><?= htmlspecialchars($risk->getDescription()); ?>
-                                    <tr><td><?= $this->getHtml('Unit') ?><td><?= htmlspecialchars($risk->getUnit()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Category') ?><td><?= htmlspecialchars($risk->getCategory()->getTitle()); ?>
-                                    <tr><td><?= $this->getHtml('Department') ?><td><?= htmlspecialchars($risk->getDepartment()->getDepartment()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Process') ?><td><?= htmlspecialchars($risk->getProcess()->getTitle()); ?>
-                                    <tr><td><?= $this->getHtml('Project') ?><td><?= htmlspecialchars($risk->getProject()->getProject()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Name') ?><td><?= $this->printHtml($risk->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Description') ?><td><?= $this->printHtml($risk->getDescription()); ?>
+                                    <tr><td><?= $this->getHtml('Unit') ?><td><?= $this->printHtml($risk->getUnit()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Category') ?><td><?= $this->printHtml($risk->getCategory()->getTitle()); ?>
+                                    <tr><td><?= $this->getHtml('Department') ?><td><?= $this->printHtml($risk->getDepartment()->getDepartment()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Process') ?><td><?= $this->printHtml($risk->getProcess()->getTitle()); ?>
+                                    <tr><td><?= $this->getHtml('Project') ?><td><?= $this->printHtml($risk->getProject()->getProject()->getName()); ?>
                                 </table>
                             </form>
                         </div>

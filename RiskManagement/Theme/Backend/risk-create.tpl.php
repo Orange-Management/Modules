@@ -50,7 +50,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><label for="iProject"><?= $this->getHtml('Project') ?></label>
                                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="project" id="iProject"></span>
                                     <tr><td><label for="iReview"><?= $this->getHtml('Review') ?></label>
-                                    <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
+                                    <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
                                     <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                                 </table>
                             </form>

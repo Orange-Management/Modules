@@ -45,9 +45,9 @@ $footerView->setResults(count($modules));
                         <?php $count = 0; foreach ($modules as $key => $module) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/module/settings?{?}&id=' . $module['name']['internal']); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($module['name']['internal'], ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($module['name']['external'], ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($module['version'], ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['internal']); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($module['version']); ?></a>
                     <td><a href="<?= $url; ?>"><?php if (in_array($module['name']['internal'], $active))
                             echo strtolower($this->getHtml('Active'));
                         elseif (in_array($module['name']['internal'], $installed))

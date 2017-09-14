@@ -27,9 +27,9 @@ echo $this->getData('nav')->render(); ?>
                 <form>
                     <table class="layout wf-100">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
-                        <tr><td><input type="text" name="name" id="iName" value="<?= htmlspecialchars($department->getName(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input type="text" name="name" id="iName" value="<?= $this->printHtml($department->getName()); ?>">
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
-                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent" value="<?= htmlspecialchars($department->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?>"></span>
+                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent" value="<?= $this->printHtml($department->getParent()->getName()); ?>"></span>
                         <tr><td><label for="iUnit"><?= $this->getHtml('Unit') ?></label>
                         <tr><td><select name="unit" id="iUnit">
                                 </select>
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option><?= $this->getHtml('Inactive') ?>
                                 </select>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
-                        <tr><td><textarea name="description" id="iDescription"><?= htmlspecialchars($department->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
+                        <tr><td><textarea name="description" id="iDescription"><?= $this->printHtml($department->getDescription()); ?></textarea>
                         <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>
