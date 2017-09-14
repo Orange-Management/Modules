@@ -27,23 +27,23 @@ namespace Modules\Admin\Models;
  */
 abstract class PermissionAbstract
 {
-    private $id = 0;
+    protected $id = 0;
 
-    private $unit = null;
+    protected $unit = null;
 
-    private $app = null;
+    protected $app = null;
 
-    private $module = null;
+    protected $module = null;
 
-    private $from = 0;
+    protected $from = 0;
 
-    private $type = null;
+    protected $type = null;
 
-    private $element = null;
+    protected $element = null;
 
-    private $component = null;
+    protected $component = null;
 
-    private $permission = 0;
+    protected $permission = 0;
 
     public function getId()
     {
