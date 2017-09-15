@@ -24,6 +24,7 @@ use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
 use Modules\Tasks\Models\PermissionState;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -69,9 +70,9 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Tasks';
 
     /**
-     * Module name.
+     * Module id.
      *
-     * @var string
+     * @var int
      * @since 1.0.0
      */
     /* public */ const MODULE_ID = 1001100000;
@@ -158,9 +159,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        $task = TaskMapper::get((int) $request->getData('id'));
-        $view->addData('task', $task);
-
+        $task      = TaskMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
         if (!($task->getCreatedBy()->getId() === $accountId
@@ -174,6 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
+        $view->addData('task', $task);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         return $view;
@@ -252,6 +252,13 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+        }
+
         if (!empty($val = $this->validateTaskCreate($request))) {
             $response->set('task_create', new FormValidation($val));
 
@@ -313,6 +320,13 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_element_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+        }
+
         if (!empty($val = $this->validateTaskElementCreate($request))) {
             $response->set('task_element_create', new FormValidation($val));
 

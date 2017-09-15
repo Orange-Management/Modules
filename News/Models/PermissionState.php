@@ -12,7 +12,8 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Tasks\Models;
+
+namespace Modules\News\Models;
 
 use phpOMS\Stdlib\Base\Enum;
 
@@ -28,6 +29,7 @@ use phpOMS\Stdlib\Base\Enum;
 abstract class PermissionState extends Enum
 {
     /* public */ const DASHBOARD = 1;
-    /* public */ const TASK = 2;
-    /* public */ const TASKELEMENT = 3;
+    /* public */ const ARCHIVE = 2;
+    /* public */ const ARTICLE = 3;
+    /* public */ const BADGE = 4;
 }
