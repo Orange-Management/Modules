@@ -157,11 +157,27 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         $task = TaskMapper::get((int) $request->getData('id'));
         $view->addData('task', $task);
+
+        $accountId = $request->getHeader()->getAccount();
+
+        if ($task->getCreatedBy() === $accountId
+            || $task->isCc($accountId)
+            || $task->isReceipient($accountId)
+            || $task->isForwarded($accountId)
+            || !$this->app->accountManager->get($accountId)->hasPermission(
+                PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK, $task->getId())
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            return $view;
+        }
+
+        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+
+        
 
         return $view;
     }
