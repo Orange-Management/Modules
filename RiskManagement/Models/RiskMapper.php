@@ -35,7 +35,6 @@ class RiskMapper extends DataMapperAbstract
         'riskmngmt_risk_name'     => ['name' => 'riskmngmt_risk_name', 'type' => 'string', 'internal' => 'name'],
         'riskmngmt_risk_description'     => ['name' => 'riskmngmt_risk_description', 'type' => 'string', 'internal' => 'description'],
         'riskmngmt_risk_descriptionraw'     => ['name' => 'riskmngmt_risk_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'riskmngmt_risk_created_at' => ['name' => 'riskmngmt_risk_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'riskmngmt_risk_unit' => ['name' => 'riskmngmt_risk_unit', 'type' => 'int', 'internal' => 'unit'],
         'riskmngmt_risk_department' => ['name' => 'riskmngmt_risk_department', 'type' => 'int', 'internal' => 'department'],
         'riskmngmt_risk_category' => ['name' => 'riskmngmt_risk_category', 'type' => 'int', 'internal' => 'category'],
@@ -116,14 +115,6 @@ class RiskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'riskmngmt_risk_id';
-
-    /**
-     * Created at column
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $createdAt = 'riskmngmt_risk_created_at';
 
     /**
      * Create object.

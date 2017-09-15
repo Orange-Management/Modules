@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                         <?php endif; ?>
                         <?php foreach ($templates as $key => $template) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/reporter/report/view?{?}&id=' . $template->getId()); ?>
-                <tr>
+                <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getName()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedBy()->getName1()); ?></a>
