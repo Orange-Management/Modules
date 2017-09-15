@@ -23,12 +23,14 @@ use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
+use Modules\Tasks\Models\PermissionState;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
+use phpOMS\Account\PermissionType;
 
 /**
  * Task class.
@@ -67,6 +69,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Tasks';
 
     /**
+     * Module name.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1001100000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -97,6 +107,14 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+                PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
