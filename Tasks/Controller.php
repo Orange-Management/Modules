@@ -163,10 +163,9 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $accountId = $request->getHeader()->getAccount();
 
-        if ($task->getCreatedBy() === $accountId
+        if (!($task->getCreatedBy()->getId() === $accountId
             || $task->isCc($accountId)
-            || $task->isReceipient($accountId)
-            || $task->isForwarded($accountId)
+            || $task->isForwarded($accountId))
             || !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK, $task->getId())
         ) {
@@ -176,8 +175,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
-
-        
 
         return $view;
     }

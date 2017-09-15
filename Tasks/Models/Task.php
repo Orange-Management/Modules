@@ -153,6 +153,22 @@ class Task implements \JsonSerializable
         return $key;
     }
 
+    public function isCc(int $id) : bool
+    {
+        return false;
+    }
+
+    public function isForwarded(int $id) : bool
+    {
+        foreach($this->taskElements as $element) {
+            if($element->getForwarded()->getId() === $id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * @return \DateTime
      *
