@@ -99,23 +99,6 @@ class Media
     protected $description = '';
 
     /**
-     * Permissions.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected $permissions = [
-        'r' => ['groups' => [],
-                'users'  => [],],
-        'w' => ['groups' => [],
-                'users'  => [],],
-        'p' => ['groups' => [],
-                'users'  => [],],
-        'd' => ['groups' => [],
-                'users'  => [],],
-    ];
-
-    /**
      * Constructor.
      *
      * @since  1.0.0
