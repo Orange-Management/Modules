@@ -118,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $view->setData('account', ProfileMapper::get($request->getData('id')));
+        $view->setData('account', ProfileMapper::getFor($request->getData('id'), 'account'));
 
         return $view;
     }
