@@ -113,6 +113,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
 
@@ -169,6 +170,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK, $task->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
 
@@ -191,6 +193,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
@@ -257,6 +268,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ) {
             $response->set('task_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         if (!empty($val = $this->validateTaskCreate($request))) {
@@ -325,6 +337,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ) {
             $response->set('task_element_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         if (!empty($val = $this->validateTaskElementCreate($request))) {

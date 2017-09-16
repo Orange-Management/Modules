@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Calendar;
 
 use Modules\Calendar\Models\CalendarMapper;
+use Modules\Calendar\Models\PermissionState;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
@@ -26,6 +27,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
 use phpOMS\Asset\AssetType;
+use phpOMS\Account\PermissionType;
 
 /**
  * Calendar controller class.
@@ -99,11 +101,19 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewCalendarDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            return $view;
+        }
+
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
-        
-        $view = new View($this->app, $request, $response);
+
         $view->setTemplate('/Modules/Calendar/Theme/Backend/calendar-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001201001, $request, $response));
 

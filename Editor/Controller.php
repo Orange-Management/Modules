@@ -19,6 +19,7 @@ use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use Modules\Editor\Models\EditorDoc;
 use Modules\Editor\Models\EditorDocMapper;
+use Modules\Editor\Models\PermissionState;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
@@ -27,6 +28,7 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
+use phpOMS\Account\PermissionType;
 
 /**
  * Calendar controller class.
@@ -117,6 +119,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, 1, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Editor/Theme/Backend/editor-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
@@ -138,6 +149,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewEditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Editor/Theme/Backend/editor-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
@@ -159,10 +179,21 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewEditorSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Editor/Theme/Backend/editor-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
         $doc = EditorDocMapper::get((int) $request->getData('id'));
+        $accountId = $request->getHeader()->getAccount();
+        
+        if (!$doc->getCreatedBy()->getId() === $accountId
+            || !$this->app->accountManager->get($accountId)->hasPermission(
+                PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DOC, $doc->getId())
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
+        $view->setTemplate('/Modules/Editor/Theme/Backend/editor-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
         $view->addData('doc', $doc);
 
         return $view;
@@ -190,6 +221,14 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, 1, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
+        ) {
+            $response->set('editor_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateEditorCreate($request))) {
             $response->set('editor_create', new FormValidation($val));
 

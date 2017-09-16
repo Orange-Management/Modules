@@ -110,6 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
             PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
 
@@ -154,6 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE, $article->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
 
@@ -182,6 +184,7 @@ class Controller extends ModuleAbstract implements WebInterface
             PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::ARCHIVE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
 
@@ -211,6 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
             PermissionType::CREATE, 1, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
 
@@ -262,6 +266,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ) {
             $response->set('news_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         if (!empty($val = $this->validateNewsCreate($request))) {
@@ -321,6 +326,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ) {
             $response->set('badge_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         if (!empty($val = $this->validateBadgeCreate($request))) {
@@ -402,6 +408,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ) {
             $response->set('news_delete', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         NewsArticleMapper::delete((int) $request->getData('id'));
@@ -415,6 +422,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ) {
             $response->set('badge_delete', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         BadgeMapper::delete((int) $request->getData('id'));

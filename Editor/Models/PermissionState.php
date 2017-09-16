@@ -13,7 +13,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\News\Models;
+namespace Modules\Editor\Models;
 
 use phpOMS\Stdlib\Base\Enum;
 
@@ -29,7 +29,5 @@ use phpOMS\Stdlib\Base\Enum;
 abstract class PermissionState extends Enum
 {
     /* public */ const DASHBOARD = 1;
-    /* public */ const ARCHIVE = 2;
-    /* public */ const ARTICLE = 3;
-    /* public */ const BADGE = 4;
+    /* public */ const DOC = 2;
 }
