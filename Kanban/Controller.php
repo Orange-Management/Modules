@@ -21,6 +21,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Asset\AssetType;
 use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 use Modules\Kanban\Models\PermissionState;
 use Modules\Kanban\Models\KanbanBoard;

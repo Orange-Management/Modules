@@ -30,6 +30,7 @@ use phpOMS\System\File\Local\File;
 use phpOMS\Utils\ImageUtils;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Calendar controller class.

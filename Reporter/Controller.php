@@ -39,6 +39,7 @@ use phpOMS\Utils\IO\Excel\ExcelDatabaseMapper;
 use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * TODO: Implement auto sqlite generator on upload

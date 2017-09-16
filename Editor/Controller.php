@@ -29,6 +29,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
 use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Calendar controller class.
