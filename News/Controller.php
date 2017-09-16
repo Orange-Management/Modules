@@ -150,8 +150,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $article   = NewsArticleMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
-        if (!$article->getCreatedBy()->getId() === $accountId
-            || !$this->app->accountManager->get($accountId)->hasPermission(
+        if ($article->getCreatedBy()->getId() !== $accountId
+            && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE, $article->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');

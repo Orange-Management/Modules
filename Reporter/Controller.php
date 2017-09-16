@@ -212,8 +212,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
-        if (!$template->getCreatedBy()->getId() === $accountId // todo: also check if report createdBy
-            || !$this->app->accountManager->get($accountId)->hasPermission(
+        if ($template->getCreatedBy()->getId() !== $accountId // todo: also check if report createdBy
+            && !$this->app->accountManager->get($accountId)->hasPermission(
             PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::REPORT, $template->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
@@ -312,8 +312,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
-        if (!$template->getCreatedBy()->getId() === $accountId // todo: also check if report createdBy
-            || !$this->app->accountManager->get($accountId)->hasPermission(
+        if ($template->getCreatedBy()->getId() !== $accountId // todo: also check if report createdBy
+            && !$this->app->accountManager->get($accountId)->hasPermission(
             PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::REPORT, $template->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');

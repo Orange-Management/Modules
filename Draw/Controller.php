@@ -154,8 +154,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $draw      = DrawImageMapper::get($request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
-        if (!$draw->getCreatedBy()->getId() === $accountId
-            || !$this->app->accountManager->get($accountId)->hasPermission(
+        if ($draw->getCreatedBy()->getId() !== $accountId
+            && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DRAW, $draw->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');

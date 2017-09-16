@@ -183,8 +183,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $doc = EditorDocMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
         
-        if (!$doc->getCreatedBy()->getId() === $accountId
-            || !$this->app->accountManager->get($accountId)->hasPermission(
+        if ($doc->getCreatedBy()->getId() !== $accountId
+            && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::DOC, $doc->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');

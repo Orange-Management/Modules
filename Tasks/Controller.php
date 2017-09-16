@@ -166,7 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
         if (!($task->getCreatedBy()->getId() === $accountId
             || $task->isCc($accountId)
             || $task->isForwarded($accountId))
-            || !$this->app->accountManager->get($accountId)->hasPermission(
+            && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, 1, $this->app->appName, self::MODULE_ID, PermissionState::TASK, $task->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
