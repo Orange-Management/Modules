@@ -12,7 +12,10 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
+
 namespace Modules\RiskManagement\Models;
+
+use Modules\Organization\Models\NullDepartment;
 
 /**
  * Risk Management class.
@@ -44,7 +47,7 @@ class Department
 
     public function getDepartment()
     {
-        return $this->department;
+        return $this->department ?? new NullDepartment();
     }
 
     public function setDepartment($department)
