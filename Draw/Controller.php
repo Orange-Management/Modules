@@ -125,7 +125,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -157,7 +157,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($draw->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW, $draw->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW, $draw->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -186,7 +186,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -225,7 +225,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW)
         ) {
             $response->set('draw_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

@@ -115,7 +115,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             return $view;
@@ -144,7 +144,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             return $view;
@@ -218,7 +218,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $accountId = $request->getHeader()->getAccount();
 
         if (!$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DOC, $category->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC, $category->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -246,7 +246,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -264,7 +264,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->appId, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
         ) {
             $response->set('wiki_doc_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
