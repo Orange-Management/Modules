@@ -19,6 +19,7 @@ use Modules\Admin\Models\Account;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\AccountPermissionMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
@@ -167,6 +168,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         $view->addData('account', AccountMapper::get((int) $request->getData('id')));
+
+        $permissions = AccountPermissionMapper::getFor((int) $request->getData('id'), 'account');
+        
+        if(!isset($permissions)) {
+            $permissions = [];
+        } elseif(!is_array($permissions)) {
+            $permissions = [$permissions];
+        }
+
+        $view->addData('permissions', $permissions);
 
         return $view;
     }
