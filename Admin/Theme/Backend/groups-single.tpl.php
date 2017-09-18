@@ -16,6 +16,7 @@
  */
 
 $group = $this->getData('group');
+$permissions = $this->getData('permissions');
 
 echo $this->getData('nav')->render(); ?>
 
@@ -47,6 +48,23 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <table class="box table red">
+            <caption><?= $this->getHtml('Parents') ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td>Name
+            <tbody>
+                <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
+                <tr>
+                    <td>
+                    <td>
+                <?php endforeach; ?>
+                <?php if($c === 0) : ?>
+                <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <?php endif; ?>
+        </table>
+
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Parent'); ?></h1></header>
             <div class="inner">
@@ -63,6 +81,40 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <table class="box table red">
+            <caption><?= $this->getHtml('Permissions') ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td>Unit
+                    <td>App
+                    <td>Module
+                    <td>Type
+                    <td>Ele.
+                    <td>Comp.
+                    <td>Perm.
+            <tbody>
+                <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
+                <tr>
+                    <td><?= $value->getId(); ?>
+                    <td><?= $value->getUnit(); ?>
+                    <td><?= $value->getApp(); ?>
+                    <td><?= $value->getModule(); ?>
+                    <td><?= $value->getType(); ?>
+                    <td><?= $value->getElement(); ?>
+                    <td><?= $value->getComponent(); ?>
+                    <td>
+                        <?= \phpOMS\Account\PermissionType::CREATE | $permission === $permission ? 'C' : ''; ?>
+                        <?= \phpOMS\Account\PermissionType::READ | $permission === $permission ? 'R' : ''; ?>
+                        <?= \phpOMS\Account\PermissionType::MODIFY | $permission === $permission ? 'U' : ''; ?>
+                        <?= \phpOMS\Account\PermissionType::DELETE | $permission === $permission ? 'D' : ''; ?>
+                        <?= \phpOMS\Account\PermissionType::PERMISSION | $permission === $permission ? 'P' : ''; ?>
+                <?php endforeach; ?>
+                <?php if($c === 0) : ?>
+                <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <?php endif; ?>
+        </table>
+
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
             <div class="inner">

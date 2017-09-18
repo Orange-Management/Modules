@@ -21,6 +21,7 @@ use phpOMS\Account\AccountType;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
+use Modules\Admin\Models\GroupPermissionMapper;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -224,6 +225,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
         $view->addData('group', GroupMapper::get((int) $request->getData('id')));
+
+        $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
+        
+        if(!isset($permissions)) {
+            $permissions = [];
+        } elseif(!is_array($permissions)) {
+            $permissions = [$permissions];
+        }
+
+        $view->addData('permissions', $permissions);
 
         return $view;
     }
