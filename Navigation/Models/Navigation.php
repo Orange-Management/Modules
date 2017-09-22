@@ -91,7 +91,7 @@ class Navigation
             }
 
             $uriPdo = rtrim($uriPdo, ',');
-            $sth    = $this->dbPool->get('core')->con->prepare('SELECT * FROM `' . $this->dbPool->get('core')->prefix . 'nav` WHERE `nav_pid` IN(' . $uriPdo . ') ORDER BY `nav_order` ASC');
+            $sth    = $this->dbPool->get('select')->con->prepare('SELECT * FROM `' . $this->dbPool->get('select')->prefix . 'nav` WHERE `nav_pid` IN(' . $uriPdo . ') ORDER BY `nav_order` ASC');
 
             $i = 1;
             foreach ($request as $hash) {
