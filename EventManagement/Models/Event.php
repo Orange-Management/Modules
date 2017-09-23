@@ -59,6 +59,10 @@ class Event
 
     private $tasks = [];
 
+    private $progress = 0;
+    
+    private $progressType = ProgressType::MANUAL;
+
     /**
      * Created.
      *
@@ -106,6 +110,26 @@ class Event
     public function getEnd() : \DateTime
     {
         return $this->end;
+    }
+
+    public function getProgress() : int
+    {
+        return $this->progress;
+    }
+
+    public function setProgress(int $progress) /* : void */
+    {
+        $this->progress = $progres;
+    }
+
+    public function getProgressType() : int
+    {
+        return $this->progressType;
+    }
+
+    public function setProgressType(int $type) /* : void */
+    {
+        $this->progressType = $type;
     }
 
     public function getCalendar() : Calendar

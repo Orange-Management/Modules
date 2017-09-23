@@ -33,6 +33,15 @@ echo $this->getData('nav')->render(); ?>
                             <td><input type="datetime-local" id="iEnd" name="end" value="<?= $this->printHtml($event->getEnd()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td colspan="2"><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td colspan="2"><textarea id="iDescription" name="desc"><?= $this->printHtml($event->getDescription()); ?></textarea>
+                        <tr><td colspan="2"><label for="iProgressType"><?= $this->getHtml('Progress') ?></label>
+                        <tr><td><select id="iProgressType" name="progressType">
+                                    <option value="<?= \Modules\EventManagement\Models\ProgressType::MANUAL; ?>"><?= $this->getHtml('Manual') ?>
+                                    <option value="<?= \Modules\EventManagement\Models\ProgressType::LINEAR; ?>"><?= $this->getHtml('Linear') ?>
+                                    <option value="<?= \Modules\EventManagement\Models\ProgressType::EXPONENTIAL; ?>"><?= $this->getHtml('Exponential') ?>
+                                    <option value="<?= \Modules\EventManagement\Models\ProgressType::LOG; ?>"><?= $this->getHtml('Log') ?>
+                                    <option value="<?= \Modules\EventManagement\Models\ProgressType::TASKS; ?>"><?= $this->getHtml('Tasks') ?>
+                                </select>
+                            <td><input type="text" id="iProgress" name="progress" value="<?= $project->getProgress(); ?>"<?= $project->getProgressType() !== \Modules\EventManagement\Models\ProgressType::MANUAL ? ' disabled' : ''; ?>>
                         <tr><td><label for="iBudget"><?= $this->getHtml('Budget') ?></label><td><label for="iActual"><?= $this->getHtml('Actual') ?></label>
                         <tr><td><input type="text" id="iBudget" name="budget" placeholder=""><td><input type="text" id="iActual" name="actual">
                         <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">

@@ -49,6 +49,8 @@ class ProjectMapper extends DataMapperAbstract
         'projectmanagement_project_earnings'    => ['name' => 'projectmanagement_project_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
         'projectmanagement_project_start'       => ['name' => 'projectmanagement_project_start', 'type' => 'DateTime', 'internal' => 'start'],
         'projectmanagement_project_end'         => ['name' => 'projectmanagement_project_end', 'type' => 'DateTime', 'internal' => 'end'],
+        'projectmanagement_project_progress'         => ['name' => 'projectmanagement_project_progress', 'type' => 'int', 'internal' => 'progress'],
+        'projectmanagement_project_progress_type'         => ['name' => 'projectmanagement_project_progress_type', 'type' => 'int', 'internal' => 'progressType'],
         'projectmanagement_project_created_by' => ['name' => 'projectmanagement_project_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'projectmanagement_project_created_at'  => ['name' => 'projectmanagement_project_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];

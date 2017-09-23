@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'eventmanagement_event` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'eventmanagement_event` (
                             `eventmanagement_event_id` int(11) NOT NULL AUTO_INCREMENT,
                             `eventmanagement_event_name` varchar(255) NOT NULL,
                             `eventmanagement_event_description` text NOT NULL,
@@ -49,6 +49,8 @@ class Installer extends InstallerAbstract
                             `eventmanagement_event_calendar` int(11) NOT NULL,
                             `eventmanagement_event_start` datetime NOT NULL,
                             `eventmanagement_event_end` datetime NOT NULL,
+                            `eventmanagement_event_progress` int NOT NULL,
+                            `eventmanagement_event_progress_type` int NOT NULL,
                             `eventmanagement_event_costs` int(11) NOT NULL,
                             `eventmanagement_event_budget` int(11) NOT NULL,
                             `eventmanagement_event_earnings` int(11) NOT NULL,
@@ -60,14 +62,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'eventmanagement_event`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_event_ibfk_1` FOREIGN KEY (`eventmanagement_event_calendar`) REFERENCES `' . $dbPool->get('core')->prefix . 'calendar` (`calendar_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_event_ibfk_2` FOREIGN KEY (`eventmanagement_event_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'eventmanagement_event`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'eventmanagement_event_ibfk_1` FOREIGN KEY (`eventmanagement_event_calendar`) REFERENCES `' . $dbPool->get()->prefix . 'calendar` (`calendar_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'eventmanagement_event_ibfk_2` FOREIGN KEY (`eventmanagement_event_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'eventmanagement_task_relation` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'eventmanagement_task_relation` (
                             `eventmanagement_task_relation_id` int(11) NOT NULL AUTO_INCREMENT,
                             `eventmanagement_task_relation_src`  int(11) NULL,
                             `eventmanagement_task_relation_dst` int(11) NULL,
@@ -77,10 +79,10 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'eventmanagement_task_relation`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_task_relation_ibfk_1` FOREIGN KEY (`eventmanagement_task_relation_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'eventmanagement_task_relation_ibfk_2` FOREIGN KEY (`eventmanagement_task_relation_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'eventmanagement_event` (`eventmanagement_event_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'eventmanagement_task_relation`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'eventmanagement_task_relation_ibfk_1` FOREIGN KEY (`eventmanagement_task_relation_src`) REFERENCES `' . $dbPool->get()->prefix . 'task` (`task_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'eventmanagement_task_relation_ibfk_2` FOREIGN KEY (`eventmanagement_task_relation_dst`) REFERENCES `' . $dbPool->get()->prefix . 'eventmanagement_event` (`eventmanagement_event_id`);'
                 )->execute();
                 break;
         }
