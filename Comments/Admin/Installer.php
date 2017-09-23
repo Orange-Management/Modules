@@ -38,17 +38,17 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'comments_list` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'comments_list` (
                             `comments_list_id` int(11) NOT NULL AUTO_INCREMENT,
                             PRIMARY KEY (`comments_comment_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'comments_comment` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'comments_comment` (
                             `comments_comment_id` int(11) NOT NULL AUTO_INCREMENT,
                             `comments_comment_title` varchar(250) NOT NULL,
                             `comments_comment_content` text NOT NULL,
@@ -62,11 +62,11 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'comments_comment`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'comments_comment_ibfk_1` FOREIGN KEY (`comments_comment_list`) REFERENCES `' . $dbPool->get('core')->prefix . 'comments_list` (`comments_list_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'comments_comment_ibfk_2` FOREIGN KEY (`comments_comment_ref`) REFERENCES `' . $dbPool->get('core')->prefix . 'comments_comment` (`comments_comment_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'comments_comment_ibfk_3` FOREIGN KEY (`comments_comment_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'comments_comment`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'comments_comment_ibfk_1` FOREIGN KEY (`comments_comment_list`) REFERENCES `' . $dbPool->get()->prefix . 'comments_list` (`comments_list_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'comments_comment_ibfk_2` FOREIGN KEY (`comments_comment_ref`) REFERENCES `' . $dbPool->get()->prefix . 'comments_comment` (`comments_comment_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'comments_comment_ibfk_3` FOREIGN KEY (`comments_comment_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
                 break;
         }

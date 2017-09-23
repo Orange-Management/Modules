@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'marketing_promotion` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'marketing_promotion` (
                             `marketing_promotion_id` int(11) NOT NULL AUTO_INCREMENT,
                             `marketing_promotion_name`  varchar(30) NOT NULL,
                             `marketing_promotion_description` text DEFAULT NULL,

@@ -38,12 +38,12 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-            $dbPool->get('core')->con->beginTransaction();
+            $dbPool->get()->con->beginTransaction();
             
-                            $dbPool->get('core')->con->prepare(
-                                'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'support_ticket` (
+                            $dbPool->get()->con->prepare(
+                                'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'support_ticket` (
                                         `support_ticket_id` int(11) NOT NULL AUTO_INCREMENT,
                                         `support_ticket_task` int(11) DEFAULT NULL,
                                         PRIMARY KEY (`support_ticket_id`),
@@ -51,12 +51,12 @@ class Installer extends InstallerAbstract
                                     )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                             )->execute();
             
-                            $dbPool->get('core')->con->prepare(
-                                'ALTER TABLE `' . $dbPool->get('core')->prefix . 'support_ticket`
-                                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'support_ticket_ibfk_1` FOREIGN KEY (`support_ticket_task`) REFERENCES `' . $dbPool->get('core')->prefix . 'task` (`task_id`);'
+                            $dbPool->get()->con->prepare(
+                                'ALTER TABLE `' . $dbPool->get()->prefix . 'support_ticket`
+                                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'support_ticket_ibfk_1` FOREIGN KEY (`support_ticket_task`) REFERENCES `' . $dbPool->get()->prefix . 'task` (`task_id`);'
                             )->execute();
                       
-                            $dbPool->get('core')->con->commit();
+                            $dbPool->get()->con->commit();
                 break;
         }
     }

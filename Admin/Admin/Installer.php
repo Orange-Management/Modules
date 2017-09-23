@@ -38,13 +38,13 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->beginTransaction();
+                $dbPool->get()->con->beginTransaction();
 
                 /* Create group table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'group` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'group` (
                             `group_id` int(11) NOT NULL AUTO_INCREMENT,
                             `group_name` varchar(50) NOT NULL,
                             `group_status` int(11) NOT NULL,
@@ -55,8 +55,8 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 /* Create group relations table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'group_relations` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'group_relations` (
                             `group_relations_id` int(11) NOT NULL AUTO_INCREMENT,
                             `group_relations_group` int(11) DEFAULT NULL,
                             `group_relations_parent` int(11) DEFAULT NULL,
@@ -65,9 +65,9 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'group_relations`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'group_relations_ibfk_1` FOREIGN KEY (`group_relations_group`) REFERENCES `' . $dbPool->get('core')->prefix . 'group` (`group_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'group_relations`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'group_relations_ibfk_1` FOREIGN KEY (`group_relations_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`);'
                 )->execute();
 
                 /* Create group permission table */
@@ -77,8 +77,8 @@ class Installer extends InstallerAbstract
                  * id1 = report_template (since it could also be a permission for a report)
                  * id2 = report_template_id
                  */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'group_permission` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'group_permission` (
                             `group_permission_id` int(11) NOT NULL AUTO_INCREMENT,
                             `group_permission_group` int(11) NOT NULL,
                             `group_permission_unit` int(11) DEFAULT NULL,
@@ -94,15 +94,15 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'group_permission`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'group_permission_ibfk_1` FOREIGN KEY (`group_permission_group`) REFERENCES `' . $dbPool->get('core')->prefix . 'group` (`group_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'group_permission`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'group_permission_ibfk_1` FOREIGN KEY (`group_permission_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`);'
                 )->execute();
 
                 /* Create ips table
                    This gets used in order to prevent unauthorized access for user group. */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'ips` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'ips` (
                             `ips_id` int(11) NOT NULL AUTO_INCREMENT,
                             `ips_begin` bigint(20) NOT NULL,
                             `ips_end` bigint(20) NOT NULL,
@@ -112,13 +112,13 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'ips`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'ips_ibfk_1` FOREIGN KEY (`ips_group`) REFERENCES `' . $dbPool->get('core')->prefix . 'group` (`group_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'ips`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'ips_ibfk_1` FOREIGN KEY (`ips_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'l11n` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'l11n` (
                             `l11n_id` int(11) NOT NULL AUTO_INCREMENT,
                             `l11n_country` varchar(20) NOT NULL,
                             `l11n_language` varchar(20) NOT NULL,
@@ -162,8 +162,8 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 /* Create account table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'account` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'account` (
                             `account_id` int(11) NOT NULL AUTO_INCREMENT,
                             `account_status` tinyint(2) NOT NULL,
                             `account_type` tinyint(2) NOT NULL,
@@ -182,14 +182,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'account`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'account_ibfk_1` FOREIGN KEY (`account_localization`) REFERENCES `' . $dbPool->get('core')->prefix . 'l11n` (`l11n_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'account`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'account_ibfk_1` FOREIGN KEY (`account_localization`) REFERENCES `' . $dbPool->get()->prefix . 'l11n` (`l11n_id`);'
                 )->execute();
 
                 /* Create account group table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'account_group` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'account_group` (
                             `account_group_id` bigint(20) NOT NULL AUTO_INCREMENT,
                             `account_group_group` int(11) NOT NULL,
                             `account_group_account` int(11) NOT NULL,
@@ -199,15 +199,15 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'account_group`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'account_group_ibfk_1` FOREIGN KEY (`account_group_group`) REFERENCES `' . $dbPool->get('core')->prefix . 'group` (`group_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'account_group_ibfk_2` FOREIGN KEY (`account_group_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'account_group`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'account_group_ibfk_1` FOREIGN KEY (`account_group_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'account_group_ibfk_2` FOREIGN KEY (`account_group_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 /* Create account permission table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'account_permission` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'account_permission` (
                             `account_permission_id` int(11) NOT NULL AUTO_INCREMENT,
                             `account_permission_account` int(11) NOT NULL,
                             `account_permission_unit` int(11) DEFAULT NULL,
@@ -223,14 +223,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'account_permission`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'account_permission_ibfk_1` FOREIGN KEY (`account_permission_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'account_permission`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'account_permission_ibfk_1` FOREIGN KEY (`account_permission_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 /* Create account settings table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'account_settings` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'account_settings` (
                             `account_settings_id` int(11) NOT NULL AUTO_INCREMENT,
                             `account_settings_name` varchar(30) NOT NULL,
                             `account_settings_content` varchar(250) NOT NULL,
@@ -241,14 +241,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'account_settings`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'account_settings_ibfk_1` FOREIGN KEY (`account_settings_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'account_settings`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'account_settings_ibfk_1` FOREIGN KEY (`account_settings_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
                 /* Create settings table */
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'settings` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'settings` (
                             `settings_id` int(11) NOT NULL AUTO_INCREMENT,
                             `settings_module` varchar(255) DEFAULT NULL,
                             `settings_name` varchar(100) NOT NULL,
@@ -260,13 +260,13 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'settings`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'settings_ibfk_1` FOREIGN KEY (`settings_module`) REFERENCES `' . $dbPool->get('core')->prefix . 'module` (`module_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'settings_ibfk_2` FOREIGN KEY (`settings_group`) REFERENCES `' . $dbPool->get('core')->prefix . 'group` (`group_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'settings`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'settings_ibfk_1` FOREIGN KEY (`settings_module`) REFERENCES `' . $dbPool->get()->prefix . 'module` (`module_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'settings_ibfk_2` FOREIGN KEY (`settings_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->commit();
+                $dbPool->get()->con->commit();
                 break;
         }
     }
@@ -284,8 +284,8 @@ class Installer extends InstallerAbstract
 
     public static function installPermission(DatabasePool $dbPool, array $data)
     {
-        $sth = $dbPool->get('core')->con->prepare(
-            'INSERT INTO `' . $dbPool->get('core')->prefix . 'permission` (`permission_id`, `permission_name`, `permission_description`) VALUES
+        $sth = $dbPool->get()->con->prepare(
+            'INSERT INTO `' . $dbPool->get()->prefix . 'permission` (`permission_id`, `permission_name`, `permission_description`) VALUES
                         (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
         );
 
@@ -297,13 +297,13 @@ class Installer extends InstallerAbstract
 
         $sth->execute();
 
-        $lastInsertID = $dbPool->get('core')->con->lastInsertId();
+        $lastInsertID = $dbPool->get()->con->lastInsertId();
     }
 
     public static function installGroup(DatabasePool $dbPool, array $data)
     {
-        $sth = $dbPool->get('core')->con->prepare(
-            'INSERT INTO `' . $dbPool->get('core')->prefix . 'group` (`group_id`, `group_name`, `group_description`) VALUES
+        $sth = $dbPool->get()->con->prepare(
+            'INSERT INTO `' . $dbPool->get()->prefix . 'group` (`group_id`, `group_name`, `group_description`) VALUES
                         (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
         );
 
@@ -315,6 +315,6 @@ class Installer extends InstallerAbstract
 
         $sth->execute();
 
-        $lastInsertID = $dbPool->get('core')->con->lastInsertId();
+        $lastInsertID = $dbPool->get()->con->lastInsertId();
     }
 }

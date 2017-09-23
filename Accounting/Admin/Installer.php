@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_account` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_account` (
                             `accounting_account_id` int(11) NOT NULL AUTO_INCREMENT,
                             `accounting_account_name` varchar(25) NOT NULL,
                             `accounting_account_description` varchar(255) NOT NULL,
@@ -52,13 +52,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_account`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_account_ibfk_1` FOREIGN KEY (`accounting_account_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'accounting_account` (`accounting_account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_account`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_account_ibfk_1` FOREIGN KEY (`accounting_account_parent`) REFERENCES `' . $dbPool->get()->prefix . 'accounting_account` (`accounting_account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_batch` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_batch` (
                             `accounting_batch_id` int(11) NOT NULL AUTO_INCREMENT,
                             `accounting_batch_title` varchar(30) NOT NULL,
                             `accounting_batch_creator` int(11) NOT NULL,
@@ -69,13 +69,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_batch`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_batch_ibfk_1` FOREIGN KEY (`accounting_batch_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_batch`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_batch_ibfk_1` FOREIGN KEY (`accounting_batch_creator`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_posting` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_posting` (
                             `accounting_posting_id` int(11) NOT NULL AUTO_INCREMENT,
                             `accounting_posting_batch` int(11) NOT NULL,
                             `accounting_posting_receipt` int(11) DEFAULT NULL,
@@ -87,13 +87,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_posting`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_posting_ibfk_1` FOREIGN KEY (`accounting_posting_batch`) REFERENCES `' . $dbPool->get('core')->prefix . 'accounting_batch` (`accounting_batch_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_posting`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_posting_ibfk_1` FOREIGN KEY (`accounting_posting_batch`) REFERENCES `' . $dbPool->get()->prefix . 'accounting_batch` (`accounting_batch_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_posting_ele` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_posting_ele` (
                             `accounting_posting_ele_id` int(11) NOT NULL AUTO_INCREMENT,
                             `accounting_posting_ele_type` tinyint(1) NOT NULL,
                             `accounting_posting_ele_account` int(11) NOT NULL,
@@ -104,9 +104,9 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_posting_ele`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_posting_ele_ibfk_1` FOREIGN KEY (`accounting_posting_ele_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'accounting_account` (`accounting_account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_posting_ele`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_posting_ele_ibfk_1` FOREIGN KEY (`accounting_posting_ele_account`) REFERENCES `' . $dbPool->get()->prefix . 'accounting_account` (`accounting_account_id`);'
                 )->execute();
 
                 /*
@@ -133,8 +133,8 @@ class Installer extends InstallerAbstract
                  * TODO: move to different module
                  */
                 /*
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_invoices_process` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_invoices_process` (
                         `AccountingInvoiceProcessID` int(11) NOT NULL AUTO_INCREMENT,
                         `media` int(11) DEFAULT NULL,
                         `type` tinyint(1) DEFAULT NULL,
@@ -160,16 +160,16 @@ class Installer extends InstallerAbstract
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_invoices_process`
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_ibfk_1` FOREIGN KEY (`media`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_ibfk_2` FOREIGN KEY (`order`) REFERENCES `' . $dbPool->get('core')->prefix . 'purchase_invoices` (`PurchaseInvoiceID`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_ibfk_3` FOREIGN KEY (`arrival`) REFERENCES `' . $dbPool->get('core')->prefix . 'warehousing_arrival` (`WarehousingArrivalID`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_ibfk_4` FOREIGN KEY (`dnote`) REFERENCES `' . $dbPool->get('core')->prefix . 'purchase_dnote` (`PurchaseDnoteID`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_invoices_process`
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_process_ibfk_1` FOREIGN KEY (`media`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`),
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_process_ibfk_2` FOREIGN KEY (`order`) REFERENCES `' . $dbPool->get()->prefix . 'purchase_invoices` (`PurchaseInvoiceID`),
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_process_ibfk_3` FOREIGN KEY (`arrival`) REFERENCES `' . $dbPool->get()->prefix . 'warehousing_arrival` (`WarehousingArrivalID`),
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_process_ibfk_4` FOREIGN KEY (`dnote`) REFERENCES `' . $dbPool->get()->prefix . 'purchase_dnote` (`PurchaseDnoteID`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_invoices_status` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_invoices_status` (
                         `AccountingInvoiceStatusID` int(11) NOT NULL AUTO_INCREMENT,
                         `invoice` int(11) DEFAULT NULL,
                         `status` tinyint(1) DEFAULT NULL,
@@ -182,14 +182,14 @@ class Installer extends InstallerAbstract
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_invoices_status`
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_status_ibfk_1` FOREIGN KEY (`invoice`) REFERENCES `' . $dbPool->get('core')->prefix . 'accounting_invoices_process` (`AccountingInvoiceProcessID`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_status_ibfk_2` FOREIGN KEY (`person`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_invoices_status`
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_status_ibfk_1` FOREIGN KEY (`invoice`) REFERENCES `' . $dbPool->get()->prefix . 'accounting_invoices_process` (`AccountingInvoiceProcessID`),
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_status_ibfk_2` FOREIGN KEY (`person`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_permission` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'accounting_invoices_process_permission` (
                         `AccountingInvoiceProcessPermissionID` int(11) NOT NULL AUTO_INCREMENT,
                         `process` int(11) DEFAULT NULL,
                         `person` int(11) DEFAULT NULL,
@@ -200,10 +200,10 @@ class Installer extends InstallerAbstract
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_permission`
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_permission_ibfk_1` FOREIGN KEY (`person`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
-                        ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'accounting_invoices_process_permission_ibfk_2` FOREIGN KEY (`process`) REFERENCES `' . $dbPool->get('core')->prefix . 'accounting_invoices_process` (`AccountingInvoiceProcessID`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'accounting_invoices_process_permission`
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_process_permission_ibfk_1` FOREIGN KEY (`person`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                        ADD CONSTRAINT `' . $dbPool->get()->prefix . 'accounting_invoices_process_permission_ibfk_2` FOREIGN KEY (`process`) REFERENCES `' . $dbPool->get()->prefix . 'accounting_invoices_process` (`AccountingInvoiceProcessID`);'
                 )->execute();*/
                 break;
         }

@@ -38,18 +38,18 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'area_manager_area` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'area_manager_area` (
                             `area_manager_area_id` int(11) NOT NULL AUTO_INCREMENT,
                             `area_manager_area_name` varchar(50) NOT NULL,
                             PRIMARY KEY (`area_manager_area_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'area_manager_account` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'area_manager_account` (
                             `area_manager_account_id` int(11) NOT NULL AUTO_INCREMENT,
                             `area_manager_account_start` datetime NOT NULL,
                             `area_manager_account_end` datetime NOT NULL,
@@ -61,10 +61,10 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'area_manager_account`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'area_manager_account_ibfk_1` FOREIGN KEY (`area_manager_account_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'area_manager_account_ibfk_2` FOREIGN KEY (`area_manager_account_area`) REFERENCES `' . $dbPool->get('core')->prefix . 'area_manager_area` (`area_manager_area_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'area_manager_account`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'area_manager_account_ibfk_1` FOREIGN KEY (`area_manager_account_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'area_manager_account_ibfk_2` FOREIGN KEY (`area_manager_account_area`) REFERENCES `' . $dbPool->get()->prefix . 'area_manager_area` (`area_manager_area_id`);'
                 )->execute();
                 break;
         }

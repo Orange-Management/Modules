@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'news` (
                             `news_id` int(11) NOT NULL AUTO_INCREMENT,
                             `news_title` varchar(250) NOT NULL,
                             `news_featured` tinyint(1) DEFAULT NULL,
@@ -58,21 +58,21 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'news`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_ibfk_1` FOREIGN KEY (`news_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'news`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'news_ibfk_1` FOREIGN KEY (`news_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news_badge` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'news_badge` (
                             `news_badge_id` int(11) NOT NULL AUTO_INCREMENT,
                             `news_badge_title` varchar(20) NOT NULL,
                             PRIMARY KEY (`news_badge_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'news_badge_relation` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'news_badge_relation` (
                             `news_badge_relation_id` int(11) NOT NULL AUTO_INCREMENT,
                             `news_badge_relation_news` int(11) NOT NULL,
                             `news_badge_relation_badge` int(11) NOT NULL,
@@ -82,10 +82,10 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'news_badge_relation`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_badge_relation_ibfk_1` FOREIGN KEY (`news_badge_relation_news`) REFERENCES `' . $dbPool->get('core')->prefix . 'news` (`news_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'news_badge_relation_ibfk_2` FOREIGN KEY (`news_badge_relation_badge`) REFERENCES `' . $dbPool->get('core')->prefix . 'news_badge` (`news_badge_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'news_badge_relation`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'news_badge_relation_ibfk_1` FOREIGN KEY (`news_badge_relation_news`) REFERENCES `' . $dbPool->get()->prefix . 'news` (`news_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'news_badge_relation_ibfk_2` FOREIGN KEY (`news_badge_relation_badge`) REFERENCES `' . $dbPool->get()->prefix . 'news_badge` (`news_badge_id`);'
                 )->execute();
                 break;
         }

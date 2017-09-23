@@ -39,7 +39,7 @@ class Uninstall extends UninstallAbstract
 
         $query = new Builder($dbPool->get());
 
-        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+        $query->prefix($dbPool->get()->getPrefix())->drop(
             'warehousing_shipping',
             'warehousing_article_transfer_single',
             'warehousing_article_transfer',

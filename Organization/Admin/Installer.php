@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_unit` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_unit` (
                             `organization_unit_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_unit_name` varchar(50) DEFAULT NULL,
                             `organization_unit_description` varchar(255) DEFAULT NULL,
@@ -52,13 +52,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'organization_unit`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_unit_ibfk_1` FOREIGN KEY (`organization_unit_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'organization_unit`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'organization_unit_ibfk_1` FOREIGN KEY (`organization_unit_parent`) REFERENCES `' . $dbPool->get()->prefix . 'organization_unit` (`organization_unit_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_department` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_department` (
                             `organization_department_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_department_name` varchar(30) DEFAULT NULL,
                             `organization_department_description` varchar(255) DEFAULT NULL,
@@ -71,14 +71,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'organization_department`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_department_ibfk_1` FOREIGN KEY (`organization_department_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_department` (`organization_department_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_department_ibfk_2` FOREIGN KEY (`organization_department_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'organization_department`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'organization_department_ibfk_1` FOREIGN KEY (`organization_department_parent`) REFERENCES `' . $dbPool->get()->prefix . 'organization_department` (`organization_department_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'organization_department_ibfk_2` FOREIGN KEY (`organization_department_unit`) REFERENCES `' . $dbPool->get()->prefix . 'organization_unit` (`organization_unit_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_position` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_position` (
                             `organization_position_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_position_name` varchar(50) DEFAULT NULL,
                             `organization_position_description` varchar(255) DEFAULT NULL,
@@ -91,14 +91,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'organization_position`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_position_ibfk_1` FOREIGN KEY (`organization_position_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_position` (`organization_position_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_position_ibfk_2` FOREIGN KEY (`organization_position_department`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_department` (`organization_department_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'organization_position`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'organization_position_ibfk_1` FOREIGN KEY (`organization_position_parent`) REFERENCES `' . $dbPool->get()->prefix . 'organization_position` (`organization_position_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'organization_position_ibfk_2` FOREIGN KEY (`organization_position_department`) REFERENCES `' . $dbPool->get()->prefix . 'organization_department` (`organization_department_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'organization_address` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_address` (
                             `organization_address_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_address_status` tinyint(2) DEFAULT NULL,
                             `organization_address_matchcode` varchar(50) DEFAULT NULL,
@@ -115,13 +115,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'organization_address`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'organization_address_ibfk_1` FOREIGN KEY (`organization_address_unit`) REFERENCES `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'organization_address`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'organization_address_ibfk_1` FOREIGN KEY (`organization_address_unit`) REFERENCES `' . $dbPool->get()->prefix . 'organization_unit` (`organization_unit_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'INSERT INTO `' . $dbPool->get('core')->prefix . 'organization_unit` (`organization_unit_name`, `organization_unit_description`, `organization_unit_parent`) VALUES
+                $dbPool->get()->con->prepare(
+                    'INSERT INTO `' . $dbPool->get()->prefix . 'organization_unit` (`organization_unit_name`, `organization_unit_description`, `organization_unit_parent`) VALUES
                             (\'Orange Management\', \'Orange Management\', NULL);'
                 )->execute();
                 break;

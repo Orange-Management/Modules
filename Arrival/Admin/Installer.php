@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'arrival` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'arrival` (
                             `arrival_id` int(11) NOT NULL AUTO_INCREMENT,
                             `arrival_date` datetime NOT NULL,
                             `arrival_carrier` int(11) NOT NULL,
@@ -53,14 +53,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'arrival`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'arrival_ibfk_1` FOREIGN KEY (`arrival_carrier`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'arrival_ibfk_2` FOREIGN KEY (`arrival_responsible`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'arrival`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'arrival_ibfk_1` FOREIGN KEY (`arrival_carrier`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'arrival_ibfk_2` FOREIGN KEY (`arrival_responsible`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'arrival_status` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'arrival_status` (
                             `arrival_status_id` int(11) NOT NULL AUTO_INCREMENT,
                             `arrival_status_amount` tinyint(1) NOT NULL,
                             `arrival_status_condition` tinyint(1) NOT NULL,
@@ -70,9 +70,9 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'arrival_status`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'arrival_status_ibfk_1` FOREIGN KEY (`arrival_status_arrival`) REFERENCES `' . $dbPool->get('core')->prefix . 'arrival` (`arrival_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'arrival_status`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'arrival_status_ibfk_1` FOREIGN KEY (`arrival_status_arrival`) REFERENCES `' . $dbPool->get()->prefix . 'arrival` (`arrival_id`);'
                 )->execute();
                 break;
         }

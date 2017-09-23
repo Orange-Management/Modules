@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'nav` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'nav` (
                             `nav_id` int(11) NOT NULL,
                             `nav_pid` varchar(40) NOT NULL,
                             `nav_name` varchar(40) NOT NULL,
@@ -74,7 +74,7 @@ class Installer extends InstallerAbstract
     public static function installExternal(DatabasePool $dbPool, array $data)
     {
         try {
-            $dbPool->get('core')->con->query('select 1 from `' . $dbPool->get('core')->prefix . 'nav`');
+            $dbPool->get()->con->query('select 1 from `' . $dbPool->get()->prefix . 'nav`');
         } catch (\Exception $e) {
             return;
         }
@@ -97,8 +97,8 @@ class Installer extends InstallerAbstract
      */
     private static function installLink($dbPool, $data)
     {
-        $sth = $dbPool->get('core')->con->prepare(
-            'INSERT INTO `' . $dbPool->get('core')->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission`) VALUES
+        $sth = $dbPool->get()->con->prepare(
+            'INSERT INTO `' . $dbPool->get()->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission`) VALUES
                         (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
         );
 
@@ -117,7 +117,7 @@ class Installer extends InstallerAbstract
 
         $sth->execute();
 
-        $lastInsertID = $dbPool->get('core')->con->lastInsertId();
+        $lastInsertID = $dbPool->get()->con->lastInsertId();
 
         foreach ($data['children'] as $link) {
             $parent = ($link['parent'] == null ? $lastInsertID : $link['parent']);

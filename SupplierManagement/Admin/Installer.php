@@ -38,12 +38,12 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->beginTransaction();
+                $dbPool->get()->con->beginTransaction();
 
-                $dbPool->get('core')->con->prepare(/* todo: maybe add supplier logo? */
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier` (
+                $dbPool->get()->con->prepare(/* todo: maybe add supplier logo? */
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'suppliermgmt_supplier` (
                             `suppliermgmt_supplier_id` int(11) NOT NULL AUTO_INCREMENT,
                             `suppliermgmt_supplier_no` int(11) NOT NULL,
                             `suppliermgmt_supplier_no_reverse` varchar(25) DEFAULT NULL,
@@ -58,13 +58,13 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_account` (`profile_account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'suppliermgmt_supplier`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_account`) REFERENCES `' . $dbPool->get()->prefix . 'profile_account` (`profile_account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_address` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_address` (
                             `suppliermgmt_supplier_address_id` int(11) NOT NULL AUTO_INCREMENT,
                             `suppliermgmt_supplier_address_supplier` int(11) NOT NULL,
                             `suppliermgmt_supplier_address_address` int(11) NOT NULL,
@@ -75,14 +75,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_address`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_address_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_address_supplier`) REFERENCES `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier` (`suppliermgmt_supplier_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_address_ibfk_2` FOREIGN KEY (`suppliermgmt_supplier_address_address`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_address` (`profile_address_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_address`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_address_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_address_supplier`) REFERENCES `' . $dbPool->get()->prefix . 'suppliermgmt_supplier` (`suppliermgmt_supplier_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_address_ibfk_2` FOREIGN KEY (`suppliermgmt_supplier_address_address`) REFERENCES `' . $dbPool->get()->prefix . 'profile_address` (`profile_address_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_contactelement` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_contactelement` (
                             `suppliermgmt_supplier_contactelement_id` int(11) NOT NULL AUTO_INCREMENT,
                             `suppliermgmt_supplier_contactelement_dst` int(11) NOT NULL,
                             `suppliermgmt_supplier_contactelement_src` int(11) NOT NULL,
@@ -93,14 +93,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_contactelement`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_contactelement_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_contactelement_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier` (`suppliermgmt_supplier_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_contactelement_ibfk_2` FOREIGN KEY (`suppliermgmt_supplier_contactelement_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_contactelement` (`profile_contactelement_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_contactelement`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_contactelement_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_contactelement_src`) REFERENCES `' . $dbPool->get()->prefix . 'suppliermgmt_supplier` (`suppliermgmt_supplier_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_contactelement_ibfk_2` FOREIGN KEY (`suppliermgmt_supplier_contactelement_dst`) REFERENCES `' . $dbPool->get()->prefix . 'profile_contactelement` (`profile_contactelement_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_media` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_media` (
                             `suppliermgmt_supplier_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `suppliermgmt_supplier_media_dst` int(11) NOT NULL,
                             `suppliermgmt_supplier_media_src` int(11) NOT NULL,
@@ -111,13 +111,13 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_media`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_media_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_media_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier` (`suppliermgmt_supplier_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'suppliermgmt_supplier_media_ibfk_2` FOREIGN KEY (`suppliermgmt_supplier_media_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_media_ibfk_1` FOREIGN KEY (`suppliermgmt_supplier_media_src`) REFERENCES `' . $dbPool->get()->prefix . 'suppliermgmt_supplier` (`suppliermgmt_supplier_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'suppliermgmt_supplier_media_ibfk_2` FOREIGN KEY (`suppliermgmt_supplier_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->commit();
+                $dbPool->get()->con->commit();
                 break;
         }
     }

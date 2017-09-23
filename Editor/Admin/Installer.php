@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'editor_doc` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'editor_doc` (
                             `editor_doc_id` int(11) NOT NULL AUTO_INCREMENT,
                             `editor_doc_title` varchar(250) NOT NULL,
                             `editor_doc_plain` text NOT NULL,
@@ -54,13 +54,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'editor_doc`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'editor_doc_ibfk_1` FOREIGN KEY (`editor_doc_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'editor_doc`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'editor_doc_ibfk_1` FOREIGN KEY (`editor_doc_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'editor_tag` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'editor_tag` (
                             `editor_tag_id` int(11) NOT NULL AUTO_INCREMENT,
                             `editor_tag_doc` int(11) NOT NULL,
                             `editor_tag_tag` varchar(20) NOT NULL,
@@ -69,9 +69,9 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'editor_tag`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'editor_tag_ibfk_1` FOREIGN KEY (`editor_tag_doc`) REFERENCES `' . $dbPool->get('core')->prefix . 'editor_doc` (`editor_doc_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'editor_tag`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'editor_tag_ibfk_1` FOREIGN KEY (`editor_tag_doc`) REFERENCES `' . $dbPool->get()->prefix . 'editor_doc` (`editor_doc_id`);'
                 )->execute();
                 break;
         }
