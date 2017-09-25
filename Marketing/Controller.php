@@ -23,6 +23,8 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Views\ViewLayout;
+use Modules\Marketing\Models\Promotion;
+use Modules\Marketing\Models\PromotionMapper;
 
 /**
  * Marketing controller class.
@@ -99,6 +101,30 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001902001, $request, $response));
+
+        $promotions = PromotionMapper::getNewest(25);
+        $view->addData('promotions', $promotions);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     */
+    public function viewMarketingPromotionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-profile');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));
+
+        $promotion = PromotionMapper::get((int) $request->getData('id'));
+        $view->addData('promotion', $promotion);
 
         return $view;
     }
