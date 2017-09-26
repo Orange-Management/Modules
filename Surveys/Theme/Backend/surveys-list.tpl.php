@@ -19,23 +19,27 @@ $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="box w-100">
-    <table class="table red">
-        <caption><?= $this->getHtml('Surveys'); ?></caption>
-        <thead>
-        <tr>
-            <td><?= $this->getHtml('Status') ?>
-            <td class="wf-100"><?= $this->getHtml('Title') ?>
-            <td><?= $this->getHtml('Created') ?>
-            <td><?= $this->getHtml('Creator') ?>
-        <tfoot>
-        <tr>
-            <td colspan="4"><?= $footerView->render(); ?>
-        <tbody>
-        <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
-        <?php endforeach; ?>
-        <?php if($count === 0) : ?>
-        <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
-                <?php endif; ?>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table red">
+                <caption><?= $this->getHtml('Surveys'); ?></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getHtml('Status') ?>
+                    <td class="wf-100"><?= $this->getHtml('Title') ?>
+                    <td><?= $this->getHtml('Created') ?>
+                    <td><?= $this->getHtml('Creator') ?>
+                <tfoot>
+                <tr>
+                    <td colspan="4"><?= $footerView->render(); ?>
+                <tbody>
+                <?php $count = 0; foreach([] as $key => $value) : $count++; ?>
+                <?php endforeach; ?>
+                <?php if($count === 0) : ?>
+                <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                        <?php endif; ?>
+            </table>
+        </div>
+    </div>
 </div>

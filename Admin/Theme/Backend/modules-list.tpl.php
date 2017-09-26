@@ -29,7 +29,7 @@ $footerView->setResults(count($modules));
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box w-100">
+        <div class="box wf-100">
             <table class="table red">
                 <caption><?= $this->getHtml('Modules') ?></caption>
                 <thead>
