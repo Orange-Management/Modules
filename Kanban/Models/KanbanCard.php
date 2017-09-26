@@ -133,7 +133,7 @@ class KanbanCard implements \JsonSerializable
         $this->description = $description;
     }
 
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

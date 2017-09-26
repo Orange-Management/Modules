@@ -19,6 +19,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Media\Models\MediaMapper;
+use Modules\Admin\Models\AccountMapper;
 
 /**
  * Mapper class.
@@ -49,6 +50,13 @@ class KanbanCardMapper extends DataMapperAbstract
         'kanban_card_column'    => ['name' => 'kanban_card_column', 'type' => 'int', 'internal' => 'column'],
         'kanban_card_created_at'  => ['name' => 'kanban_card_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'kanban_card_created_by'  => ['name' => 'kanban_card_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+    ];
+
+    static protected $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'kanban_card_created_by',
+        ],
     ];
 
     /**
