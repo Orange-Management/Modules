@@ -18,6 +18,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Admin\Models\AccountMapper;
 
 /**
  * Mapper class.
@@ -59,6 +60,13 @@ class KanbanBoardMapper extends DataMapperAbstract
             'table'          => 'kanban_column',
             'dst'            => 'kanban_column_board',
             'src'            => null,
+        ],
+    ];
+
+    static protected $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'kanban_board_created_by',
         ],
     ];
 
