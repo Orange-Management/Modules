@@ -82,7 +82,7 @@ class Event
     public function __construct(string $name = '')
     {
         $this->start = new \DateTime('now');
-        $this->end = new \DateTime('now');
+        $this->end = (new \DateTime('now'))->modify('+1 month');
         $this->calendar  = new Calendar();
         $this->costs     = new Money();
         $this->budget    = new Money();
@@ -119,7 +119,7 @@ class Event
 
     public function setProgress(int $progress) /* : void */
     {
-        $this->progress = $progres;
+        $this->progress = $progress;
     }
 
     public function getProgressType() : int

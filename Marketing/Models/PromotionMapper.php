@@ -12,7 +12,7 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\ProjectManagement\Models;
+namespace Modules\Marketing\Models;
 
 use Modules\Calendar\Models\CalendarMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -30,7 +30,7 @@ use Modules\Tasks\Models\TaskMapper;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class ProjectMapper extends DataMapperAbstract
+class PromotionMapper extends DataMapperAbstract
 {
 
     /**
@@ -62,9 +62,9 @@ class ProjectMapper extends DataMapperAbstract
     protected static $hasMany = [
         'tasks' => [
             'mapper'         => TaskMapper::class,
-            'table'          => 'projectmanagement_task_relation',
-            'dst'            => 'projectmanagement_task_relation_dst',
-            'src'            => 'projectmanagement_task_relation_src',
+            'table'          => 'marketing_promotion_task_relation',
+            'dst'            => 'marketing_promotion_task_relation_dst',
+            'src'            => 'marketing_promotion_task_relation_src',
         ],
     ];
 

@@ -116,7 +116,7 @@ class Project
 
     public function setProgress(int $progress) /* : void */
     {
-        $this->progress = $progres;
+        $this->progress = $progress;
     }
 
     public function getProgressType() : int
