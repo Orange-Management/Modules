@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= \Modules\EventManagement\Models\ProgressType::LOG; ?>"><?= $this->getHtml('Log') ?>
                                     <option value="<?= \Modules\EventManagement\Models\ProgressType::TASKS; ?>"><?= $this->getHtml('Tasks') ?>
                                 </select>
-                            <td><input type="text" id="iProgress" name="progress" value="<?= $project->getProgress(); ?>"<?= $project->getProgressType() !== \Modules\EventManagement\Models\ProgressType::MANUAL ? ' disabled' : ''; ?>>
+                            <td><input type="text" id="iProgress" name="progress" value="<?= $event->getProgress(); ?>"<?= $event->getProgressType() !== \Modules\EventManagement\Models\ProgressType::MANUAL ? ' disabled' : ''; ?>>
                         <tr><td><label for="iBudget"><?= $this->getHtml('Budget') ?></label><td><label for="iActual"><?= $this->getHtml('Actual') ?></label>
                         <tr><td><input type="text" id="iBudget" name="budget" placeholder=""><td><input type="text" id="iActual" name="actual">
                         <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
