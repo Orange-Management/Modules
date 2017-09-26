@@ -34,7 +34,7 @@ echo $this->getData('nav')->render();
                 <!-- @formatter:off -->
                         <table class="list">
                             <tr>
-                                <th><?= $this->getHtml('Name') ?><img class="m-profile" alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : $account->getImage()->getPath(); ?>">
+                                <th><?= $this->getHtml('Name') ?><img class="m-profile" alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('{/base}/' . $account->getImage()->getPath()); ?>">
                                 <td><span itemprop="familyName"><?= $this->printHtml($account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span>
                             <tr>
                                 <th><?= $this->getHtml('Occupation') ?>
