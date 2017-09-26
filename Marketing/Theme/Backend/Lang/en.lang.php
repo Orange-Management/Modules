@@ -23,6 +23,7 @@ return ['Marketing' => [
     'Location'    => 'Location',
     'Name'    => 'Name',
     'Promotion'   => 'Promotion',
+    'Promotions'   => 'Promotions',
     'Sales'       => 'Sales',
     'Start'       => 'Start',
     'Status'      => 'Status',

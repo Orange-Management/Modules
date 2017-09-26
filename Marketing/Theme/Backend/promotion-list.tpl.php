@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getHtml('Projects'); ?></caption>
+                <caption><?= $this->getHtml('Promotions'); ?></caption>
                 <thead>
                 <tr>
                     <td class="wf-100"><?= $this->getHtml('Title') ?>
