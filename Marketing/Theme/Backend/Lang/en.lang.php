@@ -12,6 +12,7 @@
  * @link       http://orange-management.com
  */
 return ['Marketing' => [
+    'Actual'      => 'Actual',
     'Budget'      => 'Budget',
     'Description' => 'Description',
     'Expenses'    => 'Expenses',
@@ -20,6 +21,7 @@ return ['Marketing' => [
     'Events'      => 'Events',
     'Limit'       => 'Limit',
     'Location'    => 'Location',
+    'Name'    => 'Name',
     'Promotion'   => 'Promotion',
     'Sales'       => 'Sales',
     'Start'       => 'Start',

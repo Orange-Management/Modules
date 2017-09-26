@@ -121,7 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-profile');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001902001, $request, $response));
 
         $promotion = PromotionMapper::get((int) $request->getData('id'));
         $view->addData('promotion', $promotion);
