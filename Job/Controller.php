@@ -98,7 +98,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Job/Theme/Backend/job-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
 
-        SchedulerAbstract::setBin($this->app->getConfig()['jobs']['path']);
+        SchedulerAbstract::setBin('c:/WINDOWS/system32/schtasks.exe');
         $scheduler = SchedulerFactory::create();
         $jobs = $scheduler->getAllByName('Adobe', false);
 
@@ -140,7 +140,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Job/Theme/Backend/job-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
 
-        SchedulerAbstract::setBin($this->app->getConfig()['jobs']['path']);
+        SchedulerAbstract::setBin('c:/WINDOWS/system32/schtasks.exe');
         $scheduler = SchedulerFactory::create();
         $job = $scheduler->getAllByName('Adobe', false);
 
