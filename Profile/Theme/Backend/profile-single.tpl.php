@@ -29,13 +29,12 @@ echo $this->getData('nav')->render();
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
-            <header><h1><?= $this->getHtml('Profile') ?></h1></header>
+            <header><h1><span itemprop="familyName"><?= $this->printHtml($account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span></h1></header>
             <div class="inner">
                 <!-- @formatter:off -->
+                    <span class="rf"><img class="m-profile rf" alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('{/base}/' . $account->getImage()->getPath()); ?>">
+                    </span>
                         <table class="list">
-                            <tr>
-                                <th><?= $this->getHtml('Name') ?><img class="m-profile" alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('{/base}/' . $account->getImage()->getPath()); ?>">
-                                <td><span itemprop="familyName"><?= $this->printHtml($account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span>
                             <tr>
                                 <th><?= $this->getHtml('Occupation') ?>
                                 <td itemprop="jobTitle">Sailor

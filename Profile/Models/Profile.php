@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Profile\Models;
 
 use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
 
@@ -78,7 +79,7 @@ class Profile
 
 	public function getAccount() : Account
 	{
-		return $this->account;
+		return $this->account ?? new NullAccount();
 	}
 
 	public function setBirthday(\DateTime $birthday) /* : void */
