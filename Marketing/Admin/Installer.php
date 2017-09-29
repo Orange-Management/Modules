@@ -51,8 +51,6 @@ class Installer extends InstallerAbstract
                         `marketing_promotion_earnings` int(11) NOT NULL,
                         `marketing_promotion_start` datetime NOT NULL,
                         `marketing_promotion_end` datetime NOT NULL,
-                        `marketing_promotion_progress` int NOT NULL,
-                        `marketing_promotion_progress_type` int NOT NULL,
                         `marketing_promotion_created_at` datetime NOT NULL,
                         `marketing_promotion_created_by` int(11) NOT NULL,
                         PRIMARY KEY (`marketing_promotion_id`),
