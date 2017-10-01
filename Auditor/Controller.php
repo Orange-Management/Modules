@@ -21,7 +21,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 use Modules\Auditor\Models\AuditMapper;
 use Modules\Auditor\Models\Audit;

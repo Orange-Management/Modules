@@ -22,7 +22,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 use Modules\RiskManagement\Models\SolutionMapper;
 use Modules\RiskManagement\Models\CauseMapper;
 use Modules\RiskManagement\Models\RiskMapper;

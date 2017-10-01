@@ -26,7 +26,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 use phpOMS\Asset\AssetType;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\Http\RequestStatusCode;
