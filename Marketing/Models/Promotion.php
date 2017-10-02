@@ -46,6 +46,8 @@ class Promotion
 
     private $earnings = null;
 
+    private $media = [];
+
     /**
      * Created at.
      *
@@ -83,6 +85,16 @@ class Promotion
     public function getId() : int 
     {
         return $this->id;
+    }
+
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
     }
 
     public function addTask(Task $task)

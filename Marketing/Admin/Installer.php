@@ -66,6 +66,23 @@ class Installer extends InstallerAbstract
             )->execute();
 
             $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'marketing_promotion_media` (
+                            `marketing_promotion_media_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `marketing_promotion_media_src`  int(11) NULL,
+                            `marketing_promotion_media_dst` int(11) NULL,
+                            PRIMARY KEY (`marketing_promotion_media_id`),
+                            KEY `marketing_promotion_media_src` (`marketing_promotion_media_src`),
+                            KEY `marketing_promotion_media_dst` (`marketing_promotion_media_dst`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'marketing_promotion_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'marketing_promotion_media_ibfk_1` FOREIGN KEY (`marketing_promotion_media_src`) REFERENCES `' . $dbPool->get()->prefix . 'marketing_promotion` (`marketing_promotion_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'marketing_promotion_media_ibfk_2` FOREIGN KEY (`marketing_promotion_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
+                )->execute();
+
+            $dbPool->get()->con->prepare(
                 'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'marketing_promotion_task_relation` (
                         `marketing_promotion_task_relation_id` int(11) NOT NULL AUTO_INCREMENT,
                         `marketing_promotion_task_relation_src`  int(11) NULL,

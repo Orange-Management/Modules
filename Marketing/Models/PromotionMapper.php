@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Tasks\Models\TaskMapper;
+use Modules\Media\Models\MediaMapper;
 
 /**
  * Mapper class.
@@ -65,6 +66,12 @@ class PromotionMapper extends DataMapperAbstract
             'table'          => 'marketing_promotion_task_relation',
             'dst'            => 'marketing_promotion_task_relation_dst',
             'src'            => 'marketing_promotion_task_relation_src',
+        ],
+        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => MediaMapper::class,
+            'table'          => 'marketing_promotion_media',
+            'dst'            => 'marketing_promotion_media_src',
+            'src'            => 'marketing_promotion_media_dst',
         ],
     ];
 
