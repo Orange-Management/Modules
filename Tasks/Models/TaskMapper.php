@@ -71,8 +71,8 @@ class TaskMapper extends DataMapperAbstract
         'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
             'mapper'         => MediaMapper::class,
             'table'          => 'task_media',
-            'dst'            => 'task_media_dst',
-            'src'            => 'task_media_src',
+            'dst'            => 'task_media_src',
+            'src'            => 'task_media_dst',
         ],
     ];
 

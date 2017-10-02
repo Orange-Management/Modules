@@ -153,6 +153,16 @@ class Task implements \JsonSerializable
         return $key;
     }
 
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
+    }
+
     public function isCc(int $id) : bool
     {
         return false;

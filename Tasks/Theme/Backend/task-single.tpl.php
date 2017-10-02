@@ -16,6 +16,7 @@
  * @var \Modules\Tasks\Models\Task $task
  */
 $task      = $this->getData('task');
+$taskMedia = $task->getMedia();
 $elements  = $task->getTaskElements();
 $cElements = count($elements);
 
@@ -39,6 +40,15 @@ echo $this->getData('nav')->render(); ?>
                     <?= $this->printHtml($task->getDescription()); ?>
                 </blockquote>
             </div>
+
+            <?php if(!empty($taskMedia)) : ?>
+            <div class="inner">
+                <?php foreach($taskMedia as $media) : ?>
+                <span><?= $media->getName(); ?></span>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+
             <div class="inner">
                 <div class="pAlignTable">
                     <div class="vCenterTable wf-100">Created <?= $this->printHtml($task->getCreatedBy()->getName1()); ?></div>
@@ -60,13 +70,21 @@ echo $this->getData('nav')->render(); ?>
                     <span class="vCenterTable tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $element->getStatus()) ?></span>
                 </div>
 
-            <?php if ($element->getDescription() !== '') : ?>
+                <?php if ($element->getDescription() !== '') : ?>
                     <div class="inner">
                         <blockquote>
                             <?= $this->printHtml($element->getDescription()); ?>
                         </blockquote>
                     </div>
-            <?php endif; ?>
+                <?php endif; ?>
+
+                <?php $elementMedia = $element->getMedia(); if(!empty($elementMedia)) : ?>
+                <div class="inner">
+                    <?php foreach($elementMedia as $media) : ?>
+                    <span><?= $media->getName(); ?></span>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
 
                 <div class="inner pAlignTable">
                 <?php if ($element->getForwarded() !== 0) : ?>
