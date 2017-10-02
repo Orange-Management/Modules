@@ -19,6 +19,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Tasks\Models\TaskMapper;
+use Modules\Media\Models\MediaMapper;
 
 /**
  * Mapper class.
@@ -67,6 +68,12 @@ class EventMapper extends DataMapperAbstract
             'table'          => 'eventmanagement_task_relation',
             'dst'            => 'eventmanagement_task_relation_dst',
             'src'            => 'eventmanagement_task_relation_src',
+        ],
+        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => MediaMapper::class,
+            'table'          => 'eventmanagement_event_media',
+            'dst'            => 'eventmanagement_event_media_src',
+            'src'            => 'eventmanagement_event_media_dst',
         ],
     ];
 

@@ -69,6 +69,23 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'eventmanagement_event_media` (
+                            `eventmanagement_event_media_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `eventmanagement_event_media_src`  int(11) NULL,
+                            `eventmanagement_event_media_dst` int(11) NULL,
+                            PRIMARY KEY (`eventmanagement_event_media_id`),
+                            KEY `eventmanagement_event_media_src` (`eventmanagement_event_media_src`),
+                            KEY `eventmanagement_event_media_dst` (`eventmanagement_event_media_dst`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'eventmanagement_event_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'eventmanagement_event_media_ibfk_1` FOREIGN KEY (`eventmanagement_event_media_src`) REFERENCES `' . $dbPool->get()->prefix . 'eventmanagement_event` (`eventmanagement_event_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'eventmanagement_event_media_ibfk_2` FOREIGN KEY (`eventmanagement_event_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
+                )->execute();
+
+                $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'eventmanagement_task_relation` (
                             `eventmanagement_task_relation_id` int(11) NOT NULL AUTO_INCREMENT,
                             `eventmanagement_task_relation_src`  int(11) NULL,

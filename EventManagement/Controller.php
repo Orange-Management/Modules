@@ -21,6 +21,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use Modules\EventManagement\Models\EventMapper;
 use Modules\EventManagement\Models\Event;
+use phpOMS\Asset\AssetType;
 
 /**
  * Event Management controller class.
@@ -133,6 +134,10 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewEventManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/EventManagement/Theme/Backend/eventmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004201001, $request, $response));

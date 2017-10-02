@@ -59,6 +59,8 @@ class Event
 
     private $tasks = [];
 
+    private $media = [];
+
     private $progress = 0;
     
     private $progressType = ProgressType::MANUAL;
@@ -90,6 +92,16 @@ class Event
         $this->createdAt = new \DateTime('now');
 
         $this->setName($name);
+    }
+
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
     }
 
     public function getStart() : \DateTime
