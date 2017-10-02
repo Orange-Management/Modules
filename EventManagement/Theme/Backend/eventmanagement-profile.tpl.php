@@ -81,7 +81,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </div>
 
-<div class="row">
+        <div class="row">
             <div id="calendar" class="m-calendar m-calendar-mini col-xs-12 col-md-6" draggable="true" data-action='[
                 {
                     "listener": "click", "selector": "#calendar span.tag", "action": [

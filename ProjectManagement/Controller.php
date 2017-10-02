@@ -24,6 +24,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use Modules\ProjectManagement\Models\ProjectMapper;
 use Modules\ProjectManagement\Models\Project;
+use phpOMS\Asset\AssetType;
 
 /**
  * Event Management controller class.
@@ -136,6 +137,10 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewProjectManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));

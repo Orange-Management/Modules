@@ -68,6 +68,23 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'projectmanagement_project_media` (
+                            `projectmanagement_project_media_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `projectmanagement_project_media_src`  int(11) NULL,
+                            `projectmanagement_project_media_dst` int(11) NULL,
+                            PRIMARY KEY (`projectmanagement_project_media_id`),
+                            KEY `projectmanagement_project_media_src` (`projectmanagement_project_media_src`),
+                            KEY `projectmanagement_project_media_dst` (`projectmanagement_project_media_dst`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'projectmanagement_project_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'projectmanagement_project_media_ibfk_1` FOREIGN KEY (`projectmanagement_project_media_src`) REFERENCES `' . $dbPool->get()->prefix . 'projectmanagement_project` (`projectmanagement_project_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'projectmanagement_project_media_ibfk_2` FOREIGN KEY (`projectmanagement_project_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
+                )->execute();
+
+                $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'projectmanagement_task_relation` (
                             `projectmanagement_task_relation_id` int(11) NOT NULL AUTO_INCREMENT,
                             `projectmanagement_task_relation_src`  int(11) NULL,

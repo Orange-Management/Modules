@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Tasks\Models\TaskMapper;
+use Modules\Media\Models\MediaMapper;
 
 /**
  * Mapper class.
@@ -67,6 +68,12 @@ class ProjectMapper extends DataMapperAbstract
             'table'          => 'projectmanagement_task_relation',
             'dst'            => 'projectmanagement_task_relation_dst',
             'src'            => 'projectmanagement_task_relation_src',
+        ],
+        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => MediaMapper::class,
+            'table'          => 'projectmanagement_project_media',
+            'dst'            => 'projectmanagement_project_media_src',
+            'src'            => 'projectmanagement_project_media_dst',
         ],
     ];
 
