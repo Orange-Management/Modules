@@ -141,6 +141,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Tasks/Theme/Backend/dashboard-task');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
+        $taskListView = new \Modules\Tasks\Theme\Backend\Components\Tasks\BaseView($this->app, $request, $response);
+        $taskListView->setTemplate('/Modules/Tasks/Theme/Backend/Components/Tasks/list');
+        $view->addData('tasklist', $taskListView);
+
         $tasks = TaskMapper::getNewest(5);
         $view->addData('tasks', $tasks);
 
