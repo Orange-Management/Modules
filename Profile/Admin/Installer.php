@@ -46,16 +46,19 @@ class Installer extends InstallerAbstract
                             `profile_account_image` int(11) DEFAULT NULL,
                             `profile_account_birthday` datetime DEFAULT NULL,
                             `profile_account_account` int(11) NOT NULL,
+                            `profile_account_calendar` int(11) NOT NULL,
                             PRIMARY KEY (`profile_account_id`),
                             KEY `profile_account_image` (`profile_account_image`),
-                            KEY `profile_account_account` (`profile_account_account`)
+                            KEY `profile_account_account` (`profile_account_account`),
+                            KEY `profile_account_calendar` (`profile_account_calendar`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
                 )->execute();
 
                 $dbPool->get()->con->prepare(
                     'ALTER TABLE `' . $dbPool->get()->prefix . 'profile_account`
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_ibfk_1` FOREIGN KEY (`profile_account_image`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`),
-                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_ibfk_2` FOREIGN KEY (`profile_account_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_ibfk_2` FOREIGN KEY (`profile_account_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_ibfk_3` FOREIGN KEY (`profile_account_calendar`) REFERENCES `' . $dbPool->get()->prefix . 'calendar` (`calendar_id`);'
                 )->execute();
 
                 // real contacts that you also save in your email contact list. this is to store other accounts

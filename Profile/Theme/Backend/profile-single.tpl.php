@@ -84,30 +84,12 @@ echo $this->getData('nav')->render();
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <div class="box wf-100">
-            <table class="table red">
-                <caption><?= $this->getHtml('Media', 'Media') ?></caption>
-                <thead>
-                <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getHtml('Name', 'Media') ?>
-                    <td><?= $this->getHtml('Type', 'Media') ?>
-                    <td><?= $this->getHtml('Created', 'Media') ?>
-                <tfoot>
-                <tr><td colspan="4"><?= $footerView->render(); ?>
-                <tbody>
-                <?php $c = 0; foreach ([] as $key => $value) : $c++;
-                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
-                    <tr>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNewestHistory()->getPosition()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNewestHistory()->getPosition()); ?></a>
-                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNewestStatus()->getStatus()); ?></a>
-                <?php endforeach; ?>
-                <?php if($c === 0) : ?>
-                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
-                <?php endif; ?>
-            </table>
-        </div>
+        <?= $this->getData('medialist')->render([]); ?>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <?= $this->getData('calendar')->render($account->getCalendar()); ?>
     </div>
 </div>

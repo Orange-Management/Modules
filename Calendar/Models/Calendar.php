@@ -61,14 +61,6 @@ class Calendar
     private $createdAt = null;
 
     /**
-     * Created by.
-     *
-     * @var int
-     * @since 1.0.0
-     */
-    private $createdBy = 0;
-
-    /**
      * Current date of the calendar.
      *
      * @var SmartDateTime
@@ -249,26 +241,6 @@ class Calendar
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return int
-     *
-     * @since  1.0.0
-     */
-    public function getCreatedBy() : int
-    {
-        return $this->createdBy;
-    }
-
-    /**
-     * @param int $createdBy Creator
-     *
-     * @since  1.0.0
-     */
-    public function setCreatedBy(int $createdBy)
-    {
-        $this->createdBy = $createdBy;
     }
 
     /**

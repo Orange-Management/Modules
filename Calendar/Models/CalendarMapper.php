@@ -50,7 +50,6 @@ class CalendarMapper extends DataMapperAbstract
         'calendar_name'        => ['name' => 'calendar_name', 'type' => 'string', 'internal' => 'name'],
         'calendar_password'    => ['name' => 'calendar_password', 'type' => 'string', 'internal' => 'password'],
         'calendar_description' => ['name' => 'calendar_description', 'type' => 'string', 'internal' => 'description'],
-        'calendar_created_by'  => ['name' => 'calendar_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'calendar_created_at'  => ['name' => 'calendar_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 

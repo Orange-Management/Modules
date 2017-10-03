@@ -271,6 +271,5 @@ class Project
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
-        $this->calendar->setCreatedBy($createdBy);
     }
 }

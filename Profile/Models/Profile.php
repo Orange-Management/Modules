@@ -18,6 +18,7 @@ use Modules\Admin\Models\Account;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
+use Modules\Calendar\Models\Calendar;
 
 /**
  * Account class.
@@ -40,11 +41,14 @@ class Profile
 
 	private $location = [];
 
+	private $calendar = null;
+
 	public function __construct() 
 	{
 		$this->image = new NullMedia();
 		$this->birthday = new \DateTime('now');
 		$this->account = new Account();
+		$this->calendar = new Calendar();
 	}
 
 	public function getId() : int
@@ -60,6 +64,11 @@ class Profile
 	public function addLocation(Location $location) 
 	{
 		$this->location[] = $location;
+	}
+
+	public function getCalendar()
+	{
+		return $this->calendar;
 	}
 
 	public function getImage() : Media

@@ -292,6 +292,5 @@ class Event
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
-        $this->calendar->setCreatedBy($this->createdBy);
     }
 }

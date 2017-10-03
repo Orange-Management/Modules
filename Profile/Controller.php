@@ -121,9 +121,21 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+        
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
+
+        $mediaListView = new \Modules\Media\Theme\Backend\Components\Media\BaseView($this->app, $request, $response);
+        $mediaListView->setTemplate('/Modules/Media/Theme/Backend/Components/Media/list');
+        $view->addData('medialist', $mediaListView);
+
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
+        $view->addData('calendar', $calendarView);
 
         $view->setData('account', ProfileMapper::getFor($request->getData('id'), 'account'));
 
