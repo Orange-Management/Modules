@@ -146,9 +146,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Calendar/Theme/Backend/dashboard-calendar');
 
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
+        $view->addData('calendar', $calendarView);
+
         $calendar = CalendarMapper::get(1);
         $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
-        $view->addData('calendar', $calendar);
+        $view->addData('cal', $calendar);
 
         return $view;
     }
