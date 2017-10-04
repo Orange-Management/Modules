@@ -128,7 +128,7 @@ class Installer extends InstallerAbstract
 
                 $dbPool->get()->con->prepare(
                     'ALTER TABLE `' . $dbPool->get()->prefix . 'workflow_element_task`
-                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'workflow_element_task_ibfk_1` FOREIGN KEY (`workflow_element_task_task`) REFERENCES `' . $dbPool->get()->prefix . 'task` (`media_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'workflow_element_task_ibfk_1` FOREIGN KEY (`workflow_element_task_task`) REFERENCES `' . $dbPool->get()->prefix . 'task` (`task_id`),
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'workflow_element_task_ibfk_2` FOREIGN KEY (`workflow_element_task_workflow_element`) REFERENCES `' . $dbPool->get()->prefix . 'workflow_element` (`workflow_element_id`);'
                 )->execute();
                 break;
