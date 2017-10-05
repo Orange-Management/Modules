@@ -84,6 +84,8 @@ class Task implements \JsonSerializable
      */
     protected $status = TaskStatus::OPEN;
 
+    protected $isClosable = true;
+
     /**
      * Due.
      *
@@ -131,6 +133,16 @@ class Task implements \JsonSerializable
         $this->due = new \DateTime('now');
         $this->due->modify('+1 day');
         $this->schedule = new Schedule();
+    }
+
+    public function setClosable(bool $closable) /* : void */
+    {
+        $this->isClosable = $closabe;
+    }
+
+    public function isClosable() : bool
+    {
+        return $this->isClosable;
     }
 
     /**

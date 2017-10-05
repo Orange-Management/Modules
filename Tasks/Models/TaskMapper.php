@@ -47,6 +47,7 @@ class TaskMapper extends DataMapperAbstract
         'task_desc'    => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
         'task_type'    => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
         'task_status'  => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
+        'task_closable'  => ['name' => 'task_closable', 'type' => 'bool', 'internal' => 'isClosable'],
         'task_priority'  => ['name' => 'task_priority', 'type' => 'int', 'internal' => 'priority'],
         'task_due'     => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
         'task_done'    => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
