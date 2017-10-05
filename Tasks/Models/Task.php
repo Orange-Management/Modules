@@ -87,6 +87,14 @@ class Task implements \JsonSerializable
     protected $isClosable = true;
 
     /**
+     * Start.
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
+    protected $start = null;
+
+    /**
      * Due.
      *
      * @var \DateTime
@@ -130,6 +138,7 @@ class Task implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->start = new \DateTime('now');
         $this->due = new \DateTime('now');
         $this->due->modify('+1 day');
         $this->schedule = new Schedule();
@@ -209,6 +218,26 @@ class Task implements \JsonSerializable
     public function setCreatedAt(\DateTime $created)
     {
         $this->createdAt = $created;
+    }
+
+    /**
+     * @return \DateTime
+     *
+     * @since  1.0.0
+     */
+    public function getStart() : \DateTime
+    {
+        return $this->createdAt ?? new \DateTime();
+    }
+
+    /**
+     * @param \DateTime $created
+     *
+     * @since  1.0.0
+     */
+    public function setStart(\DateTime $start)
+    {
+        $this->start = $start;
     }
 
     /**
