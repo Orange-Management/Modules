@@ -146,7 +146,7 @@ class Task implements \JsonSerializable
 
     public function setClosable(bool $closable) /* : void */
     {
-        $this->isClosable = $closabe;
+        $this->isClosable = $closable;
     }
 
     public function isClosable() : bool
@@ -227,7 +227,7 @@ class Task implements \JsonSerializable
      */
     public function getStart() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime();
+        return $this->start ?? new \DateTime();
     }
 
     /**

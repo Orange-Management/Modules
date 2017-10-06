@@ -53,6 +53,7 @@ class Installer extends InstallerAbstract
                             `task_priority` tinyint(1) NOT NULL,
                             `task_due` datetime NOT NULL,
                             `task_done` datetime DEFAULT NULL,
+                            `task_start` datetime DEFAULT NULL,
                             `task_schedule` int(11) DEFAULT NULL,
                             `task_created_by` int(11) NOT NULL,
                             `task_created_at` datetime NOT NULL,
