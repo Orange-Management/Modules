@@ -47,6 +47,7 @@ class Installer extends InstallerAbstract
                             `media_description` text DEFAULT NULL,
                             `media_versioned`  tinyint(1) NOT NULL,
                             `media_file` varchar(255) NOT NULL,
+                            `media_absolute` tinyint(1) NOT NULL,
                             `media_extension` varchar(10) DEFAULT NULL,
                             `media_collection` tinyint(1) DEFAULT NULL,
                             `media_size` int(11) DEFAULT NULL,

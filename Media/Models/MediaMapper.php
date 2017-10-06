@@ -35,6 +35,7 @@ class MediaMapper extends DataMapperAbstract
         'media_description'        => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description'],
         'media_versioned'   => ['name' => 'media_versioned', 'type' => 'bool', 'internal' => 'versioned'],
         'media_file'        => ['name' => 'media_file', 'type' => 'string', 'internal' => 'path'],
+        'media_absolute'        => ['name' => 'media_absolute', 'type' => 'string', 'internal' => 'isAbsolute'],
         'media_extension'   => ['name' => 'media_extension', 'type' => 'string', 'internal' => 'extension'],
         'media_description' => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description'],
         'media_size'        => ['name' => 'media_size', 'type' => 'int', 'internal' => 'size'],

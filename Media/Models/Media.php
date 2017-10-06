@@ -83,6 +83,14 @@ class Media
     protected $path = '';
 
     /**
+     * Is path absolute?
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    protected $isAbsolute = false;
+
+    /**
      * Is versioned.
      *
      * @var bool
@@ -116,6 +124,26 @@ class Media
     public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isAbsolute() : bool
+    {
+        return $this->isAbsolute;
+    }
+
+    /**
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setAbsolute(bool $absolute) /* void */
+    {
+        $this->isAbsolute = $absolute;
     }
 
     /**
