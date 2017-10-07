@@ -89,6 +89,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowTemplates(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -107,6 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowTemplate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -125,6 +127,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -143,6 +146,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -161,6 +165,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

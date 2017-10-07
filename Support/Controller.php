@@ -94,6 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSupportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -115,6 +116,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSupportTicket(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -136,6 +138,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSupportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -154,6 +157,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSupportAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -172,6 +176,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSupportSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -190,6 +195,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPrivateSupportDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

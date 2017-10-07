@@ -93,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCostObjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -111,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCostObjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -129,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCostObjectProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

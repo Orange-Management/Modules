@@ -92,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -110,6 +111,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

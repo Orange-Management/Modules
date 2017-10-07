@@ -118,6 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -148,6 +149,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -175,6 +177,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -204,6 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @throws \Exception
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {

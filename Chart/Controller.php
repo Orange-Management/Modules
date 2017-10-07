@@ -112,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -130,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartCreateLine(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -148,6 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartCreateArea(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -166,6 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

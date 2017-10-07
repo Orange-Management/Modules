@@ -102,6 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCockpit(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -120,6 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -141,6 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -162,6 +165,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -180,6 +184,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCauseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -201,6 +206,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCauseSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -222,6 +228,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskSolutionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -243,6 +250,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskSolutionSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -264,6 +272,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -285,6 +294,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskUnitSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -306,6 +316,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -327,6 +338,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskDepartmentSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -348,6 +360,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCategoryList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -369,6 +382,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCategorySingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -390,6 +404,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -411,6 +426,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskProjectSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -432,6 +448,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -453,6 +470,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskProcessSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -474,6 +492,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

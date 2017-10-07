@@ -95,6 +95,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMarketingPromotionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -116,6 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMarketingPromotionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -153,6 +155,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMarketingPromotionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -171,6 +174,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMarketingEventList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -189,6 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMarketingEventCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

@@ -94,6 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -115,6 +116,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -133,6 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -151,6 +154,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -169,6 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -187,6 +192,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

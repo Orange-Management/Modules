@@ -98,6 +98,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -118,6 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -138,6 +140,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -156,6 +159,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -176,6 +180,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -196,6 +201,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -214,6 +220,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -234,6 +241,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -254,6 +262,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

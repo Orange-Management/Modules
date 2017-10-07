@@ -91,6 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDatabaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -109,6 +110,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDatabaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -127,6 +129,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDatabaseResult(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

@@ -99,6 +99,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -118,6 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

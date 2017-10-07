@@ -92,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAssetManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

@@ -92,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPurchaseInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -110,6 +111,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPurchaseInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -128,6 +130,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPurchaseArticleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -146,6 +149,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPurchaseArticleCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -164,6 +168,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPurchaseArticleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -182,6 +187,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPurchaseOrderRecommendation(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

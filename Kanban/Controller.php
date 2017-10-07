@@ -114,6 +114,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKanbanDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -144,6 +145,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKanbanBoard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -177,6 +179,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -204,6 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKanbanCard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

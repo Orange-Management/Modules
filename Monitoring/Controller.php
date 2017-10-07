@@ -92,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -110,6 +111,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -128,6 +130,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

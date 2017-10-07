@@ -99,6 +99,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewQADashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -120,6 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewQABadgeList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -141,6 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewQABadgeEdit(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -153,7 +156,16 @@ class Controller extends ModuleAbstract implements WebInterface
 
         return $view;
     }
-
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewQADoc(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
@@ -165,7 +177,16 @@ class Controller extends ModuleAbstract implements WebInterface
 
         return $view;
     }
-
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $view = new View($this->app, $request, $response);

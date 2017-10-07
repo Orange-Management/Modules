@@ -92,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEventManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -113,6 +114,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEventManagementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -131,6 +133,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEventManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

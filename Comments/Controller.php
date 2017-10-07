@@ -108,6 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -126,6 +127,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCommentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

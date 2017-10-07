@@ -93,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -111,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -129,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -147,6 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -165,6 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -183,6 +188,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -201,6 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -219,6 +226,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -237,6 +245,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -255,6 +264,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

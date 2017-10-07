@@ -93,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -111,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -129,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -147,6 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -165,6 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

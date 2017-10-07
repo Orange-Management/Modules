@@ -119,6 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -147,6 +148,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -180,6 +182,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

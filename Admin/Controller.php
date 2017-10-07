@@ -100,6 +100,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -139,6 +140,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -160,6 +162,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -190,6 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -208,6 +212,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -228,6 +233,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -258,6 +264,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -276,6 +283,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -293,6 +301,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
