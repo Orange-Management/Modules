@@ -20,9 +20,11 @@ use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\AccountPermissionMapper;
+use Modules\Admin\Models\NullAccountPermission;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
+use Modules\Admin\Models\NullGroupPermission;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -173,8 +175,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('account', AccountMapper::get((int) $request->getData('id')));
 
         $permissions = AccountPermissionMapper::getFor((int) $request->getData('id'), 'account');
-        
-        if(!isset($permissions)) {
+
+        if(!isset($permissions) || $permissions instanceof NullAccountPermission) {
             $permissions = [];
         } elseif(!is_array($permissions)) {
             $permissions = [$permissions];
@@ -245,7 +247,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
         
-        if(!isset($permissions)) {
+        if(!isset($permissions) || $permissions instanceof NullGroupPermission) {
             $permissions = [];
         } elseif(!is_array($permissions)) {
             $permissions = [$permissions];

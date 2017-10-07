@@ -47,6 +47,21 @@ class AccountMapper extends DataMapperAbstract
     ];
 
     /**
+     * Has many relation.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected static $hasMany = [
+        'groups' => [ 
+            'mapper'         => GroupMapper::class,
+            'table'          => 'account_group',
+            'dst'            => 'account_group_account',
+            'src'            => 'account_group_group',
+        ],
+    ];
+
+    /**
      * Primary table.
      *
      * @var string

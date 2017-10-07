@@ -14,6 +14,6 @@
 declare(strict_types=1);
 namespace Modules\Admin\Models;
 
-class NullAccountPermission extends Group
+class NullAccountPermission extends AccountPermission
 {
 }

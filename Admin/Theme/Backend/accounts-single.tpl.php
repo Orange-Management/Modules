@@ -67,12 +67,13 @@ echo $this->getData('nav')->render(); ?>
             <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td>Name
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
             <tbody>
-                <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
-                <tr>
-                    <td>
-                    <td>
+                <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++; 
+                $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
+                <tr data-href="<?= $url; ?>">
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
                 <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -118,11 +119,11 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $value->getElement(); ?>
                     <td><?= $value->getComponent(); ?>
                     <td>
-                        <?= \phpOMS\Account\PermissionType::CREATE | $permission === $permission ? 'C' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::READ | $permission === $permission ? 'R' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::MODIFY | $permission === $permission ? 'U' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::DELETE | $permission === $permission ? 'D' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::PERMISSION | $permission === $permission ? 'P' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
                 <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

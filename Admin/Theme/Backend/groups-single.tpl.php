@@ -17,6 +17,7 @@
 
 $group = $this->getData('group');
 $permissions = $this->getData('permissions');
+$accounts = $this->getData('accounts');
 
 echo $this->getData('nav')->render(); ?>
 
@@ -104,11 +105,11 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $value->getElement(); ?>
                     <td><?= $value->getComponent(); ?>
                     <td>
-                        <?= \phpOMS\Account\PermissionType::CREATE | $permission === $permission ? 'C' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::READ | $permission === $permission ? 'R' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::MODIFY | $permission === $permission ? 'U' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::DELETE | $permission === $permission ? 'D' : ''; ?>
-                        <?= \phpOMS\Account\PermissionType::PERMISSION | $permission === $permission ? 'P' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                 <?php endforeach; ?>
                 <?php if($c === 0) : ?>
                 <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
