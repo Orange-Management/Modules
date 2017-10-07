@@ -11,6 +11,9 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-return ['Knowledgebase' => [
+return ['QA' => [
     'QA'     => 'QA',
+    'Badges'     => 'Badges',
+    'List'     => 'List',
+    'Name'     => 'Name',
 ]];
