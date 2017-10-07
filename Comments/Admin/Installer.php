@@ -43,7 +43,7 @@ class Installer extends InstallerAbstract
                 $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'comments_list` (
                             `comments_list_id` int(11) NOT NULL AUTO_INCREMENT,
-                            PRIMARY KEY (`comments_comment_id`)
+                            PRIMARY KEY (`comments_list_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
@@ -52,7 +52,7 @@ class Installer extends InstallerAbstract
                             `comments_comment_id` int(11) NOT NULL AUTO_INCREMENT,
                             `comments_comment_title` varchar(250) NOT NULL,
                             `comments_comment_content` text NOT NULL,
-                            `comments_comment_list` int(11) NOT NULL,
+                            `comments_comment_list` int(11) DEFAULT NULL,
                             `comments_comment_ref` int(11) DEFAULT NULL,
                             `comments_comment_created_at` datetime NOT NULL,
                             `comments_comment_created_by` int(11) NOT NULL,
