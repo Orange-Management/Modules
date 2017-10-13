@@ -70,7 +70,6 @@ class Module
      * Constructor.
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __construct()
     {
@@ -83,7 +82,6 @@ class Module
      * @return int
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getId() : int
     {
@@ -108,7 +106,6 @@ class Module
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getName() : string
     {
@@ -121,7 +118,6 @@ class Module
      * @param string $name Group name
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setName(string $name) /* : void */
     {
@@ -134,7 +130,6 @@ class Module
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getDescription() : string
     {
@@ -147,7 +142,6 @@ class Module
      * @param string $description Group description
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setDescription(string $description) /* : void */
     {
@@ -160,7 +154,6 @@ class Module
      * @return int Group status
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getStatus() : int
     {
@@ -173,7 +166,6 @@ class Module
      * @param int $status Group status
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function setStatus(int $status) /* : void */
     {
@@ -187,7 +179,6 @@ class Module
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function __toString()
     {
@@ -200,7 +191,6 @@ class Module
      * @return string
      *
      * @since  1.0.0
-     * @author Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function jsonSerialize()
     {
