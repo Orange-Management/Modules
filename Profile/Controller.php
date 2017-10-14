@@ -84,6 +84,16 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         /** @var Head $head */
