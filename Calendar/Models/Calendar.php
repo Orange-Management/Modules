@@ -77,14 +77,6 @@ class Calendar
     private $date = null;
 
     /**
-     * Password
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    private $password = null;
-
-    /**
      * Events.
      *
      * @var \Modules\Calendar\Models\Event[]
@@ -131,26 +123,6 @@ class Calendar
     public function setName(string $name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password Calendar password/title
-     *
-     * @since  1.0.0
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
     }
 
     /**
