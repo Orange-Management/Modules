@@ -22,7 +22,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Arrival controller class.
@@ -61,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Arrival';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1001500000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -85,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewArrivalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -103,6 +111,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewArrivalCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

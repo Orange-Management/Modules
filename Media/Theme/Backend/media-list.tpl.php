@@ -71,12 +71,12 @@ echo $this->getData('nav')->render(); ?>
                         }
                         ?>
                         <tr data-href="<?= $url; ?>">
-                            <td><a href="<?= $url; ?>"><i class="fa fa-<?= htmlspecialchars($icon, ENT_COMPAT, 'utf-8'); ?>"></i></a>
-                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getExtension(), ENT_COMPAT, 'utf-8'); ?></a>
-                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getSize(), ENT_COMPAT, 'utf-8'); ?></a>
-                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                            <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedAt()->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
+                            <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
+                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getExtension()); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getSize()); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

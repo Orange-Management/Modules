@@ -1,7 +1,7 @@
 [
     {
         "id": 1004805001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Articles",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1004805101,
-                "pid": "e3d6f58661c6f42309e273740944547c93ff76a0",
+                "pid": "/backend/sales/item",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -29,7 +29,7 @@
                 "children": [
                     {
                         "id": 1004805301,
-                        "pid": "4a41925386568368ad4dd823b3945199e8e2628e",
+                        "pid": "/backend/sales/item",
                         "type": 3,
                         "subtype": 1,
                         "name": "Article",
@@ -46,7 +46,7 @@
             },
             {
                 "id": 1004805201,
-                "pid": "e3d6f58661c6f42309e273740944547c93ff76a0",
+                "pid": "/backend/sales/item",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
@@ -63,7 +63,7 @@
     },
     {
         "id": 1004806001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Articles",
@@ -77,7 +77,7 @@
         "children": [
             {
                 "id": 1004806101,
-                "pid": "e9b2adda603aaee5f852c05fabe394bd56cf0426",
+                "pid": "/backend/purchase/item",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -91,7 +91,7 @@
                 "children": [
                     {
                         "id": 1004806301,
-                        "pid": "4a41925386568368ad4dd823b3945199e8e2628e",
+                        "pid": "/backend/purchase/item",
                         "type": 3,
                         "subtype": 1,
                         "name": "Article",
@@ -108,7 +108,7 @@
             },
             {
                 "id": 1004806201,
-                "pid": "e9b2adda603aaee5f852c05fabe394bd56cf0426",
+                "pid": "/backend/purchase/item",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
@@ -125,11 +125,11 @@
     },
     {
         "id": 1004807001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Stock",
-        "uri": "{/base}/{/lang}/backend/warehousing/stock/list?{?}",
+        "uri": "{/base}/{/lang}/backend/warehouse/stock/list?{?}",
         "target": "self",
         "icon": null,
         "order": 10,
@@ -139,11 +139,11 @@
         "children": [
             {
                 "id": 1004807101,
-                "pid": "69737ca3a3dfa6a55a1a0402474ac634c371ea9f",
+                "pid": "/backend/warehouse/stock",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/base}/{/lang}/backend/warehousing/stock/list?{?}",
+                "uri": "{/base}/{/lang}/backend/warehouse/stock/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -153,11 +153,11 @@
                 "children": [
                     {
                         "id": 1004807301,
-                        "pid": "4a41925386568368ad4dd823b3945199e8e2628e",
+                        "pid": "/backend/warehouse/stock",
                         "type": 3,
                         "subtype": 1,
                         "name": "Article",
-                        "uri": "{/base}/{/lang}/backend/warehousing/stock/single?{?}",
+                        "uri": "{/base}/{/lang}/backend/warehouse/stock/single?{?}",
                         "target": "self",
                         "icon": null,
                         "order": 1,
@@ -170,11 +170,11 @@
             },
             {
                 "id": 1004807201,
-                "pid": "69737ca3a3dfa6a55a1a0402474ac634c371ea9f",
+                "pid": "/backend/warehouse/stock",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/base}/{/lang}/backend/warehousing/stock/create?{?}",
+                "uri": "{/base}/{/lang}/backend/warehouse/stock/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -187,7 +187,7 @@
     },
     {
         "id": 1004808001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Articles",

@@ -15,8 +15,10 @@ declare(strict_types=1);
 namespace Modules\Calendar;
 
 use Modules\Calendar\Models\CalendarMapper;
+use Modules\Calendar\Models\PermissionState;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Stdlib\Base\SmartDateTime;
 use phpOMS\Message\RequestAbstract;
@@ -24,8 +26,9 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 use phpOMS\Asset\AssetType;
+use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Calendar controller class.
@@ -64,6 +67,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Calendar';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1000900000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -88,14 +99,23 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCalendarDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            return $view;
+        }
+
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
-        
-        $view = new View($this->app, $request, $response);
+
         $view->setTemplate('/Modules/Calendar/Theme/Backend/calendar-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001201001, $request, $response));
 
@@ -117,6 +137,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -127,9 +148,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Calendar/Theme/Backend/dashboard-calendar');
 
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
+        $view->addData('calendar', $calendarView);
+
         $calendar = CalendarMapper::get(1);
         $calendar->setDate(new SmartDateTime($request->getData('date') ?? 'now'));
-        $view->addData('calendar', $calendar);
+        $view->addData('cal', $calendar);
 
         return $view;
     }

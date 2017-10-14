@@ -47,7 +47,7 @@ class Position implements ArrayableInterface, \JsonSerializable
 
     public function getParent()
     {
-        return $this->parent;
+        return $this->parent ?? new NullPosition();
     }
 
     public function setParent(int $parent)
@@ -57,7 +57,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     
     public function getDepartment()
     {
-        return $this->department;
+        return $this->department ?? new NullDepartment();
     }
 
     public function setDepartment($department)

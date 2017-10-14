@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "4b04e005b108e41e107bf2e16b858588275200f3"
+                "/backend/organization"
             ],
             "type": 4,
             "for": "Organization",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Organization",

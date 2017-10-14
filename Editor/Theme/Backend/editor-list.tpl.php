@@ -40,9 +40,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach($docs as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getTitle(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getCreatedAt()->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

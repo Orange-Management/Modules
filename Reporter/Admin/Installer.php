@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'reporter_template` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'reporter_template` (
                             `reporter_template_id` int(11) NOT NULL AUTO_INCREMENT,
                             `reporter_template_status` tinyint(1) NOT NULL,
                             `reporter_template_title` varchar(25) NOT NULL,
@@ -58,14 +58,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'reporter_template`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'reporter_template_ibfk_1` FOREIGN KEY (`reporter_template_media`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'reporter_template_ibfk_2` FOREIGN KEY (`reporter_template_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'reporter_template`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'reporter_template_ibfk_1` FOREIGN KEY (`reporter_template_media`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'reporter_template_ibfk_2` FOREIGN KEY (`reporter_template_creator`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'reporter_report` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'reporter_report` (
                             `reporter_report_id` int(11) NOT NULL AUTO_INCREMENT,
                             `reporter_report_status` tinyint(1) NOT NULL,
                             `reporter_report_title` varchar(25) NOT NULL,
@@ -81,16 +81,16 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'reporter_report`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'reporter_report_ibfk_1` FOREIGN KEY (`reporter_report_template`) REFERENCES `' . $dbPool->get('core')->prefix . 'reporter_template` (`reporter_template_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'reporter_report_ibfk_2` FOREIGN KEY (`reporter_report_creator`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'reporter_report_ibfk_3` FOREIGN KEY (`reporter_report_media`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'reporter_report`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'reporter_report_ibfk_1` FOREIGN KEY (`reporter_report_template`) REFERENCES `' . $dbPool->get()->prefix . 'reporter_template` (`reporter_template_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'reporter_report_ibfk_2` FOREIGN KEY (`reporter_report_creator`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'reporter_report_ibfk_3` FOREIGN KEY (`reporter_report_media`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
 
                 // Used in order to tell the template what file names+extension it is expecting (more are allowed)
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'reporter_template_media` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'reporter_template_media` (
                             `reporter_template_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `reporter_template_media_template` int(11) NOT NULL,
                             `reporter_template_media_name` int(11) NOT NULL,
@@ -99,9 +99,9 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'reporter_template_media`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'reporter_template_media_ibfk_1` FOREIGN KEY (`reporter_template_media_template`) REFERENCES `' . $dbPool->get('core')->prefix . 'reporter_template` (`reporter_template_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'reporter_template_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'reporter_template_media_ibfk_1` FOREIGN KEY (`reporter_template_media_template`) REFERENCES `' . $dbPool->get()->prefix . 'reporter_template` (`reporter_template_id`);'
                 )->execute();
                 break;
         }

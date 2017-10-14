@@ -12,5 +12,7 @@
  * @link       http://orange-management.com
  */
 return ['Knowledgebase' => [
+    'Categories'     => 'Categories',
+    'Name'     => 'Name',
     'Wiki'     => 'Wiki',
 ]];

@@ -21,7 +21,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT])) :
                 <section class="box w-33 floatLeft">
                     <div class="inner centerText">
                         <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>">
-                            <p><i class="fa-5x <?= htmlspecialchars($link['nav_icon'], ENT_COMPAT, 'utf-8'); ?>"></i></p>
+                            <p><i class="fa-5x <?= $this->printHtml($link['nav_icon']); ?>"></i></p>
                             <p><?= $this->getHtml($link['nav_name']); ?></p>
                         </a>
                     </div>

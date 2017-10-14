@@ -25,8 +25,7 @@
     "load": [
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
-                "40a630e157504605e40ba241f6b1f78ab1dd97b9"
+                "/backend"
             ],
             "type": 4,
             "for": "Content",

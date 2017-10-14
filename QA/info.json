@@ -17,7 +17,9 @@
     "description": "QA module.",
     "directory": "QA",
     "dependencies": {
-        "Admin" : "1.0.0"
+        "Admin" : "1.0.0",
+        "Editor" : "1.0.0",
+        "Tools" : "1.0.0"
     },
     "providing": {
         "Navigation": "*"
@@ -25,7 +27,7 @@
     "load": [
         {
             "pid": [
-                "7322d5765c8b18b14c20d406e89c628fd0998688"
+                "/backend/qa"
             ],
             "type": 4,
             "for": 0,
@@ -34,7 +36,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "QA",

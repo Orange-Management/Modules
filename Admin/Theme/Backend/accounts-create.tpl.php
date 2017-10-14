@@ -23,15 +23,15 @@ echo $this->getData('nav')->render(); ?>
                         <tbody>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                         <tr><td><select id="iType" name="type">
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountType::USER, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Person'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountType::GROUP, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Organization'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::USER); ?>"><?= $this->getHtml('Person'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::GROUP); ?>"><?= $this->getHtml('Organization'); ?>
                                 </select>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::ACTIVE, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Active'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::INACTIVE, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Inactive'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::TIMEOUT, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Timeout'); ?>
-                                    <option value="<?= htmlspecialchars(\phpOMS\Account\AccountStatus::BANNED, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Banned'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::ACTIVE); ?>"><?= $this->getHtml('Active'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::INACTIVE); ?>"><?= $this->getHtml('Inactive'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::TIMEOUT); ?>"><?= $this->getHtml('Timeout'); ?>
+                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::BANNED); ?>"><?= $this->getHtml('Banned'); ?>
                                 </select>
                         <tr><td><label for="iUsername"><?= $this->getHtml('Username'); ?></label>
                         <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred">

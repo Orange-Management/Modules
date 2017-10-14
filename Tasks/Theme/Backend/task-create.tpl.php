@@ -31,20 +31,20 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><?= $this->getData('accGrpSelector')->render('iCC'); ?><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td><select id="iPriority" name="priority">
-                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::VLOW, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P1') ?>
-                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::LOW, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P2') ?>
-                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::MEDIUM, ENT_COMPAT, 'utf-8'); ?>" selected><?= $this->getHtml('P3') ?>
-                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::HIGH, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P4') ?>
-                                <option value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskPriority::VHIGH, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('P5') ?>Done
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::VLOW); ?>"><?= $this->getHtml('P1') ?>
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::LOW); ?>"><?= $this->getHtml('P2') ?>
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::MEDIUM); ?>" selected><?= $this->getHtml('P3') ?>
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::HIGH); ?>"><?= $this->getHtml('P4') ?>
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::VHIGH); ?>"><?= $this->getHtml('P5') ?>
                             </select><td>
                         <tr><td colspan="2"><label for="iDue"><?= $this->getHtml('Due') ?></label>
-                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>"><td>
+                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>"><td>
                         <tr><td colspan="2"><label for="iTitle"><?= $this->getHtml('Title') ?></label>
                         <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->getHtml('Title') ?>" required><td>
                         <tr><td colspan="2"><label for="iMessage"><?= $this->getHtml('Message') ?></label>
                         <tr><td><?= $this->getData('editor')->render('editor-tools'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('editor-text'); ?>
-                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="type" value="<?= htmlspecialchars(\Modules\Tasks\Models\TaskType::SINGLE, ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="type" value="<?= $this->printHtml(\Modules\Tasks\Models\TaskType::SINGLE); ?>">
                     </table>
                 </form>
             </div>

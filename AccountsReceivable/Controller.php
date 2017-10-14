@@ -22,7 +22,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Sales class.
@@ -61,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'AccountsReceivable';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1004900000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -86,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -104,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -122,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -140,6 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -158,6 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

@@ -40,9 +40,9 @@ $accounts = $this->getData('accounts');
                 <?php $count = 0; foreach($accounts as $key => $account) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/profile/single?{?}&id=' . $account->getAccount()->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getAccount()->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getAccount()->getName3() . ' ' . $account->getAccount()->getName2() . ' ' . $account->getAccount()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($account->getAccount()->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getId()); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getName3() . ' ' . $account->getAccount()->getName2() . ' ' . $account->getAccount()->getName1()); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getLastActive()->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php if($count === 0) : ?>
                 <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

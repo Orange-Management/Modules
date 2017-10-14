@@ -59,6 +59,12 @@ class Event
 
     private $tasks = [];
 
+    private $media = [];
+
+    private $progress = 0;
+    
+    private $progressType = ProgressType::MANUAL;
+
     /**
      * Created.
      *
@@ -78,7 +84,7 @@ class Event
     public function __construct(string $name = '')
     {
         $this->start = new \DateTime('now');
-        $this->end = new \DateTime('now');
+        $this->end = (new \DateTime('now'))->modify('+1 month');
         $this->calendar  = new Calendar();
         $this->costs     = new Money();
         $this->budget    = new Money();
@@ -86,6 +92,16 @@ class Event
         $this->createdAt = new \DateTime('now');
 
         $this->setName($name);
+    }
+
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
     }
 
     public function getStart() : \DateTime
@@ -106,6 +122,26 @@ class Event
     public function getEnd() : \DateTime
     {
         return $this->end;
+    }
+
+    public function getProgress() : int
+    {
+        return $this->progress;
+    }
+
+    public function setProgress(int $progress) /* : void */
+    {
+        $this->progress = $progress;
+    }
+
+    public function getProgressType() : int
+    {
+        return $this->progressType;
+    }
+
+    public function setProgressType(int $type) /* : void */
+    {
+        $this->progressType = $type;
     }
 
     public function getCalendar() : Calendar
@@ -256,6 +292,5 @@ class Event
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
-        $this->calendar->setCreatedBy($this->createdBy);
     }
 }

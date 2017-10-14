@@ -34,11 +34,11 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach($jobs as $key => $job) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/job/single?{?}&id=' . $job->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($job->getStatus(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(!empty($job->getLastRunTime()) ? $job->getLastRunTime()->format('Y-m-d') : '', ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(!empty($job->getNextRunTime()) ? $job->getNextRunTime()->format('Y-m-d') : '', ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars(trim($job->getId()), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($job->getRun(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getStatus()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getLastRunTime()) ? $job->getLastRunTime()->format('Y-m-d') : ''); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getNextRunTime()) ? $job->getNextRunTime()->format('Y-m-d') : ''); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(trim($job->getId())); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getRun()); ?></a>
                         <?php endforeach; if($c == 0) : ?>
                 <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>

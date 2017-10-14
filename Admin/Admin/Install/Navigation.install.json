@@ -1,7 +1,7 @@
 [
     {
         "id": 1000101001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 0,
         "name": "Admin",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1000102001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "General",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1000103001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Groups",
@@ -44,7 +44,7 @@
                 "children": [
                     {
                         "id": 1000103103,
-                        "pid": "a82970f4c32b56731c03b912cd0ebc161272d088",
+                        "pid": "/backend/admin/group",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -59,7 +59,7 @@
                     },
                     {
                         "id": 1000103104,
-                        "pid": "a82970f4c32b56731c03b912cd0ebc161272d088",
+                        "pid": "/backend/admin/group",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -71,58 +71,12 @@
                         "permission": null,
                         "parent": 1000103001,
                         "children": []
-                    },
-                    {
-                        "id": 1000103201,
-                        "pid": "faf868d821cd23e7e3981cf4270c3880da584027",
-                        "type": 0,
-                        "subtype": 1,
-                        "name": "Front",
-                        "uri": "{/base}/{/lang}/backend/admin/group/single/front?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": "Admin",
-                        "permission": null,
-                        "parent": 1000103001,
-                        "children": [
-                            {
-                                "id": 1000103211,
-                                "pid": "faf868d821cd23e7e3981cf4270c3880da584027",
-                                "type": 3,
-                                "subtype": 1,
-                                "name": "Front",
-                                "uri": "{/base}/{/lang}/backend/admin/group/single/front?{?}",
-                                "target": "self",
-                                "icon": null,
-                                "order": 1,
-                                "from": "Admin",
-                                "permission": null,
-                                "parent": 1000103201,
-                                "children": []
-                            },
-                            {
-                                "id": 1000103212,
-                                "pid": "faf868d821cd23e7e3981cf4270c3880da584027",
-                                "type": 3,
-                                "subtype": 1,
-                                "name": "Members",
-                                "uri": "{/base}/{/lang}/backend/admin/group/single/members?{?}",
-                                "target": "self",
-                                "icon": null,
-                                "order": 2,
-                                "from": "Admin",
-                                "permission": null,
-                                "parent": 1000103201,
-                                "children": []
-                            }
-                        ]
                     }
                 ]
             },
             {
                 "id": 1000104001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Accounts",
@@ -136,7 +90,7 @@
                 "children": [
                     {
                         "id": 1000104101,
-                        "pid": "06c40f113551672720d8251eeff5c3a2dbc168c2",
+                        "pid": "/backend/admin/account",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -151,7 +105,7 @@
                     },
                     {
                         "id": 1000104202,
-                        "pid": "06c40f113551672720d8251eeff5c3a2dbc168c2",
+                        "pid": "/backend/admin/account",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -163,43 +117,12 @@
                         "permission": null,
                         "parent": 1000104001,
                         "children": []
-                    },
-                    {
-                        "id": 1000104300,
-                        "pid": "f277f11a122129a52d36f788f42e5c09766cf4ae",
-                        "type": 0,
-                        "subtype": 0,
-                        "name": "Front",
-                        "uri": "{/base}/{/lang}/backend/admin/account/single/front?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 3,
-                        "from": "Admin",
-                        "permission": null,
-                        "parent": 1000104001,
-                        "children": [
-                            {
-                                "id": 1000104301,
-                                "pid": "f277f11a122129a52d36f788f42e5c09766cf4ae",
-                                "type": 3,
-                                "subtype": 1,
-                                "name": "Front",
-                                "uri": "{/base}/{/lang}/backend/admin/account/single/front?{?}",
-                                "target": "self",
-                                "icon": null,
-                                "order": 3,
-                                "from": "Admin",
-                                "permission": null,
-                                "parent": 1000104300,
-                                "children": []
-                            }
-                        ]
                     }
                 ]
             },
             {
                 "id": 1000105001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Modules",
@@ -213,7 +136,7 @@
                 "children": [
                     {
                         "id": 1000105101,
-                        "pid": "6f43051bccfc2ded5ab2baf8b1b7cff2c0f2b2aa",
+                        "pid": "/backend/admin/module",
                         "type": 3,
                         "subtype": 1,
                         "name": "Settings",

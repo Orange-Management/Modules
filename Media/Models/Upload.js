@@ -4,9 +4,8 @@
     
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Media');
 
-    jsOMS.Modules.Models.Media.Upload = function (responseManager, logger)
+    jsOMS.Modules.Models.Media.Upload = function (responseManager)
     {
-        this.logger          = logger;
         this.responseManager = responseManager;
         this.success         = [];
 
@@ -93,9 +92,9 @@
                         self.success[formId](response[k].type, response[k]);
                     }
                 }
-            } catch (exception) {
-                console.log(exception);
-                self.logger.error('Invalid media upload response: ' + xhr.response);
+            } catch (e) {
+                jsOMS.Log.Logger.instance.error(e);
+                jsOMS.Log.Logger.instance.error('Invalid media upload response: ' + xhr.response);
 
                 return false;
             }

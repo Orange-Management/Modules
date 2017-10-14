@@ -21,7 +21,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 use phpOMS\Asset\AssetType;
 
 /**
@@ -61,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Profile';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1000300000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -77,6 +84,16 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         /** @var Head $head */
@@ -92,6 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -111,14 +129,27 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+        
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $view->setData('account', ProfileMapper::get($request->getData('id')));
+        $mediaListView = new \Modules\Media\Theme\Backend\Components\Media\BaseView($this->app, $request, $response);
+        $mediaListView->setTemplate('/Modules/Media/Theme/Backend/Components/Media/list');
+        $view->addData('medialist', $mediaListView);
+
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
+        $view->addData('calendar', $calendarView);
+
+        $view->setData('account', ProfileMapper::getFor($request->getData('id'), 'account'));
 
         return $view;
     }

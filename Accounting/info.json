@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "47e9d72449035cd040e0f93693fd0a925bf6e340"
+                "/backend/accounting"
             ],
             "type": 4,
             "for": "Content",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Accounting",

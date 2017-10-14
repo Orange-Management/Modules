@@ -37,26 +37,26 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->getHtml('From') ?>
             <td><?= $this->getHtml('Date') ?>
         <tfoot>
-        <tr><td colspan="5"><?= htmlspecialchars(\phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['usage']), ENT_COMPAT, 'utf-8'); ?> / <?= htmlspecialchars(\phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['limit']), ENT_COMPAT, 'utf-8'); ?>
+        <tr><td colspan="5"><?= $this->printHtml(\phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['usage'])); ?> / <?= $this->printHtml(\phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['limit'])); ?>
         <tbody>
             <?php $count = 0; foreach($unseen as $key => $value) : $count++;
             $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/messages/mail/single?{?}&id=' . $value->uid); ?>
             <tr>
                 <td><span class="check"><input type="checkbox"></span>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>></a>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars(str_replace('_',' ', mb_decode_mimeheader($value->subject)), ENT_COMPAT, 'utf-8'); ?></a>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($value->from, ENT_COMPAT, 'utf-8'); ?></a>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars((new \DateTime($value->date))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml(str_replace('_',' ', mb_decode_mimeheader($value->subject))); ?></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml($value->from); ?></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml((new \DateTime($value->date))->format('Y-m-d H:i:s')); ?></a>
             <?php endforeach; ?>
 
                     <?php foreach($seen as $key => $value) : $count++;
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/messages/mail/single?{?}&id=' . $value->uid); ?>
             <tr>
                 <td><span class="check"><input type="checkbox"></span>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>></a>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars(str_replace('_',' ', mb_decode_mimeheader($value->subject)), ENT_COMPAT, 'utf-8'); ?></a>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($value->from, ENT_COMPAT, 'utf-8'); ?></a>
-                <td><a href="<?= $url; ?>"<?= htmlspecialchars($value->seen == 0 ? ' class="unseen"' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars((new \DateTime($value->date))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml(str_replace('_',' ', mb_decode_mimeheader($value->subject))); ?></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml($value->from); ?></a>
+                <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml((new \DateTime($value->date))->format('Y-m-d H:i:s')); ?></a>
                     <?php endforeach; ?>
             <?php if($count < 1) : ?>
         <tr>

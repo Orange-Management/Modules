@@ -22,7 +22,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 use Modules\RiskManagement\Models\SolutionMapper;
 use Modules\RiskManagement\Models\CauseMapper;
 use Modules\RiskManagement\Models\RiskMapper;
@@ -30,6 +29,8 @@ use Modules\RiskManagement\Models\DepartmentMapper;
 use Modules\RiskManagement\Models\CategoryMapper;
 use Modules\RiskManagement\Models\ProjectMapper;
 use Modules\RiskManagement\Models\ProcessMapper;
+use Modules\Organization\Models\UnitMapper;
+use Modules\Organization\Models\Unit;
 
 /**
  * Risk Management class.
@@ -68,6 +69,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'RiskManagement';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1003000000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -93,6 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCockpit(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -111,6 +121,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -132,6 +143,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $risk = RiskMapper::get((int) $request->getData('id'));
+        $view->addData('risk', $risk);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -150,6 +184,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCauseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -171,6 +206,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskCauseSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $cause = CauseMapper::get((int) $request->getData('id'));
+        $view->addData('cause', $cause);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskSolutionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -192,12 +250,16 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
-    public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewRiskSolutionSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-list');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $solution = SolutionMapper::get((int) $request->getData('id'));
+        $view->addData('solution', $solution);
 
         return $view;
     }
@@ -210,6 +272,51 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-list');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $units = UnitMapper::getAll();
+        $view->addData('units', $units);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskUnitSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $unit = UnitMapper::get((int) $request->getData('id'));
+        $view->addData('unit', $unit);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -231,6 +338,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskDepartmentSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $department = DepartmentMapper::get((int) $request->getData('id'));
+        $view->addData('department', $department);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskCategoryList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -252,6 +382,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskCategorySingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $category = CategoryMapper::get((int) $request->getData('id'));
+        $view->addData('category', $category);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -273,6 +426,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskProjectSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $project = ProjectMapper::get((int) $request->getData('id'));
+        $view->addData('project', $project);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -294,6 +470,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskProcessSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
+
+        $process = ProcessMapper::get((int) $request->getData('id'));
+        $view->addData('process', $process);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewRiskSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

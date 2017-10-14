@@ -19,8 +19,12 @@ use Modules\Admin\Models\Account;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\AccountPermissionMapper;
+use Modules\Admin\Models\NullAccountPermission;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
+use Modules\Admin\Models\GroupPermissionMapper;
+use Modules\Admin\Models\NullGroupPermission;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -28,6 +32,7 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
 use phpOMS\Views\View;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Admin controller class.
@@ -66,6 +71,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Admin';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1000100000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -89,6 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -128,6 +142,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -149,6 +164,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -157,6 +173,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
         $view->addData('account', AccountMapper::get((int) $request->getData('id')));
+
+        $permissions = AccountPermissionMapper::getFor((int) $request->getData('id'), 'account');
+
+        if(!isset($permissions) || $permissions instanceof NullAccountPermission) {
+            $permissions = [];
+        } elseif(!is_array($permissions)) {
+            $permissions = [$permissions];
+        }
+
+        $view->addData('permissions', $permissions);
 
         return $view;
     }
@@ -169,6 +195,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -187,6 +214,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -207,6 +235,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -215,6 +244,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
         $view->addData('group', GroupMapper::get((int) $request->getData('id')));
+
+        $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
+        
+        if(!isset($permissions) || $permissions instanceof NullGroupPermission) {
+            $permissions = [];
+        } elseif(!is_array($permissions)) {
+            $permissions = [$permissions];
+        }
+
+        $view->addData('permissions', $permissions);
 
         return $view;
     }
@@ -227,6 +266,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -245,6 +285,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -262,6 +303,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -349,7 +391,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set('account', array_values(AccountMapper::getByRequest($request)));
+        $response->set('account', AccountMapper::getByRequest($request));
     }
 
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null)

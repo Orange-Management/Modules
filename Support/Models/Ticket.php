@@ -12,9 +12,10 @@
  * @link       http://orange-management.com
  */
 declare(strict_types=1);
-namespace Modules\Support;
+namespace Modules\Support\Models;
 
 use Modules\Tasks\Models\Task;
+use Modules\Tasks\Models\TaskType;
 
 /**
  * Issue class.
@@ -25,31 +26,31 @@ use Modules\Tasks\Models\Task;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-class Ticket extends Task
+class Ticket
 {
 
     private $id   = 0;
-    private $task = 0;
 
-    /**
-     * Assigned group.
-     *
-     * @var int
-     * @since 1.0.0
-     */
-    private $group = 0;
-
-    /**
-     * Assigned person.
-     *
-     * @var int
-     * @since 1.0.0
-     */
-    private $person = 0;
+    private $task = null;
 
     public function __construct()
     {
-        parent::__construct();
+        $this->task = new Task();
+        $this->task->setType(TaskType::HIDDEN);
     }
 
+    public function getId() : int
+    {
+        return $this->id;
+    }
+
+    public function getTask() : Task
+    {
+        return $this->task;
+    }
+
+    public function setTask(Task $task) /* : void */
+    {
+        $this->task = $task;
+    }
 }

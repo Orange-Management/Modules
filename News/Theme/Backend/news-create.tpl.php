@@ -44,10 +44,10 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tr><td colspan="2"><label for="publish"><?= $this->getHtml('Status'); ?></label>
                         <tr><td colspan="2"><select name="status">
-                                    <option value="<?= htmlspecialchars(Modules\News\Models\NewsStatus::DRAFT, ENT_COMPAT, 'utf-8'); ?>" selected><?= $this->getHtml('Draft'); ?>
-                                    <option value="<?= htmlspecialchars(Modules\News\Models\NewsStatus::VISIBLE, ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Visible'); ?>
+                                    <option value="<?= $this->printHtml(Modules\News\Models\NewsStatus::DRAFT); ?>" selected><?= $this->getHtml('Draft'); ?>
+                                    <option value="<?= $this->printHtml(Modules\News\Models\NewsStatus::VISIBLE); ?>"><?= $this->getHtml('Visible'); ?>
                         <tr><td colspan="2"><label for="publish"><?= $this->getHtml('Publish'); ?></label>
-                        <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= htmlspecialchars((new \DateTime('NOW'))->format('Y-m-d\TH:i:s'), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td colspan="2"><input type="datetime-local" id="publish" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Delete', 0); ?>"><td class="rightText"><input type="submit" value="<?= $this->getHtml('Save', 0); ?>"> <input type="submit" value="<?= $this->getHtml('Publish'); ?>">
                     </table>
                 </form>
@@ -57,9 +57,9 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="layout wf-100">
                     <tr><td colspan="2"><label><?= $this->getHtml('Type'); ?></label>
-                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="docForm" value="<?= htmlspecialchars(Modules\News\Models\NewsType::ARTICLE, ENT_COMPAT, 'utf-8'); ?>" id="news" checked><label for="news"><?= $this->getHtml('News'); ?></label></span>
-                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="docForm" value="<?= htmlspecialchars(Modules\News\Models\NewsType::HEADLINE, ENT_COMPAT, 'utf-8'); ?>" id="headline"><label for="headline"><?= $this->getHtml('Headline'); ?></label></span>
-                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="docForm" value="<?= htmlspecialchars(Modules\News\Models\NewsType::LINK, ENT_COMPAT, 'utf-8'); ?>" id="link"><label for="link"><?= $this->getHtml('Link'); ?></label></span>
+                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="docForm" value="<?= $this->printHtml(Modules\News\Models\NewsType::ARTICLE); ?>" id="news" checked><label for="news"><?= $this->getHtml('News'); ?></label></span>
+                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="docForm" value="<?= $this->printHtml(Modules\News\Models\NewsType::HEADLINE); ?>" id="headline"><label for="headline"><?= $this->getHtml('Headline'); ?></label></span>
+                    <tr><td colspan="2"><span class="radio"><input type="radio" name="type" form="docForm" value="<?= $this->printHtml(Modules\News\Models\NewsType::LINK); ?>" id="link"><label for="link"><?= $this->getHtml('Link'); ?></label></span>
                 </table>
             </div>
         </section>

@@ -29,13 +29,12 @@ echo $this->getData('nav')->render();
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
-            <header><h1><?= $this->getHtml('Profile') ?></h1></header>
+            <header><h1><span itemprop="familyName"><?= $this->printHtml($account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span></h1></header>
             <div class="inner">
                 <!-- @formatter:off -->
+                    <span class="rf"><img class="m-profile rf" alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('{/base}/' . $account->getImage()->getPath()); ?>">
+                    </span>
                         <table class="list">
-                            <tr>
-                                <th><?= $this->getHtml('Name') ?><img class="m-profile" alt="<?= $this->getHtml('ProfileImage'); ?>" src="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('{/base}/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : $account->getImage()->getPath(); ?>">
-                                <td><span itemprop="familyName"><?= htmlspecialchars($account->getAccount()->getName3(), ENT_COMPAT, 'utf-8'); ?></span>, <span itemprop="givenName"><?= htmlspecialchars($account->getAccount()->getName1(), ENT_COMPAT, 'utf-8'); ?></span>
                             <tr>
                                 <th><?= $this->getHtml('Occupation') ?>
                                 <td itemprop="jobTitle">Sailor
@@ -47,7 +46,7 @@ echo $this->getData('nav')->render();
                                 <td itemprop="memberOf">Gosling
                             <tr>
                                 <th><?= $this->getHtml('Email') ?>
-                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= htmlspecialchars($account->getAccount()->getEmail(), ENT_COMPAT, 'utf-8'); ?></a>
+                                <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $this->printHtml($account->getAccount()->getEmail()); ?></a>
                             <tr>
                                 <th>Address
                                 <td>
@@ -71,13 +70,13 @@ echo $this->getData('nav')->render();
                                 <td itemprop="telephone">+01 12345-4567
                             <tr>
                                 <th><?= $this->getHtml('Registered') ?>
-                                <td><?= htmlspecialchars($account->getAccount()->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= $this->printHtml($account->getAccount()->getCreatedAt()->format('Y-m-d')); ?>
                             <tr>
                                 <th><?= $this->getHtml('LastLogin') ?>
-                                <td><?= htmlspecialchars($account->getAccount()->getLastActive()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= $this->printHtml($account->getAccount()->getLastActive()->format('Y-m-d')); ?>
                             <tr>
                                 <th><?= $this->getHtml('Status') ?>
-                                <td><span class="tag green"><?= htmlspecialchars($account->getAccount()->getStatus(), ENT_COMPAT, 'utf-8'); ?></span>
+                                <td><span class="tag green"><?= $this->printHtml($account->getAccount()->getStatus()); ?></span>
                         </table>
                         <!-- @formatter:on -->
             </div>
@@ -85,30 +84,12 @@ echo $this->getData('nav')->render();
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <div class="box wf-100">
-            <table class="table red">
-                <caption><?= $this->getHtml('Media', 'Media') ?></caption>
-                <thead>
-                <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getHtml('Name', 'Media') ?>
-                    <td><?= $this->getHtml('Type', 'Media') ?>
-                    <td><?= $this->getHtml('Created', 'Media') ?>
-                <tfoot>
-                <tr><td colspan="4"><?= $footerView->render(); ?>
-                <tbody>
-                <?php $c = 0; foreach ([] as $key => $value) : $c++;
-                    $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
-                    <tr>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestHistory()->getPosition(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestHistory()->getPosition(), ENT_COMPAT, 'utf-8'); ?></a>
-                        <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNewestStatus()->getStatus(), ENT_COMPAT, 'utf-8'); ?></a>
-                <?php endforeach; ?>
-                <?php if($c === 0) : ?>
-                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
-                <?php endif; ?>
-            </table>
-        </div>
+        <?= $this->getData('medialist')->render([]); ?>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <?= $this->getData('calendar')->render($account->getCalendar()); ?>
     </div>
 </div>

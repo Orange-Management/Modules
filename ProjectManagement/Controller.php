@@ -22,9 +22,9 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 use Modules\ProjectManagement\Models\ProjectMapper;
 use Modules\ProjectManagement\Models\Project;
+use phpOMS\Asset\AssetType;
 
 /**
  * Event Management controller class.
@@ -63,6 +63,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'ProjectManagement';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1001700000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -87,6 +95,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProjectManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -108,6 +117,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProjectManagementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -126,12 +136,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewProjectManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));
+
+        $taskListView = new \Modules\Tasks\Theme\Backend\Components\Tasks\BaseView($this->app, $request, $response);
+        $taskListView->setTemplate('/Modules/Tasks/Theme/Backend/Components/Tasks/list');
+        $view->addData('tasklist', $taskListView);
+
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
+        $view->addData('calendar', $calendarView);
+
+        $mediaListView = new \Modules\Media\Theme\Backend\Components\Media\BaseView($this->app, $request, $response);
+        $mediaListView->setTemplate('/Modules/Media/Theme/Backend/Components/Media/list');
+        $view->addData('medialist', $mediaListView);
 
         $project = ProjectMapper::get((int) $request->getData('id'));
         $view->addData('project', $project);

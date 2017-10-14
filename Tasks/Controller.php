@@ -23,12 +23,15 @@ use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
+use Modules\Tasks\Models\PermissionState;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
+use phpOMS\Account\PermissionType;
 
 /**
  * Task class.
@@ -67,6 +70,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Tasks';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1001100000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -93,10 +104,20 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewTaskDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
@@ -114,12 +135,17 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Tasks/Theme/Backend/dashboard-task');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
+
+        $taskListView = new \Modules\Tasks\Theme\Backend\Components\Tasks\BaseView($this->app, $request, $response);
+        $taskListView->setTemplate('/Modules/Tasks/Theme/Backend/Components/Tasks/list');
+        $view->addData('tasklist', $taskListView);
 
         $tasks = TaskMapper::getNewest(5);
         $view->addData('tasks', $tasks);
@@ -135,15 +161,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
-        $task = TaskMapper::get((int) $request->getData('id'));
+        $task      = TaskMapper::get((int) $request->getData('id'));
+        $accountId = $request->getHeader()->getAccount();
+
+        if (!($task->getCreatedBy()->getId() === $accountId
+            || $task->isCc($accountId)
+            || $task->isForwarded($accountId))
+            && !$this->app->accountManager->get($accountId)->hasPermission(
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK, $task->getId())
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
+        $view->setTemplate('/Modules/Tasks/Theme/Backend/task-single');
         $view->addData('task', $task);
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
         return $view;
     }
@@ -156,10 +196,20 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
@@ -180,6 +230,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewTaskAnalysis(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -221,6 +272,14 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateTaskCreate($request))) {
             $response->set('task_create', new FormValidation($val));
 
@@ -238,14 +297,14 @@ class Controller extends ModuleAbstract implements WebInterface
         $task = new Task();
         $task->setTitle($request->getData('title') ?? '');
         $task->setDescription($request->getData('description') ?? '');
-        $task->setCreatedBy($request->getAccount());
+        $task->setCreatedBy($request->getHeader()->getAccount());
         $task->setCreatedAt(new \DateTime('now'));
         $task->setDue(new \DateTime($request->getData('due') ?? 'now'));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
 
         $element = new TaskElement();
-        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setForwarded($request->getData('forward') ?? $request->getHeader()->getAccount());
         $element->setCreatedAt($task->getCreatedAt());
         $element->setCreatedBy($task->getCreatedBy());
         $element->setDue($task->getDue());
@@ -263,7 +322,7 @@ class Controller extends ModuleAbstract implements WebInterface
             ($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
             || ($val['due'] = !((bool)strtotime($request->getData('due'))))
             || ($val['task'] = !(is_numeric($request->getData('task'))))
-            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getAccount() : $request->getData('forward'))))
+            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getHeader()->getAccount() : $request->getData('forward'))))
         ) { // todo: validate correct task
             return $val;
         }
@@ -282,6 +341,14 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_element_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateTaskElementCreate($request))) {
             $response->set('task_element_create', new FormValidation($val));
 
@@ -297,9 +364,9 @@ class Controller extends ModuleAbstract implements WebInterface
     private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = new TaskElement();
-        $element->setForwarded($request->getData('forward') ?? $request->getAccount());
+        $element->setForwarded($request->getData('forward') ?? $request->getHeader()->getAccount());
         $element->setCreatedAt(new \DateTime('now'));
-        $element->setCreatedBy($request->getAccount());
+        $element->setCreatedBy($request->getHeader()->getAccount());
         $element->setDue(new \DateTime($request->getData('due') ?? 'now'));
         $element->setStatus($request->getData('status'));
         $element->setTask($request->getData('task'));

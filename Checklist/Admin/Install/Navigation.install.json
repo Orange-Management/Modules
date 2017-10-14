@@ -1,7 +1,7 @@
 [
     {
         "id": 1003601001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Checklist",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1003602001,
-                "pid": "485c01f6ec77f5370a8060bb44b8a13a985184b5",
+                "pid": "/backend/checklist",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1003603001,
-                "pid": "485c01f6ec77f5370a8060bb44b8a13a985184b5",
+                "pid": "/backend/checklist",
                 "type": 3,
                 "subtype": 5,
                 "name": "Templates",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1003604001,
-                "pid": "485c01f6ec77f5370a8060bb44b8a13a985184b5",
+                "pid": "/backend/checklist",
                 "type": 3,
                 "subtype": 5,
                 "name": "CreateTemplate",

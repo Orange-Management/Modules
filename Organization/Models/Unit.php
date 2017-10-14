@@ -45,7 +45,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     public function getParent()
     {
-        return $this->parent;
+        return $this->parent ?? new NullUnit();
     }
 
     public function setParent(int $parent)

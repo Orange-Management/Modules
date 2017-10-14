@@ -42,6 +42,18 @@ class Group extends \phpOMS\Account\Group
     protected $createdBy = 0;
 
     /**
+     * Constructor
+     *
+     * @since  1.0.0
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+
+        parent::__construct();
+    }
+
+    /**
      * Get created at.
      *
      * @return \DateTime

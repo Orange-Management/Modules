@@ -29,6 +29,7 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
 use phpOMS\Views\View;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Media class.
@@ -67,6 +68,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Media';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1000400000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -91,6 +100,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -108,6 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMediaList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -129,6 +140,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -154,6 +166,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -177,7 +190,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $uploads = $this->uploadFiles($request->getFiles(), $request->getAccount(), $request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files');
+        $uploads = $this->uploadFiles($request->getFiles(), $request->getHeader()->getAccount(), $request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files');
 
         $ids = [];
         foreach($uploads as $file) {
@@ -277,7 +290,11 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private static function normalizeDbPath(string $path) : string
     {
-        return str_replace('\\', '/', str_replace(realpath(__DIR__ . '/../../') . '/', '', rtrim($path, '/')));
+        return str_replace('\\', '/', 
+            str_replace(realpath(__DIR__ . '/../../'), '', 
+                rtrim($path, '/')
+            )
+        );
     }
 
 }

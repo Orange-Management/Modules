@@ -18,7 +18,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
-                <caption><?= $this->getHtml('Causes') ?></caption>
+                <caption><?= $this->getHtml('Projects') ?></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
@@ -29,8 +29,8 @@ echo $this->getData('nav')->render(); ?>
                         <?php $c = 0; foreach ($projects as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/riskmanagement/project/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getProject()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
                         <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

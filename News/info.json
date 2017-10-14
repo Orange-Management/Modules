@@ -25,8 +25,7 @@
     "load": [
         {
             "pid": [
-                "d7470914e19522acc310a55e5cb13a6f0f7ca000",
-                "0ac9153b72f8659e3c4b370f56bbcdf0eba86d6a"
+                "/backend/news"
             ],
             "type": 4,
             "for": 0,
@@ -35,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "News",

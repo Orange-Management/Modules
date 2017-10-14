@@ -64,7 +64,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><select id="iTermsOfDelivery" name="termsofdelivery">
                                                 <option>
                                             </select>
-                                    <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                                 </table>
                             </form>
                         </div>
@@ -201,7 +201,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><input type="datetime-local" id="iDue" name="due">
                                     <tr><td><label for="iCashBack2"><?= $this->getHtml('Cashback'); ?> 2</label>
                                     <tr><td><input type="number" id="iCashBack2" name="cashback2">
-                                    <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                                 </table>
                             </form>
                         </div>
@@ -256,11 +256,11 @@ echo $this->getData('nav')->render(); ?>
                                 <td colspan="6"><?= $footerView->render(); ?>
                             <tbody>
                             <tr>
-                                <td><?= htmlspecialchars($this->request->getOrigin(), ENT_COMPAT, 'utf-8'); ?>
-                                <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
-                                <td><?= htmlspecialchars($this->request->getAccount(), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= $this->printHtml($this->request->getOrigin()); ?>
+                                <td><?= $this->printHtml($this->request->getHeader()->getAccount()); ?>
+                                <td><?= $this->printHtml($this->request->getHeader()->getAccount()); ?>
                                 <td>Create Invoice
-                                <td><?= htmlspecialchars((new \DateTime('now'))->format('Y-m-d H:i:s'), ENT_COMPAT, 'utf-8'); ?>
+                                <td><?= $this->printHtml((new \DateTime('now'))->format('Y-m-d H:i:s')); ?>
                         </table>
                     </div>
                 </div>

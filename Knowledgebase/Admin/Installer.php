@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'wiki_category` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'wiki_category` (
                             `wiki_category_id` int(11) NOT NULL AUTO_INCREMENT,
                             `wiki_category_name` varchar(255) NOT NULL,
                             `wiki_category_parent` int(11) DEFAULT NULL,
@@ -50,21 +50,21 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'wiki_category`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'wiki_category_ibfk_1` FOREIGN KEY (`wiki_category_parent`) REFERENCES `' . $dbPool->get('core')->prefix . 'wiki_category` (`wiki_category_id`)'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'wiki_category`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'wiki_category_ibfk_1` FOREIGN KEY (`wiki_category_parent`) REFERENCES `' . $dbPool->get()->prefix . 'wiki_category` (`wiki_category_id`)'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'wiki_badge` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'wiki_badge` (
                             `wiki_badge_id` int(11) NOT NULL AUTO_INCREMENT,
                             `wiki_badge_name` varchar(255) NOT NULL,
                             PRIMARY KEY (`wiki_badge_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'wiki_article` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'wiki_article` (
                             `wiki_article_id` int(11) NOT NULL AUTO_INCREMENT,
                             `wiki_article_status` int(11) NOT NULL,
                             `wiki_article_title` varchar(255) NOT NULL,
@@ -79,14 +79,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'wiki_article`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'wiki_article_ibfk_1` FOREIGN KEY (`wiki_article_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'wiki_article_ibfk_2` FOREIGN KEY (`wiki_article_category`) REFERENCES `' . $dbPool->get('core')->prefix . 'wiki_category` (`wiki_category_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'wiki_article`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'wiki_article_ibfk_1` FOREIGN KEY (`wiki_article_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'wiki_article_ibfk_2` FOREIGN KEY (`wiki_article_category`) REFERENCES `' . $dbPool->get()->prefix . 'wiki_category` (`wiki_category_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'wiki_article_badge` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'wiki_article_badge` (
                             `wiki_article_badge_id` int(11) NOT NULL AUTO_INCREMENT,
                             `wiki_article_badge_article` int(11) NOT NULL,
                             `wiki_article_badge_badge` int(11) DEFAULT NULL,
@@ -96,10 +96,10 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'wiki_article_badge`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'wiki_article_badge_ibfk_1` FOREIGN KEY (`wiki_article_badge_article`) REFERENCES `' . $dbPool->get('core')->prefix . 'wiki_article` (`wiki_article_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'wiki_article_badge_ibfk_2` FOREIGN KEY (`wiki_article_badge_badge`) REFERENCES `' . $dbPool->get('core')->prefix . 'wiki_badge` (`wiki_badge_id`)'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'wiki_article_badge`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'wiki_article_badge_ibfk_1` FOREIGN KEY (`wiki_article_badge_article`) REFERENCES `' . $dbPool->get()->prefix . 'wiki_article` (`wiki_article_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'wiki_article_badge_ibfk_2` FOREIGN KEY (`wiki_article_badge_badge`) REFERENCES `' . $dbPool->get()->prefix . 'wiki_badge` (`wiki_badge_id`)'
                 )->execute();
                 break;
         }

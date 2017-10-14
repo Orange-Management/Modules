@@ -50,7 +50,6 @@ class CalendarMapper extends DataMapperAbstract
         'calendar_name'        => ['name' => 'calendar_name', 'type' => 'string', 'internal' => 'name'],
         'calendar_password'    => ['name' => 'calendar_password', 'type' => 'string', 'internal' => 'password'],
         'calendar_description' => ['name' => 'calendar_description', 'type' => 'string', 'internal' => 'description'],
-        'calendar_created_by'  => ['name' => 'calendar_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'calendar_created_at'  => ['name' => 'calendar_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
@@ -111,25 +110,6 @@ class CalendarMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-            $query->prefix(self::$db->getPrefix())
-                  ->insert(
-                      'account_permission_account',
-                      'account_permission_from',
-                      'account_permission_for',
-                      'account_permission_id1',
-                      'account_permission_id2',
-                      'account_permission_r',
-                      'account_permission_w',
-                      'account_permission_m',
-                      'account_permission_d',
-                      'account_permission_p'
-                  )
-                  ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'calendar', 'calendar', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             return false;
         }

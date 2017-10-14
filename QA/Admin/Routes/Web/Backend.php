@@ -33,9 +33,9 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/qa/create.*$' => [
+    '^.*/backend/qa/question/create.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQACreate',
+            'dest' => '\Modules\QA\Controller:viewQAQuestionCreate',
             'verb' => RouteVerb::GET,
         ],
     ],

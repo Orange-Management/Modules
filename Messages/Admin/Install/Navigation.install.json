@@ -1,7 +1,7 @@
 [
     {
         "id": 1001201001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 1,
         "subtype": 1,
         "name": "Messages",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1001202001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 3,
                 "subtype": 1,
                 "name": "Inbox",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1001203001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 3,
                 "subtype": 1,
                 "name": "Outbox",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1001204001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 3,
                 "subtype": 1,
                 "name": "Trash",
@@ -60,7 +60,7 @@
             },
             {
                 "id": 1001205001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 3,
                 "subtype": 1,
                 "name": "Spam",
@@ -75,7 +75,7 @@
             },
             {
                 "id": 1001206001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 3,
                 "subtype": 1,
                 "name": "Draft",
@@ -90,7 +90,7 @@
             },
             {
                 "id": 1001207001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 3,
                 "subtype": 1,
                 "name": "Settings",

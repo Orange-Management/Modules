@@ -26,8 +26,8 @@
     "load": [
         {
             "pid": [
-                "722ef87be24d036db431dd65c0418e5502a6eb89",
-                "475124021da7877ef311983bb9eb769b1bd94f22"
+                "/backend/sales/billing",
+                "/backend/purchase/billing"
             ],
             "type": 4,
             "for": 0,
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Billing",

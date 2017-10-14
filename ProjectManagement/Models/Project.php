@@ -46,6 +46,12 @@ class Project
 
     private $earnings = null;
 
+    private $progress = 0;
+
+    private $progressType = ProgressType::MANUAL;
+
+    private $media = [];
+
     /**
      * Created at.
      *
@@ -85,6 +91,16 @@ class Project
         return $this->id;
     }
 
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
+    }
+
     public function addTask(Task $task)
     {
         if($task->getId() !== 0) {
@@ -103,6 +119,26 @@ class Project
         }
 
         return false;
+    }
+
+    public function getProgress() : int
+    {
+        return $this->progress;
+    }
+
+    public function setProgress(int $progress) /* : void */
+    {
+        $this->progress = $progress;
+    }
+
+    public function getProgressType() : int
+    {
+        return $this->progressType;
+    }
+
+    public function setProgressType(int $type) /* : void */
+    {
+        $this->progressType = $type;
     }
 
     public function getTask(int $id) : Task
@@ -235,6 +271,5 @@ class Project
     public function setCreatedBy(int $createdBy)
     {
         $this->createdBy = $createdBy;
-        $this->calendar->setCreatedBy($createdBy);
     }
 }

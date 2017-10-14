@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'job` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'job` (
                             `job_id` int(11) NOT NULL AUTO_INCREMENT,
                             `job_name` varchar(50) NOT NULL,
                             `job_status` int(11) NOT NULL,
@@ -53,13 +53,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'job`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'job_ibfk_1` FOREIGN KEY (`job_created_by`) REFERENCES `' . $dbPool->get('core')->prefix . 'account` (`account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'job`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'job_ibfk_1` FOREIGN KEY (`job_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'job_log` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'job_log` (
                             `job_log_id` int(11) NOT NULL AUTO_INCREMENT,
                             `job_log_status` int(3) NOT NULL,
                             `job_log_message` text NOT NULL,
@@ -70,9 +70,9 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'job_log`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'job_log_ibfk_1` FOREIGN KEY (`job_log_job`) REFERENCES `' . $dbPool->get('core')->prefix . 'job` (`job_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'job_log`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'job_log_ibfk_1` FOREIGN KEY (`job_log_job`) REFERENCES `' . $dbPool->get()->prefix . 'job` (`job_id`);'
                 )->execute();
 
                 break;

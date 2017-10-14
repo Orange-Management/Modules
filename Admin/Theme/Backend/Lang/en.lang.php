@@ -134,4 +134,7 @@ return ['Admin' => [
     'Status2'            => 'Inactive',
     'Status3'            => 'Timehout',
     'Status4'            => 'Banned',
+    'GroupStatus1'            => 'Active',
+    'GroupStatus2'            => 'Inactive',
+    'GroupStatus4'            => 'Hidden',
 ]];

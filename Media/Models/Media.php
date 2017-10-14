@@ -83,6 +83,14 @@ class Media
     protected $path = '';
 
     /**
+     * Is path absolute?
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    protected $isAbsolute = false;
+
+    /**
      * Is versioned.
      *
      * @var bool
@@ -97,23 +105,6 @@ class Media
      * @since 1.0.0
      */
     protected $description = '';
-
-    /**
-     * Permissions.
-     *
-     * @var array
-     * @since 1.0.0
-     */
-    protected $permissions = [
-        'r' => ['groups' => [],
-                'users'  => [],],
-        'w' => ['groups' => [],
-                'users'  => [],],
-        'p' => ['groups' => [],
-                'users'  => [],],
-        'd' => ['groups' => [],
-                'users'  => [],],
-    ];
 
     /**
      * Constructor.
@@ -133,6 +124,26 @@ class Media
     public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isAbsolute() : bool
+    {
+        return $this->isAbsolute;
+    }
+
+    /**
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setAbsolute(bool $absolute) /* void */
+    {
+        $this->isAbsolute = $absolute;
     }
 
     /**
@@ -261,7 +272,7 @@ class Media
      */
     public function setPath(string $path)
     {
-        $this->path = $path;
+        $this->path = str_replace('\\', '/', $path);
     }
 
     /**

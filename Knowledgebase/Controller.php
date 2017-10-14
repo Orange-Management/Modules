@@ -20,6 +20,8 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Asset\AssetType;
+use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\NullWikiCategory;
@@ -30,6 +32,7 @@ use Modules\Knowledgebase\Models\WikiStatusMapper;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiBadge;
+use Modules\Knowledgebase\Models\PermissionState;
 
 /**
  * Task class.
@@ -68,6 +71,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Knowledgebase';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1005900000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -84,6 +95,16 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
@@ -98,10 +119,19 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKnowledgebaseDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -119,10 +149,19 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKnowledgebaseCategoryList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -140,10 +179,12 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKnowledgebaseCategory(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -161,6 +202,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKnowledgebaseCategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -181,14 +223,25 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKnowledgebaseDoc(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
         $category = WikiDocMapper::get((int) $request->getData('id'));
+        $accountId = $request->getHeader()->getAccount();
+
+        if (!$this->app->accountManager->get($accountId)->hasPermission(
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC, $category->getId())
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+        
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
         $view->setData('category', $category);
 
         return $view;
@@ -202,10 +255,20 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewKnowledgebaseDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -216,6 +279,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC)
+        ) {
+            $response->set('wiki_doc_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateWikiDocCreate($request))) {
             $response->set('wiki_doc_create', new FormValidation($val));
 

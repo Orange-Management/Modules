@@ -51,9 +51,9 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td><label for="iOname"><?= $this->getHtml('OrganizationName'); ?></label>
-                                        <tr><td><input id="iOname" name="oname" type="text" value="<?= htmlspecialchars($_oname, ENT_COMPAT, 'utf-8'); ?>" placeholder="&#xf12e; Money Bin" required>
+                                        <tr><td><input id="iOname" name="oname" type="text" value="<?= $this->printHtml($_oname); ?>" placeholder="&#xf12e; Money Bin" required>
                                         <tr><td><label for="iPassword"><?= $this->getHtml('PasswordRegex'); ?></label>
-                                        <tr><td><input id="iPassword" name="passpattern" type="text" value="<?= htmlspecialchars($_password, ENT_COMPAT, 'utf-8'); ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
+                                        <tr><td><input id="iPassword" name="passpattern" type="text" value="<?= $this->printHtml($_password); ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
                                         <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                                 </table>
                             </form>
@@ -75,25 +75,25 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                                     <tr><td colspan="2"><label for="iCountries"><?= $this->getHtml('Country'); ?></label>
                                     <tr><td colspan="2"><select id="iCountries" name="country">
                                                 <?php foreach($countries as $code => $country) : ?>
-                                                <option value="<?= htmlspecialchars($code, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars(strtolower($code) == strtolower($_country) ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($country, ENT_COMPAT, 'utf-8'); ?>
+                                                <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_country) ? ' selected' : ''); ?>><?= $this->printHtml($country); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTimezones"><?= $this->getHtml('Timezone'); ?></label>
                                     <tr><td colspan="2"><select id="iTimezones" name="timezone">
                                                 <?php foreach($timezones as $code => $timezone) : ?>
-                                                <option value="<?= htmlspecialchars($code, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars($timezone == $_timezone ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($timezone, ENT_COMPAT, 'utf-8'); ?>
+                                                <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml($timezone == $_timezone ? ' selected' : ''); ?>><?= $this->printHtml($timezone); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTimeformats"><?= $this->getHtml('Timeformat'); ?></label>
                                     <tr><td colspan="2"><select id="iTimeformats" name="timeformat">
                                                 <?php foreach($timeformats as $code => $timeformat) : ?>
-                                                <option value="<?= htmlspecialchars($code, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars(strtolower($timeformat) == strtolower($_timeformat) ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($timeformat, ENT_COMPAT, 'utf-8'); ?>
+                                                <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($timeformat) == strtolower($_timeformat) ? ' selected' : ''); ?>><?= $this->printHtml($timeformat); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iLanguages"><?= $this->getHtml('Language'); ?></label>
                                     <tr><td colspan="2"><select id="iLanguages" name="language">
                                                 <?php foreach($languages as $code => $language) : ?>
-                                                <option value="<?= htmlspecialchars($code, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars(strtolower($code) == strtolower($_language) ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($language, ENT_COMPAT, 'utf-8'); ?>
+                                                <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_language) ? ' selected' : ''); ?>><?= $this->printHtml($language); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTemperature"><?= $this->getHtml('Temperature'); ?></label>
@@ -115,14 +115,14 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                                     <tr><td colspan="2"><label for="iCurrencies"><?= $this->getHtml('Currency'); ?></label>
                                 <tr><td colspan="2"><select form="fLocalization" id="iCurrencies" name="currency">
                                             <?php foreach($currencies as $code => $currency) : ?>
-                                            <option value="<?= htmlspecialchars($code, ENT_COMPAT, 'utf-8'); ?>"<?= htmlspecialchars(strtolower($code) == strtolower($_currency) ? ' selected' : '', ENT_COMPAT, 'utf-8'); ?>><?= htmlspecialchars($currency, ENT_COMPAT, 'utf-8'); ?>
+                                            <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_currency) ? ' selected' : ''); ?>><?= $this->printHtml($currency); ?>
                                                 <?php endforeach; ?>
                                         </select>
                                 <tr><td colspan="2"><h2><?= $this->getHtml('Numberformat'); ?></h2>
                                 <tr><td><label for="iDecimalPoint"><?= $this->getHtml('DecimalPoint'); ?></label>
                                     <td><label for="iThousandSep"><?= $this->getHtml('ThousandsSeparator'); ?></label>
-                                <tr><td><input form="fLocalization" id="iDecimalPoint" name="decimalpoint" type="text" value="<?= htmlspecialchars($_decimal_point, ENT_COMPAT, 'utf-8'); ?>" placeholder="." required>
-                                    <td><input form="fLocalization" id="iThousandSep" name="thousandsep" type="text" value="<?= htmlspecialchars($_thousands_sep, ENT_COMPAT, 'utf-8'); ?>" placeholder="," required>
+                                <tr><td><input form="fLocalization" id="iDecimalPoint" name="decimalpoint" type="text" value="<?= $this->printHtml($_decimal_point); ?>" placeholder="." required>
+                                    <td><input form="fLocalization" id="iThousandSep" name="thousandsep" type="text" value="<?= $this->printHtml($_thousands_sep); ?>" placeholder="," required>
                             </table>
                         </form>
                     </div>

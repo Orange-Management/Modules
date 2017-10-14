@@ -25,26 +25,26 @@ $id = $this->request->getData('id') ?? 1;
 <div class="row">
     <div class="col-xs-12 col-md-4">
         <section class="box wf-100">
-            <header><h1><?= htmlspecialchars($modules[$id]['name']['external'] , ENT_COMPAT, 'utf-8'); ?></h1></header>
+            <header><h1><?= $this->printHtml($modules[$id]['name']['external'] ); ?></h1></header>
 
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
                     <tr>
                         <td><?= $this->getHtml('Name'); ?>
-                        <td><?= htmlspecialchars($modules[$id]['name']['external'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($modules[$id]['name']['external']); ?>
                     <tr>
                         <td><?= $this->getHtml('Version'); ?>
-                        <td><?= htmlspecialchars($modules[$id]['version'] , ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($modules[$id]['version'] ); ?>
                     <tr>
                         <td><?= $this->getHtml('CreatedBy'); ?>
-                        <td><?= htmlspecialchars($modules[$id]['creator']['name'] , ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($modules[$id]['creator']['name'] ); ?>
                     <tr>
                         <td><?= $this->getHtml('Website'); ?>
-                        <td><?= htmlspecialchars($modules[$id]['creator']['website'] , ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($modules[$id]['creator']['website'] ); ?>
                     <tr>
                         <td><?= $this->getHtml('Description'); ?>
-                        <td><?= htmlspecialchars($modules[$id]['description'] , ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($modules[$id]['description'] ); ?>
                     <tr>
                         <td colspan="2">
                             <?php if (in_array($id, $active)) : ?>

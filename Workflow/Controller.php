@@ -57,6 +57,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Workflow';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1005500000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -81,6 +89,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowTemplates(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -99,6 +108,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowTemplate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -117,6 +127,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -135,6 +146,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -153,6 +165,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewWorkflowDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

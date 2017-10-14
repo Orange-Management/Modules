@@ -1,7 +1,7 @@
 [
     {
         "id": 1001901001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 0,
         "name": "Marketing",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1001902001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Promotions",
@@ -29,7 +29,7 @@
                 "children": [
                     {
                         "id": 1001902101,
-                        "pid": "5c1412dc489ced2edd20a6883bf5a394011f5235",
+                        "pid": "/backend/marketing/promotion",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -44,7 +44,7 @@
                     },
                     {
                         "id": 1001902201,
-                        "pid": "5c1412dc489ced2edd20a6883bf5a394011f5235",
+                        "pid": "/backend/marketing/promotion",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
@@ -61,7 +61,7 @@
             },
             {
                 "id": 1001903001,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend",
                 "type": 2,
                 "subtype": 1,
                 "name": "Events",
@@ -75,7 +75,7 @@
                 "children": [
                     {
                         "id": 1001903101,
-                        "pid": "083a414f7b324d073baab24daeab1a7d99d2bb8f",
+                        "pid": "/backend/marketing/event",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
@@ -90,7 +90,7 @@
                     },
                     {
                         "id": 1001903201,
-                        "pid": "083a414f7b324d073baab24daeab1a7d99d2bb8f",
+                        "pid": "/backend/marketing/event",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",

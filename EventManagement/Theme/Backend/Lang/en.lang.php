@@ -36,4 +36,10 @@ return ['EventManagement' => [
     'Title'           => 'Title',
     'User'            => 'User',
     'UserGroup'       => 'User/Group',
+    'Manual'          => 'Manual',
+    'Linear'          => 'Linear',
+    'Exponential'          => 'Exponential',
+    'Progress'          => 'Progress',
+    'Log'          => 'Log',
+    'Tasks'          => 'Tasks',
 ]];

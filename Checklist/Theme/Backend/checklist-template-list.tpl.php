@@ -42,10 +42,10 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getUnit(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()); ?></a>
                         <?php endforeach; ?>
                         <?php if($c === 0) : ?>
                 <tr>

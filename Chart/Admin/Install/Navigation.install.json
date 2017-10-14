@@ -1,7 +1,7 @@
 [
     {
         "id": 1004101001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Charts",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1004102001,
-                "pid": "4a75c2d146b2f5695614b8a2038d053061527ba7",
+                "pid": "/backend/chart",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1004102101,
-                "pid": "4a75c2d146b2f5695614b8a2038d053061527ba7",
+                "pid": "/backend/chart",
                 "type": 3,
                 "subtype": 5,
                 "name": "Create",

@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
+    <div class="box col-xs-12">
         <?= $this->getData('editor')->getData('text')->render('editor-text'); ?>
     </div>
 </div>

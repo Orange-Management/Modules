@@ -39,7 +39,7 @@ class Uninstall extends UninstallAbstract
 
         $query = new Builder($dbPool->get());
 
-        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+        $query->prefix($dbPool->get()->getPrefix())->drop(
             'reporter_template_media',
             'reporter_template',
             'reporter_report'

@@ -1,7 +1,7 @@
 [
     {
         "id": 1005001001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "AccountsPayable",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1005001101,
-                "pid": "2526549ccf041e6cd685f5d41006092ba5aa791c",
+                "pid": "/backend/accounting/payable",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -31,7 +31,7 @@
             },
             {
                 "id": 1005001201,
-                "pid": "2526549ccf041e6cd685f5d41006092ba5aa791c",
+                "pid": "/backend/accounting/payable",
                 "type": 3,
                 "subtype": 1,
                 "name": "Entries",
@@ -47,7 +47,7 @@
             },
             {
                 "id": 1005001401,
-                "pid": "2526549ccf041e6cd685f5d41006092ba5aa791c",
+                "pid": "/backend/accounting/payable",
                 "type": 3,
                 "subtype": 1,
                 "name": "Analyze",
@@ -63,7 +63,7 @@
             },
             {
                 "id": 1005001501,
-                "pid": "2526549ccf041e6cd685f5d41006092ba5aa791c",
+                "pid": "/backend/accounting/payable",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",

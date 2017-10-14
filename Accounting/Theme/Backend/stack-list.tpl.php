@@ -41,8 +41,8 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                     <td>
                     <td>
                     <td>

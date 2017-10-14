@@ -1,7 +1,6 @@
 /**
  * Navigation controller.
  *
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -45,7 +44,7 @@
      */
     jsOMS.Modules.Navigation.prototype.bind = function (id)
     {
-        let e      = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
+        const e      = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
             length = e.length;
 
         for (let i = 0; i < length; i++) {
@@ -70,17 +69,18 @@
             return;
         }
 
-        let extend = e.querySelectorAll('li label'),
+        const extend = e.querySelectorAll('li label'),
             self   = this;
 
         this.navigation[e.id] = new jsOMS.Modules.Navigation.Models.Navigation(this.rawNavData[e.id]);
 
         // On load
-        let open = this.navigation[e.id].getOpen();
+        const open = this.navigation[e.id].getOpen();
+        let ele = null;
 
         for (let key in open) {
-            if (open.hasOwnProperty(key)) {
-                document.getElementById(key).checked = open[key];
+            if (open.hasOwnProperty(key) && (ele = document.getElementById(key)) !== null) {
+                ele.checked = open[key];
             }
         }
 

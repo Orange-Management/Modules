@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Tasks\Models\TaskMapper;
+use Modules\Media\Models\MediaMapper;
 
 /**
  * Mapper class.
@@ -49,6 +50,8 @@ class ProjectMapper extends DataMapperAbstract
         'projectmanagement_project_earnings'    => ['name' => 'projectmanagement_project_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
         'projectmanagement_project_start'       => ['name' => 'projectmanagement_project_start', 'type' => 'DateTime', 'internal' => 'start'],
         'projectmanagement_project_end'         => ['name' => 'projectmanagement_project_end', 'type' => 'DateTime', 'internal' => 'end'],
+        'projectmanagement_project_progress'         => ['name' => 'projectmanagement_project_progress', 'type' => 'int', 'internal' => 'progress'],
+        'projectmanagement_project_progress_type'         => ['name' => 'projectmanagement_project_progress_type', 'type' => 'int', 'internal' => 'progressType'],
         'projectmanagement_project_created_by' => ['name' => 'projectmanagement_project_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'projectmanagement_project_created_at'  => ['name' => 'projectmanagement_project_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
@@ -65,6 +68,12 @@ class ProjectMapper extends DataMapperAbstract
             'table'          => 'projectmanagement_task_relation',
             'dst'            => 'projectmanagement_task_relation_dst',
             'src'            => 'projectmanagement_task_relation_src',
+        ],
+        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => MediaMapper::class,
+            'table'          => 'projectmanagement_project_media',
+            'dst'            => 'projectmanagement_project_media_src',
+            'src'            => 'projectmanagement_project_media_dst',
         ],
     ];
 
@@ -123,25 +132,6 @@ class ProjectMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-            $query->prefix(self::$db->getPrefix())
-                ->insert(
-                    'account_permission_account',
-                    'account_permission_from',
-                    'account_permission_for',
-                    'account_permission_id1',
-                    'account_permission_id2',
-                    'account_permission_r',
-                    'account_permission_w',
-                    'account_permission_m',
-                    'account_permission_d',
-                    'account_permission_p'
-                )
-                ->into('account_permission')
-                ->values($obj->getCreatedBy(), 'calendar_project', 'calendar_project', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

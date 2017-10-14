@@ -1,7 +1,7 @@
 [
     {
         "id": 1005901001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Wiki",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1005902001,
-                "pid": "0e47995e728ecc121561ee553b7be752ffebbaa7",
+                "pid": "/backend/wiki",
                 "type": 3,
                 "subtype": 1,
                 "name": "Wiki",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1005903001,
-                "pid": "0e47995e728ecc121561ee553b7be752ffebbaa7",
+                "pid": "/backend/wiki",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1005904001,
-                "pid": "0e47995e728ecc121561ee553b7be752ffebbaa7",
+                "pid": "/backend/wiki",
                 "type": 3,
                 "subtype": 1,
                 "name": "Categories",

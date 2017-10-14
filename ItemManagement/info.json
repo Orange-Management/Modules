@@ -25,9 +25,9 @@
     "load": [
         {
             "pid": [
-                "e3d6f58661c6f42309e273740944547c93ff76a0",
-                "e9b2adda603aaee5f852c05fabe394bd56cf0426",
-                "69737ca3a3dfa6a55a1a0402474ac634c371ea9f"
+                "/backend/sales/item",
+                "/backend/purchase/item",
+                "/backend/warehouse/item"
             ],
             "type": 4,
             "for": 0,
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "ItemManagement",

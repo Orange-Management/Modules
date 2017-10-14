@@ -1,7 +1,7 @@
 [
     {
         "id": 1000701001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "News",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1000702001,
-                "pid": "d7470914e19522acc310a55e5cb13a6f0f7ca000",
+                "pid": "/backend/news",
                 "type": 3,
                 "subtype": 1,
                 "name": "News",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1000703001,
-                "pid": "d7470914e19522acc310a55e5cb13a6f0f7ca000",
+                "pid": "/backend/news",
                 "type": 3,
                 "subtype": 1,
                 "name": "Archive",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1000704001,
-                "pid": "d7470914e19522acc310a55e5cb13a6f0f7ca000",
+                "pid": "/backend/news",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
@@ -60,7 +60,7 @@
             },
             {
                 "id": 1000705001,
-                "pid": "d7470914e19522acc310a55e5cb13a6f0f7ca000",
+                "pid": "/backend/news",
                 "type": 3,
                 "subtype": 1,
                 "name": "Draft",

@@ -59,6 +59,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Database';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1005600000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -83,12 +91,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDatabaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005601001, $request, $response));
 
         return $view;
     }
@@ -101,12 +110,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDatabaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-generator');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005601001, $request, $response));
 
         return $view;
     }
@@ -119,12 +129,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDatabaseResult(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-query-result');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005601001, $request, $response));
 
         return $view;
     }

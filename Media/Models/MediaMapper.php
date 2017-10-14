@@ -35,8 +35,8 @@ class MediaMapper extends DataMapperAbstract
         'media_description'        => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description'],
         'media_versioned'   => ['name' => 'media_versioned', 'type' => 'bool', 'internal' => 'versioned'],
         'media_file'        => ['name' => 'media_file', 'type' => 'string', 'internal' => 'path'],
+        'media_absolute'        => ['name' => 'media_absolute', 'type' => 'bool', 'internal' => 'isAbsolute'],
         'media_extension'   => ['name' => 'media_extension', 'type' => 'string', 'internal' => 'extension'],
-        'media_collection'  => ['name' => 'media_collection', 'type' => 'bool', 'internal' => 'collection'],
         'media_description' => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description'],
         'media_size'        => ['name' => 'media_size', 'type' => 'int', 'internal' => 'size'],
         'media_created_by'  => ['name' => 'media_created_by', 'type' => 'int', 'internal' => 'createdBy'],
@@ -92,25 +92,6 @@ class MediaMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-            $query->prefix(self::$db->getPrefix())
-                ->insert(
-                    'account_permission_account',
-                    'account_permission_from',
-                    'account_permission_for',
-                    'account_permission_id1',
-                    'account_permission_id2',
-                    'account_permission_r',
-                    'account_permission_w',
-                    'account_permission_m',
-                    'account_permission_d',
-                    'account_permission_p'
-                )
-                ->into('account_permission')
-                ->values($obj->getCreatedBy(), 'media', 'media', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

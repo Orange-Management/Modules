@@ -24,7 +24,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * ClientManagement class.
@@ -63,6 +62,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'ClientManagement';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1003100000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -87,6 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewClientManagementClientList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -108,6 +116,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewClientManagementClientCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -126,6 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewClientManagementClientProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

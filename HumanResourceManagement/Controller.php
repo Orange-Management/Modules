@@ -19,7 +19,9 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
+use Modules\Organization\Models\DepartmentMapper;
 
 /**
  * Human Resources controller class.
@@ -58,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'HumanResourceManagement';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1002400000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -82,8 +92,9 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
-    public function viewHrList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHrStaffList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/HumanResourceManagement/Theme/Backend/staff-list');
@@ -102,8 +113,9 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
-    public function viewHrCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHrStaffCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/HumanResourceManagement/Theme/Backend/staff-create');
@@ -120,12 +132,38 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewHrStaffProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/HumanResourceManagement/Theme/Backend/staff-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002402001, $request, $response));
+
+        $employee = EmployeeMapper::get((int) $request->getData('id'));
+
+        $view->addData('employee', $employee);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewHrDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/HumanResourceManagement/Theme/Backend/department-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002403001, $request, $response));
+
+        $view->setData('departments', DepartmentMapper::getAll());
 
         return $view;
     }

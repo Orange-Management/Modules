@@ -47,10 +47,12 @@ class TaskMapper extends DataMapperAbstract
         'task_desc'    => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
         'task_type'    => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
         'task_status'  => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
+        'task_closable'  => ['name' => 'task_closable', 'type' => 'bool', 'internal' => 'isClosable'],
         'task_priority'  => ['name' => 'task_priority', 'type' => 'int', 'internal' => 'priority'],
         'task_due'     => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
         'task_done'    => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
         'task_schedule'    => ['name' => 'task_schedule', 'type' => 'int', 'internal' => 'schedule'],
+        'task_start' => ['name' => 'task_start', 'type' => 'DateTime', 'internal' => 'start'],
         'task_created_by' => ['name' => 'task_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
@@ -71,8 +73,8 @@ class TaskMapper extends DataMapperAbstract
         'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
             'mapper'         => MediaMapper::class,
             'table'          => 'task_media',
-            'dst'            => 'task_media_dst',
-            'src'            => 'task_media_src',
+            'dst'            => 'task_media_src',
+            'src'            => 'task_media_dst',
         ],
     ];
 
@@ -138,26 +140,6 @@ class TaskMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-
-            $query->prefix(self::$db->getPrefix())
-                  ->insert(
-                      'account_permission_account',
-                      'account_permission_from',
-                      'account_permission_for',
-                      'account_permission_id1',
-                      'account_permission_id2',
-                      'account_permission_r',
-                      'account_permission_w',
-                      'account_permission_m',
-                      'account_permission_d',
-                      'account_permission_p'
-                  )
-                  ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'task', 'task', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

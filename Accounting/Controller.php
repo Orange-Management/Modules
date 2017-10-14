@@ -22,7 +22,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Accounting class.
@@ -61,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Accounting';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1002600000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -86,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -104,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -122,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -140,6 +150,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -158,6 +169,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -176,6 +188,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -194,6 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -212,6 +226,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -230,6 +245,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -248,6 +264,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

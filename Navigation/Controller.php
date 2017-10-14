@@ -60,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Navigation';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1000500000;
+
+    /**
      * Providing.
      *
      * @var string[]
@@ -104,7 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $navView = new NavigationView($this->app, $request, $response);
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
+        $navView->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $navView->setParent($pageId);
 
         return $navView;
@@ -115,11 +123,11 @@ class Controller extends ModuleAbstract implements WebInterface
         $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->dbPool);
         $nav = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
         $nav->setNav($navObj->getNav());
-        $nav->setLanguage($request->getL11n()->getLanguage());
+        $nav->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $unread = [];
 
         foreach($this->receiving as $receiving) {
-            $unread[$receiving] = $this->app->moduleManager->get($receiving)->openNav($request->getAccount());
+            $unread[$receiving] = $this->app->moduleManager->get($receiving)->openNav($request->getHeader()->getAccount());
         }
 
         $nav->setData('unread', $unread);
@@ -136,11 +144,11 @@ class Controller extends ModuleAbstract implements WebInterface
                 continue;
             }
 
-            $path =  __DIR__ . '/../..' . $path . '.' . $response->getL11n()->getLanguage() . '.lang.php';
+            $path =  __DIR__ . '/../..' . $path . '.' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php';
 
             /** @noinspection PhpIncludeInspection */
             $lang = include $path;
-            $this->app->l11nManager->loadLanguage($response->getL11n()->getLanguage(), 'Navigation', $lang);
+            $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), 'Navigation', $lang);
         }
     }
 
@@ -159,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $navView = new NavigationView($this->app, $request, $response);
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/splash');
         $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getL11n()->getLanguage());
+        $navView->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $navView->setParent($pageId);
 
         return $navView;

@@ -61,6 +61,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'QA';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1006000000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -77,6 +85,16 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');
@@ -91,6 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewQADashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -112,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewQABadgeList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -133,6 +153,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewQABadgeEdit(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -145,11 +166,41 @@ class Controller extends ModuleAbstract implements WebInterface
 
         return $view;
     }
-
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewQADoc(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/QA/Theme/Backend/qa-question');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
+
+        $question = QAQuestionMapper::get((int) $request->getData('id'));
+        $view->addData('question', $question);
+
+        return $view;
+    }
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/QA/Theme/Backend/qa-question-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006001001, $request, $response));
 
         $question = QAQuestionMapper::get((int) $request->getData('id'));

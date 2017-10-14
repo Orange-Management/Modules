@@ -23,7 +23,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * Calendar controller class.
@@ -62,6 +61,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Comments';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1006100000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -86,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setUpCommentEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -101,6 +109,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -119,6 +128,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCommentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

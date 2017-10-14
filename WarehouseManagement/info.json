@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "2bea808a85e14f973f3076105a97cd46b4551819"
+                "/backend/warehouse"
             ],
             "type": 4,
             "for": 0,
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "WarehouseManagement",

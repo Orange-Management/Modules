@@ -17,6 +17,7 @@ namespace Modules\Draw;
 use Model\Message\FormValidation;
 use Modules\Draw\Models\DrawImage;
 use Modules\Draw\Models\DrawImageMapper;
+use Modules\Draw\Models\PermissionState;
 use Modules\Media\Models\UploadStatus;
 use phpOMS\Asset\AssetType;
 use phpOMS\Message\RequestAbstract;
@@ -28,6 +29,8 @@ use Modules\Media\Controller as MediaController;
 use phpOMS\System\File\Local\File;
 use phpOMS\Utils\ImageUtils;
 use phpOMS\Views\View;
+use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Calendar controller class.
@@ -66,6 +69,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Draw';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1005200000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -90,6 +101,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -108,10 +120,20 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
@@ -127,14 +149,28 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        $draw      = DrawImageMapper::get($request->getData('id'));
+        $accountId = $request->getHeader()->getAccount();
+
+        if ($draw->getCreatedBy()->getId() !== $accountId
+            && !$this->app->accountManager->get($accountId)->hasPermission(
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW, $draw->getId())
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
-        $view->addData('image', DrawImageMapper::get($request->getData('id')));
+        $view->addData('image', $draw);
 
         return $view;
     }
@@ -147,10 +183,20 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
@@ -182,6 +228,14 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DRAW)
+        ) {
+            $response->set('draw_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateDrawCreate($request))) {
             $response->set('draw_create', new FormValidation($val));
 
@@ -214,7 +268,7 @@ class Controller extends ModuleAbstract implements WebInterface
             'status' => UploadStatus::OK,
         ];
 
-        $media = MediaController::createDbEntry($status, $request->getAccount());
+        $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
         $draw = DrawImage::fromMedia($media);
 
         DrawImageMapper::create($draw);

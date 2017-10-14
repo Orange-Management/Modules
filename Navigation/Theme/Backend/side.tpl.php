@@ -17,13 +17,13 @@
 if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
     <ul id="nav-side" class="nav" role="navigation">
         <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::CATEGORY] as $key => $parent) : ?>
-        <li><input id="nav-<?= htmlspecialchars($parent['nav_name'], ENT_COMPAT, 'utf-8'); ?>" type="checkbox">
+        <li><input id="nav-<?= $this->printHtml($parent['nav_name']); ?>" type="checkbox">
             <ul>
                 <li>
                     <?php if (isset($parent['nav_icon'])) : ?>
-                        <span class="centerText" style="width: 20px; display: inline-block;"><i class="<?= htmlspecialchars($parent['nav_icon'], ENT_COMPAT, 'utf-8'); ?>"></i></span>
+                        <span class="centerText" style="width: 20px; display: inline-block;"><i class="<?= $this->printHtml($parent['nav_icon']); ?>"></i></span>
                     <?php endif; ?>
-                    <?= $this->getHtml($parent['nav_name']) ?><label for="nav-<?= htmlspecialchars($parent['nav_name'], ENT_COMPAT, 'utf-8'); ?>"><i class="fa fa-chevron-down min"></i>
+                    <?= $this->getHtml($parent['nav_name']) ?><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>"><i class="fa fa-chevron-down min"></i>
                     <i class="fa fa-chevron-up max"></i></label>
                     <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
                     if ($link['nav_parent'] === $parent['nav_id']) : ?>

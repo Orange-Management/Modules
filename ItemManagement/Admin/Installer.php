@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_item` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_item` (
                             `itemmgmt_item_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_item_no` varchar(30) DEFAULT NULL,
                             `itemmgmt_item_articlegroup` int(11) DEFAULT NULL,
@@ -55,8 +55,8 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 // all types here segment, sales group etc since it's easier to create l11n references?!
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_segmentation` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_segmentation` (
                             `itemmgmt_segmentation_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_segmentation_type` varchar(30) DEFAULT NULL,
                             `itemmgmt_segmentation_no` varchar(30) DEFAULT NULL,
@@ -64,8 +64,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_segmentation_l11n` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_segmentation_l11n` (
                             `itemmgmt_segmentation_l11n_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_segmentation_no` varchar(30) DEFAULT NULL,
                             `itemmgmt_segmentation_name` varchar(30) DEFAULT NULL,
@@ -74,8 +74,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_item_media` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_item_media` (
                             `itemmgmt_item_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_item_media_src` int(11) NOT NULL,
                             `itemmgmt_item_media_dst` int(11) NOT NULL,
@@ -85,14 +85,14 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'itemmgmt_item_media`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'itemmgmt_item_media_ibfk_1` FOREIGN KEY (`itemmgmt_item_media_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'itemmgmt_item_media` (`itemmgmt_item_media_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'itemmgmt_item_media_ibfk_2` FOREIGN KEY (`itemmgmt_item_media_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'itemmgmt_item_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'itemmgmt_item_media_ibfk_1` FOREIGN KEY (`itemmgmt_item_media_src`) REFERENCES `' . $dbPool->get()->prefix . 'itemmgmt_item_media` (`itemmgmt_item_media_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'itemmgmt_item_media_ibfk_2` FOREIGN KEY (`itemmgmt_item_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_item_l11n` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_item_l11n` (
                             `itemmgmt_item_l11n_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_item_l11n_language` varchar(30) DEFAULT NULL,
                             `itemmgmt_item_l11n_name1` varchar(30) DEFAULT NULL,
@@ -104,8 +104,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_partslist` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_partslist` (
                             `itemmgmt_partslist_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_partslist_item` int(11) DEFAULT NULL,
                             `itemmgmt_partslist_ref` int(11) DEFAULT NULL,
@@ -115,8 +115,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 			
-		$dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_sales_price` (
+		$dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_sales_price` (
                             `itemmgmt_sales_price_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_sales_price_customer` int(11) DEFAULT NULL,
 			    `itemmgmt_sales_price_group` int(11) DEFAULT NULL,
@@ -130,8 +130,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_purchase` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_purchase` (
                             `itemmgmt_purchase_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_purchase_item` int(11) DEFAULT NULL,
                             `itemmgmt_purchase_supplier` int(11) DEFAULT NULL,
@@ -142,8 +142,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_purchase_price` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_purchase_price` (
                             `itemmgmt_purchase_price_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_purchase_price_supplier` int(11) DEFAULT NULL,
                             `itemmgmt_purchase_price_amount` varchar(50) DEFAULT NULL,
@@ -157,8 +157,8 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-				$dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'itemmgmt_disposal` (
+				$dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_disposal` (
                             `itemmgmt_disposal_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_disposal_item` int(11) DEFAULT NULL,
                             `itemmgmt_disposal_type` int(11) DEFAULT NULL,

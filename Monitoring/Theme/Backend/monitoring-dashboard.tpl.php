@@ -23,13 +23,13 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                        <tr><td><?= $this->getHtml('OS'); ?><td><?= htmlspecialchars(php_uname('s'), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td><?= $this->getHtml('Version'); ?><td><?= htmlspecialchars(php_uname('v'), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td><?= $this->getHtml('Release'); ?><td><?= htmlspecialchars(php_uname('r'), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td><?= $this->getHtml('RAMUsage'); ?><td><?= htmlspecialchars(memory_get_usage(true)/(1024*1024), ENT_COMPAT, 'utf-8'); ?> MB
-                        <tr><td><?= $this->getHtml('MemoryLimit'); ?><td><?= htmlspecialchars(ini_get('memory_limit'), ENT_COMPAT, 'utf-8'); ?>
-                        <tr><td><?= $this->getHtml('SystemRAM'); ?><td><?= htmlspecialchars(\phpOMS\System\SystemUtils::getRAM()/(1024), ENT_COMPAT, 'utf-8'); ?> MB
-                        <tr><td><?= $this->getHtml('CPUUsage'); ?><td><?= htmlspecialchars(\phpOMS\System\SystemUtils::getCpuUsage(), ENT_COMPAT, 'utf-8'); ?>%
+                        <tr><td><?= $this->getHtml('OS'); ?><td><?= $this->printHtml(php_uname('s')); ?>
+                        <tr><td><?= $this->getHtml('Version'); ?><td><?= $this->printHtml(php_uname('v')); ?>
+                        <tr><td><?= $this->getHtml('Release'); ?><td><?= $this->printHtml(php_uname('r')); ?>
+                        <tr><td><?= $this->getHtml('RAMUsage'); ?><td><?= $this->printHtml(memory_get_usage(true)/(1024*1024)); ?> MB
+                        <tr><td><?= $this->getHtml('MemoryLimit'); ?><td><?= $this->printHtml(ini_get('memory_limit')); ?>
+                        <tr><td><?= $this->getHtml('SystemRAM'); ?><td><?= $this->printHtml(\phpOMS\System\SystemUtils::getRAM()/(1024)); ?> MB
+                        <tr><td><?= $this->getHtml('CPUUsage'); ?><td><?= $this->printHtml(\phpOMS\System\SystemUtils::getCpuUsage()); ?>%
                 </table>
             </div>
         </section>
@@ -41,15 +41,15 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                    <tr><td><?= $this->getHtml('Emergencies'); ?><td><?= htmlspecialchars($logs['emergency'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Criticals'); ?><td><?= htmlspecialchars($logs['critical'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Errors'); ?><td><?= htmlspecialchars($logs['error'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Warnings'); ?><td><?= htmlspecialchars($logs['warning'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Alerts'); ?><td><?= htmlspecialchars($logs['alert'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Notices'); ?><td><?= htmlspecialchars($logs['notice'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Info'); ?><td><?= htmlspecialchars($logs['info'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Debug'); ?><td><?= htmlspecialchars($logs['debug'] ?? 0, ENT_COMPAT, 'utf-8'); ?>
-                    <tr><td><?= $this->getHtml('Total'); ?><td><?= htmlspecialchars(array_sum($logs), ENT_COMPAT, 'utf-8'); ?>
+                    <tr><td><?= $this->getHtml('Emergencies'); ?><td><?= $this->printHtml($logs['emergency'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Criticals'); ?><td><?= $this->printHtml($logs['critical'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Errors'); ?><td><?= $this->printHtml($logs['error'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Warnings'); ?><td><?= $this->printHtml($logs['warning'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Alerts'); ?><td><?= $this->printHtml($logs['alert'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Notices'); ?><td><?= $this->printHtml($logs['notice'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Info'); ?><td><?= $this->printHtml($logs['info'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Debug'); ?><td><?= $this->printHtml($logs['debug'] ?? 0); ?>
+                    <tr><td><?= $this->getHtml('Total'); ?><td><?= $this->printHtml(array_sum($logs)); ?>
                 </table>
             </div>
         </section>
@@ -62,7 +62,7 @@ echo $this->getData('nav')->render(); ?>
                 <table class="list wf-100">
                     <tbody>
                     <?php foreach($penetrators as $ip => $count) : ?>
-                    <tr><td><?= htmlspecialchars($ip, ENT_COMPAT, 'utf-8'); ?><td><?= htmlspecialchars($count, ENT_COMPAT, 'utf-8'); ?>
+                    <tr><td><?= $this->printHtml($ip); ?><td><?= $this->printHtml($count); ?>
                     <?php endforeach; ?>
                 </table>
             </div>

@@ -1,7 +1,7 @@
 [
     {
         "id": 1000706001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Monitoring",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1000706101,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend/admin/monitoring",
                 "type": 3,
                 "subtype": 1,
                 "name": "Dashboard",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1000706102,
-                "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+                "pid": "/backend/admin/monitoring",
                 "type": 3,
                 "subtype": 1,
                 "name": "Logs",

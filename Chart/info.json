@@ -17,7 +17,8 @@
     "description": "The administration module.",
     "directory": "Chart",
     "dependencies": {
-        "Admin" : "1.0.0"
+        "Admin" : "1.0.0",
+        "Tools" : "1.0.0"
     },
     "providing": {
         "Navigation": "*"
@@ -25,7 +26,7 @@
     "load": [
         {
             "pid": [
-                "4a75c2d146b2f5695614b8a2038d053061527ba7"
+                "/backend/chart"
             ],
             "type": 4,
             "for": "Content",
@@ -34,7 +35,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Chart",

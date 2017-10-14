@@ -16,6 +16,8 @@
  */
 
 $group = $this->getData('group');
+$permissions = $this->getData('permissions');
+$accounts = $this->getData('accounts');
 
 echo $this->getData('nav')->render(); ?>
 
@@ -28,12 +30,18 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
-                        <tr><td><input id="iGid" name="gid" type="text" value="<?= htmlspecialchars($group->getId(), ENT_COMPAT, 'utf-8'); ?>" disabled>
+                        <tr><td><input id="iGid" name="gid" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
                         <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= htmlspecialchars($group->getName(), ENT_COMPAT, 'utf-8'); ?>">
+                        <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
+                        <tr><td><label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
+                        <tr><td><select id="iGstatus" status="gname">
+                            <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach($status as $stat) : ?>
+                            <option value="<?= $stat; ?>"<?= $stat === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('GroupStatus' . $stat); ?>
+                        <?php endforeach; ?>
+                            </select>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>
-                        <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= htmlspecialchars($group->getDescription(), ENT_COMPAT, 'utf-8'); ?></textarea>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= $this->printHtml($group->getDescription()); ?></textarea>
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>
             </div>
@@ -41,6 +49,23 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <table class="box table red">
+            <caption><?= $this->getHtml('Parents') ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td>Name
+            <tbody>
+                <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
+                <tr>
+                    <td>
+                    <td>
+                <?php endforeach; ?>
+                <?php if($c === 0) : ?>
+                <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <?php endif; ?>
+        </table>
+
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Parent'); ?></h1></header>
             <div class="inner">
@@ -57,6 +82,40 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <table class="box table red">
+            <caption><?= $this->getHtml('Permissions') ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td>Unit
+                    <td>App
+                    <td>Module
+                    <td>Type
+                    <td>Ele.
+                    <td>Comp.
+                    <td>Perm.
+            <tbody>
+                <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
+                <tr>
+                    <td><?= $value->getId(); ?>
+                    <td><?= $value->getUnit(); ?>
+                    <td><?= $value->getApp(); ?>
+                    <td><?= $value->getModule(); ?>
+                    <td><?= $value->getType(); ?>
+                    <td><?= $value->getElement(); ?>
+                    <td><?= $value->getComponent(); ?>
+                    <td>
+                        <?= (\phpOMS\Account\PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
+                        <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
+                <?php endforeach; ?>
+                <?php if($c === 0) : ?>
+                <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <?php endif; ?>
+        </table>
+
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
             <div class="inner">

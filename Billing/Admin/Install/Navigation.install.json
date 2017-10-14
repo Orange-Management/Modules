@@ -1,7 +1,7 @@
 [
     {
         "id": 1005104001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Billing",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1005104101,
-                "pid": "722ef87be24d036db431dd65c0418e5502a6eb89",
+                "pid": "/backend/sales/invoice",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -26,27 +26,11 @@
                 "from": "Billing",
                 "permission": null,
                 "parent": 1005104001,
-                "children": [
-                    {
-                        "id": 1005104201,
-                        "pid": "420c091bd6d9f5cd16b1d62569189feb707d6652",
-                        "type": 3,
-                        "subtype": 1,
-                        "name": "Invoice",
-                        "uri": "{/base}/{/lang}/backend/sales/invoice/single?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": "Billing",
-                        "permission": null,
-                        "parent": 1005104101,
-                        "children": []
-                    }
-                ]
+                "children": []
             },
             {
                 "id": 1005104301,
-                "pid": "722ef87be24d036db431dd65c0418e5502a6eb89",
+                "pid": "/backend/sales/invoice",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
@@ -63,7 +47,7 @@
     },
     {
         "id": 1005105001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Invoice",
@@ -77,7 +61,7 @@
         "children": [
             {
                 "id": 1005105101,
-                "pid": "475124021da7877ef311983bb9eb769b1bd94f22",
+                "pid": "/backend/purchase/invoice",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -88,27 +72,11 @@
                 "from": "Billing",
                 "permission": null,
                 "parent": 1005105001,
-                "children": [
-                    {
-                        "id": 1005105201,
-                        "pid": "475124021da7877ef311983bb9eb769b1bd94f22",
-                        "type": 3,
-                        "subtype": 1,
-                        "name": "Invoice",
-                        "uri": "{/base}/{/lang}/backend/purchase/invoice/single?{?}",
-                        "target": "self",
-                        "icon": null,
-                        "order": 1,
-                        "from": "Billing",
-                        "permission": null,
-                        "parent": 1005105101,
-                        "children": []
-                    }
-                ]
+                "children": []
             },
             {
                 "id": 1005105301,
-                "pid": "475124021da7877ef311983bb9eb769b1bd94f22",
+                "pid": "/backend/purchase/invoice",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",

@@ -18,6 +18,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
+use Modules\Admin\Models\AccountMapper;
 
 /**
  * Mapper class.
@@ -59,6 +60,13 @@ class KanbanBoardMapper extends DataMapperAbstract
             'table'          => 'kanban_column',
             'dst'            => 'kanban_column_board',
             'src'            => null,
+        ],
+    ];
+
+    static protected $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'kanban_board_created_by',
         ],
     ];
 
@@ -104,26 +112,6 @@ class KanbanBoardMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-
-            $query->prefix(self::$db->getPrefix())
-                  ->insert(
-                      'account_permission_account',
-                      'account_permission_from',
-                      'account_permission_for',
-                      'account_permission_id1',
-                      'account_permission_id2',
-                      'account_permission_r',
-                      'account_permission_w',
-                      'account_permission_m',
-                      'account_permission_d',
-                      'account_permission_p'
-                  )
-                  ->into('account_permission')
-                  ->values($obj->getCreatedBy(), 'task', 'task', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

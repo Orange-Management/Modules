@@ -38,7 +38,7 @@ class Uninstall extends UninstallAbstract
 
         $query = new Builder($dbPool->get());
 
-        $query->prefix($dbPool->get('core')->getPrefix())->drop(
+        $query->prefix($dbPool->get()->getPrefix())->drop(
             'area_manager_account',
             'area_manager_area'
         );

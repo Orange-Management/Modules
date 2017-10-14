@@ -3,13 +3,13 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/warehousing/shipping/list.*$' => [
+    '^.*/backend/warehouse/shipping/list.*$' => [
         [
             'dest' => '\Modules\Shipping\Controller:viewShippingList', 
             'verb' => RouteVerb::GET,
         ],
     ],
-    '^.*/backend/warehousing/shipping/create.*$' => [
+    '^.*/backend/warehouse/shipping/create.*$' => [
         [
             'dest' => '\Modules\Shipping\Controller:viewShippingCreate', 
             'verb' => RouteVerb::GET,

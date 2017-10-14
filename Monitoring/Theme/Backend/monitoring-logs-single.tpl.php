@@ -40,52 +40,52 @@ echo $this->getData('nav')->render(); ?>
                     <tr>
                         <td><?= $this->getHtml('ID', 0, 0); ?>
                         <td><i class="fa fa-anchor"></i>
-                        <td class="wf-100"><?= htmlspecialchars((int) $this->request->getData('id') ?? 0, ENT_COMPAT, 'utf-8'); ?>
+                        <td class="wf-100"><?= $this->printHtml((int) $this->request->getData('id') ?? 0); ?>
                     <tr>
                         <td><?= $this->getHtml('Time') ?>
                         <td><i class="fa fa-clock-o"></i>
-                        <td><?= htmlspecialchars($log['datetime'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['datetime']); ?>
                     <tr>
                         <td><?= $this->getHtml('Uri') ?>
                         <td><i class="fa fa-globe"></i>
-                        <td><?= htmlspecialchars($log['path'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['path']); ?>
                     <tr>
                         <td><?= $this->getHtml('Source') ?>
                         <td><i class="fa fa-wifi"></i>
-                        <td><?= htmlspecialchars($log['ip'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['ip']); ?>
                     <tr>
                         <td><?= $this->getHtml('Level') ?>
                         <td>
-                            <i class="fa fa-<?= htmlspecialchars(in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning', ENT_COMPAT, 'utf-8'); ?>"></i>
-                        <td><?= htmlspecialchars($log['level'], ENT_COMPAT, 'utf-8'); ?>
+                            <i class="fa fa-<?= $this->printHtml(in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i>
+                        <td><?= $this->printHtml($log['level']); ?>
                     <tr>
                         <td><?= $this->getHtml('Message') ?>
                         <td><i class="fa fa-commenting"></i>
-                        <td><?= htmlspecialchars($log['message'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['message']); ?>
                     <tr>
                         <td><?= $this->getHtml('File') ?>
                         <td><i class="fa fa-file"></i>
-                        <td><?= htmlspecialchars($log['file'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['file']); ?>
                     <tr>
                         <td><?= $this->getHtml('Line') ?>
                         <td><i class="fa fa-commenting"></i>
-                        <td><?= htmlspecialchars($log['line'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['line']); ?>
                     <tr>
                         <td><?= $this->getHtml('Version') ?>
                         <td><i class="fa fa-pencil"></i>
-                        <td><?= htmlspecialchars($log['version'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['version']); ?>
                     <tr>
                         <td><?= $this->getHtml('OS') ?>
                         <td><i class="fa fa-laptop"></i>
-                        <td><?= htmlspecialchars($log['os'], ENT_COMPAT, 'utf-8'); ?>
+                        <td><?= $this->printHtml($log['os']); ?>
                     <tr>
                         <td colspan="3"><?= $this->getHtml('Backtrace') ?>
                     <tr>
                         <td colspan="3">
-                            <pre><?= htmlspecialchars(json_encode($log['backtrace'], JSON_PRETTY_PRINT), ENT_COMPAT, 'utf-8'); ?></pre>
+                            <pre><?= $this->printHtml(json_encode($log['backtrace'], JSON_PRETTY_PRINT)); ?></pre>
                     <tr>
                         <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
-                            href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= htmlspecialchars(urlencode($log['message']), ENT_COMPAT, 'utf-8'); ?>&details=<?= htmlspecialchars(urlencode($details), ENT_COMPAT, 'utf-8'); ?>"><?= $this->getHtml('Report') ?></a>
+                            href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= $this->printHtml(urlencode($log['message'])); ?>&details=<?= $this->printHtml(urlencode($details)); ?>"><?= $this->getHtml('Report') ?></a>
                 </table>
             </div>
         </section>

@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach($items as $key => $value) : $count++; 
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/item/single?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getNumber(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNumber()); ?></a>
                     <td>
                     <td>
                     <td>

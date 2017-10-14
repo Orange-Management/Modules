@@ -41,10 +41,10 @@ echo $this->getData('nav')->render(); ?>
                         <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/department/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getUnit()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()->getName()); ?></a>
                         <?php endforeach; ?>
                 <?php if($c === 0) : ?>
                 <tr>

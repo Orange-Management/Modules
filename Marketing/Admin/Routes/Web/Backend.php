@@ -15,6 +15,12 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/marketing/promotion/profile.*$' => [
+        [
+            'dest' => '\Modules\Marketing\Controller:viewMarketingPromotionProfile', 
+            'verb' => RouteVerb::GET,
+        ],
+    ],
     '^.*/backend/marketing/event/list.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller:viewMarketingEventList', 
@@ -24,6 +30,12 @@ return [
     '^.*/backend/marketing/event/create.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller:viewMarketingEventCreate', 
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/backend/marketing/event/profile.*$' => [
+        [
+            'dest' => '\Modules\Marketing\Controller:viewMarketingEventProfile', 
             'verb' => RouteVerb::GET,
         ],
     ],

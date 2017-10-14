@@ -59,6 +59,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Chart';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1004100000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -83,6 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setUpChartEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
@@ -104,6 +113,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -122,6 +132,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartCreateLine(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -140,6 +151,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartCreateArea(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -158,6 +170,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewChartList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

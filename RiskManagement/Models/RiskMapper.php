@@ -35,7 +35,6 @@ class RiskMapper extends DataMapperAbstract
         'riskmngmt_risk_name'     => ['name' => 'riskmngmt_risk_name', 'type' => 'string', 'internal' => 'name'],
         'riskmngmt_risk_description'     => ['name' => 'riskmngmt_risk_description', 'type' => 'string', 'internal' => 'description'],
         'riskmngmt_risk_descriptionraw'     => ['name' => 'riskmngmt_risk_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'riskmngmt_risk_created_at' => ['name' => 'riskmngmt_risk_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'riskmngmt_risk_unit' => ['name' => 'riskmngmt_risk_unit', 'type' => 'int', 'internal' => 'unit'],
         'riskmngmt_risk_department' => ['name' => 'riskmngmt_risk_department', 'type' => 'int', 'internal' => 'department'],
         'riskmngmt_risk_category' => ['name' => 'riskmngmt_risk_category', 'type' => 'int', 'internal' => 'category'],
@@ -118,14 +117,6 @@ class RiskMapper extends DataMapperAbstract
     protected static $primaryField = 'riskmngmt_risk_id';
 
     /**
-     * Created at column
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $createdAt = 'riskmngmt_risk_created_at';
-
-    /**
      * Create object.
      *
      * @param mixed $obj       Object
@@ -143,26 +134,6 @@ class RiskMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-
-            $query->prefix(self::$db->getPrefix())
-                ->insert(
-                    'account_permission_account',
-                    'account_permission_from',
-                    'account_permission_for',
-                    'account_permission_id1',
-                    'account_permission_id2',
-                    'account_permission_r',
-                    'account_permission_w',
-                    'account_permission_m',
-                    'account_permission_d',
-                    'account_permission_p'
-                )
-                ->into('account_permission')
-                ->values(1, 'riskmngmt_risk', 'riskmngmt_risk', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'nav` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'nav` (
                             `nav_id` int(11) NOT NULL,
                             `nav_pid` varchar(40) NOT NULL,
                             `nav_name` varchar(40) NOT NULL,
@@ -74,13 +74,13 @@ class Installer extends InstallerAbstract
     public static function installExternal(DatabasePool $dbPool, array $data)
     {
         try {
-            $dbPool->get('core')->con->query('select 1 from `' . $dbPool->get('core')->prefix . 'nav`');
+            $dbPool->get()->con->query('select 1 from `' . $dbPool->get()->prefix . 'nav`');
         } catch (\Exception $e) {
             return;
         }
 
         foreach ($data as $link) {
-            self::installLink($dbPool, $link, $link['parent']);
+            self::installLink($dbPool, $link);
         }
     }
 
@@ -95,15 +95,15 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    private static function installLink($dbPool, $data, $parent = 0)
+    private static function installLink($dbPool, $data)
     {
-        $sth = $dbPool->get('core')->con->prepare(
-            'INSERT INTO `' . $dbPool->get('core')->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission`) VALUES
+        $sth = $dbPool->get()->con->prepare(
+            'INSERT INTO `' . $dbPool->get()->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission`) VALUES
                         (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
         );
 
         $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
-        $sth->bindValue(':pid', $data['pid'] ?? '', \PDO::PARAM_STR);
+        $sth->bindValue(':pid', sha1(str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
         $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
         $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
         $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);
@@ -112,12 +112,12 @@ class Installer extends InstallerAbstract
         $sth->bindValue(':target', $data['target'] ?? "self", \PDO::PARAM_STR);
         $sth->bindValue(':from', $data['from'] ?? 0, \PDO::PARAM_INT);
         $sth->bindValue(':order', $data['order'] ?? 1, \PDO::PARAM_INT);
-        $sth->bindValue(':parent', $parent, \PDO::PARAM_INT);
+        $sth->bindValue(':parent', $data['parent'], \PDO::PARAM_INT);
         $sth->bindValue(':perm', $data['permission'] ?? 0, \PDO::PARAM_INT);
 
         $sth->execute();
 
-        $lastInsertID = $dbPool->get('core')->con->lastInsertId();
+        $lastInsertID = $dbPool->get()->con->lastInsertId();
 
         foreach ($data['children'] as $link) {
             $parent = ($link['parent'] == null ? $lastInsertID : $link['parent']);

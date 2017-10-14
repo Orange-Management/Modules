@@ -38,12 +38,12 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->beginTransaction();
+                $dbPool->get()->con->beginTransaction();
 
-                $dbPool->get('core')->con->prepare(/* todo: maybe add client logo? */
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'clientmgmt_client` (
+                $dbPool->get()->con->prepare(/* todo: maybe add client logo? */
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'clientmgmt_client` (
                             `clientmgmt_client_id` int(11) NOT NULL AUTO_INCREMENT,
                             `clientmgmt_client_no` int(11) NOT NULL,
                             `clientmgmt_client_no_reverse` varchar(25) DEFAULT NULL,
@@ -58,13 +58,13 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'clientmgmt_client`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_ibfk_1` FOREIGN KEY (`clientmgmt_client_account`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_account` (`profile_account_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'clientmgmt_client`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_ibfk_1` FOREIGN KEY (`clientmgmt_client_account`) REFERENCES `' . $dbPool->get()->prefix . 'profile_account` (`profile_account_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'clientmgmt_client_address` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'clientmgmt_client_address` (
                             `clientmgmt_client_address_id` int(11) NOT NULL AUTO_INCREMENT,
                             `clientmgmt_client_address_client` int(11) NOT NULL,
                             `clientmgmt_client_address_address` int(11) NOT NULL,
@@ -75,14 +75,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'clientmgmt_client_address`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_address_ibfk_1` FOREIGN KEY (`clientmgmt_client_address_client`) REFERENCES `' . $dbPool->get('core')->prefix . 'clientmgmt_client` (`clientmgmt_client_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_address_ibfk_2` FOREIGN KEY (`clientmgmt_client_address_address`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_address` (`profile_address_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'clientmgmt_client_address`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_address_ibfk_1` FOREIGN KEY (`clientmgmt_client_address_client`) REFERENCES `' . $dbPool->get()->prefix . 'clientmgmt_client` (`clientmgmt_client_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_address_ibfk_2` FOREIGN KEY (`clientmgmt_client_address_address`) REFERENCES `' . $dbPool->get()->prefix . 'profile_address` (`profile_address_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'clientmgmt_client_contactelement` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'clientmgmt_client_contactelement` (
                             `clientmgmt_client_contactelement_id` int(11) NOT NULL AUTO_INCREMENT,
                             `clientmgmt_client_contactelement_dst` int(11) NOT NULL,
                             `clientmgmt_client_contactelement_src` int(11) NOT NULL,
@@ -93,14 +93,14 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'clientmgmt_client_contactelement`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_contactelement_ibfk_1` FOREIGN KEY (`clientmgmt_client_contactelement_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'clientmgmt_client` (`clientmgmt_client_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_contactelement_ibfk_2` FOREIGN KEY (`clientmgmt_client_contactelement_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'profile_contactelement` (`profile_contactelement_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'clientmgmt_client_contactelement`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_contactelement_ibfk_1` FOREIGN KEY (`clientmgmt_client_contactelement_src`) REFERENCES `' . $dbPool->get()->prefix . 'clientmgmt_client` (`clientmgmt_client_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_contactelement_ibfk_2` FOREIGN KEY (`clientmgmt_client_contactelement_dst`) REFERENCES `' . $dbPool->get()->prefix . 'profile_contactelement` (`profile_contactelement_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'clientmgmt_client_media` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'clientmgmt_client_media` (
                             `clientmgmt_client_media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `clientmgmt_client_media_dst` int(11) NOT NULL,
                             `clientmgmt_client_media_src` int(11) NOT NULL,
@@ -111,13 +111,13 @@ class Installer extends InstallerAbstract
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'clientmgmt_client_media`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_media_ibfk_1` FOREIGN KEY (`clientmgmt_client_media_src`) REFERENCES `' . $dbPool->get('core')->prefix . 'clientmgmt_client` (`clientmgmt_client_id`),
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'clientmgmt_client_media_ibfk_2` FOREIGN KEY (`clientmgmt_client_media_dst`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'clientmgmt_client_media`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_media_ibfk_1` FOREIGN KEY (`clientmgmt_client_media_src`) REFERENCES `' . $dbPool->get()->prefix . 'clientmgmt_client` (`clientmgmt_client_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'clientmgmt_client_media_ibfk_2` FOREIGN KEY (`clientmgmt_client_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->commit();
+                $dbPool->get()->con->commit();
                 break;
         }
     }

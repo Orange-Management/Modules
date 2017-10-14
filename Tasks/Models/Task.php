@@ -84,6 +84,16 @@ class Task implements \JsonSerializable
      */
     protected $status = TaskStatus::OPEN;
 
+    protected $isClosable = true;
+
+    /**
+     * Start.
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
+    protected $start = null;
+
     /**
      * Due.
      *
@@ -128,9 +138,20 @@ class Task implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->start = new \DateTime('now');
         $this->due = new \DateTime('now');
         $this->due->modify('+1 day');
         $this->schedule = new Schedule();
+    }
+
+    public function setClosable(bool $closable) /* : void */
+    {
+        $this->isClosable = $closable;
+    }
+
+    public function isClosable() : bool
+    {
+        return $this->isClosable;
     }
 
     /**
@@ -153,6 +174,32 @@ class Task implements \JsonSerializable
         return $key;
     }
 
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
+    }
+
+    public function isCc(int $id) : bool
+    {
+        return false;
+    }
+
+    public function isForwarded(int $id) : bool
+    {
+        foreach($this->taskElements as $element) {
+            if($element->getForwarded()->getId() === $id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * @return \DateTime
      *
@@ -171,6 +218,26 @@ class Task implements \JsonSerializable
     public function setCreatedAt(\DateTime $created)
     {
         $this->createdAt = $created;
+    }
+
+    /**
+     * @return \DateTime
+     *
+     * @since  1.0.0
+     */
+    public function getStart() : \DateTime
+    {
+        return $this->start ?? new \DateTime();
+    }
+
+    /**
+     * @param \DateTime $created
+     *
+     * @since  1.0.0
+     */
+    public function setStart(\DateTime $start)
+    {
+        $this->start = $start;
     }
 
     /**

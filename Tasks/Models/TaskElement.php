@@ -91,6 +91,12 @@ class TaskElement implements \JsonSerializable
      */
     private $forwarded = 0;
 
+    /**
+     * Media.
+     *
+     * @var array
+     * @since 1.0.0
+     */
     private $media = [];
 
     /**
@@ -151,6 +157,16 @@ class TaskElement implements \JsonSerializable
         if($this->forwarded === 0) {
             $this->setForwarded($this->createdBy);
         }
+    }
+
+    public function getMedia() : array
+    {
+        return $this->media;
+    }
+
+    public function addMedia($media) /* : void */
+    {
+        $this->media[] = $media;
     }
 
     /**

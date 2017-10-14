@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "1ba288c868cacf14e56f8205efef31d697301d02"
+                "/backend/media"
             ],
             "type": 4,
             "for": "Content",
@@ -34,16 +34,7 @@
         },
         {
             "pid": [
-                "15b5e54cc7b2f8bdb84ed667d9931d758c6bc108"
-            ],
-            "type": 4,
-            "for": "CostUnitAccounting",
-            "file": "Media",
-            "from": "Media"
-        },
-        {
-            "pid": [
-                "e56f238d391b804975e0f47f26d20b6d2d675200"
+                "/backend/admin"
             ],
             "type": 4,
             "for": "Admin",
@@ -52,7 +43,7 @@
         },
         {
             "pid": [
-                "754a08ddf8bcb1cf22f310f09206dd783d42f7dd"
+                "/backend"
             ],
             "type": 5,
             "from": "Media",

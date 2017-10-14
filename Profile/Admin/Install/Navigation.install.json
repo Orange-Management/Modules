@@ -1,7 +1,7 @@
 [
     {
         "id": 1000301001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Profiles",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1000302001,
-                "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+                "pid": "/backend/profile",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1000303001,
-                "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+                "pid": "/backend/profile",
                 "type": 5,
                 "subtype": 1,
                 "name": "Profile",
@@ -45,7 +45,7 @@
             },
             {
                 "id": 1000303002,
-                "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+                "pid": "/backend/profile",
                 "type": 5,
                 "subtype": 1,
                 "name": "Settings",

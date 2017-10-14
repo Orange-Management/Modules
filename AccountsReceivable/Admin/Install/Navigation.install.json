@@ -1,7 +1,7 @@
 [
     {
         "id": 1004901001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "AccountsReceivable",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1004901101,
-                "pid": "f4c5d042a37f2e24163e92e14121becb29bdfcb1",
+                "pid": "/backend/accounting/receivable",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -31,7 +31,7 @@
             },
             {
                 "id": 1004901201,
-                "pid": "f4c5d042a37f2e24163e92e14121becb29bdfcb1",
+                "pid": "/backend/accounting/receivable",
                 "type": 3,
                 "subtype": 1,
                 "name": "Entries",
@@ -47,7 +47,7 @@
             },
             {
                 "id": 1004901301,
-                "pid": "f4c5d042a37f2e24163e92e14121becb29bdfcb1",
+                "pid": "/backend/accounting/receivable",
                 "type": 3,
                 "subtype": 1,
                 "name": "Analyze",
@@ -63,7 +63,7 @@
             },
             {
                 "id": 1004901401,
-                "pid": "f4c5d042a37f2e24163e92e14121becb29bdfcb1",
+                "pid": "/backend/accounting/receivable",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",

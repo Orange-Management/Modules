@@ -27,6 +27,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Organization Controller class.
@@ -65,6 +66,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'Organization';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1004700000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -89,6 +98,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -109,6 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -129,6 +140,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -147,6 +159,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -167,6 +180,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -187,6 +201,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -205,6 +220,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -225,6 +241,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -245,6 +262,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iTemplate"><?= $this->getHtml('Template'); ?></label>
                         <tr><td><select id="iTemplate" name="template">
                                     <?php foreach($templateList as $key => $value) : ?>
-                                    <option value="<?= htmlspecialchars($key, ENT_COMPAT, 'utf-8'); ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?>
+                                    <option value="<?= $this->printHtml($key); ?>"><?= $this->printHtml($value->getName()); ?>
                                         <?php endforeach; ?>
                                 </select>
                         <tr><td><label for="iFile"><?= $this->getHtml('Files'); ?></label>

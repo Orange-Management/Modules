@@ -1,7 +1,7 @@
 [
     {
         "id": 1002001001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "AreaManager",
@@ -16,7 +16,7 @@
     },
     {
         "id": 1002011001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "AreaManager",

@@ -38,10 +38,10 @@ class Installer extends InstallerAbstract
     {
         parent::install(__DIR__ . '/..', $dbPool, $info);
 
-        switch ($dbPool->get('core')->getType()) {
+        switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'draw_image` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'draw_image` (
                             `draw_image_id` int(11) NOT NULL AUTO_INCREMENT,
                             `draw_image_media` int(11) NOT NULL,
                             `draw_image_path` varchar(255) NOT NULL,
@@ -50,13 +50,13 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'draw_image`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'draw_image_ibfk_1` FOREIGN KEY (`draw_image_media`) REFERENCES `' . $dbPool->get('core')->prefix . 'media` (`media_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'draw_image`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'draw_image_ibfk_1` FOREIGN KEY (`draw_image_media`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get('core')->prefix . 'editor_tag` (
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'editor_tag` (
                             `editor_tag_id` int(11) NOT NULL AUTO_INCREMENT,
                             `editor_tag_doc` int(11) NOT NULL,
                             `editor_tag_tag` varchar(20) NOT NULL,
@@ -65,9 +65,9 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                $dbPool->get('core')->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get('core')->prefix . 'editor_tag`
-                            ADD CONSTRAINT `' . $dbPool->get('core')->prefix . 'editor_tag_ibfk_1` FOREIGN KEY (`editor_tag_doc`) REFERENCES `' . $dbPool->get('core')->prefix . 'draw_image` (`draw_image_id`);'
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'editor_tag`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'editor_tag_ibfk_1` FOREIGN KEY (`editor_tag_doc`) REFERENCES `' . $dbPool->get()->prefix . 'draw_image` (`draw_image_id`);'
                 )->execute();
                 break;
         }

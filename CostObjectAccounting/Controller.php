@@ -22,7 +22,6 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Views\ViewLayout;
 
 /**
  * CostObjectAccounting class.
@@ -61,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'CostObjectAccounting';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1004400000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -86,6 +93,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCostObjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -104,6 +112,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCostObjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -122,6 +131,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return RenderableInterface
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewCostObjectProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

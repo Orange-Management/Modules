@@ -224,7 +224,7 @@ echo $this->getData('nav')->render(); ?>
 
     $tabView->addTab($this->getHtml('Reporter', 'New'), $createPanel->render() . $mediaPanel->render(), 'Backend', 'new');
     ?>
-    <?= htmlspecialchars($tabView->render(), ENT_COMPAT, 'utf-8'); ?>
+    <?= $this->printHtml($tabView->render()); ?>
 </div>
 
 <script>

@@ -21,6 +21,7 @@ use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Calendar\Models\CalendarMapper;
 
 class ProfileMapper extends DataMapperAbstract
 {
@@ -35,6 +36,7 @@ class ProfileMapper extends DataMapperAbstract
         'profile_account_image'         => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
         'profile_account_birthday'         => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday'],
         'profile_account_account'         => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
+        'profile_account_calendar'         => ['name' => 'profile_account_calendar', 'type' => 'int', 'internal' => 'calendar'],
     ];
 
     /**
@@ -51,6 +53,10 @@ class ProfileMapper extends DataMapperAbstract
         'image' => [
             'mapper'         => MediaMapper::class,
             'src'            => 'profile_account_image',
+        ],
+        'calendar' => [
+            'mapper'         => CalendarMapper::class,
+            'src'            => 'profile_account_calendar',
         ],
     ];
 
@@ -103,26 +109,6 @@ class ProfileMapper extends DataMapperAbstract
             if($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
-
-            $query = new Builder(self::$db);
-
-            $query->prefix(self::$db->getPrefix())
-                ->insert(
-                    'account_permission_account',
-                    'account_permission_from',
-                    'account_permission_for',
-                    'account_permission_id1',
-                    'account_permission_id2',
-                    'account_permission_r',
-                    'account_permission_w',
-                    'account_permission_m',
-                    'account_permission_d',
-                    'account_permission_p'
-                )
-                ->into('account_permission')
-                ->values(1, 'account', 'account', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

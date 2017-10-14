@@ -43,10 +43,10 @@ echo $this->getData('nav')->render(); ?>
                         <?php $count = 0; foreach($listElements as $key => $value) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($value->getParent()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= 1//htmlspecialchars($value->getDepartment()->getName(), ENT_COMPAT, 'utf-8'); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getDepartment()->getName()); ?></a>
                         <?php endforeach; ?>
                         <?php if($count === 0) : ?>
                     <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

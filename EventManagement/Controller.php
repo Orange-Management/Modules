@@ -21,6 +21,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use Modules\EventManagement\Models\EventMapper;
 use Modules\EventManagement\Models\Event;
+use phpOMS\Asset\AssetType;
 
 /**
  * Event Management controller class.
@@ -59,6 +60,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_NAME = 'EventManagement';
 
     /**
+     * Module id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_ID = 1004200000;
+
+    /**
      * Providing.
      *
      * @var string
@@ -83,6 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEventManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -104,6 +114,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEventManagementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -122,12 +133,29 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return \Serializable
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function viewEventManagementProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        /** @var Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . 'Modules/Calendar/Theme/Backend/css/styles.css');
+
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/EventManagement/Theme/Backend/eventmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004201001, $request, $response));
+
+        $taskListView = new \Modules\Tasks\Theme\Backend\Components\Tasks\BaseView($this->app, $request, $response);
+        $taskListView->setTemplate('/Modules/Tasks/Theme/Backend/Components/Tasks/list');
+        $view->addData('tasklist', $taskListView);
+
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
+        $view->addData('calendar', $calendarView);
+
+        $mediaListView = new \Modules\Media\Theme\Backend\Components\Media\BaseView($this->app, $request, $response);
+        $mediaListView->setTemplate('/Modules/Media/Theme/Backend/Components/Media/list');
+        $view->addData('medialist', $mediaListView);
 
         $event = EventMapper::get((int) $request->getData('id'));
         $view->addData('event', $event);

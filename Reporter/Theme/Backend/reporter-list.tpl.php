@@ -47,11 +47,11 @@ echo $this->getData('nav')->render(); ?>
                         <?php endif; ?>
                         <?php foreach ($templates as $key => $template) :
                         $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/reporter/report/view?{?}&id=' . $template->getId()); ?>
-                <tr>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getId(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getName(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedBy()->getName1(), ENT_COMPAT, 'utf-8'); ?></a>
-                    <td><a href="<?= $url; ?>"><?= htmlspecialchars($template->getCreatedAt()->format('Y-m-d'), ENT_COMPAT, 'utf-8'); ?></a>
+                <tr data-href="<?= $url; ?>">
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getId()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getName()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedBy()->getName1()); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedAt()->format('Y-m-d')); ?></a>
                         <?php endforeach; ?>
             </table>
         </div>

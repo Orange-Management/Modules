@@ -19,6 +19,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Tasks\Models\TaskMapper;
+use Modules\Media\Models\MediaMapper;
 
 /**
  * Mapper class.
@@ -46,6 +47,8 @@ class EventMapper extends DataMapperAbstract
         'eventmanagement_event_calendar'   => ['name' => 'eventmanagement_event_calendar', 'type' => 'int', 'internal' => 'calendar'],
         'eventmanagement_event_start'       => ['name' => 'eventmanagement_event_start', 'type' => 'DateTime', 'internal' => 'start'],
         'eventmanagement_event_end'         => ['name' => 'eventmanagement_event_end', 'type' => 'DateTime', 'internal' => 'end'],
+        'eventmanagement_event_progress'         => ['name' => 'eventmanagement_event_progress', 'type' => 'int', 'internal' => 'progress'],
+        'eventmanagement_event_progress_type'         => ['name' => 'eventmanagement_event_progress_type', 'type' => 'int', 'internal' => 'progressType'],
         'eventmanagement_event_costs'      => ['name' => 'eventmanagement_event_costs', 'type' => 'Serializable', 'internal' => 'costs'],
         'eventmanagement_event_budget'     => ['name' => 'eventmanagement_event_budget', 'type' => 'Serializable', 'internal' => 'budget'],
         'eventmanagement_event_earnings'   => ['name' => 'eventmanagement_event_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
@@ -65,6 +68,12 @@ class EventMapper extends DataMapperAbstract
             'table'          => 'eventmanagement_task_relation',
             'dst'            => 'eventmanagement_task_relation_dst',
             'src'            => 'eventmanagement_task_relation_src',
+        ],
+        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => MediaMapper::class,
+            'table'          => 'eventmanagement_event_media',
+            'dst'            => 'eventmanagement_event_media_src',
+            'src'            => 'eventmanagement_event_media_dst',
         ],
     ];
 
@@ -119,25 +128,6 @@ class EventMapper extends DataMapperAbstract
     {
         try {
             $objId = parent::create($obj, $relations);
-
-            $query = new Builder(self::$db);
-            $query->prefix(self::$db->getPrefix())
-                ->insert(
-                    'account_permission_account',
-                    'account_permission_from',
-                    'account_permission_for',
-                    'account_permission_id1',
-                    'account_permission_id2',
-                    'account_permission_r',
-                    'account_permission_w',
-                    'account_permission_m',
-                    'account_permission_d',
-                    'account_permission_p'
-                )
-                ->into('account_permission')
-                ->values($obj->getCreatedBy(), 'eventmanagement_event', 'eventmanagement_event', 1, $objId, 1, 1, 1, 1, 1);
-
-            self::$db->con->prepare($query->toSql())->execute();
         } catch (\Exception $e) {
             var_dump($e->getMessage());
 

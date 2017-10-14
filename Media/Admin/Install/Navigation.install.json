@@ -1,7 +1,7 @@
 [
     {
         "id": 1000401001,
-        "pid": "754a08ddf8bcb1cf22f310f09206dd783d42f7dd",
+        "pid": "/backend",
         "type": 2,
         "subtype": 1,
         "name": "Media",
@@ -15,7 +15,7 @@
         "children": [
             {
                 "id": 1000402001,
-                "pid": "1ba288c868cacf14e56f8205efef31d697301d02",
+                "pid": "/backend/media",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
@@ -30,7 +30,7 @@
             },
             {
                 "id": 1000403001,
-                "pid": "1ba288c868cacf14e56f8205efef31d697301d02",
+                "pid": "/backend/media",
                 "type": 3,
                 "subtype": 5,
                 "name": "Create",
@@ -47,7 +47,7 @@
     },
     {
         "id": 1000410001,
-        "pid": "722846d6c55f46fd3d372bba7311a150acd1f23c",
+        "pid": "/backend/profile/single",
         "type": 2,
         "subtype": 2,
         "name": "Media",
@@ -62,7 +62,7 @@
     },
     {
         "id": 1000410002,
-        "pid": "f277f11a122129a52d36f788f42e5c09766cf4ae",
+        "pid": "/backend/admin/account",
         "type": 3,
         "subtype": 1,
         "name": "Media",
