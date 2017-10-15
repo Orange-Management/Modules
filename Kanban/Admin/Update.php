@@ -15,9 +15,10 @@ declare(strict_types=1);
 namespace Modules\Kanban\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\InfoManager;
 use phpOMS\Module\UpdateAbstract;
 use phpOMS\System\File\Directory;
+use phpOMS\Module\InfoManager;
+
 
 /**
  * Navigation class.

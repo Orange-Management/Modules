@@ -31,5 +31,5 @@ class TaskTemplate extends Task
      * @var TaskType
      * @since 1.0.0
      */
-    private $type = TaskType::TEMPLATE;
+    protected $type = TaskType::TEMPLATE;
 }

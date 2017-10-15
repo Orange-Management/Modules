@@ -273,4 +273,9 @@ class InvoiceElement implements \JsonSerializable
     {
         return $this->totalPriceGross;
     }
+
+    public function jsonSerialize()
+    {
+        
+    }
 }

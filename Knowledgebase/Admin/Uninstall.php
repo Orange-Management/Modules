@@ -16,8 +16,8 @@ namespace Modules\Knowledgebase\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder;
-use phpOMS\Module\InfoManager;
 use phpOMS\Module\UninstallAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Navigation class.

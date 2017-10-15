@@ -333,7 +333,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     public function setType(int $type)
     {
         if(!NewsType::isValidValue($type)) {
-            throw new InvalidEnumValue($type);
+            throw new InvalidEnumValue((string) $type);
         }
 
         $this->type = $type;
@@ -361,7 +361,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     public function setStatus(int $status)
     {
         if(!NewsStatus::isValidValue($status)) {
-            throw new InvalidEnumValue($status);
+            throw new InvalidEnumValue((string) $status);
         }
 
         $this->status = $status;
@@ -399,8 +399,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
             'type' => $this->type,
             'status' => $this->status,
             'featured' => $this->featured,
-            'publish' => $this->publish,
-            'createdAt' => $this->createdAt,
+            'publish' => $this->publish->format('Y-m-d H:i:s'),
+            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
             'createdBy' => $this->createdBy,
         ];
     }

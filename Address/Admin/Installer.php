@@ -16,6 +16,7 @@ namespace Modules\Address\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Accounts payable install class.
