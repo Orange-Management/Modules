@@ -91,6 +91,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setUpChartEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {

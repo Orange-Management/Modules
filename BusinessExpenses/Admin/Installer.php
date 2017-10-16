@@ -16,6 +16,7 @@ namespace Modules\BusinessExpenses\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Navigation class.

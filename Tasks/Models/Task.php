@@ -351,7 +351,7 @@ class Task implements \JsonSerializable
     public function setStatus(int $status)
     {
         if(!TaskStatus::isValidValue($status)) {
-            throw new InvalidEnumValue($status);
+            throw new InvalidEnumValue((string) $status);
         }
 
         $this->status = $status;
@@ -377,7 +377,7 @@ class Task implements \JsonSerializable
     public function setPriority(int $priority)
     {
         if(!TaskStatus::isValidValue($priority)) {
-            throw new InvalidEnumValue($priority);
+            throw new InvalidEnumValue((string) $priority);
         }
 
         $this->priority = $priority;
@@ -486,17 +486,17 @@ class Task implements \JsonSerializable
         return $this->schedule;
     }
 
-    private function toArray() : array
+    public function toArray() : array
     {
         return [
             'id' => $this->id,
             'createdBy' => $this->createdBy,
-            'createdAt' => $this->createdAt,
+            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
             'title' => $this->title,
             'description' => $this->description,
             'status' => $this->status,
             'type' => $this->type,
-            'type' => $this->type,
+            'priority' => $this->priority,
             'due' => $this->due->format('Y-m-d H:i:s'),
             'done' => (!isset($this->done) ? null : $this->done->format('Y-m-d H:i:s')),
         ];

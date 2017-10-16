@@ -14,7 +14,7 @@
 declare(strict_types=1);
 namespace Modules\Accounting\Models;
 
-use Modules\Accounting\Models\PersonalAccount;
+use Modules\Accounting\Models\PersonalAccountAbstract;
 
 /**
  * Creditor account class.
@@ -25,7 +25,7 @@ use Modules\Accounting\Models\PersonalAccount;
  * @link       http://orange-management.com
  * @since      1.0.0
  */
-abstract class CreditorAccount extends PersonalAccount
+abstract class CreditorAccount extends PersonalAccountAbstract
 {
 
     /**

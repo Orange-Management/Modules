@@ -241,7 +241,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
             'title' => $this->title,
             'plain' => $this->plain,
             'content' => $this->content,
-            'createdAt' => $this->createdAt,
+            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
             'createdBy' => $this->createdBy,
         ];
     }

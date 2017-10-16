@@ -95,6 +95,16 @@ class Controller extends ModuleAbstract implements WebInterface
     protected static $dependencies = [
     ];
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $head = $response->get('Content')->getData('head');

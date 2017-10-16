@@ -267,7 +267,7 @@ class TaskElement implements \JsonSerializable
     public function setStatus(int $status)
     {
         if(!TaskStatus::isValidValue($status)) {
-            throw new InvalidEnumValue($status);
+            throw new InvalidEnumValue((string) $status);
         }
 
         $this->status = $status;

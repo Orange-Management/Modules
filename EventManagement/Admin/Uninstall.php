@@ -16,6 +16,7 @@ namespace Modules\EventManagement\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\UninstallAbstract;
+use phpOMS\Module\InfoManager;
 
 /**
  * Navigation class.

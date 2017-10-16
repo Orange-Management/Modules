@@ -101,6 +101,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
