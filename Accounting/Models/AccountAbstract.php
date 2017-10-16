@@ -88,7 +88,6 @@ abstract class AccountAbstract implements AccountInterface
      * @internal \Modules\Accounting\Models\TimeRangeType $dateTime Time range type
      *
      * @since    1.0.0
-     * @author   Dennis Eichhorn <d.eichhorn@oms.com>
      */
     public function getEntriesByDate($start, $end, $dateType = TimeRangeType::RECEIPT_DATE)
     {

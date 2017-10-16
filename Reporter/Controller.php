@@ -53,7 +53,7 @@ use phpOMS\Message\Http\RequestStatusCode;
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.
- * @link       http://orange-management.com * @author     OMS Development Team <dev@oms.com>
+ * @link       http://orange-managementcom 
  * @license    OMS License 1.0
  * @link       http://orange-management.com
  * @since      1.0.0
