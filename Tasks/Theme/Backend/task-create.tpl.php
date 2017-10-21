@@ -26,9 +26,9 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iReceiver"><?= $this->getHtml('To') ?></label>
-                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver'); ?><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', true); ?><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iObserver"><?= $this->getHtml('CC') ?></label>
-                        <tr><td><?= $this->getData('accGrpSelector')->render('iCC'); ?><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iCC', false); ?><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
                         <tr><td colspan="2"><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td><select id="iPriority" name="priority">
                                 <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::VLOW); ?>"><?= $this->getHtml('P1') ?>

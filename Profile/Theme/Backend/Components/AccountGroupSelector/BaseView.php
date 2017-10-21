@@ -23,6 +23,7 @@ use phpOMS\Message\ResponseAbstract;
 class BaseView extends View
 {
     private $id = '';
+    private $isRequired = false;
 
     public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
     {
@@ -39,9 +40,15 @@ class BaseView extends View
         return $this->id;
     }
 
+    public function isRequired() : bool
+    {
+        return $this->isRequired;
+    }
+
     public function render(...$data) : string
     {
         $this->id = $data[0];
+        $this->required = $data[1] ?? false;
         return parent::render();
     }
 }
