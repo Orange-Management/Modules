@@ -37,7 +37,16 @@
                                             <th data-name="city">City
                                             <th data-name="zip">Zip
                                             <th data-name="country">Country
-                                    <tbody>
+                                            <!-- todo: get data from tr in action and pass it to next actions -->
+                                    <tbody data-action='[
+                                        {
+                                            "key": 1, "listener": "click", "selector": "#acc-table tbody tr", "action": [
+                                                {"key": 1, "type": "dom.setvalue", "overwrite": false, "id": "<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
+                                                {"key": 2, "type": "dom.setvalue", "overwrite": false, "id": "<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}<span>", "data": ""},
+                                                {"key": 3, "type": "dom.setvalue", "overwrite": true, "id": "<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
+                                            ]
+                                        }
+                                    ]'>
                                     <tfoot>
                                 </table>
                             <tr><td colspan="2"><button type="button" data-action='[
