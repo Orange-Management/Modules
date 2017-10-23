@@ -2,7 +2,7 @@
 <button type="button" data-action='[
     {
         "listener": "click", "action": [
-            {"key": 1, "type": "dom.popup", "tpl": "acc-grp-tpl", "aniIn": "fadeIn"},
+            {"key": 1, "type": "dom.popup", "selector": "#acc-grp-tpl", "aniIn": "fadeIn"},
             {"key": 2, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
             {"key": 3, "type": "dom.table.append", "id": "acc-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1},
             {"key": 4, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/api/admin/account?filter=some&limit=10'); ?>", "method": "GET", "request_type": "json"},
@@ -24,9 +24,9 @@
         "key": 2, "listener": "keydown", "action" : [
             {"key": 1, "type": "validate.keypress", "pressed": "13|9"},
             {"key": 2, "type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#<?= $this->printHtml($this->getId()); ?>}", "method": "GET", "request_type": "json"},
-            {"key": 3, "type": "dom.setvalue", "overwrite": false, "id": "<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
-            {"key": 4, "type": "dom.setvalue", "overwrite": false, "id": "<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}<span>", "data": ""},
-            {"key": 5, "type": "dom.setvalue", "overwrite": true, "id": "<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
+            {"key": 3, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
+            {"key": 4, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}<span>", "data": ""},
+            {"key": 5, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
         ]
     }
 ]'<?= $this->isRequired() ? ' required' : ''; ?>>
@@ -35,9 +35,9 @@
 <div class="box taglist" id="<?= $this->printHtml($this->getId()); ?>-taglist" data-action='[
     {
         "key": 1, "listener": "click", "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist span fa", "action": [
-            {"key": 1, "type": "dom.remove", "tpl": "self"},
-            {"key": 2, "type": "dom.getvalue", "selector": "self"},
-            {"key": 3, "type": "dom.removevalue", "id": "<?= $this->printHtml($this->getId()); ?>-idlist", "data": ""}
+            {"key": 1, "type": "dom.remove", "selector": "", "base": "self"},
+            {"key": 2, "type": "dom.getvalue", "selector": "", "base": "self"},
+            {"key": 3, "type": "dom.removevalue", "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "data": ""}
         ]
     }
 ]'></div>

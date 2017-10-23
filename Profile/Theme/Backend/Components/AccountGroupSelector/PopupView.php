@@ -20,18 +20,19 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 
-class BaseView extends View
+class PopupView extends View
 {
     private $id = '';
-    private $isRequired = false;
 
     public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
     {
         parent::__construct($app, $request, $response);
-        $this->setTemplate('/Modules/Profile/Theme/Backend/Components/AccountGroupSelector/base');
+        $this->setTemplate('/Modules/Profile/Theme/Backend/Components/AccountGroupSelector/popup');
+    }
 
-        $view = new PopupView($app, $request, $response);
-        $this->addData('popup', $view);
+    public function setId(string $id)
+    {
+        $this->id = $id;
     }
 
     public function getId() : string
@@ -39,16 +40,9 @@ class BaseView extends View
         return $this->id;
     }
 
-    public function isRequired() : bool
-    {
-        return $this->isRequired;
-    }
-
     public function render(...$data) : string
     {
-        $this->id = $data[0];
-        $this->required = $data[1] ?? false;
-        $this->getData('popup')->setId($this->id);
+        $this->id = $data[0] ?? $this->id;
         return parent::render();
     }
 }

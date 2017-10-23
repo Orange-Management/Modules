@@ -37,13 +37,14 @@
                                             <th data-name="city">City
                                             <th data-name="zip">Zip
                                             <th data-name="country">Country
-                                            <!-- todo: get data from tr in action and pass it to next actions -->
+                                            <!-- todo: get data from tr in action and pass it to next actions, or make new request based on table cell? -->
                                     <tbody data-action='[
                                         {
                                             "key": 1, "listener": "click", "selector": "#acc-table tbody tr", "action": [
-                                                {"key": 1, "type": "dom.setvalue", "overwrite": false, "id": "<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
-                                                {"key": 2, "type": "dom.setvalue", "overwrite": false, "id": "<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}<span>", "data": ""},
-                                                {"key": 3, "type": "dom.setvalue", "overwrite": true, "id": "<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
+                                                {"key": 1, "type": "dom.getvalue", "base": "self", "selector": ""},
+                                                {"key": 2, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
+                                                {"key": 3, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}<span>", "data": ""},
+                                                {"key": 4, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
                                             ]
                                         }
                                     ]'>
@@ -52,7 +53,7 @@
                             <tr><td colspan="2"><button type="button" data-action='[
                                     {
                                         "listener": "click", "action": [
-                                            {"key": 1, "type": "dom.remove", "tpl": "acc-grp", "aniOut": "fadeOut"}
+                                            {"key": 1, "type": "dom.remove", "selector": "#acc-grp", "aniOut": "fadeOut"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Close', 'Admin') ?></button>
@@ -88,7 +89,7 @@
                             <tr><td colspan="2"><button type="button" data-action='[
                                     {
                                         "listener": "click", "action": [
-                                            {"key": 1, "type": "dom.remove", "tpl": "acc-grp", "aniOut": "fadeOut"}
+                                            {"key": 1, "type": "dom.remove", "selector": "#acc-grp", "aniOut": "fadeOut"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Close', 'Admin') ?></button>
