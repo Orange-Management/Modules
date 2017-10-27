@@ -37,12 +37,12 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="9">
                 <tbody>
-                <?php $count = 0; foreach($audits as $key => $audit) : $count++;
+                <?php $count = 0; foreach ($audits as $key => $audit) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/audit/single?{?}&id=' . $audit->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td>
                 <?php endforeach; ?>
-                <?php if($count === 0) : ?>
+                <?php if ($count === 0) : ?>
                 <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
             </table>

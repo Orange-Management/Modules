@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iTitle" name="name" type="text" placeholder="&#xf040; P&L Reporting 2015 December v1.0" required>
                         <tr><td><label for="iTemplate"><?= $this->getHtml('Template'); ?></label>
                         <tr><td><select id="iTemplate" name="template">
-                                    <?php foreach($templateList as $key => $value) : ?>
+                                    <?php foreach ($templateList as $key => $value) : ?>
                                     <option value="<?= $this->printHtml($key); ?>"><?= $this->printHtml($value->getName()); ?>
                                         <?php endforeach; ?>
                                 </select>

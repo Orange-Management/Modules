@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Media;
 
 use Modules\Media\Models\Media;
@@ -149,7 +149,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
         $media = MediaMapper::get($request->getData('id'));
-        if($media->getExtension() === 'collection') {
+        if ($media->getExtension() === 'collection') {
             $media = CollectionMapper::get($media->getId());
         }
 
@@ -193,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $uploads = $this->uploadFiles($request->getFiles(), $request->getHeader()->getAccount(), $request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files');
 
         $ids = [];
-        foreach($uploads as $file) {
+        foreach ($uploads as $file) {
             $ids[] = $file->getId();
         }
 
@@ -260,7 +260,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
-            if(!is_null($created = self::createDbEntry($uFile, $account))) {
+            if (!is_null($created = self::createDbEntry($uFile, $account))) {
                 $mediaCreated[] = $created;
             }
         }

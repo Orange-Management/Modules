@@ -12,7 +12,7 @@
  * @link       http://orange-management.com
  * @todo only load events of 3 month or 1 year?!
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Calendar\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -107,7 +107,7 @@ class CalendarMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj, $relations);
 
-            if($objId === null || !is_scalar($objId)) {
+            if ($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
         } catch (\Exception $e) {

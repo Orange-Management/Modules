@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
         <tfoot>
         <tr><td colspan="4"><?= $footerView->render(); ?>
         <tbody>
-        <?php if(0 == 0) : ?>
+        <?php if (0 == 0) : ?>
         <tr class="empty"><td colspan="5"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
                 <?php foreach ([] as $key => $template) :

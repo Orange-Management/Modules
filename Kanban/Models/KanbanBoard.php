@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Kanban\Models;
 
 /**
@@ -118,7 +118,7 @@ class KanbanBoard implements \JsonSerializable
 
     public function removeColumn(int $id) : bool
     {
-        if(isset($this->columns[$id])) {
+        if (isset($this->columns[$id])) {
             unset($this->columns[$id]);
 
             return true;

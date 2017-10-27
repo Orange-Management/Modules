@@ -46,11 +46,11 @@ echo $this->getData('nav')->render(); ?>
                             <td><label for="iLang"><?= $this->getHtml('Language'); ?></label>
                         <tr>
                             <td><select id="iLang" name="lang" data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&lang={#iLang}", "target": "self"}]}]'>
-                                    <?php foreach($reportLanguage as $key => $langauge) : ?>
+                                    <?php foreach ($reportLanguage as $key => $langauge) : ?>
                                     <option value="<?= $this->printHtml($key); ?>"<?= $this->printHtml($key === $cLang ? ' selected' : ''); ?>><?= $this->printHtml($langauge[':language'] ); ?>
                                     <?php endforeach; ?>
                                 </select>
-                        <?php if(!$template->isStandalone()) : ?><tr>
+                        <?php if (!$template->isStandalone()) : ?><tr>
                             <td><label for="iReport"><?= $this->getHtml('Report'); ?></label>
                         <tr>
                             <td><select id="iReport" name="report">
@@ -95,7 +95,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                    <?php if(!$template->isStandalone()) : ?>
+                    <?php if (!$template->isStandalone()) : ?>
                     <tr>
                         <th colspan="2"><?= $this->getHtml('Report') ?>
                     <tr>

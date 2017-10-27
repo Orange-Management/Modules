@@ -74,25 +74,25 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                                     <tbody>
                                     <tr><td colspan="2"><label for="iCountries"><?= $this->getHtml('Country'); ?></label>
                                     <tr><td colspan="2"><select id="iCountries" name="country">
-                                                <?php foreach($countries as $code => $country) : ?>
+                                                <?php foreach ($countries as $code => $country) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_country) ? ' selected' : ''); ?>><?= $this->printHtml($country); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTimezones"><?= $this->getHtml('Timezone'); ?></label>
                                     <tr><td colspan="2"><select id="iTimezones" name="timezone">
-                                                <?php foreach($timezones as $code => $timezone) : ?>
+                                                <?php foreach ($timezones as $code => $timezone) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml($timezone == $_timezone ? ' selected' : ''); ?>><?= $this->printHtml($timezone); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTimeformats"><?= $this->getHtml('Timeformat'); ?></label>
                                     <tr><td colspan="2"><select id="iTimeformats" name="timeformat">
-                                                <?php foreach($timeformats as $code => $timeformat) : ?>
+                                                <?php foreach ($timeformats as $code => $timeformat) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($timeformat) == strtolower($_timeformat) ? ' selected' : ''); ?>><?= $this->printHtml($timeformat); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iLanguages"><?= $this->getHtml('Language'); ?></label>
                                     <tr><td colspan="2"><select id="iLanguages" name="language">
-                                                <?php foreach($languages as $code => $language) : ?>
+                                                <?php foreach ($languages as $code => $language) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_language) ? ' selected' : ''); ?>><?= $this->printHtml($language); ?>
                                                     <?php endforeach; ?>
                                             </select>
@@ -114,7 +114,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                             <table class="layout wf-100">
                                     <tr><td colspan="2"><label for="iCurrencies"><?= $this->getHtml('Currency'); ?></label>
                                 <tr><td colspan="2"><select form="fLocalization" id="iCurrencies" name="currency">
-                                            <?php foreach($currencies as $code => $currency) : ?>
+                                            <?php foreach ($currencies as $code => $currency) : ?>
                                             <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_currency) ? ' selected' : ''); ?>><?= $this->printHtml($currency); ?>
                                                 <?php endforeach; ?>
                                         </select>

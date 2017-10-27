@@ -61,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                    <?php foreach($penetrators as $ip => $count) : ?>
+                    <?php foreach ($penetrators as $ip => $count) : ?>
                     <tr><td><?= $this->printHtml($ip); ?><td><?= $this->printHtml($count); ?>
                     <?php endforeach; ?>
                 </table>

@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\QA\Models;
 
 /**
@@ -57,8 +57,8 @@ class QAQuestion implements \JsonSerializable
 
     public function hasAccepted() : bool 
     {
-        foreach($this->answers as $answer) {
-            if($answer->isAccepted()) {
+        foreach ($this->answers as $answer) {
+            if ($answer->isAccepted()) {
                 return true;
             }
         }
@@ -78,8 +78,8 @@ class QAQuestion implements \JsonSerializable
 
     public function isAnswered() : bool
     {
-        foreach($this->answers as $answer) {
-            if($answer->isAccepted()) {
+        foreach ($this->answers as $answer) {
+            if ($answer->isAccepted()) {
                 return true;
             }
         }

@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Navigation;
 
 use Modules\Navigation\Models\Navigation;
@@ -126,7 +126,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $nav->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $unread = [];
 
-        foreach($this->receiving as $receiving) {
+        foreach ($this->receiving as $receiving) {
             $unread[$receiving] = $this->app->moduleManager->get($receiving)->openNav($request->getHeader()->getAccount());
         }
 

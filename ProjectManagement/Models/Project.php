@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\ProjectManagement\Models;
 use Modules\Calendar\Models\Calendar;
 use Modules\Tasks\Models\Task;
@@ -103,7 +103,7 @@ class Project
 
     public function addTask(Task $task)
     {
-        if($task->getId() !== 0) {
+        if ($task->getId() !== 0) {
             $this->tasks[$task->getId()] = $task;
         } else {
             $this->tasks[] = $task;
@@ -112,7 +112,7 @@ class Project
 
     public function removeTask(int $id) : bool
     {
-        if(isset($this->tasks[$id])) {
+        if (isset($this->tasks[$id])) {
             unset($this->tasks[$id]);
 
             return true;

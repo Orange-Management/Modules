@@ -37,14 +37,14 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="3"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach($docs as $key => $value) : $count++;
+                <?php $count = 0; foreach ($docs as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                         <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
                         <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                 <?php endforeach; ?>
-                <?php if($count === 0) : ?>
+                <?php if ($count === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>

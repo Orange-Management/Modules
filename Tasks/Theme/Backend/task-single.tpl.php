@@ -20,10 +20,10 @@ $taskMedia = $task->getMedia();
 $elements  = $task->getTaskElements();
 $cElements = count($elements);
 
-if($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-elseif($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; }
+if ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
+elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
+elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
+elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; }
 
 echo $this->getData('nav')->render(); ?>
 
@@ -41,9 +41,9 @@ echo $this->getData('nav')->render(); ?>
                 </blockquote>
             </div>
 
-            <?php if(!empty($taskMedia)) : ?>
+            <?php if (!empty($taskMedia)) : ?>
             <div class="inner">
-                <?php foreach($taskMedia as $media) : ?>
+                <?php foreach ($taskMedia as $media) : ?>
                 <span><?= $media->getName(); ?></span>
                 <?php endforeach; ?>
             </div>
@@ -59,11 +59,11 @@ echo $this->getData('nav')->render(); ?>
 
         <?php $c = 0;
         foreach ($elements as $key => $element) : $c++;
-            if($element->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-            elseif($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
+            if ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
+            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
+            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
+            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
+            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
                     <div class="vCenterTable wf-100"><?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
@@ -78,9 +78,9 @@ echo $this->getData('nav')->render(); ?>
                     </div>
                 <?php endif; ?>
 
-                <?php $elementMedia = $element->getMedia(); if(!empty($elementMedia)) : ?>
+                <?php $elementMedia = $element->getMedia(); if (!empty($elementMedia)) : ?>
                 <div class="inner">
-                    <?php foreach($elementMedia as $media) : ?>
+                    <?php foreach ($elementMedia as $media) : ?>
                     <span><?= $media->getName(); ?></span>
                     <?php endforeach; ?>
                 </div>

@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Admin;
 
 use Model\Message\FormValidation;
@@ -176,9 +176,9 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $permissions = AccountPermissionMapper::getFor((int) $request->getData('id'), 'account');
 
-        if(!isset($permissions) || $permissions instanceof NullAccountPermission) {
+        if (!isset($permissions) || $permissions instanceof NullAccountPermission) {
             $permissions = [];
-        } elseif(!is_array($permissions)) {
+        } elseif (!is_array($permissions)) {
             $permissions = [$permissions];
         }
 
@@ -247,9 +247,9 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
         
-        if(!isset($permissions) || $permissions instanceof NullGroupPermission) {
+        if (!isset($permissions) || $permissions instanceof NullGroupPermission) {
             $permissions = [];
-        } elseif(!is_array($permissions)) {
+        } elseif (!is_array($permissions)) {
             $permissions = [$permissions];
         }
 

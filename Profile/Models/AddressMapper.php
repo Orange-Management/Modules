@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Profile\Models;
 
 use Modules\Media\Models\MediaMapper;
@@ -70,7 +70,7 @@ class AddressMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj, $relations);
 
-            if($objId === null || !is_scalar($objId)) {
+            if ($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
         } catch (\Exception $e) {

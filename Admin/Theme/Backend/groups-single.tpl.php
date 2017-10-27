@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
                         <tr><td><label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
                         <tr><td><select id="iGstatus" status="gname">
-                            <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach($status as $stat) : ?>
+                            <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach ($status as $stat) : ?>
                             <option value="<?= $stat; ?>"<?= $stat === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('GroupStatus' . $stat); ?>
                         <?php endforeach; ?>
                             </select>
@@ -61,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                     <td>
                 <?php endforeach; ?>
-                <?php if($c === 0) : ?>
+                <?php if ($c === 0) : ?>
                 <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
         </table>
@@ -111,7 +111,7 @@ echo $this->getData('nav')->render(); ?>
                         <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
                         <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                 <?php endforeach; ?>
-                <?php if($c === 0) : ?>
+                <?php if ($c === 0) : ?>
                 <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
         </table>

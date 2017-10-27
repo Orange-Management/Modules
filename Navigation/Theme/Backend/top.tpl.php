@@ -23,7 +23,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::TOP])): ?>
         <li><a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>">
 
                 <?php if (isset($link['nav_icon'])) : ?>
-                    <i class="<?= $this->printHtml($link['nav_icon']); ?> infoIcon"><?php if(isset($unread[$link['nav_from']]) && $unread[$link['nav_from']] > 0) : ?><span class="badge"><?= $this->printHtml($unread[$link['nav_from']]); ?></span><?php endif; ?></i>
+                    <i class="<?= $this->printHtml($link['nav_icon']); ?> infoIcon"><?php if (isset($unread[$link['nav_from']]) && $unread[$link['nav_from']] > 0) : ?><span class="badge"><?= $this->printHtml($unread[$link['nav_from']]); ?></span><?php endif; ?></i>
                 <?php endif; ?>
 
                 <?= $this->getHtml($link['nav_name']) ?></a>

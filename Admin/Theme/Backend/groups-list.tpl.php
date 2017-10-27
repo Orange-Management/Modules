@@ -42,9 +42,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); 
                     $color = 'darkred';
-                        if($value->getStatus() === \phpOMS\Account\GroupStatus::ACTIVE) { $color = 'green'; }
-                        elseif($value->getStatus() === \phpOMS\Account\GroupStatus::INACTIVE) { $color = 'darkblue'; }
-                        elseif($value->getStatus() === \phpOMS\Account\GroupStatus::HIDDEN) { $color = 'purple'; } ?>
+                        if ($value->getStatus() === \phpOMS\Account\GroupStatus::ACTIVE) { $color = 'green'; }
+                        elseif ($value->getStatus() === \phpOMS\Account\GroupStatus::INACTIVE) { $color = 'darkblue'; }
+                        elseif ($value->getStatus() === \phpOMS\Account\GroupStatus::HIDDEN) { $color = 'purple'; } ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><span class="tag <?= $color; ?>"><?= $this->getHtml('Status'. $value->getStatus()); ?></span></a>
@@ -53,7 +53,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                     <td>
                 <?php endforeach; ?>
-                <?php if($c === 0) : ?>
+                <?php if ($c === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
         </table>

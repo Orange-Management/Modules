@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCause()->getTitle()); ?></a>
                         <?php endforeach; ?>
-                        <?php if($c === 0) : ?>
+                        <?php if ($c === 0) : ?>
                         <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                                 <?php endif; ?>
             </table>

@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Navigation\Models;
 
 use phpOMS\DataStorage\Database\DatabasePool;
@@ -123,7 +123,7 @@ class Navigation
     public static function getInstance(RequestAbstract $request = null, DatabasePool $dbPool = null)
     {
         if (!isset(self::$instance)) {
-            if(!isset($request) || !isset($dbPool)) {
+            if (!isset($request) || !isset($dbPool)) {
                 throw new \Exception('Invalid parameters');
             }
 

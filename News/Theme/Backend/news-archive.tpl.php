@@ -39,11 +39,11 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="4"><?= $footerView->render(); ?>
                         <tbody>
-                        <?php $count = 0; foreach($articles as $key => $news) : $count++; $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
+                        <?php $count = 0; foreach ($articles as $key => $news) : $count++; $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/news/article?{?}&id=' . $news->getId());
                             $color = 'darkred';
-                            if($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }
-                            elseif($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }
-                            elseif($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; } 
+                            if ($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }
+                            elseif ($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }
+                            elseif ($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; } 
                         ?>
                             <tr>
                                 <td><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>
@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($news->getCreatedBy()->getName1()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($news->getPublish()->format('Y-m-d')); ?></a>
                         <?php endforeach; ?>
-                        <?php if($count === 0) : ?>
+                        <?php if ($count === 0) : ?>
                 <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>

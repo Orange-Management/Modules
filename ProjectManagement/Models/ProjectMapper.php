@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\ProjectManagement\Models;
 
 use Modules\Calendar\Models\CalendarMapper;
@@ -129,7 +129,7 @@ class ProjectMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj, $relations);
 
-            if($objId === null || !is_scalar($objId)) {
+            if ($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
         } catch (\Exception $e) {

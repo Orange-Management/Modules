@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Reporter;
 
 use Model\Message\Redirect;
@@ -267,7 +267,7 @@ class Controller extends ModuleAbstract implements WebInterface
             }
         }
 
-        if(!$template->isStandalone()) {
+        if (!$template->isStandalone()) {
             if (!isset($tcoll['template'])) {
                 throw new \Exception('No template file detected.');
             }

@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Kanban\Models;
 
 use Modules\Media\Models\Media;
@@ -160,7 +160,7 @@ class KanbanCard implements \JsonSerializable
 
     public function removeComment(int $id) : bool
     {
-        if(isset($this->comment[$id])) {
+        if (isset($this->comment[$id])) {
             unset($this->comment[$id]);
 
             return true;

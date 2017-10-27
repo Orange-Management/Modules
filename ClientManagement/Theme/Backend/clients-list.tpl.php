@@ -78,7 +78,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="8"><?= $footerView->render(); ?>
                 <tbody>
-                <?php $count = 0; foreach($clients as $key => $value) : $count++; 
+                <?php $count = 0; foreach ($clients as $key => $value) : $count++; 
                  $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getNumber()); ?></a>
@@ -90,7 +90,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                     <td>
                 <?php endforeach; ?>
-                <?php if($count === 0) : ?>
+                <?php if ($count === 0) : ?>
                 <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>

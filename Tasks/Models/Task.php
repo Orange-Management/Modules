@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Tasks\Models;
 use Modules\Calendar\Models\Schedule;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
@@ -191,8 +191,8 @@ class Task implements \JsonSerializable
 
     public function isForwarded(int $id) : bool
     {
-        foreach($this->taskElements as $element) {
-            if($element->getForwarded()->getId() === $id) {
+        foreach ($this->taskElements as $element) {
+            if ($element->getForwarded()->getId() === $id) {
                 return true;
             }
         }
@@ -350,7 +350,7 @@ class Task implements \JsonSerializable
      */
     public function setStatus(int $status)
     {
-        if(!TaskStatus::isValidValue($status)) {
+        if (!TaskStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
         }
 
@@ -376,7 +376,7 @@ class Task implements \JsonSerializable
      */
     public function setPriority(int $priority)
     {
-        if(!TaskStatus::isValidValue($priority)) {
+        if (!TaskStatus::isValidValue($priority)) {
             throw new InvalidEnumValue((string) $priority);
         }
 

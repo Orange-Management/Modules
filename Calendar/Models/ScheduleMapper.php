@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Calendar\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -92,7 +92,7 @@ class ScheduleMapper extends DataMapperAbstract
         try {
             $objId = parent::create($obj, $relations);
 
-            if($objId === null || !is_scalar($objId)) {
+            if ($objId === null || !is_scalar($objId)) {
                 return $objId;
             }
         } catch (\Exception $e) {

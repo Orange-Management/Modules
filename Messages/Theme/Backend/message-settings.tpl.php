@@ -25,35 +25,35 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><label for="iInbox"><?= $this->getHtml('Inbox') ?></label>
                 <tr><td><select id="iInbox" name="inbox">
                             <option value=""><?= $this->getHtml('Select') ?>
-                            <?php foreach($boxes as $box) : ?>
+                            <?php foreach ($boxes as $box) : ?>
                             <option value="<?= $this->printHtml($box); ?>"><?= $this->printHtml($box); ?>
                             <?php endforeach; ?>
                         </select>
                 <tr><td><label for="iOutbox"><?= $this->getHtml('Outbox') ?></label>
                 <tr><td><select id="iOutbox" name="outbox">
                             <option value=""><?= $this->getHtml('Select') ?>
-                            <?php foreach($boxes as $box) : ?>
+                            <?php foreach ($boxes as $box) : ?>
                             <option value="<?= $this->printHtml($box); ?>"><?= $this->printHtml($box); ?>
                                 <?php endforeach; ?>
                         </select>
                 <tr><td><label for="iDraft"><?= $this->getHtml('Draft') ?></label>
                 <tr><td><select id="iDraft" name="draft">
                             <option value=""><?= $this->getHtml('Select') ?>
-                            <?php foreach($boxes as $box) : ?>
+                            <?php foreach ($boxes as $box) : ?>
                             <option value="<?= $this->printHtml($box); ?>"><?= $this->printHtml($box); ?>
                                 <?php endforeach; ?>
                         </select>
                 <tr><td><label for="iTrash"><?= $this->getHtml('Trash') ?></label>
                 <tr><td><select id="iTrash" name="trash">
                             <option value=""><?= $this->getHtml('Select') ?>
-                            <?php foreach($boxes as $box) : ?>
+                            <?php foreach ($boxes as $box) : ?>
                             <option value="<?= $this->printHtml($box); ?>"><?= $this->printHtml($box); ?>
                                 <?php endforeach; ?>
                         </select>
                 <tr><td><label for="iSpam"><?= $this->getHtml('Spam') ?></label>
                 <tr><td><select id="iSpam" name="spam">
                             <option value=""><?= $this->getHtml('Select') ?>
-                            <?php foreach($boxes as $box) : ?>
+                            <?php foreach ($boxes as $box) : ?>
                             <option value="<?= $this->printHtml($box); ?>"><?= $this->printHtml($box); ?>
                                 <?php endforeach; ?>
                         </select>

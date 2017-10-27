@@ -38,7 +38,7 @@ $calendar = $this->getData('calendar');
                     <?php for($j = 0; $j < 7; $j++) : 
                         $isActiveMonth = ((int) $current[$i*7+$j]->format('d') === 1) ? !$isActiveMonth : $isActiveMonth; 
                     ?>
-                        <?php if($isActiveMonth) :?>
+                        <?php if ($isActiveMonth) :?>
                         <li class="day">
                             <div class="date"><?= $current[$i*7+$j]->format('d'); ?></div>
                                 <?php else: ?>
@@ -47,7 +47,7 @@ $calendar = $this->getData('calendar');
                                 <?php endif; ?>
                             <?php
                             $events = $calendar->getEventByDate($current[$i*7+$j]);
-                            foreach($events as $event) : ?> 
+                            foreach ($events as $event) : ?> 
                                 <div id="event-tag-<?= $this->printHtml($event->getId()); ?>" class="event">
                         <div class="event-desc"><?= $this->printHtml($event->getName()); ?></div>
                         <div class="event-time">2:00pm to 5:00pm</div>

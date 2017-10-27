@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\News\Models;
 
 use phpOMS\Contract\ArrayableInterface;
@@ -240,7 +240,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      */
     public function setLanguage(string $language)
     {
-        if(!ISO639x1Enum::isValidValue($language)) {
+        if (!ISO639x1Enum::isValidValue($language)) {
             throw new InvalidEnumValue($language);
         }
 
@@ -332,7 +332,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      */
     public function setType(int $type)
     {
-        if(!NewsType::isValidValue($type)) {
+        if (!NewsType::isValidValue($type)) {
             throw new InvalidEnumValue((string) $type);
         }
 
@@ -360,7 +360,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      */
     public function setStatus(int $status)
     {
-        if(!NewsStatus::isValidValue($status)) {
+        if (!NewsStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
         }
 

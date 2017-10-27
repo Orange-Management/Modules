@@ -14,7 +14,7 @@ $comments = $card->getComments();
     </div>
 </div>
 
-<?php foreach($comments as $comment) : ?>
+<?php foreach ($comments as $comment) : ?>
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">

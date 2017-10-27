@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()); ?></a>
                         <?php endforeach; ?>
-                        <?php if($c === 0) : ?>
+                        <?php if ($c === 0) : ?>
                 <tr>
                     <td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>

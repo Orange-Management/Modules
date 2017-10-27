@@ -16,7 +16,7 @@ echo $this->getData('nav')->render();
     </div>
 </div>
 
-<?php foreach($answers as $answer) : ?>
+<?php foreach ($answers as $answer) : ?>
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">

@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Media\Models;
 
 use phpOMS\System\File\Local\Directory;
@@ -163,7 +163,7 @@ class UploadFile
                     $limit++;
                 } while (file_exists($path . '/' . $this->fileName) && $limit < self::PATH_GENERATION_LIMIT);
 
-                if($limit >= self::PATH_GENERATION_LIMIT) {
+                if ($limit >= self::PATH_GENERATION_LIMIT) {
                     throw new \Exception('No file path could be found. Potential attack!');
                 }
             }
@@ -184,7 +184,7 @@ class UploadFile
                 return $result;
             }
 
-            if($this->interlaced && in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
+            if ($this->interlaced && in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
                 $this->interlace($extension, $dest);
             }
 
@@ -197,22 +197,22 @@ class UploadFile
     private function interlace(string $extension, string $path) /* : void */
     {
         
-                if($extension === 'png') {
+                if ($extension === 'png') {
                     $img = imagecreatefrompng($path);
-                } elseif($extension === 'jpg' || $extension === 'jpeg') {
+                } elseif ($extension === 'jpg' || $extension === 'jpeg') {
                     $img = imagecreatefromjpeg($path);
                 } else {
-                    $img = imagecreatefromgif($path);
+                    $img = imagecreatefromgif ($path);
                 }
 
                 imageinterlace($img, (int) $this->interlaced);
 
-                if($extension === 'png') {
+                if ($extension === 'png') {
                     imagepng($img, $path);
-                } elseif($extension === 'jpg' || $extension === 'jpeg') {
+                } elseif ($extension === 'jpg' || $extension === 'jpeg') {
                     imagejpeg($img, $path);
                 } else {
-                    imagegif($img, $path);
+                    imagegif ($img, $path);
                 }
 
                 imagedestroy($img);

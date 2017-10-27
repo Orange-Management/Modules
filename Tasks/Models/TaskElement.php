@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Tasks\Models;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
@@ -154,7 +154,7 @@ class TaskElement implements \JsonSerializable
     {
         $this->createdBy = $creator;
 
-        if($this->forwarded === 0) {
+        if ($this->forwarded === 0) {
             $this->setForwarded($this->createdBy);
         }
     }
@@ -266,7 +266,7 @@ class TaskElement implements \JsonSerializable
      */
     public function setStatus(int $status)
     {
-        if(!TaskStatus::isValidValue($status)) {
+        if (!TaskStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
         }
 

@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                     <td>
                         <?php endforeach; ?>
-                        <?php if($c === 0) : ?>
+                        <?php if ($c === 0) : ?>
                 <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>

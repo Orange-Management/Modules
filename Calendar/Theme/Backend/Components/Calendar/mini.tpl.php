@@ -21,7 +21,7 @@
             <?php for($j = 0; $j < 7; $j++) : 
                 $isActiveMonth = ((int) $current[$i*7+$j]->format('d') === 1) ? !$isActiveMonth : $isActiveMonth; 
             ?>
-                <?php if($isActiveMonth) :?>
+                <?php if ($isActiveMonth) :?>
                 <li class="day<?= $this->calendar->hasEventOnDate($current[$i*7+$j]) ? ' has-event' : '';?>">
                     <div class="date"><?= $current[$i*7+$j]->format('d'); ?></div>
                         <?php else: ?>

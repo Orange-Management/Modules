@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $this->getHtml('Run') ?>
                 <tfoot>
                 <tbody>
-                <?php $c = 0; foreach($jobs as $key => $job) : $c++;
+                <?php $c = 0; foreach ($jobs as $key => $job) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/base}/{/lang}/backend/admin/job/single?{?}&id=' . $job->getId()); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getStatus()); ?></a>
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getNextRunTime()) ? $job->getNextRunTime()->format('Y-m-d') : ''); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(trim($job->getId())); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getRun()); ?></a>
-                        <?php endforeach; if($c == 0) : ?>
+                        <?php endforeach; if ($c == 0) : ?>
                 <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>
             </table>

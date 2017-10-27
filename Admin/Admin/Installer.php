@@ -11,7 +11,7 @@
  * @version    1.0.0
  * @link       http://orange-management.com
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace Modules\Admin\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;
@@ -273,10 +273,10 @@ class Installer extends InstallerAbstract
 
     public static function installExternal(DatabasePool $dbPool, array $data)
     {
-        foreach($data as $type => $element) {
-            if($type === InstallType::PERMISSION) {
+        foreach ($data as $type => $element) {
+            if ($type === InstallType::PERMISSION) {
                 self::installPermission($dbPool, $element);
-            } elseif($type === InstallType::GROUP) {
+            } elseif ($type === InstallType::GROUP) {
                 self::installGroup($dbPool, $element);
             }
         }

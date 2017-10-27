@@ -55,7 +55,7 @@ $footerView->setResults(count($modules));
                         else
                             echo strtolower($this->getHtml('Available')); ?></a>
                         <?php endforeach; ?>
-                <?php if($count === 0) : ?>
+                <?php if ($count === 0) : ?>
                     <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
             </table>
