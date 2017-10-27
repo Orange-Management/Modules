@@ -2,33 +2,33 @@
 
 class Log implements \JsonSerializable
 {
-	private $id = 0;
+    private $id = 0;
 
-	private $createdAt = null;
+    private $createdAt = null;
 
-	private $createdBy = null;
+    private $createdBy = null;
 
-	private $raw = '';
+    private $raw = '';
 
-	private $layout = 0;
+    private $layout = 0;
 
-	public function __construct(string $message = '', int $layout = 0) 
-	{
+    public function __construct(string $message = '', int $layout = 0) 
+    {
 
-	}
+    }
 
-	public function get(string $key) : string
-	{
-		return '';
-	}
+    public function get(string $key) : string
+    {
+        return '';
+    }
 
-	public function toArray() : array
-	{
-		return [];
-	}
+    public function toArray() : array
+    {
+        return [];
+    }
 
-	public function jsonSerialize()
-	{
-		return $this->toArray();
-	}
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
 }

@@ -114,18 +114,18 @@ class Installer extends InstallerAbstract
                             PRIMARY KEY (`itemmgmt_partslist_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
-			
-		$dbPool->get()->con->prepare(
+            
+        $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_sales_price` (
                             `itemmgmt_sales_price_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_sales_price_customer` int(11) DEFAULT NULL,
-			    `itemmgmt_sales_price_group` int(11) DEFAULT NULL,
+                `itemmgmt_sales_price_group` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_amount` varchar(50) DEFAULT NULL,
                             `itemmgmt_sales_price_price` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_bonus` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_discountp` int(11) DEFAULT NULL,
                             `itemmgmt_sales_price_discount` int(11) DEFAULT NULL,
-			    `itemmgmt_sales_price_item` int(11) DEFAULT NULL,
+                `itemmgmt_sales_price_item` int(11) DEFAULT NULL,
                             PRIMARY KEY (`itemmgmt_sales_price_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
@@ -152,12 +152,12 @@ class Installer extends InstallerAbstract
                             `itemmgmt_purchase_price_discountp` int(11) DEFAULT NULL,
                             `itemmgmt_purchase_price_discount` int(11) DEFAULT NULL,
                             `itemmgmt_purchase_price_weight` int(11) DEFAULT NULL,
-			    `itemmgmt_purchase_price_item` int(11) DEFAULT NULL,
+                `itemmgmt_purchase_price_item` int(11) DEFAULT NULL,
                             PRIMARY KEY (`itemmgmt_purchase_price_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-				$dbPool->get()->con->prepare(
+                $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_disposal` (
                             `itemmgmt_disposal_id` int(11) NOT NULL AUTO_INCREMENT,
                             `itemmgmt_disposal_item` int(11) DEFAULT NULL,

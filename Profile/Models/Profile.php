@@ -31,73 +31,73 @@ use Modules\Calendar\Models\Calendar;
  */
 class Profile
 {
-	private $id = 0;
+    private $id = 0;
 
-	private $image = null;
+    private $image = null;
 
-	private $birthday = null;
+    private $birthday = null;
 
-	private $account = null;
+    private $account = null;
 
-	private $location = [];
+    private $location = [];
 
-	private $calendar = null;
+    private $calendar = null;
 
-	public function __construct() 
-	{
-		$this->image = new NullMedia();
-		$this->birthday = new \DateTime('now');
-		$this->account = new Account();
-		$this->calendar = new Calendar();
-	}
+    public function __construct() 
+    {
+        $this->image = new NullMedia();
+        $this->birthday = new \DateTime('now');
+        $this->account = new Account();
+        $this->calendar = new Calendar();
+    }
 
-	public function getId() : int
-	{
-		return $this->id;
-	}
+    public function getId() : int
+    {
+        return $this->id;
+    }
 
-	public function getLocation() : array
-	{
-		return $this->location;
-	}
+    public function getLocation() : array
+    {
+        return $this->location;
+    }
 
-	public function addLocation(Location $location) 
-	{
-		$this->location[] = $location;
-	}
+    public function addLocation(Location $location) 
+    {
+        $this->location[] = $location;
+    }
 
-	public function getCalendar()
-	{
-		return $this->calendar;
-	}
+    public function getCalendar()
+    {
+        return $this->calendar;
+    }
 
-	public function getImage() : Media
-	{
-		return $this->image;
-	}
+    public function getImage() : Media
+    {
+        return $this->image;
+    }
 
-	public function setImage(Media $image) /* : void */
-	{
-		$this->image = $image;
-	}
+    public function setImage(Media $image) /* : void */
+    {
+        $this->image = $image;
+    }
 
-	public function setAccount(Account $account) /* : void */
-	{
-		$this->account = $account;
-	}
+    public function setAccount(Account $account) /* : void */
+    {
+        $this->account = $account;
+    }
 
-	public function getAccount() : Account
-	{
-		return $this->account ?? new NullAccount();
-	}
+    public function getAccount() : Account
+    {
+        return $this->account ?? new NullAccount();
+    }
 
-	public function setBirthday(\DateTime $birthday) /* : void */
-	{
-		$this->birthday = $birthday;
-	}
+    public function setBirthday(\DateTime $birthday) /* : void */
+    {
+        $this->birthday = $birthday;
+    }
 
-	public function getBirthday() : \DateTime
-	{
-		return $this->birthday;
-	}
+    public function getBirthday() : \DateTime
+    {
+        return $this->birthday;
+    }
 }

@@ -89,7 +89,7 @@ class PackageInfoManager
      */
     public function update() /* : void */
     {
-    	if ($this->path === false || !file_exists($this->path)) {
+        if ($this->path === false || !file_exists($this->path)) {
             throw new PathException((string) $this->path);
         }
         file_put_contents($this->path, json_encode($this->info, JSON_PRETTY_PRINT));
