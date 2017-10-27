@@ -16,9 +16,9 @@
             <li><?= $this->getHtml('Saturday', 'Calendar'); ?>
         </ul>
         <?php $current = $this->calendar->getDate()->getMonthCalendar(0); $isActiveMonth = false;
-        for($i = 0; $i < 6; $i++) : ?>
+        for ($i = 0; $i < 6; $i++) : ?>
         <ul class="days">
-            <?php for($j = 0; $j < 7; $j++) : 
+            <?php for ($j = 0; $j < 7; $j++) : 
                 $isActiveMonth = ((int) $current[$i*7+$j]->format('d') === 1) ? !$isActiveMonth : $isActiveMonth; 
             ?>
                 <?php if ($isActiveMonth) :?>
