@@ -76,4 +76,9 @@ class Group extends \phpOMS\Account\Group
     {
         return $this->createdBy;
     }
+
+    public function setCreatedBy($createdBy) /* : void */
+    {
+        $this->createdBy = $createdBy;
+    }
 }

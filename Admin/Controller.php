@@ -320,7 +320,10 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $success = $this->app->appSettings->set((string) $request->getData('settings'), true);
+        $success = $this->app->appSettings->set(
+            json_decode((string) $request->getData('settings'), true), 
+            true
+        );
 
         $response->set($request->__toString(), $success);
     }
@@ -328,6 +331,18 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $group = GroupMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), $group->jsonSerialize());
+    }
+
+    public function apiGroupSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $group = GroupMapper::get((int) $request->getData('id'));
+        
+        $group->setName((string) ($request->getData('name') ?? $group->getName()));
+        $group->setDescription((string) ($request->getData('description') ?? $group->getDescription()));
+
+        GroupMapper::update($group);
+        
         $response->set($request->__toString(), $group->jsonSerialize());
     }
 
@@ -358,14 +373,15 @@ class Controller extends ModuleAbstract implements WebInterface
         $group = $this->createGroupFromRequest($request);
 
         GroupMapper::create($group);
-        $response->set('group', $group->__toString());
+        $response->set($request->__toString(), $group->jsonSerialize());
     }
 
     private function createGroupFromRequest(RequestAbstract $request) : Group
     {
         $group = new Group();
+        $group->setCreatedBy($request->getHeader()->getAccount());
         $group->setName((string) ($request->getData('name') ?? ''));
-        $group->setStatus((int) $request->getData('status'));
+        $group->setStatus((int) ($request->getData('status') ?? GroupStatus::INACTIVE));
         $group->setDescription((string) ($request->getData('description') ?? ''));
 
         return $group;
@@ -373,15 +389,16 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $status = GroupMapper::delete((int) ($request->getData('id')));
+        $group = GroupMapper::get((int) $request->getData('id'));
+        $status = GroupMapper::delete($group);
 
         $response->set($request->__toString(), $status);
     }
 
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), AccountMapper::getByRequest($request));
+        $account = AccountMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), $account->jsonSerialize());
     }
 
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -392,9 +409,10 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private function validateAccountCreate(RequestAbstract $request) : array
     {
+        // todo: validate email correctness
         $val = [];
         if (
-            ($val['name'] = empty($request->getData('name')))
+            ($val['login'] = empty($request->getData('login')))
             || ($val['name1'] = empty($request->getData('name1')))
             || ($val['type'] = !AccountType::isValidValue((int) $request->getData('type')))
             || ($val['status'] = !AccountStatus::isValidValue((int) $request->getData('status')))
@@ -422,33 +440,40 @@ class Controller extends ModuleAbstract implements WebInterface
     private function createAccountFromRequest(RequestAbstract $request) : Account
     {
         $account = new Account();
-        $account->setStatus((int) ($request->getData('status')));
-        $account->setType((int) ($request->getData('type')));
-        $account->setName((string) ($request->getData('name')));
-        $account->setName1((string) ($request->getData('name1')));
-        $account->setName2((string) ($request->getData('name2')));
-        $account->setName3((string) ($request->getData('name3')));
-        $account->setEmail((string) ($request->getData('email')));
-        $account->generatePassword((string) ($request->getData('password')));
+        $account->setStatus((int) ($request->getData('status') ?? AccountStatus::INACTIVE));
+        $account->setType((int) ($request->getData('type') ?? AccountType::USER));
+        $account->setName((string) ($request->getData('login') ?? ''));
+        $account->setName1((string) ($request->getData('name1') ?? ''));
+        $account->setName2((string) ($request->getData('name2') ?? ''));
+        $account->setName3((string) ($request->getData('name3') ?? ''));
+        $account->setEmail((string) ($request->getData('email') ?? ''));
+        $account->generatePassword((string) ($request->getData('password') ?? ''));
 
         return $account;
     }
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $status = AccountMapper::delete((int) ($request->getData('id')));
+        $account = AccountMapper::get((int) ($request->getData('id')));
+        $status = AccountMapper::delete($account);
 
-        $response->set('account', $status);
+        $response->set($request->__toString(), $status);
     }
 
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $account = AccountMapper::get((int) ($request->getData('id')));
-        $account->setName((string) ($request->getData('name')));
+        $account->setName((string) ($request->getData('login') ?? $account->getName()));
+        $account->setName1((string) ($request->getData('name1') ?? $account->getName1()));
+        $account->setName2((string) ($request->getData('name2') ?? $account->getName2()));
+        $account->setName3((string) ($request->getData('name3') ?? $account->getName3()));
+        $account->setEmail((string) ($request->getData('email') ?? $account->getEmail()));
+        $account->setStatus((int) ($request->getData('status') ?? $account->getStatus()));
+        $account->setType((int) ($request->getData('type') ?? $account->getType()));
 
         $status = AccountMapper::update($account);
 
-        $response->set('account', ['status' => $status, 'account' => $account->jsonSerialize()]);
+        $response->set($request->__toString(), $account->jsonSerialize());
     }
 
     public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
