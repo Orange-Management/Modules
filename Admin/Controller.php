@@ -315,19 +315,20 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $response->set('settings', $this->app->appSettings->get($request->getData('id')));
+        $response->set($request->__toString(), $this->app->appSettings->get((int) $request->getData('id')));
     }
 
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $success = $this->app->appSettings->set((array) $request->getData('settings'), true);
+        $success = $this->app->appSettings->set((string) $request->getData('settings'), true);
 
-        $response->set('settings', $success);
+        $response->set($request->__toString(), $success);
     }
 
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
-        $response->set('group', GroupMapper::getByRequest($request));
+        $group = GroupMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), $group->jsonSerialize());
     }
 
     private function validateGroupCreate(RequestAbstract $request) : array
@@ -374,30 +375,19 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $status = GroupMapper::delete((int) ($request->getData('id')));
 
-        $response->set('group', $status);
-    }
-
-    public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
-    {
-        $group = GroupMapper::get((int) ($request->getData('id')));
-        $group->setName((string) ($request->getData('name')));
-        $group->setDescription((string) ($request->getData('desc')));
-
-        $status = GroupMapper::update($group);
-
-        $response->set('group', ['status' => $status, 'group' => $group->__toString()]);
+        $response->set($request->__toString(), $status);
     }
 
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set('account', AccountMapper::getByRequest($request));
+        $response->set($request->__toString(), AccountMapper::getByRequest($request));
     }
 
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set('account', array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
+        $response->set($request->__toString(), array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
     }
 
     private function validateAccountCreate(RequestAbstract $request) : array
@@ -426,7 +416,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account = $this->createAccountFromRequest($request);
 
         AccountMapper::create($account);
-        $response->set('account', $account->jsonSerialize());
+        $response->set($request->__toString(), $account->jsonSerialize());
     }
 
     private function createAccountFromRequest(RequestAbstract $request) : Account
