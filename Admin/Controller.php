@@ -397,7 +397,16 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
@@ -410,7 +419,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $this->app->appSettings->get((int) $request->getData('id')));
     }
 
-    public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
@@ -428,7 +446,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $success);
     }
 
-    public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
@@ -442,7 +469,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $group->jsonSerialize());
     }
 
-    public function apiGroupSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiGroupSet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
@@ -462,6 +498,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $group->jsonSerialize());
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateGroupCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -478,7 +521,16 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
@@ -500,6 +552,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $group->jsonSerialize());
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     *
+     * @return Group
+     *
+     * @since  1.0.0
+     */
     private function createGroupFromRequest(RequestAbstract $request) : Group
     {
         $group = new Group();
@@ -511,7 +570,16 @@ class Controller extends ModuleAbstract implements WebInterface
         return $group;
     }
 
-    public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
@@ -527,7 +595,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $status);
     }
 
-    public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
@@ -541,7 +618,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $account->jsonSerialize());
     }
 
-    public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
@@ -555,6 +641,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateAccountCreate(RequestAbstract $request) : array
     {
         // todo: validate email correctness
@@ -571,7 +664,16 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
@@ -593,6 +695,13 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $account->jsonSerialize());
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     *
+     * @return Account
+     *
+     * @since  1.0.0
+     */
     private function createAccountFromRequest(RequestAbstract $request) : Account
     {
         $account = new Account();
@@ -608,7 +717,16 @@ class Controller extends ModuleAbstract implements WebInterface
         return $account;
     }
 
-    public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
@@ -624,7 +742,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $status);
     }
 
-    public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
@@ -648,7 +775,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $account->jsonSerialize());
     }
 
-    public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         $module = $request->getData('module');
         $status = $request->getData('status');
