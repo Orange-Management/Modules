@@ -34,6 +34,9 @@ use phpOMS\System\MimeType;
 use phpOMS\Views\View;
 use phpOMS\Message\Http\RequestStatusCode;
 
+use phpOMS\Account\PermissionType;
+use Modules\Admin\Models\PermissionState;
+
 /**
  * Admin controller class.
  *
@@ -106,6 +109,16 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $settings = $this->app->appSettings->get([
             1000000009,
             1000000019,
@@ -117,7 +130,6 @@ class Controller extends ModuleAbstract implements WebInterface
             1000000028,
         ]);
 
-        $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/settings-general');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
@@ -147,6 +159,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
@@ -169,6 +190,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
@@ -200,6 +230,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
@@ -219,6 +258,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+        
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
@@ -240,6 +288,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+        
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
@@ -271,6 +328,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+        
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
@@ -290,6 +356,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::MODULE)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+        
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-list');
 
         return $view;
@@ -308,6 +383,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+        
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::MODULE)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+        
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-single');
 
         return $view;
@@ -315,11 +399,27 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
+        ) {
+            $response->set('settings_read', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $response->set($request->__toString(), $this->app->appSettings->get((int) $request->getData('id')));
     }
 
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
+        ) {
+            $response->set('settings_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $success = $this->app->appSettings->set(
             json_decode((string) $request->getData('settings'), true), 
             true
@@ -330,12 +430,28 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $response->set('group_read', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $group = GroupMapper::get((int) $request->getData('id'));
         $response->set($request->__toString(), $group->jsonSerialize());
     }
 
     public function apiGroupSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $response->set('group_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $group = GroupMapper::get((int) $request->getData('id'));
         
         $group->setName((string) ($request->getData('name') ?? $group->getName()));
@@ -364,6 +480,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $response->set('group_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateGroupCreate($request))) {
             $response->set('group_create', new FormValidation($val));
 
@@ -389,6 +513,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+        ) {
+            $response->set('group_delete', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $group = GroupMapper::get((int) $request->getData('id'));
         $status = GroupMapper::delete($group);
 
@@ -397,12 +529,28 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $response->set('account_read', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $account = AccountMapper::get((int) $request->getData('id'));
         $response->set($request->__toString(), $account->jsonSerialize());
     }
 
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $response->set('account_find', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set($request->__toString(), array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
     }
@@ -425,6 +573,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $response->set('account_create', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         if (!empty($val = $this->validateAccountCreate($request))) {
             $response->set('account_create', new FormValidation($val));
 
@@ -454,6 +610,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $response->set('account_delete', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $account = AccountMapper::get((int) ($request->getData('id')));
         $status = AccountMapper::delete($account);
 
@@ -462,6 +626,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+        ) {
+            $response->set('account_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
         $account = AccountMapper::get((int) ($request->getData('id')));
         $account->setName((string) ($request->getData('login') ?? $account->getName()));
         $account->setName1((string) ($request->getData('name1') ?? $account->getName1()));
