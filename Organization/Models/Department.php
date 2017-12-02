@@ -48,7 +48,7 @@ class Department
         return $this->parent ?? new NullDepartment();
     }
 
-    public function setParent(int $parent)
+    public function setParent($parent)
     {
         $this->parent = $parent;
     }

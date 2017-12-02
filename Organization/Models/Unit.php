@@ -48,7 +48,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
         return $this->parent ?? new NullUnit();
     }
 
-    public function setParent(int $parent)
+    public function setParent($parent)
     {
         $this->parent = $parent;
     }
@@ -79,6 +79,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
+            'parent' => $this->parent,
         ];
     }
 

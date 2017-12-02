@@ -50,7 +50,7 @@ class Position implements ArrayableInterface, \JsonSerializable
         return $this->parent ?? new NullPosition();
     }
 
-    public function setParent(int $parent)
+    public function setParent($parent)
     {
         $this->parent = $parent;
     }
@@ -91,6 +91,8 @@ class Position implements ArrayableInterface, \JsonSerializable
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
+            'department' => $this->department,
+            'parent' => $this->parent,
         ];
     }
 

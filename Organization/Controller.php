@@ -249,7 +249,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
-        $view->addData('position', PositionMapper::get((int) $request->getData('id')));
+        $view->addData($request->__toString(), PositionMapper::get((int) $request->getData('id')));
 
         return $view;
     }
@@ -293,6 +293,36 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    public function apiUnitGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $unit = UnitMapper::get((int) ($request->getData('id')));
+        $response->set($request->__toString(), $unit->jsonSerialize());
+    }
+
+    public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $unit = UnitMapper::get((int) $request->getData('id'));
+
+        $unit->setName((string) ($request->getData('name') ?? $unit->getName()));
+        $unit->setDescription((string) ($request->getData('description') ?? $unit->getDescription()));
+        
+        $parent = (int) $request->getData('parent');
+        $unit->setParent(!empty($parent) ? $parent : $unit->getParent());
+        $unit->setStatus((int) ($request->getData('status') ?? $unit->getStatus()));
+
+        UnitMapper::update($unit);
+
+        $response->set($request->__toString(), $unit->jsonSerialize());
+    }
+
+    public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $unit = UnitMapper::get((int) $request->getData('id'));
+        $status = UnitMapper::delete($unit);
+
+        $response->set($request->__toString(), $status);
+    }
+
     public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!empty($val = $this->validateUnitCreate($request))) {
@@ -304,11 +334,14 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit = new Unit();
         $unit->setName((string) $request->getData('name'));
         $unit->setDescription((string) ($request->getData('description') ?? ''));
+        
+        $parent = (int) $request->getData('parent');
+        $unit->setParent(!empty($parent) ? $parent : null);
         $unit->setStatus((int) $request->getData('status'));
 
         UnitMapper::create($unit);
 
-        $response->set('unit', $unit->jsonSerialize());
+        $response->set($request->__toString(), $unit->jsonSerialize());
     }
 
     private function validatePositionCreate(RequestAbstract $request) : array
@@ -331,6 +364,39 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    public function apiPositionGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $position = PositionMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), $position->jsonSerialize());
+    }
+
+    public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $position = PositionMapper::get((int) $request->getData('id'));
+        $status = PositionMapper::delete($position);
+
+        $response->set($request->__toString(), $status);
+    }
+
+    public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $position = PositionMapper::get((int) $request->getData('id'));
+        
+        $position->setName((string) ($request->getData('name') ?? $position->getName()));
+        $position->setDescription((string) ($request->getData('description') ?? $position->getDescription()));
+        
+        $parent = (int) $request->getData('parent'); 
+        $position->setParent(!empty($parent) ? $parent : $position->getParent());
+        
+        $department = (int) $request->getData('department');
+        $position->setDepartment(!empty($department) ? $department : $position->getDepartment());
+        $position->setStatus((int) ($request->getData('status') ?? $position->getStatus()));
+        
+        PositionMapper::update($position);
+        
+        $response->set($request->__toString(), $position->jsonSerialize());
+    }
+    
     public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!empty($val = $this->validatePositionCreate($request))) {
@@ -343,10 +409,16 @@ class Controller extends ModuleAbstract implements WebInterface
         $position->setName((string) ($request->getData('name')));
         $position->setStatus((int) $request->getData('status'));
         $position->setDescription((string) ($request->getData('description') ?? ''));
+        
+        $parent = (int) $request->getData('parent');
+        $position->setParent(!empty($parent) ? $parent : null);
+        
+        $department = (int) $request->getData('department');
+        $position->setDepartment(!empty($department) ? $department : null);
 
         PositionMapper::create($position);
 
-        $response->set('position', $position->jsonSerialize());
+        $response->set($request->__toString(), $position->jsonSerialize());
     }
 
     private function validateDepartmentCreate(RequestAbstract $request) : array
@@ -368,6 +440,39 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    public function apiDepartmentGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $department = DepartmentMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), $department->jsonSerialize());
+    }
+
+    public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $department = DepartmentMapper::get((int) $request->getData('id'));
+        
+        $department->setName((string) ($request->getData('name') ?? $department->getName()));
+        $department->setDescription((string) ($request->getData('description') ?? $department->getDescription()));
+        
+        $parent = (int) $request->getData('parent');
+        $department->setParent(!empty($parent) ? $parent : $department->getParent());
+        $department->setStatus((int) ($request->getData('status') ?? $department->getStatus()));
+        
+        $unit = (int) $request->getData('unit');
+        $department->setUnit(!empty($unit) ? $unit : $department->getUnit());
+        
+        DepartmentMapper::update($department);
+        
+        $response->set($request->__toString(), $department->jsonSerialize());
+    }
+
+    public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        $department = DepartmentMapper::get((int) $request->getData('id'));
+        $status = DepartmentMapper::delete($department);
+
+        $response->set($request->__toString(), $status);
+    }
+
     public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!empty($val = $this->validateDepartmentCreate($request))) {
@@ -379,10 +484,14 @@ class Controller extends ModuleAbstract implements WebInterface
         $department = new Department();
         $department->setName((string) $request->getData('name'));
         $department->setStatus((int) $request->getData('status'));
+        
+        $parent = (int) $request->getData('parent');
+        $department->setParent(!empty($parent) ? $parent : null);
+        $department->setUnit((int) ($request->getData('unit') ?? 1));
         $department->setDescription((string) ($request->getData('description') ?? ''));
 
         DepartmentMapper::create($department);
 
-        $response->set('department', $department->jsonSerialize());
+        $response->set($request->__toString(), $department->jsonSerialize());
     }
 }
