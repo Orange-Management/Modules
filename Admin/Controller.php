@@ -171,7 +171,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
-        $view->setData('list:elements', AccountMapper::getAll());
+        $view->setData('list:elements', AccountMapper::getNewest(50));
         $view->setData('list:count', 1);
 
         return $view;

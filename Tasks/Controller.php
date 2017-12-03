@@ -15,8 +15,6 @@ declare(strict_types = 1);
 namespace Modules\Tasks;
 
 use Model\Message\FormValidation;
-use Model\Message\Redirect;
-use Model\Message\Reload;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskElementMapper;
@@ -29,9 +27,9 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
-use phpOMS\Uri\UriFactory;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
+use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Task class.
@@ -147,7 +145,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $taskListView->setTemplate('/Modules/Tasks/Theme/Backend/Components/Tasks/list');
         $view->addData('tasklist', $taskListView);
 
-        $tasks = TaskMapper::getNewest(5);
+        $tasks = TaskMapper::getNewest(5, null, RelationType::ALL, 1);
         $view->addData('tasks', $tasks);
 
         return $view;

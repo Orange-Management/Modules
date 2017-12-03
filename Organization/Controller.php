@@ -387,7 +387,7 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
         
-        $unit = UnitMapper::get((int) ($request->getData('id')));
+        $unit = UnitMapper::get((int) $request->getData('id'));
         $response->set($request->__toString(), $unit->jsonSerialize());
     }
 
