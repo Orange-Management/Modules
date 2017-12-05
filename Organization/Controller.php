@@ -324,7 +324,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
-        $view->addData($request->__toString(), PositionMapper::get((int) $request->getData('id')));
+        $view->addData('position', PositionMapper::get((int) $request->getData('id')));
 
         return $view;
     }
