@@ -105,6 +105,7 @@ class Media
      * @since 1.0.0
      */
     protected $description = '';
+    protected $descriptionRaw = '';
 
     /**
      * Constructor.
@@ -207,6 +208,16 @@ class Media
     }
 
     /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getDescriptionRaw() : string
+    {
+        return $this->descriptionRaw;
+    }
+
+    /**
      * @return int
      *
      * @since  1.0.0
@@ -284,6 +295,18 @@ class Media
     public function setDescription(string $description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @param string $description Media description
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setDescriptionRaw(string $description)
+    {
+        $this->descriptionRaw = $description;
     }
 
     /**

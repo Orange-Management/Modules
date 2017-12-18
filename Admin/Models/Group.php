@@ -41,6 +41,8 @@ class Group extends \phpOMS\Account\Group
      */
     protected $createdBy = 0;
 
+    protected $descriptionRaw = '';
+
     /**
      * Constructor
      *
@@ -80,5 +82,15 @@ class Group extends \phpOMS\Account\Group
     public function setCreatedBy($createdBy) /* : void */
     {
         $this->createdBy = $createdBy;
+    }
+
+    public function setDescriptionRaw(string $description) /* : void */
+    {
+        $this->descriptionRaw = $description;
+    }
+
+    public function getDescriptionRaw() : string
+    {
+        return $this->descriptionRaw;
     }
 }

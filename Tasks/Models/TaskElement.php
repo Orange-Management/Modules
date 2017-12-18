@@ -43,6 +43,8 @@ class TaskElement implements \JsonSerializable
      */
     private $description = '';
 
+    private $descriptionRaw = '';
+
     /**
      * Task.
      *
@@ -177,6 +179,28 @@ class TaskElement implements \JsonSerializable
     public function setDescription(string $description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getDescriptionRaw() : string
+    {
+        return $this->descriptionRaw;
+    }
+
+    /**
+     * @param string $description
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setDescriptionRaw(string $description)
+    {
+        $this->descriptionRaw = $description;
     }
 
     /**

@@ -27,6 +27,7 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\RelationType;
@@ -294,7 +295,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $task = new Task();
         $task->setTitle((string) ($request->getData('title') ?? ''));
-        $task->setDescription((string) ($request->getData('description') ?? ''));
+        $task->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
+        $task->setDescriptionRaw((string) ($request->getData('description') ?? ''));
         $task->setCreatedBy($request->getHeader()->getAccount());
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $task->setStatus(TaskStatus::OPEN);
@@ -365,7 +367,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $element->setStatus((int) ($request->getData('status')));
         $element->setTask((int) ($request->getData('task')));
-        $element->setDescription((string) ($request->getData('description')));
+        $element->setDescription(Markdown::parse((string) ($request->getData('description'))));
+        $element->setDescriptionRaw((string) ($request->getData('description')));
 
         return $element;
     }

@@ -47,6 +47,7 @@ class Installer extends InstallerAbstract
                             `task_id` int(11) NOT NULL AUTO_INCREMENT,
                             `task_title` varchar(255) DEFAULT NULL,
                             `task_desc` text NOT NULL,
+                            `task_desc_raw` text NOT NULL,
                             `task_type` tinyint(1) NOT NULL,
                             `task_status` tinyint(1) NOT NULL,
                             `task_closable` tinyint(1) NOT NULL,
@@ -109,6 +110,7 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'task_element` (
                             `task_element_id` int(11) NOT NULL AUTO_INCREMENT,
                             `task_element_desc` text NOT NULL,
+                            `task_element_desc_raw` text NOT NULL,
                             `task_element_task` int(11) NOT NULL,
                             `task_element_created_by` int(11) NOT NULL,
                             `task_element_status` tinyint(1) NOT NULL,

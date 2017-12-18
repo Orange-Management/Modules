@@ -172,7 +172,6 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/News/Theme/Backend/news-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
-
         $view->addData('news', $article);
 
         return $view;
@@ -302,8 +301,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle->setCreatedBy($request->getHeader()->getAccount());
         $newsArticle->setPublish(new \DateTime((string) ($request->getData('publish') ?? 'now')));
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
-        $newsArticle->setPlain((string) ($request->getData('plain') ?? ''));
-        $newsArticle->setContent($mardkownParser->parse($request->getData('plain') ?? ''));
+        $newsArticle->setPlain($mardkownParser->parse($request->getData('plain') ?? ''));
+        $newsArticle->setContent(Markdown::parse((string) ($request->getData('plain') ?? '')));
         $newsArticle->setLanguage(strtolower((string) ($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));

@@ -68,6 +68,8 @@ class Task implements \JsonSerializable
      */
     protected $description = '';
 
+    protected $descriptionRaw = '';
+
     /**
      * Type.
      *
@@ -275,6 +277,26 @@ class Task implements \JsonSerializable
     public function setDescription(string $description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getDescriptionRaw() : string
+    {
+        return $this->descriptionRaw;
+    }
+
+    /**
+     * @param string $description
+     *
+     * @since  1.0.0
+     */
+    public function setDescriptionRaw(string $description)
+    {
+        $this->descriptionRaw = $description;
     }
 
     /**

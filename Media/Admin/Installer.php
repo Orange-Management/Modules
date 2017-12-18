@@ -45,6 +45,7 @@ class Installer extends InstallerAbstract
                             `media_id` int(11) NOT NULL AUTO_INCREMENT,
                             `media_name`  varchar(100) DEFAULT NULL,
                             `media_description` text DEFAULT NULL,
+                            `media_description_raw` text DEFAULT NULL,
                             `media_versioned`  tinyint(1) NOT NULL,
                             `media_file` varchar(255) NOT NULL,
                             `media_absolute` tinyint(1) NOT NULL,
@@ -78,23 +79,6 @@ class Installer extends InstallerAbstract
                     'ALTER TABLE `' . $dbPool->get()->prefix . 'media_relation`
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'media_relation_ibfk_1` FOREIGN KEY (`media_relation_src`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`),
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'media_relation_ibfk_2` FOREIGN KEY (`media_relation_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
-                )->execute();
-
-                $dbPool->get()->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'media_permission` (
-                            `media_permission_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `media_permission_type`  tinyint(1) NOT NULL,
-                            `media_permission_reference` int(11) NOT NULL,
-                            `media_permission_permission` tinyint(2) NOT NULL,
-                            `media_permission_media` int(11) NOT NULL,
-                            PRIMARY KEY (`media_permission_id`),
-                            KEY `media_permission_media` (`media_permission_media`)
-                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
-                )->execute();
-
-                $dbPool->get()->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get()->prefix . 'media_permission`
-                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'media_permission_ibfk_1` FOREIGN KEY (`media_permission_media`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
                 break;
         }

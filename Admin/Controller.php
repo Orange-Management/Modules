@@ -31,6 +31,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 use phpOMS\Message\Http\RequestStatusCode;
 
@@ -491,7 +492,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $group = GroupMapper::get((int) $request->getData('id'));
         
         $group->setName((string) ($request->getData('name') ?? $group->getName()));
-        $group->setDescription((string) ($request->getData('description') ?? $group->getDescription()));
+        $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? $group->getDescription())));
+        $group->setDescriptionRaw((string) ($request->getData('description') ?? $group->getDescriptionRaw()));
 
         GroupMapper::update($group);
         
@@ -565,7 +567,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $group->setCreatedBy($request->getHeader()->getAccount());
         $group->setName((string) ($request->getData('name') ?? ''));
         $group->setStatus((int) ($request->getData('status') ?? GroupStatus::INACTIVE));
-        $group->setDescription((string) ($request->getData('description') ?? ''));
+        $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
+        $group->setDescriptionRaw((string) ($request->getData('description') ?? ''));
 
         return $group;
     }

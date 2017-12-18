@@ -48,7 +48,8 @@ class Installer extends InstallerAbstract
                             `group_id` int(11) NOT NULL AUTO_INCREMENT,
                             `group_name` varchar(50) NOT NULL,
                             `group_status` int(3) NOT NULL,
-                            `group_desc` varchar(255) DEFAULT NULL,
+                            `group_desc` text DEFAULT NULL,
+                            `group_desc_raw` text DEFAULT NULL,
                             `group_created` datetime DEFAULT NULL,
                             PRIMARY KEY (`group_id`)
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
