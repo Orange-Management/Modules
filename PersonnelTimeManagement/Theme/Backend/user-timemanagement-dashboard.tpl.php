@@ -26,7 +26,7 @@ echo $this->getData('nav')->render();
             <td><?= $this->getHtml('End') ?>
             <td class="wf-100"><?= $this->getHtml('Type') ?>
         <tfoot>
-        <tr><td colspan="4"><?= $footerView->render(); ?>
+        <tr><td colspan="4">
         <tbody>
         <?php $c = 0; foreach ($employees as $key => $value) : $c++;
             $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>

@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Created') ?>
                         <tfoot>
                 <tr>
-                    <td colspan="3"><?= $footerView->render(); ?>
+                    <td colspan="3">
                         <tbody>
                         <?php $count = 0; foreach ($queries as $key => $value) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/database/template/single?{?}&id=' . $value->getId()); ?>

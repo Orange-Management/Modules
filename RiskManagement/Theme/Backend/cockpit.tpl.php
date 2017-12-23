@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Project') ?>
                     <td><?= $this->getHtml('Unit') ?>
                 <tfoot>
-                <tr><td colspan="6"><?= $footerView->render(); ?>
+                <tr><td colspan="6">
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>

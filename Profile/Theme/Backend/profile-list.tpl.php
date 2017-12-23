@@ -35,7 +35,7 @@ $accounts = $this->getData('accounts');
                     <td><?= $this->getHtml('Activity') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="3"><?= $footerView->render(); ?>
+                    <td colspan="3">
                 <tbody>
                 <?php $count = 0; foreach ($accounts as $key => $account) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/profile/single?{?}&id=' . $account->getAccount()->getId()); ?>

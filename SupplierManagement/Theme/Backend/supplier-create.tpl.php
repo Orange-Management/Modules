@@ -178,7 +178,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= $this->getHtml('Date') ?>
                     <tfoot>
                     <tr>
-                        <td colspan="6"><?= $footerView->render(); ?>
+                        <td colspan="6">
                     <tbody>
                     <tr>
                         <td><?= $this->printHtml($this->request->getOrigin()); ?>

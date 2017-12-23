@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Article') ?>
                     <td><?= $this->getHtml('Quantity') ?>
                 <tfoot>
-                <tr><td colspan="8"><?= $footerView->render(); ?>
+                <tr><td colspan="8">
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/business/department/profile?{?}&id=' . $value->getId()); ?>

@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Date') ?>
                         <tfoot>
                 <tr>
-                    <td colspan="4"><?= $footerView->render(); ?>
+                    <td colspan="4">
                         <tbody>
                         <?php $count = 0; foreach ($articles as $key => $news) : $count++; $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/news/article?{?}&id=' . $news->getId());
                             $color = 'darkred';

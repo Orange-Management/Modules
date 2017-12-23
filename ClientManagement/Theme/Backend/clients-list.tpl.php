@@ -76,7 +76,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Country') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="8"><?= $footerView->render(); ?>
+                    <td colspan="8">
                 <tbody>
                 <?php $count = 0; foreach ($clients as $key => $value) : $count++; 
                  $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>

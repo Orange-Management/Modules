@@ -40,7 +40,7 @@ $footerView->setResults(count($modules));
                     <td><?= $this->getHtml('Status') ?>
                         <tfoot>
                 <tr>
-                    <td colspan="4"><?= $footerView->render(); ?>
+                    <td colspan="4">
                         <tbody>
                         <?php $count = 0; foreach ($modules as $key => $module) : $count++;
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/module/settings?{?}&id=' . $module['name']['internal']); ?>

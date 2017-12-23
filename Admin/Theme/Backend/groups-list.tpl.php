@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Members') ?>
             <tfoot>
-                <tr><td colspan="5"><?= $footerView->render(); ?>
+                <tr><td colspan="5">
             <tbody>
                 <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
                     $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); 

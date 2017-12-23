@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                 <td class="wf-100"><?= $this->getHtml('Message') ?>
                     <tfoot>
             <tr>
-                <td colspan="5"><?= $footerView->render(); ?>
+                <td colspan="5">
                     <tbody>
                     <?php foreach ($logs as $key => $value) :
                     $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/monitoring/logs/single?{?}&id=' . $key);?>

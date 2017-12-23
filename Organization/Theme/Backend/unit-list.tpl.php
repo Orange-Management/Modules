@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Parent') ?>
                         <tfoot>
-                <tr><td colspan="3"><?= $footerView->render(); ?>
+                <tr><td colspan="3">
                         <tbody>
                         <?php foreach ($this->getData('list:elements') as $key => $value) :
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/unit/profile?{?}&id=' . $value->getId()); ?>

@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Updated') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="4"><?= $footerView->render(); ?>
+                    <td colspan="4">
                 <tbody>
                 <?php if (count($templates) == 0) : ?>
                 <tr class="empty">

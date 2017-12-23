@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->getHtml('Creator') ?>
             <td><?= $this->getHtml('Created') ?>
         <tfoot>
-        <tr><td colspan="4"><?= $footerView->render(); ?>
+        <tr><td colspan="4">
         <tbody>
         <?php if (0 == 0) : ?>
         <tr class="empty"><td colspan="5"><?= $this->getHtml('Empty', 0, 0); ?>

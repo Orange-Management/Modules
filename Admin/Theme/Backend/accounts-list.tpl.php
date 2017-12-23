@@ -39,7 +39,7 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Activity') ?>
                     <td><?= $this->getHtml('Created') ?>
                         <tfoot>
-                <tr><td colspan="5"><?= $footerView->render(); ?>
+                <tr><td colspan="5">
                         <tbody>
                         <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
                         $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()); 

@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->getHtml('Created') ?>
         <tfoot>
         <tr>
-            <td colspan="3"><?= $footerView->render(); ?>
+            <td colspan="3">
         <tbody>
         <?php $count = 0; foreach ([] as $key => $value) : $count++; ?>
         <?php endforeach; ?>
