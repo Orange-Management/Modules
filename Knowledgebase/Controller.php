@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
+ * @package    TBD
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -36,8 +36,7 @@ use Modules\Knowledgebase\Models\PermissionState;
 /**
  * Task class.
  *
- * @category   Modules
- * @package    Modules\Knowledgebase
+ * @package    Modules
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

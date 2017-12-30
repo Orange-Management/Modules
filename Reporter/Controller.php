@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
+ * @package    TBD
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -48,8 +48,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 /**
  * Reporter controller class.
  *
- * @category   Modules
- * @package    Modules\Admin
+ * @package    Modules
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.

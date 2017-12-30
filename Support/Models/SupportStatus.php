@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
+ * @package    TBD
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -18,8 +18,7 @@ use phpOMS\Stdlib\Base\Enum;
 /**
  * Support status enum.
  *
- * @category   Support
- * @package    Framework
+ * @package    Support
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

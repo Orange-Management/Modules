@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @category   TBD
+ * @package    TBD
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,8 +22,7 @@ use Modules\Media\Models\MediaMapper;
 /**
  * Mapper class.
  *
- * @category   Tasks
- * @package    Modules
+ * @package    Tasks
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
