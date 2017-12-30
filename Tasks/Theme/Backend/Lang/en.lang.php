@@ -63,6 +63,7 @@ return ['Tasks' => [
     'S4'                 => 'Canceled',
     'S5'                 => 'Done',
     'S6'                 => 'Closed',
+    'P0'                 => 'None',
     'P1'                 => 'Very Low',
     'P2'                 => 'Low',
     'P3'                 => 'Medium',

@@ -75,6 +75,14 @@ class Template implements \JsonSerializable
     private $description = '';
 
     /**
+     * Template description.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private $descriptionRaw = '';
+
+    /**
      * Template created at.
      *
      * @var \DateTime
@@ -106,6 +114,8 @@ class Template implements \JsonSerializable
      */
     private $expected = [];
 
+    private $reports = [];
+
     /**
      * Constructor
      *
@@ -124,6 +134,15 @@ class Template implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
+    }
+
+    public function getNewestReport() : Report
+    {
+        if (!empty($this->reports)) {
+            return end($this->reports());
+        }
+
+        return new NullReport();
     }
 
     /**
@@ -168,6 +187,28 @@ class Template implements \JsonSerializable
     public function getDescription() : string
     {
         return $this->description;
+    }
+
+    /**
+     * @param string $description Template description
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setDescriptionRaw(string $description)
+    {
+        $this->descriptionRaw = $description;
+    }
+
+    /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getDescriptionRaw() : string
+    {
+        return $this->descriptionRaw;
     }
 
     /**

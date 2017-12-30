@@ -15,6 +15,8 @@ declare(strict_types = 1);
 namespace Modules\Profile;
 
 use Modules\Profile\Models\ProfileMapper;
+use Modules\Profile\Models\PermissionState;
+use phpOMS\Account\PermissionType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -114,6 +116,15 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::PROFILE)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
 
         $view->setData('accounts', ProfileMapper::getNewest(25));
@@ -133,11 +144,20 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        $view = new View($this->app, $request, $response);
+
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::PROFILE)
+        ) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Calendar/Theme/Backend/css/styles.css');
         
-        $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 

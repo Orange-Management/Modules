@@ -40,6 +40,8 @@ use Modules\Admin\Models\PermissionState;
 
 /**
  * Admin controller class.
+ * 
+ * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
  * @category   Modules
  * @package    Modules\Admin

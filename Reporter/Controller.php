@@ -40,6 +40,7 @@ use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 
 /**
  * TODO: Implement auto sqlite generator on upload
@@ -415,7 +416,8 @@ class Controller extends ModuleAbstract implements WebInterface
         /* Create collection */
         $mediaCollection = new Collection();
         $mediaCollection->setName((string) ($request->getData('name') ?? 'Empty'));
-        $mediaCollection->setDescription((string) ($request->getData('description') ?? ''));
+        $mediaCollection->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
+        $mediaCollection->setDescriptionRaw((string) ($request->getData('description') ?? ''));
         $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
         $mediaCollection->setSources($files);
 
@@ -428,7 +430,8 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $reporterTemplate = new Template();
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
-        $reporterTemplate->setDescription($request->getData('description') ?? '');
+        $reporterTemplate->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
+        $reporterTemplate->setDescriptionRaw((string) ($request->getData('description') ?? ''));
         
         if ($collectionId > 0) {
             $reporterTemplate->setSource((int) $collectionId);

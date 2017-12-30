@@ -31,9 +31,10 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><?= $this->getData('accGrpSelector')->render('iCC', false); ?>
                         <tr><td><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td><select id="iPriority" name="priority">
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::NONE); ?>" selected><?= $this->getHtml('P0') ?>
                                 <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::VLOW); ?>"><?= $this->getHtml('P1') ?>
                                 <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::LOW); ?>"><?= $this->getHtml('P2') ?>
-                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::MEDIUM); ?>" selected><?= $this->getHtml('P3') ?>
+                                <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::MEDIUM); ?>"><?= $this->getHtml('P3') ?>
                                 <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::HIGH); ?>"><?= $this->getHtml('P4') ?>
                                 <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskPriority::VHIGH); ?>"><?= $this->getHtml('P5') ?>
                             </select>

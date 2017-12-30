@@ -77,6 +77,12 @@ class TaskMapper extends DataMapperAbstract
             'dst'            => 'task_media_src',
             'src'            => 'task_media_dst',
         ],
+        'acc' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+            'mapper'         => AccountMapper::class,
+            'table'          => 'task_account',
+            'dst'            => 'task_account_account',
+            'src'            => 'task_account_task',
+        ],
     ];
 
     protected static $belongsTo = [

@@ -87,6 +87,7 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'task_media_ibfk_2` FOREIGN KEY (`task_media_dst`) REFERENCES `' . $dbPool->get()->prefix . 'media` (`media_id`);'
                 )->execute();
 
+                // type = to, cc, bcc
                 $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'task_account` (
                             `task_account_id` int(11) NOT NULL AUTO_INCREMENT,

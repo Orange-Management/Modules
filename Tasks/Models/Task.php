@@ -138,6 +138,8 @@ class Task implements \JsonSerializable
 
     protected $media = [];
 
+    protected $acc = [];
+
     /**
      * Constructor.
      *
