@@ -4,16 +4,16 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Template\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
 /**
  * @var \phpOMS\Views\View $this
  */
-
 $modules   = $this->app->moduleManager->getAllModules();
 $active    = $this->app->moduleManager->getActiveModules();
 $installed = $this->app->moduleManager->getInstalledModules();

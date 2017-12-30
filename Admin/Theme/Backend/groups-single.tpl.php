@@ -4,16 +4,16 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Template\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-/*
- * UI Logic
- */
 
+/**
+ * @var \phpOMS\Views\View $this
+ */
 $group = $this->getData('group');
 $permissions = $this->getData('permissions');
 $accounts = $this->getData('accounts');

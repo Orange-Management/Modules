@@ -4,16 +4,16 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Template\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-/*
- * UI Logic
- */
 
+/**
+ * @var \phpOMS\Views\View $this
+ */
 $_oname         = $this->getData('oname') ?? '';
 $_timezone      = $this->getData('timezone') ?? '';
 $_timeformat    = $this->getData('timeformat') ?? '';
@@ -72,31 +72,36 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iCountries"><?= $this->getHtml('Country'); ?></label>
-                                    <tr><td colspan="2"><select id="iCountries" name="country">
+                                    <tr><td colspan="2">
+                                            <select id="iCountries" name="country">
                                                 <?php foreach ($countries as $code => $country) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_country) ? ' selected' : ''); ?>><?= $this->printHtml($country); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTimezones"><?= $this->getHtml('Timezone'); ?></label>
-                                    <tr><td colspan="2"><select id="iTimezones" name="timezone">
+                                    <tr><td colspan="2">
+                                            <select id="iTimezones" name="timezone">
                                                 <?php foreach ($timezones as $code => $timezone) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml($timezone == $_timezone ? ' selected' : ''); ?>><?= $this->printHtml($timezone); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTimeformats"><?= $this->getHtml('Timeformat'); ?></label>
-                                    <tr><td colspan="2"><select id="iTimeformats" name="timeformat">
+                                    <tr><td colspan="2">
+                                            <select id="iTimeformats" name="timeformat">
                                                 <?php foreach ($timeformats as $code => $timeformat) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($timeformat) == strtolower($_timeformat) ? ' selected' : ''); ?>><?= $this->printHtml($timeformat); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iLanguages"><?= $this->getHtml('Language'); ?></label>
-                                    <tr><td colspan="2"><select id="iLanguages" name="language">
+                                    <tr><td colspan="2">
+                                            <select id="iLanguages" name="language">
                                                 <?php foreach ($languages as $code => $language) : ?>
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_language) ? ' selected' : ''); ?>><?= $this->printHtml($language); ?>
                                                     <?php endforeach; ?>
                                             </select>
                                     <tr><td colspan="2"><label for="iTemperature"><?= $this->getHtml('Temperature'); ?></label>
-                                    <tr><td colspan="2"><select id="iTemperature" name="temperature">
+                                    <tr><td colspan="2">
+                                            <select id="iTemperature" name="temperature">
                                             </select>
                                     <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                                 </table>
@@ -112,7 +117,8 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                         <form>
                             <table class="layout wf-100">
                                     <tr><td colspan="2"><label for="iCurrencies"><?= $this->getHtml('Currency'); ?></label>
-                                <tr><td colspan="2"><select form="fLocalization" id="iCurrencies" name="currency">
+                                <tr><td colspan="2">
+                                        <select form="fLocalization" id="iCurrencies" name="currency">
                                             <?php foreach ($currencies as $code => $currency) : ?>
                                             <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml(strtolower($code) == strtolower($_currency) ? ' selected' : ''); ?>><?= $this->printHtml($currency); ?>
                                                 <?php endforeach; ?>
@@ -137,19 +143,19 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                             <tbody>
                             <tr><label for="iVeryLight"><?= $this->getHtml('VeryLight'); ?></label>
                             <tr><select form="fLocalization" id="iVeryLight" name="very_light">
-                                    </select>
+                                </select>
                             <tr><label for="iLight"><?= $this->getHtml('Light'); ?></label>
                             <tr><select form="fLocalization" id="iLight" name="light">
-                                    </select>
+                                </select>
                             <tr><label for="iMedium"><?= $this->getHtml('Medium'); ?></label>
                             <tr><select form="fLocalization" id="iMedium" name="medium">
-                                    </select>
+                                </select>
                             <tr><label for="iHeavy"><?= $this->getHtml('Heavy'); ?></label>
                             <tr><select form="fLocalization" id="iHeavy" name="heavy">
-                                    </select>
+                                </select>
                             <tr><label for="iVeryHeavy"><?= $this->getHtml('VeryHeavy'); ?></label>
                             <tr><select form="fLocalization" id="iVeryHeavy" name="very_heavy">
-                                    </select>
+                                </select>
                         </table>
                     </form>
                 </div>
@@ -167,22 +173,22 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                             <tbody>
                             <tr><label for="iVerySlow"><?= $this->getHtml('VerySlow'); ?></label>
                             <tr><select form="fLocalization" id="iVerySlow" name="very_slow">
-                                    </select>
+                                </select>
                             <tr><label for="iSlow"><?= $this->getHtml('Slow'); ?></label>
                             <tr><select form="fLocalization" id="iSlow" name="slow">
-                                    </select>
+                                </select>
                             <tr><label for="iMedium"><?= $this->getHtml('Medium'); ?></label>
                             <tr><select form="fLocalization" id="iMedium" name="medium">
-                                    </select>
+                                </select>
                             <tr><label for="iFast"><?= $this->getHtml('Fast'); ?></label>
                             <tr><select form="fLocalization" id="iFast" name="fast">
-                                    </select>
+                                </select>
                             <tr><label for="iVeryFast"><?= $this->getHtml('VeryFast'); ?></label>
                             <tr><select form="fLocalization" id="iVeryFast" name="very_fast">
-                                    </select>
+                                </select>
                             <tr><label for="iSeaSpeed"><?= $this->getHtml('Sea'); ?></label>
                             <tr><select form="fLocalization" id="iSeaSpeed" name="sea_speed">
-                                    </select>
+                                </select>
                         </table>
                     </form>
                 </div>
@@ -198,22 +204,22 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                             <tbody>
                             <tr><label for="iVeryShort"><?= $this->getHtml('VeryShort'); ?></label>
                             <tr><select form="fLocalization" id="iVeryShort" name="very_short">
-                                    </select>
+                                </select>
                             <tr><label for="iShort"><?= $this->getHtml('Short'); ?></label>
                             <tr><select form="fLocalization" id="iShort" name="short">
-                                    </select>
+                                </select>
                             <tr><label for="iMedium"><?= $this->getHtml('Medium'); ?></label>
                             <tr><select form="fLocalization" id="iMedium" name="medium">
-                                    </select>
+                                </select>
                             <tr><label for="iLong"><?= $this->getHtml('Long'); ?></label>
                             <tr><select form="fLocalization" id="iLong" name="long">
-                                    </select>
+                                </select>
                             <tr><label for="iVeryLong"><?= $this->getHtml('VeryLong'); ?></label>
                             <tr><select form="fLocalization" id="iVeryLong" name="very_long">
-                                    </select>
+                                </select>
                             <tr><label for="iSeaLength"><?= $this->getHtml('Sea'); ?></label>
                             <tr><select form="fLocalization" id="iSeaLength" name="sea_length">
-                                    </select>
+                                </select>
                         </table>
                     </form>
                 </div>
@@ -229,19 +235,19 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                             <tbody>
                             <tr><label for="iVerySmall"><?= $this->getHtml('VerySmall'); ?></label>
                             <tr><select form="fLocalization" id="iVerySmall" name="very_small">
-                                    </select>
+                                </select>
                             <tr><label for="iSmall"><?= $this->getHtml('Small'); ?></label>
                             <tr><select form="fLocalization" id="iSmall" name="small">
-                                    </select>
+                                </select>
                             <tr><label for="iMedium"><?= $this->getHtml('Medium'); ?></label>
                             <tr><select form="fLocalization" id="iMedium" name="medium">
-                                    </select>
+                                </select>
                             <tr><label for="iLarge"><?= $this->getHtml('Large'); ?></label>
                             <tr><select form="fLocalization" id="iLarge" name="large">
-                                    </select>
+                                </select>
                             <tr><label for="iVeryLarge"><?= $this->getHtml('VeryLarge'); ?></label>
                             <tr><select form="fLocalization" id="iVeryLarge" name="very_large">
-                                    </select>
+                                </select>
                         </table>
                     </form>
                 </div>
@@ -259,28 +265,28 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                             <tbody>
                             <tr><label for="iVerySmall"><?= $this->getHtml('VerySmall'); ?></label>
                             <tr><select form="fLocalization" id="iVerySmall" name="very_small">
-                                    </select>
+                                </select>
                             <tr><label for="iSmall"><?= $this->getHtml('Small'); ?></label>
                             <tr><select form="fLocalization" id="iSmall" name="small">
-                                    </select>
+                                </select>
                             <tr><label for="iMedium"><?= $this->getHtml('Medium'); ?></label>
                             <tr><select form="fLocalization" id="iMedium" name="medium">
-                                    </select>
+                                </select>
                             <tr><label for="iLarge"><?= $this->getHtml('Large'); ?></label>
                             <tr><select form="fLocalization" id="iLarge" name="large">
-                                    </select>
+                                </select>
                             <tr><label for="iVeryLarge"><?= $this->getHtml('VeryLarge'); ?></label>
                             <tr><select form="fLocalization" id="iVeryLarge" name="very_large">
-                                    </select>
+                                </select>
                             <tr><label for="iTeaspoon"><?= $this->getHtml('Teaspoon'); ?></label>
                             <tr><select form="fLocalization" id="iTeaspoon" name="teaspoon">
-                                    </select>
+                                </select>
                             <tr><label for="iTablespoon"><?= $this->getHtml('Tablespoon'); ?></label>
                             <tr><select form="fLocalization" id="iTablespoon" name="tablespoon">
-                                    </select>
+                                </select>
                             <tr><label for="iGlass"><?= $this->getHtml('Glass'); ?></label>
                             <tr><select form="fLocalization" id="iGlass" name="glass">
-                                    </select>
+                                </select>
                         </table>
                     </form>
                 </div>

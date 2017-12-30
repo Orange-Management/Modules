@@ -4,26 +4,17 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Template\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
 /**
  * @var \phpOMS\Views\View $this
  */
-
-
-$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-
-$footerView->setPages($this->getData('list:count') / 25);
-$footerView->setPage(1);
-$footerView->setResults($this->getData('list:count'));
-
-echo $this->getData('nav')->render();
-?>
+echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
@@ -56,7 +47,7 @@ echo $this->getData('nav')->render();
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                         <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
-                                <?php endif; ?>
+                        <?php endif; ?>
             </table>
         </div>
     </div>

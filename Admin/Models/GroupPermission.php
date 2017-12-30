@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -16,19 +16,32 @@ namespace Modules\Admin\Models;
 use phpOMS\Account\PermissionAbstract;
 
 /**
- * InfoManager class.
+ * Group permission class.
  *
- * Handling the info files for modules
+ * A single permission for a group consisting of read, create, modify, delete and permission flags. 
  *
- * @package    Framework
+ * @package    Modules\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 class GroupPermission extends PermissionAbstract
 {
+    /**
+     * Group id
+     *
+     * @var int
+     * @since 1.0.0
+     */
     private $group = 0;
 
+    /**
+     * Get group id
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
     public function getGroup() : int
     {
         return $this->group;

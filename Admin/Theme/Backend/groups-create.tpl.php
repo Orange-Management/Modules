@@ -4,16 +4,16 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Template\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-/*
- * UI Logic
- */
 
+/**
+ * @var \phpOMS\Views\View $this
+ */
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -25,9 +25,11 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
-                        <tr><td colspan="2"><select id="iStatus" name="status">
+                        <tr><td colspan="2">
+                                <select id="iStatus" name="status">
                                     <option value="<?= $this->printHtml(\phpOMS\Account\GroupStatus::ACTIVE); ?>" selected><?= $this->getHtml('Active'); ?>
                                     <option value="<?= $this->printHtml(\phpOMS\Account\GroupStatus::INACTIVE); ?>"><?= $this->getHtml('Inactive'); ?>
+                                </select>
                         <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
                         <tr><td><input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" required>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>

@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -14,8 +14,15 @@ declare(strict_types = 1);
 namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 
+/**
+ * Group mapper class.
+ *
+ * @package    Modules\Admin
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class GroupMapper extends DataMapperAbstract
 {
 
@@ -26,12 +33,12 @@ class GroupMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'group_id'      => ['name' => 'group_id', 'type' => 'int', 'internal' => 'id'],
-        'group_name'    => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name'],
-        'group_status'    => ['name' => 'group_status', 'type' => 'int', 'internal' => 'status'],
-        'group_desc'    => ['name' => 'group_desc', 'type' => 'string', 'internal' => 'description'],
-        'group_desc_raw'    => ['name' => 'group_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'group_created' => ['name' => 'group_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'group_id'       => ['name' => 'group_id', 'type' => 'int', 'internal' => 'id'],
+        'group_name'     => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name'],
+        'group_status'   => ['name' => 'group_status', 'type' => 'int', 'internal' => 'status'],
+        'group_desc'     => ['name' => 'group_desc', 'type' => 'string', 'internal' => 'description'],
+        'group_desc_raw' => ['name' => 'group_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'group_created'  => ['name' => 'group_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**

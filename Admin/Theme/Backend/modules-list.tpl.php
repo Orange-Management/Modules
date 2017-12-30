@@ -4,26 +4,20 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Template\Backend
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
 /**
  * @var \phpOMS\Views\View $this
  */
 
-$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-
 $modules   = $this->app->moduleManager->getAllModules();
 $active    = $this->app->moduleManager->getActiveModules();
 $installed = $this->app->moduleManager->getInstalledModules();
-
-$footerView->setPages(count($modules) / 25);
-$footerView->setPage(1);
-$footerView->setResults(count($modules));
 ?>
 
 <div class="row">

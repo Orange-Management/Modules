@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -14,8 +14,15 @@ declare(strict_types = 1);
 namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 
+/**
+ * Module mapper class.
+ *
+ * @package    Modules\Admin
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class ModuleMapper extends DataMapperAbstract
 {
 
@@ -26,8 +33,8 @@ class ModuleMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'module_id'      => ['name' => 'module_id', 'type' => 'string', 'internal' => 'id'],
-        'module_active'    => ['name' => 'module_active', 'type' => 'int', 'internal' => 'status'],
+        'module_id'     => ['name' => 'module_id', 'type' => 'string', 'internal' => 'id'],
+        'module_active' => ['name' => 'module_active', 'type' => 'int', 'internal' => 'status'],
     ];
 
     /**

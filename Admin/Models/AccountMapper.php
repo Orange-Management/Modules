@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -14,13 +14,20 @@ declare(strict_types = 1);
 namespace Modules\Admin\Models;
 
 use Modules\Media\Models\MediaMapper;
+
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Auth\LoginReturnType;
 
+/**
+ * Account mapper class.
+ *
+ * @package    Modules\Admin
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class AccountMapper extends DataMapperAbstract
 {
     /**
@@ -33,15 +40,14 @@ class AccountMapper extends DataMapperAbstract
         'account_id'         => ['name' => 'account_id', 'type' => 'int', 'internal' => 'id', 'autocomplete' => true],
         'account_status'     => ['name' => 'account_status', 'type' => 'int', 'internal' => 'status'],
         'account_type'       => ['name' => 'account_type', 'type' => 'int', 'internal' => 'type'],
-        'account_login'    => ['name' => 'account_login', 'type' => 'string', 'internal' => 'login', 'autocomplete' => true],
+        'account_login'      => ['name' => 'account_login', 'type' => 'string', 'internal' => 'login', 'autocomplete' => true],
         'account_name1'      => ['name' => 'account_name1', 'type' => 'string', 'internal' => 'name1', 'autocomplete' => true],
         'account_name2'      => ['name' => 'account_name2', 'type' => 'string', 'internal' => 'name2', 'autocomplete' => true],
         'account_name3'      => ['name' => 'account_name3', 'type' => 'string', 'internal' => 'name3', 'autocomplete' => true],
-        'account_password' => ['name' => 'account_password', 'type' => 'string', 'internal' => 'password'],
+        'account_password'   => ['name' => 'account_password', 'type' => 'string', 'internal' => 'password'],
         'account_email'      => ['name' => 'account_email', 'type' => 'string', 'internal' => 'email', 'autocomplete' => true],
         //'account_tries'    => ['name' => 'account_tries', 'type' => 'int', 'internal' => 'tries'],
-        'account_lactive'    => ['name'     => 'account_lactive', 'type' => 'DateTime',
-                                 'internal' => 'lastActive'],
+        'account_lactive'    => ['name'     => 'account_lactive', 'type' => 'DateTime', 'internal' => 'lastActive'],
         'account_created_at' => ['name' => 'account_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 

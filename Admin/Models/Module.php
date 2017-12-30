@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -16,9 +16,9 @@ namespace Modules\Admin\Models;
 use phpOMS\Module\ModuleStatus;
 
 /**
- * Account group class.
+ * Module class.
  *
- * @package    Framework
+ * @package    Modules\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -198,7 +198,11 @@ class Module
     }
 
     /**
-     * {@inheritdoc}
+     * To array
+     *
+     * @return array
+     *
+     * @since  1.0.0
      */
     public function toArray() : array
     {

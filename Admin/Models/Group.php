@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -16,7 +16,7 @@ namespace Modules\Admin\Models;
 /**
  * Account group class.
  *
- * @package    Framework
+ * @package    Modules\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -39,6 +39,12 @@ class Group extends \phpOMS\Account\Group
      */
     protected $createdBy = 0;
 
+    /**
+     * Group raw description.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected $descriptionRaw = '';
 
     /**
@@ -77,16 +83,41 @@ class Group extends \phpOMS\Account\Group
         return $this->createdBy;
     }
 
+    /**
+     * Set created by
+     * 
+     * @param mixed $createdBy Group created by
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function setCreatedBy($createdBy) /* : void */
     {
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * Set raw description
+     * 
+     * @param string $description Description
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function setDescriptionRaw(string $description) /* : void */
     {
         $this->descriptionRaw = $description;
     }
 
+    /**
+     * Get raw description
+     * 
+     * @return string Raw description
+     *
+     * @since  1.0.0
+     */
     public function getDescriptionRaw() : string
     {
         return $this->descriptionRaw;

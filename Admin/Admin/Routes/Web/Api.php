@@ -3,7 +3,6 @@
 use phpOMS\Router\RouteVerb;
 
 return [
-
     '^.*/api/admin/settings.*$' => [
         [
             'dest' => '\Modules\Admin\Controller:apiSettingsSet',

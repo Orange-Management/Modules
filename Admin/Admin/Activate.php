@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Admin\Install
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -18,9 +18,9 @@ use phpOMS\Module\ActivateAbstract;
 use phpOMS\Module\InfoManager;
 
 /**
- * Navigation class.
+ * Activate class.
  *
- * @package    Modules
+ * @package    Modules\Admin\Install
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
