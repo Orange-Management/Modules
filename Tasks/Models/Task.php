@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Tasks
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -12,13 +12,14 @@
  */
 declare(strict_types = 1);
 namespace Modules\Tasks\Models;
+
 use Modules\Calendar\Models\Schedule;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Task class.
  *
- * @package    Tasks
+ * @package    Modules\Tasks
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

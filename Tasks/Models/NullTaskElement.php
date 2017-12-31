@@ -13,12 +13,10 @@
 declare(strict_types = 1);
 namespace Modules\Tasks\Models;
 
-
-
 /**
- * Task class.
+ * Null model
  *
- * @package    Modules
+ * @package    Modules\Tasks
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
