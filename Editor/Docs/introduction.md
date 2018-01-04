@@ -25,6 +25,10 @@ The module supports `Markdown` parsing including custom defined elements which a
 * Projects
 * Events
 
+## Security
+
+In order to prevent injections and malicious user input the module doesn't accept any `HTML`; all HTML code will be escaped.
+
 # Recommendation
 
 Other modules that work great with this one together are:
