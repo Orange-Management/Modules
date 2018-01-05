@@ -12,24 +12,6 @@ The module can be installed through the integrated module downloader and install
 
 The module is depending on the **Editor** module which provides most of the writing features and the **Tasks** module for generating the tasks.
 
-# Features
-
-## Markdown
-
-The module makes use of an extended markdown version for easy writing and modifications. 
-
-### Extendability
-
-Modules can provide custom elements which allows them to provide elemnts that normal markdown doesn't support. Some modules that already provide custom elements for articles:
-
-* Media
-* Charts
-* Spreadsheets
-* Calendar/Events
-* Tasks
-* Checklists
-* Profiles/Contacts
-
 # Recommendation
 
 Other modules that work great with this one together are:
