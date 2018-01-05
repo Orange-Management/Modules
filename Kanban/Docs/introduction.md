@@ -19,3 +19,7 @@ Other modules that work great with this one together are:
 * [Tasks](Tasks)
 * [ProjectManagement](ProjectManagement)
 * [EventManagement](EventManagement)
+
+# Dependencies
+
+* [Editor](Editor)
