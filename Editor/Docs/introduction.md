@@ -33,11 +33,11 @@ In order to prevent injections and malicious user input the module doesn't accep
 
 Other modules that work great with this one together are:
 
-* Calendar
-* Chart
-* Media
-* Task
-* Checklist
-* Profile
-* Projects
-* Events
+* [Calendar](Calendar)
+* [Chart](Chart)
+* [Media](Media)
+* [Task](Task)
+* [Checklist](Checklist)
+* [Profile](Profile)
+* [Projects](Projects)
+* [Events](Events)
