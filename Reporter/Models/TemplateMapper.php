@@ -65,6 +65,16 @@ class TemplateMapper extends DataMapperAbstract
         ],
     ];
 
+    
+    protected static $hasMany = [
+        'reports' => [
+            'mapper'         => ReportMapper::class,
+            'table'          => 'reporter_report',
+            'dst'            => 'reporter_report_template',
+            'src'            => null,
+        ],
+    ];
+
     /**
      * Primary table.
      *

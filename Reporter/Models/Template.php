@@ -112,6 +112,12 @@ class Template implements \JsonSerializable
      */
     private $expected = [];
 
+    /**
+     * Reports.
+     *
+     * @var array
+     * @since 1.0.0
+     */
     private $reports = [];
 
     /**
