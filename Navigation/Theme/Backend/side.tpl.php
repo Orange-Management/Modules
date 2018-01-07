@@ -20,7 +20,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
             <ul>
                 <li>
                     <?php if (isset($parent['nav_icon'])) : ?>
-                        <span class="centerText" style="width: 20px; display: inline-block;"><i class="<?= $this->printHtml($parent['nav_icon']); ?>"></i></span>
+                        <span class="centerText"><i class="<?= $this->printHtml($parent['nav_icon']); ?>"></i></span>
                     <?php endif; ?>
                     <?= $this->getHtml($parent['nav_name']) ?><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>"><i class="fa fa-chevron-down min"></i>
                     <i class="fa fa-chevron-up max"></i></label>
