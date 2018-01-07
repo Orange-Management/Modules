@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Department') ?></h1></header>
             <div class="inner">
-                <form>
+                <form id="iDepartment" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/department?{?}') ?>" method="PUT">
                     <table class="layout wf-100">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= $this->printHtml($department->getName()); ?>">
@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                                 </select>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td><textarea name="description" id="iDescription"><?= $this->printHtml($department->getDescription()); ?></textarea>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>
             </div>

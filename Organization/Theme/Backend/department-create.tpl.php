@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                                 </select>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td><textarea name="description" id="iDescription" placeholder="&#xf040;"></textarea>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
             </div>

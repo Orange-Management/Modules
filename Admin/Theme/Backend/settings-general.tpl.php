@@ -46,14 +46,14 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Settings'); ?></h1></header>
                         <div class="inner">
-                            <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/general'); ?>" method="post">
+                            <form id="iGeneralSettings" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/general'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td><label for="iOname"><?= $this->getHtml('OrganizationName'); ?></label>
                                         <tr><td><input id="iOname" name="oname" type="text" value="<?= $this->printHtml($_oname); ?>" placeholder="&#xf12e; Money Bin" required>
                                         <tr><td><label for="iPassword"><?= $this->getHtml('PasswordRegex'); ?></label>
                                         <tr><td><input id="iPassword" name="passpattern" type="text" value="<?= $this->printHtml($_password); ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
-                                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                                 </table>
                             </form>
                         </div>
@@ -103,7 +103,7 @@ $currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
                                     <tr><td colspan="2">
                                             <select id="iTemperature" name="temperature">
                                             </select>
-                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                    <tr><td colspan="2"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                                 </table>
                             </form>
                         </div>

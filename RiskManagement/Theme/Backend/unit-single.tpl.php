@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Unit') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><?= $this->getHtml('Name') ?></label><td><?= $this->printHtml($unit->getName()); ?>
