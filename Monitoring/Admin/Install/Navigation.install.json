@@ -42,6 +42,21 @@
                 "permission": null,
                 "parent": 1000706001,
                 "children": []
+            },
+            {
+                "id": 1000706102,
+                "pid": "/backend/admin/monitoring",
+                "type": 3,
+                "subtype": 1,
+                "name": "Security",
+                "uri": "/{/lang}/backend/admin/monitoring/security/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Monitoring",
+                "permission": null,
+                "parent": 1000706001,
+                "children": []
             }
         ]
     }
