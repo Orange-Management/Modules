@@ -5,7 +5,7 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/api/draw.*$' => [
         [
-            'dest' => '\Modules\Draw\Controller:apiDrawCreate', 
+            'dest' => '\Modules\Draw\Controller:apiDrawCreate',
             'verb' => RouteVerb::SET,
         ],
     ],

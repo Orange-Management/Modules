@@ -11,7 +11,7 @@
     "use strict";
     /** @namespace jsOMS.Modules.Draw */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
-    
+
     jsOMS.Modules.Draw.DrawTypeEnum = Object.freeze({
         DRAW: 0,
         LINE: 1,

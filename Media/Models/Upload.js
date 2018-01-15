@@ -1,7 +1,7 @@
 (function (jsOMS)
 {
     "use strict";
-    
+
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Media');
 
     jsOMS.Modules.Models.Media.Upload = function (responseManager)

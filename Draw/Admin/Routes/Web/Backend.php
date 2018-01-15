@@ -5,27 +5,27 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/backend/draw/create.*$' => [
         [
-            'dest' => '\Modules\Draw\Controller:setUpDrawEditor', 
+            'dest' => '\Modules\Draw\Controller:setUpDrawEditor',
             'verb' => RouteVerb::GET,
         ],
         [
-            'dest' => '\Modules\Draw\Controller:viewDrawCreate', 
+            'dest' => '\Modules\Draw\Controller:viewDrawCreate',
             'verb' => RouteVerb::GET,
         ],
     ],
     '^.*/backend/draw/list.*$' => [
         [
-            'dest' => '\Modules\Draw\Controller:viewDrawList', 
+            'dest' => '\Modules\Draw\Controller:viewDrawList',
             'verb' => RouteVerb::GET,
         ],
     ],
     '^.*/backend/draw/single.*$' => [
         [
-            'dest' => '\Modules\Draw\Controller:setUpDrawEditor', 
+            'dest' => '\Modules\Draw\Controller:setUpDrawEditor',
             'verb' => RouteVerb::GET,
         ],
         [
-            'dest' => '\Modules\Draw\Controller:viewDrawSingle', 
+            'dest' => '\Modules\Draw\Controller:viewDrawSingle',
             'verb' => RouteVerb::GET,
         ],
     ],

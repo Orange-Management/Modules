@@ -9,7 +9,7 @@ return [
             'verb' => RouteVerb::GET,
         ],
         [
-            'dest' => '\Modules\Reporter\Controller:viewTemplateCreate', 
+            'dest' => '\Modules\Reporter\Controller:viewTemplateCreate',
             'verb' => RouteVerb::GET,
         ],
     ],
@@ -19,19 +19,19 @@ return [
             'verb' => RouteVerb::GET,
         ],
         [
-            'dest' => '\Modules\Reporter\Controller:viewReportCreate', 
+            'dest' => '\Modules\Reporter\Controller:viewReportCreate',
             'verb' => RouteVerb::GET,
         ],
     ],
     '^.*/backend/reporter/list.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:viewTemplateList', 
+            'dest' => '\Modules\Reporter\Controller:viewTemplateList',
             'verb' => RouteVerb::GET,
         ],
     ],
     '^.*/backend/reporter/report/view.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:viewReporterReport', 
+            'dest' => '\Modules\Reporter\Controller:viewReporterReport',
             'verb' => RouteVerb::GET,
         ],
     ],
