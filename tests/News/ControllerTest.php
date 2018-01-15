@@ -16,7 +16,6 @@ namespace Modules\tests\News;
 
 require_once __DIR__ . '/../Autoloader.php';
 
-
 use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Localization;

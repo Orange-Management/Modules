@@ -18,9 +18,6 @@ use Modules\Marketing\Models\Promotion;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class PromotionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

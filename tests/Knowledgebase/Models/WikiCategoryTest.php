@@ -16,9 +16,6 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiCategory;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

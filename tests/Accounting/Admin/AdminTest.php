@@ -25,9 +25,6 @@ use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 use phpOMS\Dispatcher\Dispatcher;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -40,7 +37,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('Accounting');
 
         $moduleManager->deactivate('Accounting');
@@ -56,7 +53,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app->dbPool = $GLOBALS['dbpool'];
         $app->dispatcher = new Dispatcher($app);
     
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
 
         $request = new Request(new Http('http://127.0.0.1/en/backend/accounting'));
         $request->createRequestHashs(1);

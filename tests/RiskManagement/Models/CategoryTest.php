@@ -16,9 +16,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Category;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

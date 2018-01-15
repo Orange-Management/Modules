@@ -14,9 +14,6 @@
 
 namespace Modules\tests\Admin\Admin;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 use Modules\Admin\Admin\Installer;
 use Modules\Admin\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
@@ -34,7 +31,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
 
         $moduleManager->deactivate('Admin');
         self::assertFalse($moduleManager->isActive('Admin'));
@@ -49,7 +46,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app->dbPool = $GLOBALS['dbpool'];
         $app->dispatcher = new Dispatcher($app);
     
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
 
         $request = new Request(new Http('http://127.0.0.1/en/backend/admin'));
         $request->createRequestHashs(1);

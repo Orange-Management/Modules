@@ -19,9 +19,6 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
 

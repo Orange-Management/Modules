@@ -22,7 +22,6 @@ use phpOMS\Router\Router;
 
 require_once __DIR__ . '/../Autoloader.php';
 
-
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;

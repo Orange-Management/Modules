@@ -16,9 +16,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Solution;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class SolutionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

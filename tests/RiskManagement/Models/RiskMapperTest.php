@@ -26,9 +26,6 @@ use Modules\Media\Models\Media;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {
 

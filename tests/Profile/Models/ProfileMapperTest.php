@@ -25,9 +25,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 {
 

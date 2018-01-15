@@ -16,9 +16,6 @@ namespace Modules\tests\Profile\Models;
 
 use Modules\Profile\Models\Profile;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ProfileTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

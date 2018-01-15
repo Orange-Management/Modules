@@ -16,9 +16,6 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\Balance;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class BalanceTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()

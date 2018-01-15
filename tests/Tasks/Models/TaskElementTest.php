@@ -17,9 +17,6 @@ namespace Modules\tests\Tasks\Models;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskStatus;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class TaskElementTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

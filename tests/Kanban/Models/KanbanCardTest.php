@@ -18,9 +18,6 @@ use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\CardStatus;
 use Modules\Kanban\Models\CardType;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class KanbanCardTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

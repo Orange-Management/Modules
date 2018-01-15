@@ -18,9 +18,6 @@ use Modules\Organization\Models\Position;
 use Modules\Organization\Models\NullDepartment;
 use Modules\Organization\Models\Status;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class PositionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

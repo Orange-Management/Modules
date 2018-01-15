@@ -19,9 +19,6 @@ use Modules\ProjectManagement\Models\ProgressType;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

@@ -18,9 +18,6 @@ use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiStatus;
 use Modules\Knowledgebase\Models\WikiBadge;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class WikiDocTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

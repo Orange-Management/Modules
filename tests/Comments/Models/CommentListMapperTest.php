@@ -18,9 +18,6 @@ use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\CommentListMapper;
 use Modules\Comments\Models\Comment;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CommentListMapperTest extends \PHPUnit\Framework\TestCase
 {
 

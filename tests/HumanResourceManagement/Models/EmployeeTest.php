@@ -21,9 +21,6 @@ use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Position;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class EmployeeTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

@@ -14,9 +14,6 @@
 
 namespace Modules\tests\Messages\Admin;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 use Modules\Messages\Admin\Installer;
 use Modules\Messages\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
@@ -37,7 +34,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('Messages');
 
         $moduleManager->deactivate('Messages');

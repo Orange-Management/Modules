@@ -17,9 +17,6 @@ namespace Modules\tests\Kanban\Models;
 use Modules\Kanban\Models\KanbanColumn;
 use Modules\Kanban\Models\KanbanCard;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class KanbanColumnTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

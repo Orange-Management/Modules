@@ -20,9 +20,6 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -35,7 +32,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('PersonnelTimeManagement');
 
         $moduleManager->deactivate('PersonnelTimeManagement');

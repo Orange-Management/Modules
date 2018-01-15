@@ -16,9 +16,6 @@ namespace Modules\tests\ClientManagement\Models;
 
 use Modules\ClientManagement\Models\Client;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ClientTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

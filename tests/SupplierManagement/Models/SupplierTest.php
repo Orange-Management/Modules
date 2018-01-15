@@ -16,9 +16,6 @@ namespace Modules\tests\SupplierManagement\Models;
 
 use Modules\SupplierManagement\Models\Supplier;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class SupplierTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

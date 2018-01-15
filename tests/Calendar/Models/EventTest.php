@@ -17,9 +17,6 @@ namespace Modules\tests\Calendar\Models;
 use Modules\Calendar\Models\Event;
 use phpOMS\Account\Account;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class EventTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

@@ -17,9 +17,6 @@ namespace Modules\tests\RiskManagement\Models;
 use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\NullDepartment;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

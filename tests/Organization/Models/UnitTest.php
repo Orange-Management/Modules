@@ -17,9 +17,6 @@ namespace Modules\tests\Organization\Models;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\Status;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class UnitTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

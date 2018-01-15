@@ -21,9 +21,6 @@ use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskType;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class TaskTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

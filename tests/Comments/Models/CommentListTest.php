@@ -17,9 +17,6 @@ namespace Modules\tests\Comments\Models;
 use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\Comment;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CommentListTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

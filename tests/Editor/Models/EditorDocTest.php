@@ -16,9 +16,6 @@ namespace Modules\tests\Tasks\Models;
 
 use Modules\Editor\Models\EditorDoc;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class EditorDocTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

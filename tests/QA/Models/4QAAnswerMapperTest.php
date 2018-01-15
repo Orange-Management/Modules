@@ -21,9 +21,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
 {
 

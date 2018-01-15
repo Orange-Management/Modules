@@ -16,9 +16,6 @@ namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QACategory;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class QACategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

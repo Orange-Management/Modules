@@ -21,9 +21,6 @@ use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
@@ -62,7 +59,6 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
 
         $news->addBadge(new Badge());
         self::assertEquals([new Badge()], $news->getBadges());
-
 
         $news->setPublish($data = new \DateTime('2001-05-07'));
         self::assertEquals($data, $news->getPublish());

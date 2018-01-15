@@ -16,9 +16,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Process;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ProcessTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

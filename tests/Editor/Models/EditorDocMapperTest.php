@@ -21,9 +21,6 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 {
 

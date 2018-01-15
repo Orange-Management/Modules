@@ -20,9 +20,6 @@ use Modules\Calendar\Models\Event;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CalendarMapperTest extends \PHPUnit\Framework\TestCase
 {
 

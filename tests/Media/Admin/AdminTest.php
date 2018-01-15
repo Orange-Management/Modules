@@ -24,9 +24,6 @@ use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 use phpOMS\Dispatcher\Dispatcher;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected $dbPool = null;
@@ -47,7 +44,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('Media');
 
         $moduleManager->deactivate('Media');
@@ -63,7 +60,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app->dbPool = $GLOBALS['dbpool'];
         $app->dispatcher = new Dispatcher($app);
     
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../../Modules');
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
 
         $request = new Request(new Http('http://127.0.0.1/en/backend/media'));
         $request->createRequestHashs(1);

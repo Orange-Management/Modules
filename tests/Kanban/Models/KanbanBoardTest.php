@@ -17,9 +17,6 @@ namespace Modules\tests\Kanban\Models;
 use Modules\Kanban\Models\KanbanBoard;
 use Modules\Kanban\Models\BoardStatus;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class KanbanBoardTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

@@ -16,15 +16,11 @@ namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Collection;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CollectionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {
         $media = new Collection();
-
 
         self::assertEquals(0, $media->getId());
         self::assertEquals(0, $media->getCreatedBy());

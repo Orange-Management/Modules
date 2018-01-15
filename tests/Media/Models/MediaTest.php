@@ -16,9 +16,6 @@ namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Media;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class MediaTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

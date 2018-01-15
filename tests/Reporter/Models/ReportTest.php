@@ -17,9 +17,6 @@ namespace Modules\tests\Reporter\Models;
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReporterStatus;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ReportTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

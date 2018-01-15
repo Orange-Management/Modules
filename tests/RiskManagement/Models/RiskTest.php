@@ -19,9 +19,6 @@ use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\Department;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class RiskTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

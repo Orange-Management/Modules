@@ -23,9 +23,6 @@ use phpOMS\Module\NullModule;
 use phpOMS\Router\Router;
 use phpOMS\Version\Version;
 
-require_once __DIR__ . '/../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../config.php';
-
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {
     protected $app = null;
@@ -43,7 +40,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
     public function testMembers()
     {
-        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $allModules    = $moduleManager->getAllModules();
 
         foreach ($allModules as $name => $module) {
@@ -51,7 +48,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
             if (!($module instanceof NullModule)) {
                 self::assertEquals($name, $module::MODULE_NAME);
-                self::assertEquals(realpath(__DIR__ . '/../../../Modules/' . $module::MODULE_NAME), $module::MODULE_PATH);
+                self::assertEquals(realpath(__DIR__ . '/../../Modules/' . $module::MODULE_NAME), $module::MODULE_PATH);
                 $version = Version::compare($module::MODULE_VERSION, '1.0.0');
                 self::assertGreaterThanOrEqual(0, $version);
 

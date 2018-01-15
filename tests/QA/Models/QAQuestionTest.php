@@ -18,9 +18,6 @@ use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionStatus;
 use Modules\QA\Models\QABadge;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class QAQuestionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

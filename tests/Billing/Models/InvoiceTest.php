@@ -19,9 +19,6 @@ use Modules\Billing\Models\InvoiceType;
 use Modules\Billing\Models\InvoiceStatus;
 use phpOMS\Localization\ISO4217CharEnum;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class InvoiceTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()

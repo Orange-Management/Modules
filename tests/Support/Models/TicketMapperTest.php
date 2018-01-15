@@ -14,9 +14,6 @@
 
 namespace Modules\tests\Support\Models;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 use Modules\Support\Models\Ticket;
 use Modules\Support\Models\TicketMapper;
 use Modules\Tasks\Models\Task;

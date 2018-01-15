@@ -16,9 +16,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Cause;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CauseTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

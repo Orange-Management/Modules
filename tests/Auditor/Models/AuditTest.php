@@ -16,9 +16,6 @@ namespace Modules\tests\Auditor\Models;
 
 use Modules\Auditor\Models\Audit;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class AuditTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()

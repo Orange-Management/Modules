@@ -16,9 +16,6 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiBadge;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class WikiBadgeTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

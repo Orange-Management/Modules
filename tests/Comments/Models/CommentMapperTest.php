@@ -17,9 +17,6 @@ namespace Modules\tests\Comments\Models;
 use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentMapper;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class CommentMapperTest extends \PHPUnit\Framework\TestCase
 {
 

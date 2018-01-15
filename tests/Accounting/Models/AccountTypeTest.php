@@ -16,9 +16,6 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\AccountType;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class AccountTypeTest extends \PHPUnit\Framework\TestCase
 {
     public function testEnums()

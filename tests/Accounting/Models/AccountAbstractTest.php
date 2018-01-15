@@ -16,9 +16,6 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\AccountAbstract;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class AccountAbstractTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp()

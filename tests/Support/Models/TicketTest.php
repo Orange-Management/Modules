@@ -21,9 +21,6 @@ use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskElement;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class TicketTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()

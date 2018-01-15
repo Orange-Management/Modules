@@ -16,9 +16,6 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\BatchPosting;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class BatchPostingTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()

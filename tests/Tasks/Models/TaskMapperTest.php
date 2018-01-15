@@ -14,9 +14,6 @@
 
 namespace Modules\tests\Tasks\Models;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskMapper;

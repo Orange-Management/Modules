@@ -33,7 +33,6 @@ use phpOMS\Account\PermissionType;
 
 require_once __DIR__ . '/../Autoloader.php';
 
-
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;

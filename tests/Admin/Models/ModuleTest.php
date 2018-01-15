@@ -17,9 +17,6 @@ namespace Modules\tests\Admin\Models;
 use Modules\Admin\Models\Module;
 use phpOMS\Module\ModuleStatus;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()

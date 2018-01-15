@@ -17,9 +17,6 @@ namespace Modules\tests\QA\Models;
 use Modules\QA\Models\QAAnswer;
 use Modules\QA\Models\QAAnswerStatus;
 
-require_once __DIR__ . '/../../Autoloader.php';
-
-
 class QAAnswerTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
