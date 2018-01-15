@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\SupplierManagement\Models;
+namespace Modules\tests\SupplierManagement\Models;
 
 use Modules\SupplierManagement\Models\Supplier;
 use Modules\SupplierManagement\Models\SupplierMapper;
@@ -22,8 +22,8 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class SupplierMapperTest extends \PHPUnit\Framework\TestCase
 {

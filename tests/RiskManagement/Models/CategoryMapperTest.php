@@ -12,15 +12,15 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\RiskManagement\Models;
+namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\CategoryMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {

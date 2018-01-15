@@ -12,15 +12,15 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\RiskManagement\Models;
+namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\Department;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class RiskTest extends \PHPUnit\Framework\TestCase
 {

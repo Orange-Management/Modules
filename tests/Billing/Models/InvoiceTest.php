@@ -12,15 +12,15 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Billing\Models;
+namespace Modules\tests\Billing\Models;
 
 use Modules\Billing\Models\Invoice;
 use Modules\Billing\Models\InvoiceType;
 use Modules\Billing\Models\InvoiceStatus;
 use phpOMS\Localization\ISO4217CharEnum;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class InvoiceTest extends \PHPUnit\Framework\TestCase
 {

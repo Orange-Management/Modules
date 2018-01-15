@@ -12,10 +12,10 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Support\Models;
+namespace Modules\tests\Support\Models;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 use Modules\Support\Models\Ticket;
 use Modules\Support\Models\TicketMapper;

@@ -12,10 +12,10 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Tasks\Models;
+namespace Modules\tests\Tasks\Models;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;

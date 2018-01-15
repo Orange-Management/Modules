@@ -12,13 +12,13 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Reporter\Models;
+namespace Modules\tests\Reporter\Models;
 
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReporterStatus;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class ReportTest extends \PHPUnit\Framework\TestCase
 {

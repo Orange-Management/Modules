@@ -12,13 +12,13 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Admin\Models;
+namespace Modules\tests\Admin\Models;
 
 use Modules\Admin\Models\Module;
 use phpOMS\Module\ModuleStatus;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {

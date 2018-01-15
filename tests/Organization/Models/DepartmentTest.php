@@ -12,13 +12,13 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Organization\Models;
+namespace Modules\tests\Organization\Models;
 
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Status;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {

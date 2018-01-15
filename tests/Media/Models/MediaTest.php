@@ -12,12 +12,12 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Media\Models;
+namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Media;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class MediaTest extends \PHPUnit\Framework\TestCase
 {

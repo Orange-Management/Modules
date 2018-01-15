@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\News\Models;
+namespace Modules\tests\News\Models;
 
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
@@ -23,8 +23,8 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 {

@@ -12,10 +12,10 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Messages\Admin;
+namespace Modules\tests\Messages\Admin;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 use Modules\Messages\Admin\Installer;
 use Modules\Messages\Admin\Uninstall;

@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Sales\Admin;
+namespace Modules\tests\Sales\Admin;
 
 use Modules\Sales\Admin\Installer;
 use Modules\Sales\Admin\Uninstall;
@@ -20,8 +20,8 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {

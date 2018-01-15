@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Media;
+namespace Modules\tests\Media;
 
 use Modules\Media\Models\UploadStatus;
 use phpOMS\ApplicationAbstract;
@@ -20,8 +20,8 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleFactory;
 use phpOMS\Router\Router;
 
-require_once __DIR__ . '/../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../config.php';
+require_once __DIR__ . '/../Autoloader.php';
+
 
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {

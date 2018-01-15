@@ -12,13 +12,13 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\RiskManagement\Models;
+namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\NullDepartment;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {

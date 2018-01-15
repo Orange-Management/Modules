@@ -12,12 +12,12 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\ClientManagement\Models;
+namespace Modules\tests\ClientManagement\Models;
 
 use Modules\ClientManagement\Models\Client;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class ClientTest extends \PHPUnit\Framework\TestCase
 {

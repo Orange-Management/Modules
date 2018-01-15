@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Media\Admin;
+namespace Modules\tests\Media\Admin;
 
 use Modules\Media\Admin\Installer;
 use Modules\Media\Admin\Uninstall;
@@ -24,8 +24,8 @@ use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 use phpOMS\Dispatcher\Dispatcher;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {

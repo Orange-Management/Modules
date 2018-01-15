@@ -12,13 +12,13 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Tasks\Models;
+namespace Modules\tests\Tasks\Models;
 
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskStatus;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class TaskElementTest extends \PHPUnit\Framework\TestCase
 {

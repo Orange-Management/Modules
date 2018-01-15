@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Calendar\Models;
+namespace Modules\tests\Calendar\Models;
 
 use Modules\Calendar\Models\EventMapper;
 use Modules\Calendar\Models\Event;
@@ -20,8 +20,8 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class EventMapperTest extends \PHPUnit\Framework\TestCase
 {

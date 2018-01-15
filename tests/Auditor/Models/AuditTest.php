@@ -12,12 +12,12 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Auditor\Models;
+namespace Modules\tests\Auditor\Models;
 
 use Modules\Auditor\Models\Audit;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class AuditTest extends \PHPUnit\Framework\TestCase
 {

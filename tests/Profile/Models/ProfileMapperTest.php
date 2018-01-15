@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\ClientMapper\Models;
+namespace Modules\tests\ClientMapper\Models;
 
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
@@ -25,8 +25,8 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 {

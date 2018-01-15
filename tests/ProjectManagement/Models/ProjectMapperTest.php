@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\ProjectManagement\Models;
+namespace Modules\tests\ProjectManagement\Models;
 
 use Modules\ProjectManagement\Models\Project;
 use Modules\ProjectManagement\Models\ProgressType;
@@ -25,8 +25,8 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {

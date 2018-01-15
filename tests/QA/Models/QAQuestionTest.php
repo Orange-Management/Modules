@@ -12,14 +12,14 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\QA\Models;
+namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionStatus;
 use Modules\QA\Models\QABadge;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class QAQuestionTest extends \PHPUnit\Framework\TestCase
 {

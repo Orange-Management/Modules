@@ -12,12 +12,12 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Knowledgebase\Models;
+namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiCategory;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {

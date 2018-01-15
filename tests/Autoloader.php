@@ -12,9 +12,9 @@
  */
 declare(strict_types = 1);
 
-namespace Tests\PHPUnit;
+namespace Modules\tests;
 
-spl_autoload_register('\Tests\PHPUnit\Autoloader::default_autoloader');
+spl_autoload_register('\Modules\tests\Autoloader::default_autoloader');
 
 /**
  * Autoloader class.
@@ -32,7 +32,7 @@ class Autoloader
      *
      * @param string $class Class path
      *
-     * @example Autoloader::default_autoloader('\Tests\PHPUnit\Autoloader') // void
+     * @example Autoloader::default_autoloader('\Modules\tests\Autoloader') // void
      *
      * @return void
      *
@@ -58,7 +58,7 @@ class Autoloader
      *
      * @param string $class Class path
      *
-     * @example Autoloader::exists('\Tests\PHPUnit\Autoloader') // true
+     * @example Autoloader::exists('\Modules\tests\Autoloader') // true
      *
      * @return bool
      *

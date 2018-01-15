@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\QA\Models;
+namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QACategory;
 use Modules\QA\Models\QACategoryMapper;
@@ -20,8 +20,8 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
 {

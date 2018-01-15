@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\News\Models;
+namespace Modules\tests\News\Models;
 
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\Badge;
@@ -21,8 +21,8 @@ use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {

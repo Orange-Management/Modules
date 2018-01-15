@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Tasks\Models;
+namespace Modules\tests\Tasks\Models;
 
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
@@ -21,8 +21,8 @@ use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskType;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class TaskTest extends \PHPUnit\Framework\TestCase
 {

@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Reporter;
+namespace Modules\tests\Reporter;
 
 use Modules\Media\Models\UploadStatus;
 use Modules\Reporter\Models\TemplateDataType;
@@ -31,8 +31,8 @@ use phpOMS\Utils\TestUtils;
 use Modules\Admin\Models\AccountPermission;
 use phpOMS\Account\PermissionType;
 
-require_once __DIR__ . '/../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../config.php';
+require_once __DIR__ . '/../Autoloader.php';
+
 
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {

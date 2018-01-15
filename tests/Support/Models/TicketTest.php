@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Support\Models;
+namespace Modules\tests\Support\Models;
 
 use Modules\Support\Models\Ticket;
 use Modules\Tasks\Models\Task;
@@ -21,8 +21,8 @@ use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskElement;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class TicketTest extends \PHPUnit\Framework\TestCase
 {

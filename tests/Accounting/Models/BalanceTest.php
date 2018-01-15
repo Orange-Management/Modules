@@ -12,12 +12,12 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Accounting\Models;
+namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\Balance;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class BalanceTest extends \PHPUnit\Framework\TestCase
 {

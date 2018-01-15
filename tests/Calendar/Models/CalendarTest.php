@@ -12,13 +12,13 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Calendar\Models;
+namespace Modules\tests\Calendar\Models;
 
 use Modules\Calendar\Models\Calendar;
 use Modules\Calendar\Models\Event;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class CalendarTest extends \PHPUnit\Framework\TestCase
 {

@@ -12,12 +12,12 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Kanban\Models;
+namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanCardComment;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class KanbanCardCommentTest extends \PHPUnit\Framework\TestCase
 {

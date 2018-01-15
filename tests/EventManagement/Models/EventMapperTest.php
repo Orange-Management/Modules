@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\EventManagement\Models;
+namespace Modules\tests\EventManagement\Models;
 
 use Modules\EventManagement\Models\Event;
 use Modules\EventManagement\Models\EventMapper;
@@ -25,8 +25,8 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class EventMapperTest extends \PHPUnit\Framework\TestCase
 {

@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\Marketing\Models;
+namespace Modules\tests\Marketing\Models;
 
 use Modules\Marketing\Models\Promotion;
 use Modules\Marketing\Models\PromotionMapper;
@@ -23,8 +23,8 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 {

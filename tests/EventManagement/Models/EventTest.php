@@ -12,7 +12,7 @@
  * @link       http://website.orange-management.de
  */
 
-namespace Tests\PHPUnit\Modules\EventManagement\Models;
+namespace Modules\tests\EventManagement\Models;
 
 use Modules\EventManagement\Models\Event;
 use Modules\EventManagement\Models\EventType;
@@ -20,8 +20,8 @@ use Modules\EventManagement\Models\ProgressType;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
-require_once __DIR__ . '/../../../../../phpOMS/Autoloader.php';
-require_once __DIR__ . '/../../../../../config.php';
+require_once __DIR__ . '/../../Autoloader.php';
+
 
 class EventTest extends \PHPUnit\Framework\TestCase
 {
