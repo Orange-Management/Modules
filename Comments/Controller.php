@@ -171,5 +171,4 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $response->set('comment', $comment->jsonSerialize());
     }
-
 }

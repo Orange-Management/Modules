@@ -322,5 +322,4 @@ class Arrival
     public function unserialize($data)
     {
     }
-
 }

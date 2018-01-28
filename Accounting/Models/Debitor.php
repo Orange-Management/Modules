@@ -32,5 +32,4 @@ class Debitor
     public function __construct()
     {
     }
-
 }

@@ -297,5 +297,4 @@ class Controller extends ModuleAbstract implements WebInterface
             )
         );
     }
-
 }

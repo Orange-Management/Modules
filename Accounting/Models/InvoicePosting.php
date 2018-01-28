@@ -32,5 +32,4 @@ class InvoicePosting extends PostingAbstract
     public function __construct()
     {
     }
-
 }

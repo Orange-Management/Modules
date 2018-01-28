@@ -404,5 +404,4 @@ class Article
     public function unserialize($data)
     {
     }
-
 }

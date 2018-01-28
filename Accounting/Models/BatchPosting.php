@@ -199,5 +199,4 @@ class BatchPosting implements \Countable
     {
         return count($this->postings);
     }
-
 }

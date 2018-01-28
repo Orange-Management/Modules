@@ -320,5 +320,4 @@ class Shipping
     public function unserialize($data)
     {
     }
-
 }

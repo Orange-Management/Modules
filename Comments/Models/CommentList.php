@@ -45,5 +45,4 @@ class CommentList
     {
         $this->comments[] = $comment;
     }
-
 }

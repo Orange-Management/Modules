@@ -5,7 +5,6 @@
  * PHP Version 7.1
  *
  * @package    TBD
- * @author     OMS Development Team <dev@oms.com>
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -74,5 +73,4 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $ids = $this->module->createDbEntries($status, 1);
         self::assertEquals(2, count($ids));
     }
-
 }

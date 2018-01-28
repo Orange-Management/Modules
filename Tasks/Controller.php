@@ -372,5 +372,4 @@ class Controller extends ModuleAbstract implements WebInterface
 
         return $element;
     }
-
 }

@@ -43,5 +43,4 @@ abstract class PersonalAccountAbstract extends AccountAbstract
     public function getAccountsHistory($start, $end)
     {
     }
-
 }

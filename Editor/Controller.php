@@ -247,5 +247,4 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $response->set('editor', $doc->jsonSerialize());
     }
-
 }

@@ -34,5 +34,4 @@ class ImpersonalAccount
     public function __construct()
     {
     }
-
 }

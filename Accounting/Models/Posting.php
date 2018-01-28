@@ -32,5 +32,4 @@ abstract class Posting extends PostingAbstract
     public function __construct()
     {
     }
-
 }
