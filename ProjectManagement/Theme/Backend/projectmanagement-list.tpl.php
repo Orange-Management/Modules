@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="5">
                 <tbody>
-                <?php $count = 0; foreach ($list as $key => $value) : $count++; 
+                <?php $count = 0; foreach ($list as $key => $value) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/projectmanagement/profile?{?}&id=' . $value->getId());?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>

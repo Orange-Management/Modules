@@ -75,7 +75,7 @@ class InvoiceTest extends \PHPUnit\Framework\TestCase
 
         $invoice->setType(InvoiceType::DELIVERY_NOTE);
         self::assertEquals(InvoiceType::DELIVERY_NOTE, $invoice->getType());
-        
+
         $invoice->setStatus(InvoiceStatus::DONE);
         self::assertEquals(InvoiceStatus::DONE, $invoice->getStatus());
 
@@ -118,7 +118,7 @@ class InvoiceTest extends \PHPUnit\Framework\TestCase
 
         $invoice->setReferer(4);
         self::assertEquals(4, $invoice->getReferer());
-        
+
         $invoice->setRefererName('name');
         self::assertEquals('name', $invoice->getRefererName());
 

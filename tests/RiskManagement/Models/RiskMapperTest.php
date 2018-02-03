@@ -94,7 +94,7 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
 
         $riskObjects = $objR->getRiskObjects();
         self::assertEquals($obj->getRiskObjects()[0]->getTitle(), end($riskObjects)->getTitle());
-        
+
         //self::assertEquals($obj->getHistory()[0], $objR->getHistory()[0]);
         $media = $objR->getMedia();
         self::assertEquals($obj->getMedia()[0]->getPath(), end($media)->getPath());

@@ -77,7 +77,7 @@ class QAAnswer implements \JsonSerializable
     {
         $this->status = $status;
     }
-    
+
     public function setAccepted(bool $accepted) /* : void */
     {
         $this->isAccepted = $accepted;

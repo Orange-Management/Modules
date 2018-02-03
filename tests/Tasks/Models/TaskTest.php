@@ -116,7 +116,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $task = new Task();
         $task->setStatus(9999);
     }
-    
+
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */

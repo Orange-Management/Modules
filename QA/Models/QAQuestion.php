@@ -54,7 +54,7 @@ class QAQuestion implements \JsonSerializable
         return $this->id;
     }
 
-    public function hasAccepted() : bool 
+    public function hasAccepted() : bool
     {
         foreach ($this->answers as $answer) {
             if ($answer->isAccepted()) {

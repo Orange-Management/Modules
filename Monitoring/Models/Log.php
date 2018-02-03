@@ -12,7 +12,7 @@ class Log implements \JsonSerializable
 
     private $layout = 0;
 
-    public function __construct(string $message = '', int $layout = 0) 
+    public function __construct(string $message = '', int $layout = 0)
     {
 
     }

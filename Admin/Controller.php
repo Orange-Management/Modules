@@ -41,7 +41,7 @@ use phpOMS\Views\View;
 
 /**
  * Admin controller class.
- * 
+ *
  * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
  * @package    Modules
@@ -102,10 +102,10 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the general settings view.
-     * 
+     *
      * In this view general settings for the entire application can be seen and adjusted. Settings which can be modified
      * here are localization, password, database, etc.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -118,7 +118,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
         ) {
@@ -146,7 +146,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the account list view.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -159,7 +159,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
         ) {
@@ -178,7 +178,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the account view of a single account.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -191,7 +191,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
         ) {
@@ -219,7 +219,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the create account view.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -232,7 +232,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
         ) {
@@ -249,7 +249,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the group list view.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -262,7 +262,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
         ) {
@@ -270,7 +270,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
         $view->setData('list:elements', GroupMapper::getAll());
@@ -280,7 +280,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the group view of a single group.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -293,7 +293,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
         ) {
@@ -301,13 +301,13 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
         $view->addData('group', GroupMapper::get((int) $request->getData('id')));
 
         $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
-        
+
         if (!isset($permissions) || $permissions instanceof NullGroupPermission) {
             $permissions = [];
         } elseif (!is_array($permissions)) {
@@ -321,7 +321,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the group create view.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -334,7 +334,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
         ) {
@@ -342,7 +342,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
@@ -351,7 +351,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the module list view.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -364,7 +364,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::MODULE)
         ) {
@@ -372,7 +372,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-list');
 
         return $view;
@@ -380,7 +380,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method which generates the module profile view.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -393,7 +393,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::MODULE)
         ) {
@@ -401,7 +401,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-single');
 
         return $view;
@@ -409,7 +409,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method for getting settings
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -433,7 +433,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method for modifying settings
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -453,7 +453,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $success = $this->app->appSettings->set(
-            json_decode((string) $request->getData('settings'), true), 
+            json_decode((string) $request->getData('settings'), true),
             true
         );
 
@@ -462,7 +462,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method for getting a group
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -487,7 +487,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method for modifying a group
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -507,19 +507,19 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $group = GroupMapper::get((int) $request->getData('id'));
-        
+
         $group->setName((string) ($request->getData('name') ?? $group->getName()));
         $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? $group->getDescription())));
         $group->setDescriptionRaw((string) ($request->getData('description') ?? $group->getDescriptionRaw()));
 
         GroupMapper::update($group);
-        
+
         $response->set($request->__toString(), $group->jsonSerialize());
     }
 
     /**
      * Validate group create request
-     * 
+     *
      * @param RequestAbstract  $request  Request
      *
      * @return array
@@ -544,7 +544,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to create a group
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -577,7 +577,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method to create group from request.
-     * 
+     *
      * @param RequestAbstract  $request  Request
      *
      * @return Group
@@ -598,7 +598,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to delete a group
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -625,7 +625,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to get an accoung
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -650,7 +650,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to find accounts
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -675,7 +675,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method to validate account creation from request
-     * 
+     *
      * @param RequestAbstract  $request  Request
      *
      * @return array
@@ -700,7 +700,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to create an account
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -733,7 +733,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Method to create an account from a request
-     * 
+     *
      * @param RequestAbstract  $request  Request
      *
      * @return Account
@@ -757,7 +757,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to delete an account
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -784,7 +784,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to update an account
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -819,7 +819,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to update the module settigns
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data

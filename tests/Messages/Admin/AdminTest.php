@@ -28,7 +28,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      * @group admin
      * @slowThreshold 5000
      */
-    public function testModuleIntegration() 
+    public function testModuleIntegration()
     {
         $app         = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];

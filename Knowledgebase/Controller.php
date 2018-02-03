@@ -268,7 +268,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
         $view->setData('category', $category);
@@ -330,7 +330,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createWikiDocFromRquest(RequestAbstract $request) : WikiDoc
     {
         $mardkownParser = new Markdown();
-        
+
         $doc = new WikiDoc();
         $doc->setName((string) $request->getData('title'));
         $doc->setDoc((string) $request->getData('plain'));
@@ -374,7 +374,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createWikiCategoryFromRquest(RequestAbstract $request) : WikiCategory
     {
         $mardkownParser = new Markdown();
-        
+
         $category = new WikiCategory();
         $category->setName((string) $request->getData('title'));
         $category->setParent((int) $request->getData('parent'));
@@ -411,7 +411,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createWikiBadgeFromRquest(RequestAbstract $request) : WikiBadge
     {
         $mardkownParser = new Markdown();
-        
+
         $badge = new WikiBadge();
         $badge->setName((string) $request->getData('title'));
 

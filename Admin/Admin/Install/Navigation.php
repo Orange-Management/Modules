@@ -28,7 +28,7 @@ class Navigation
 {
     /**
      * Install navigation providing
-     * 
+     *
      * @param string $path Path to some file
      * @param DatabasePool $dbPool Database pool for database interaction
      *
@@ -40,7 +40,7 @@ class Navigation
     {
         $navData = json_decode(file_get_contents(__DIR__ . '/Navigation.install.json'), true);
         $class = '\\Modules\\Navigation\\Admin\\Installer';
-        
+
         /** @var $class \Modules\Navigation\Admin\Installer */
         $class::installExternal($dbPool, $navData);
     }

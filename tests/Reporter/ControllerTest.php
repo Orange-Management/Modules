@@ -123,7 +123,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         ];
 
         $mediaFiles = $media->createDbEntries($status, 1);
-        
+
         $ids = [];
         foreach ($mediaFiles as $file) {
             $ids[] = $file->getId();
@@ -200,7 +200,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         foreach ($mediaFiles as $file) {
             $ids[] = $file->getId();
         }
- 
+
         $request = new Request(new Http(''));
         $request->setData('name', 'Test report');
         $request->setData('template', 1);

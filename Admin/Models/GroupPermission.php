@@ -19,7 +19,7 @@ use phpOMS\Account\PermissionAbstract;
 /**
  * Group permission class.
  *
- * A single permission for a group consisting of read, create, modify, delete and permission flags. 
+ * A single permission for a group consisting of read, create, modify, delete and permission flags.
  *
  * @package    Modules\Admin
  * @license    OMS License 1.0

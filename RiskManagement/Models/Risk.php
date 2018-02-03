@@ -140,7 +140,7 @@ class Risk
         return $this->descriptionRaw;
     }
 
-    public function getUnit() 
+    public function getUnit()
     {
         return $this->unit;
     }
@@ -160,7 +160,7 @@ class Risk
         $this->department = $department;
     }
 
-    public function getCategory() 
+    public function getCategory()
     {
         return $this->category;
     }
@@ -170,7 +170,7 @@ class Risk
         $this->category = $category;
     }
 
-    public function getProject() 
+    public function getProject()
     {
         return $this->project;
     }
@@ -180,7 +180,7 @@ class Risk
         $this->project = $project;
     }
 
-    public function getProcess() 
+    public function getProcess()
     {
         return $this->process;
     }
@@ -190,7 +190,7 @@ class Risk
         $this->process = $process;
     }
 
-    public function getResponsible() 
+    public function getResponsible()
     {
         return $this->responsible;
     }
@@ -200,7 +200,7 @@ class Risk
         $this->responsible = $responsible;
     }
 
-    public function getDeputy() 
+    public function getDeputy()
     {
         return $this->deputy;
     }

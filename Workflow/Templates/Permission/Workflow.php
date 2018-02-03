@@ -63,7 +63,7 @@ class Workflow implements WorkflowInterface
     public function runPending($data)
     {
         // todo: approve?!
-        // todo: 
+        // todo:
     }
 
     public function getState() : int

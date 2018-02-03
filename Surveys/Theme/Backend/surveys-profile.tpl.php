@@ -10,5 +10,5 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();
 

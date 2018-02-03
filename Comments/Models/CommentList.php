@@ -28,7 +28,7 @@ class CommentList
 
     private $comments = [];
 
-    public function __construct() 
+    public function __construct()
     {
     }
 
@@ -42,7 +42,7 @@ class CommentList
         return $this->comments;
     }
 
-    public function addComment($comment) 
+    public function addComment($comment)
     {
         $this->comments[] = $comment;
     }

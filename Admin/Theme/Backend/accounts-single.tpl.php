@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
             <tbody>
-                <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++; 
+                <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>

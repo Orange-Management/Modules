@@ -221,7 +221,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
         $this->path = $path;
     }
 
-    public function toArray() : array 
+    public function toArray() : array
     {
         return [
             'id' => $this->id,
@@ -233,12 +233,12 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
         ];
     }
 
-    public function __toString() 
+    public function __toString()
     {
         return json_encode($this->toArray());
     }
 
-    public function jsonSerialize() 
+    public function jsonSerialize()
     {
         return $this->toArray();
     }

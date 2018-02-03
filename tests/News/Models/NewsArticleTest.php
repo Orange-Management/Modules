@@ -99,7 +99,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         $news = new NewsArticle();
         $news->setStatus(9999);
     }
-    
+
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
@@ -108,7 +108,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         $news = new NewsArticle();
         $news->setType(9999);
     }
-    
+
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */

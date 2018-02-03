@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="3">
                         <tbody>
                         <?php $count = 0; foreach ($media as $key => $value) : $count++;
-                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId()); 
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
 
                         $icon = '';
                         $extensionType = \phpOMS\System\File\FileUtils::getExtensionType($value->getExtension());

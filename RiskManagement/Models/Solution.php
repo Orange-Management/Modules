@@ -52,7 +52,7 @@ class Solution
         $this->risk = $risk;
     }
 
-    public function getRisk() 
+    public function getRisk()
     {
         return $this->risk;
     }
@@ -62,7 +62,7 @@ class Solution
         $this->cause = $cause;
     }
 
-    public function getCause() 
+    public function getCause()
     {
         return $this->cause;
     }

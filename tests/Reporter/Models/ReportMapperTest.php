@@ -30,7 +30,7 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
     private function createTemplate()
     {
         $template = new Template();
-        
+
         $template->setCreatedBy(1);
         $template->setName('Report Template');
         $template->setStatus(ReporterStatus::ACTIVE);
@@ -38,10 +38,10 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         $template->setDatatype(TemplateDataType::OTHER);
         $template->setStandalone(false);
         $template->setExpected(['source1.csv', 'source2.csv']);
-        
+
         $collection = new Collection();
         $collection->setCreatedBy(1);
-        
+
         $templateFiles = [
             [
                 'extension' => 'php',
@@ -79,7 +79,7 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
                 'size' => 1,
             ]
         ];
-        
+
         foreach ($templateFiles as $file) {
             $media = new Media();
             $media->setCreatedBy(1);
@@ -87,10 +87,10 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
             $media->setPath(trim($file['path'], '/') . '/' . $file['filename']);
             $media->setName($file['name']);
             $media->setSize($file['size']);
-        
+
             $collection->addSource($media);
         }
-        
+
         $template->setSource($collection);
 
         return $template;

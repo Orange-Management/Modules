@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><i class="fa fa-anchor"></i>
                         <td><blockquote><?= $this->printHtml($job->getComment()); ?></blockquote>
             </table>
-                
+
             </div>
         </section>
     </div>

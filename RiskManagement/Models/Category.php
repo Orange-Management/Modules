@@ -47,7 +47,7 @@ class Category
         return $this->id;
     }
 
-    public function getParent() 
+    public function getParent()
     {
         return $this->parent;
     }
@@ -57,7 +57,7 @@ class Category
         $this->parent = $parent;
     }
 
-    public function getResponsible() 
+    public function getResponsible()
     {
         return $this->responsible;
     }
@@ -72,11 +72,11 @@ class Category
         $this->deputy = $deputy;
     }
 
-    public function getDeputy() 
+    public function getDeputy()
     {
         return $this->deputy;
     }
-    
+
     public function getTitle() : string
     {
         return $this->title;

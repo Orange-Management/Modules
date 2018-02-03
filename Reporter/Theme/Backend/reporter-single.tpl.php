@@ -78,7 +78,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="ppt"<?= $this->printHtml((!isset($tcoll['powerpoint'])) ? ' disabled' : ''); ?>>Powerpoint
                                     <option value="csv"<?= $this->printHtml((!isset($tcoll['csv'])) ? ' disabled' : ''); ?>>Csv
                                     <option value="json"<?= $this->printHtml((!isset($tcoll['json'])) ? ' disabled' : ''); ?>>Json
-                                    
+
                                 </select>
                         <tr>
                             <td><input type="button" value="<?= $this->getHtml('Export'); ?>"

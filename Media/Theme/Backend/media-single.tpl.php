@@ -44,7 +44,7 @@ echo $this->getData('nav')->render();
             $media->getExtension() === 'collection'
             && !is_file($media->getPath() . $this->request->getData('sub'))
         ) || (
-            is_dir($media->getPath()) 
+            is_dir($media->getPath())
             && ($this->request->getData('sub') === null || is_dir($media->getPath() . $this->request->getData('sub')))
         )
     ) : ?>
@@ -62,7 +62,7 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
                     <?php if (!is_dir($media->getPath())) : foreach ($media as $key => $value) :
-                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId()); 
+                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
 
                         $icon = '';
                         $extensionType = \phpOMS\System\File\FileUtils::getExtensionType($value->getExtension());
@@ -99,12 +99,12 @@ echo $this->getData('nav')->render();
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                     <?php endforeach; else : $path = is_dir($media->getPath() . $this->request->getData('sub')) && phpOMS\Utils\StringUtils::startsWith(str_replace('\\', '/', realpath($media->getPath() . $this->request->getData('sub'))), $media->getPath()) ? $media->getPath() . $this->request->getData('sub') : $media->getPath(); ?>
-                        <?php $list = \phpOMS\System\File\Local\Directory::list($path); 
-                            foreach ($list as $key => $value) : 
-                                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath()))); 
+                        <?php $list = \phpOMS\System\File\Local\Directory::list($path);
+                            foreach ($list as $key => $value) :
+                                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath())));
                                 $icon = '';
                                 $extensionType = \phpOMS\System\File\FileUtils::getExtensionType(!is_dir($value) ? \phpOMS\System\File\Local\File::extension($value) : 'collection');
-        
+
                                 if ($extensionType === \phpOMS\System\File\ExtensionType::CODE) {
                                     $icon = 'file-code-o';
                                 } elseif ($extensionType === \phpOMS\System\File\ExtensionType::TEXT) {
@@ -144,7 +144,7 @@ echo $this->getData('nav')->render();
     <div class="col-xs-12">
         <section class="box wf-100">
             <div class="inner">
-                <?php 
+                <?php
                 $path = is_file($media->getPath() . $this->request->getData('sub')) && phpOMS\Utils\StringUtils::startsWith(str_replace('\\', '/', realpath($media->getPath() . $this->request->getData('sub'))), $media->getPath()) ? $media->getPath() . $this->request->getData('sub') : $media->getPath();
                 if (\phpOMS\System\File\FileUtils::getExtensionType($media->getExtension()) === \phpOMS\System\File\ExtensionType::IMAGE || \phpOMS\System\File\FileUtils::getExtensionType(\phpOMS\System\File\Local\File::extension($path)) === \phpOMS\System\File\ExtensionType::IMAGE) : ?>
                     <div class="h-overflow"><img src="<?= $media->isAbsolute() ? $this->printHtml($path) : $this->printHtml($this->request->getUri()->getBase() . $path); ?>"></div>

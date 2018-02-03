@@ -74,7 +74,7 @@ class Process
         $this->descriptionRaw = $description;
     }
 
-    public function getUnit() 
+    public function getUnit()
     {
         return $this->unit;
     }
@@ -84,7 +84,7 @@ class Process
         $this->unit = $unit;
     }
 
-    public function getDepartment() 
+    public function getDepartment()
     {
         return $this->department;
     }
@@ -94,7 +94,7 @@ class Process
         $this->department = $department;
     }
 
-    public function getResponsible() 
+    public function getResponsible()
     {
         return $this->responsible;
     }
@@ -104,7 +104,7 @@ class Process
         $this->responsible = $responsible;
     }
 
-    public function getDeputy() 
+    public function getDeputy()
     {
         return $this->deputy;
     }

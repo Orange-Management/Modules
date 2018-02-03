@@ -34,7 +34,7 @@ class AuditTest extends \PHPUnit\Framework\TestCase
     public function testSetGet()
     {
         $audit = new Audit();
-        
+
         $audit->setType(1);
         self::assertEquals(1, $audit->getType());
 

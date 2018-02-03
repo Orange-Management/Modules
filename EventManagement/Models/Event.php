@@ -61,7 +61,7 @@ class Event
     private $media = [];
 
     private $progress = 0;
-    
+
     private $progressType = ProgressType::MANUAL;
 
     /**

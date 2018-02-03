@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
                             $color = 'darkred';
                             if ($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }
                             elseif ($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }
-                            elseif ($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; } 
+                            elseif ($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; }
                         ?>
                             <tr>
                                 <td><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('TYPE' . $news->getType()) ?></span></a>

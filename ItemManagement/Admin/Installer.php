@@ -114,7 +114,7 @@ class Installer extends InstallerAbstract
                             PRIMARY KEY (`itemmgmt_partslist_id`)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
-            
+
         $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'itemmgmt_sales_price` (
                             `itemmgmt_sales_price_id` int(11) NOT NULL AUTO_INCREMENT,

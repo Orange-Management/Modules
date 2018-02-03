@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $doc = $this->getData('doc');
 

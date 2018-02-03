@@ -42,7 +42,7 @@ class Profile
 
     private $calendar = null;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->image = new NullMedia();
         $this->birthday = new \DateTime('now');
@@ -60,7 +60,7 @@ class Profile
         return $this->location;
     }
 
-    public function addLocation(Location $location) 
+    public function addLocation(Location $location)
     {
         $this->location[] = $location;
     }

@@ -40,7 +40,7 @@ class Installer extends InstallerAbstract
         switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
             $dbPool->get()->con->beginTransaction();
-            
+
                             $dbPool->get()->con->prepare(
                                 'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'support_ticket` (
                                         `support_ticket_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -49,12 +49,12 @@ class Installer extends InstallerAbstract
                                         KEY `support_ticket_task` (`support_ticket_task`)
                                     )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                             )->execute();
-            
+
                             $dbPool->get()->con->prepare(
                                 'ALTER TABLE `' . $dbPool->get()->prefix . 'support_ticket`
                                         ADD CONSTRAINT `' . $dbPool->get()->prefix . 'support_ticket_ibfk_1` FOREIGN KEY (`support_ticket_task`) REFERENCES `' . $dbPool->get()->prefix . 'task` (`task_id`);'
                             )->execute();
-                      
+
                             $dbPool->get()->con->commit();
                 break;
         }

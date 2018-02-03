@@ -105,7 +105,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::UNIT)
         ) {
@@ -135,7 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::UNIT)
         ) {
@@ -143,7 +143,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
@@ -165,7 +165,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::UNIT)
         ) {
@@ -173,7 +173,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
@@ -193,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DEPARTMENT)
         ) {
@@ -201,7 +201,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
@@ -223,7 +223,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DEPARTMENT)
         ) {
@@ -231,7 +231,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
@@ -253,7 +253,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DEPARTMENT)
         ) {
@@ -261,7 +261,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
@@ -281,7 +281,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::POSITION)
         ) {
@@ -289,7 +289,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
@@ -311,7 +311,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::POSITION)
         ) {
@@ -319,7 +319,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
@@ -341,7 +341,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        
+
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::POSITION)
         ) {
@@ -349,7 +349,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return $view;
         }
-        
+
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
@@ -385,7 +385,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
-        
+
         $unit = UnitMapper::get((int) $request->getData('id'));
         $response->set($request->__toString(), $unit->jsonSerialize());
     }
@@ -399,12 +399,12 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
-        
+
         $unit = UnitMapper::get((int) $request->getData('id'));
 
         $unit->setName((string) ($request->getData('name') ?? $unit->getName()));
         $unit->setDescription((string) ($request->getData('description') ?? $unit->getDescription()));
-        
+
         $parent = (int) $request->getData('parent');
         $unit->setParent(!empty($parent) ? $parent : $unit->getParent());
         $unit->setStatus((int) ($request->getData('status') ?? $unit->getStatus()));
@@ -423,7 +423,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
-        
+
         $unit = UnitMapper::get((int) $request->getData('id'));
         $status = UnitMapper::delete($unit);
 
@@ -439,7 +439,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
-        
+
         if (!empty($val = $this->validateUnitCreate($request))) {
             $response->set('unit_create', new FormValidation($val));
 
@@ -449,7 +449,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit = new Unit();
         $unit->setName((string) $request->getData('name'));
         $unit->setDescription((string) ($request->getData('description') ?? ''));
-        
+
         $parent = (int) $request->getData('parent');
         $unit->setParent(!empty($parent) ? $parent : null);
         $unit->setStatus((int) $request->getData('status'));
@@ -520,22 +520,22 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $position = PositionMapper::get((int) $request->getData('id'));
-        
+
         $position->setName((string) ($request->getData('name') ?? $position->getName()));
         $position->setDescription((string) ($request->getData('description') ?? $position->getDescription()));
-        
-        $parent = (int) $request->getData('parent'); 
+
+        $parent = (int) $request->getData('parent');
         $position->setParent(!empty($parent) ? $parent : $position->getParent());
-        
+
         $department = (int) $request->getData('department');
         $position->setDepartment(!empty($department) ? $department : $position->getDepartment());
         $position->setStatus((int) ($request->getData('status') ?? $position->getStatus()));
-        
+
         PositionMapper::update($position);
-        
+
         $response->set($request->__toString(), $position->jsonSerialize());
     }
-    
+
     public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -556,10 +556,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $position->setName((string) ($request->getData('name')));
         $position->setStatus((int) $request->getData('status'));
         $position->setDescription((string) ($request->getData('description') ?? ''));
-        
+
         $parent = (int) $request->getData('parent');
         $position->setParent(!empty($parent) ? $parent : null);
-        
+
         $department = (int) $request->getData('department');
         $position->setDepartment(!empty($department) ? $department : null);
 
@@ -612,19 +612,19 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $department = DepartmentMapper::get((int) $request->getData('id'));
-        
+
         $department->setName((string) ($request->getData('name') ?? $department->getName()));
         $department->setDescription((string) ($request->getData('description') ?? $department->getDescription()));
-        
+
         $parent = (int) $request->getData('parent');
         $department->setParent(!empty($parent) ? $parent : $department->getParent());
         $department->setStatus((int) ($request->getData('status') ?? $department->getStatus()));
-        
+
         $unit = (int) $request->getData('unit');
         $department->setUnit(!empty($unit) ? $unit : $department->getUnit());
-        
+
         DepartmentMapper::update($department);
-        
+
         $response->set($request->__toString(), $department->jsonSerialize());
     }
 
@@ -663,7 +663,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $department = new Department();
         $department->setName((string) $request->getData('name'));
         $department->setStatus((int) $request->getData('status'));
-        
+
         $parent = (int) $request->getData('parent');
         $department->setParent(!empty($parent) ? $parent : null);
         $department->setUnit((int) ($request->getData('unit') ?? 1));

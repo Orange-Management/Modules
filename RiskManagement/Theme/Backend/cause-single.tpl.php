@@ -11,4 +11,4 @@
  * @link       http://website.orange-management.de
  */
 $cause = $this->getData('cause');
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();

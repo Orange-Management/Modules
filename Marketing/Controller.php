@@ -123,7 +123,7 @@ class Controller extends ModuleAbstract implements WebInterface
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Calendar/Theme/Backend/css/styles.css');
-        
+
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Marketing/Theme/Backend/promotion-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001902001, $request, $response));

@@ -66,7 +66,7 @@ class TemplateMapper extends DataMapperAbstract
         ],
     ];
 
-    
+
     protected static $hasMany = [
         'reports' => [
             'mapper'         => ReportMapper::class,

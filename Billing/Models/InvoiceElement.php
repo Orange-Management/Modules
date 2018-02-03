@@ -33,7 +33,7 @@ class InvoiceElement implements \JsonSerializable
     private $itemName = '';
 
     private $itemDescription = '';
-    
+
     private $quantity = 0;
 
     private $singlePrice = null;
@@ -49,7 +49,7 @@ class InvoiceElement implements \JsonSerializable
     private $totalDiscountR = null;
 
     private $discountQ = 0;
-    
+
     private $singlePriceNet = null;
 
     private $totalPriceNet = null;
@@ -93,7 +93,7 @@ class InvoiceElement implements \JsonSerializable
         $this->promotion = $promotion;
     }
 
-    public function getPromotion() 
+    public function getPromotion()
     {
         return $this->promotion;
     }
@@ -208,7 +208,7 @@ class InvoiceElement implements \JsonSerializable
         $this->discountQ = $quantity;
     }
 
-    public function getDiscountQuantity() 
+    public function getDiscountQuantity()
     {
         return $this->discountQ;
     }
@@ -275,6 +275,6 @@ class InvoiceElement implements \JsonSerializable
 
     public function jsonSerialize()
     {
-        
+
     }
 }

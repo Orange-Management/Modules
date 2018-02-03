@@ -14,7 +14,6 @@ declare(strict_types = 1);
 
 namespace Modules\Accounting\Models;
 
-
 /**
  * Account abstraction class.
  *
@@ -43,7 +42,7 @@ abstract class AccountAbstract
     protected $type = null;
 
     protected $positiveParent = null;
-    
+
     protected $negativeParent = null;
 
     /**
@@ -99,7 +98,7 @@ abstract class AccountAbstract
     {
     }
 
-    public function getPositiveParent() 
+    public function getPositiveParent()
     {
         return $this->positiveParent;
     }

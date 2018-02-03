@@ -11,4 +11,4 @@
  * @link       http://website.orange-management.de
  */
 $category = $this->getData('category');
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();

@@ -185,7 +185,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $doc = EditorDocMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
-        
+
         if ($doc->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DOC, $doc->getId())
@@ -243,7 +243,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $doc->setPlain((string) ($request->getData('plain') ?? ''));
         $doc->setContent((string) ($request->getData('plain') ?? ''));
         $doc->setCreatedBy($request->getHeader()->getAccount());
-        
+
         EditorDocMapper::create($doc);
 
         $response->set('editor', $doc->jsonSerialize());

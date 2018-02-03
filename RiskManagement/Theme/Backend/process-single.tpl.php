@@ -11,4 +11,4 @@
  * @link       http://website.orange-management.de
  */
 $process = $this->getData('process');
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();

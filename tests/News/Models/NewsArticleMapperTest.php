@@ -141,7 +141,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $id = NewsArticleMapper::create($news);
 
         // Publish
-        
+
         $publishDate = new \DateTime('now');
         $publishDate->modify('+1 days');
 

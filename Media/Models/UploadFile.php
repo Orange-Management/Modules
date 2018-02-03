@@ -195,7 +195,7 @@ class UploadFile
 
     private function interlace(string $extension, string $path) /* : void */
     {
-        
+
                 if ($extension === 'png') {
                     $img = imagecreatefrompng($path);
                 } elseif ($extension === 'jpg' || $extension === 'jpeg') {

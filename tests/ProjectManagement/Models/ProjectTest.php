@@ -73,7 +73,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $task = new Task();
         $task->setTitle('A');
         $task->setCreatedBy(1);
-        
+
         $project->addTask($task);
 
         self::assertEquals('A', $project->getTask(0)->getTitle());

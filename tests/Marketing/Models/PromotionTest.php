@@ -70,7 +70,7 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
         $task = new Task();
         $task->setTitle('Promo Task A');
         $task->setCreatedBy(1);
-        
+
         $promotion->addTask($task);
 
         self::assertEquals('Promo Task A', $promotion->getTask(0)->getTitle());

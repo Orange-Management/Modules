@@ -89,9 +89,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
-        
+
         $this->module->apiUnitGet($request, $response);
-        
+
         self::assertEquals('Orange Management', $response->get('')['name']);
         self::assertGreaterThan(0, $response->get('')['id']);
     }
@@ -140,9 +140,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
-        
+
         $this->module->apiDepartmentGet($request, $response);
-        
+
         self::assertEquals('Marketing', $response->get('')['name']);
         self::assertGreaterThan(0, $response->get('')['id']);
     }
@@ -191,9 +191,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
-        
+
         $this->module->apiPositionGet($request, $response);
-        
+
         self::assertEquals('Marketer', $response->get('')['name']);
         self::assertGreaterThan(0, $response->get('')['id']);
     }

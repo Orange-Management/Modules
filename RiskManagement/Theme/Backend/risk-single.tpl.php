@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
                         </div>
                     </section>
                 </div>
-            
+
                 <div class="col-xs-12 col-md-6">
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Media') ?></h1></header>

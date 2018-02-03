@@ -86,7 +86,7 @@ class Group extends \phpOMS\Account\Group
 
     /**
      * Set created by
-     * 
+     *
      * @param mixed $createdBy Group created by
      *
      * @return void
@@ -100,9 +100,9 @@ class Group extends \phpOMS\Account\Group
 
     /**
      * Set raw description
-     * 
+     *
      * @param string $description Description
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -114,7 +114,7 @@ class Group extends \phpOMS\Account\Group
 
     /**
      * Get raw description
-     * 
+     *
      * @return string Raw description
      *
      * @since  1.0.0

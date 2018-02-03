@@ -38,7 +38,7 @@ class Comment
 
     private $ref = null;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->createdAt = new \DateTime();
     }
@@ -88,12 +88,12 @@ class Comment
         $this->content = $content;
     }
 
-    public function getCreatedBy() 
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
-    public function setCreatedBy($createdBy) 
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
     }

@@ -376,7 +376,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
         $this->featured = $featured;
     }
 
-    public function toArray() : array 
+    public function toArray() : array
     {
         return [
             'id' => $this->id,
@@ -392,12 +392,12 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
         ];
     }
 
-    public function __toString() 
+    public function __toString()
     {
         return json_encode($this->toArray());
     }
 
-    public function jsonSerialize() 
+    public function jsonSerialize()
     {
         return $this->toArray();
     }

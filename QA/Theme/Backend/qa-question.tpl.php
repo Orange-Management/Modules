@@ -2,7 +2,7 @@
 $question = $this->getData('question');
 $answers = $question->getAnswers();
 
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();
 ?>
 
 <div class="row">

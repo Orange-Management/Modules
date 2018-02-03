@@ -81,7 +81,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $promotion->getMedia();
         $actual   = $promotionR->getMedia();
 
-        self::assertEquals(end($expected)->getName(), end($actual)->getName());   
+        self::assertEquals(end($expected)->getName(), end($actual)->getName());
     }
 
     public function testNewest()

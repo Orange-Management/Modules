@@ -96,7 +96,7 @@ class Invoice implements \JsonSerializable
     private $billZip = '';
 
     private $billCountry = '';
-    
+
     /**
      * Person refering for this order.
      *
@@ -118,7 +118,7 @@ class Invoice implements \JsonSerializable
     private $gross = null;
 
     private $currency = ISO4217CharEnum::_EUR;
-    
+
     private $info = '';
 
     private $payment = 0;
@@ -355,7 +355,7 @@ class Invoice implements \JsonSerializable
     {
         return $this->referer;
     }
-    
+
     public function setRefererName(string $refererName) /* : void */
     {
         $this->refererName = $refererName;
@@ -455,7 +455,7 @@ class Invoice implements \JsonSerializable
     {
         return $this->terms;
     }
-    
+
     public function setTermsText(string $terms) /* : void */
     {
         $this->termsText = $terms;
@@ -471,7 +471,7 @@ class Invoice implements \JsonSerializable
         $this->shipping = $shipping;
     }
 
-    public function getShipping() 
+    public function getShipping()
     {
         return $this->shipping;
     }
@@ -485,7 +485,7 @@ class Invoice implements \JsonSerializable
     {
         return $this->shippingText;
     }
-    
+
     public function getVouchers() : array
     {
         return $this->vouchers;
@@ -518,6 +518,6 @@ class Invoice implements \JsonSerializable
 
     public function jsonSerialize()
     {
-        
+
     }
 }

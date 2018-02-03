@@ -53,7 +53,7 @@ class Department
         $this->department = $department;
     }
 
-    public function getResponsible() 
+    public function getResponsible()
     {
         return $this->responsible;
     }
@@ -63,7 +63,7 @@ class Department
         $this->responsible = $responsible;
     }
 
-    public function getDeputy() 
+    public function getDeputy()
     {
         return $this->deputy;
     }

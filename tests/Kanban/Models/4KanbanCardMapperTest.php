@@ -56,7 +56,7 @@ class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($card->getRef(), $cardR->getRef());
     }
 
-    public function testTaskCard() 
+    public function testTaskCard()
     {
         $card = new KanbanCard();
 

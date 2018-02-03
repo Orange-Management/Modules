@@ -167,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $comment = new Comment();
-        
+
         CommentMapper::create($comment);
 
         $response->set('comment', $comment->jsonSerialize());

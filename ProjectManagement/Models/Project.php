@@ -69,7 +69,7 @@ class Project
 
     private $tasks = [];
 
-    public function __construct(string $name = '') 
+    public function __construct(string $name = '')
     {
         $this->start = new \DateTime('now');
         $this->end = new \DateTime('now');
@@ -85,7 +85,7 @@ class Project
         $this->setName($name);
     }
 
-    public function getId() : int 
+    public function getId() : int
     {
         return $this->id;
     }
@@ -150,7 +150,7 @@ class Project
         return $this->tasks;
     }
 
-    public function countTasks() : int 
+    public function countTasks() : int
     {
         return count($this->tasks);
     }
@@ -191,7 +191,7 @@ class Project
         $this->calendar->setName($name);
     }
 
-    public function getDescription() : string 
+    public function getDescription() : string
     {
         return $this->description;
     }
@@ -201,32 +201,32 @@ class Project
         $this->description = $description;
     }
 
-    public function getCosts() : Money 
+    public function getCosts() : Money
     {
         return $this->costs;
     }
 
-    public function getBudget() : Money 
+    public function getBudget() : Money
     {
         return $this->budget;
     }
 
-    public function getEarnings() : Money 
+    public function getEarnings() : Money
     {
         return $this->earnings;
     }
 
-    public function setCosts(Money $costs) 
+    public function setCosts(Money $costs)
     {
         $this->costs = $costs;
     }
 
-    public function setBudget(Money $budget) 
+    public function setBudget(Money $budget)
     {
         $this->budget = $budget;
     }
 
-    public function setEarnings(Money $earnings) 
+    public function setEarnings(Money $earnings)
     {
         $this->earnings = $earnings;
     }

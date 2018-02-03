@@ -22,7 +22,7 @@ namespace Modules\Media\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Collection extends Media implements \Iterator 
+class Collection extends Media implements \Iterator
 {
 
     /**
@@ -95,27 +95,27 @@ class Collection extends Media implements \Iterator
     {
     }
 
-    public function rewind() 
+    public function rewind()
     {
         reset($this->sources);
     }
 
-    public function current() 
+    public function current()
     {
         return current($this->sources);
     }
 
-    public function key() 
+    public function key()
     {
         return key($this->sources);
     }
 
-    public function next() 
+    public function next()
     {
         next($this->sources);
     }
 
-    public function valid() 
+    public function valid()
     {
         return current($this->sources) !== false;
     }

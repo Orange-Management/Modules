@@ -162,7 +162,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $board = KanbanBoardMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
-        
+
         if ($board->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD, $board->getId())
@@ -267,7 +267,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createKanbanCardFromRquest(RequestAbstract $request) : KanbanCard
     {
         $mardkownParser = new Markdown();
-        
+
         $card = new KanbanCard();
         $card->setName((string) ($request->getData('title')));
         $card->setDescription((string) ($request->getData('plain')));
@@ -330,7 +330,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createKanbanBoardFromRquest(RequestAbstract $request) : KanbanBoard
     {
         $mardkownParser = new Markdown();
-        
+
         $board = new KanbanBoard();
         $board->setName((string) $request->getData('title'));
         $board->setDescription((string) $request->getData('plain'));
@@ -382,7 +382,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createKanbanColumnFromRquest(RequestAbstract $request) : KanbanColumn
     {
         $mardkownParser = new Markdown();
-        
+
         $column = new KanbanColumn();
         $column->setName((string) $request->getData('title'));
         $column->setOrder((int) $request->getData('order'));

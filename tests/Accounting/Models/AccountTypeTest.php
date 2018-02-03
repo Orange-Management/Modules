@@ -21,7 +21,7 @@ class AccountTypeTest extends \PHPUnit\Framework\TestCase
     {
         self::assertEquals(4, count(AccountType::getConstants()));
         self::assertEquals(AccountType::getConstants(), array_unique(AccountType::getConstants()));
-        
+
         self::assertEquals(0, AccountType::IMPERSONAL);
         self::assertEquals(1, AccountType::PERSONAL);
         self::assertEquals(2, AccountType::CREDITOR);

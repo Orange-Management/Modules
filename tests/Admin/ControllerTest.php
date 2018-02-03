@@ -84,22 +84,22 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1000000019');
-        
+
         $this->module->apiSettingsGet($request, $response);
-        
+
         self::assertEquals('DE', $response->get(''));
     }
-    
+
     public function testApiSettingsSet()
     {
         $response = new Response();
         $request = new Request(new Http(''));
-        
+
         $request->getHeader()->setAccount(1);
         $request->setData('settings', json_encode(['1000000019' => 'US']));
-        
+
         $this->module->apiSettingsSet($request, $response);
-        
+
         $request->setData('id', '1000000019');
         $this->module->apiSettingsGet($request, $response);
 

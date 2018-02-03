@@ -11,4 +11,4 @@
  * @link       http://website.orange-management.de
  */
 $project = $this->getData('project');
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();

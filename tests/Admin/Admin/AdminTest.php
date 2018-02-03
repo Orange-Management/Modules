@@ -44,14 +44,14 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
         $app->dispatcher = new Dispatcher($app);
-    
+
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
 
         $request = new Request(new Http('http://127.0.0.1/en/backend/admin'));
         $request->createRequestHashs(1);
 
         $loaded = $moduleManager->getUriLoad($request);
-        
+
         $found = false;
         foreach ($loaded[4] as $module) {
             if ($module['module_load_file'] === 'Admin') {

@@ -54,7 +54,7 @@ class Cause
         $this->risk = $risk;
     }
 
-    public function getRisk() 
+    public function getRisk()
     {
         return $this->risk;
     }
@@ -79,7 +79,7 @@ class Cause
         $this->probability = $probability;
     }
 
-    public function getDepartment() 
+    public function getDepartment()
     {
         return $this->department;
     }

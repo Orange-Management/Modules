@@ -51,7 +51,7 @@ class Project
         $this->project = $project;
     }
 
-    public function getResponsible() 
+    public function getResponsible()
     {
         return $this->responsible;
     }
@@ -61,7 +61,7 @@ class Project
         $this->responsible = $responsible;
     }
 
-    public function getDeputy() 
+    public function getDeputy()
     {
         return $this->deputy;
     }

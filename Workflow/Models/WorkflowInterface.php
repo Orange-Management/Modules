@@ -24,5 +24,5 @@ namespace Modules\Workflow\Models;
  */
 interface WorkflowInterface
 {
-    
+
 }

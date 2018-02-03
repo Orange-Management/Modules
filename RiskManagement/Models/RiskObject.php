@@ -31,7 +31,7 @@ class RiskObject
     private $description = '';
 
     private $descriptionRaw = '';
-    
+
     private $risk = null;
 
     public function __construct()
@@ -43,7 +43,7 @@ class RiskObject
         return $this->id;
     }
 
-    public function getRisk() 
+    public function getRisk()
     {
         return $this->risk;
     }

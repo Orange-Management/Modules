@@ -224,7 +224,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createQAQuestionFromRquest(RequestAbstract $request) : QAQuestion
     {
         $mardkownParser = new Markdown();
-        
+
         $question = new QAQuestion();
         $question->setName((string) $request->getData('title'));
         $question->setQuestion((string) $request->getData('plain'));
@@ -272,7 +272,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createQAAnswerFromRquest(RequestAbstract $request) : QAAnswer
     {
         $mardkownParser = new Markdown();
-        
+
         $answer = new QAAnswer();
         $answer->setName((string) $request->getData('title'));
         $answer->setQuestion((string) $request->getData('plain'));
@@ -316,7 +316,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createQACategoryFromRquest(RequestAbstract $request) : QACategory
     {
         $mardkownParser = new Markdown();
-        
+
         $category = new QACategory();
         $category->setName((string) $request->getData('title'));
         $category->setParent((int) $request->getData('parent'));
@@ -353,7 +353,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function createQABadgeFromRquest(RequestAbstract $request) : QABadge
     {
         $mardkownParser = new Markdown();
-        
+
         $badge = new QABadge();
         $badge->setName((string) $request->getData('title'));
 

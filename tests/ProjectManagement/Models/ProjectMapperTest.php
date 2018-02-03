@@ -88,7 +88,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $project->getMedia();
         $actual = $projectR->getMedia();
 
-        self::assertEquals(end($expected)->getName(), end($actual)->getName());        
+        self::assertEquals(end($expected)->getName(), end($actual)->getName());
     }
 
     public function testNewest()

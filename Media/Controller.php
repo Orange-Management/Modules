@@ -190,8 +190,8 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         $uploads = $this->uploadFiles(
-            $request->getFiles(), 
-            $request->getHeader()->getAccount(), 
+            $request->getFiles(),
+            $request->getHeader()->getAccount(),
             (string) ($request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files')
         );
 
@@ -292,8 +292,8 @@ class Controller extends ModuleAbstract implements WebInterface
 
     private static function normalizeDbPath(string $path) : string
     {
-        return str_replace('\\', '/', 
-            str_replace(realpath(__DIR__ . '/../../'), '', 
+        return str_replace('\\', '/',
+            str_replace(realpath(__DIR__ . '/../../'), '',
                 rtrim($path, '/')
             )
         );

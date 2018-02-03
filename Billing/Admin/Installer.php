@@ -72,7 +72,7 @@ class Installer extends InstallerAbstract
                             `billing_invoice_taxid` varchar(255) DEFAULT NULL,
                             `billing_invoice_freightage` int(11) DEFAULT NULL,
                             `billing_invoice_insurance` int(11) DEFAULT NULL,
-                            
+
                             `billing_invoice_referer` int(11) DEFAULT NULL,
                             `billing_invoice_referer_name` int(11) DEFAULT NULL,
 

@@ -16,7 +16,7 @@ $client = $this->getData('client');
 /**
  * @var \phpOMS\Views\View $this
  */
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();
 ?>
 <div class="tabular-2">
     <div class="box">

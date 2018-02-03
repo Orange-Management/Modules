@@ -30,7 +30,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      * @group admin
      * @slowThreshold 5000
      */
-    public function testModuleIntegration() 
+    public function testModuleIntegration()
     {
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
@@ -50,14 +50,14 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $app = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
         $app->dispatcher = new Dispatcher($app);
-    
+
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
 
         $request = new Request(new Http('http://127.0.0.1/en/backend/profile'));
         $request->createRequestHashs(1);
 
         $loaded = $moduleManager->getUriLoad($request);
-        
+
         $found = false;
         foreach ($loaded[4] as $module) {
             if ($module['module_load_file'] === 'Profile') {

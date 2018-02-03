@@ -53,7 +53,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.
- * @link       http://orange-managementcom 
+ * @link       http://orange-managementcom
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -272,7 +272,7 @@ class Controller extends ModuleAbstract implements WebInterface
                 throw new \Exception('No template file detected.');
             }
 
-            $report = ReportMapper::getNewest(1, 
+            $report = ReportMapper::getNewest(1,
                 (new Builder($this->app->dbPool->get()))->where('reporter_report.reporter_report_template', '=', $template->getId())
             );
 
@@ -292,7 +292,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $view->addData('report', $report);
             $view->addData('rcoll', $rcoll);
         }
-        
+
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage());
         $view->addData('template', $template);
@@ -333,9 +333,9 @@ class Controller extends ModuleAbstract implements WebInterface
                 break;
             case 'xlsx':
                 $response->getHeader()->set(
-                    'Content-disposition', 'attachment; filename="' 
-                    . ((string) $request->getData('id')) . '.' 
-                    . ((string) $request->getData('type')) 
+                    'Content-disposition', 'attachment; filename="'
+                    . ((string) $request->getData('id')) . '.'
+                    . ((string) $request->getData('type'))
                     . '"'
                 , true);
                 $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
@@ -353,8 +353,8 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->set('Content-Type', MimeType::M_BIN, true);
             $response->getHeader()->set('Content-Transfer-Encoding', 'Binary', true);
             $response->getHeader()->set(
-                'Content-disposition', 'attachment; filename="' 
-                . ((string) $request->getData('id')) . '.' 
+                'Content-disposition', 'attachment; filename="'
+                . ((string) $request->getData('id')) . '.'
                 . ((string) $request->getData('type'))
                 . '"'
             , true);
@@ -367,9 +367,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $exportView = new View($this->app, $request, $response);
         $exportView->addData('lang', $reportLanguage[$this->app->accountManager->get($request->getHeader()->getAccount())->getL11n()->getLanguage()]);
         $exportView->setTemplate(
-            '/Modules/Reporter/Templates/' 
-            . ((string) $request->getData('id')) . '/' 
-            . ((string) $request->getData('id')) . '.' 
+            '/Modules/Reporter/Templates/'
+            . ((string) $request->getData('id')) . '/'
+            . ((string) $request->getData('id')) . '.'
             . ((string) $request->getData('type'))
         );
         $response->set('export', $exportView->render());
@@ -395,7 +395,7 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
-       
+
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
@@ -408,7 +408,7 @@ class Controller extends ModuleAbstract implements WebInterface
         if ($request->getData('files') === null) {
             return -1;
         }
-        
+
         $files = json_decode((string) $request->getData('files'));
         // TODO: make sure this user has permissions for provided files
 
@@ -431,7 +431,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $reporterTemplate->setName($request->getData('name') ?? 'Empty');
         $reporterTemplate->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
         $reporterTemplate->setDescriptionRaw((string) ($request->getData('description') ?? ''));
-        
+
         if ($collectionId > 0) {
             $reporterTemplate->setSource((int) $collectionId);
         }
@@ -492,39 +492,39 @@ class Controller extends ModuleAbstract implements WebInterface
     private function handleTemplateDatabaseFromRequest(RequestAbstract $request) /* : void */
     {
         $files = json_decode((string) ($request->getData('files')));
-        
+
         // TODO: make sure user has permission for files
         // TODO: make sure user has permission for template
-        
+
         /* Init Template */
         $template = TemplateMapper::get((int) $request->getData('template'));
-        
+
         if ($template->getDatatype() === TemplateDataType::GLOBAL_DB) {
             $templateFiles = MediaMapper::get($template->getSource());
-        
+
             foreach ($templateFiles as $templateFile) {
                 $dbFile = MediaMapper::get($templateFile);
-        
+
                 // Found centralized db
                 if ($dbFile->getExtension() === '.sqlite') {
                     $this->app->dbPool->create('reporter_1', ['db' => 'sqlite', 'path' => $dbFile->getPath()]);
                     $csvDbMapper   = new CsvDatabaseMapper($this->app->dbPool->get('reporter_1'));
                     $excelDbMapper = new ExcelDatabaseMapper($this->app->dbPool->get('reporter_1'));
                     $csvDbMapper->autoIdentifyCsvSettings(true);
-        
+
                     foreach ($files as $file) {
                         $mediaFile = MediaMapper::get($file);
-                
+
                         if (StringUtils::endsWith($mediaFile->getFilename(), '.db') && $mediaFile->getExtension() === '.csv') {
                             $csvDbMapper->addSource($mediaFile->getPath());
                         } elseif (StringUtils::endsWith($mediaFile->getFilename(), '.db') && ($mediaFile->getExtension() === '.xls' || $mediaFile->getExtension() === '.xlsx')) {
                             $excelDbMapper->addSource($mediaFile->getPath());
                         }
                     }
-        
+
                     $csvDbMapper->insert();
                     $excelDbMapper->insert();
-        
+
                     break;
                 }
             }
