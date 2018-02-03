@@ -54,5 +54,4 @@ class AddressMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'profile_address_id';
-
 }

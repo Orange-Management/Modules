@@ -31,9 +31,9 @@ use phpOMS\Utils\RnG\Name;
 
 class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
 {
-    private static $unitId = 0;
+    private static $unitId       = 0;
     private static $departmentId = 0;
-    private static $positionId = 0;
+    private static $positionId   = 0;
 
     public function testCRUD()
     {
@@ -71,9 +71,9 @@ class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($employee->getPosition()->getName(), $employeeR->getPosition()->getName());
         self::assertEquals($employee->isActive(), $employeeR->isActive());
 
-        self::$unitId = $employeeR->getUnit()->getId();
+        self::$unitId       = $employeeR->getUnit()->getId();
         self::$departmentId = $employeeR->getDepartment()->getId();
-        self::$positionId = $employeeR->getPosition()->getId();
+        self::$positionId   = $employeeR->getPosition()->getId();
     }
 
     /**

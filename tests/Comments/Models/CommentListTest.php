@@ -27,7 +27,7 @@ class CommentListTest extends \PHPUnit\Framework\TestCase
 
     public function testGetSet()
     {
-        $list = new CommentList();
+        $list    = new CommentList();
         $comment = new Comment();
         $comment->setTitle('Test Comment');
 

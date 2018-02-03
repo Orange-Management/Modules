@@ -49,7 +49,7 @@ class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
     public function testVolume()
     {
         for ($i = 1; $i < 30; $i++) {
-            $text = new Text();
+            $text  = new Text();
             $board = new KanbanBoard();
 
             $board->setName($text->generateText(mt_rand(3, 7)));

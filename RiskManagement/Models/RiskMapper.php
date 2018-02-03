@@ -115,5 +115,4 @@ class RiskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'riskmngmt_risk_id';
-
 }

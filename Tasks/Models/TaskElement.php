@@ -13,6 +13,7 @@
 declare(strict_types = 1);
 
 namespace Modules\Tasks\Models;
+
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
@@ -107,7 +108,7 @@ class TaskElement implements \JsonSerializable
      */
     public function __construct()
     {
-        $this->due       = new \DateTime('now');
+        $this->due = new \DateTime('now');
         $this->due->modify('+1 day');
         $this->createdAt = new \DateTime('now');
     }
@@ -306,7 +307,8 @@ class TaskElement implements \JsonSerializable
         $this->task = $task;
     }
 
-    public function toArray() : array {
+    public function toArray() : array 
+    {
         return [
             'id' => $this->id,
             'task' => $this->task,
@@ -319,7 +321,8 @@ class TaskElement implements \JsonSerializable
         ];
     }
 
-    public function jsonSerialize() {
+    public function jsonSerialize() 
+    {
         return $this->toArray();
     }
 }

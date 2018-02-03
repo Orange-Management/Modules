@@ -133,7 +133,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
-        $this->publish = new \DateTime('now');
+        $this->publish   = new \DateTime('now');
     }
 
     public function getBadges() : array

@@ -1,9 +1,9 @@
 (function (omsModule, undefined) {
     omsModule.Calendar = function () {
-        this.layout = omsModule.Calendar.layout.BLOCKS;
-        this.interval = null;
+        this.layout          = omsModule.Calendar.layout.BLOCKS;
+        this.interval        = null;
         this.selectedElement = null;
-        this.subCalendars = [];
+        this.subCalendars    = [];
 
     };
 

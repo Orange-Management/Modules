@@ -469,7 +469,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $this->handleTemplateDatabaseFromRequest($request);
         $collectionId = $this->createMediaCollectionFromRequest($request);
-        $report = $this->createReportFromRequest($request, $response, $collectionId);
+        $report       = $this->createReportFromRequest($request, $response, $collectionId);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set($request->__toString(), $report);

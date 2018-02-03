@@ -112,5 +112,4 @@ class ProjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'projectmanagement_project_id';
-
 }

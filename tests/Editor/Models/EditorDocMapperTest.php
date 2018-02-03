@@ -51,7 +51,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
     {
         for ($i = 0; $i < 100; $i++) {
             $text = new Text();
-            $doc = new EditorDoc();
+            $doc  = new EditorDoc();
 
             // Test other
 

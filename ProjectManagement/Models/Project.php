@@ -13,6 +13,7 @@
 declare(strict_types = 1);
 
 namespace Modules\ProjectManagement\Models;
+
 use Modules\Calendar\Models\Calendar;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
@@ -72,14 +73,14 @@ class Project
     public function __construct(string $name = '')
     {
         $this->start = new \DateTime('now');
-        $this->end = new \DateTime('now');
+        $this->end   = new \DateTime('now');
         $this->end->modify('+1 month');
         $this->createdAt = new \DateTime('now');
 
         $this->calendar = new Calendar();
 
-        $this->costs = new Money();
-        $this->budget = new Money();
+        $this->costs    = new Money();
+        $this->budget   = new Money();
         $this->earnings = new Money();
 
         $this->setName($name);

@@ -32,11 +32,11 @@ class EmployeeTest extends \PHPUnit\Framework\TestCase
 
     public function testSetGet()
     {
-        $employee = new Employee();
-        $account = new Account();
-        $unit = new Unit();
+        $employee   = new Employee();
+        $account    = new Account();
+        $unit       = new Unit();
         $department = new Department();
-        $position = new Position();
+        $position   = new Position();
 
         $employee->setAccount($account);
         $employee->setUnit($unit);

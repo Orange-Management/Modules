@@ -4,7 +4,7 @@
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
 
     jsOMS.Modules.Draw = function (app) {
-        this.app = app;
+        this.app     = app;
         this.editors = [];
     };
 
@@ -19,7 +19,7 @@
             this.editors.push(temp);
         } else {
             const canvas = document.getElementsByClassName('m-draw'),
-                length = canvas.length;
+                length   = canvas.length;
 
             this.editors = [];
 

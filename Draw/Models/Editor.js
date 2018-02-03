@@ -6,13 +6,13 @@
 
     jsOMS.Modules.Draw.Editor = function (editor, app)
     {
-        this.editor = editor;
-        this.app = app;
-        this.canvas = document.getElementsByTagName('canvas')[0];
+        this.editor          = editor;
+        this.app             = app;
+        this.canvas          = document.getElementsByTagName('canvas')[0];
         this.canvasContainer = this.canvas.parentElement;
-        this.ctx = this.canvas.getContext("2d");
+        this.ctx             = this.canvas.getContext("2d");
 
-        let canvasStyle = window.getComputedStyle(this.canvas, null),
+        let canvasStyle          = window.getComputedStyle(this.canvas, null),
             canvasContainerStyle = window.getComputedStyle(this.canvasContainer, null);
 
         this.resize({
@@ -22,14 +22,14 @@
 
         // Backup for undo.
         this.canvasBackup = document.createElement('canvas');
-        this.ctxBackup = this.canvasBackup.getContext("2d");
+        this.ctxBackup    = this.canvasBackup.getContext("2d");
 
-        this.size = 1;
-        this.type = jsOMS.Modules.Draw.DrawTypeEnum.DRAW;
-        this.color = '#000000';
+        this.size     = 1;
+        this.type     = jsOMS.Modules.Draw.DrawTypeEnum.DRAW;
+        this.color    = '#000000';
         this.drawFlag = false;
-        this.oldPos = {x: 0, y: 0};
-        this.newPos = {x: 0, y: 0};
+        this.oldPos   = {x: 0, y: 0};
+        this.newPos   = {x: 0, y: 0};
 
         // All backup steps need to be stored here (draw, resize etc.)
         // Undo means the whole canvas will be redrawn on the canvasBackup without the last step
@@ -44,7 +44,7 @@
         this.initCanvas();
 
         this.app.eventManager.attach(this.canvasContainer.id, function(evt) {
-            self.canvasStyle = window.getComputedStyle(self.canvas, null);
+            self.canvasStyle          = window.getComputedStyle(self.canvas, null);
             self.canvasContainerStyle = window.getComputedStyle(self.canvasContainer, null);
 
             this.resize({
@@ -70,8 +70,8 @@
         this.canvas.addEventListener("mousedown", function (evt)
         {
             self.drawFlag = true;
-            self.oldPos = self.newPos;
-            self.newPos = self.mousePosition(evt);
+            self.oldPos   = self.newPos;
+            self.newPos   = self.mousePosition(evt);
 
             if (self.drawFlag && self.type === jsOMS.Modules.Draw.DrawTypeEnum.DRAW) {
                 self.draw(self.newPos, self.newPos);
@@ -99,7 +99,7 @@
             self.newPos = self.mousePosition(evt);
 
             self.draw(self.oldPos, self.newPos);
-            self.drawFlag = false;
+            self.drawFlag              = false;
             document.body.style.cursor = 'default';
         }, false);
     };
@@ -107,14 +107,14 @@
     jsOMS.Modules.Draw.Editor.prototype.initCanvas = function()
     {
         const img = this.canvas.getAttribute('data-src'),
-            self = this;
+            self  = this;
 
         if(img !== null && typeof img !== 'undefined' && img.length > 0) {
             /** global: Image */
             let imgObj = new Image();
 
             imgObj.addEventListener('load', function() {
-                self.canvas.width = imgObj.width;
+                self.canvas.width  = imgObj.width;
                 self.canvas.height = imgObj.height;
                 self.canvas.getContext("2d").drawImage(imgObj, 0, 0);
             });
@@ -128,7 +128,7 @@
         if (this.drawFlag) {
             this.ctx.beginPath();
             this.ctx.strokeStyle = this.color;
-            this.ctx.lineWidth = this.size;
+            this.ctx.lineWidth   = this.size;
 
             if (this.type === jsOMS.Modules.Draw.DrawTypeEnum.DRAW) {
                 this.ctx.moveTo(start.x, start.y);
@@ -169,7 +169,7 @@
 
     jsOMS.Modules.Draw.Editor.prototype.toImage = function (callback)
     {
-        const image = new Image();
+        const image  = new Image();
         image.onload = function ()
         {
             callback(image);
@@ -191,13 +191,13 @@
 
     jsOMS.Modules.Draw.Editor.prototype.resize = function (size)
     {
-        const tmpCanvas = document.createElement('canvas');
-        tmpCanvas.width = this.canvas.width;
+        const tmpCanvas  = document.createElement('canvas');
+        tmpCanvas.width  = this.canvas.width;
         tmpCanvas.height = this.canvas.height;
 
         tmpCanvas.getContext('2d').drawImage(this.canvas, 0, 0);
 
-        this.canvas.width = size.width;
+        this.canvas.width  = size.width;
         this.canvas.height = size.height;
 
         this.canvas.getContext('2d').drawImage(tmpCanvas, 0, 0, tmpCanvas.width, tmpCanvas.height, 0, 0, this.canvas.width, this.canvas.height);
@@ -205,8 +205,8 @@
 
     jsOMS.Modules.Draw.Editor.prototype.scale = function (scale)
     {
-        const tmpCanvas = document.createElement('canvas');
-        tmpCanvas.width = this.canvas.width;
+        const tmpCanvas  = document.createElement('canvas');
+        tmpCanvas.width  = this.canvas.width;
         tmpCanvas.height = this.canvas.height;
 
         tmpCanvas.getContext('2d').drawImage(this.canvas, 0, 0);

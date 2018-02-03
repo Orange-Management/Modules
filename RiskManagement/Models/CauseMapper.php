@@ -68,5 +68,4 @@ class CauseMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'riskmngmt_cause_id';
-
 }

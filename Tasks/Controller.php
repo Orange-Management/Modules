@@ -244,8 +244,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateTaskCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['description'] = empty($request->getData('description')))
             || ($val['due'] = !((bool) strtotime((string) $request->getData('due'))))
             || ($val['forward'] = !(is_numeric($request->getData('forward') ?? 0)))
@@ -317,8 +316,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateTaskElementCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
+        if (($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
             || ($val['due'] = !((bool) strtotime((string) $request->getData('due'))))
             || ($val['task'] = !(is_numeric($request->getData('task'))))
             || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getHeader()->getAccount() : $request->getData('forward'))))

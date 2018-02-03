@@ -53,9 +53,9 @@ class TicketTest extends \PHPUnit\Framework\TestCase
         $ticket->getTask()->setPriority(TaskPriority::LOW);
         self::assertEquals(TaskPriority::LOW, $ticket->getTask()->getPriority());
 
-        $id = [];
-        $id[] = $ticket->getTask()->addElement(new TaskElement());
-        $id[] = $ticket->getTask()->addElement(new TaskElement());
+        $id      = [];
+        $id[]    = $ticket->getTask()->addElement(new TaskElement());
+        $id[]    = $ticket->getTask()->addElement(new TaskElement());
         $success = $ticket->getTask()->removeElement(99);
 
         self::assertFalse($success);

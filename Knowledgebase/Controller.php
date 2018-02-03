@@ -258,7 +258,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        $category = WikiDocMapper::get((int) $request->getData('id'));
+        $category  = WikiDocMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
         if (!$this->app->accountManager->get($accountId)->hasPermission(
@@ -343,8 +343,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateWikiDocCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['category'] = empty($request->getData('category')))
             || ($val['status'] = (
@@ -385,8 +384,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateWikiCategoryCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['parent'] = empty($request->getData('parent')))
         ) {
             return $val;
@@ -421,8 +419,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateWikiBadgeCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
         ) {
             return $val;
         }

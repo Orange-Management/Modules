@@ -99,5 +99,4 @@ class TemplateMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'reporter_template_id';
-
 }

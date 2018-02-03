@@ -90,5 +90,4 @@ class ProfileMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'profile_account_id';
-
 }

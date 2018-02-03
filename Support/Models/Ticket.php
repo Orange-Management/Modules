@@ -28,7 +28,7 @@ use Modules\Tasks\Models\TaskType;
 class Ticket
 {
 
-    private $id   = 0;
+    private $id = 0;
 
     private $task = null;
 

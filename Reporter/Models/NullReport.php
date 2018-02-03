@@ -14,8 +14,6 @@ declare(strict_types = 1);
 
 namespace Modules\Reporter\Models;
 
-
-
 /**
  * Report model.
  *

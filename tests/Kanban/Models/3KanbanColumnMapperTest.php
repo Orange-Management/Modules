@@ -46,7 +46,7 @@ class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
     public function testVolume()
     {
         for ($i = 1; $i < 4; $i++) {
-            $text = new Text();
+            $text   = new Text();
             $column = new KanbanColumn();
 
             $column->setName($text->generateText(mt_rand(3, 7)));

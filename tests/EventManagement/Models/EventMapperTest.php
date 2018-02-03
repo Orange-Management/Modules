@@ -86,7 +86,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($event->getProgressType(), $eventR->getProgressType());
 
         $expected = $event->getMedia();
-        $actual = $eventR->getMedia();
+        $actual   = $eventR->getMedia();
 
         self::assertEquals(end($expected)->getName(), end($actual)->getName());
     }

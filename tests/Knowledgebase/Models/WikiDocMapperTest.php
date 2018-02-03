@@ -56,7 +56,7 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
     {
         for ($i = 1; $i < 30; $i++) {
             $text = new Text();
-            $doc = new WikiDoc();
+            $doc  = new WikiDoc();
 
             $doc->setName($text->generateText(mt_rand(1, 3)));
             $doc->setDoc($text->generateText(mt_rand(100, 500)));

@@ -51,7 +51,7 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
     public function testVolume()
     {
         for ($i = 1; $i < 30; $i++) {
-            $text = new Text();
+            $text   = new Text();
             $answer = new QAAnswer();
 
             $answer->setAnswer($text->generateText(mt_rand(100, 500)));

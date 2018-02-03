@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class NewsType extends Enum
 {
-    /* public */ const ARTICLE = 0;
-    /* public */ const LINK = 1;
+    /* public */ const ARTICLE  = 0;
+    /* public */ const LINK     = 1;
     /* public */ const HEADLINE = 2;
 }

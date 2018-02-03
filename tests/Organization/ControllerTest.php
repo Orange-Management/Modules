@@ -52,11 +52,11 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         {
         };
 
-        $this->app->dbPool = $GLOBALS['dbpool'];
-        $this->app->orgId = 1;
-        $this->app->appName = 'backend';
+        $this->app->dbPool         = $GLOBALS['dbpool'];
+        $this->app->orgId          = 1;
+        $this->app->appName        = 'backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
-        $this->app->appSettings = new CoreSettings($this->app->dbPool->get());
+        $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
 
         $account = new Account();
         TestUtils::setMember($account, 'id', 1);
@@ -85,7 +85,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiUnitGet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -99,7 +99,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiUnitSet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -114,7 +114,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiUnitCreateDelete()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -136,7 +136,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentGet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -150,7 +150,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentSet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -165,7 +165,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentCreateDelete()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -187,7 +187,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionGet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -201,7 +201,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionSet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -216,7 +216,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionCreateDelete()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');

@@ -45,9 +45,9 @@ class EventTest extends \PHPUnit\Framework\TestCase
         $event->setDescription('Description');
         self::assertEquals('Description', $event->getDescription());
 
-        $id = [];
-        $id[] = $event->addPerson(new Account());
-        $id[] = $event->addPerson(new Account());
+        $id      = [];
+        $id[]    = $event->addPerson(new Account());
+        $id[]    = $event->addPerson(new Account());
         $success = $event->removePerson(99);
 
         self::assertFalse($success);

@@ -46,7 +46,7 @@
      */
     jsOMS.Modules.Navigation.prototype.bind = function (id)
     {
-        const e      = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
+        const e    = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
             length = e.length;
 
         for (let i = 0; i < length; i++) {
@@ -72,13 +72,13 @@
         }
 
         const extend = e.querySelectorAll('li label'),
-            self   = this;
+            self     = this;
 
         this.navigation[e.id] = new jsOMS.Modules.Navigation.Models.Navigation(this.rawNavData[e.id]);
 
         // On load
         const open = this.navigation[e.id].getOpen();
-        let ele = null;
+        let ele    = null;
 
         for (let key in open) {
             if (open.hasOwnProperty(key) && (ele = document.getElementById(key)) !== null) {

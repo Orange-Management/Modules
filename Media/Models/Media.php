@@ -103,7 +103,7 @@ class Media
      * @var string
      * @since 1.0.0
      */
-    protected $description = '';
+    protected $description    = '';
     protected $descriptionRaw = '';
 
     /**

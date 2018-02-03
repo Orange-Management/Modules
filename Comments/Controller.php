@@ -141,8 +141,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateCommentCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
         ) {
             return $val;

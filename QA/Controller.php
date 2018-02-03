@@ -239,8 +239,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateQAQuestionCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['language'] = empty($request->getData('language')))
             || ($val['category'] = empty($request->getData('category')))
@@ -285,8 +284,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateQAAnswerCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['question'] = empty($request->getData('question')))
             || ($val['status'] = (
@@ -327,8 +325,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateQACategoryCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['parent'] = empty($request->getData('parent')))
         ) {
             return $val;
@@ -363,8 +360,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateQABadgeCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
         ) {
             return $val;
         }

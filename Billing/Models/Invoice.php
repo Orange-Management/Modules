@@ -149,9 +149,9 @@ class Invoice implements \JsonSerializable
     public function __construct()
     {
         $this->insurance = new Money();
-        $this->freight = new Money();
-        $this->net = new Money();
-        $this->gross = new Money();
+        $this->freight   = new Money();
+        $this->net       = new Money();
+        $this->gross     = new Money();
 
         $this->createdAt = new \DateTime();
     }

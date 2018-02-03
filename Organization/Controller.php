@@ -359,8 +359,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateUnitCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['name'] = empty($request->getData('name')))
+        if (($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
                 !empty($request->getData('parent'))
                 && !is_numeric($request->getData('parent'))
@@ -424,7 +423,7 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $unit = UnitMapper::get((int) $request->getData('id'));
+        $unit   = UnitMapper::get((int) $request->getData('id'));
         $status = UnitMapper::delete($unit);
 
         $response->set($request->__toString(), $status);
@@ -462,8 +461,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validatePositionCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['name'] = empty($request->getData('name')))
+        if (($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
                 !empty($request->getData('parent'))
                 && !is_numeric($request->getData('parent'))
@@ -504,7 +502,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $position = PositionMapper::get((int) $request->getData('id'));
-        $status = PositionMapper::delete($position);
+        $status   = PositionMapper::delete($position);
 
         $response->set($request->__toString(), $status);
     }
@@ -571,8 +569,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateDepartmentCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['name'] = empty($request->getData('name')))
+        if (($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
                 !empty($request->getData('parent'))
                 && !is_numeric($request->getData('parent'))
@@ -639,7 +636,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $department = DepartmentMapper::get((int) $request->getData('id'));
-        $status = DepartmentMapper::delete($department);
+        $status     = DepartmentMapper::delete($department);
 
         $response->set($request->__toString(), $status);
     }

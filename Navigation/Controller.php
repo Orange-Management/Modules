@@ -120,7 +120,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function getView(RequestAbstract $request, ResponseAbstract $response)
     {
         $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->dbPool);
-        $nav = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
+        $nav    = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
         $nav->setNav($navObj->getNav());
         $nav->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $unread = [];
@@ -134,7 +134,8 @@ class Controller extends ModuleAbstract implements WebInterface
         return $nav;
     }
 
-    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) {
+    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) 
+    {
         $languages = $this->app->moduleManager->getLanguageFiles($request);
 
         foreach ($languages as $path) {

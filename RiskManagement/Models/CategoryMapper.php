@@ -53,5 +53,4 @@ class CategoryMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'riskmngmt_category_id';
-
 }

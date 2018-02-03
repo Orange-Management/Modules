@@ -21,7 +21,7 @@ use phpOMS\Message\ResponseAbstract;
 
 class BaseView extends View
 {
-    private $id = '';
+    private $id         = '';
     private $isRequired = false;
 
     public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
@@ -45,7 +45,7 @@ class BaseView extends View
 
     public function render(...$data) : string
     {
-        $this->id = $data[0];
+        $this->id         = $data[0];
         $this->isRequired = $data[1] ?? false;
         $this->getData('popup')->setId($this->id);
         return parent::render();

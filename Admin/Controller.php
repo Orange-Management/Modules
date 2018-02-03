@@ -617,7 +617,7 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $group = GroupMapper::get((int) $request->getData('id'));
+        $group  = GroupMapper::get((int) $request->getData('id'));
         $status = GroupMapper::delete($group);
 
         $response->set($request->__toString(), $status);
@@ -686,8 +686,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         // todo: validate email correctness
         $val = [];
-        if (
-            ($val['login'] = empty($request->getData('login')))
+        if (($val['login'] = empty($request->getData('login')))
             || ($val['name1'] = empty($request->getData('name1')))
             || ($val['type'] = !AccountType::isValidValue((int) $request->getData('type')))
             || ($val['status'] = !AccountStatus::isValidValue((int) $request->getData('status')))
@@ -777,7 +776,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $account = AccountMapper::get((int) ($request->getData('id')));
-        $status = AccountMapper::delete($account);
+        $status  = AccountMapper::delete($account);
 
         $response->set($request->__toString(), $status);
     }

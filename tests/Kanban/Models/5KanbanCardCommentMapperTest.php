@@ -47,7 +47,7 @@ class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase
     public function testVolume()
     {
         for ($i = 1; $i < 10; $i++) {
-            $text = new Text();
+            $text    = new Text();
             $comment = new KanbanCardComment();
 
             $comment->setDescription($text->generateText(mt_rand(20, 100)));

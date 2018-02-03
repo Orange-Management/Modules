@@ -71,9 +71,9 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $task->setPriority(TaskPriority::LOW);
         self::assertEquals(TaskPriority::LOW, $task->getPriority());
 
-        $id = [];
-        $id[] = $task->addElement(new TaskElement());
-        $id[] = $task->addElement(new TaskElement());
+        $id      = [];
+        $id[]    = $task->addElement(new TaskElement());
+        $id[]    = $task->addElement(new TaskElement());
         $success = $task->removeElement(99);
 
         self::assertFalse($success);

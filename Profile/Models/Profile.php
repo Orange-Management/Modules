@@ -44,9 +44,9 @@ class Profile
 
     public function __construct()
     {
-        $this->image = new NullMedia();
+        $this->image    = new NullMedia();
         $this->birthday = new \DateTime('now');
-        $this->account = new Account();
+        $this->account  = new Account();
         $this->calendar = new Calendar();
     }
 

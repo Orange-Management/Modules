@@ -46,5 +46,4 @@ class ContactElementMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'profile_contact_id';
-
 }

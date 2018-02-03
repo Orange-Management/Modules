@@ -42,7 +42,7 @@ class QABadgeMapperTest extends \PHPUnit\Framework\TestCase
     public function testVolume()
     {
         for ($i = 1; $i < 30; $i++) {
-            $text = new Text();
+            $text  = new Text();
             $badge = new QABadge();
 
             $badge->setName($text->generateText(mt_rand(1, 3)));

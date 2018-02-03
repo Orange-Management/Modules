@@ -183,7 +183,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        $doc = EditorDocMapper::get((int) $request->getData('id'));
+        $doc       = EditorDocMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
         if ($doc->getCreatedBy()->getId() !== $accountId
@@ -205,8 +205,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateEditorCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
         ) {
             return $val;

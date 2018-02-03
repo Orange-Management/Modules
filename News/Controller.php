@@ -241,8 +241,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateNewsCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['lang'] = (
                 $request->getData('lang') !== null
@@ -313,8 +312,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateBadgeCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
         ) {
             return $val;
         }

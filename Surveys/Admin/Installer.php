@@ -39,7 +39,6 @@ class Installer extends InstallerAbstract
 
         switch ($dbPool->get()->getType()) {
             case DatabaseType::MYSQL:
-
                 break;
         }
     }

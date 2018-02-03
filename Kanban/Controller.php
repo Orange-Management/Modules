@@ -160,7 +160,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        $board = KanbanBoardMapper::get((int) $request->getData('id'));
+        $board     = KanbanBoardMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
         if ($board->getCreatedBy()->getId() !== $accountId
@@ -224,7 +224,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        $card = KanbanCardMapper::get((int) $request->getData('id'));
+        $card      = KanbanCardMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
         if ($card->getCreatedBy()->getId() !== $accountId
@@ -284,8 +284,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateKanbanCardCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['column'] = empty($request->getData('column')))
             || ($val['order'] = empty($request->getData('order')))
@@ -343,8 +342,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateKanbanBoardCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['order'] = empty($request->getData('order')))
             || ($val['status'] = (
@@ -393,8 +391,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateKanbanColumnCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['order'] = empty($request->getData('order')))
         ) {
             return $val;
@@ -439,8 +436,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateKanbanLabelCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['board'] = empty($request->getData('board')))
             || ($val['color'] = empty($request->getData('color')))
         ) {

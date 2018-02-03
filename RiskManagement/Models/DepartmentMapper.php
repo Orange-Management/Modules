@@ -63,5 +63,4 @@ class DepartmentMapper extends DataMapperAbstract
             'dest'    => 'riskmngmt_department_department',
         ],
     ];
-
 }

@@ -66,5 +66,4 @@ class ItemMapper extends DataMapperAbstract
             'src'            => 'itemmgmt_item_media_src',
         ],
     ];
-
 }

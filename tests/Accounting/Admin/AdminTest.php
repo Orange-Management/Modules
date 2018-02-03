@@ -33,7 +33,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      */
     public function testModuleIntegration()
     {
-        $app = new class extends ApplicationAbstract {};
+        $app         = new class extends ApplicationAbstract {};
         $app->dbPool = $GLOBALS['dbpool'];
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
@@ -48,8 +48,8 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
     public function testRequestLoads()
     {
-        $app = new class extends ApplicationAbstract {};
-        $app->dbPool = $GLOBALS['dbpool'];
+        $app             = new class extends ApplicationAbstract {};
+        $app->dbPool     = $GLOBALS['dbpool'];
         $app->dispatcher = new Dispatcher($app);
 
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');

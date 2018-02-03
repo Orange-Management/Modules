@@ -52,5 +52,4 @@ class CollectionMapper extends MediaMapper
      * @since 1.0.0
      */
     protected static $primaryField = 'media_id';
-
 }

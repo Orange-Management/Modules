@@ -136,7 +136,7 @@ class UploadFile
             }
 
             $split                     = explode('.', $f['name']);
-            $result[$key]['name'] = $split[0];
+            $result[$key]['name']      = $split[0];
             $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 

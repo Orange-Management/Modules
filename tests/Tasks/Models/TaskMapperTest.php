@@ -90,14 +90,14 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($task->getDue()->format('Y-m-d'), $taskR->getDue()->format('Y-m-d'));
 
         $expected = $task->getMedia();
-        $actual = $taskR->getMedia();
+        $actual   = $taskR->getMedia();
         self::assertEquals(end($expected)->getName(), end($actual)->getName());
 
         $expected = $task->getTaskElements();
         $actual   = $taskR->getTaskElements();
 
         $expectedMedia = reset($expected)->getMedia();
-        $actualMedia = reset($actual)->getMedia();
+        $actualMedia   = reset($actual)->getMedia();
 
         self::assertEquals(end($expected)->getDescription(), end($actual)->getDescription());
         self::assertEquals(end($expectedMedia)->getName(), end($actualMedia)->getName());

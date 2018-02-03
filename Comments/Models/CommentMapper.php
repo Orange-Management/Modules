@@ -69,5 +69,4 @@ class CommentMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'comments_comment_id';
-
 }

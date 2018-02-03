@@ -46,9 +46,9 @@ class CalendarTest extends \PHPUnit\Framework\TestCase
         $calendar->setDescription('Description');
         self::assertEquals('Description', $calendar->getDescription());
 
-        $id = [];
-        $id[] = $calendar->addEvent(new Event());
-        $id[] = $calendar->addEvent(new Event());
+        $id      = [];
+        $id[]    = $calendar->addEvent(new Event());
+        $id[]    = $calendar->addEvent(new Event());
         $success = $calendar->removeEvent(99);
 
         self::assertFalse($success);

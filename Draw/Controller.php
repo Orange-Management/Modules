@@ -207,8 +207,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateDrawCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = empty($request->getData('title')))
             || ($val['image'] = empty($request->getData('image')))
         ) {
             return $val;
@@ -240,17 +239,17 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $path = MediaController::createMediaPath();
+        $path      = MediaController::createMediaPath();
         $extension = 'png';
-        $filename = '';
-        $rnd = '';
+        $filename  = '';
+        $rnd       = '';
 
         // todo: implement limit since this could get exploited
         do {
-            $filename = sha1(((string) $request->getData('image')) . $rnd);
+            $filename  = sha1(((string) $request->getData('image')) . $rnd);
             $filename .= '.' . $extension;
 
-            $rnd      = mt_rand();
+            $rnd = mt_rand();
         } while (file_exists($path . '/' . $filename));
 
         $fullPath = __DIR__ . '/../../' . $path . '/' . $filename;
@@ -267,7 +266,7 @@ class Controller extends ModuleAbstract implements WebInterface
         ];
 
         $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
-        $draw = DrawImage::fromMedia($media);
+        $draw  = DrawImage::fromMedia($media);
 
         DrawImageMapper::create($draw);
 

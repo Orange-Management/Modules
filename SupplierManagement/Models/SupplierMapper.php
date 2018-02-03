@@ -95,5 +95,4 @@ class SupplierMapper extends DataMapperAbstract
             'src'            => 'suppliermgmt_supplier_contactelement_src',
         ],
     ];
-
 }

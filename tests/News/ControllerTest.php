@@ -44,9 +44,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         {
         };
 
-        $this->app->dbPool = $GLOBALS['dbpool'];
-        $this->app->orgId = 1;
-        $this->app->appName = 'backend';
+        $this->app->dbPool         = $GLOBALS['dbpool'];
+        $this->app->orgId          = 1;
+        $this->app->appName        = 'backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
 
         $account = new Account();
@@ -76,7 +76,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testCreateNews()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Title');

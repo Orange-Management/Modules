@@ -47,11 +47,11 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         {
         };
 
-        $this->app->dbPool = $GLOBALS['dbpool'];
-        $this->app->orgId = 1;
-        $this->app->appName = 'backend';
+        $this->app->dbPool         = $GLOBALS['dbpool'];
+        $this->app->orgId          = 1;
+        $this->app->appName        = 'backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
-        $this->app->appSettings = new CoreSettings($this->app->dbPool->get());
+        $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
 
         $account = new Account();
         TestUtils::setMember($account, 'id', 1);
@@ -80,7 +80,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiSettingsGet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1000000019');
@@ -93,7 +93,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiSettingsSet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('settings', json_encode(['1000000019' => 'US']));
@@ -109,7 +109,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiGroupGet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '3');
@@ -123,7 +123,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiGroupSet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '3');
@@ -141,7 +141,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiGroupCreateDelete()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -163,7 +163,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiAccountGet()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -177,7 +177,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiAccountCreate()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('login', 'guest');
@@ -201,7 +201,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiAccountUpdate()
     {
         $response = new Response();
-        $request = new Request(new Http(''));
+        $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', 1);

@@ -63,5 +63,4 @@ class ProjectMapper extends DataMapperAbstract
             'dest'    => 'riskmngmt_project_project',
         ],
     ];
-
 }

@@ -110,5 +110,4 @@ class PromotionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'marketing_promotion_id';
-
 }

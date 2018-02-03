@@ -28,9 +28,9 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
  */
 class Workflow implements WorkflowInterface
 {
-    private $id = 0;
+    private $id    = 0;
     private $state = 0;
-    private $con = null;
+    private $con   = null;
 
     public function __construct(ConnectionAbstract $con)
     {
@@ -47,7 +47,6 @@ class Workflow implements WorkflowInterface
                 $this->state = $this->runPending($data);
                 break;
             default:
-
         }
 
         return $this->state;

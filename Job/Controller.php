@@ -100,7 +100,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         SchedulerAbstract::setBin('c:/WINDOWS/system32/schtasks.exe');
         $scheduler = SchedulerFactory::create();
-        $jobs = $scheduler->getAllByName('Adobe', false);
+        $jobs      = $scheduler->getAllByName('Adobe', false);
 
         $view->addData('jobs', $jobs);
 
@@ -144,7 +144,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         SchedulerAbstract::setBin('c:/WINDOWS/system32/schtasks.exe');
         $scheduler = SchedulerFactory::create();
-        $job = $scheduler->getAllByName('Adobe', false);
+        $job       = $scheduler->getAllByName('Adobe', false);
 
         $view->addData('job', end($job));
 

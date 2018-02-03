@@ -86,7 +86,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($project->getProgressType(), $projectR->getProgressType());
 
         $expected = $project->getMedia();
-        $actual = $projectR->getMedia();
+        $actual   = $projectR->getMedia();
 
         self::assertEquals(end($expected)->getName(), end($actual)->getName());
     }

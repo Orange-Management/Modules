@@ -64,5 +64,4 @@ class SolutionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'riskmngmt_solution_id';
-
 }

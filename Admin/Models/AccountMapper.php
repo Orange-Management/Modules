@@ -110,7 +110,6 @@ class AccountMapper extends DataMapperAbstract
 
             switch (self::$db->getType()) {
                 case DatabaseType::MYSQL:
-
                     $sth = self::$db->con->prepare(
                         'SELECT
                             `' . self::$db->prefix . 'account`.*

@@ -26,10 +26,10 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class InvoiceType extends Enum
 {
-    /* public */ const BILL = 1;
-    /* public */ const DELIVERY_NOTE = 2;
-    /* public */ const CREDIT_NOTE = 3;
-    /* public */ const DEBIT_NOTE = 4;
-    /* public */ const OFFER = 5;
+    /* public */ const BILL               = 1;
+    /* public */ const DELIVERY_NOTE      = 2;
+    /* public */ const CREDIT_NOTE        = 3;
+    /* public */ const DEBIT_NOTE         = 4;
+    /* public */ const OFFER              = 5;
     /* public */ const ORDER_CONFIRMATION = 6;
 }
