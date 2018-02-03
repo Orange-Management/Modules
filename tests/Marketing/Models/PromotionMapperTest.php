@@ -79,7 +79,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($promotion->getEnd()->format('Y-m-d'), $promotionR->getEnd()->format('Y-m-d'));
 
         $expected = $promotion->getMedia();
-        $actual = $promotionR->getMedia();
+        $actual   = $promotionR->getMedia();
 
         self::assertEquals(end($expected)->getName(), end($actual)->getName());   
     }
