@@ -11,6 +11,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
+
 namespace Modules\Workflow\Templates\Permission;
 
 use phpOMS\Stdlib\Base\Enum;
@@ -25,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class PermissionStatus extends Enum
 {
-    /* public */ const PENDING = 1;
-    /* public */ const APPROVED = 2;
+    /* public */ const PENDING   = 1;
+    /* public */ const APPROVED  = 2;
     /* public */ const DISMISSED = 3;
 }

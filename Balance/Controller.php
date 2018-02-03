@@ -11,6 +11,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
+
 namespace Modules\Balance;
 
 use Modules\Navigation\Models\Navigation;

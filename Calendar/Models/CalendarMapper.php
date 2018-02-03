@@ -12,6 +12,7 @@
  * @todo only load events of 3 month or 1 year?!
  */
 declare(strict_types = 1);
+
 namespace Modules\Calendar\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;

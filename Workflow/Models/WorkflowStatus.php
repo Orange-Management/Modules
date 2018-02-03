@@ -11,6 +11,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
+
 namespace Modules\Workflow\Models;
 
 use phpOMS\Stdlib\Base\Enum;
@@ -25,10 +26,10 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class WorkflowStatus extends Enum
 {
-    /* public */ const OPEN = 1;
-    /* public */ const WORKING = 2;
+    /* public */ const OPEN      = 1;
+    /* public */ const WORKING   = 2;
     /* public */ const SUSPENDED = 3;
-    /* public */ const CANCELED = 4;
-    /* public */ const DONE = 5;
-    /* public */ const CLOSED = 6;
+    /* public */ const CANCELED  = 4;
+    /* public */ const DONE      = 5;
+    /* public */ const CLOSED    = 6;
 }

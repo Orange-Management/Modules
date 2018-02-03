@@ -11,6 +11,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
+
 namespace Modules\Controlling\Admin;
 
 use phpOMS\DataStorage\Database\DatabaseType;

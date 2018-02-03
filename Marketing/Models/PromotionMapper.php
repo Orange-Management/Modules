@@ -11,6 +11,7 @@
  * @link       http://website.orange-management.de
  */
 declare(strict_types = 1);
+
 namespace Modules\Marketing\Models;
 
 use Modules\Calendar\Models\CalendarMapper;
