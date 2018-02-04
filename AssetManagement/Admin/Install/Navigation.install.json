@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 1,
-        "from": 1006600000,
+        "from": "AssetManagement",
         "permission": null,
         "parent": 1002601001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1006600000,
+                "from": "AssetManagement",
                 "permission": null,
                 "parent": 1006601001,
                 "children": []

@@ -9,7 +9,7 @@
         "target": "self",
         "icon": "fa fa-fire",
         "order": 70,
-        "from": 1004300000,
+        "from": "Production",
         "permission": null,
         "parent": 1000201001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 5,
-                "from": 1004300000,
+                "from": "Production",
                 "permission": null,
                 "parent": 1004301001,
                 "children": [
@@ -37,7 +37,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 5,
-                        "from": 1004300000,
+                        "from": "Production",
                         "permission": null,
                         "parent": 1004303001,
                         "children": []
@@ -52,7 +52,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 10,
-                        "from": 1004300000,
+                        "from": "Production",
                         "permission": null,
                         "parent": 1004303001,
                         "children": []

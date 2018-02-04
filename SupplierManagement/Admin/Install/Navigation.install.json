@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 1,
-        "from": 1003200000,
+        "from": "SupplierManagement",
         "permission": null,
         "parent": 1002101001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1003200000,
+                "from": "SupplierManagement",
                 "permission": null,
                 "parent": 1003202001,
                 "children": []
@@ -38,7 +38,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 5,
-                "from": 1003200000,
+                "from": "SupplierManagement",
                 "permission": null,
                 "parent": 1003202001,
                 "children": []

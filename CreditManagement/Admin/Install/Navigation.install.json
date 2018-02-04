@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 110,
-        "from": 1002300000,
+        "from": "CreditManagement",
         "permission": null,
         "parent": 1002601001,
         "children": []

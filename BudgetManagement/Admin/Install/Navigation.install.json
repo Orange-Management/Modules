@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 1,
-        "from": 1004600000,
+        "from": "BudgetManagement",
         "permission": null,
         "parent": 1002801001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1004600000,
+                "from": "BudgetManagement",
                 "permission": null,
                 "parent": 1004601001,
                 "children": []

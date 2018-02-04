@@ -9,7 +9,7 @@
         "target": "self",
         "icon": "fa fa-usd",
         "order": 20,
-        "from": 1001600000,
+        "from": "Sales",
         "permission": null,
         "parent": 0,
         "children": [

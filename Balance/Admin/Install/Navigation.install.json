@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 1,
-        "from": 1006500000,
+        "from": "Balance",
         "permission": null,
         "parent": 1002801001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1006500000,
+                "from": "Balance",
                 "permission": null,
                 "parent": 1006501001,
                 "children": []

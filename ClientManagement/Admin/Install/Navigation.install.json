@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 1,
-        "from": 1003100000,
+        "from": "ClientManagement",
         "permission": null,
         "parent": 1001601001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1003100000,
+                "from": "ClientManagement",
                 "permission": null,
                 "parent": 1003102001,
                 "children": []
@@ -38,7 +38,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1003100000,
+                "from": "ClientManagement",
                 "permission": null,
                 "parent": 1003102001,
                 "children": []

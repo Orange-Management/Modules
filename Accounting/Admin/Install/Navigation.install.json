@@ -9,7 +9,7 @@
         "target": "self",
         "icon": "fa fa-book",
         "order": 50,
-        "from": 1002600000,
+        "from": "Accounting",
         "permission": null,
         "parent": 0,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 5,
-                "from": 1002600000,
+                "from": "Accounting",
                 "permission": null,
                 "parent": 1002601001,
                 "children": [
@@ -37,7 +37,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 1,
-                        "from": 1002600000,
+                        "from": "Accounting",
                         "permission": null,
                         "parent": 1002602001,
                         "children": []
@@ -52,7 +52,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 5,
-                        "from": 1002600000,
+                        "from": "Accounting",
                         "permission": null,
                         "parent": 1002602001,
                         "children": []
@@ -69,7 +69,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 10,
-                "from": 1002600000,
+                "from": "Accounting",
                 "permission": null,
                 "parent": 1002601001,
                 "children": [
@@ -83,7 +83,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 5,
-                        "from": 1002600000,
+                        "from": "Accounting",
                         "permission": null,
                         "parent": 1002605001,
                         "children": []
@@ -98,7 +98,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 10,
-                        "from": 1002600000,
+                        "from": "Accounting",
                         "permission": null,
                         "parent": 1002605001,
                         "children": []
@@ -113,7 +113,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 10,
-                        "from": 1002600000,
+                        "from": "Accounting",
                         "permission": null,
                         "parent": 1002605001,
                         "children": []
@@ -128,7 +128,7 @@
                         "target": "self",
                         "icon": null,
                         "order": 15,
-                        "from": 1002600000,
+                        "from": "Accounting",
                         "permission": null,
                         "parent": 1002605001,
                         "children": []
@@ -145,7 +145,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 1,
-                "from": 1002600000,
+                "from": "Accounting",
                 "permission": null,
                 "parent": 1002601001,
                 "children": [

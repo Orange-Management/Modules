@@ -9,7 +9,7 @@
         "target": "self",
         "icon": null,
         "order": 5,
-        "from": 1004400000,
+        "from": "CostObjectAccounting",
         "permission": null,
         "parent": 1002601001,
         "children": [
@@ -23,7 +23,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 5,
-                "from": 1004400000,
+                "from": "CostObjectAccounting",
                 "permission": null,
                 "parent": 1004401001,
                 "children": []
@@ -38,7 +38,7 @@
                 "target": "self",
                 "icon": null,
                 "order": 10,
-                "from": 1004400000,
+                "from": "CostObjectAccounting",
                 "permission": null,
                 "parent": 1004401001,
                 "children": []

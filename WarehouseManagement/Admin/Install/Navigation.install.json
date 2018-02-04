@@ -9,7 +9,7 @@
         "target": "self",
         "icon": "fa fa-cube",
         "order": 40,
-        "from": 1001300000,
+        "from": "Warehousing",
         "permission": null,
         "parent": 0,
         "children": [
