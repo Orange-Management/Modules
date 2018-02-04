@@ -17,9 +17,9 @@
     "description": "The buisness module.",
     "directory": "ClientManagement",
     "dependencies": {
-        "Admin" : "1.0.0",
-        "Profile" : "1.0.0",
-        "Media" : "1.0.0"
+        "Admin": "1.0.0",
+        "Profile": "1.0.0",
+        "Media": "1.0.0"
     },
     "providing": {
         "Navigation": "*"

@@ -17,8 +17,8 @@
     "description": "The administration module.",
     "directory": "Comments",
     "dependencies": {
-        "Admin" : "1.0.0",
-        "Editor" : "1.0.0"
+        "Admin": "1.0.0",
+        "Editor": "1.0.0"
     },
     "providing": {
     },

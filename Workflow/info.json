@@ -17,9 +17,9 @@
     "description": "Workflow module.",
     "directory": "Workflow",
     "dependencies": {
-        "Admin" : "1.0.0",
-        "Calendar" : "1.0.0",
-        "Tasks" : "1.0.0"
+        "Admin": "1.0.0",
+        "Calendar": "1.0.0",
+        "Tasks": "1.0.0"
     },
     "providing": {
         "Navigation": "*"

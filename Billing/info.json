@@ -17,8 +17,8 @@
     "description": "Accounting module.",
     "directory": "Billing",
     "dependencies": {
-        "Admin" : "1.0.0",
-        "ClientManagement" : "1.0.0"
+        "Admin": "1.0.0",
+        "ClientManagement": "1.0.0"
     },
     "providing": {
         "Navigation": "*"

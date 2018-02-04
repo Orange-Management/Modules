@@ -17,8 +17,8 @@
     "description": "Surveys module.",
     "directory": "Surveys",
     "dependencies": {
-        "Admin" : "1.0.0",
-        "Tools" : "1.0.0"
+        "Admin": "1.0.0",
+        "Tools": "1.0.0"
     },
     "providing": {
         "Navigation": "*"

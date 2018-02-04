@@ -17,9 +17,9 @@
     "description": "The profile module.",
     "directory": "Profile",
     "dependencies": {
-        "Admin" : "1.0.0",
-        "Calendar" : "1.0.0",
-        "Media" : "1.0.0"
+        "Admin": "1.0.0",
+        "Calendar": "1.0.0",
+        "Media": "1.0.0"
     },
     "providing": {
         "Navigation": "*"
