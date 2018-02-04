@@ -47,6 +47,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /* public */ const MODULE_VERSION = '1.0.0';
 
     /**
+     * Module name.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    /* public */ const MODULE_NAME = 'MyPrivate';
+
+    /**
      * Module id.
      *
      * @var int
@@ -72,14 +80,6 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public static $css = [
     ];
-
-    /**
-     * Module name.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    /* public */ const MODULE_NAME = 'MyPrivate';
 
     /**
      * Localization files.
