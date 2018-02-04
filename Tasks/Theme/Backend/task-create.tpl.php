@@ -44,7 +44,9 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
                         <tr><td><?= $this->getData('editor')->render('editor-tools'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('editor-text'); ?>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="type" value="<?= $this->printHtml(\Modules\Tasks\Models\TaskType::SINGLE); ?>">
+                        <tr><td>
+                            <input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                            <input type="hidden" name="type" value="<?= $this->printHtml(\Modules\Tasks\Models\TaskType::SINGLE); ?>">
                     </table>
                 </form>
             </div>

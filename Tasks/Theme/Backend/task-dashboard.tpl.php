@@ -55,7 +55,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box wf-100">
                 <header><h1><?= $this->getHtml('Settings') ?></h1></header>
                 <div class="inner">
-                    <form id="iTaskInterval" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/task/dashboard?{?}') ?>">
+                    <form id="iTaskInterval" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/task/dashboard?{?}') ?>" method="post">
                         <table class="layout wf-100">
                             <tr><td><label for="iIntervarl"><?= $this->getHtml('Interval') ?></label>
                             <tr><td><select id="iIntervarl" name="interval">
