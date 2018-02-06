@@ -54,6 +54,8 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                 // todo: test routes
                 // todo: test dependencies
                 // todo: test providings
+                // todo: test info.json
+                // todo: test nav setup
             }
         }
     }
