@@ -27,7 +27,7 @@
                         {"key": 1, "type": "validate.keypress", "pressed": "13|9"},
                         {"key": 2, "type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#<?= $this->printHtml($this->getId()); ?>}", "method": "GET", "request_type": "json"},
                         {"key": 3, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
-                        {"key": 4, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\" ><i class=\"fa fa-times\" data-action=\"[
+                        {"key": 4, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\" data-action=\"[
                             {
                                 \"key\": 1, \"listener\": \"click\", \"action\": [
                                     {\"key\": 1, \"type\": \"dom.remove\", \"overwrite\": true, \"base\": \"self\", \"selector\": \"\", \"value\": \"\"},
@@ -35,7 +35,7 @@
                                     {\"key\": 3, \"type\": \"dom.removevalue\", \"overwrite\": true, \"base\": \"self\", \"selector\": \"#<?= $this->printHtml($this->getId()); ?>-idlist\", \"data\": \"\"}
                                 ]
                             }
-                        ]\"></i> {0/name/0}, {0/name/1}<span>", "data": ""},
+                        ]\"></i> {0/name/0}, {0/name/1}</span>", "data": ""},
                         {"key": 5, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
                     ]
                 }

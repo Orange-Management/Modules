@@ -40,7 +40,9 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     public function testMembers()
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $allModules    = $moduleManager->getAllModules();
+        $allModules    = $moduleManager->getInstalledModules(false);
+        $sampleInfo    = json_decode(file_get_contents(__DIR__ . '/info.json'), true); 
+        $totalRoutes   = include __DIR__ . '/../../Web/Backend/Routes.php';
 
         foreach ($allModules as $name => $module) {
             $module = $moduleManager->get($name);
@@ -51,12 +53,57 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                 $version = Version::compare($module::MODULE_VERSION, '1.0.0');
                 self::assertGreaterThanOrEqual(0, $version);
 
-                // todo: test routes
                 // todo: test dependencies
                 // todo: test providings
-                // todo: test info.json
                 // todo: test nav setup
+
+                if (file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
+                    $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
+                    self::assertTrue($this->routesTest($moduleRoutes, $totalRoutes), 'Route assert failed for '. $name);
+                }
+
+                $info = json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true); 
+                self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. $name);
             }
         }
+    }
+
+    private function routesTest(array $module, array $total) : bool
+    {
+        foreach ($module as $route => $dests) {
+            if (!isset($total[$route])) {
+                return false;
+            }
+
+            // todo: check dest path currently only route is checked
+        }
+
+        return true;
+    }
+
+    private function infoJsonTest(array $module, array $sample) : bool
+    {
+        try {
+            if (gettype($module['name']['id']) === gettype($sample['name']['id'])
+                && gettype($module['name']['internal']) === gettype($sample['name']['internal'])
+                && gettype($module['name']['external']) === gettype($sample['name']['external'])
+                && gettype($module['category']) === gettype($sample['category'])
+                && gettype($module['version']) === gettype($sample['version'])
+                && gettype($module['requirements']) === gettype($sample['requirements'])
+                && gettype($module['creator']) === gettype($sample['creator'])
+                && gettype($module['creator']['name']) === gettype($sample['creator']['name'])
+                && gettype($module['description']) === gettype($sample['description'])
+                && gettype($module['directory']) === gettype($sample['directory'])
+                && gettype($module['dependencies']) === gettype($sample['dependencies'])
+                && gettype($module['providing']) === gettype($sample['providing'])
+                && gettype($module['load']) === gettype($sample['load'])
+            ) {
+                return true;
+            }
+        } catch (\Throwable $e) {
+            return false;
+        }
+
+        return false;
     }
 }

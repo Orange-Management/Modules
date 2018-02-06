@@ -62,9 +62,9 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media') ?></label>
-                        <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
+                        <tr><td><input type="text" id="iMedia" name="mediaFile" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
                         <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
-                        <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
+                        <tr><td><input type="file" id="iUpload" name="upload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                     </table>
                 </form>
             </div>
