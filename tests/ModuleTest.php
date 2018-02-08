@@ -53,7 +53,6 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                 $version = Version::compare($module::MODULE_VERSION, '1.0.0');
                 self::assertGreaterThanOrEqual(0, $version);
 
-                // todo: test dependencies
                 // todo: test providings
                 // todo: test nav setup
 
@@ -64,8 +63,21 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
                 $info = json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true); 
                 self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. $name);
+
+                self::assertTrue($this->dependencyTest($info, $allModules));
             }
         }
+    }
+
+    private function dependencyTest(array $info, array $modules) : bool
+    {
+        foreach ($info['dependencies'] as $module => $version) {
+            if (!isset($modules[$module])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private function routesTest(array $module, array $total) : bool
