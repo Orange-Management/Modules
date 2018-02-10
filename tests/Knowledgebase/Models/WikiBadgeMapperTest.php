@@ -41,7 +41,7 @@ class WikiBadgeMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 30; $i++) {
+        for ($i = 1; $i < 30; ++$i) {
             $text  = new Text();
             $badge = new WikiBadge();
 

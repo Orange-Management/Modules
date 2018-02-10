@@ -49,7 +49,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 100; ++$i) {
             $text = new Text();
             $doc  = new EditorDoc();
 

@@ -55,7 +55,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 1000; $i++) {
+        for ($i = 1; $i < 1000; ++$i) {
             $item = new Item();
 
             $item->setNumber($i + 1);

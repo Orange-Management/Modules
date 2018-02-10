@@ -96,7 +96,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 100; $i++) {
+        for ($i = 1; $i < 100; ++$i) {
             $text = new Text();
 
             $promotion = new Promotion();

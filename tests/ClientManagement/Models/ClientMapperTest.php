@@ -68,7 +68,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 100; $i++) {
+        for ($i = 1; $i < 100; ++$i) {
             $client = new Client();
 
             $client->getProfile()->getAccount()->setName1(Name::generateName(['female', 'male']));

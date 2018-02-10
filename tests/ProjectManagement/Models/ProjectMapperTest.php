@@ -103,7 +103,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 100; $i++) {
+        for ($i = 1; $i < 100; ++$i) {
             $text = new Text();
 
             $project = new Project();

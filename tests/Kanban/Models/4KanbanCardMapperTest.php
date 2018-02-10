@@ -79,7 +79,7 @@ class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 10; $i++) {
+        for ($i = 1; $i < 10; ++$i) {
             $text = new Text();
             $card = new KanbanCard();
 

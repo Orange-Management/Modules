@@ -85,7 +85,7 @@
             try {
                 let response = JSON.parse(xhr.response);
 
-                for (let k = 0; k < response.length; k++) {
+                for (let k = 0; k < response.length; ++k) {
                     if (!self.success[formId]) {
                         self.responseManager.run(response[k].type, response[k]);
                     } else {

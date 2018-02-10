@@ -45,7 +45,7 @@ class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume()
     {
-        for ($i = 1; $i < 4; $i++) {
+        for ($i = 1; $i < 4; ++$i) {
             $text   = new Text();
             $column = new KanbanColumn();
 
