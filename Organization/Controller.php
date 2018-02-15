@@ -386,7 +386,12 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $unit = UnitMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), $unit->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Unit',
+            'message' => 'Unit successfully returned.',
+            'response' => $unit->jsonSerialize()
+        ]);
     }
 
     public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -410,7 +415,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         UnitMapper::update($unit);
 
-        $response->set($request->__toString(), $unit->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Unit',
+            'message' => 'Unit successfully updated.',
+            'response' => $unit->jsonSerialize()
+        ]);
     }
 
     public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -426,7 +436,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit   = UnitMapper::get((int) $request->getData('id'));
         $status = UnitMapper::delete($unit);
 
-        $response->set($request->__toString(), $status);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Unit',
+            'message' => 'Unit successfully deleted.',
+            'response' => $status
+        ]);
     }
 
     public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -455,7 +470,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         UnitMapper::create($unit);
 
-        $response->set($request->__toString(), $unit->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Unit',
+            'message' => 'Unit successfully created.',
+            'response' => $unit->jsonSerialize()
+        ]);
     }
 
     private function validatePositionCreate(RequestAbstract $request) : array
@@ -488,7 +508,12 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $position = PositionMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), $position->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Position',
+            'message' => 'Position successfully returned.',
+            'response' => $position->jsonSerialize()
+        ]);
     }
 
     public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -504,7 +529,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $position = PositionMapper::get((int) $request->getData('id'));
         $status   = PositionMapper::delete($position);
 
-        $response->set($request->__toString(), $status);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Position',
+            'message' => 'Position successfully deleted.',
+            'response' => $status
+        ]);
     }
 
     public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -531,7 +561,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         PositionMapper::update($position);
 
-        $response->set($request->__toString(), $position->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Position',
+            'message' => 'Position successfully updated.',
+            'response' => $position->jsonSerialize()
+        ]);
     }
 
     public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -563,7 +598,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         PositionMapper::create($position);
 
-        $response->set($request->__toString(), $position->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Position',
+            'message' => 'Position successfully created.',
+            'response' => $position->jsonSerialize()
+        ]);
     }
 
     private function validateDepartmentCreate(RequestAbstract $request) : array
@@ -595,7 +635,12 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $department = DepartmentMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), $department->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Department',
+            'message' => 'Department successfully returned.',
+            'response' => $department->jsonSerialize()
+        ]);
     }
 
     public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -622,7 +667,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         DepartmentMapper::update($department);
 
-        $response->set($request->__toString(), $department->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Department',
+            'message' => 'Department successfully updated.',
+            'response' => $department->jsonSerialize()
+        ]);
     }
 
     public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -638,7 +688,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $department = DepartmentMapper::get((int) $request->getData('id'));
         $status     = DepartmentMapper::delete($department);
 
-        $response->set($request->__toString(), $status);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Department',
+            'message' => 'Department successfully deleted.',
+            'response' => $status
+        ]);
     }
 
     public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
@@ -668,6 +723,11 @@ class Controller extends ModuleAbstract implements WebInterface
 
         DepartmentMapper::create($department);
 
-        $response->set($request->__toString(), $department->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Department',
+            'message' => 'Department successfully created.',
+            'response' => $department->jsonSerialize()
+        ]);
     }
 }

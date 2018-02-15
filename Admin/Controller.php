@@ -428,7 +428,7 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $response->set($request->__toString(), $this->app->appSettings->get((int) $request->getData('id')));
+        $response->set($request->__toString(), ['response' => $this->app->appSettings->get((int) $request->getData('id'))]);
     }
 
     /**
@@ -482,7 +482,12 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $group = GroupMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), $group->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Group',
+            'message' => 'Group successfully returned.',
+            'response' => $group->jsonSerialize()
+        ]);
     }
 
     /**
@@ -518,7 +523,7 @@ class Controller extends ModuleAbstract implements WebInterface
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully updated.',
-            'request' => $group->jsonSerialize()
+            'response' => $group->jsonSerialize()
         ]);
     }
 
@@ -534,8 +539,7 @@ class Controller extends ModuleAbstract implements WebInterface
     private function validateGroupCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (
-            ($val['name'] = empty($request->getData('name')))
+        if (($val['name'] = empty($request->getData('name')))
             || ($val['status'] = (
                 $request->getData('status') === null
                 || !GroupStatus::isValidValue((int) $request->getData('status'))
@@ -581,7 +585,7 @@ class Controller extends ModuleAbstract implements WebInterface
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully created.',
-            'request' => $group->jsonSerialize()
+            'response' => $group->jsonSerialize()
         ]);
     }
 
@@ -630,7 +634,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $group  = GroupMapper::get((int) $request->getData('id'));
         $status = GroupMapper::delete($group);
 
-        $response->set($request->__toString(), $status);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Group',
+            'message' => 'Group successfully deleted.',
+            'response' => $status
+        ]);
     }
 
     /**
@@ -655,7 +664,12 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $account = AccountMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), $account->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Account',
+            'message' => 'Account successfully returned.',
+            'response' => $account->jsonSerialize()
+        ]);
     }
 
     /**
@@ -737,7 +751,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $account = $this->createAccountFromRequest($request);
 
         AccountMapper::create($account);
-        $response->set($request->__toString(), $account->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Account',
+            'message' => 'Account successfully created.',
+            'response' => $account->jsonSerialize()
+        ]);
     }
 
     /**
@@ -788,7 +807,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $account = AccountMapper::get((int) ($request->getData('id')));
         $status  = AccountMapper::delete($account);
 
-        $response->set($request->__toString(), $status);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Account',
+            'message' => 'Account successfully deleted.',
+            'response' => $status
+        ]);
     }
 
     /**
@@ -823,7 +847,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $status = AccountMapper::update($account);
 
-        $response->set($request->__toString(), $account->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Account',
+            'message' => 'Account successfully updated.',
+            'response' => $account->jsonSerialize()
+        ]);
     }
 
     /**

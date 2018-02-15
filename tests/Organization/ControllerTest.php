@@ -92,8 +92,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiUnitGet($request, $response);
 
-        self::assertEquals('Orange Management', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('Orange Management', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     public function testApiUnitSet()
@@ -108,7 +108,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiUnitSet($request, $response);
         $this->module->apiUnitGet($request, $response);
 
-        self::assertEquals('Orange-Management', $response->get('')['name']);
+        self::assertEquals('Orange-Management', $response->get('')['response']['name']);
     }
 
     public function testApiUnitCreateDelete()
@@ -123,14 +123,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiUnitCreate($request, $response);
 
-        self::assertEquals('test', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('test', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
 
         // test delete
-        $request->setData('id', $response->get('')['id']);
+        $request->setData('id', $response->get('')['response']['id']);
         $this->module->apiUnitDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get(''));
+        self::assertGreaterThan(0, $response->get('')['response']);
     }
 
     public function testApiDepartmentGet()
@@ -143,8 +143,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiDepartmentGet($request, $response);
 
-        self::assertEquals('Marketing', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('Marketing', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     public function testApiDepartmentSet()
@@ -159,7 +159,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiDepartmentSet($request, $response);
         $this->module->apiDepartmentGet($request, $response);
 
-        self::assertEquals('Production', $response->get('')['name']);
+        self::assertEquals('Production', $response->get('')['response']['name']);
     }
 
     public function testApiDepartmentCreateDelete()
@@ -174,14 +174,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiDepartmentCreate($request, $response);
 
-        self::assertEquals('test', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('test', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
 
         // test delete
-        $request->setData('id', $response->get('')['id']);
+        $request->setData('id', $response->get('')['response']['id']);
         $this->module->apiDepartmentDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get(''));
+        self::assertGreaterThan(0, $response->get('')['response']);
     }
 
     public function testApiPositionGet()
@@ -194,8 +194,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiPositionGet($request, $response);
 
-        self::assertEquals('Marketer', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('Marketer', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     public function testApiPositionSet()
@@ -210,7 +210,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiPositionSet($request, $response);
         $this->module->apiPositionGet($request, $response);
 
-        self::assertEquals('Test', $response->get('')['name']);
+        self::assertEquals('Test', $response->get('')['response']['name']);
     }
 
     public function testApiPositionCreateDelete()
@@ -225,13 +225,13 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiPositionCreate($request, $response);
 
-        self::assertEquals('test', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('test', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
 
         // test delete
-        $request->setData('id', $response->get('')['id']);
+        $request->setData('id', $response->get('')['response']['id']);
         $this->module->apiPositionDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get(''));
+        self::assertGreaterThan(0, $response->get('')['response']);
     }
 }

@@ -87,7 +87,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiSettingsGet($request, $response);
 
-        self::assertEquals('DE', $response->get(''));
+        self::assertEquals('DE', $response->get('')['response']);
     }
 
     public function testApiSettingsSet()
@@ -103,7 +103,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('id', '1000000019');
         $this->module->apiSettingsGet($request, $response);
 
-        self::assertEquals('US', $response->get(''));
+        self::assertEquals('US', $response->get('')['response']);
     }
 
     public function testApiGroupGet()
@@ -116,8 +116,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiGroupGet($request, $response);
 
-        self::assertEquals('admin', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('admin', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     public function testApiGroupSet()
@@ -132,7 +132,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiGroupUpdate($request, $response);
         $this->module->apiGroupGet($request, $response);
 
-        self::assertEquals('root', $response->get('')['name']);
+        self::assertEquals('root', $response->get('')['response']['name']);
 
         $request->setData('name', 'admin');
         $this->module->apiGroupUpdate($request, $response);
@@ -150,14 +150,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiGroupCreate($request, $response);
 
-        self::assertEquals('test', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('test', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
 
         // test delete
-        $request->setData('id', $response->get('')['id']);
+        $request->setData('id', $response->get('')['response']['id']);
         $this->module->apiGroupDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get(''));
+        self::assertGreaterThan(0, $response->get('')['response']);
     }
 
     public function testApiAccountGet()
@@ -170,8 +170,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiAccountGet($request, $response);
 
-        self::assertEquals('admin', $response->get('')['login']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('admin', $response->get('')['response']['login']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     public function testApiAccountCreate()
@@ -188,14 +188,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiAccountCreate($request, $response);
 
-        self::assertEquals('guest', $response->get('')['login']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('guest', $response->get('')['response']['login']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
 
         // test delete
-        $request->setData('id', $response->get('')['id']);
+        $request->setData('id', $response->get('')['response']['id']);
         $this->module->apiAccountDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get(''));
+        self::assertGreaterThan(0, $response->get('')['response']);
     }
 
     public function testApiAccountUpdate()
@@ -210,7 +210,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiAccountUpdate($request, $response);
         $this->module->apiAccountGet($request, $response);
 
-        self::assertEquals('oms@orange-management.de', $response->get('')['email']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('oms@orange-management.de', $response->get('')['response']['email']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 }

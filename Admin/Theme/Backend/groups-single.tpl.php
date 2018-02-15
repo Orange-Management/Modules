@@ -39,7 +39,8 @@ echo $this->getData('nav')->render(); ?>
                         <?php endforeach; ?>
                             </select>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>
-                        <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= $this->printHtml($group->getDescription()); ?></textarea>
+                        <tr><td>
+                            <textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= $this->printHtml($group->getDescription()); ?></textarea>
                         <tr><td><input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>
