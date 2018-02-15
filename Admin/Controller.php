@@ -514,7 +514,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         GroupMapper::update($group);
 
-        $response->set($request->__toString(), $group->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Group',
+            'message' => 'Group successfully updated.',
+            'request' => $group->jsonSerialize()
+        ]);
     }
 
     /**
@@ -572,7 +577,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $group = $this->createGroupFromRequest($request);
 
         GroupMapper::create($group);
-        $response->set($request->__toString(), $group->jsonSerialize());
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Group',
+            'message' => 'Group successfully created.',
+            'request' => $group->jsonSerialize()
+        ]);
     }
 
     /**

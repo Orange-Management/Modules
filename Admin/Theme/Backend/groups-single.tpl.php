@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Group'); ?></h1></header>
             <div class="inner">
-                <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post" data-msg='{"title": "Some Title", "message": "My Message"}'>
+                <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
