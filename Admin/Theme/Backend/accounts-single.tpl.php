@@ -24,7 +24,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Account'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
+                <form id="account-edit" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
@@ -53,7 +53,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= $this->printHtml($account->getEmail()); ?>">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Name3'); ?></label>
                         <tr><td><input id="iPassword" name="password" type="text" placeholder="&#xf023; Pa55ssw0rd?">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                        <tr><td><input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>
             </div>

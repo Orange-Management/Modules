@@ -25,22 +25,22 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Group'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post" data-msg='{"title": "Some Title", "message": "My Message"}'>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
-                        <tr><td><input id="iGid" name="gid" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
+                        <tr><td><input id="iGid" name="id" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
                         <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGname" name="gname" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
+                        <tr><td><input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
                         <tr><td><label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
-                        <tr><td><select id="iGstatus" status="gname">
+                        <tr><td><select id="iGstatus" name="status">
                             <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach ($status as $stat) : ?>
                             <option value="<?= $stat; ?>"<?= $stat === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('GroupStatus' . $stat); ?>
                         <?php endforeach; ?>
                             </select>
                         <tr><td><label for="iGroupDescription"><?= $this->getHtml('Description'); ?></label>
                         <tr><td><textarea id="iGroupDescription" name="description" placeholder="&#xf040;"><?= $this->printHtml($group->getDescription()); ?></textarea>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                        <tr><td><input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>
             </div>

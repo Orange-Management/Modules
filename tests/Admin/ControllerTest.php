@@ -129,13 +129,13 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('id', '3');
         $request->setData('name', 'root');
 
-        $this->module->apiGroupSet($request, $response);
+        $this->module->apiGroupUpdate($request, $response);
         $this->module->apiGroupGet($request, $response);
 
         self::assertEquals('root', $response->get('')['name']);
 
         $request->setData('name', 'admin');
-        $this->module->apiGroupSet($request, $response);
+        $this->module->apiGroupUpdate($request, $response);
     }
 
     public function testApiGroupCreateDelete()

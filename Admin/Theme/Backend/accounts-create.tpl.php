@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Account'); ?></h1></header>
             <div class="inner">
-                <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="put">
+                <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="put" data-msg='{"title": "Some Title", "message": "My Message"}'>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::BANNED); ?>"><?= $this->getHtml('Banned'); ?>
                                 </select>
                         <tr><td><label for="iUsername"><?= $this->getHtml('Username'); ?></label>
-                        <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred">
+                        <tr><td><input id="iUsername" name="login" type="text" placeholder="&#xf007; Fred">
                         <tr><td><label for="iName1"><?= $this->getHtml('Name1'); ?></label>
                         <tr><td><input id="iName1" name="name1" type="text" placeholder="&#xf007; Donald" required>
                         <tr><td><label for="iName2"><?= $this->getHtml('Name2'); ?></label>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Name3'); ?></label>
                         <tr><td><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input id="account-create-submit" name="createSubmit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
             </div>
@@ -56,6 +56,16 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <table class="box table red">
+            <caption><?= $this->getHtml('Groups') ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+            <tbody>
+                <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+        </table>
+
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Groups'); ?></h1></header>
             <div class="inner">
@@ -63,7 +73,7 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest" required></span>
+                        <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
@@ -72,14 +82,30 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-4">
+        <table class="box table red">
+            <caption><?= $this->getHtml('Permissions') ?></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td>Unit
+                    <td>App
+                    <td>Module
+                    <td>Type
+                    <td>Ele.
+                    <td>Comp.
+                    <td class="wf-100">Perm.
+            <tbody>
+                <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+        </table>
+
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
             <div class="inner">
                 <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
-                        <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input id="iGroup" name="group" type="text" placeholder="&#xf084; news_create" required></span>
+                        <tr><td><label for="iPermission"><?= $this->getHtml('Name'); ?></label>
+                        <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084; news_create">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>

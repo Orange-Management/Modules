@@ -496,7 +496,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiGroupSet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
@@ -507,9 +507,9 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $group = GroupMapper::get((int) $request->getData('id'));
-
         $group->setName((string) ($request->getData('name') ?? $group->getName()));
-        $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? $group->getDescription())));
+        $group->setStatus((int) ($request->getData('status') ?? $group->getStatus()));
+        $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? $group->getDescriptionRaw())));
         $group->setDescriptionRaw((string) ($request->getData('description') ?? $group->getDescriptionRaw()));
 
         GroupMapper::update($group);
