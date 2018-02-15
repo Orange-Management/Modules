@@ -31,8 +31,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent" value="<?= $this->printHtml($unit->getParent()->getName()); ?>" required></span>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select name="status" id="iStatus">
-                                    <option value="<?= $this->printHtml(\Modules\Organization\Models\Status::ACTIVE); ?>"<?= \Modules\Organization\Models\Status::ACTIVE === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('Active') ?>
-                                    <option value="<?= $this->printHtml(\Modules\Organization\Models\Status::INACTIVE); ?>"<?= \Modules\Organization\Models\Status::INACTIVE === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('Inactive') ?>
+                                    <option value="<?= $this->printHtml(\Modules\Organization\Models\Status::ACTIVE); ?>"<?= \Modules\Organization\Models\Status::ACTIVE === $unit->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('Active') ?>
+                                    <option value="<?= $this->printHtml(\Modules\Organization\Models\Status::INACTIVE); ?>"<?= \Modules\Organization\Models\Status::INACTIVE === $unit->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('Inactive') ?>
                                 </select>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td>
