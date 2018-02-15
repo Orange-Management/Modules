@@ -11,7 +11,7 @@
  * @link       http://website.orange-management.de
  * @todo only load events of 3 month or 1 year?!
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Modules\Calendar\Models;
 
