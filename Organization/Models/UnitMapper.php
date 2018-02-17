@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Organization
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -16,6 +16,14 @@ namespace Modules\Organization\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Organization unit mapper class.
+ *
+ * @package    Modules\Organization
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class UnitMapper extends DataMapperAbstract
 {
     /**
@@ -25,13 +33,20 @@ class UnitMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'organization_unit_id'          => ['name' => 'organization_unit_id', 'type' => 'int', 'internal' => 'id'],
-        'organization_unit_name'        => ['name' => 'organization_unit_name', 'type' => 'string', 'internal' => 'name'],
-        'organization_unit_description' => ['name' => 'organization_unit_description', 'type' => 'string', 'internal' => 'description'],
-        'organization_unit_parent'      => ['name' => 'organization_unit_parent', 'type' => 'int', 'internal' => 'parent'],
-        'organization_unit_status'      => ['name' => 'organization_unit_status', 'type' => 'int', 'internal' => 'status'],
+        'organization_unit_id'             => ['name' => 'organization_unit_id', 'type' => 'int', 'internal' => 'id'],
+        'organization_unit_name'           => ['name' => 'organization_unit_name', 'type' => 'string', 'internal' => 'name'],
+        'organization_unit_description'    => ['name' => 'organization_unit_description', 'type' => 'string', 'internal' => 'description'],
+        'organization_unit_descriptionraw' => ['name' => 'organization_unit_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'organization_unit_parent'         => ['name' => 'organization_unit_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_unit_status'         => ['name' => 'organization_unit_status', 'type' => 'int', 'internal' => 'status'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'account' => [
             'mapper'         => UnitMapper::class,

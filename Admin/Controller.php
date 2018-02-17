@@ -44,7 +44,7 @@ use phpOMS\Views\View;
  *
  * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
- * @package    Modules
+ * @package    Modules\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

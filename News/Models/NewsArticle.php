@@ -136,17 +136,35 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
         $this->publish   = new \DateTime('now');
     }
 
+    /**
+     * Get badges
+     * 
+     * @return array
+     *
+     * @since  1.0.0
+     */
     public function getBadges() : array
     {
         return $this->badges;
     }
 
+    /**
+     * Add badge
+     * 
+     * @param Badge $badge Badge to add
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function addBadge(Badge $badge) /* : void */
     {
         $this->badges[] = $badge;
     }
 
     /**
+     * Get content 
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -157,19 +175,23 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $content
+     * Set content
+     * 
+     * @param string $content News article content
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setContent(string $content)
+    public function setContent(string $content) /* : void */
     {
         $this->content = $content;
     }
 
     /**
-     * @param string $plain
+     * Set plain content
+     * 
+     * @param string $plain Plain/raw content
      *
      * @return void
      *
@@ -181,6 +203,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get plain/raw content
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -191,6 +215,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get date of creation
+     * 
      * @return \DateTime
      *
      * @since  1.0.0
@@ -201,6 +227,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get id
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -211,6 +239,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get news language
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -221,6 +251,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get publish date
+     * 
      * @return \DateTime
      *
      * @since  1.0.0
@@ -231,13 +263,15 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $language
+     * Set language
+     * 
+     * @param string $language News article language
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setLanguage(string $language)
+    public function setLanguage(string $language) /* : void */
     {
         if (!ISO639x1Enum::isValidValue($language)) {
             throw new InvalidEnumValue($language);
@@ -247,19 +281,23 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param \DateTime $publish
+     * Set publish date
+     * 
+     * @param \DateTime $publish Publish date
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setPublish(\DateTime $publish)
+    public function setPublish(\DateTime $publish) /* : void */
     {
         $this->publish = $publish;
     }
 
     /**
-     * @return int
+     * Get created by
+     * 
+     * @return mixed
      *
      * @since  1.0.0
      */
@@ -269,11 +307,15 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param int $id
+     * Set created by
+     * 
+     * @param int $id Created by
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($id)
+    public function setCreatedBy($id) /* : void */
     {
         $this->createdBy = $id;
     }
@@ -289,18 +331,22 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $title
+     * Set news article title
+     * 
+     * @param string $title News article title
      *
      * @return mixed
      *
      * @since  1.0.0
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title) /* : void */
     {
         $this->title = $title;
     }
 
     /**
+     * Get news article type
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -311,13 +357,15 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param int $type
+     * Set news article type
+     * 
+     * @param int $type News article type
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setType(int $type)
+    public function setType(int $type) /* : void */
     {
         if (!NewsType::isValidValue($type)) {
             throw new InvalidEnumValue((string) $type);
@@ -327,6 +375,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get news article status
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -337,7 +387,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param int $status
+     * @param int $status News status
      *
      * @return void
      *
@@ -345,7 +395,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) /* : void */
     {
         if (!NewsStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
@@ -365,17 +415,22 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param bool $featured
+     * Set featured
+     * 
+     * @param bool $featured Is featured
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setFeatured(bool $featured)
+    public function setFeatured(bool $featured) /* : void */
     {
         $this->featured = $featured;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray() : array
     {
         return [
@@ -392,11 +447,17 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
         return json_encode($this->toArray());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return $this->toArray();

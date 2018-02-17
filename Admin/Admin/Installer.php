@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    Modules\Admin\Install
+ * @package    Modules\Admin\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +22,7 @@ use phpOMS\Module\InstallerAbstract;
 /**
  * Admin install class.
  *
- * @package    Modules\Admin\Install
+ * @package    Modules\Admin\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -271,7 +271,17 @@ class Installer extends InstallerAbstract
         }
     }
 
-    public static function installExternal(DatabasePool $dbPool, array $data)
+    /**
+     * Provide group and permission install for other modules
+     *
+     * @param DatabasePool $dbPool Database pool
+     * @param array        $data   Data to install
+     *
+     * @return  void
+     *
+     * @since  1.0.0
+     */
+    public static function installExternal(DatabasePool $dbPool, array $data) /* : void */
     {
         foreach ($data as $type => $element) {
             if ($type === InstallType::PERMISSION) {
@@ -282,7 +292,17 @@ class Installer extends InstallerAbstract
         }
     }
 
-    public static function installPermission(DatabasePool $dbPool, array $data)
+    /**
+     * Install permission
+     *
+     * @param DatabasePool $dbPool Database pool
+     * @param array        $data   Data to install
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public static function installPermission(DatabasePool $dbPool, array $data) /* : void */
     {
         $sth = $dbPool->get()->con->prepare(
             'INSERT INTO `' . $dbPool->get()->prefix . 'permission` (`permission_id`, `permission_name`, `permission_description`) VALUES
@@ -300,7 +320,17 @@ class Installer extends InstallerAbstract
         $lastInsertID = $dbPool->get()->con->lastInsertId();
     }
 
-    public static function installGroup(DatabasePool $dbPool, array $data)
+    /**
+     * Install group
+     *
+     * @param DatabasePool $dbPool Database pool
+     * @param array        $data   Data to install
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public static function installGroup(DatabasePool $dbPool, array $data) /* : void */
     {
         $sth = $dbPool->get()->con->prepare(
             'INSERT INTO `' . $dbPool->get()->prefix . 'group` (`group_id`, `group_name`, `group_description`) VALUES

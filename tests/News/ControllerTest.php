@@ -73,7 +73,36 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testCreateNews()
+    public function testApiNewsGet()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', '1');
+
+        $this->module->apiNewsGet($request, $response);
+
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
+    }
+
+    public function testApiNewsSet()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', 1);
+        $request->setData('title', 'New Title');
+        $request->setData('plain', 'New Content here');
+
+        $this->module->apiNewsUpdate($request, $response);
+        $this->module->apiNewsGet($request, $response);
+
+        self::assertEquals('New Title', $response->get('')['response']['title']);
+    }
+
+    public function testApiNewsCreateDelete()
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -90,5 +119,11 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals('Controller Test Title', $response->get('')['title']);
         self::assertGreaterThan(0, $response->get('')['id']);
+
+        // test delete
+        $request->setData('id', $response->get('')['response']['id']);
+        $this->module->apiGroupDelete($request, $response);
+
+        self::assertGreaterThan(0, $response->get('')['response']);
     }
 }

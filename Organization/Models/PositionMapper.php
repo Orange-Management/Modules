@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Organization
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -16,6 +16,14 @@ namespace Modules\Organization\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Organization position mapper class.
+ *
+ * @package    Modules\Organization
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class PositionMapper extends DataMapperAbstract
 {
 
@@ -26,14 +34,21 @@ class PositionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'organization_position_id'          => ['name' => 'organization_position_id', 'type' => 'int', 'internal' => 'id'],
-        'organization_position_name'        => ['name' => 'organization_position_name', 'type' => 'string', 'internal' => 'name'],
-        'organization_position_description' => ['name' => 'organization_position_description', 'type' => 'string', 'internal' => 'description'],
-        'organization_position_parent'      => ['name' => 'organization_position_parent', 'type' => 'int', 'internal' => 'parent'],
-        'organization_position_department'  => ['name' => 'organization_position_department', 'type' => 'int', 'internal' => 'department'],
-        'organization_position_status'      => ['name' => 'organization_position_status', 'type' => 'int', 'internal' => 'status'],
+        'organization_position_id'             => ['name' => 'organization_position_id', 'type' => 'int', 'internal' => 'id'],
+        'organization_position_name'           => ['name' => 'organization_position_name', 'type' => 'string', 'internal' => 'name'],
+        'organization_position_description'    => ['name' => 'organization_position_description', 'type' => 'string', 'internal' => 'description'],
+        'organization_position_descriptionraw' => ['name' => 'organization_position_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'organization_position_parent'         => ['name' => 'organization_position_parent', 'type' => 'int', 'internal' => 'parent'],
+        'organization_position_department'     => ['name' => 'organization_position_department', 'type' => 'int', 'internal' => 'department'],
+        'organization_position_status'         => ['name' => 'organization_position_status', 'type' => 'int', 'internal' => 'status'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'parent' => [
             'mapper'         => PositionMapper::class,

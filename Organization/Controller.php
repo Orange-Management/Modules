@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Organization
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -28,6 +28,7 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 
 use phpOMS\Account\PermissionType;
 use Modules\Organization\Models\PermissionState;
@@ -35,7 +36,7 @@ use Modules\Organization\Models\PermissionState;
 /**
  * Organization Controller class.
  *
- * @package    Modules
+ * @package    Modules\Organization
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -459,7 +460,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $unit = UnitMapper::get((int) $request->getData('id'));
         $unit->setName((string) ($request->getData('name') ?? $unit->getName()));
-        $unit->setDescription((string) ($request->getData('description') ?? $unit->getDescription()));
+        $unit->setDescriptionRaw((string) ($request->getData('description') ?? $unit->getDescriptionRaw()));
+        $unit->setDescription(Markdown::parse((string) ($request->getData('description') ?? $unit->getDescriptionRaw())));
 
         $parent = (int) $request->getData('parent');
         $unit->setParent(!empty($parent) ? $parent : $unit->getParent());
@@ -551,7 +553,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $unit = new Unit();
         $unit->setName((string) $request->getData('name'));
-        $unit->setDescription((string) ($request->getData('description') ?? ''));
+        $unit->setDescriptionRaw((string) ($request->getData('description') ?? ''));
+        $unit->setDescription(Markdwon::parse((string) ($request->getData('description') ?? '')));
 
         $parent = (int) $request->getData('parent');
         $unit->setParent(!empty($parent) ? $parent : null);
@@ -695,7 +698,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $position = PositionMapper::get((int) $request->getData('id'));
         $position->setName((string) ($request->getData('name') ?? $position->getName()));
-        $position->setDescription((string) ($request->getData('description') ?? $position->getDescription()));
+        $position->setDescriptionRaw((string) ($request->getData('description') ?? $position->getDescriptionRaw()));
+        $position->setDescription(Markdown::parse((string) ($request->getData('description') ?? $position->getDescriptionRaw())));
 
         $parent = (int) $request->getData('parent');
         $position->setParent(!empty($parent) ? $parent : $position->getParent());
@@ -759,7 +763,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $position = new Position();
         $position->setName((string) ($request->getData('name')));
         $position->setStatus((int) $request->getData('status'));
-        $position->setDescription((string) ($request->getData('description') ?? ''));
+        $position->setDescriptionRaw((string) ($request->getData('description') ?? ''));
+        $position->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
 
         $parent = (int) $request->getData('parent');
         $position->setParent(!empty($parent) ? $parent : null);
@@ -873,7 +878,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $department = DepartmentMapper::get((int) $request->getData('id'));
         $department->setName((string) ($request->getData('name') ?? $department->getName()));
-        $department->setDescription((string) ($request->getData('description') ?? $department->getDescription()));
+        $department->setDescriptionRaw((string) ($request->getData('description') ?? $department->getDescriptionRaw()));
+        $department->setDescription(Markdown::parse((string) ($request->getData('description') ?? $department->getDescriptionRaw())));
 
         $parent = (int) $request->getData('parent');
         $department->setParent(!empty($parent) ? $parent : $department->getParent());
@@ -973,7 +979,8 @@ class Controller extends ModuleAbstract implements WebInterface
         $parent = (int) $request->getData('parent');
         $department->setParent(!empty($parent) ? $parent : null);
         $department->setUnit((int) ($request->getData('unit') ?? 1));
-        $department->setDescription((string) ($request->getData('description') ?? ''));
+        $department->setDescriptionRaw((string) ($request->getData('description') ?? ''));
+        $department->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
 
         return $department;
     }

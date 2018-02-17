@@ -85,4 +85,33 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('Controller Test Title', $response->get('')['title']);
         self::assertGreaterThan(0, $response->get('')['id']);
     }
+
+    public function testApiTaskGet()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', '1');
+
+        $this->module->apiTaskGet($request, $response);
+
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
+    }
+
+    public function testApiTaskSet()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', 1);
+        $request->setData('title', 'New Title');
+        $request->setData('description', 'New Content here');
+
+        $this->module->apiTaskUpdate($request, $response);
+        $this->module->apiTaskGet($request, $response);
+
+        self::assertEquals('New Title', $response->get('')['response']['title']);
+    }
 }

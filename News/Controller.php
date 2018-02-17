@@ -238,6 +238,15 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Validate news create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateNewsCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -263,13 +272,73 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
+     * Api method to create news article
+     * 
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
+        ) {
+            $response->set('news_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $news = $this->updateNewsFromRequest($request);
+
+        NewsArticleMapper::update($news);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Group',
+            'message' => 'Group successfully updated.',
+            'response' => $news->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to update news from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return NewsArticle
+     *
+     * @since  1.0.0
+     */
+    private function updateNewsFromRequest(RequestAbstract $request) : NewsArticle
+    {
+        $newsArticle = NewsArticleMapper::get((int) $request->getData('id'));
+        $newsArticle->setPublish(new \DateTime((string) ($request->getData('publish') ?? $newsArticle->getPublish()->format('Y-m-d H:i:s'))));
+        $newsArticle->setTitle((string) ($request->getData('title') ?? $newsArticle->getTitle()));
+        $newsArticle->setPlain($request->getData('plain') ?? $newsArticle->getPlain());
+        $newsArticle->setContent(Markdown::parse((string) ($request->getData('plain') ?? $newsArticle->getPlain())));
+        $newsArticle->setLanguage(strtolower((string) ($request->getData('lang') ?? $newsArticle->getLanguage())));
+        $newsArticle->setType((int) ($request->getData('type') ?? $newsArticle->getType()));
+        $newsArticle->setStatus((int) ($request->getData('status') ?? $newsArticle->getStatus()));
+        $newsArticle->setFeatured((bool) ($request->getData('featured') ?? $newsArticle->isFeatured()));
+
+        return $newsArticle;
+    }
+
+    /**
+     * Api method to create news article
+     * 
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
@@ -291,15 +360,22 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $newsArticle->jsonSerialize());
     }
 
+    /**
+     * Method to create news article from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return NewsArticle
+     *
+     * @since  1.0.0
+     */
     private function createNewsArticleFromRequest(RequestAbstract $request) : NewsArticle
     {
-        $mardkownParser = new Markdown();
-
         $newsArticle = new NewsArticle();
         $newsArticle->setCreatedBy($request->getHeader()->getAccount());
         $newsArticle->setPublish(new \DateTime((string) ($request->getData('publish') ?? 'now')));
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
-        $newsArticle->setPlain($mardkownParser->parse($request->getData('plain') ?? ''));
+        $newsArticle->setPlain($request->getData('plain') ?? '');
         $newsArticle->setContent(Markdown::parse((string) ($request->getData('plain') ?? '')));
         $newsArticle->setLanguage(strtolower((string) ($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
@@ -309,6 +385,45 @@ class Controller extends ModuleAbstract implements WebInterface
         return $newsArticle;
     }
 
+    /**
+     * Api method for getting a news article
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::News)
+        ) {
+            $response->set('news_read', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $news = NewsArticleMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'News',
+            'message' => 'News successfully returned.',
+            'response' => $news->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Validate badge create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateBadgeCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -321,13 +436,17 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
+     * Api method to create Badge
+     * 
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BADGE)
@@ -349,6 +468,15 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('badge', $badge->jsonSerialize());
     }
 
+    /**
+     * Method to create badge from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return NewsArticle
+     *
+     * @since  1.0.0
+     */
     private function createBadgeFromRequest(RequestAbstract $request) : Badge
     {
         $mardkownParser = new Markdown();
@@ -409,7 +537,18 @@ class Controller extends ModuleAbstract implements WebInterface
         return NewsArticleMapper::getAllByQuery($query);
     }
 
-    public function apiDeleteNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * Api method to delete news article
+     * 
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiDeleteNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
@@ -423,7 +562,18 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set('news_delete', (int) $request->getData('id'));
     }
 
-    public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    /**
+     * Api method to delete badge
+     * 
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BADGE)

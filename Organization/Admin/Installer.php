@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Organization\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +22,7 @@ use phpOMS\Module\InstallerAbstract;
 /**
  * Organization install class.
  *
- * @package    Modules
+ * @package    Modules\Organization\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -43,7 +43,8 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_unit` (
                             `organization_unit_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_unit_name` varchar(50) DEFAULT NULL,
-                            `organization_unit_description` varchar(255) DEFAULT NULL,
+                            `organization_unit_description` text DEFAULT NULL,
+                            `organization_unit_descriptionraw` text DEFAULT NULL,
                             `organization_unit_parent` int(11) DEFAULT NULL,
                             `organization_unit_status` int(3) DEFAULT NULL,
                             PRIMARY KEY (`organization_unit_id`),
@@ -60,7 +61,8 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_department` (
                             `organization_department_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_department_name` varchar(30) DEFAULT NULL,
-                            `organization_department_description` varchar(255) DEFAULT NULL,
+                            `organization_department_description` text DEFAULT NULL,
+                            `organization_department_descriptionraw` text DEFAULT NULL,
                             `organization_department_parent` int(11) DEFAULT NULL,
                             `organization_department_status` int(3) DEFAULT NULL,
                             `organization_department_unit` int(11) NOT NULL,
@@ -80,7 +82,8 @@ class Installer extends InstallerAbstract
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'organization_position` (
                             `organization_position_id` int(11) NOT NULL AUTO_INCREMENT,
                             `organization_position_name` varchar(50) DEFAULT NULL,
-                            `organization_position_description` varchar(255) DEFAULT NULL,
+                            `organization_position_description` text DEFAULT NULL,
+                            `organization_position_descriptionraw` text DEFAULT NULL,
                             `organization_position_parent` int(11) DEFAULT NULL,
                             `organization_position_department` int(11) DEFAULT NULL,
                             `organization_position_status` int(3) DEFAULT NULL,

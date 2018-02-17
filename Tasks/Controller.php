@@ -241,6 +241,15 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Validate task create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateTaskCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -291,6 +300,15 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $task->jsonSerialize());
     }
 
+    /**
+     * Method to create task from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Task
+     *
+     * @since  1.0.0
+     */
     private function createTaskFromRequest(RequestAbstract $request) : Task
     {
         $task = new Task();
@@ -313,6 +331,99 @@ class Controller extends ModuleAbstract implements WebInterface
         return $task;
     }
 
+    /**
+     * Api method to get a task
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiTaskGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_read', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $task = TaskMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Task',
+            'message' => 'Task successfully returned.',
+            'response' => $task->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Api method to update a task
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiTaskUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $task   = $this->updateTaskFromRequest($request);
+        $status = TaskMapper::update($task);
+
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Task',
+            'message' => 'Task successfully updated.',
+            'response' => $task->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to update an task from a request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Task
+     *
+     * @since  1.0.0
+     */
+    private function updateTaskFromRequest(RequestAbstract $request) : Task
+    {
+        $task = TaskMapper::get((int) ($request->getData('id')));
+        $task->setTitle((string) ($request->getData('title') ?? $task->getTitle()));
+        $task->setDescription(Markdown::parse((string) ($request->getData('description') ?? $task->getDescriptionRaw())));
+        $task->setDescriptionRaw((string) ($request->getData('description') ?? $task->getDescriptionRaw()));
+        $task->setDue(new \DateTime((string) ($request->getData('due') ?? $task->getDue()->format('Y-m-d H:i:s'))));
+        $task->setStatus((int) $request->getData('status') ?? $task->getSatus());
+        $task->setType((int) $request->getData('type') ?? $task->getType());
+
+        return $task;
+    }
+
+    /**
+     * Validate task element create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateTaskElementCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -358,6 +469,15 @@ class Controller extends ModuleAbstract implements WebInterface
         $response->set($request->__toString(), $element->jsonSerialize());
     }
 
+    /**
+     * Method to create task element from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return TaskElement
+     *
+     * @since  1.0.0
+     */
     private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = new TaskElement();
@@ -370,5 +490,88 @@ class Controller extends ModuleAbstract implements WebInterface
         $element->setDescriptionRaw((string) ($request->getData('description')));
 
         return $element;
+    }
+
+    /**
+     * Api method to get a task
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiTaskElementGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_read', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $task = TaskElementMapper::get((int) $request->getData('id'));
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Task',
+            'message' => 'Task successfully returned.',
+            'response' => $task->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Api method to update a task
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function apiTaskElementUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TASK)
+        ) {
+            $response->set('task_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $task   = $this->updateTaskElementFromRequest($request);
+        $status = TaskElementMapper::update($task);
+
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Task element',
+            'message' => 'Task element successfully updated.',
+            'response' => $task->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to update an task element from a request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return TaskElement
+     *
+     * @since  1.0.0
+     */
+    private function updateTaskElementFromRequest(RequestAbstract $request) : TaskElement
+    {
+        $element = TaskElementMapper::get((int) ($request->getData('id')));
+        $element->setForwarded((int) ($request->getData('forward') ?? $element->getForwarded()));
+        $element->setDue(new \DateTime((string) ($request->getData('due') ?? $element->getDue()->format('Y-m-d H:i:s'))));
+        $element->setStatus((int) ($request->getData('status') ?? $element->getStatus()));
+        $element->setDescription(Markdown::parse((string) ($request->getData('description') ?? $element->getDescriptionRaw())));
+        $element->setDescriptionRaw((string) ($request->getData('description') ?? $element->getDescriptionRaw()));
+
+        return $task;
     }
 }
