@@ -511,14 +511,9 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $group = GroupMapper::get((int) $request->getData('id'));
-        $group->setName((string) ($request->getData('name') ?? $group->getName()));
-        $group->setStatus((int) ($request->getData('status') ?? $group->getStatus()));
-        $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? $group->getDescriptionRaw())));
-        $group->setDescriptionRaw((string) ($request->getData('description') ?? $group->getDescriptionRaw()));
+        $group = $this->updateGroupFromRequest($request);
 
         GroupMapper::update($group);
-
         $response->set($request->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
@@ -528,9 +523,29 @@ class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
+     * Method to update group from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Group
+     *
+     * @since  1.0.0
+     */
+    private function updateGroupFromRequest(RequestAbstract $request) : Group
+    {
+        $group = GroupMapper::get((int) $request->getData('id'));
+        $group->setName((string) ($request->getData('name') ?? $group->getName()));
+        $group->setStatus((int) ($request->getData('status') ?? $group->getStatus()));
+        $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? $group->getDescriptionRaw())));
+        $group->setDescriptionRaw((string) ($request->getData('description') ?? $group->getDescriptionRaw()));
+
+        return $group;
+    }
+
+    /**
      * Validate group create request
      *
-     * @param RequestAbstract  $request  Request
+     * @param RequestAbstract $request Request
      *
      * @return array
      *
@@ -592,7 +607,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Method to create group from request.
      *
-     * @param RequestAbstract  $request  Request
+     * @param RequestAbstract $request Request
      *
      * @return Group
      *
@@ -700,7 +715,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Method to validate account creation from request
      *
-     * @param RequestAbstract  $request  Request
+     * @param RequestAbstract $request Request
      *
      * @return array
      *
@@ -762,7 +777,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Method to create an account from a request
      *
-     * @param RequestAbstract  $request  Request
+     * @param RequestAbstract $request Request
      *
      * @return Account
      *
@@ -836,6 +851,28 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $account = $this->updateAccountFromRequest($request);
+        $status  = AccountMapper::update($account);
+
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Account',
+            'message' => 'Account successfully updated.',
+            'response' => $account->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to update an account from a request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Account
+     *
+     * @since  1.0.0
+     */
+    private function updateAccountFromRequest(RequestAbstract $request) : Account
+    {
         $account = AccountMapper::get((int) ($request->getData('id')));
         $account->setName((string) ($request->getData('login') ?? $account->getName()));
         $account->setName1((string) ($request->getData('name1') ?? $account->getName1()));
@@ -845,14 +882,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account->setStatus((int) ($request->getData('status') ?? $account->getStatus()));
         $account->setType((int) ($request->getData('type') ?? $account->getType()));
 
-        $status = AccountMapper::update($account);
-
-        $response->set($request->__toString(), [
-            'status' => 'ok',
-            'title' => 'Account',
-            'message' => 'Account successfully updated.',
-            'response' => $account->jsonSerialize()
-        ]);
+        return $account;
     }
 
     /**

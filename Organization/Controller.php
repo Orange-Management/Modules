@@ -356,6 +356,15 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Validate unit create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateUnitCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -375,6 +384,17 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    /**
+     * Api method to get a unit
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiUnitGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -394,6 +414,17 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Api method to update a unit
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -404,17 +435,9 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $unit = UnitMapper::get((int) $request->getData('id'));
-
-        $unit->setName((string) ($request->getData('name') ?? $unit->getName()));
-        $unit->setDescription((string) ($request->getData('description') ?? $unit->getDescription()));
-
-        $parent = (int) $request->getData('parent');
-        $unit->setParent(!empty($parent) ? $parent : $unit->getParent());
-        $unit->setStatus((int) ($request->getData('status') ?? $unit->getStatus()));
+        $unit = $this->updateUnitFromRequest($request);
 
         UnitMapper::update($unit);
-
         $response->set($request->__toString(), [
             'status' => 'ok',
             'title' => 'Unit',
@@ -423,6 +446,39 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Method to update unit from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Unit
+     *
+     * @since  1.0.0
+     */
+    private function updateUnitFromRequest(RequestAbstract $request) : Unit
+    {
+        $unit = UnitMapper::get((int) $request->getData('id'));
+        $unit->setName((string) ($request->getData('name') ?? $unit->getName()));
+        $unit->setDescription((string) ($request->getData('description') ?? $unit->getDescription()));
+
+        $parent = (int) $request->getData('parent');
+        $unit->setParent(!empty($parent) ? $parent : $unit->getParent());
+        $unit->setStatus((int) ($request->getData('status') ?? $unit->getStatus()));
+
+        return $unit;
+    }
+
+    /**
+     * Api method to delete a unit
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -444,6 +500,17 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Api method to create a unit
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -460,16 +527,9 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $unit = new Unit();
-        $unit->setName((string) $request->getData('name'));
-        $unit->setDescription((string) ($request->getData('description') ?? ''));
-
-        $parent = (int) $request->getData('parent');
-        $unit->setParent(!empty($parent) ? $parent : null);
-        $unit->setStatus((int) $request->getData('status'));
+        $unit = $this->createUnitFromRequest($request);
 
         UnitMapper::create($unit);
-
         $response->set($request->__toString(), [
             'status' => 'ok',
             'title' => 'Unit',
@@ -478,6 +538,37 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Method to create unit from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Unit
+     *
+     * @since  1.0.0
+     */
+    private function createUnitFromRequest(RequestAbstract $request) : Unit
+    {
+        $unit = new Unit();
+        $unit->setName((string) $request->getData('name'));
+        $unit->setDescription((string) ($request->getData('description') ?? ''));
+
+        $parent = (int) $request->getData('parent');
+        $unit->setParent(!empty($parent) ? $parent : null);
+        $unit->setStatus((int) $request->getData('status'));
+
+        return $unit;
+    }
+
+    /**
+     * Validate position create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validatePositionCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -497,6 +588,17 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    /**
+     * Api method to get a position
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiPositionGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -516,6 +618,17 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Api method to delete a position
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -537,6 +650,17 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Api method to update a position
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -547,8 +671,29 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $position = PositionMapper::get((int) $request->getData('id'));
+        $position = $this->updatePositionFromRequest($request);
 
+        PositionMapper::update($position);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Position',
+            'message' => 'Position successfully updated.',
+            'response' => $position->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to update position from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Position
+     *
+     * @since  1.0.0
+     */
+    private function updatePositionFromRequest(RequestAbstract $request) : Position
+    {
+        $position = PositionMapper::get((int) $request->getData('id'));
         $position->setName((string) ($request->getData('name') ?? $position->getName()));
         $position->setDescription((string) ($request->getData('description') ?? $position->getDescription()));
 
@@ -559,16 +704,20 @@ class Controller extends ModuleAbstract implements WebInterface
         $position->setDepartment(!empty($department) ? $department : $position->getDepartment());
         $position->setStatus((int) ($request->getData('status') ?? $position->getStatus()));
 
-        PositionMapper::update($position);
-
-        $response->set($request->__toString(), [
-            'status' => 'ok',
-            'title' => 'Position',
-            'message' => 'Position successfully updated.',
-            'response' => $position->jsonSerialize()
-        ]);
+        return $position;
     }
 
+    /**
+     * Api method to create a position
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -585,6 +734,28 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $position = $this->createPositionFromRequest($request);
+
+        PositionMapper::create($position);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Position',
+            'message' => 'Position successfully created.',
+            'response' => $position->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to create position from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Position
+     *
+     * @since  1.0.0
+     */
+    private function createPositionFromRequest(RequestAbstract $request) : Position
+    {
         $position = new Position();
         $position->setName((string) ($request->getData('name')));
         $position->setStatus((int) $request->getData('status'));
@@ -596,16 +767,18 @@ class Controller extends ModuleAbstract implements WebInterface
         $department = (int) $request->getData('department');
         $position->setDepartment(!empty($department) ? $department : null);
 
-        PositionMapper::create($position);
-
-        $response->set($request->__toString(), [
-            'status' => 'ok',
-            'title' => 'Position',
-            'message' => 'Position successfully created.',
-            'response' => $position->jsonSerialize()
-        ]);
+        return $position;
     }
 
+    /**
+     * Method to validate department creation from request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     private function validateDepartmentCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -624,6 +797,17 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    /**
+     * Api method to get a department
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiDepartmentGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -643,6 +827,17 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Api method to update a department
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -653,17 +848,7 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $department = DepartmentMapper::get((int) $request->getData('id'));
-
-        $department->setName((string) ($request->getData('name') ?? $department->getName()));
-        $department->setDescription((string) ($request->getData('description') ?? $department->getDescription()));
-
-        $parent = (int) $request->getData('parent');
-        $department->setParent(!empty($parent) ? $parent : $department->getParent());
-        $department->setStatus((int) ($request->getData('status') ?? $department->getStatus()));
-
-        $unit = (int) $request->getData('unit');
-        $department->setUnit(!empty($unit) ? $unit : $department->getUnit());
+        $department = $this->updateDepartmentFromRequest($request);
 
         DepartmentMapper::update($department);
 
@@ -675,6 +860,42 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Method to update department from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Department
+     *
+     * @since  1.0.0
+     */
+    private function updateDepartmentFromRequest(RequestAbstract $request) : Department
+    {
+        $department = DepartmentMapper::get((int) $request->getData('id'));
+        $department->setName((string) ($request->getData('name') ?? $department->getName()));
+        $department->setDescription((string) ($request->getData('description') ?? $department->getDescription()));
+
+        $parent = (int) $request->getData('parent');
+        $department->setParent(!empty($parent) ? $parent : $department->getParent());
+        $department->setStatus((int) ($request->getData('status') ?? $department->getStatus()));
+
+        $unit = (int) $request->getData('unit');
+        $department->setUnit(!empty($unit) ? $unit : $department->getUnit());
+
+        return $department;
+    }
+
+    /**
+     * Api method to delete a department
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -696,6 +917,17 @@ class Controller extends ModuleAbstract implements WebInterface
         ]);
     }
 
+    /**
+     * Api method to create a department
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
@@ -712,6 +944,28 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $department = $this->createDepartmentFromRequest($request);
+
+        DepartmentMapper::create($department);
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'Department',
+            'message' => 'Department successfully created.',
+            'response' => $department->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Method to create a department from a request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Department
+     *
+     * @since  1.0.0
+     */
+    private function createDepartmentFromRequest(RequestAbstract $request) : Department
+    {
         $department = new Department();
         $department->setName((string) $request->getData('name'));
         $department->setStatus((int) $request->getData('status'));
@@ -721,13 +975,6 @@ class Controller extends ModuleAbstract implements WebInterface
         $department->setUnit((int) ($request->getData('unit') ?? 1));
         $department->setDescription((string) ($request->getData('description') ?? ''));
 
-        DepartmentMapper::create($department);
-
-        $response->set($request->__toString(), [
-            'status' => 'ok',
-            'title' => 'Department',
-            'message' => 'Department successfully created.',
-            'response' => $department->jsonSerialize()
-        ]);
+        return $department;
     }
 }
