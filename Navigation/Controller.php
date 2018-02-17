@@ -4,7 +4,7 @@
  *
  * PHP Version 7.1
  *
- * @package    TBD
+ * @package    Modules\Navigation
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -26,7 +26,7 @@ use phpOMS\Module\WebInterface;
 /**
  * Navigation class.
  *
- * @package    Modules
+ * @package    Modules\Navigation
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -85,18 +85,8 @@ class Controller extends ModuleAbstract implements WebInterface
     ];
 
     /**
-     * Constructor.
-     *
-     * @param \Web\WebApplication $app Application
-     *
-     * @since  1.0.0
-     */
-    public function __construct($app)
-    {
-        parent::__construct($app);
-    }
-
-    /**
+     * Create mid navigation
+     * 
      * @param int              $pageId   Page/parent Id for navigation
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -117,7 +107,17 @@ class Controller extends ModuleAbstract implements WebInterface
         return $navView;
     }
 
-    public function getView(RequestAbstract $request, ResponseAbstract $response)
+    /**
+     * Get basic navigation view
+     * 
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return NavigationView
+     *
+     * @since  1.0.0
+     */
+    public function getView(RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
         $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->dbPool);
         $nav    = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
@@ -134,7 +134,17 @@ class Controller extends ModuleAbstract implements WebInterface
         return $nav;
     }
 
-    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) 
+    /**
+     * Load navigation language
+     * 
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) /* : void */
     {
         $languages = $this->app->moduleManager->getLanguageFiles($request);
 

@@ -29,7 +29,7 @@ class Navigation
     /**
      * Install navigation providing
      *
-     * @param string $path Path to some file
+     * @param string       $path   Path to some file
      * @param DatabasePool $dbPool Database pool for database interaction
      *
      * @return void

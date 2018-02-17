@@ -117,6 +117,8 @@ class Module
      * Set group name.
      *
      * @param string $name Group name
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
@@ -141,6 +143,8 @@ class Module
      * Set group description.
      *
      * @param string $description Group description
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
@@ -165,6 +169,8 @@ class Module
      * Set group status.
      *
      * @param int $status Group status
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
