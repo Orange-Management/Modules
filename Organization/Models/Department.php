@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Models;
 
+use phpOMS\Contract\ArrayableInterface;
+
 /**
  * Organization department class.
  *

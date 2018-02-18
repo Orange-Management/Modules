@@ -68,6 +68,12 @@ class Task implements \JsonSerializable
      */
     protected $description = '';
 
+    /**
+     * Description raw.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected $descriptionRaw = '';
 
     /**
@@ -134,8 +140,20 @@ class Task implements \JsonSerializable
      */
     protected $schedule = null;
 
+    /**
+     * Priority
+     *
+     * @var int
+     * @since 1.0.0
+     */
     protected $priority = TaskPriority::MEDIUM;
 
+    /**
+     * Media files
+     *
+     * @var array
+     * @since 1.0.0
+     */
     protected $media = [];
 
     protected $acc = [];
@@ -154,11 +172,29 @@ class Task implements \JsonSerializable
         $this->schedule = new Schedule();
     }
 
+    /**
+     * Set closable
+     * 
+     * Setting it to false will only allow other modules to close this task
+     *
+     * @param bool $closable Is closable
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
     public function setClosable(bool $closable) /* : void */
     {
         $this->isClosable = $closable;
     }
 
+    /**
+     * Is closable
+     * 
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     public function isClosable() : bool
     {
         return $this->isClosable;
@@ -184,21 +220,55 @@ class Task implements \JsonSerializable
         return $key;
     }
 
+    /**
+     * Get all media
+     * 
+     * @return array
+     *
+     * @since  1.0.0
+     */
     public function getMedia() : array
     {
         return $this->media;
     }
 
+    /**
+     * Add media
+     * 
+     * @param mixed $media Media to add
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function addMedia($media) /* : void */
     {
         $this->media[] = $media;
     }
 
+    /**
+     * Check if user is cc
+     * 
+     * @param int $id User id
+     * 
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     public function isCc(int $id) : bool
     {
         return false;
     }
 
+    /**
+     * check if user is forwarded
+     * 
+     * @param int $id User id
+     * 
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     public function isForwarded(int $id) : bool
     {
         foreach ($this->taskElements as $element) {
@@ -231,16 +301,22 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param \DateTime $created
+     * Set start time of task
+     * 
+     * @param \DateTime $start Start date of task
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setStart(\DateTime $start)
+    public function setStart(\DateTime $start) /* : void */
     {
         $this->start = $start;
     }
 
     /**
+     * Get created by
+     * 
      * @return mixed
      *
      * @since  1.0.0
@@ -251,17 +327,23 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param mixed $id
+     * Set created by
+     * 
+     * @param mixed $id Created by
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($id)
+    public function setCreatedBy($id) /* : void */
     {
         $this->createdBy = $id;
         $this->schedule->setCreatedBy($id);
     }
 
     /**
+     * Get description
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -272,16 +354,22 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param string $description
+     * Set description
+     * 
+     * @param string $description Description
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description) /* : void */
     {
         $this->description = $description;
     }
 
     /**
+     * Get description
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -292,7 +380,11 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param string $description
+     * Set description
+     * 
+     * @param string $description Description
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
@@ -302,6 +394,8 @@ class Task implements \JsonSerializable
     }
 
     /**
+     * Get done date
+     * 
      * @return \DateTime
      *
      * @since  1.0.0
@@ -312,16 +406,22 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param \DateTime $done
+     * Set done date
+     * 
+     * @param \DateTime $done Done date
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setDone(\DateTime $done)
+    public function setDone(\DateTime $done) /* : void */
     {
         $this->done = $done;
     }
 
     /**
+     * Get due date
+     * 
      * @return \DateTime
      *
      * @since  1.0.0
@@ -332,16 +432,22 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param \DateTime $due
+     * Set due date
+     * 
+     * @param \DateTime $due Due date
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setDue(\DateTime $due)
+    public function setDue(\DateTime $due) /* : void */
     {
         $this->due = $due;
     }
 
     /**
+     * Get id
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -352,6 +458,8 @@ class Task implements \JsonSerializable
     }
 
     /**
+     * Get status
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -362,13 +470,17 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param int $status
+     * Set status
+     * 
+     * @param int $status Task status
+     * 
+     * @return void
      *
      * @throws InvalidEnumValue
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) /* : void */
     {
         if (!TaskStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
@@ -378,6 +490,8 @@ class Task implements \JsonSerializable
     }
 
     /**
+     * Get priority
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -388,15 +502,19 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param int $priority
+     * Set priority
+     * 
+     * @param int $priority Task priority
+     * 
+     * @return void
      *
      * @throws InvalidEnumValue
      *
      * @since  1.0.0
      */
-    public function setPriority(int $priority)
+    public function setPriority(int $priority) /* : void */
     {
-        if (!TaskStatus::isValidValue($priority)) {
+        if (!TaskPriority::isValidValue($priority)) {
             throw new InvalidEnumValue((string) $priority);
         }
 
@@ -404,6 +522,8 @@ class Task implements \JsonSerializable
     }
 
     /**
+     * Get title
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -414,11 +534,15 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * @param string $title
+     * Set title
+     * 
+     * @param string $title Title
+     * 
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title) /* : void */
     {
         $this->title = $title;
     }
@@ -507,6 +631,9 @@ class Task implements \JsonSerializable
         return $this->schedule;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray() : array
     {
         return [
@@ -524,11 +651,7 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * Specify data which should be serialized to JSON
-     * @link  http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
+     * {@inheritdoc}
      */
     public function jsonSerialize()
     {

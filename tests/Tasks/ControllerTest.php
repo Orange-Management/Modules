@@ -109,7 +109,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('title', 'New Title');
         $request->setData('description', 'New Content here');
 
-        $this->module->apiTaskUpdate($request, $response);
+        $this->module->apiTaskSet($request, $response);
         $this->module->apiTaskGet($request, $response);
 
         self::assertEquals('New Title', $response->get('')['response']['title']);

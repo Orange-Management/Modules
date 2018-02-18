@@ -134,7 +134,9 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param mixed $creator
+     * Set created by
+     * 
+     * @param mixed $creator Creator
      *
      * @return void
      *
@@ -149,17 +151,34 @@ class TaskElement implements \JsonSerializable
         }
     }
 
+    /**
+     * Get all media
+     * 
+     * @return array
+     *
+     * @since  1.0.0
+     */
     public function getMedia() : array
     {
         return $this->media;
     }
 
+    /**
+     * Add media
+     * 
+     * @param mixed $media Media to add
+     * 
+     * @return void
+     *
+     * @since  1.0.0
+     */
     public function addMedia($media) /* : void */
     {
         $this->media[] = $media;
     }
 
     /**
+     * Get description
      * @return string
      *
      * @since  1.0.0
@@ -170,18 +189,22 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param string $description
+     * Set description
+     * 
+     * @param string $description Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description) /* : void */
     {
         $this->description = $description;
     }
 
     /**
+     * Get description
+     * 
      * @return string
      *
      * @since  1.0.0
@@ -192,18 +215,22 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param string $description
+     * Set description
+     * 
+     * @param string $description Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $description)
+    public function setDescriptionRaw(string $description) /* : void */
     {
         $this->descriptionRaw = $description;
     }
 
     /**
+     * Get due date
+     * 
      * @return \DateTime
      *
      * @since  1.0.0
@@ -214,18 +241,22 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param \DateTime $due
-     *
+     * Set due date
+     * 
+     * @param \DateTime $due Due date
+     * 
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDue(\DateTime $due)
+    public function setDue(\DateTime $due) /* : void */
     {
         $this->due = $due;
     }
 
     /**
+     * Get forwarded
+     * 
      * @return mixed
      *
      * @since  1.0.0
@@ -236,18 +267,22 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param mixed $forwarded
+     * Set forwarded
+     * 
+     * @param mixed $forwarded Forward to
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setForwarded($forwarded)
+    public function setForwarded($forwarded) /* : void */
     {
         $this->forwarded = $forwarded;
     }
 
     /**
+     * Get id
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -258,6 +293,8 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
+     * Get status
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -268,7 +305,9 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param int $status
+     * Set Status
+     * 
+     * @param int $status Task element status
      *
      * @return void
      *
@@ -276,7 +315,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) /* : void */
     {
         if (!TaskStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
@@ -286,6 +325,8 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
+     * Get task id
+     * 
      * @return int
      *
      * @since  1.0.0
@@ -296,7 +337,9 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @param int $task
+     * Set task i
+     * 
+     * @param int $task Task id
      *
      * @return void
      *
@@ -307,6 +350,9 @@ class TaskElement implements \JsonSerializable
         $this->task = $task;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray() : array 
     {
         return [
@@ -321,6 +367,9 @@ class TaskElement implements \JsonSerializable
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() 
     {
         return $this->toArray();

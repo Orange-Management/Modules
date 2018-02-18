@@ -73,6 +73,25 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    public function testApiNewsCreate()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('title', 'Controller Test Title');
+        $request->setData('plain', 'Controller Test Content');
+        $request->setData('lang', 'en');
+        $request->setData('type', NewsType::ARTICLE);
+        $request->setData('status', NewsStatus::DRAFT);
+        $request->setData('featred', true);
+
+        $this->module->apiNewsCreate($request, $response);
+
+        self::assertEquals('Controller Test Title', $response->get('')['title']);
+        self::assertGreaterThan(0, $response->get('')['id']);
+    }
+
     public function testApiNewsGet()
     {
         $response = new Response();
@@ -102,27 +121,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('New Title', $response->get('')['response']['title']);
     }
 
-    public function testApiNewsCreateDelete()
+    public function testApiNewsDelete()
     {
         $response = new Response();
         $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
-        $request->setData('title', 'Controller Test Title');
-        $request->setData('plain', 'Controller Test Content');
-        $request->setData('lang', 'en');
-        $request->setData('type', NewsType::ARTICLE);
-        $request->setData('status', NewsStatus::DRAFT);
-        $request->setData('featred', true);
-
-        $this->module->apiNewsCreate($request, $response);
-
-        self::assertEquals('Controller Test Title', $response->get('')['title']);
-        self::assertGreaterThan(0, $response->get('')['id']);
-
-        // test delete
-        $request->setData('id', $response->get('')['response']['id']);
-        $this->module->apiGroupDelete($request, $response);
+        $request->setData('id', 1);
+        $this->module->apiNewsDelete($request, $response);
 
         self::assertGreaterThan(0, $response->get('')['response']);
     }

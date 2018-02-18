@@ -399,7 +399,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::News)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
         ) {
             $response->set('news_read', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -548,7 +548,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiDeleteNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
@@ -558,8 +558,15 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        NewsArticleMapper::delete((int) $request->getData('id'));
-        $response->set('news_delete', (int) $request->getData('id'));
+        $news   = NewsArticleMapper::get((int) $request->getData('id'));
+        $status = NewsArticleMapper::delete($news);
+        
+        $response->set($request->__toString(), [
+            'status' => 'ok',
+            'title' => 'News',
+            'message' => 'News successfully deleted.',
+            'response' => $status
+        ]);
     }
 
     /**

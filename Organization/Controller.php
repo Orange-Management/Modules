@@ -554,7 +554,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit = new Unit();
         $unit->setName((string) $request->getData('name'));
         $unit->setDescriptionRaw((string) ($request->getData('description') ?? ''));
-        $unit->setDescription(Markdwon::parse((string) ($request->getData('description') ?? '')));
+        $unit->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
 
         $parent = (int) $request->getData('parent');
         $unit->setParent(!empty($parent) ? $parent : null);

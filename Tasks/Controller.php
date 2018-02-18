@@ -22,6 +22,7 @@ use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
+use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\PermissionState;
 
 use phpOMS\Message\Http\RequestStatusCode;
@@ -319,6 +320,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
+        $task->setPriority(TaskPriority::NONE);
 
         $element = new TaskElement();
         $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
@@ -409,8 +411,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $task->setDescription(Markdown::parse((string) ($request->getData('description') ?? $task->getDescriptionRaw())));
         $task->setDescriptionRaw((string) ($request->getData('description') ?? $task->getDescriptionRaw()));
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? $task->getDue()->format('Y-m-d H:i:s'))));
-        $task->setStatus((int) $request->getData('status') ?? $task->getSatus());
-        $task->setType((int) $request->getData('type') ?? $task->getType());
+        $task->setStatus((int) ($request->getData('status') ?? $task->getStatus()));
+        $task->setType((int) ($request->getData('type') ?? $task->getType()));
+        $task->setPriority((int) ($request->getData('priority') ?? $task->getPriority()));
 
         return $task;
     }

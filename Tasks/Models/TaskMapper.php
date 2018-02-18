@@ -129,6 +129,15 @@ class TaskMapper extends DataMapperAbstract
     protected static $primaryField = 'task_id';
 
 
+    /**
+     * Count unread task
+     * 
+     * @param int $user User
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
     public static function countUnread(int $user) : int
     {
         try {
