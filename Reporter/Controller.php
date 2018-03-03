@@ -400,7 +400,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), $template->jsonSerialize());
+        $response->set($request->getUri()->__toString(), $template->jsonSerialize());
     }
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
@@ -472,7 +472,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $report       = $this->createReportFromRequest($request, $response, $collectionId);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), $report);
+        $response->set($request->getUri()->__toString(), $report);
 
     }
 

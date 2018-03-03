@@ -201,7 +201,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), [['uploads' => $ids, 'type' => 'UI']]);
+        $response->set($request->getUri()->__toString(), [['uploads' => $ids, 'type' => 'UI']]);
     }
 
     /**

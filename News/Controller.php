@@ -295,7 +295,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $news = $this->updateNewsFromRequest($request);
 
         NewsArticleMapper::update($news);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully updated.',
@@ -357,7 +357,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $newsArticle = $this->createNewsArticleFromRequest($request);
 
         NewsArticleMapper::create($newsArticle);
-        $response->set($request->__toString(), $newsArticle->jsonSerialize());
+        $response->set($request->getUri()->__toString(), $newsArticle->jsonSerialize());
     }
 
     /**
@@ -407,7 +407,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $news = NewsArticleMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'News',
             'message' => 'News successfully returned.',
@@ -561,7 +561,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $news   = NewsArticleMapper::get((int) $request->getData('id'));
         $status = NewsArticleMapper::delete($news);
         
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'News',
             'message' => 'News successfully deleted.',

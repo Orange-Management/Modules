@@ -407,7 +407,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $unit = UnitMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Unit',
             'message' => 'Unit successfully returned.',
@@ -439,7 +439,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit = $this->updateUnitFromRequest($request);
 
         UnitMapper::update($unit);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Unit',
             'message' => 'Unit successfully updated.',
@@ -494,7 +494,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit   = UnitMapper::get((int) $request->getData('id'));
         $status = UnitMapper::delete($unit);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Unit',
             'message' => 'Unit successfully deleted.',
@@ -532,7 +532,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $unit = $this->createUnitFromRequest($request);
 
         UnitMapper::create($unit);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Unit',
             'message' => 'Unit successfully created.',
@@ -613,7 +613,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $position = PositionMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Position',
             'message' => 'Position successfully returned.',
@@ -645,7 +645,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $position = PositionMapper::get((int) $request->getData('id'));
         $status   = PositionMapper::delete($position);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Position',
             'message' => 'Position successfully deleted.',
@@ -677,7 +677,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $position = $this->updatePositionFromRequest($request);
 
         PositionMapper::update($position);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Position',
             'message' => 'Position successfully updated.',
@@ -741,7 +741,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $position = $this->createPositionFromRequest($request);
 
         PositionMapper::create($position);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Position',
             'message' => 'Position successfully created.',
@@ -824,7 +824,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $department = DepartmentMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Department',
             'message' => 'Department successfully returned.',
@@ -857,7 +857,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         DepartmentMapper::update($department);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Department',
             'message' => 'Department successfully updated.',
@@ -915,7 +915,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $department = DepartmentMapper::get((int) $request->getData('id'));
         $status     = DepartmentMapper::delete($department);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Department',
             'message' => 'Department successfully deleted.',
@@ -953,7 +953,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $department = $this->createDepartmentFromRequest($request);
 
         DepartmentMapper::create($department);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Department',
             'message' => 'Department successfully created.',

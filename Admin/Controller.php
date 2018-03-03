@@ -428,7 +428,7 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $response->set($request->__toString(), ['response' => $this->app->appSettings->get((int) $request->getData('id'))]);
+        $response->set($request->getUri()->__toString(), ['response' => $this->app->appSettings->get((int) $request->getData('id'))]);
     }
 
     /**
@@ -457,7 +457,7 @@ class Controller extends ModuleAbstract implements WebInterface
             true
         );
 
-        $response->set($request->__toString(), $success);
+        $response->set($request->getUri()->__toString(), $success);
     }
 
     /**
@@ -482,7 +482,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $group = GroupMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully returned.',
@@ -514,7 +514,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $group = $this->updateGroupFromRequest($request);
 
         GroupMapper::update($group);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully updated.',
@@ -596,7 +596,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $group = $this->createGroupFromRequest($request);
 
         GroupMapper::create($group);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully created.',
@@ -649,7 +649,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $group  = GroupMapper::get((int) $request->getData('id'));
         $status = GroupMapper::delete($group);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
             'message' => 'Group successfully deleted.',
@@ -679,7 +679,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $account = AccountMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Account',
             'message' => 'Account successfully returned.',
@@ -709,7 +709,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->__toString(), array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
+        $response->set($request->getUri()->__toString(), array_values(AccountMapper::find((string) ($request->getData('search') ?? ''))));
     }
 
     /**
@@ -766,7 +766,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account = $this->createAccountFromRequest($request);
 
         AccountMapper::create($account);
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Account',
             'message' => 'Account successfully created.',
@@ -822,7 +822,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account = AccountMapper::get((int) ($request->getData('id')));
         $status  = AccountMapper::delete($account);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Account',
             'message' => 'Account successfully deleted.',
@@ -854,7 +854,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $account = $this->updateAccountFromRequest($request);
         $status  = AccountMapper::update($account);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Account',
             'message' => 'Account successfully updated.',

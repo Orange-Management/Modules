@@ -298,7 +298,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task = $this->createTaskFromRequest($request);
 
         TaskMapper::create($task);
-        $response->set($request->__toString(), $task->jsonSerialize());
+        $response->set($request->getUri()->__toString(), $task->jsonSerialize());
     }
 
     /**
@@ -355,7 +355,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $task = TaskMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Task',
             'message' => 'Task successfully returned.',
@@ -387,7 +387,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task   = $this->updateTaskFromRequest($request);
         $status = TaskMapper::update($task);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Task',
             'message' => 'Task successfully updated.',
@@ -469,7 +469,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $element = $this->createTaskElementFromRequest($request);
 
         TaskElementMapper::create($element);
-        $response->set($request->__toString(), $element->jsonSerialize());
+        $response->set($request->getUri()->__toString(), $element->jsonSerialize());
     }
 
     /**
@@ -517,7 +517,7 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $task = TaskElementMapper::get((int) $request->getData('id'));
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Task',
             'message' => 'Task successfully returned.',
@@ -549,7 +549,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $task   = $this->updateTaskElementFromRequest($request);
         $status = TaskElementMapper::update($task);
 
-        $response->set($request->__toString(), [
+        $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Task element',
             'message' => 'Task element successfully updated.',
