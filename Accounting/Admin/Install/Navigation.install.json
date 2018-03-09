@@ -10,7 +10,7 @@
         "icon": "fa fa-book",
         "order": 50,
         "from": "Accounting",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Accounting",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002601001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "Accounting",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002602001,
                         "children": []
                     },
@@ -53,7 +53,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Accounting",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002602001,
                         "children": []
                     }
@@ -70,7 +70,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "Accounting",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002601001,
                 "children": [
                     {
@@ -84,7 +84,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Accounting",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002605001,
                         "children": []
                     },
@@ -99,7 +99,7 @@
                         "icon": null,
                         "order": 10,
                         "from": "Accounting",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002605001,
                         "children": []
                     },
@@ -114,7 +114,7 @@
                         "icon": null,
                         "order": 10,
                         "from": "Accounting",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002605001,
                         "children": []
                     },
@@ -129,7 +129,7 @@
                         "icon": null,
                         "order": 15,
                         "from": "Accounting",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002605001,
                         "children": []
                     }
@@ -146,7 +146,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Accounting",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002601001,
                 "children": [
 

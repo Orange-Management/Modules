@@ -10,7 +10,7 @@
         "icon": "fa fa-question-circle",
         "order": 80,
         "from": "Support",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Support",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002901001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "Support",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002901101,
                         "children": [
                         ]
@@ -54,7 +54,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Support",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002901101,
                         "children": [
                         ]
@@ -72,7 +72,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Support",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002901001,
                 "children": [
                 ]
@@ -88,7 +88,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "Support",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002901001,
                 "children": [
                 ]
@@ -106,7 +106,7 @@
         "icon": null,
         "order": 5,
         "from": "Support",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1003401001,
         "children": [
         ]

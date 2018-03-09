@@ -10,7 +10,7 @@
         "icon": null,
         "order": 10,
         "from": "Shipping",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1001301001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Shipping",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004001001,
                 "children": [
                 ]
@@ -40,7 +40,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "Shipping",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004001001,
                 "children": [
                 ]

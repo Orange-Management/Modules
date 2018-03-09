@@ -25,7 +25,7 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
                     <?= $this->getHtml($parent['nav_name']) ?><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>"><i class="fa fa-chevron-down min"></i>
                     <i class="fa fa-chevron-up max"></i></label>
                     <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
-                    if ($link['nav_parent'] === $parent['nav_id']) : ?>
+                    if ($link['nav_parent'] === $key) : ?>
                 <li>
                     <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>"><?= $this->getHtml($link['nav_name']) ?></a>
                     <?php endif;
@@ -34,14 +34,4 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
             <?php endforeach; ?>
     </ul>
 <?php
-/**
- * Orange Management
- *
- * PHP Version 7.1
- *
- * @package    TBD
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       http://website.orange-management.de
- */ endif;
+endif;

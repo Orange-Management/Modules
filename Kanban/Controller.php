@@ -130,7 +130,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -165,7 +165,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($board->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD, $board->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD, $board->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -197,7 +197,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $accountId = $request->getHeader()->getAccount();
 
         if (!$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD)
+                PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -229,7 +229,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($card->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::CARD, $card->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::CARD, $card->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -246,7 +246,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiKanbanCardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::CARD)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::CARD)
         ) {
             $response->set('kanban_card_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -308,7 +308,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD)
         ) {
             $response->set('kanban_board_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -359,7 +359,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiKanbanColumnCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::COLUMN)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::COLUMN)
         ) {
             $response->set('kanban_column_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -404,8 +404,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $account = $this->app->accountManager->get($request->getHeader()->getAccount());
 
-        if (!$account->hasPermission(PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BOARD)
-            && !$account->hasPermission(PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::LABEL)
+        if (!$account->hasPermission(PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD)
+            && !$account->hasPermission(PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::LABEL)
         ) {
             $response->set('kanban_label_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

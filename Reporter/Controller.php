@@ -125,7 +125,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -156,7 +156,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::TEMPLATE)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TEMPLATE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -184,7 +184,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::REPORT)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::REPORT)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -219,7 +219,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($template->getCreatedBy()->getId() !== $accountId // todo: also check if report createdBy
             && !$this->app->accountManager->get($accountId)->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::REPORT, $template->getId())
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::REPORT, $template->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -319,7 +319,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($template->getCreatedBy()->getId() !== $accountId // todo: also check if report createdBy
             && !$this->app->accountManager->get($accountId)->hasPermission(
-            PermissionType::READ, $this->app->orgId, null, self::MODULE_ID, PermissionState::REPORT, $template->getId())
+            PermissionType::READ, $this->app->orgId, null, self::MODULE_NAME, PermissionState::REPORT, $template->getId())
         ) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         }
@@ -389,7 +389,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_ID, PermissionState::TEMPLATE)
+            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::TEMPLATE)
         ) {
             $response->set('template_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -460,7 +460,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_ID, PermissionState::REPORT)
+            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::REPORT)
         ) {
             $response->set('report_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

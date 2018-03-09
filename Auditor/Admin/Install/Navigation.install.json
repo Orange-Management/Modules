@@ -10,7 +10,7 @@
         "icon": null,
         "order": 75,
         "from": "Auditor",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1000101001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Auditor",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1006201001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Auditor",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1006201001,
                 "children": []
             },
@@ -54,7 +54,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "Auditor",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1006201001,
                 "children": []
             }

@@ -10,7 +10,7 @@
         "icon": "fa fa-exclamation-triangle",
         "order": 100,
         "from": "Controlling",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1000201001,
         "children": []
     }

@@ -10,7 +10,7 @@
         "icon": "fa fa-database",
         "order": 2,
         "from": "Organization",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Organization",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004701001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Organization",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1004702001,
                         "children": []
                     },
@@ -53,7 +53,7 @@
                         "icon": null,
                         "order": 25,
                         "from": "Organization",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1004702001,
                         "children": []
                     }
@@ -70,7 +70,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Organization",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004701001,
                 "children": [
                     {
@@ -84,7 +84,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Organization",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1004703001,
                         "children": []
                     },
@@ -99,7 +99,7 @@
                         "icon": null,
                         "order": 25,
                         "from": "Organization",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1004703001,
                         "children": []
                     }
@@ -116,7 +116,7 @@
                 "icon": null,
                 "order": 20,
                 "from": "Organization",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004701001,
                 "children": [
                     {
@@ -130,7 +130,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Organization",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1004704001,
                         "children": []
                     },
@@ -145,7 +145,7 @@
                         "icon": null,
                         "order": 25,
                         "from": "Organization",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1004704001,
                         "children": []
                     }

@@ -10,7 +10,7 @@
         "icon": null,
         "order": 1,
         "from": "AssetManagement",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1002601001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "AssetManagement",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1006601001,
                 "children": []
             }

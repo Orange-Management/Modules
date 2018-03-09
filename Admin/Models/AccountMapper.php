@@ -105,6 +105,10 @@ class AccountMapper extends DataMapperAbstract
      */
     public static function login(string $login, string $password) : int
     {
+        if (empty($password)) {
+            return LoginReturnType::WRONG_PASSWORD;
+        }
+
         try {
             $result = null;
 
@@ -135,6 +139,10 @@ class AccountMapper extends DataMapperAbstract
 
             if ($result['account_tries'] <= 0) {
                 return LoginReturnType::WRONG_INPUT_EXCEEDED;
+            }
+
+            if (empty($result['account_password'])) {
+                return LoginReturnType::EMPTY_PASSWORD;
             }
 
             if (password_verify($password, $result['account_password'])) {

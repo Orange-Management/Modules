@@ -10,7 +10,7 @@
         "icon": null,
         "order": 1,
         "from": "SupplierManagement",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1002101001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "SupplierManagement",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1003202001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "SupplierManagement",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1003202001,
                 "children": []
             }

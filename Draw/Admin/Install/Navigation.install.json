@@ -10,7 +10,7 @@
         "icon": null,
         "order": 70,
         "from": "Draw",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1003301001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Draw",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1005201001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 15,
                 "from": "Draw",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1005201001,
                 "children": []
             }

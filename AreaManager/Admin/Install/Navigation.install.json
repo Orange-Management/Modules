@@ -10,7 +10,7 @@
         "icon": null,
         "order": 1,
         "from": 1002000000,
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1001601001,
         "children": []
     },
@@ -25,7 +25,7 @@
         "icon": null,
         "order": 1,
         "from": 1002000000,
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1003401001,
         "children": []
     }

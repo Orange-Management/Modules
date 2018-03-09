@@ -10,7 +10,7 @@
         "icon": null,
         "order": 10,
         "from": "AccountsReceivable",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1002601001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "AccountsReceivable",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004901001,
                 "children": [
                 ]
@@ -40,7 +40,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "AccountsReceivable",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004901001,
                 "children": [
                 ]
@@ -56,7 +56,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "AccountsReceivable",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004901001,
                 "children": [
                 ]
@@ -72,7 +72,7 @@
                 "icon": null,
                 "order": 15,
                 "from": "AccountsReceivable",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1004901001,
                 "children": [
                 ]

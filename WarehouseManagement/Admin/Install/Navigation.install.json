@@ -10,7 +10,7 @@
         "icon": "fa fa-cube",
         "order": 40,
         "from": "Warehousing",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 0,
         "children": [
         ]

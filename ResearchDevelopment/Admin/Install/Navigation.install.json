@@ -10,7 +10,7 @@
         "icon": "fa fa-flask",
         "order": 110,
         "from": "ResearchDevelopment",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1000201001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "ResearchDevelopment",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1002201001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "ResearchDevelopment",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002202001,
                         "children": []
                     },
@@ -53,7 +53,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "ResearchDevelopment",
-                        "permission": null,
+                        "permission": { "type": null, "element": null },
                         "parent": 1002202001,
                         "children": []
                     }

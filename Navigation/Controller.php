@@ -97,7 +97,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response)
     {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
+        $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
@@ -119,7 +119,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function getView(RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
-        $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->dbPool);
+        $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
         $nav    = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
         $nav->setNav($navObj->getNav());
         $nav->setLanguage($request->getHeader()->getL11n()->getLanguage());
@@ -173,8 +173,9 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function createNavigationSplash(int $pageId, RequestAbstract $request, ResponseAbstract $response)
     {
-        $nav     = Navigation::getInstance($request, $this->app->dbPool);
+        $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
+        
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/splash');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getHeader()->getL11n()->getLanguage());

@@ -120,7 +120,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SETTINGS)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -161,7 +161,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -193,7 +193,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -234,7 +234,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -264,7 +264,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -295,7 +295,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -336,7 +336,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -366,7 +366,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::MODULE)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::MODULE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -395,7 +395,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::MODULE)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::MODULE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -421,7 +421,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SETTINGS)
         ) {
             $response->set('settings_read', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -445,7 +445,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::SETTINGS)
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SETTINGS)
         ) {
             $response->set('settings_update', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -474,7 +474,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $response->set('group_read', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -504,7 +504,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $response->set('group_update', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -580,7 +580,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $response->set('group_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -639,7 +639,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::GROUP)
+            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
         ) {
             $response->set('group_delete', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -671,7 +671,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $response->set('account_read', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -701,7 +701,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $response->set('account_find', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -750,7 +750,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $response->set('account_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -812,7 +812,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $response->set('account_delete', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -844,14 +844,14 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ACCOUNT)
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
         ) {
             $response->set('account_update', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
 
-        $account = $this->updateAccountFromRequest($request);
+        $account = $this->updateAccountFromRequest($request, true);
         $status  = AccountMapper::update($account);
 
         $response->set($request->getUri()->__toString(), [
@@ -865,13 +865,14 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Method to update an account from a request
      *
-     * @param RequestAbstract $request Request
+     * @param RequestAbstract $request       Request
+     * @param bool            $allowPassword Allow to change password
      *
      * @return Account
      *
      * @since  1.0.0
      */
-    private function updateAccountFromRequest(RequestAbstract $request) : Account
+    private function updateAccountFromRequest(RequestAbstract $request, bool $allowPassword = false) : Account
     {
         $account = AccountMapper::get((int) ($request->getData('id')));
         $account->setName((string) ($request->getData('login') ?? $account->getName()));
@@ -881,6 +882,10 @@ class Controller extends ModuleAbstract implements WebInterface
         $account->setEmail((string) ($request->getData('email') ?? $account->getEmail()));
         $account->setStatus((int) ($request->getData('status') ?? $account->getStatus()));
         $account->setType((int) ($request->getData('type') ?? $account->getType()));
+
+        if ($allowPassword && !empty($request->getData('password'))) {
+            $account->generatePassword((string) $request->getData('password'));
+        }
 
         return $account;
     }

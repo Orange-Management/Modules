@@ -107,7 +107,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::DASHBOARD)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -162,7 +162,7 @@ class Controller extends ModuleAbstract implements WebInterface
 
         if ($article->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE, $article->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE, $article->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -191,7 +191,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARCHIVE)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARCHIVE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -222,7 +222,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -285,7 +285,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
         ) {
             $response->set('news_update', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -341,7 +341,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
         ) {
             $response->set('news_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -399,7 +399,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
         ) {
             $response->set('news_read', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -449,7 +449,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BADGE)
+            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BADGE)
         ) {
             $response->set('badge_create', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -551,7 +551,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::ARTICLE)
+            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
         ) {
             $response->set('news_delete', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -583,7 +583,7 @@ class Controller extends ModuleAbstract implements WebInterface
     public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_ID, PermissionState::BADGE)
+            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BADGE)
         ) {
             $response->set('badge_delete', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

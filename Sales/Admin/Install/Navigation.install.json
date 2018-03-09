@@ -10,7 +10,7 @@
         "icon": "fa fa-usd",
         "order": 20,
         "from": "Sales",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 0,
         "children": [
         ]

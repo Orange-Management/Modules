@@ -10,7 +10,7 @@
         "icon": "fa fa-envelope",
         "order": 10,
         "from": "Messages",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Messages",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1001201001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Messages",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1001201001,
                 "children": []
             },
@@ -54,7 +54,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "Messages",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1001201001,
                 "children": []
             },
@@ -69,7 +69,7 @@
                 "icon": null,
                 "order": 15,
                 "from": "Messages",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1001201001,
                 "children": []
             },
@@ -84,7 +84,7 @@
                 "icon": null,
                 "order": 20,
                 "from": "Messages",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1001201001,
                 "children": []
             },
@@ -99,7 +99,7 @@
                 "icon": null,
                 "order": 50,
                 "from": "Messages",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1001201001,
                 "children": []
             }

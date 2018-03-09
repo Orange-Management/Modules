@@ -10,7 +10,7 @@
         "icon": null,
         "order": 1,
         "from": "Balance",
-        "permission": null,
+        "permission": { "type": null, "element": null },
         "parent": 1002801001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Balance",
-                "permission": null,
+                "permission": { "type": null, "element": null },
                 "parent": 1006501001,
                 "children": []
             }
