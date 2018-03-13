@@ -78,7 +78,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->id;
     }
 
-    public function setEvent(int $event) /* : void */
+    public function setEvent(int $event) : void
     {
         $this->event = $event;
     }
@@ -88,7 +88,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->event;
     }
 
-    public function setPromotion(int $promotion) /* : void */
+    public function setPromotion(int $promotion) : void
     {
         $this->promotion = $promotion;
     }
@@ -98,7 +98,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->promotion;
     }
 
-    public function setOrder(int $order) /* : void */
+    public function setOrder(int $order) : void
     {
         $this->order = $order;
     }
@@ -108,12 +108,12 @@ class InvoiceElement implements \JsonSerializable
         return $this->order;
     }
 
-    public function setItem($item) /* : void */
+    public function setItem($item) : void
     {
         $this->item = $item;
     }
 
-    public function setItemName(string $name) /* : void */
+    public function setItemName(string $name) : void
     {
         $this->itemName = $name;
     }
@@ -123,7 +123,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->itemName;
     }
 
-    public function setItemDescription(string $description) /* : void */
+    public function setItemDescription(string $description) : void
     {
         $this->itemDescription = $description;
     }
@@ -133,7 +133,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->itemDescription;
     }
 
-    public function setQuantity(int $quantity) /* : void */
+    public function setQuantity(int $quantity) : void
     {
         $this->quantity = $quantity;
     }
@@ -143,7 +143,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->quantity;
     }
 
-    public function setSinglePrice(Money $price) /* : void */
+    public function setSinglePrice(Money $price) : void
     {
         $this->singlePrice = $price;
     }
@@ -153,7 +153,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->singlePrice;
     }
 
-    public function setTotalPrice(Money $price) /* : void */
+    public function setTotalPrice(Money $price) : void
     {
         $this->totalPrice = $price;
     }
@@ -163,7 +163,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->totalPrice;
     }
 
-    public function setDiscountPrice(Money $discount) /* : void */
+    public function setDiscountPrice(Money $discount) : void
     {
         $this->singleDiscountP = $discount;
     }
@@ -173,7 +173,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->singleDiscountP;
     }
 
-    public function setTotalDiscountPrice(Money $discount) /* : void */
+    public function setTotalDiscountPrice(Money $discount) : void
     {
         $this->totalDiscountP = $discount;
     }
@@ -183,7 +183,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->totalDiscountP;
     }
 
-    public function setDiscountPercentage(float $discount) /* : void */
+    public function setDiscountPercentage(float $discount) : void
     {
         $this->singleDiscountR = $discount;
     }
@@ -193,7 +193,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->singleDiscountR;
     }
 
-    public function setTotalDiscountPercentage(float $discount) /* : void */
+    public function setTotalDiscountPercentage(float $discount) : void
     {
         $this->totalDiscountR = $discount;
     }
@@ -203,7 +203,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->totalDiscountR;
     }
 
-    public function setDiscountQuantity($quantity) /* : void */
+    public function setDiscountQuantity($quantity) : void
     {
         $this->discountQ = $quantity;
     }
@@ -213,7 +213,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->discountQ;
     }
 
-    public function setSingleNetPrice(Money $price) /* : void */
+    public function setSingleNetPrice(Money $price) : void
     {
         $this->singlePriceNet = $price;
     }
@@ -223,7 +223,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->singlePriceNet;
     }
 
-    public function setTotalNetPrice(Money $price) /* : void */
+    public function setTotalNetPrice(Money $price) : void
     {
         $this->totalPriceNet = $price;
     }
@@ -233,7 +233,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->totalPriceNet;
     }
 
-    public function setTaxPrice(Money $tax) /* : void */
+    public function setTaxPrice(Money $tax) : void
     {
         $this->taxP = $tax;
     }
@@ -243,7 +243,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->taxP;
     }
 
-    public function setTaxPercentag(float $tax) /* : void */
+    public function setTaxPercentag(float $tax) : void
     {
         $this->taxR = $tax;
     }
@@ -253,7 +253,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->taxR;
     }
 
-    public function setSingleGrossPrice(Money $price) /* : void */
+    public function setSingleGrossPrice(Money $price) : void
     {
         $this->singlePriceGross = $price;
     }
@@ -263,7 +263,7 @@ class InvoiceElement implements \JsonSerializable
         return $this->singlePriceGross;
     }
 
-    public function setTotalGrossPrice(Money $price) /* : void */
+    public function setTotalGrossPrice(Money $price) : void
     {
         $this->totalPriceGross = $price;
     }

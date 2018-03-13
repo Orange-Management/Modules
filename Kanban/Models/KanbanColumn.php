@@ -48,12 +48,12 @@ class KanbanColumn implements \JsonSerializable
         return $this->order;
     }
 
-    public function setOrder(int $order) /* : void */
+    public function setOrder(int $order) : void
     {
         $this->order = $order;
     }
 
-    public function setBoard(int $board) /* : void */
+    public function setBoard(int $board) : void
     {
         $this->board = $board;
     }
@@ -68,7 +68,7 @@ class KanbanColumn implements \JsonSerializable
         return $this->name;
     }
 
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -78,7 +78,7 @@ class KanbanColumn implements \JsonSerializable
         return $this->cards;
     }
 
-    public function addCard(KanbanCard $card) /* : void */
+    public function addCard(KanbanCard $card) : void
     {
         $this->cards[] = $card;
     }

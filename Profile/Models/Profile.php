@@ -75,12 +75,12 @@ class Profile
         return $this->image;
     }
 
-    public function setImage(Media $image) /* : void */
+    public function setImage(Media $image) : void
     {
         $this->image = $image;
     }
 
-    public function setAccount(Account $account) /* : void */
+    public function setAccount(Account $account) : void
     {
         $this->account = $account;
     }
@@ -90,7 +90,7 @@ class Profile
         return $this->account ?? new NullAccount();
     }
 
-    public function setBirthday(\DateTime $birthday) /* : void */
+    public function setBirthday(\DateTime $birthday) : void
     {
         $this->birthday = $birthday;
     }

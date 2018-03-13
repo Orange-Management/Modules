@@ -157,7 +157,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function addBadge(Badge $badge) /* : void */
+    public function addBadge(Badge $badge) : void
     {
         $this->badges[] = $badge;
     }
@@ -183,7 +183,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setContent(string $content) /* : void */
+    public function setContent(string $content) : void
     {
         $this->content = $content;
     }
@@ -271,7 +271,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setLanguage(string $language) /* : void */
+    public function setLanguage(string $language) : void
     {
         if (!ISO639x1Enum::isValidValue($language)) {
             throw new InvalidEnumValue($language);
@@ -289,7 +289,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setPublish(\DateTime $publish) /* : void */
+    public function setPublish(\DateTime $publish) : void
     {
         $this->publish = $publish;
     }
@@ -315,7 +315,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($id) /* : void */
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }
@@ -339,7 +339,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setTitle(string $title) /* : void */
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
@@ -365,7 +365,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setType(int $type) /* : void */
+    public function setType(int $type) : void
     {
         if (!NewsType::isValidValue($type)) {
             throw new InvalidEnumValue((string) $type);
@@ -395,7 +395,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         if (!NewsStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
@@ -423,7 +423,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setFeatured(bool $featured) /* : void */
+    public function setFeatured(bool $featured) : void
     {
         $this->featured = $featured;
     }

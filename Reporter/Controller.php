@@ -489,7 +489,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $reporterReport;
     }
 
-    private function handleTemplateDatabaseFromRequest(RequestAbstract $request) /* : void */
+    private function handleTemplateDatabaseFromRequest(RequestAbstract $request) : void
     {
         $files = json_decode((string) ($request->getData('files')));
 

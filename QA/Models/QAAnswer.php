@@ -53,7 +53,7 @@ class QAAnswer implements \JsonSerializable
         return $this->answer;
     }
 
-    public function setAnswer(string $answer) /* : void */
+    public function setAnswer(string $answer) : void
     {
         $this->answer = $answer;
     }
@@ -63,7 +63,7 @@ class QAAnswer implements \JsonSerializable
         return $this->question;
     }
 
-    public function setQuestion(int $question) /* : void */
+    public function setQuestion(int $question) : void
     {
         $this->question = $question;
     }
@@ -73,12 +73,12 @@ class QAAnswer implements \JsonSerializable
         return $this->status;
     }
 
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
-    public function setAccepted(bool $accepted) /* : void */
+    public function setAccepted(bool $accepted) : void
     {
         $this->isAccepted = $accepted;
     }
@@ -93,7 +93,7 @@ class QAAnswer implements \JsonSerializable
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) /* : void */
+    public function setCreatedBy(int $id) : void
     {
         $this->createdBy = $id;
     }

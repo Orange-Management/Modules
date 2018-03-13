@@ -55,7 +55,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->name;
     }
 
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -65,7 +65,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->status;
     }
 
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -75,7 +75,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->order;
     }
 
-    public function setOrder(int $order) /* : void */
+    public function setOrder(int $order) : void
     {
         $this->order = $order;
     }
@@ -85,7 +85,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->description;
     }
 
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -95,7 +95,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) /* : void */
+    public function setCreatedBy(int $id) : void
     {
         $this->createdBy = $id;
     }
@@ -110,7 +110,7 @@ class KanbanBoard implements \JsonSerializable
         return $this->columns;
     }
 
-    public function addColumn($column) /* : void */
+    public function addColumn($column) : void
     {
         $this->columns[] = $column;
     }

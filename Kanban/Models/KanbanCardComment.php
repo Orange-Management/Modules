@@ -48,7 +48,7 @@ class KanbanCardComment implements \JsonSerializable
         return $this->id;
     }
 
-    public function setCard(int $id) /* : void */
+    public function setCard(int $id) : void
     {
         $this->card = $id;
     }
@@ -63,7 +63,7 @@ class KanbanCardComment implements \JsonSerializable
         return $this->description;
     }
 
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -73,7 +73,7 @@ class KanbanCardComment implements \JsonSerializable
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) /* : void */
+    public function setCreatedBy(int $id) : void
     {
         $this->createdBy = $id;
     }
@@ -88,7 +88,7 @@ class KanbanCardComment implements \JsonSerializable
         return $this->media;
     }
 
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }

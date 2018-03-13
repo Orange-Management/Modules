@@ -47,12 +47,12 @@ class KanbanLabel implements \JsonSerializable
         return $this->name;
     }
 
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
-    public function setColor(int $color) /* : void */
+    public function setColor(int $color) : void
     {
         $this->color = $color;
     }
@@ -67,7 +67,7 @@ class KanbanLabel implements \JsonSerializable
         return $this->board;
     }
 
-    public function setBoard(int $board) /* : void */
+    public function setBoard(int $board) : void
     {
         $this->board = $board;
     }

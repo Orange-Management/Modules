@@ -144,7 +144,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) /* : void */
+    public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) : void
     {
         $languages = $this->app->moduleManager->getLanguageFiles($request);
 

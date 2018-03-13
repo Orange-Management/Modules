@@ -183,7 +183,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setClosable(bool $closable) /* : void */
+    public function setClosable(bool $closable) : void
     {
         $this->isClosable = $closable;
     }
@@ -241,7 +241,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }
@@ -309,7 +309,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStart(\DateTime $start) /* : void */
+    public function setStart(\DateTime $start) : void
     {
         $this->start = $start;
     }
@@ -335,7 +335,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($id) /* : void */
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
         $this->schedule->setCreatedBy($id);
@@ -362,7 +362,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -414,7 +414,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDone(\DateTime $done) /* : void */
+    public function setDone(\DateTime $done) : void
     {
         $this->done = $done;
     }
@@ -440,7 +440,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDue(\DateTime $due) /* : void */
+    public function setDue(\DateTime $due) : void
     {
         $this->due = $due;
     }
@@ -480,7 +480,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         if (!TaskStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);
@@ -512,7 +512,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setPriority(int $priority) /* : void */
+    public function setPriority(int $priority) : void
     {
         if (!TaskPriority::isValidValue($priority)) {
             throw new InvalidEnumValue((string) $priority);
@@ -542,7 +542,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setTitle(string $title) /* : void */
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }

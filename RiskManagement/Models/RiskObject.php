@@ -48,7 +48,7 @@ class RiskObject
         return $this->risk;
     }
 
-    public function setRisk($risk) /* : void */
+    public function setRisk($risk) : void
     {
         $this->risk = $risk;
     }
@@ -58,7 +58,7 @@ class RiskObject
         return $this->title;
     }
 
-    public function setTitle(string $title) /* : void */
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
@@ -73,7 +73,7 @@ class RiskObject
         return $this->descriptionRaw;
     }
 
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }

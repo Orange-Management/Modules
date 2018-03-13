@@ -107,7 +107,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -133,7 +133,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setParent($parent) /* : void */
+    public function setParent($parent) : void
     {
         $this->parent = $parent;
     }
@@ -159,7 +159,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -185,7 +185,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $desc) /* : void */
+    public function setDescription(string $desc) : void
     {
         $this->description = $desc;
     }

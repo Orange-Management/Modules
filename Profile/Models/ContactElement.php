@@ -43,7 +43,7 @@ class ContactElement
         return $this->id;
     }
 
-    public function setType(int $type) /* : void */
+    public function setType(int $type) : void
     {
         $this->type = $type;
     }
@@ -53,7 +53,7 @@ class ContactElement
         return $this->type;
     }
 
-    public function setSubtype(int $type) /* : void */
+    public function setSubtype(int $type) : void
     {
         $this->subtype = $type;
     }
@@ -68,7 +68,7 @@ class ContactElement
         return $this->value;
     }
 
-    public function setValue(string $value) /* : void */
+    public function setValue(string $value) : void
     {
         $this->value = $value;
     }
@@ -78,7 +78,7 @@ class ContactElement
         return $this->description;
     }
 
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }

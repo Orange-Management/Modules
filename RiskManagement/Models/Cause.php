@@ -49,7 +49,7 @@ class Cause
         return $this->id;
     }
 
-    public function setRisk($risk) /* : void */
+    public function setRisk($risk) : void
     {
         $this->risk = $risk;
     }
@@ -64,7 +64,7 @@ class Cause
         return $this->category;
     }
 
-    public function setCategory($category) /* : void */
+    public function setCategory($category) : void
     {
         $this->category = $category;
     }
@@ -74,7 +74,7 @@ class Cause
         return $this->probability;
     }
 
-    public function setProbability(float $probability) /* : void */
+    public function setProbability(float $probability) : void
     {
         $this->probability = $probability;
     }
@@ -84,7 +84,7 @@ class Cause
         return $this->department;
     }
 
-    public function setDepartment($department) /* : void */
+    public function setDepartment($department) : void
     {
         $this->department = $department;
     }
@@ -109,7 +109,7 @@ class Cause
         return $this->descriptionRaw;
     }
 
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }

@@ -41,7 +41,7 @@ class Audit
         $this->createdAt = new \DateTime('now');
     }
 
-    public function setType(int $type) /* : void */
+    public function setType(int $type) : void
     {
         $this->type = $type;
     }
@@ -51,7 +51,7 @@ class Audit
         return $this->type;
     }
 
-    public function setSubType(int $subtype) /* : void */
+    public function setSubType(int $subtype) : void
     {
         $this->subtype = $subtype;
     }
@@ -61,7 +61,7 @@ class Audit
         return $this->subtype;
     }
 
-    public function setModule(int $module) /* : void */
+    public function setModule(int $module) : void
     {
         $this->module = $module;
     }
@@ -71,7 +71,7 @@ class Audit
         return $this->module;
     }
 
-    public function setRef(string $ref) /* : void */
+    public function setRef(string $ref) : void
     {
         $this->ref = $ref;
     }
@@ -81,7 +81,7 @@ class Audit
         return $this->ref;
     }
 
-    public function setContent(string $content) /* : void */
+    public function setContent(string $content) : void
     {
         $this->content = $content;
     }
@@ -91,7 +91,7 @@ class Audit
         return $this->content;
     }
 
-    public function setOld(string $old) /* : void */
+    public function setOld(string $old) : void
     {
         $this->old = $old;
     }
@@ -101,7 +101,7 @@ class Audit
         return $this->old;
     }
 
-    public function setNew(string $new) /* : void */
+    public function setNew(string $new) : void
     {
         $this->new = $new;
     }
@@ -111,7 +111,7 @@ class Audit
         return $this->new;
     }
 
-    public function setCreatedBy($createdBy) /* : void */
+    public function setCreatedBy($createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

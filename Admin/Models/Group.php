@@ -93,7 +93,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($createdBy) /* : void */
+    public function setCreatedBy($createdBy) : void
     {
         $this->createdBy = $createdBy;
     }
@@ -107,7 +107,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }

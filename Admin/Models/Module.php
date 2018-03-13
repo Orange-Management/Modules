@@ -122,7 +122,7 @@ class Module
      *
      * @since  1.0.0
      */
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -148,7 +148,7 @@ class Module
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -174,7 +174,7 @@ class Module
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         // todo: check valid
         $this->status = $status;

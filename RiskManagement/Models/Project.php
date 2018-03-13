@@ -56,7 +56,7 @@ class Project
         return $this->responsible;
     }
 
-    public function setResponsible($responsible) /* : void */
+    public function setResponsible($responsible) : void
     {
         $this->responsible = $responsible;
     }
@@ -66,7 +66,7 @@ class Project
         return $this->deputy;
     }
 
-    public function setDeputy($deputy) /* : void */
+    public function setDeputy($deputy) : void
     {
         $this->deputy = $deputy;
     }

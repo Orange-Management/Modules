@@ -281,7 +281,7 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    public static function installExternal(DatabasePool $dbPool, array $data) /* : void */
+    public static function installExternal(DatabasePool $dbPool, array $data) : void
     {
         foreach ($data as $type => $element) {
             if ($type === InstallType::PERMISSION) {
@@ -302,7 +302,7 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    public static function installPermission(DatabasePool $dbPool, array $data) /* : void */
+    public static function installPermission(DatabasePool $dbPool, array $data) : void
     {
         $sth = $dbPool->get()->con->prepare(
             'INSERT INTO `' . $dbPool->get()->prefix . 'permission` (`permission_id`, `permission_name`, `permission_description`) VALUES
@@ -330,7 +330,7 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    public static function installGroup(DatabasePool $dbPool, array $data) /* : void */
+    public static function installGroup(DatabasePool $dbPool, array $data) : void
     {
         $sth = $dbPool->get()->con->prepare(
             'INSERT INTO `' . $dbPool->get()->prefix . 'group` (`group_id`, `group_name`, `group_description`) VALUES

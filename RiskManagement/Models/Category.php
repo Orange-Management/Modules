@@ -52,7 +52,7 @@ class Category
         return $this->parent;
     }
 
-    public function setParent($parent) /* : void */
+    public function setParent($parent) : void
     {
         $this->parent = $parent;
     }
@@ -62,12 +62,12 @@ class Category
         return $this->responsible;
     }
 
-    public function setResponsible($responsible) /* : void */
+    public function setResponsible($responsible) : void
     {
         $this->responsible = $responsible;
     }
 
-    public function setDeputy($deputy) /* : void */
+    public function setDeputy($deputy) : void
     {
         $this->deputy = $deputy;
     }
@@ -97,7 +97,7 @@ class Category
         return $this->descriptionRaw;
     }
 
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }

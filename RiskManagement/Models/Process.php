@@ -69,7 +69,7 @@ class Process
         return $this->descriptionRaw;
     }
 
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
@@ -99,7 +99,7 @@ class Process
         return $this->responsible;
     }
 
-    public function setResponsible($responsible) /* : void */
+    public function setResponsible($responsible) : void
     {
         $this->responsible = $responsible;
     }
@@ -109,7 +109,7 @@ class Process
         return $this->deputy;
     }
 
-    public function setDeputy($deputy) /* : void */
+    public function setDeputy($deputy) : void
     {
         $this->deputy = $deputy;
     }

@@ -70,7 +70,7 @@ class QAQuestion implements \JsonSerializable
         return $this->language;
     }
 
-    public function setLanguage(string $language) /* : void */
+    public function setLanguage(string $language) : void
     {
         $this->language = $language;
     }
@@ -91,7 +91,7 @@ class QAQuestion implements \JsonSerializable
         return $this->name;
     }
 
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -101,7 +101,7 @@ class QAQuestion implements \JsonSerializable
         return $this->question;
     }
 
-    public function setQuestion(string $question) /* : void */
+    public function setQuestion(string $question) : void
     {
         $this->question = $question;
     }
@@ -111,7 +111,7 @@ class QAQuestion implements \JsonSerializable
         return $this->status;
     }
 
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -121,7 +121,7 @@ class QAQuestion implements \JsonSerializable
         return $this->category;
     }
 
-    public function setCategory(int $category) /* : void */
+    public function setCategory(int $category) : void
     {
         $this->category = $category;
     }
@@ -131,7 +131,7 @@ class QAQuestion implements \JsonSerializable
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) /* : void */
+    public function setCreatedBy(int $id) : void
     {
         $this->createdBy = $id;
     }
@@ -146,7 +146,7 @@ class QAQuestion implements \JsonSerializable
         return $this->badges;
     }
 
-    public function addBadge($badge) /* : void */
+    public function addBadge($badge) : void
     {
         $this->badges[] = $badge;
     }
@@ -156,7 +156,7 @@ class QAQuestion implements \JsonSerializable
         return $this->answers;
     }
 
-    public function addAnswer($answer) /* : void */
+    public function addAnswer($answer) : void
     {
         $this->answers[] = $answer;
     }

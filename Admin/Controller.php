@@ -418,7 +418,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SETTINGS)
@@ -442,7 +442,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SETTINGS)
@@ -471,7 +471,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
@@ -501,7 +501,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
@@ -577,7 +577,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
@@ -636,7 +636,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::GROUP)
@@ -668,7 +668,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
@@ -698,7 +698,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
@@ -747,7 +747,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
@@ -809,7 +809,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
@@ -841,7 +841,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ACCOUNT)
@@ -901,7 +901,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $module = $request->getData('module');
         $status = $request->getData('status');

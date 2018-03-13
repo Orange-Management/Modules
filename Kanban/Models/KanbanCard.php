@@ -62,7 +62,7 @@ class KanbanCard implements \JsonSerializable
         return $this->order;
     }
 
-    public function setOrder(int $order) /* : void */
+    public function setOrder(int $order) : void
     {
         $this->order = $order;
     }
@@ -72,7 +72,7 @@ class KanbanCard implements \JsonSerializable
         return $this->id;
     }
 
-    public function setColumn(int $id) /* : void */
+    public function setColumn(int $id) : void
     {
         $this->column = $id;
     }
@@ -87,7 +87,7 @@ class KanbanCard implements \JsonSerializable
         return $this->name;
     }
 
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -97,7 +97,7 @@ class KanbanCard implements \JsonSerializable
         return $this->status;
     }
 
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -107,7 +107,7 @@ class KanbanCard implements \JsonSerializable
         return $this->type;
     }
 
-    public function setType(int $type) /* : void */
+    public function setType(int $type) : void
     {
         $this->type = $type;
     }
@@ -117,7 +117,7 @@ class KanbanCard implements \JsonSerializable
         return $this->ref;
     }
 
-    public function setRef(int $ref) /* : void */
+    public function setRef(int $ref) : void
     {
         $this->ref = $ref;
     }
@@ -127,7 +127,7 @@ class KanbanCard implements \JsonSerializable
         return $this->description;
     }
 
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -137,7 +137,7 @@ class KanbanCard implements \JsonSerializable
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) /* : void */
+    public function setCreatedBy(int $id) : void
     {
         $this->createdBy = $id;
     }
@@ -152,7 +152,7 @@ class KanbanCard implements \JsonSerializable
         return $this->comments;
     }
 
-    public function addComment($comment) /* : void */
+    public function addComment($comment) : void
     {
         $this->comments[] = $comment;
     }
@@ -173,12 +173,12 @@ class KanbanCard implements \JsonSerializable
         return $this->media;
     }
 
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }
 
-    public function setLabels(array $labels) /* : void */
+    public function setLabels(array $labels) : void
     {
         $this->labels = $labels;
     }
@@ -188,7 +188,7 @@ class KanbanCard implements \JsonSerializable
         return $this->labels;
     }
 
-    public function addLabel($label) /* : void */
+    public function addLabel($label) : void
     {
         $this->labels[] = $label;
     }

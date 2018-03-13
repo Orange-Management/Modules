@@ -76,7 +76,7 @@ class Item
         return $this->number;
     }
 
-    public function setNumber(int $number) /* : void */
+    public function setNumber(int $number) : void
     {
         $this->number = $number;
     }
@@ -86,7 +86,7 @@ class Item
         return $this->articleGroup;
     }
 
-    public function setArticleGroup(int $segment) /* : void */
+    public function setArticleGroup(int $segment) : void
     {
         $this->articleGroup = $segment;
     }
@@ -96,7 +96,7 @@ class Item
         return $this->salesGroup;
     }
 
-    public function setSalesGroup(int $segment) /* : void */
+    public function setSalesGroup(int $segment) : void
     {
         $this->salesGroup = $segment;
     }
@@ -106,7 +106,7 @@ class Item
         return $this->productGroup;
     }
 
-    public function setProductGroup(int $segment) /* : void */
+    public function setProductGroup(int $segment) : void
     {
         $this->productGroup = $segment;
     }
@@ -116,7 +116,7 @@ class Item
         return $this->segment;
     }
 
-    public function setSegment(int $segment) /* : void */
+    public function setSegment(int $segment) : void
     {
         $this->segment = $segment;
     }
@@ -126,7 +126,7 @@ class Item
         return $this->successor;
     }
 
-    public function setSuccessor(int $successor) /* : void */
+    public function setSuccessor(int $successor) : void
     {
         $this->successor = $successor;
     }
@@ -136,7 +136,7 @@ class Item
         return $this->media;
     }
 
-    public function addMedia(Media $media) /* : void */
+    public function addMedia(Media $media) : void
     {
         $this->media[] = $media;
     }
@@ -146,7 +146,7 @@ class Item
         return $this->info;
     }
 
-    public function setInfo(string $info) /* : void */
+    public function setInfo(string $info) : void
     {
         $this->info = $info;
     }

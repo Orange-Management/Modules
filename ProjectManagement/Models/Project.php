@@ -96,7 +96,7 @@ class Project
         return $this->media;
     }
 
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }
@@ -126,7 +126,7 @@ class Project
         return $this->progress;
     }
 
-    public function setProgress(int $progress) /* : void */
+    public function setProgress(int $progress) : void
     {
         $this->progress = $progress;
     }
@@ -136,7 +136,7 @@ class Project
         return $this->progressType;
     }
 
-    public function setProgressType(int $type) /* : void */
+    public function setProgressType(int $type) : void
     {
         $this->progressType = $type;
     }

@@ -172,7 +172,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }
@@ -197,7 +197,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description) /* : void */
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -223,7 +223,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
@@ -249,7 +249,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDue(\DateTime $due) /* : void */
+    public function setDue(\DateTime $due) : void
     {
         $this->due = $due;
     }
@@ -275,7 +275,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setForwarded($forwarded) /* : void */
+    public function setForwarded($forwarded) : void
     {
         $this->forwarded = $forwarded;
     }
@@ -315,7 +315,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         if (!TaskStatus::isValidValue($status)) {
             throw new InvalidEnumValue((string) $status);

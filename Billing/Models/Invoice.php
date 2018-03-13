@@ -166,7 +166,7 @@ class Invoice implements \JsonSerializable
         return $this->number;
     }
 
-    public function setNumber(string $number) /* : void */
+    public function setNumber(string $number) : void
     {
         $this->number = $number;
     }
@@ -176,7 +176,7 @@ class Invoice implements \JsonSerializable
         return $this->type;
     }
 
-    public function setType(int $type) /* : void */
+    public function setType(int $type) : void
     {
         $this->type = $type;
     }
@@ -186,7 +186,7 @@ class Invoice implements \JsonSerializable
         return $this->status;
     }
 
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -196,7 +196,7 @@ class Invoice implements \JsonSerializable
         return $this->createdAt;
     }
 
-    public function setSend(\DateTime $send) /* : void */
+    public function setSend(\DateTime $send) : void
     {
         $this->send = $send;
     }
@@ -211,7 +211,7 @@ class Invoice implements \JsonSerializable
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $creator) /* : void */
+    public function setCreatedBy(int $creator) : void
     {
         $this->createdBy = $creator;
     }
@@ -221,12 +221,12 @@ class Invoice implements \JsonSerializable
         return $this->client;
     }
 
-    public function setClient($client) /* : void */
+    public function setClient($client) : void
     {
         $this->client = $client;
     }
 
-    public function setShipTo(string $ship) /* : void */
+    public function setShipTo(string $ship) : void
     {
         $this->shipTo = $ship;
     }
@@ -236,7 +236,7 @@ class Invoice implements \JsonSerializable
         return $this->shipTo;
     }
 
-    public function setShipFAO(string $ship) /* : void */
+    public function setShipFAO(string $ship) : void
     {
         $this->shipFAO = $ship;
     }
@@ -246,7 +246,7 @@ class Invoice implements \JsonSerializable
         return $this->shipFAO;
     }
 
-    public function setShipAddress(string $ship) /* : void */
+    public function setShipAddress(string $ship) : void
     {
         $this->shipAddress = $ship;
     }
@@ -256,7 +256,7 @@ class Invoice implements \JsonSerializable
         return $this->shipAddress;
     }
 
-    public function setShipCity(string $ship) /* : void */
+    public function setShipCity(string $ship) : void
     {
         $this->shipCity = $ship;
     }
@@ -266,7 +266,7 @@ class Invoice implements \JsonSerializable
         return $this->shipCity;
     }
 
-    public function setShipZip($ship) /* : void */
+    public function setShipZip($ship) : void
     {
         $this->shipZip = $ship;
     }
@@ -276,7 +276,7 @@ class Invoice implements \JsonSerializable
         return $this->shipZip;
     }
 
-    public function setShipCountry(string $ship) /* : void */
+    public function setShipCountry(string $ship) : void
     {
         $this->shipCountry = $ship;
     }
@@ -286,7 +286,7 @@ class Invoice implements \JsonSerializable
         return $this->shipCountry;
     }
 
-    public function setBillTo(string $bill) /* : void */
+    public function setBillTo(string $bill) : void
     {
         $this->billTo = $bill;
     }
@@ -296,7 +296,7 @@ class Invoice implements \JsonSerializable
         return $this->billTo;
     }
 
-    public function setBillFAO(string $bill) /* : void */
+    public function setBillFAO(string $bill) : void
     {
         $this->billFAO = $bill;
     }
@@ -306,7 +306,7 @@ class Invoice implements \JsonSerializable
         return $this->billFAO;
     }
 
-    public function setBillAddress(string $bill) /* : void */
+    public function setBillAddress(string $bill) : void
     {
         $this->billAddress = $bill;
     }
@@ -316,7 +316,7 @@ class Invoice implements \JsonSerializable
         return $this->billAddress;
     }
 
-    public function setBillCity(string $bill) /* : void */
+    public function setBillCity(string $bill) : void
     {
         $this->billCity = $bill;
     }
@@ -326,7 +326,7 @@ class Invoice implements \JsonSerializable
         return $this->billCity;
     }
 
-    public function setBillZip($bill) /* : void */
+    public function setBillZip($bill) : void
     {
         $this->billZip = $bill;
     }
@@ -336,7 +336,7 @@ class Invoice implements \JsonSerializable
         return $this->billZip;
     }
 
-    public function setBillCountry(string $bill) /* : void */
+    public function setBillCountry(string $bill) : void
     {
         $this->billCountry = $bill;
     }
@@ -346,7 +346,7 @@ class Invoice implements \JsonSerializable
         return $this->billCountry;
     }
 
-    public function setReferer(int $referer) /* : void */
+    public function setReferer(int $referer) : void
     {
         $this->referer = $referer;
     }
@@ -356,7 +356,7 @@ class Invoice implements \JsonSerializable
         return $this->referer;
     }
 
-    public function setRefererName(string $refererName) /* : void */
+    public function setRefererName(string $refererName) : void
     {
         $this->refererName = $refererName;
     }
@@ -366,7 +366,7 @@ class Invoice implements \JsonSerializable
         return $this->refererName;
     }
 
-    public function setTaxId(string $tax) /* : void */
+    public function setTaxId(string $tax) : void
     {
         $this->taxId = $tax;
     }
@@ -376,7 +376,7 @@ class Invoice implements \JsonSerializable
         return $this->taxId;
     }
 
-    public function setInsurance(Money $insurance) /* : void */
+    public function setInsurance(Money $insurance) : void
     {
         $this->insurance = $insurance;
     }
@@ -386,7 +386,7 @@ class Invoice implements \JsonSerializable
         return $this->insurance;
     }
 
-    public function setFreight(Money $freight) /* : void */
+    public function setFreight(Money $freight) : void
     {
         $this->freight = $freight;
     }
@@ -406,7 +406,7 @@ class Invoice implements \JsonSerializable
         return $this->gross;
     }
 
-    public function setCurrency(string $currency) /* : void */
+    public function setCurrency(string $currency) : void
     {
         $this->currency = $currency;
     }
@@ -416,7 +416,7 @@ class Invoice implements \JsonSerializable
         return $this->currency;
     }
 
-    public function setInfo(string $info) /* : void */
+    public function setInfo(string $info) : void
     {
         $this->info = $info;
     }
@@ -426,7 +426,7 @@ class Invoice implements \JsonSerializable
         return $this->info;
     }
 
-    public function setPayment(int $payment) /* : void */
+    public function setPayment(int $payment) : void
     {
         $this->payment = $payment;
     }
@@ -436,7 +436,7 @@ class Invoice implements \JsonSerializable
         return $this->payment;
     }
 
-    public function setPaymentText(string $payment) /* : void */
+    public function setPaymentText(string $payment) : void
     {
         $this->paymentText = $payment;
     }
@@ -446,7 +446,7 @@ class Invoice implements \JsonSerializable
         return $this->paymentText;
     }
 
-    public function setTerms(int $terms) /* : void */
+    public function setTerms(int $terms) : void
     {
         $this->terms = $terms;
     }
@@ -456,7 +456,7 @@ class Invoice implements \JsonSerializable
         return $this->terms;
     }
 
-    public function setTermsText(string $terms) /* : void */
+    public function setTermsText(string $terms) : void
     {
         $this->termsText = $terms;
     }
@@ -466,7 +466,7 @@ class Invoice implements \JsonSerializable
         return $this->termsText;
     }
 
-    public function setShipping(int $shipping) /* : void */
+    public function setShipping(int $shipping) : void
     {
         $this->shipping = $shipping;
     }
@@ -476,7 +476,7 @@ class Invoice implements \JsonSerializable
         return $this->shipping;
     }
 
-    public function setShippingText(string $shipping) /* : void */
+    public function setShippingText(string $shipping) : void
     {
         $this->shippingText = $shipping;
     }
@@ -491,7 +491,7 @@ class Invoice implements \JsonSerializable
         return $this->vouchers;
     }
 
-    public function addVoucher(string $voucher) /* : void */
+    public function addVoucher(string $voucher) : void
     {
         $this->vouchers[] = $voucher;
     }
@@ -501,7 +501,7 @@ class Invoice implements \JsonSerializable
         return $this->trackings;
     }
 
-    public function addTracking(string $tracking) /* : void */
+    public function addTracking(string $tracking) : void
     {
         $this->trackings[] = $tracking;
     }
@@ -511,7 +511,7 @@ class Invoice implements \JsonSerializable
         return $this->elements;
     }
 
-    public function addElement($element) /* : void */
+    public function addElement($element) : void
     {
         $this->elements[] = $element;
     }

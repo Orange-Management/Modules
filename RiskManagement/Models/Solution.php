@@ -47,7 +47,7 @@ class Solution
         return $this->id;
     }
 
-    public function setRisk($risk) /* : void */
+    public function setRisk($risk) : void
     {
         $this->risk = $risk;
     }
@@ -57,7 +57,7 @@ class Solution
         return $this->risk;
     }
 
-    public function setCause($cause) /* : void */
+    public function setCause($cause) : void
     {
         $this->cause = $cause;
     }
@@ -72,7 +72,7 @@ class Solution
         return $this->probability;
     }
 
-    public function setProbability(float $probability) /* : void */
+    public function setProbability(float $probability) : void
     {
         $this->probability = $probability;
     }
@@ -97,7 +97,7 @@ class Solution
         return $this->descriptionRaw;
     }
 
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }

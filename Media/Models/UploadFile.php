@@ -193,7 +193,7 @@ class UploadFile
         return $result;
     }
 
-    private function interlace(string $extension, string $path) /* : void */
+    private function interlace(string $extension, string $path) : void
     {
 
                 if ($extension === 'png') {
@@ -270,7 +270,7 @@ class UploadFile
         return $this->maxSize;
     }
 
-    public function setInterlaced(bool $interlaced) /* : void */
+    public function setInterlaced(bool $interlaced) : void
     {
         $this->interlaced = $interlaced;
     }

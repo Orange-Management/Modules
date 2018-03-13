@@ -65,7 +65,7 @@ class Risk
         return $this->id;
     }
 
-    public function addCause($cause) /* : void */
+    public function addCause($cause) : void
     {
         $this->causes[] = $cause;
     }
@@ -90,12 +90,12 @@ class Risk
         return $this->media;
     }
 
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }
 
-    public function addRiskObject($object) /* : void */
+    public function addRiskObject($object) : void
     {
         $this->riskObjects[] = $object;
     }
@@ -105,7 +105,7 @@ class Risk
         return $this->riskObjects;
     }
 
-    public function addHistory($history) /* : void */
+    public function addHistory($history) : void
     {
         $this->histScore[] = $history;
     }
@@ -120,7 +120,7 @@ class Risk
         return $this->name;
     }
 
-    public function setName(string $name) /* : void */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -130,7 +130,7 @@ class Risk
         return $this->description;
     }
 
-    public function setDescriptionRaw(string $description) /* : void */
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
@@ -145,7 +145,7 @@ class Risk
         return $this->unit;
     }
 
-    public function setUnit($unit) /* : void */
+    public function setUnit($unit) : void
     {
         $this->unit = $unit;
     }
@@ -155,7 +155,7 @@ class Risk
         return $this->department;
     }
 
-    public function setDepartment($department) /* : void */
+    public function setDepartment($department) : void
     {
         $this->department = $department;
     }
@@ -165,7 +165,7 @@ class Risk
         return $this->category;
     }
 
-    public function setCategory($category) /* : void */
+    public function setCategory($category) : void
     {
         $this->category = $category;
     }
@@ -175,7 +175,7 @@ class Risk
         return $this->project;
     }
 
-    public function setProject($project) /* : void */
+    public function setProject($project) : void
     {
         $this->project = $project;
     }
@@ -185,7 +185,7 @@ class Risk
         return $this->process;
     }
 
-    public function setProcess($process) /* : void */
+    public function setProcess($process) : void
     {
         $this->process = $process;
     }
@@ -195,7 +195,7 @@ class Risk
         return $this->responsible;
     }
 
-    public function setResponsible($responsible) /* : void */
+    public function setResponsible($responsible) : void
     {
         $this->responsible = $responsible;
     }
@@ -205,7 +205,7 @@ class Risk
         return $this->deputy;
     }
 
-    public function setDeputy($deputy) /* : void */
+    public function setDeputy($deputy) : void
     {
         $this->deputy = $deputy;
     }

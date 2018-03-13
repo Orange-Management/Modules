@@ -67,7 +67,7 @@ class Supplier
         return $this->number;
     }
 
-    public function setNumber(int $number) /* : void */
+    public function setNumber(int $number) : void
     {
         $this->number = $number;
     }
@@ -77,7 +77,7 @@ class Supplier
         return $this->numberReverse;
     }
 
-    public function setReverseNumber($rev_no) /* : void */
+    public function setReverseNumber($rev_no) : void
     {
         if (!is_scalar($rev_no)) {
             throw new \Exception();
@@ -91,7 +91,7 @@ class Supplier
         return $this->status;
     }
 
-    public function setStatus(int $status) /* : void */
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -101,7 +101,7 @@ class Supplier
         return $this->type;
     }
 
-    public function setType(int $type) /* : void */
+    public function setType(int $type) : void
     {
         $this->type = $type;
     }
@@ -111,7 +111,7 @@ class Supplier
         return $this->taxId;
     }
 
-    public function setTaxId(string $taxId) /* : void */
+    public function setTaxId(string $taxId) : void
     {
         $this->taxId = $taxId;
     }
@@ -136,7 +136,7 @@ class Supplier
         return $this->profile;
     }
 
-    public function setProfile(Profile $profile) /* : void */
+    public function setProfile(Profile $profile) : void
     {
         $this->profile = $profile;
     }
@@ -146,7 +146,7 @@ class Supplier
         return $this->files;
     }
 
-    public function addFile(Media $file) /* : void */
+    public function addFile(Media $file) : void
     {
         $this->files[] = $file;
     }

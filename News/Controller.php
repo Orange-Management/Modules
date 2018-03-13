@@ -282,7 +282,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
@@ -338,7 +338,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
@@ -396,7 +396,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
@@ -446,7 +446,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BADGE)
@@ -548,7 +548,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
@@ -580,7 +580,7 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @since  1.0.0
      */
-    public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) /* : void */
+    public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BADGE)

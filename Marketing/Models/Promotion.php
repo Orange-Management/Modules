@@ -92,7 +92,7 @@ class Promotion
         return $this->media;
     }
 
-    public function addMedia($media) /* : void */
+    public function addMedia($media) : void
     {
         $this->media[] = $media;
     }

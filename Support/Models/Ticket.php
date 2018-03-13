@@ -48,7 +48,7 @@ class Ticket
         return $this->task;
     }
 
-    public function setTask(Task $task) /* : void */
+    public function setTask(Task $task) : void
     {
         $this->task = $task;
     }
