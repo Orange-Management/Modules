@@ -280,6 +280,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * 
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -335,6 +337,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      * 
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -394,6 +398,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -443,6 +449,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      * 
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -546,6 +554,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * 
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -577,6 +587,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      * 
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */

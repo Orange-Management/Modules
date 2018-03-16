@@ -102,7 +102,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
@@ -221,9 +221,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
+     * @return void
+     *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DRAW)

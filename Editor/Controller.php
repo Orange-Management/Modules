@@ -100,7 +100,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JSLATE, '/Modules/Editor/Models/Editor.js');
@@ -219,9 +219,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
+     * @return void
+     *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DOC)

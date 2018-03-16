@@ -89,12 +89,12 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/QA/Theme/Backend/styles.css');
@@ -196,7 +196,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function viewQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/QA/Theme/Backend/qa-question-create');
@@ -208,7 +208,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    public function apiQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQAQuestionCreate($request))) {
             $response->set('qa_question_create', new FormValidation($val));
@@ -255,7 +255,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiQAAnswerCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiQAAnswerCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQAAnswerCreate($request))) {
             $response->set('qa_answer_create', new FormValidation($val));
@@ -298,7 +298,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiQACategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiQACategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQACategoryCreate($request))) {
             $response->set('qa_category_create', new FormValidation($val));
@@ -334,7 +334,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiQABadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiQABadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQABadgeCreate($request))) {
             $response->set('qa_badge_create', new FormValidation($val));

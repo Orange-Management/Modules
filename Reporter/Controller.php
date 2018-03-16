@@ -209,7 +209,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function viewReporterReport(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
@@ -310,9 +310,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @api
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
@@ -380,13 +382,15 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
+     *
+     * @api
      *
      * @api
      *
      * @since  1.0.0
      */
-    public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::TEMPLATE)
@@ -451,13 +455,15 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
+     *
+     * @api
      *
      * @api
      *
      * @since  1.0.0
      */
-    public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::REPORT)

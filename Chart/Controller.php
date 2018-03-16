@@ -92,7 +92,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpChartEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpChartEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');

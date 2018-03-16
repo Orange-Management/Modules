@@ -416,6 +416,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -439,6 +441,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -469,6 +473,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -498,6 +504,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -575,6 +583,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -634,6 +644,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -666,6 +678,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -695,6 +709,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -744,6 +760,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -807,6 +825,8 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -838,6 +858,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -898,6 +920,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */

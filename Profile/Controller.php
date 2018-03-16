@@ -17,7 +17,6 @@ namespace Modules\Profile;
 use Modules\Profile\Models\ProfileMapper;
 use Modules\Profile\Models\PermissionState;
 use phpOMS\Account\PermissionType;
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
@@ -90,12 +89,12 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return void
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
@@ -107,7 +106,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @codeCoverageIgnore
@@ -136,7 +135,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return \Serializable
      *
      * @since  1.0.0
      * @codeCoverageIgnore

@@ -123,7 +123,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * {@inheritdoc}
      */
-    public function call(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function call(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
     }
 }

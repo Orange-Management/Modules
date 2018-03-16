@@ -394,9 +394,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiUnitGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiUnitGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::UNIT)
@@ -424,9 +426,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::UNIT)
@@ -479,9 +483,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::UNIT)
@@ -511,9 +517,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::UNIT)
@@ -600,9 +608,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiPositionGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiPositionGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::POSITION)
@@ -630,9 +640,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::POSITION)
@@ -662,9 +674,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::POSITION)
@@ -720,9 +734,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::POSITION)
@@ -811,9 +827,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiDepartmentGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiDepartmentGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DEPARTMENT)
@@ -841,9 +859,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DEPARTMENT)
@@ -900,9 +920,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DEPARTMENT)
@@ -932,9 +954,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DEPARTMENT)

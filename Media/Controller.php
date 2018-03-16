@@ -101,7 +101,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
@@ -185,9 +185,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $uploads = $this->uploadFiles(
             $request->getFiles(),
@@ -213,9 +215,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         // todo: change database entry for files if has write permission
     }
@@ -271,7 +275,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $mediaCreated;
     }
 
-    public static function createDbEntry(array $status, int $account)
+    public static function createDbEntry(array $status, int $account) : ?Media
     {
         $media = null;
 

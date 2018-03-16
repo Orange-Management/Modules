@@ -99,12 +99,12 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Knowledgebase/Theme/Backend/styles.css');
@@ -306,7 +306,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DOC)
@@ -357,7 +357,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiWikiCategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiWikiCategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateWikiCategoryCreate($request))) {
             $response->set('wiki_category_create', new FormValidation($val));
@@ -393,7 +393,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiWikiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiWikiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateWikiBadgeCreate($request))) {
             $response->set('wiki_badge_create', new FormValidation($val));

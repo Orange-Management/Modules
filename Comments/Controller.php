@@ -94,7 +94,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpCommentEditor(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpCommentEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JS, '/Modules/Editor/Controller.js');
@@ -155,9 +155,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
+     * @return void
+     *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateCommentCreate($request))) {
             $response->set('comment_create', new FormValidation($val));

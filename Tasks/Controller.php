@@ -275,11 +275,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
-    public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
@@ -342,9 +344,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiTaskGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiTaskGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
@@ -371,6 +375,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
@@ -446,11 +452,13 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */
-    public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
@@ -504,9 +512,11 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @return void
      *
+     * @api
+     *
      * @since  1.0.0
      */
-    public function apiTaskElementGet(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiTaskElementGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
@@ -533,6 +543,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @api
      *
      * @since  1.0.0
      */

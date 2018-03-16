@@ -103,12 +103,12 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return void
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function setupStyles(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setupStyles(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
@@ -243,7 +243,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
-    public function apiKanbanCardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiKanbanCardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::CARD)
@@ -305,7 +305,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD)
@@ -356,7 +356,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiKanbanColumnCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiKanbanColumnCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
             PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::COLUMN)
@@ -400,7 +400,7 @@ class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
-    public function apiKanbanLabelCreate(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function apiKanbanLabelCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = $this->app->accountManager->get($request->getHeader()->getAccount());
 

@@ -38,7 +38,7 @@ trait FileUploaderTrait
      *
      * @since  1.0.0
      */
-    public function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null)
+    public function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $head = $response->getHead();
         $head->addAsset(AssetType::JS, '/Modules/Media/ModuleMedia.js');
