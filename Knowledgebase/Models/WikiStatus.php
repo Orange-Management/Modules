@@ -26,9 +26,9 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class WikiStatus extends Enum
 {
-    /* public */ const ACTIVE = 1;
+    public const ACTIVE = 1;
 
-    /* public */ const INACTIVE = 2;
+    public const INACTIVE = 2;
 
-    /* public */ const DRAFT = 3;
+    public const DRAFT = 3;
 }

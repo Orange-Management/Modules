@@ -26,17 +26,17 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class WorkType extends Enum
 {
-    /* public */ const OFF = 0;
+    public const OFF = 0;
 
-    /* public */ const WORKING = 1;
+    public const WORKING = 1;
 
-    /* public */ const LATE = 2;
+    public const LATE = 2;
 
-    /* public */ const SICK = 3;
+    public const SICK = 3;
 
-    /* public */ const VACATION = 4;
+    public const VACATION = 4;
 
-    /* public */ const REMOTE = 5;
+    public const REMOTE = 5;
 
-    /* public */ const TRAVEL = 6;
+    public const TRAVEL = 6;
 }

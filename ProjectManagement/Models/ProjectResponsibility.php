@@ -26,6 +26,6 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class ProjectResponsibility extends Enum
 {
-    /* public */ const MANAGER = 0;
-    /* public */ const OTHER   = 1;
+    public const MANAGER = 0;
+    public const OTHER   = 1;
 }

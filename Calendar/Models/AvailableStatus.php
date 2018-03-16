@@ -26,9 +26,9 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class AvailableStatus extends Enum
 {
-    /* public */ const AVAILABLE = 0;
+    public const AVAILABLE = 0;
 
-    /* public */ const BUSY = 1;
+    public const BUSY = 1;
 
-    /* public */ const AWAY = 2;
+    public const AWAY = 2;
 }

@@ -26,6 +26,6 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class InstallType extends Enum
 {
-    /* public */ const PERMISSION = 0;
-    /* public */ const GROUP      = 1;
+    public const PERMISSION = 0;
+    public const GROUP      = 1;
 }

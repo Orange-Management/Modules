@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class AcceptStatus extends Enum
 {
-    /* public */ const ACCEPTED = 0;
+    public const ACCEPTED = 0;
 
-    /* public */ const DENIED = 1;
+    public const DENIED = 1;
 }

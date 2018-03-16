@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class IntervalType extends Enum
 {
-    /* public */ const ABSOLUTE = 1;
+    public const ABSOLUTE = 1;
 
-    /* public */ const RELATIVE = 2;
+    public const RELATIVE = 2;
 }

@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class LinkType extends Enum
 {
-    /* public */ const CATEGORY = 0;
+    public const CATEGORY = 0;
 
-    /* public */ const LINK = 1;
+    public const LINK = 1;
 }

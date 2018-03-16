@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class TimeStatus extends Enum
 {
-    /* public */ const ACCEPTED = 0;
+    public const ACCEPTED = 0;
 
-    /* public */ const OPEN = 1;
+    public const OPEN = 1;
 }

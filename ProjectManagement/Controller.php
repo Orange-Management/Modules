@@ -43,7 +43,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    /* public */ const MODULE_PATH = __DIR__;
+    public const MODULE_PATH = __DIR__;
 
     /**
      * Module version.
@@ -51,7 +51,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    /* public */ const MODULE_VERSION = '1.0.0';
+    public const MODULE_VERSION = '1.0.0';
 
     /**
      * Module name.
@@ -59,7 +59,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    /* public */ const MODULE_NAME = 'ProjectManagement';
+    public const MODULE_NAME = 'ProjectManagement';
 
     /**
      * Module id.
@@ -67,7 +67,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var int
      * @since 1.0.0
      */
-    /* public */ const MODULE_ID = 1001700000;
+    public const MODULE_ID = 1001700000;
 
     /**
      * Providing.

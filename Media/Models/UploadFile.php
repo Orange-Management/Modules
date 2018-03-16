@@ -27,7 +27,7 @@ use phpOMS\System\File\Local\Directory;
  */
 class UploadFile
 {
-    /* public */ const PATH_GENERATION_LIMIT = 1000;
+    public const PATH_GENERATION_LIMIT = 1000;
 
     /**
      * Image interlaced.

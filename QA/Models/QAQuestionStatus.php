@@ -26,9 +26,9 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class QAQuestionStatus extends Enum
 {
-    /* public */ const ACTIVE = 1;
+    public const ACTIVE = 1;
 
-    /* public */ const INACTIVE = 2;
+    public const INACTIVE = 2;
 
-    /* public */ const BLOCKED = 4;
+    public const BLOCKED = 4;
 }

@@ -26,15 +26,15 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class NavigationType extends Enum
 {
-    /* public */ const TOP = 1;
+    public const TOP = 1;
 
-    /* public */ const SIDE = 2;
+    public const SIDE = 2;
 
-    /* public */ const CONTENT = 3;
+    public const CONTENT = 3;
 
-    /* public */ const TAB = 4;
+    public const TAB = 4;
 
-    /* public */ const CONTENT_SIDE = 5;
+    public const CONTENT_SIDE = 5;
 
-    /* public */ const BOTTOM = 6;
+    public const BOTTOM = 6;
 }

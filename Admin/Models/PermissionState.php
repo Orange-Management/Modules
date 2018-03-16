@@ -26,9 +26,9 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class PermissionState extends Enum
 {
-    /* public */ const SETTINGS = 1;
-    /* public */ const ACCOUNT  = 2;
-    /* public */ const GROUP    = 3;
-    /* public */ const MODULE   = 4;
-    /* public */ const LOG      = 5;
+    public const SETTINGS = 1;
+    public const ACCOUNT  = 2;
+    public const GROUP    = 3;
+    public const MODULE   = 4;
+    public const LOG      = 5;
 }

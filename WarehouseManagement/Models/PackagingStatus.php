@@ -26,13 +26,13 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class PackagingStatus extends Enum
 {
-    /* public */ const PENDING = 0;
+    public const PENDING = 0;
 
-    /* public */ const PACKING = 1;
+    public const PACKING = 1;
 
-    /* public */ const PACKED = 2;
+    public const PACKED = 2;
 
-    /* public */ const SUSPENDED = 3;
+    public const SUSPENDED = 3;
 
-    /* public */ const CANCELED = 4;
+    public const CANCELED = 4;
 }

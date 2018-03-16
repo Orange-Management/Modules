@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class ReporterStatus extends Enum
 {
-    /* public */ const INACTIVE = 0;
+    public const INACTIVE = 0;
 
-    /* public */ const ACTIVE = 1;
+    public const ACTIVE = 1;
 }

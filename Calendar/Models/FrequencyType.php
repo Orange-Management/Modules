@@ -26,13 +26,13 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class FrequencyType extends Enum
 {
-    /* public */ const ONCE = 1;
+    public const ONCE = 1;
 
-    /* public */ const DAILY = 2;
+    public const DAILY = 2;
 
-    /* public */ const WEEKLY = 4;
+    public const WEEKLY = 4;
 
-    /* public */ const MONTHLY = 8;
+    public const MONTHLY = 8;
 
-    /* public */ const YEARLY = 16;
+    public const YEARLY = 16;
 }

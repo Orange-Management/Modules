@@ -26,7 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class EventType extends Enum
 {
-    /* public */ const TEMPLATE = 1;
+    public const TEMPLATE = 1;
 
-    /* public */ const SINGLE = 2;
+    public const SINGLE = 2;
 }

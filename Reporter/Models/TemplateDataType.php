@@ -26,9 +26,9 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class TemplateDataType extends Enum
 {
-    /* public */ const OTHER = 0;
+    public const OTHER = 0;
 
-    /* public */ const GLOBAL_DB = 1;
+    public const GLOBAL_DB = 1;
 
-    /* public */ const GLOBAL_FILE = 2;
+    public const GLOBAL_FILE = 2;
 }

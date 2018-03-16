@@ -26,5 +26,5 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class EventStatus extends Enum
 {
-    /* public */ const ACTIVE = 1;
+    public const ACTIVE = 1;
 }

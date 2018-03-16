@@ -26,13 +26,13 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class FrequencyRelative extends Enum
 {
-    /* public */ const FIRST = 1;
+    public const FIRST = 1;
 
-    /* public */ const SECOND = 2;
+    public const SECOND = 2;
 
-    /* public */ const THIRD = 4;
+    public const THIRD = 4;
 
-    /* public */ const FOURTH = 8;
+    public const FOURTH = 8;
 
-    /* public */ const LAST = 64;
+    public const LAST = 64;
 }
