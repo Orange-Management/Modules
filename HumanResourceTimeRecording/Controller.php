@@ -68,7 +68,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Providing.
      *
-     * @var string
+     * @var string[]
      * @since 1.0.0
      */
     protected static $providing = [];
@@ -76,7 +76,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Dependencies.
      *
-     * @var string
+     * @var string[]
      * @since 1.0.0
      */
     protected static $dependencies = [
