@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                                 </select>
                         <tr><td><label for="iFile"><?= $this->getHtml('Files'); ?></label>
                         <tr><td><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden" pattern="\[(([0-9])+(,)*( )*)+\]" required>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" id="iReportCreateButton" name="reportCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
             </div>

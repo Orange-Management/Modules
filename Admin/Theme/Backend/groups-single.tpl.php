@@ -14,9 +14,9 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-$group = $this->getData('group');
+$group       = $this->getData('group');
 $permissions = $this->getData('permissions');
-$accounts = $this->getData('accounts');
+$accounts    = $this->getData('accounts');
 
 echo $this->getData('nav')->render(); ?>
 

@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><textarea id="iDescription" name="description"></textarea>
                         <tr><td><label for="iFiles"><?= $this->getHtml('Files') ?></label>
                         <tr><td><input type="file" id="iFiles" name="files" multiple><input name="media" type="hidden">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" id="iMediaCreate" name="mediaCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
             </div>

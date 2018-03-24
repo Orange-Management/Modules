@@ -24,11 +24,11 @@ $_thousands_sep = $this->getData('thousands_sep') ?? '';
 $_password      = $this->getData('password') ?? '';
 $_country       = $this->getData('country') ?? '';
 
-$countries     = \phpOMS\Localization\ISO3166NameEnum::getConstants();
-$timezones     = \phpOMS\Localization\TimeZoneEnumArray::getConstants();
-$timeformats   = \phpOMS\Localization\ISO8601EnumArray::getConstants();
-$languages     = \phpOMS\Localization\ISO639Enum::getConstants();
-$currencies    = \phpOMS\Localization\ISO4217Enum::getConstants();
+$countries   = \phpOMS\Localization\ISO3166NameEnum::getConstants();
+$timezones   = \phpOMS\Localization\TimeZoneEnumArray::getConstants();
+$timeformats = \phpOMS\Localization\ISO8601EnumArray::getConstants();
+$languages   = \phpOMS\Localization\ISO639Enum::getConstants();
+$currencies  = \phpOMS\Localization\ISO4217Enum::getConstants();
 ?>
 
 <div class="tabular-2">

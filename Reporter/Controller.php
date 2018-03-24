@@ -310,8 +310,6 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @api
      *
-     * @api
-     *
      * @since  1.0.0
      */
     public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -386,8 +384,6 @@ class Controller extends ModuleAbstract implements WebInterface
      *
      * @api
      *
-     * @api
-     *
      * @since  1.0.0
      */
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -456,8 +452,6 @@ class Controller extends ModuleAbstract implements WebInterface
      * @param mixed            $data     Generic data
      *
      * @return void
-     *
-     * @api
      *
      * @api
      *

@@ -24,6 +24,7 @@ use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\PermissionState;
+use Modules\Tasks\Views\TaskView;
 
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
@@ -166,7 +167,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
-        $view = new View($this->app, $request, $response);
+        $view = new TaskView($this->app, $request, $response);
 
         $task      = TaskMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();

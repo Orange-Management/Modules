@@ -130,7 +130,17 @@ class Navigation
         }
     }
 
-    private function setReadable(array &$nav, $parent) 
+    /**
+     * Set navigation elements as readable
+     *
+     * @param array $nav Full Navigation
+     * @param int   $parent Parent id
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    private function setReadable(array &$nav, int $parent) : void
     {
         if (isset($nav[$parent])) {
             $nav[$parent][0]['readable'] = true;
@@ -168,15 +178,6 @@ class Navigation
         }
 
         return self::$instance;
-    }
-
-    /**
-     * Overwriting clone in order to maintain singleton pattern.
-     *
-     * @since  1.0.0
-     */
-    public function __clone()
-    {
     }
 
     /**

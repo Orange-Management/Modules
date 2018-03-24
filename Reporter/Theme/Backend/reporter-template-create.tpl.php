@@ -53,7 +53,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><input id="iFile" name="fileVisual" type="file" required multiple><input id="iFileHidden" name="files" type="hidden">
                         <tr><td colspan="2"><label for="iExpected"><?= $this->getHtml('Expected'); ?></label>
                         <tr><td class="wf-100"><input id="iExpected" type="text" placeholder="&#xf15b; file.csv"><input name="expected" type="hidden"><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
-                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td colspan="2"><input type="submit" id="iReportTemplateCreateButton" name="reportTemplateCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
             </div>

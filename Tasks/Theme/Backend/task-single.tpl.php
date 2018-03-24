@@ -10,6 +10,9 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
+use \Modules\Tasks\Models\TaskStatus;
+
 /**
  * @var \phpOMS\Views\View         $this
  * @var \Modules\Tasks\Models\Task $task
@@ -19,11 +22,7 @@ $taskMedia = $task->getMedia();
 $elements  = $task->getTaskElements();
 $cElements = count($elements);
 $forwarded = $task->getCreatedBy()->getId();
-
-if ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; }
+$color     = $this->getStatus($task->getStatus());
 
 echo $this->getData('nav')->render(); ?>
 
@@ -57,11 +56,7 @@ echo $this->getData('nav')->render(); ?>
 
         <?php $c = 0;
         foreach ($elements as $key => $element) : $c++;
-            if ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
-            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-            elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
+            $color = $this->getStatus($element->getStatus()); ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
                     <div class="vCenterTable wf-100"><?= $this->printHtml($element->getCreatedBy()->getName1()); ?> <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
@@ -83,9 +78,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php endif; ?>
 
                 <div class="inner pAlignTable" style="background: #efefef; border-top: 1px solid #dfdfdf;">
-                <?php if ($element->getStatus() !== \Modules\Tasks\Models\TaskStatus::CANCELED ||
-                    $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::DONE ||
-                    $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::SUSPENDED || $c != $cElements
+                <?php if ($element->getStatus() !== TaskStatus::CANCELED ||
+                    $element->getStatus() !== TaskStatus::DONE ||
+                    $element->getStatus() !== TaskStatus::SUSPENDED || $c != $cElements
                 ) : ?>
                     <div class="vCenterTable nobreak">Due <?= $this->printHtml($element->getDue()->format('Y-m-d H:i')); ?></div>
                 <?php endif; ?>
@@ -110,11 +105,11 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskStatus::OPEN); ?>" selected>Open
-                                    <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskStatus::WORKING); ?>">Working
-                                    <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskStatus::SUSPENDED); ?>">Suspended
-                                    <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskStatus::CANCELED); ?>">Canceled
-                                    <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskStatus::DONE); ?>">Done
+                                    <option value="<?= $this->printHtml(TaskStatus::OPEN); ?>" selected>Open
+                                    <option value="<?= $this->printHtml(TaskStatus::WORKING); ?>">Working
+                                    <option value="<?= $this->printHtml(TaskStatus::SUSPENDED); ?>">Suspended
+                                    <option value="<?= $this->printHtml(TaskStatus::CANCELED); ?>">Canceled
+                                    <option value="<?= $this->printHtml(TaskStatus::DONE); ?>">Done
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
                         <tr><td><input type="text" id="iReceiver" name="forward" value="<?= $this->printHtml($this->request->getHeader()->getAccount()); ?>" placeholder="&#xf007; Guest">
@@ -124,8 +119,12 @@ echo $this->getData('nav')->render(); ?>
                                 <div class="ipt-second"><button><?= $this->getHtml('Select') ?></button></div>
                             </div>
                         <tr><td><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
-                        <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="task" value="<?= $this->printHtml($this->request->getData('id')); ?>"><input type="hidden" name="type" value="1">
+                        <tr><td>
+                            <input type="file" id="iUpload" name="fileUpload" form="fTask">
+                            <input form="fTask" type="hidden" name="type">
+                        <tr><td>
+                            <input type="submit" id="iTaskElementCreateButton" name="taskElementCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                            <input type="hidden" name="task" value="<?= $this->printHtml($this->request->getData('id')); ?>"><input type="hidden" name="type" value="1">
                     </table>
                 </form>
             </div>
