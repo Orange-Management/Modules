@@ -65,7 +65,7 @@ class Navigation
      *
      * @since  1.0.0
      */
-    private function __construct(RequestAbstract $request, Account $account, DatabasePool $dbPool = null)
+    private function __construct(RequestAbstract $request, Account $account, DatabasePool $dbPool)
     {
         $this->dbPool = $dbPool;
         $this->load($request->getHash(), $account);
@@ -110,14 +110,15 @@ class Navigation
                     PermissionType::READ, 
                     null, 
                     null, 
-                    $link[0]['from'], $link[0]['permission']['type'], 
-                    $link[0]['permission']['type']['element']
+                    (string) $link[0]['nav_from'], 
+                    (int) $link[0]['nav_permission_type'], 
+                    (int) $link[0]['nav_permission_element']
                 );
 
                 if ($isReadable) {
                     $tempNav[$id][0]['readable'] = true;
                     
-                    $this->setReadable($tempNav, $tempNav[$id][0]['paremt']);
+                    $this->setReadable($tempNav, $tempNav[$id][0]['nav_parent']);
                 }
             }
 
@@ -133,13 +134,13 @@ class Navigation
     {
         if (isset($nav[$parent])) {
             $nav[$parent][0]['readable'] = true;
-        }
 
-        if (isset($nav[$nav[$parent][0]['parent']])
-            && (!isset($nav[$nav[$parent][0]['parent']][0]['readable']) 
-                || !$nav[$nav[$parent][0]['parent']][0]['readable'])
-        ) {
-            $this->setReadable($nav, $nav[$parent][0]['parent']);
+            if (isset($nav[$nav[$parent][0]['nav_parent']])
+                && (!isset($nav[$nav[$parent][0]['nav_parent']][0]['readable']) 
+                    || !$nav[$nav[$parent][0]['nav_parent']][0]['readable'])
+            ) {
+                $this->setReadable($nav, $nav[$parent][0]['nav_parent']);
+            }
         }
     }
 
@@ -156,7 +157,7 @@ class Navigation
      *
      * @since  1.0.0
      */
-    public static function getInstance(RequestAbstract $hashes = null, Account $account, DatabasePool $dbPool = null)
+    public static function getInstance(RequestAbstract $hashes = null, Account $account, DatabasePool $dbPool)
     {
         if (!isset(self::$instance)) {
             if (!isset($hashes) || !isset($dbPool)) {
