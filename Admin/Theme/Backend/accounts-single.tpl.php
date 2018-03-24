@@ -135,8 +135,8 @@ echo $this->getData('nav')->render(); ?>
                 <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
-                        <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf084; news_create">
+                        <tr><td><label for="iPermiision"><?= $this->getHtml('Name'); ?></label>
+                        <tr><td><input id="iPermiision" name="permission" type="text" placeholder="&#xf084; permission_create">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
