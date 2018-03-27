@@ -14,7 +14,7 @@
         "name": "Orange Management",
         "website": "www.spl1nes.com"
     },
-    "description": "The administration module.",
+    "description": "The reporter module supports creating static and dynamic reportings.",
     "directory": "Reporter",
     "dependencies": {
         "Admin": "1.0.0",

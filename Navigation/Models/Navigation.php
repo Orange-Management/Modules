@@ -133,7 +133,7 @@ class Navigation
     /**
      * Set navigation elements as readable
      *
-     * @param array $nav Full Navigation
+     * @param array $nav    Full Navigation
      * @param int   $parent Parent id
      *
      * @return void

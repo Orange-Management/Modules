@@ -14,7 +14,7 @@
         "name": "Orange Management",
         "website": "www.spl1nes.com"
     },
-    "description": "The profile module.",
+    "description": "The profile module allows users to manage their own account and lookup other user accounts.",
     "directory": "Profile",
     "dependencies": {
         "Admin": "1.0.0",

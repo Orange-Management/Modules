@@ -18,7 +18,7 @@ $modules   = $this->app->moduleManager->getAllModules();
 $active    = $this->app->moduleManager->getActiveModules();
 $installed = $this->app->moduleManager->getInstalledModules();
 
-$id = $this->request->getData('id') ?? 1;
+$id = (string) $this->request->getData('id') ?? 1;
 ?>
 
 <div class="row">
@@ -47,14 +47,43 @@ $id = $this->request->getData('id') ?? 1;
                     <tr>
                         <td colspan="2">
                             <?php if (in_array($id, $active)) : ?>
-                                <button
-                                    data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/status?{?}&status=deactivate&module=' . $id); ?>"><?= $this->getHtml('Deactivate'); ?></button>
+                                <button data-action='[
+                                    {
+                                        "listener": "click", "action": [
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                        ]
+                                    }
+                                ]'><?= $this->getHtml('Deactivate'); ?></button>
                             <?php elseif (in_array($id, $installed)) : ?>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?{?}&id=' . $id); ?>"><?= $this->getHtml('Uninstall'); ?></button>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('POST:/{/lang}/backend/admin/module/deactivate?{?}&id=' . $id); ?>"><?= $this->getHtml('Activate'); ?></button>
+                                <button data-action='[
+                                    {
+                                        "listener": "click", "action": [
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                        ]
+                                    }
+                                ]'>><?= $this->getHtml('Uninstall'); ?></button>
+                                <button data-action='[
+                                    {
+                                        "listener": "click", "action": [
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                        ]
+                                    }
+                                ]'><?= $this->getHtml('Activate'); ?></button>
                             <?php elseif (isset($modules[$id])) : ?>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('PUT:/{/lang}/backend/admin/module/install?{?}&id=' . $id); ?>"><?= $this->getHtml('Install'); ?></button>
-                                <button data-reload="<?= \phpOMS\Uri\UriFactory::build('DELETE:/{/lang}/backend/admin/module/delete?{?}&id=' . $id); ?>"><?= $this->getHtml('Delete', 0); ?></button>
+                                <button data-action='[
+                                    {
+                                        "listener": "click", "action": [
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=install&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                        ]
+                                    }
+                                ]'><?= $this->getHtml('Install'); ?></button>
+                                <button data-action='[
+                                    {
+                                        "listener": "click", "action": [
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=delete&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                        ]
+                                    }
+                                ]'><?= $this->getHtml('Delete', 0); ?></button>
                             <?php endif; ?>
                 </table>
             </div>
