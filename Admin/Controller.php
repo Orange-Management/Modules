@@ -563,8 +563,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (($val['name'] = empty($request->getData('name')))
-            || ($val['status'] = (
-                $request->getData('status') === null
+            || ($val['status'] = ($request->getData('status') === null
                 || !GroupStatus::isValidValue((int) $request->getData('status'))
             ))
         ) {

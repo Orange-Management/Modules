@@ -1,10 +1,10 @@
 {
     "name": {
-        "id": 1000600000,
-        "internal": "News",
-        "external": "News"
+        "id": 1006900000,
+        "internal": "Home",
+        "external": "Backend Home"
     },
-    "category": "Content",
+    "category": "General",
     "version": "1.0.0",
     "requirements": {
         "phpOMS": "1.0.0",
@@ -14,11 +14,10 @@
         "name": "Orange Management",
         "website": "www.spl1nes.com"
     },
-    "description": "News module.",
-    "directory": "News",
+    "description": "The backend home module.",
+    "directory": "Home",
     "dependencies": {
-        "Admin": "1.0.0",
-        "Home": "1.0.0"
+        "Admin": "1.0.0"
     },
     "providing": {
         "Navigation": "*"
@@ -26,19 +25,10 @@
     "load": [
         {
             "pid": [
-                "/backend/news"
-            ],
-            "type": 4,
-            "for": 0,
-            "from": "News",
-            "file": "News"
-        },
-        {
-            "pid": [
                 "/backend"
             ],
             "type": 5,
-            "from": "News",
+            "from": "Home",
             "for": "Navigation",
             "file": "Navigation"
         }

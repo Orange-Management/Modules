@@ -11,7 +11,7 @@
         "order": 10,
         "from": "Profile",
         "permission": { "type": null, "element": null },
-        "parent": 1000201001,
+        "parent": 1006901001,
         "children": [
             {
                 "id": 1000302001,
