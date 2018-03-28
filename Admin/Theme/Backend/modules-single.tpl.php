@@ -47,7 +47,7 @@ $id = (string) $this->request->getData('id') ?? 1;
                     <tr>
                         <td colspan="2">
                             <?php if (in_array($id, $active)) : ?>
-                                <button data-action='[
+                                <button id="iModuleDeactivateButton" data-action='[
                                     {
                                         "listener": "click", "action": [
                                             {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>", "method": "POST", "request_type": "json"}
@@ -55,14 +55,14 @@ $id = (string) $this->request->getData('id') ?? 1;
                                     }
                                 ]'><?= $this->getHtml('Deactivate'); ?></button>
                             <?php elseif (in_array($id, $installed)) : ?>
-                                <button data-action='[
+                                <button id="iModuleUninstallButton" data-action='[
                                     {
                                         "listener": "click", "action": [
                                             {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>", "method": "POST", "request_type": "json"}
                                         ]
                                     }
                                 ]'>><?= $this->getHtml('Uninstall'); ?></button>
-                                <button data-action='[
+                                <button id="iModuleActivateButton" data-action='[
                                     {
                                         "listener": "click", "action": [
                                             {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>", "method": "POST", "request_type": "json"}
@@ -70,14 +70,15 @@ $id = (string) $this->request->getData('id') ?? 1;
                                     }
                                 ]'><?= $this->getHtml('Activate'); ?></button>
                             <?php elseif (isset($modules[$id])) : ?>
-                                <button data-action='[
+                                <button id="iModuleInstallButton" data-action='[
                                     {
                                         "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=install&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=install&module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 2, "type": "message.log"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Install'); ?></button>
-                                <button data-action='[
+                                <button id="iModuleDeleteButton" data-action='[
                                     {
                                         "listener": "click", "action": [
                                             {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=delete&module=' . $id); ?>", "method": "POST", "request_type": "json"}

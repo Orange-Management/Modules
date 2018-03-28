@@ -937,21 +937,35 @@ class Controller extends ModuleAbstract implements WebInterface
         switch ($status) {
             case 'activate':
                 $done = $this->app->moduleManager->activate($module);
+                $msg  = 'Module successfully activated.';
+
                 break;
             case 'deactivate':
                 $done = $this->app->moduleManager->deactivate($module);
+                $msg  = 'Module successfully deactivated.';
+
                 break;
             case 'install':
                 $done = $this->app->moduleManager->install($module);
+                $msg  = 'Module successfully installed.';
+                
                 break;
             case 'uninstall':
                 //$done = $this->app->moduleManager->uninstall($module);
                 $done = true;
+                $msg  = 'Module successfully uninstalled.';
+
                 break;
             default:
                 $done = false;
+                $msg  = 'Unknown module status change request.';
         }
 
-        $response->set('module', [$status => $done, 'module' => $module]);
+        $response->set($request->getUri()->__toString(), [
+            'status' => $done ? 'ok' : 'warning',
+            'title' => 'Module',
+            'message' => $msg,
+            'response' => []
+        ]);
     }
 }
