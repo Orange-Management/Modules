@@ -18,6 +18,7 @@
     "directory": "Billing",
     "dependencies": {
         "Admin": "1.0.0",
+        "Sales": "1.0.0",
         "ClientManagement": "1.0.0"
     },
     "providing": {

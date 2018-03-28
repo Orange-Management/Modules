@@ -71,7 +71,7 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    public static function installExternal(DatabasePool $dbPool, array $data)
+    public static function installExternal(DatabasePool $dbPool, array $data) : void
     {
         try {
             $dbPool->get()->con->query('select 1 from `' . $dbPool->get()->prefix . 'nav`');
@@ -94,7 +94,7 @@ class Installer extends InstallerAbstract
      *
      * @since  1.0.0
      */
-    private static function installLink($dbPool, $data)
+    private static function installLink($dbPool, $data) : void
     {
         $sth = $dbPool->get()->con->prepare(
             'INSERT INTO `' . $dbPool->get()->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission_type`, `nav_permission_element`) VALUES

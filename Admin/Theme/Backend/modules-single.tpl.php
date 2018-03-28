@@ -74,7 +74,9 @@ $id = (string) $this->request->getData('id') ?? 1;
                                     {
                                         "listener": "click", "action": [
                                             {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=install&module=' . $id); ?>", "method": "POST", "request_type": "json"},
-                                            {"key": 2, "type": "message.log"}
+                                            {"key": 2, "type": "message.log"},
+                                            {"key": 3, "type": "utils.timer", "id": "iModuleInstallButton", "delay": 1500, "resets": true},
+                                            {"key": 4, "type": "redirect", "uri": "{%}", "target": "self"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Install'); ?></button>
