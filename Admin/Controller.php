@@ -601,10 +601,13 @@ class Controller extends ModuleAbstract implements WebInterface
 
             return;
         }
-
+        
         $group = $this->createGroupFromRequest($request);
-
+        
+        $this->app->eventManager->trigger('PRE:Module:Admin-groupcreate', '', $group);
         GroupMapper::create($group);
+        $this->app->eventManager->trigger('POST:Module:Admin-groupcreate', '', $group);
+
         $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Group',
@@ -656,9 +659,12 @@ class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
+        
+        $group = GroupMapper::get((int) $request->getData('id'));
 
-        $group  = GroupMapper::get((int) $request->getData('id'));
+        $this->app->eventManager->trigger('PRE:Module:Admin-groupdelete', '', $group);
         $status = GroupMapper::delete($group);
+        $this->app->eventManager->trigger('POST:Module:Admin-groupdelete', '', $group);
 
         $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
@@ -782,7 +788,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $account = $this->createAccountFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Admin-accountcreate', '', $account);
+
         AccountMapper::create($account);
+
+        $this->app->eventManager->trigger('POST:Module:Admin-accountcreate', '', $account);
+
         $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'Account',
@@ -839,7 +850,10 @@ class Controller extends ModuleAbstract implements WebInterface
         }
 
         $account = AccountMapper::get((int) ($request->getData('id')));
-        $status  = AccountMapper::delete($account);
+        
+        $this->app->eventManager->trigger('PRE:Module:Admin-accountdelete', '', $account);
+        $status = AccountMapper::delete($account);
+        $this->app->eventManager->trigger('POST:Module:Admin-accountdelete', '', $account);
 
         $response->set($request->getUri()->__toString(), [
             'status' => 'ok',

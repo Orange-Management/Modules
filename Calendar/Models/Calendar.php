@@ -129,9 +129,11 @@ class Calendar
     /**
      * @param string $desc Calendar description
      *
+     * @return void
+     * 
      * @since  1.0.0
      */
-    public function setDescription(string $desc)
+    public function setDescription(string $desc) : void
     {
         $this->description = $desc;
     }
