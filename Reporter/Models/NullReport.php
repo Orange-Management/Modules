@@ -24,8 +24,4 @@ namespace Modules\Reporter\Models;
  */
 class NullReport extends Report
 {
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('NOW');
-    }
 }
