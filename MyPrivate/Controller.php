@@ -63,34 +63,6 @@ class Controller extends ModuleAbstract implements WebInterface
     public const MODULE_ID = 1003400000;
 
     /**
-     * JavaScript files.
-     *
-     * @var string[]
-     * @since 1.0.0
-     */
-    public static $js = [
-        'backend',
-    ];
-
-    /**
-     * CSS files.
-     *
-     * @var string[]
-     * @since 1.0.0
-     */
-    public static $css = [
-    ];
-
-    /**
-     * Localization files.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $localization = [
-    ];
-
-    /**
      * Providing.
      *
      * @var string[]
