@@ -31,9 +31,9 @@
                         {"key": 5, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
                     ]
                 }
-            ]'<?= $this->isRequired() ? ' required' : ''; ?>>
+            ]'>
             <datalist id="<?= $this->printHtml($this->getId()); ?>-datalist"></datalist>
-            <input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-idlist">
+            <input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-idlist"<?= $this->isRequired() ? ' required' : ''; ?>>
         </span>
     </div>
     <div class="ipt-second"><button><?= $this->getHtml('Add', 0, 0); ?></button></div>
@@ -41,9 +41,9 @@
 <div class="box taglist" id="<?= $this->printHtml($this->getId()); ?>-taglist" data-action='[
     {
         "key": 1, "listener": "click", "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist span fa", "action": [
-            {"key": 2, "type": "dom.getvalue", "base": "self"},
-            {"key": 3, "type": "dom.removevalue", "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "data": ""}
-            {"key": 1, "type": "dom.remove", "base": "self"},
+            {"key": 1, "type": "dom.getvalue", "base": "self"},
+            {"key": 2, "type": "dom.removevalue", "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "data": ""},
+            {"key": 3, "type": "dom.remove", "base": "self"}
         ]
     }
 ]'></div>
