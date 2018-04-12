@@ -21,4 +21,16 @@ return [
             'verb' => RouteVerb::GET,
         ],
     ],
+    '^.*/backend/admin/monitoring/security/dashboard.*$' => [
+        [
+            'dest' => '\Modules\Monitoring\Controller:viewMonitoringSecurityDashboard',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/backend/admin/monitoring/security/file/list.*$' => [
+        [
+            'dest' => '\Modules\Monitoring\Controller:viewMonitoringSecurityFileList',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
 ];

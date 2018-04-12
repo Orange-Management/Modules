@@ -13,14 +13,6 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-
-$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-
-$footerView->setPages(0 / 25);
-$footerView->setPage(1);
-$footerView->setResults(0);
-
 $logs = array_reverse($this->app->logger->get(25), true);
 
 echo $this->getData('nav')->render(); ?>

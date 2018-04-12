@@ -14,4 +14,5 @@ return ['Navigation' => [
     'List'       => 'List',
     'Logs'       => 'Logs',
     'Monitoring' => 'Monitoring',
+    'Security' => 'Security',
 ]];

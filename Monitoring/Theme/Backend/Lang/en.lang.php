@@ -37,6 +37,7 @@ return ['Monitoring' => [
     'Total'       => 'Total',
     'OS'          => 'OS',
     'Penetrators' => 'Penetrators',
+    'PHPSettings' => 'PHP Settings',
     'RAMUsage'    => 'RAM Usage',
     'Release'     => 'Release',
     'Report'      => 'Report',
