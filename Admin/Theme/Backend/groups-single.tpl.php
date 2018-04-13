@@ -21,7 +21,7 @@ $accounts    = $this->getData('accounts');
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Group'); ?></h1></header>
             <div class="inner">
@@ -48,9 +48,9 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <table class="box table red wf-100">
-            <caption><?= $this->getHtml('Parents') ?></caption>
+            <caption><?= $this->getHtml('Accounts') ?></caption>
             <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
@@ -58,6 +58,7 @@ echo $this->getData('nav')->render(); ?>
             <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
                 <tr>
+                    <td><a href="#"><i class="fa fa-times"></i></a>
                     <td>
                     <td>
                 <?php endforeach; ?>
@@ -67,13 +68,13 @@ echo $this->getData('nav')->render(); ?>
         </table>
 
         <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Parent'); ?></h1></header>
+            <header><h1><?= $this->getHtml('Accounts'); ?></h1></header>
             <div class="inner">
                 <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGParentName"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGParentName" name="parentname" type="text" placeholder="&#xf0c0; Guest">
+                        <tr><td><input id="iGParentName" name="parentname" type="text" placeholder="&#xf234; Donald Duck">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
@@ -81,14 +82,16 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <table class="box table red wf-100">
             <caption><?= $this->getHtml('Permissions') ?></caption>
             <thead>
                 <tr>
+                    <td>
+                    <td>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
                     <td>Unit
-                    <td>App
+                    <td class="wf-100">App
                     <td>Module
                     <td>Type
                     <td>Ele.
@@ -97,6 +100,8 @@ echo $this->getData('nav')->render(); ?>
             <tbody>
                 <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
                 <tr>
+                    <td><a href="#"><i class="fa fa-times"></i></a>
+                    <td><a href="#"><i class="fa fa-cogs"></i></a>
                     <td><?= $value->getId(); ?>
                     <td><?= $value->getUnit(); ?>
                     <td><?= $value->getApp(); ?>
@@ -124,22 +129,6 @@ echo $this->getData('nav')->render(); ?>
                         <tbody>
                         <tr><td><label for="iPermissionName"><?= $this->getHtml('Name'); ?></label>
                         <tr><td><input id="iPermissionName" name="permissionname" type="text" placeholder="&#xf084; Admin">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
-                    </table>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <div class="col-xs-12 col-md-4">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Accounts'); ?></h1></header>
-            <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
-                    <table class="layout wf-100">
-                        <tbody>
-                        <tr><td><label for="iGParentName"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGParentName" name="parentname" type="text" placeholder="&#xf234; Donald Duck">
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>

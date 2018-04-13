@@ -20,7 +20,7 @@ $permissions = $this->getData('permissions');
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Account'); ?></h1></header>
             <div class="inner">
@@ -60,17 +60,19 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <table class="box table red">
             <caption><?= $this->getHtml('Groups') ?></caption>
             <thead>
                 <tr>
+                    <td>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
             <tbody>
                 <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
+                    <td><a href="#"><i class="fa fa-times"></i></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                 <?php endforeach; ?>
@@ -94,14 +96,16 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <table class="box table red">
             <caption><?= $this->getHtml('Permissions') ?></caption>
             <thead>
                 <tr>
+                    <td>
+                    <td>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
                     <td>Unit
-                    <td>App
+                    <td class="wf-100">App
                     <td>Module
                     <td>Type
                     <td>Ele.
@@ -110,6 +114,8 @@ echo $this->getData('nav')->render(); ?>
             <tbody>
                 <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
                 <tr>
+                    <td><a href="#"><i class="fa fa-times"></i></a>
+                    <td><a href="#"><i class="fa fa-cogs"></i></a>
                     <td><?= $value->getId(); ?>
                     <td><?= $value->getUnit(); ?>
                     <td><?= $value->getApp(); ?>
@@ -125,7 +131,7 @@ echo $this->getData('nav')->render(); ?>
                         <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
-                <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                 <?php endif; ?>
         </table>
 
