@@ -26,10 +26,9 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; R&D" required>
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
-                        <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="parent" id="iParent"></span>
+                        <tr><td><?= $this->getData('department-selector')->render('iParent', false); ?>
                         <tr><td><label for="iUnit"><?= $this->getHtml('Unit') ?></label>
-                        <tr><td><select name="unit" id="iUnit">
-                                </select>
+                        <tr><td><?= $this->getData('unit-selector')->render('iUnit', false); ?>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td><textarea name="description" id="iDescription" placeholder="&#xf040;"></textarea>
                         <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">

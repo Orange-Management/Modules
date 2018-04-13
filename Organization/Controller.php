@@ -148,6 +148,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
 
+        $selectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
+        $view->addData('unit-selector', $selectorView);
+
         $view->addData('unit', UnitMapper::get((int) $request->getData('id')));
 
         return $view;
@@ -177,6 +180,9 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
+
+        $selectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
+        $view->addData('unit-selector', $selectorView);
 
         return $view;
     }
@@ -236,6 +242,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
+        $selectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
+        $view->addData('department-selector', $selectorView);
+
+        $unitSelectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\UnitTagSelectorView($this->app, $request, $response);
+        $view->addData('unit-selector', $unitSelectorView);
+
         $view->addData('department', DepartmentMapper::get((int) $request->getData('id')));
 
         return $view;
@@ -265,6 +277,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
+
+        $selectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
+        $view->addData('department-selector', $selectorView);
+
+        $unitSelectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
+        $view->addData('unit-selector', $unitSelectorView);
 
         return $view;
     }
@@ -324,6 +342,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
+        $selectorView = new \Modules\Organization\Theme\Backend\Components\PositionTagSelector\PositionTagSelectorView($this->app, $request, $response);
+        $view->addData('position-selector', $selectorView);
+
+        $departmentSelectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
+        $view->addData('department-selector', $departmentSelectorView);
+
         $view->addData('position', PositionMapper::get((int) $request->getData('id')));
 
         return $view;
@@ -353,6 +377,12 @@ class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
+
+        $selectorView = new \Modules\Organization\Theme\Backend\Components\PositionTagSelector\PositionTagSelectorView($this->app, $request, $response);
+        $view->addData('position-selector', $selectorView);
+
+        $departmentSelectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
+        $view->addData('department-selector', $departmentSelectorView);
 
         return $view;
     }
