@@ -10,15 +10,14 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
+include __DIR__ . '/template-functions.php';
+
 /**
  * @var \phpOMS\Views\View $this
  */
 
-$media      = $this->getData('media');
-$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-$footerView->setPages(count($media) / 25);
-$footerView->setPage(1);
+$media = $this->getData('media');
 
 echo $this->getData('nav')->render(); ?>
 
@@ -40,34 +39,8 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="3">
                         <tbody>
                         <?php $count = 0; foreach ($media as $key => $value) : $count++;
-                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
-
-                        $icon = '';
-                        $extensionType = \phpOMS\System\File\FileUtils::getExtensionType($value->getExtension());
-
-                        if ($extensionType === \phpOMS\System\File\ExtensionType::CODE) {
-                            $icon = 'file-code-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::TEXT) {
-                            $icon = 'file-text-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::PRESENTATION) {
-                           $icon = 'file-powerpoint-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::PDF) {
-                            $icon = 'file-pdf-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::ARCHIVE) {
-                            $icon = 'file-zip-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::AUDIO) {
-                            $icon = 'file-audio-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::VIDEO) {
-                            $icon = 'file-video-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::IMAGE) {
-                            $icon = 'file-image-o';
-                        } elseif ($extensionType === \phpOMS\System\File\ExtensionType::SPREADSHEET) {
-                            $icon = 'file-excel-o';
-                        } elseif ($value->getExtension() === 'collection') {
-                            $icon = 'folder-open-o';
-                        } else {
-                            $icon = 'file-o';
-                        }
+                        $url  = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
+                        $icon = $fileIconFunction(\phpOMS\System\File\FileUtils::getExtensionType($value->getExtension()));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>

@@ -11,8 +11,12 @@
  * @link       http://website.orange-management.de
  */
 
-use \phpOMS\System\File\ExtensionType;
 use \phpOMS\System\File\Local\File;
+use \phpOMS\System\File\FileUtils;
+use \phpOMS\System\File\ExtensionType;
+use \phpOMS\Uri\UriFactory;
+
+include __DIR__ . '/template-functions.php';
 
 /**
  * @var \phpOMS\Views\View $this
@@ -43,15 +47,7 @@ echo $this->getData('nav')->render();
 </div>
 
 <div class="row">
-    <?php if (
-        (
-            $media->getExtension() === 'collection'
-            && !is_file($media->getPath() . $this->request->getData('sub'))
-        ) || (
-            is_dir($media->getPath())
-            && ($this->request->getData('sub') === null || is_dir($media->getPath() . $this->request->getData('sub')))
-        )
-    ) : ?>
+    <?php if ($isCollectionFunction($media, $this->request->getData('sub') ?? '')) : ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
@@ -66,34 +62,8 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
                     <?php if (!is_dir($media->getPath())) : foreach ($media as $key => $value) :
-                        $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
-
-                        $icon = '';
-                        $extensionType = \phpOMS\System\File\FileUtils::getExtensionType($value->getExtension());
-
-                        if ($extensionType === ExtensionType::CODE) {
-                            $icon = 'file-code-o';
-                        } elseif ($extensionType === ExtensionType::TEXT) {
-                            $icon = 'file-text-o';
-                        } elseif ($extensionType === ExtensionType::PRESENTATION) {
-                           $icon = 'file-powerpoint-o';
-                        } elseif ($extensionType === ExtensionType::PDF) {
-                            $icon = 'file-pdf-o';
-                        } elseif ($extensionType === ExtensionType::ARCHIVE) {
-                            $icon = 'file-zip-o';
-                        } elseif ($extensionType === ExtensionType::AUDIO) {
-                            $icon = 'file-audio-o';
-                        } elseif ($extensionType === ExtensionType::VIDEO) {
-                            $icon = 'file-video-o';
-                        } elseif ($extensionType === ExtensionType::IMAGE) {
-                            $icon = 'file-image-o';
-                        } elseif ($extensionType === ExtensionType::SPREADSHEET) {
-                            $icon = 'file-excel-o';
-                        } elseif ($value->getExtension() === 'collection') {
-                            $icon = 'folder-open-o';
-                        } else {
-                            $icon = 'file-o';
-                        }
+                        $url  = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
+                        $icon = $fileIconFunction(FileUtils::getExtensionType($value->getExtension()));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
@@ -102,36 +72,11 @@ echo $this->getData('nav')->render();
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getSize()); ?></a>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
-                    <?php endforeach; else : $path = is_dir($media->getPath() . $this->request->getData('sub')) && phpOMS\Utils\StringUtils::startsWith(str_replace('\\', '/', realpath($media->getPath() . $this->request->getData('sub'))), $media->getPath()) ? $media->getPath() . $this->request->getData('sub') : $media->getPath(); ?>
+                    <?php endforeach; else : $path = $dirPathFunction($media, $this->request->getData('sub') ?? ''); ?>
                         <?php $list = \phpOMS\System\File\Local\Directory::list($path);
                             foreach ($list as $key => $value) :
-                                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath())));
-                                $icon = '';
-                                $extensionType = \phpOMS\System\File\FileUtils::getExtensionType(!is_dir($value) ? File::extension($value) : 'collection');
-
-                                if ($extensionType === ExtensionType::CODE) {
-                                    $icon = 'file-code-o';
-                                } elseif ($extensionType === ExtensionType::TEXT) {
-                                    $icon = 'file-text-o';
-                                } elseif ($extensionType === ExtensionType::PRESENTATION) {
-                                   $icon = 'file-powerpoint-o';
-                                } elseif ($extensionType === ExtensionType::PDF) {
-                                    $icon = 'file-pdf-o';
-                                } elseif ($extensionType === ExtensionType::ARCHIVE) {
-                                    $icon = 'file-zip-o';
-                                } elseif ($extensionType === ExtensionType::AUDIO) {
-                                    $icon = 'file-audio-o';
-                                } elseif ($extensionType === ExtensionType::VIDEO) {
-                                    $icon = 'file-video-o';
-                                } elseif ($extensionType === ExtensionType::IMAGE) {
-                                    $icon = 'file-image-o';
-                                } elseif ($extensionType === ExtensionType::SPREADSHEET) {
-                                    $icon = 'file-excel-o';
-                                } elseif ($extensionType === 'collection') {
-                                    $icon = 'folder-open-o';
-                                } else {
-                                    $icon = 'file-o';
-                                }
+                                $url = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath())));
+                                $icon = $fileIconFunction(FileUtils::getExtensionType(!is_dir($value) ? File::extension($value) : 'collection'));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
@@ -149,20 +94,11 @@ echo $this->getData('nav')->render();
         <section class="box wf-100">
             <div class="inner">
                 <?php
-                $path = is_file($media->getPath() . $this->request->getData('sub')) 
-                    && phpOMS\Utils\StringUtils::startsWith(
-                        str_replace('\\', '/', realpath($media->getPath() . $this->request->getData('sub'))), 
-                        $media->getPath()
-                    ) ? $media->getPath() . $this->request->getData('sub') : $media->getPath();
+                $path = $filePathFunction($media, $this->request->getData('sub') ?? '');
 
-                if (\phpOMS\System\File\FileUtils::getExtensionType($media->getExtension()) === ExtensionType::IMAGE 
-                    || \phpOMS\System\File\FileUtils::getExtensionType(File::extension($path)) === ExtensionType::IMAGE) : ?>
+                if ($isImageFunction($media, $path)) : ?>
                     <div class="h-overflow">
-                    <?php if (!file_exists($media->isAbsolute() ? $this->printHtml($path) : $this->printHtml($this->request->getUri()->getBase() . $path))) : ?>
-                        <div class="centerText"><i class="fa fa-question fa-5x"></i></div>
-                    <?php else: ?>
                         <img src="<?= $media->isAbsolute() ? $this->printHtml($path) : $this->printHtml($this->request->getUri()->getBase() . $path); ?>">
-                    <?php endif; ?>
                     </div>
                 <?php else : ?>
                     <button class="floatRight">Edit</button>
@@ -172,9 +108,7 @@ echo $this->getData('nav')->render();
                     <?php else : ?>
                     <pre>
                     <?php
-                    $output = file_get_contents($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path);
-                    $output = str_replace(["\r\n", "\r"], "\n", $output);
-                    $output = explode("\n", $output);
+                    $output = $lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path);
                     foreach ($output as $line) : ?><span><?= $this->printHtml($line); ?></span><?php endforeach; ?>
                     </pre>
                     <?php endif; ?>
