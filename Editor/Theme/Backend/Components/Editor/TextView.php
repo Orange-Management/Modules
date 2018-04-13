@@ -21,7 +21,9 @@ use phpOMS\Message\ResponseAbstract;
 
 class TextView extends View
 {
-    private $id = '';
+    private $id   = '';
+    private $name = '';
+    private $form = '';
 
     public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
     {
@@ -34,9 +36,22 @@ class TextView extends View
         return $this->id;
     }
 
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    public function getForm() : string
+    {
+        return $this->form;
+    }
+
     public function render(...$data) : string
     {
-        $this->id = $data[0];
+        $this->id   = $data[0] ?? '';
+        $this->name = $data[1] ?? '';
+        $this->form = $data[2] ?? '';
+
         return parent::render();
     }
 }
