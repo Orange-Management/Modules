@@ -47,6 +47,7 @@ class Installer extends InstallerAbstract
                             `monitoring_file_modified` datetime NOT NULL,
                             `monitoring_file_deprecated` tinyint(1) NOT NULL,
                             `monitoring_file_dangerous` tinyint(1) NOT NULL,
+                            `monitoring_file_unicode` tinyint(1) NOT NULL,
                             `monitoring_file_version` tinyint(1) NOT NULL,
                             `monitoring_file_hash` tinyint(1) NOT NULL,
                             `monitoring_file_status` tinyint(1) NOT NULL,
