@@ -47,7 +47,7 @@ echo $this->getData('nav')->render();
 </div>
 
 <div class="row">
-    <?php if ($isCollectionFunction($media, $this->request->getData('sub') ?? '')) : ?>
+    <?php if ($this->isCollectionFunction($media, $this->request->getData('sub') ?? '')) : ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table red">
@@ -63,7 +63,7 @@ echo $this->getData('nav')->render();
                 <tbody>
                     <?php if (!is_dir($media->getPath())) : foreach ($media as $key => $value) :
                         $url  = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
-                        $icon = $fileIconFunction(FileUtils::getExtensionType($value->getExtension()));
+                        $icon = $this->fileIconFunction(FileUtils::getExtensionType($value->getExtension()));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
@@ -72,11 +72,11 @@ echo $this->getData('nav')->render();
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getSize()); ?></a>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
-                    <?php endforeach; else : $path = $dirPathFunction($media, $this->request->getData('sub') ?? ''); ?>
+                    <?php endforeach; else : $path = $this->dirPathFunction($media, $this->request->getData('sub') ?? ''); ?>
                         <?php $list = \phpOMS\System\File\Local\Directory::list($path);
                             foreach ($list as $key => $value) :
                                 $url = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath())));
-                                $icon = $fileIconFunction(FileUtils::getExtensionType(!is_dir($value) ? File::extension($value) : 'collection'));
+                                $icon = $this->fileIconFunction(FileUtils::getExtensionType(!is_dir($value) ? File::extension($value) : 'collection'));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
@@ -94,9 +94,9 @@ echo $this->getData('nav')->render();
         <section class="box wf-100">
             <div class="inner">
                 <?php
-                $path = $filePathFunction($media, $this->request->getData('sub') ?? '');
+                $path = $this->filePathFunction($media, $this->request->getData('sub') ?? '');
 
-                if ($isImageFunction($media, $path)) : ?>
+                if ($this->isImageFunction($media, $path)) : ?>
                     <div class="h-overflow">
                         <img src="<?= $media->isAbsolute() ? $this->printHtml($path) : $this->printHtml($this->request->getUri()->getBase() . $path); ?>">
                     </div>
@@ -108,7 +108,7 @@ echo $this->getData('nav')->render();
                     <?php else : ?>
                     <pre>
                     <?php
-                    $output = $lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path);
+                    $output = $this->lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path);
                     foreach ($output as $line) : ?><span><?= $this->printHtml($line); ?></span><?php endforeach; ?>
                     </pre>
                     <?php endif; ?>

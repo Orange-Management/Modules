@@ -18,6 +18,7 @@ use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Collection;
+use Modules\Media\Views\MediaView;
 
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
@@ -143,7 +144,7 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
-        $view = new View($this->app, $request, $response);
+        $view = new MediaView($this->app, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
