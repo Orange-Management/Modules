@@ -245,7 +245,7 @@ class Controller extends ModuleAbstract implements WebInterface
         $selectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
         $view->addData('department-selector', $selectorView);
 
-        $unitSelectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\UnitTagSelectorView($this->app, $request, $response);
+        $unitSelectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
         $view->addData('unit-selector', $unitSelectorView);
 
         $view->addData('department', DepartmentMapper::get((int) $request->getData('id')));
