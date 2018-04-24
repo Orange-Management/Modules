@@ -10,6 +10,13 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
+use phpOMS\Security\PhpCode;
+use phpOMS\System\File\Local\Directory;
+use phpOMS\System\File\Local\File;
+
+$files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php');
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -19,9 +26,38 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                        <tr><td><?= $this->getHtml('DeprecatedFunctions'); ?><td><?= \phpOMS\Security\PhpCode::isDisabled(\phpOMS\Security\PhpCode::$disabledFunctions); ?>
+                        <tr><td><?= $this->getHtml('DisabledFunctions'); ?><td><?= PhpCode::isDisabled(PhpCode::$disabledFunctions) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
+                        <tr><td><button><?= $this->getHtml('Inspect'); ?></button>
                 </table>
             </div>
         </section>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box wf-100">
+            <table class="table red">
+                <caption><?= $this->getHtml('Inspection') ?></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getHtml('Status') ?>
+                    <td class="wf-100"><?= $this->getHtml('File') ?>
+                    <td><?= $this->getHtml('Unicode') ?>
+                    <td><?= $this->getHtml('Deprecated') ?>
+                    <td><?= $this->getHtml('Modified') ?>
+                    <td><?= $this->getHtml('Integrity') ?>
+                <tbody>
+                        <?php foreach ($files as $file) : $content = file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file); ?>
+                        <tr>
+                            <td>
+                            <td><?= $file; ?>
+                            <td><?= PhpCode::hasUnicode($content) ? $this->getHtml('NG') : $this->getHtml('OK'); ?>
+                            <td><?= PhpCode::hasDeprecatedFunction($content) ? $this->getHtml('NG') : $this->getHtml('OK'); ?>
+                            <td><?= File::changed(__DIR__ . '/../../../../phpOMS/' . $file)->format('Y-m-d'); ?>
+                            <td>
+                        <?php endforeach; ?>
+            </table>
+        </div>
     </div>
 </div>
