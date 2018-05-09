@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
             </div>
             <header><h1><?= $this->printHtml($task->getTitle()); ?></h1></header>
             <div class="inner">
-                <?= $this->printHtml($task->getDescription()); ?>
+                <?= $task->getDescription(); ?>
             </div>
 
             <?php if (!empty($taskMedia)) : ?>
@@ -65,7 +65,7 @@ echo $this->getData('nav')->render(); ?>
 
                 <?php if ($element->getDescription() !== '') : ?>
                     <div class="inner">
-                        <?= $this->printHtml($element->getDescription()); ?>
+                        <?= $element->getDescription(); ?>
                     </div>
                 <?php endif; ?>
 
@@ -98,9 +98,10 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <div class="inner">
                 <form id="taskElementCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task/element?{?}&csrf={$CSRF}'); ?>">
-                    <table class="layout wf-100">
+                    <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
-                        <tr><td><textarea id="iMessage" name="description"></textarea>
+                        <tr><td><?= $this->getData('editor')->render('task-editor'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor', 'plain', 'fTask'); ?>
                         <tr><td><label for="iDue"><?= $this->getHtml('Due') ?></label>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
@@ -112,7 +113,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml(TaskStatus::DONE); ?>">Done
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
-                        <tr><td><input type="text" id="iReceiver" name="forward" value="<?= $this->printHtml($this->request->getHeader()->getAccount()); ?>" placeholder="&#xf007; Guest">
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', true); ?>
                         <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
                         <tr><td><div class="ipt-wrap">
                                 <div class="ipt-first"><input type="text" id="iMedia" placeholder="&#xf15b; File"></div>

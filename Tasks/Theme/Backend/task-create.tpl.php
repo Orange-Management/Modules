@@ -47,8 +47,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iTitle"><?= $this->getHtml('Title') ?></label>
                         <tr><td><input type="text" id="iTitle" name="title" placeholder="&#xf040; <?= $this->getHtml('Title') ?>" required>
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
-                        <tr><td><?= $this->getData('editor')->render('task-editor-tools'); ?>
-                        <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor-text', 'plain', 'fTask'); ?>
+                        <tr><td><?= $this->getData('editor')->render('task-editor'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor', 'plain', 'fTask'); ?>
                         <tr><td>
                             <input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                             <input type="hidden" name="type" value="<?= $this->printHtml(TaskType::SINGLE); ?>">

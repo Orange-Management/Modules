@@ -187,6 +187,12 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('task', $task);
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
+        $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
+        $view->addData('accGrpSelector', $accGrpSelector);
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 
@@ -256,7 +262,7 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
-            || ($val['description'] = empty($request->getData('description')))
+            || ($val['plain'] = empty($request->getData('plain')))
             || ($val['due'] = !((bool) strtotime((string) $request->getData('due'))))
             || ($val['forward'] = !(is_numeric($request->getData('forward') ?? 0)))
         ) {
@@ -317,8 +323,8 @@ class Controller extends ModuleAbstract implements WebInterface
     {
         $task = new Task();
         $task->setTitle((string) ($request->getData('title') ?? ''));
-        $task->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
-        $task->setDescriptionRaw((string) ($request->getData('description') ?? ''));
+        $task->setDescription(Markdown::parse((string) ($request->getData('plain') ?? '')));
+        $task->setDescriptionRaw((string) ($request->getData('plain') ?? ''));
         $task->setCreatedBy($request->getHeader()->getAccount());
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $task->setStatus(TaskStatus::OPEN);
