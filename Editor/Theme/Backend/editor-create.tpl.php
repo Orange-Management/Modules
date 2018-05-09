@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <section class="box wf-100">
             <div class="inner">
-                <?= $this->getData('editor')->render('editor-tools'); ?>
+                <?= $this->getData('editor')->render('editor'); ?>
             </div>
         </section>
     </div>
@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="box col-xs-12">
-        <?= $this->getData('editor')->getData('text')->render('editor-text'); ?>
+        <?= $this->getData('editor')->getData('text')->render('editor', 'plain', 'fEditor'); ?>
     </div>
 </div>
 

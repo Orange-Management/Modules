@@ -29,6 +29,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 
 /**
  * Calendar controller class.
@@ -241,14 +242,29 @@ class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $doc = new EditorDoc();
-        $doc->setTitle((string) ($request->getData('title') ?? ''));
-        $doc->setPlain((string) ($request->getData('plain') ?? ''));
-        $doc->setContent((string) ($request->getData('plain') ?? ''));
-        $doc->setCreatedBy($request->getHeader()->getAccount());
-
+        $doc = $this->createDocFromRequest($request);
         EditorDocMapper::create($doc);
 
         $response->set('editor', $doc->jsonSerialize());
+    }
+
+    /**
+     * Method to create task from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return EditorDoc
+     *
+     * @since  1.0.0
+     */
+    private function createDocFromRequest(RequestAbstract $request) : EditorDoc
+    {
+        $doc = new EditorDoc();
+        $doc->setTitle((string) ($request->getData('title') ?? ''));
+        $doc->setPlain((string) ($request->getData('plain') ?? ''));
+        $doc->setContent(Markdown::parse((string) ($request->getData('plain') ?? '')));
+        $doc->setCreatedBy($request->getHeader()->getAccount());
+
+        return $doc;
     }
 }

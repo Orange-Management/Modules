@@ -1,4 +1,4 @@
-<div class="tabular">
+<div id="<?= $this->printHtml($this->getId()); ?>" class="tabular m-editor">
     <ul class="tab-links">
         <li><label for="<?= $this->printHtml($this->getId()); ?>-c-tab-1"><?= $this->getHtml('Text', 'Editor'); ?></label>
         <li><label for="<?= $this->printHtml($this->getId()); ?>-c-tab-2"><?= $this->getHtml('Preview', 'Editor'); ?></label>

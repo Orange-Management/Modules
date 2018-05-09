@@ -18,6 +18,7 @@ use phpOMS\Views\View;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Asset\AssetType;
 
 class BaseView extends View
 {
@@ -27,6 +28,9 @@ class BaseView extends View
     {
         parent::__construct($app, $request, $response);
         $this->setTemplate('/Modules/Editor/Theme/Backend/Components/Editor/inline-editor-tools');
+
+        $response->get('Content')->getData('head')->addAsset(AssetType::JSLATE, '/Modules/Editor/Models/Editor.js');
+        $response->get('Content')->getData('head')->addAsset(AssetType::JSLATE, '/Modules/Editor/Controller.js');
 
         $view = new TextView($app, $request, $response);
         $this->addData('text', $view);
@@ -39,7 +43,7 @@ class BaseView extends View
 
     public function render(...$data) : string
     {
-        $this->id = $data[0];
+        $this->id = ($data[0] ?? '') . '-tools';
         return parent::render();
     }
 }

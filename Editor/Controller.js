@@ -12,24 +12,24 @@
 
     jsOMS.Modules.Editor.prototype.bind = function(id)
     {
-        const e    = typeof id === 'undefined' ? document.getElementsByClassName('m-editor') : [document.getElementById(id)],
+        const e    = typeof id === 'undefined' ? document.getElementsByClassName('m-editor') : [id],
             length = e.length;
 
         for(let i = 0; i < length; i++) {
-            this.bindElement(e[i]);
+            this.bindElement(e[i].id);
         }
     };
 
-    jsOMS.Modules.Editor.prototype.bindElement = function(editor)
+    jsOMS.Modules.Editor.prototype.bindElement = function(id)
     {
-        if(typeof editor === 'undefined' || !editor) {
+        if(typeof id === 'undefined' || !id) {
             // todo: do logging
 
             return;
         }
 
-        this.editors[editor.id] = new jsOMS.Modules.Models.Editor.Editor(editor.id);
-        this.editors[editor.id].bind();
+        this.editors[id] = new jsOMS.Modules.Models.Editor.Editor(id);
+        this.editors[id].bind();
     };
 }(window.jsOMS = window.jsOMS || {}));
 
