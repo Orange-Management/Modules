@@ -22,6 +22,6 @@ namespace Modules\Draw\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class NullDrawImage extends DrawImage
+final class NullDrawImage extends DrawImage
 {
 }

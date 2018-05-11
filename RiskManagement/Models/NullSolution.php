@@ -22,6 +22,6 @@ namespace Modules\RiskManagement\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class NullSolution extends Solution
+final class NullSolution extends Solution
 {
 }

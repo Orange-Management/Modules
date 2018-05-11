@@ -42,7 +42,7 @@ use Modules\Knowledgebase\Models\PermissionState;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Controller extends ModuleAbstract implements WebInterface
+final class Controller extends ModuleAbstract implements WebInterface
 {
 
     /**

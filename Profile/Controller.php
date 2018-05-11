@@ -32,7 +32,7 @@ use phpOMS\Asset\AssetType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Controller extends ModuleAbstract implements WebInterface
+final class Controller extends ModuleAbstract implements WebInterface
 {
 
     /**
@@ -168,6 +168,9 @@ class Controller extends ModuleAbstract implements WebInterface
         $view->addData('calendar', $calendarView);
 
         $view->setData('account', ProfileMapper::getFor((int) $request->getData('id'), 'account'));
+
+        $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
+        $view->addData('accGrpSelector', $accGrpSelector);
 
         return $view;
     }

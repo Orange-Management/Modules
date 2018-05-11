@@ -22,6 +22,6 @@ namespace Modules\Admin\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class NullAccount extends Account
+final class NullAccount extends Account
 {
 }

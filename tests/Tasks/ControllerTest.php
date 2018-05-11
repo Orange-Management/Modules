@@ -77,7 +77,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Title');
-        $request->setData('description', 'Controller Test Description');
+        $request->setData('plain', 'Controller Test Description');
         $request->setData('due', (new \DateTime)->format('Y-m-d H:i:s'));
 
         $this->module->apiTaskCreate($request, $response);

@@ -22,6 +22,6 @@ namespace Modules\Admin\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class NullGroupPermission extends GroupPermission
+final class NullGroupPermission extends GroupPermission
 {
 }

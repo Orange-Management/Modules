@@ -26,14 +26,14 @@ $footerView->setResults(1);
 echo $this->getData('nav')->render();
 ?>
 <div class="row">
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-4">
         <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
             <header><h1><span itemprop="familyName"><?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span></h1></header>
             <div class="inner">
                 <!-- @formatter:off -->
                     <span class="rf"><img class="m-profile rf" alt="<?= $this->getHtml('ProfileImage'); ?>" data-lazyload="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('/Web/Backend/img/user_default_' . mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('/' . $account->getImage()->getPath()); ?>">
                     </span>
-                        <table class="list">
+                        <table class="list" style="table-layout: fixed">
                             <tr>
                                 <th><?= $this->getHtml('Occupation') ?>
                                 <td itemprop="jobTitle">Sailor
@@ -82,7 +82,17 @@ echo $this->getData('nav')->render();
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-4">
+        <section class="box wf-100">
+            <header><h1><?= $this->getHtml('Visibility') ?></h1></header>
+            <div class="inner">
+                <p>Define which users and user groups can see your profile</p>
+                <?= $this->getData('accGrpSelector')->render('iVisibility', true); ?>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
         <?= $this->getData('medialist')->render([]); ?>
     </div>
 </div>
