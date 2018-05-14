@@ -56,8 +56,6 @@ class Group extends \phpOMS\Account\Group
     public function __construct()
     {
         $this->createdAt = new \DateTime();
-
-        parent::__construct();
     }
 
     /**
