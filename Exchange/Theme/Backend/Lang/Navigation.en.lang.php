@@ -11,6 +11,9 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'List'     => 'List',
-    'Exchange' => 'Exchange',
+    'Dashboard' => 'Dashboard',
+    'Exchange'  => 'Exchange',
+    'Export'    => 'Export',
+    'Import'    => 'Import',
+    'Setup'     => 'Setup',
 ]];

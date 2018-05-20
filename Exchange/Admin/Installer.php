@@ -29,5 +29,4 @@ use phpOMS\Module\InfoManager;
  */
 class Installer extends InstallerAbstract
 {
-
 }

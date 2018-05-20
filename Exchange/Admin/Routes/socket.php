@@ -1,3 +1,3 @@
 <?php
 
-$moduleRoutes = [];
+return [];
