@@ -15,5 +15,4 @@ return ['Navigation' => [
     'Exchange'  => 'Exchange',
     'Export'    => 'Export',
     'Import'    => 'Import',
-    'Setup'     => 'Setup',
 ]];
