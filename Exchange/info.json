@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1007000000,
+        "internal": "Exchange",
+        "external": "Exchange"
+    },
+    "category": "Admin",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "Exchange",
+    "dependencies": {
+        "Admin": "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Exchange",
+            "for": "Navigation",
+            "file": "Navigation"
+        },
+        {
+            "pid": [
+                "/backend/admin/exchange"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Exchange",
+            "from": "Exchange"
+        }
+    ]
+}

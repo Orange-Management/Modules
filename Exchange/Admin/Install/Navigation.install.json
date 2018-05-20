@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1007001001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Exchange",
+        "uri": "/{/lang}/backend/admin/exchange/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 50,
+        "from": "Exchange",
+        "permission": { "type": null, "element": null },
+        "parent": 1000101001,
+        "children": [
+            {
+                "id": 1007002001,
+                "pid": "/backend/admin/exchange",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "/{/lang}/backend/admin/exchange/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Exchange",
+                "permission": { "type": null, "element": null },
+                "parent": 1007001001,
+                "children": []
+            },
+            {
+                "id": 1007002002,
+                "pid": "/backend/admin/exchange",
+                "type": 3,
+                "subtype": 1,
+                "name": "Import",
+                "uri": "/{/lang}/backend/admin/exchange/import?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Exchange",
+                "permission": { "type": null, "element": null },
+                "parent": 1007001001,
+                "children": []
+            },
+            {
+                "id": 1007002003,
+                "pid": "/backend/admin/exchange",
+                "type": 3,
+                "subtype": 1,
+                "name": "Export",
+                "uri": "/{/lang}/backend/admin/exchange/export?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "Exchange",
+                "permission": { "type": null, "element": null },
+                "parent": 1007001001,
+                "children": []
+            },
+            {
+                "id": 1007002004,
+                "pid": "/backend/admin/exchange",
+                "type": 3,
+                "subtype": 1,
+                "name": "Setup",
+                "uri": "/{/lang}/backend/admin/exchange/setup?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "Exchange",
+                "permission": { "type": null, "element": null },
+                "parent": 1007001001,
+                "children": []
+            }
+        ]
+    }
+]
