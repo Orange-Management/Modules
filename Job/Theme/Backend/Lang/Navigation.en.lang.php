@@ -11,8 +11,8 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'Jobs' => 'Jobs',
-    'Job'  => 'Job',
-    'List' => 'List',
+    'Jobs'   => 'Jobs',
+    'Job'    => 'Job',
+    'List'   => 'List',
     'Create' => 'Create',
 ]];

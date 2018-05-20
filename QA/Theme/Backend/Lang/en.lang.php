@@ -12,7 +12,7 @@
  */
 return ['QA' => [
     'QA'     => 'QA',
-    'Badges'     => 'Badges',
-    'List'     => 'List',
-    'Name'     => 'Name',
+    'Badges' => 'Badges',
+    'List'   => 'List',
+    'Name'   => 'Name',
 ]];

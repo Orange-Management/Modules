@@ -11,7 +11,7 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'Create'     => 'Create',
-    'Database'   => 'Database',
-    'List'       => 'List',
+    'Create'   => 'Create',
+    'Database' => 'Database',
+    'List'     => 'List',
 ]];

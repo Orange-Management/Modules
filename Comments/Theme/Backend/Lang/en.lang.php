@@ -11,6 +11,6 @@
  * @link       http://website.orange-management.de
  */
 return ['Comments' => [
-    'Created'    => 'Created',
-    'Creator'    => 'Creator',
+    'Created' => 'Created',
+    'Creator' => 'Creator',
 ]];

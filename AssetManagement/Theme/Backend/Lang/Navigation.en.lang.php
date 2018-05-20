@@ -11,6 +11,6 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'Asset' => 'Asset',
+    'Asset'     => 'Asset',
     'Dashboard' => 'Dashboard',
 ]];

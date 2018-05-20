@@ -12,7 +12,7 @@
  */
 return ['Navigation' => [
     'Archive' => 'Archive',
-    'Boards' => 'Boards',
-    'Create' => 'Create',
-    'Kanban' => 'Kanban',
+    'Boards'  => 'Boards',
+    'Create'  => 'Create',
+    'Kanban'  => 'Kanban',
 ]];

@@ -11,11 +11,11 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'Create' => 'Create',
-    'Auditor' => 'Auditor',
-    'Audit' => 'Audit',
-    'Audits' => 'Audits',
-    'List'   => 'List',
-    'Modules'   => 'Modules',
-    'Accounts'   => 'Accounts',
+    'Create'   => 'Create',
+    'Auditor'  => 'Auditor',
+    'Audit'    => 'Audit',
+    'Audits'   => 'Audits',
+    'List'     => 'List',
+    'Modules'  => 'Modules',
+    'Accounts' => 'Accounts',
 ]];

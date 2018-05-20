@@ -13,7 +13,7 @@
 return ['Workflow' => [
     'Created'   => 'Created',
     'Creator'   => 'Creator',
-    'Next'       => 'Next',
+    'Next'      => 'Next',
     'Status'    => 'Status',
     'Title'     => 'Title',
     'Workflow'  => 'Workflow',

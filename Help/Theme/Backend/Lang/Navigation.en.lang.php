@@ -11,8 +11,8 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'Help' => 'Help',
-    'General'      => 'General',
-    'Modules'    => 'Modules',
-    'Developer'    => 'Developer',
+    'Help'      => 'Help',
+    'General'   => 'General',
+    'Modules'   => 'Modules',
+    'Developer' => 'Developer',
 ]];

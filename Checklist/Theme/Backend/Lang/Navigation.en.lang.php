@@ -11,8 +11,8 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'Checklist' => 'Checklist',
-    'Checklists' => 'Checklists',
+    'Checklist'      => 'Checklist',
+    'Checklists'     => 'Checklists',
     'CreateCheclist' => 'CreateCheclist',
-    'Templates' => 'Templates',
+    'Templates'      => 'Templates',
 ]];

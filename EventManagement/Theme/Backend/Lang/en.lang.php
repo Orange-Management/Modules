@@ -12,7 +12,7 @@
  */
 return ['EventManagement' => [
     'Account'         => 'Account',
-    'Actual'         => 'Actual',
+    'Actual'          => 'Actual',
     'Amount'          => 'Amount',
     'Budget'          => 'Budget',
     'CoreData'        => 'Core Data',
@@ -37,8 +37,8 @@ return ['EventManagement' => [
     'UserGroup'       => 'User/Group',
     'Manual'          => 'Manual',
     'Linear'          => 'Linear',
-    'Exponential'          => 'Exponential',
-    'Progress'          => 'Progress',
-    'Log'          => 'Log',
-    'Tasks'          => 'Tasks',
+    'Exponential'     => 'Exponential',
+    'Progress'        => 'Progress',
+    'Log'             => 'Log',
+    'Tasks'           => 'Tasks',
 ]];

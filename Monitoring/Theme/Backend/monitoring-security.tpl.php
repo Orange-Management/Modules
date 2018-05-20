@@ -15,7 +15,7 @@ use phpOMS\Security\PhpCode;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\File;
 
-$files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php');
+$files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
 
 echo $this->getData('nav')->render(); ?>
 

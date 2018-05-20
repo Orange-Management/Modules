@@ -11,6 +11,6 @@
  * @link       http://website.orange-management.de
  */
 return ['Navigation' => [
-    'QA' => 'QA',
+    'QA'     => 'QA',
     'Badges' => 'Badges',
 ]];

@@ -54,6 +54,6 @@ return ['SalesAnalysis' => [
     'Total'                 => 'Total',
     'Type'                  => 'Type',
     'Undeveloped'           => 'Undeveloped',
-    'Year'             => 'Year',
+    'Year'                  => 'Year',
     'Yesterday'             => 'Yesterday',
 ]];

@@ -12,7 +12,6 @@
  */
 /**
  * @var \phpOMS\Views\View $this
- * @var \Modules\Tasks\Models\Task[] $tasks
  */
 $account = $this->getData('account');
 

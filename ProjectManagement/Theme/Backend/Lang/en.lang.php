@@ -35,9 +35,9 @@ return ['ProjectManagement' => [
     'Status'         => 'Status',
     'Title'          => 'Title',
     'UserGroup'      => 'User/Group',
-    'Manual'          => 'Manual',
-    'Linear'          => 'Linear',
-    'Exponential'          => 'Exponential',
-    'Log'          => 'Log',
+    'Manual'         => 'Manual',
+    'Linear'         => 'Linear',
+    'Exponential'    => 'Exponential',
+    'Log'            => 'Log',
     'Tasks'          => 'Tasks',
 ]];

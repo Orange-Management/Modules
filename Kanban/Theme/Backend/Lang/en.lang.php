@@ -11,5 +11,5 @@
  * @link       http://website.orange-management.de
  */
 return ['Kanban' => [
-    'Dashboard'    => 'Dashboard',
+    'Dashboard' => 'Dashboard',
 ]];
