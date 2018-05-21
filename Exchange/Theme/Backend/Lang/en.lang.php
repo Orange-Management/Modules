@@ -12,4 +12,8 @@
  */
 return ['Exchange' => [
     'Exchange' => 'Exchange',
+    'Exports'  => 'Exports',
+    'Imports'  => 'Imports',
+    'Title'    => 'Title',
+    'Website'  => 'Website',
 ]];

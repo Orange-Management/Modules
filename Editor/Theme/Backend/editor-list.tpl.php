@@ -13,12 +13,6 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-
-$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-$footerView->setPages(20);
-$footerView->setPage(1);
-
 $docs = $this->getData('docs');
 
 echo $this->getData('nav')->render(); ?>
@@ -44,8 +38,8 @@ echo $this->getData('nav')->render(); ?>
                         <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
-                        <?php endif; ?>
+                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <?php endif; ?>
             </table>
         </div>
     </div>
