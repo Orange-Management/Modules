@@ -47,7 +47,6 @@ class CalendarMapper extends DataMapperAbstract
     protected static $columns = [
         'calendar_id'          => ['name' => 'calendar_id', 'type' => 'int', 'internal' => 'id'],
         'calendar_name'        => ['name' => 'calendar_name', 'type' => 'string', 'internal' => 'name'],
-        'calendar_password'    => ['name' => 'calendar_password', 'type' => 'string', 'internal' => 'password'],
         'calendar_description' => ['name' => 'calendar_description', 'type' => 'string', 'internal' => 'description'],
         'calendar_created_at'  => ['name' => 'calendar_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
