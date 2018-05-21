@@ -138,7 +138,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get badges
-     * 
+     *
      * @return array
      *
      * @since  1.0.0
@@ -150,9 +150,9 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Add badge
-     * 
+     *
      * @param Badge $badge Badge to add
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -163,8 +163,8 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * Get content 
-     * 
+     * Get content
+     *
      * @return string
      *
      * @since  1.0.0
@@ -176,7 +176,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set content
-     * 
+     *
      * @param string $content News article content
      *
      * @return void
@@ -190,7 +190,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set plain content
-     * 
+     *
      * @param string $plain Plain/raw content
      *
      * @return void
@@ -204,7 +204,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get plain/raw content
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -216,7 +216,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get date of creation
-     * 
+     *
      * @return \DateTime
      *
      * @since  1.0.0
@@ -228,7 +228,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get id
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -240,7 +240,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get news language
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -252,7 +252,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get publish date
-     * 
+     *
      * @return \DateTime
      *
      * @since  1.0.0
@@ -264,7 +264,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set language
-     * 
+     *
      * @param string $language News article language
      *
      * @return void
@@ -282,7 +282,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set publish date
-     * 
+     *
      * @param \DateTime $publish Publish date
      *
      * @return void
@@ -296,7 +296,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get created by
-     * 
+     *
      * @return mixed
      *
      * @since  1.0.0
@@ -308,9 +308,9 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set created by
-     * 
+     *
      * @param int $id Created by
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -332,7 +332,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set news article title
-     * 
+     *
      * @param string $title News article title
      *
      * @return mixed
@@ -346,7 +346,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get news article type
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -358,7 +358,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set news article type
-     * 
+     *
      * @param int $type News article type
      *
      * @return void
@@ -376,7 +376,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get news article status
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -416,7 +416,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set featured
-     * 
+     *
      * @param bool $featured Is featured
      *
      * @return void

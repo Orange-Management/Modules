@@ -76,7 +76,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get id
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -88,7 +88,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get name
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -100,9 +100,9 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set name
-     * 
+     *
      * @param string $name Name
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -114,7 +114,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get parent
-     * 
+     *
      * @return mixed
      *
      * @since  1.0.0
@@ -126,9 +126,9 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set parent
-     * 
+     *
      * @param mixed $parent Parent
-     * 
+     *
      * @return mixed
      *
      * @since  1.0.0
@@ -140,7 +140,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get status
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -152,9 +152,9 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set status
-     * 
+     *
      * @param int $status Status
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -166,7 +166,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get description
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -178,9 +178,9 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set description
-     * 
+     *
      * @param int $desc Description
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -192,7 +192,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Get description
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -204,9 +204,9 @@ class Unit implements ArrayableInterface, \JsonSerializable
 
     /**
      * Set description
-     * 
+     *
      * @param int $desc Description
-     * 
+     *
      * @return void
      *
      * @since  1.0.0

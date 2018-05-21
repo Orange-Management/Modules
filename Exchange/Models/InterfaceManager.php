@@ -60,9 +60,21 @@ final class InterfaceManager
      *
      * @since  1.0.0
      */
-    public function __construct(string $path)
+    public function __construct(string $path = '')
     {
         $this->path = $path;
+    }
+
+    /**
+     * Get id
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
     }
 
     /**
@@ -75,6 +87,42 @@ final class InterfaceManager
     public function getPath() : string
     {
         return $this->path;
+    }
+
+    /**
+     * Get info name
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getName() : string
+    {
+        return $this->info['name'];
+    }
+
+    /**
+     * Provides import interface
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function hasImport() : bool
+    {
+        return $this->info['import'];
+    }
+
+    /**
+     * Provides export interface
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function hasExport() : bool
+    {
+        return $this->info['export'];
     }
 
     /**
@@ -117,7 +165,7 @@ final class InterfaceManager
      * @param string $path  Value path
      * @param mixed  $data  Scalar or array of data to set
      * @param string $delim Delimiter of path
-     * 
+     *
      * @return void
      *
      * @since  1.0.0

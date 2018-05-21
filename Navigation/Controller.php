@@ -86,7 +86,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Create mid navigation
-     * 
+     *
      * @param int              $pageId   Page/parent Id for navigation
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -109,7 +109,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Get basic navigation view
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      *
@@ -136,7 +136,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Load navigation language
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      *
@@ -175,7 +175,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
-        
+
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/splash');
         $navView->setNav($nav->getNav());
         $navView->setLanguage($request->getHeader()->getL11n()->getLanguage());

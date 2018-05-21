@@ -135,7 +135,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set created by
-     * 
+     *
      * @param mixed $creator Creator
      *
      * @return void
@@ -153,7 +153,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get all media
-     * 
+     *
      * @return array
      *
      * @since  1.0.0
@@ -165,9 +165,9 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Add media
-     * 
+     *
      * @param mixed $media Media to add
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -190,7 +190,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set description
-     * 
+     *
      * @param string $description Description
      *
      * @return void
@@ -204,7 +204,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get description
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -216,7 +216,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set description
-     * 
+     *
      * @param string $description Description
      *
      * @return void
@@ -230,7 +230,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get due date
-     * 
+     *
      * @return \DateTime
      *
      * @since  1.0.0
@@ -242,9 +242,9 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set due date
-     * 
+     *
      * @param \DateTime $due Due date
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -256,7 +256,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get forwarded
-     * 
+     *
      * @return mixed
      *
      * @since  1.0.0
@@ -268,7 +268,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set forwarded
-     * 
+     *
      * @param mixed $forwarded Forward to
      *
      * @return void
@@ -282,7 +282,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get id
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -294,7 +294,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get status
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -306,7 +306,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set Status
-     * 
+     *
      * @param int $status Task element status
      *
      * @return void
@@ -326,7 +326,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Get task id
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -338,7 +338,7 @@ class TaskElement implements \JsonSerializable
 
     /**
      * Set task i
-     * 
+     *
      * @param int $task Task id
      *
      * @return void
@@ -353,7 +353,7 @@ class TaskElement implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    public function toArray() : array 
+    public function toArray() : array
     {
         return [
             'id' => $this->id,
@@ -370,7 +370,7 @@ class TaskElement implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    public function jsonSerialize() 
+    public function jsonSerialize()
     {
         return $this->toArray();
     }

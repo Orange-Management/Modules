@@ -29,11 +29,11 @@ class TaskView extends View
         if ($status === TaskStatus::OPEN) {
             return 'darkblue';
         } elseif ($status === TaskStatus::WORKING) {
-            return 'purple'; 
+            return 'purple';
         } elseif ($status === TaskStatus::CANCELED) {
             return 'red';
         } elseif ($status === TaskStatus::SUSPENDED) {
-            return 'yellow'; 
+            return 'yellow';
         }
 
         return 'black';

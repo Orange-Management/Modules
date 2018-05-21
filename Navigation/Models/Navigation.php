@@ -107,17 +107,17 @@ class Navigation
 
             foreach ($tempNav as $id => $link) {
                 $isReadable = $account->hasPermission(
-                    PermissionType::READ, 
-                    null, 
-                    null, 
-                    (string) $link[0]['nav_from'], 
-                    (int) $link[0]['nav_permission_type'], 
+                    PermissionType::READ,
+                    null,
+                    null,
+                    (string) $link[0]['nav_from'],
+                    (int) $link[0]['nav_permission_type'],
                     (int) $link[0]['nav_permission_element']
                 );
 
                 if ($isReadable) {
                     $tempNav[$id][0]['readable'] = true;
-                    
+
                     $this->setReadable($tempNav, $tempNav[$id][0]['nav_parent']);
                 }
             }
@@ -146,7 +146,7 @@ class Navigation
             $nav[$parent][0]['readable'] = true;
 
             if (isset($nav[$nav[$parent][0]['nav_parent']])
-                && (!isset($nav[$nav[$parent][0]['nav_parent']][0]['readable']) 
+                && (!isset($nav[$nav[$parent][0]['nav_parent']][0]['readable'])
                     || !$nav[$nav[$parent][0]['nav_parent']][0]['readable'])
             ) {
                 $this->setReadable($nav, $nav[$parent][0]['nav_parent']);
@@ -182,7 +182,7 @@ class Navigation
 
     /**
      * Get navigation based on account permissions
-     * 
+     *
      * @return array
      *
      * @since  1.0.0

@@ -45,7 +45,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
         $allModules    = $moduleManager->getInstalledModules(false);
-        $sampleInfo    = json_decode(file_get_contents(__DIR__ . '/info.json'), true); 
+        $sampleInfo    = json_decode(file_get_contents(__DIR__ . '/info.json'), true);
         $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Routes.php';
 
         foreach ($allModules as $name => $module) {
@@ -57,12 +57,12 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                 $version = Version::compare($module::MODULE_VERSION, '1.0.0');
                 self::assertGreaterThanOrEqual(0, $version);
 
-                if (isset($allModules['Navigation']) 
+                if (isset($allModules['Navigation'])
                     && file_exists($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
                 ) {
                     self::assertTrue(
                         $this->navLinksTest(
-                            $this->app->dbPool->get(), 
+                            $this->app->dbPool->get(),
                             json_decode(
                                 file_get_contents($module::MODULE_PATH . '/Admin/Install/Navigation.install.json'),
                                 true
@@ -77,7 +77,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                     self::assertTrue($this->routesTest($moduleRoutes, $totalRoutes), 'Route assert failed for '. $name);
                 }
 
-                $info = json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true); 
+                $info = json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true);
                 self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. $name);
 
                 self::assertTrue($this->dependencyTest($info, $allModules));

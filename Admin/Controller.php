@@ -601,9 +601,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
             return;
         }
-        
+
         $group = $this->createGroupFromRequest($request);
-        
+
         $this->app->eventManager->trigger('PRE:Module:Admin-groupcreate', '', $group);
         GroupMapper::create($group);
         $this->app->eventManager->trigger('POST:Module:Admin-groupcreate', '', $group);
@@ -659,7 +659,7 @@ final class Controller extends ModuleAbstract implements WebInterface
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }
-        
+
         $group = GroupMapper::get((int) $request->getData('id'));
 
         $this->app->eventManager->trigger('PRE:Module:Admin-groupdelete', '', $group);
@@ -850,7 +850,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $account = AccountMapper::get((int) ($request->getData('id')));
-        
+
         $this->app->eventManager->trigger('PRE:Module:Admin-accountdelete', '', $account);
         $status = AccountMapper::delete($account);
         $this->app->eventManager->trigger('POST:Module:Admin-accountdelete', '', $account);
@@ -961,7 +961,7 @@ final class Controller extends ModuleAbstract implements WebInterface
             case 'install':
                 $done = $this->app->moduleManager->install($module);
                 $msg  = 'Module successfully installed.';
-                
+
                 break;
             case 'uninstall':
                 //$done = $this->app->moduleManager->uninstall($module);

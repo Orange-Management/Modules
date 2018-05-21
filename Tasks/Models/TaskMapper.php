@@ -131,7 +131,7 @@ class TaskMapper extends DataMapperAbstract
 
     /**
      * Count unread task
-     * 
+     *
      * @param int $user User
      *
      * @return int

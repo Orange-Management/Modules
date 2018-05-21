@@ -174,7 +174,7 @@ class Task implements \JsonSerializable
 
     /**
      * Set closable
-     * 
+     *
      * Setting it to false will only allow other modules to close this task
      *
      * @param bool $closable Is closable
@@ -190,7 +190,7 @@ class Task implements \JsonSerializable
 
     /**
      * Is closable
-     * 
+     *
      * @return bool
      *
      * @since  1.0.0
@@ -222,7 +222,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get all media
-     * 
+     *
      * @return array
      *
      * @since  1.0.0
@@ -234,9 +234,9 @@ class Task implements \JsonSerializable
 
     /**
      * Add media
-     * 
+     *
      * @param mixed $media Media to add
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -248,9 +248,9 @@ class Task implements \JsonSerializable
 
     /**
      * Check if user is cc
-     * 
+     *
      * @param int $id User id
-     * 
+     *
      * @return bool
      *
      * @since  1.0.0
@@ -262,9 +262,9 @@ class Task implements \JsonSerializable
 
     /**
      * check if user is forwarded
-     * 
+     *
      * @param int $id User id
-     * 
+     *
      * @return bool
      *
      * @since  1.0.0
@@ -302,9 +302,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set start time of task
-     * 
+     *
      * @param \DateTime $start Start date of task
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -316,7 +316,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get created by
-     * 
+     *
      * @return mixed
      *
      * @since  1.0.0
@@ -328,9 +328,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set created by
-     * 
+     *
      * @param mixed $id Created by
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -343,7 +343,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get description
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -355,9 +355,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set description
-     * 
+     *
      * @param string $description Description
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -369,7 +369,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get description
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -381,9 +381,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set description
-     * 
+     *
      * @param string $description Description
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -395,7 +395,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get done date
-     * 
+     *
      * @return \DateTime
      *
      * @since  1.0.0
@@ -407,9 +407,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set done date
-     * 
+     *
      * @param \DateTime $done Done date
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -421,7 +421,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get due date
-     * 
+     *
      * @return \DateTime
      *
      * @since  1.0.0
@@ -433,9 +433,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set due date
-     * 
+     *
      * @param \DateTime $due Due date
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -447,7 +447,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get id
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -459,7 +459,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get status
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -471,9 +471,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set status
-     * 
+     *
      * @param int $status Task status
-     * 
+     *
      * @return void
      *
      * @throws InvalidEnumValue
@@ -491,7 +491,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get priority
-     * 
+     *
      * @return int
      *
      * @since  1.0.0
@@ -503,9 +503,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set priority
-     * 
+     *
      * @param int $priority Task priority
-     * 
+     *
      * @return void
      *
      * @throws InvalidEnumValue
@@ -523,7 +523,7 @@ class Task implements \JsonSerializable
 
     /**
      * Get title
-     * 
+     *
      * @return string
      *
      * @since  1.0.0
@@ -535,9 +535,9 @@ class Task implements \JsonSerializable
 
     /**
      * Set title
-     * 
+     *
      * @param string $title Title
-     * 
+     *
      * @return void
      *
      * @since  1.0.0
@@ -626,7 +626,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function getSchedule() : Schedule 
+    public function getSchedule() : Schedule
     {
         return $this->schedule;
     }

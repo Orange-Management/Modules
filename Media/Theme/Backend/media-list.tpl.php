@@ -35,8 +35,8 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Creator') ?>
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
-                    <?php $count = 0; 
-                        foreach ($media as $key => $value) : 
+                    <?php $count = 0;
+                        foreach ($media as $key => $value) :
                             $count++;
                             $url  = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
                             $icon = $fileIconFunction(\phpOMS\System\File\FileUtils::getExtensionType($value->getExtension()));

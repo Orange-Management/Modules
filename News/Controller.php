@@ -273,11 +273,11 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to create news article
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
-     * 
+     *
      * @return void
      *
      * @api
@@ -331,11 +331,11 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to create news article
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
-     * 
+     *
      * @return void
      *
      * @api
@@ -443,11 +443,11 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to create Badge
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
-     * 
+     *
      * @return void
      *
      * @api
@@ -547,11 +547,11 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to delete news article
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
-     * 
+     *
      * @return void
      *
      * @api
@@ -570,7 +570,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $news   = NewsArticleMapper::get((int) $request->getData('id'));
         $status = NewsArticleMapper::delete($news);
-        
+
         $response->set($request->getUri()->__toString(), [
             'status' => 'ok',
             'title' => 'News',
@@ -581,11 +581,11 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Api method to delete badge
-     * 
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
-     * 
+     *
      * @return void
      *
      * @api

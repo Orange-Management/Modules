@@ -16,12 +16,16 @@ namespace Modules\Exchange;
 
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
+
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+
+use Modules\Exchange\Models\InterfaceManager;
+use Modules\Exchange\Models\InterfaceManagerMapper;
 
 /**
  * Exchange controller class.
@@ -98,6 +102,17 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-export-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007001001, $request, $response));
 
+        $interfaces = InterfaceManagerMapper::getAll();
+
+        $export = [];
+        foreach ($interfaces as $interface) {
+            if ($interface->hasExport()) {
+                $export[] = $interface;
+            }
+        }
+
+        $view->addData('interfaces', $export);
+
         return $view;
     }
 
@@ -106,6 +121,17 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-import-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007001001, $request, $response));
+
+        $interfaces = InterfaceManagerMapper::getAll();
+
+        $import = [];
+        foreach ($interfaces as $interface) {
+            if ($interface->hasImport()) {
+                $import[] = $interface;
+            }
+        }
+
+        $view->addData('interfaces', $import);
 
         return $view;
     }
