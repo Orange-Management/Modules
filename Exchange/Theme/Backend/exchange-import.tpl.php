@@ -11,6 +11,8 @@
  * @link       http://website.orange-management.de
  */
 
+ $lang = $this->getData('lang');
+
 /**
  * @var \phpOMS\Views\View         $this
  */

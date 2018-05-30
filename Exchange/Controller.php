@@ -20,12 +20,15 @@ use Modules\Navigation\Views\NavigationView;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Account\PermissionType;
 
 use Modules\Exchange\Models\InterfaceManager;
 use Modules\Exchange\Models\InterfaceManagerMapper;
+use Modules\Exchange\Models\PermissionState;
 
 /**
  * Exchange controller class.
@@ -155,6 +158,73 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('interface', $interface);
 
+        $lang = include __DIR__ . '/Interfaces/' . $interface->getInterfacePath() . '/' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php';
+        $view->addData('lang', $lang);
+
         return $view;
+    }
+
+    /**
+     * Api method to import data
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiExchangeImport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::IMPORT)
+        ) {
+            $response->set('exchange_import', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $import = $this->importDataFromRequest($request);
+
+        if ($import) {
+            $response->set($request->getUri()->__toString(), [
+                'status' => NotificationLevel::OK,
+                'title' => 'Exchange',
+                'message' => 'Import succeeded.'
+            ]);
+        } else {
+            $response->set($request->getUri()->__toString(), [
+                'status' => NotificationLevel::ERROR,
+                'title' => 'Exchange',
+                'message' => 'Import failed.'
+            ]);
+        }
+    }
+
+    /**
+     * Method to import data based on a request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    private function importDataFromRequest(RequestAbstract $request) : bool
+    {
+        $interfaces = InterfaceManagerMapper::getAll();
+        foreach ($interfaces as $interface) {
+            if ($request->getData('exchange') === $interface->getInterfacePath()) {
+                $class    = '\\Modules\\Exchange\\Interfaces\\' . $interface->getInterfacePath() . '\\Importer';
+                $importer = new $class();
+
+                return $importer->importRequest($request);
+            }
+        }
+
+        return false;
     }
 }

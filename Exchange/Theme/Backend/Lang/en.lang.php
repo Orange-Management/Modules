@@ -11,9 +11,14 @@
  * @link       http://website.orange-management.de
  */
 return ['Exchange' => [
+    'End' => 'End',
     'Exchange' => 'Exchange',
+    'Export'  => 'Export',
     'Exports'  => 'Exports',
+    'Import'  => 'Import',
     'Imports'  => 'Imports',
+    'Options'  => 'Options',
+    'Start'    => 'Start',
     'Title'    => 'Title',
     'Website'  => 'Website',
 ]];
