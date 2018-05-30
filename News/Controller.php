@@ -15,18 +15,21 @@ declare(strict_types=1);
 namespace Modules\News;
 
 use Model\Message\FormValidation;
+
 use Modules\News\Models\BadgeMapper;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
 use Modules\News\Models\PermissionState;
+
 use phpOMS\Account\Account;
 use phpOMS\Account\PermissionType;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Utils\Parser\Markdown\Markdown;
@@ -298,7 +301,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         NewsArticleMapper::update($news);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Group',
             'message' => 'Group successfully updated.',
             'response' => $news->jsonSerialize()
@@ -414,7 +417,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $news = NewsArticleMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'News',
             'message' => 'News successfully returned.',
             'response' => $news->jsonSerialize()
@@ -572,7 +575,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status = NewsArticleMapper::delete($news);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'News',
             'message' => 'News successfully deleted.',
             'response' => $status

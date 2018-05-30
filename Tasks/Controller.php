@@ -29,6 +29,7 @@ use Modules\Tasks\Views\TaskView;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Utils\Parser\Markdown\Markdown;
@@ -367,7 +368,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $task = TaskMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Task',
             'message' => 'Task successfully returned.',
             'response' => $task->jsonSerialize()
@@ -401,7 +402,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status = TaskMapper::update($task);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Task',
             'message' => 'Task successfully updated.',
             'response' => $task->jsonSerialize()
@@ -535,7 +536,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $task = TaskElementMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Task',
             'message' => 'Task successfully returned.',
             'response' => $task->jsonSerialize()
@@ -569,7 +570,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status = TaskElementMapper::update($task);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Task element',
             'message' => 'Task element successfully updated.',
             'response' => $task->jsonSerialize()

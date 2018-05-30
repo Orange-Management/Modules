@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Organization;
 
 use Model\Message\FormValidation;
+
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\Position;
@@ -22,8 +23,10 @@ use Modules\Organization\Models\PositionMapper;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
+
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
@@ -440,7 +443,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $unit = UnitMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Unit',
             'message' => 'Unit successfully returned.',
             'response' => $unit->jsonSerialize()
@@ -474,7 +477,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         UnitMapper::update($unit);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Unit',
             'message' => 'Unit successfully updated.',
             'response' => $unit->jsonSerialize()
@@ -531,7 +534,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status = UnitMapper::delete($unit);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Unit',
             'message' => 'Unit successfully deleted.',
             'response' => $status
@@ -571,7 +574,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         UnitMapper::create($unit);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Unit',
             'message' => 'Unit successfully created.',
             'response' => $unit->jsonSerialize()
@@ -654,7 +657,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $position = PositionMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Position',
             'message' => 'Position successfully returned.',
             'response' => $position->jsonSerialize()
@@ -688,7 +691,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status   = PositionMapper::delete($position);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Position',
             'message' => 'Position successfully deleted.',
             'response' => $status
@@ -722,7 +725,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         PositionMapper::update($position);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Position',
             'message' => 'Position successfully updated.',
             'response' => $position->jsonSerialize()
@@ -788,7 +791,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         PositionMapper::create($position);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Position',
             'message' => 'Position successfully created.',
             'response' => $position->jsonSerialize()
@@ -873,7 +876,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $department = DepartmentMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Department',
             'message' => 'Department successfully returned.',
             'response' => $department->jsonSerialize()
@@ -908,7 +911,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         DepartmentMapper::update($department);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Department',
             'message' => 'Department successfully updated.',
             'response' => $department->jsonSerialize()
@@ -968,7 +971,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status     = DepartmentMapper::delete($department);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Department',
             'message' => 'Department successfully deleted.',
             'response' => $status
@@ -1008,7 +1011,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         DepartmentMapper::create($department);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Department',
             'message' => 'Department successfully created.',
             'response' => $department->jsonSerialize()

@@ -32,6 +32,7 @@ use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
@@ -489,7 +490,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $group = GroupMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Group',
             'message' => 'Group successfully returned.',
             'response' => $group->jsonSerialize()
@@ -523,7 +524,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         GroupMapper::update($group);
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Group',
             'message' => 'Group successfully updated.',
             'response' => $group->jsonSerialize()
@@ -609,7 +610,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $this->app->eventManager->trigger('POST:Module:Admin-groupcreate', '', $group);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Group',
             'message' => 'Group successfully created.',
             'response' => $group->jsonSerialize()
@@ -667,7 +668,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $this->app->eventManager->trigger('POST:Module:Admin-groupdelete', '', $group);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Group',
             'message' => 'Group successfully deleted.',
             'response' => $status
@@ -699,7 +700,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $account = AccountMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Account',
             'message' => 'Account successfully returned.',
             'response' => $account->jsonSerialize()
@@ -795,7 +796,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $this->app->eventManager->trigger('POST:Module:Admin-accountcreate', '', $account);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Account',
             'message' => 'Account successfully created.',
             'response' => $account->jsonSerialize()
@@ -856,7 +857,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $this->app->eventManager->trigger('POST:Module:Admin-accountdelete', '', $account);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Account',
             'message' => 'Account successfully deleted.',
             'response' => $status
@@ -890,7 +891,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status  = AccountMapper::update($account);
 
         $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
+            'status' => NotificationLevel::OK,
             'title' => 'Account',
             'message' => 'Account successfully updated.',
             'response' => $account->jsonSerialize()
