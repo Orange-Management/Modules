@@ -457,7 +457,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $success = $this->app->appSettings->set(
-            json_decode((string) $request->getData('settings'), true),
+            \json_decode((string) $request->getData('settings'), true),
             true
         );
 
@@ -555,7 +555,7 @@ final class Controller extends ModuleAbstract implements WebInterface
      *
      * @param RequestAbstract $request Request
      *
-     * @return array
+     * @return array<string, bool>
      *
      * @since  1.0.0
      */
@@ -738,7 +738,7 @@ final class Controller extends ModuleAbstract implements WebInterface
      *
      * @param RequestAbstract $request Request
      *
-     * @return array
+     * @return array<string, bool>
      *
      * @since  1.0.0
      */

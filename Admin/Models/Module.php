@@ -189,13 +189,13 @@ class Module
      */
     public function __toString()
     {
-        return json_encode($this->toArray());
+        return \json_encode($this->toArray());
     }
 
     /**
      * Json serialize.
      *
-     * @return string
+     * @return array<string, string|int>
      *
      * @since  1.0.0
      */
@@ -207,7 +207,7 @@ class Module
     /**
      * To array
      *
-     * @return array
+     * @return array<string, string|int>
      *
      * @since  1.0.0
      */

@@ -76,7 +76,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         self::assertTrue($found);
         self::assertGreaterThan(0, count($moduleManager->getLanguageFiles($request)));
-        self::assertTrue(in_array('Media', $moduleManager->getRoutedModules($request)));
+        self::assertTrue(\in_array('Media', $moduleManager->getRoutedModules($request)));
 
         $moduleManager->initRequestModules($request);
         self::assertTrue(isset(TestUtils::getMember($moduleManager, 'running')['Media']));

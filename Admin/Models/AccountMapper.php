@@ -34,7 +34,7 @@ class AccountMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array
+     * @var array<string, array<string, string|bool>>
      * @since 1.0.0
      */
     protected static $columns = [
@@ -55,7 +55,7 @@ class AccountMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static $hasMany = [

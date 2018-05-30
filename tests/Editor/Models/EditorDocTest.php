@@ -58,6 +58,6 @@ class EditorDocTest extends \PHPUnit\Framework\TestCase
         ];
         self::assertEquals($arr, $doc->toArray());
         self::assertEquals($arr, $doc->jsonSerialize());
-        self::assertEquals(json_encode($arr), $doc->__toString());
+        self::assertEquals(\json_encode($arr), $doc->__toString());
     }
 }

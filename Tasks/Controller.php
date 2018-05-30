@@ -254,7 +254,7 @@ final class Controller extends ModuleAbstract implements WebInterface
      *
      * @param RequestAbstract $request Request
      *
-     * @return array
+     * @return array<string, bool>
      *
      * @since  1.0.0
      */
@@ -436,7 +436,7 @@ final class Controller extends ModuleAbstract implements WebInterface
      *
      * @param RequestAbstract $request Request
      *
-     * @return array
+     * @return array<string, bool>
      *
      * @since  1.0.0
      */

@@ -37,7 +37,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static $columns = [
@@ -60,7 +60,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array
+     * @var array<string, array<string, string|null>>
      * @since 1.0.0
      */
     protected static $hasMany = [
@@ -94,7 +94,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static $ownsOne = [

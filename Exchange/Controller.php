@@ -151,6 +151,10 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-import');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007001001, $request, $response));
 
+        $interface = InterfaceManagerMapper::get((int) $request->getData('id'));
+
+        $view->addData('interface', $interface);
+
         return $view;
     }
 }

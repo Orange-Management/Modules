@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Modified') ?>
                     <td><?= $this->getHtml('Integrity') ?>
                 <tbody>
-                        <?php foreach ($files as $file) : $content = file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file); ?>
+                        <?php foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file); ?>
                         <tr>
                             <td>
                             <td><?= $file; ?>

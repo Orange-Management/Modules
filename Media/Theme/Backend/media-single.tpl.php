@@ -81,8 +81,8 @@ echo $this->getData('nav')->render();
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
                             <td><a href="<?= $url; ?>"><?= substr($value, strlen($media->getPath())); ?></a>
-                            <td><a href="<?= $url; ?>"><?= !is_dir($value) ? File::extension($value) : 'collection'; ?></a>
-                            <td><a href="<?= $url; ?>"><?= !is_dir($value) ? File::size($value) : ''; ?></a>
+                            <td><a href="<?= $url; ?>"><?= !\is_dir($value) ? File::extension($value) : 'collection'; ?></a>
+                            <td><a href="<?= $url; ?>"><?= !\is_dir($value) ? File::size($value) : ''; ?></a>
                             <td><a href="<?= $url; ?>"><?= File::owner($value); ?></a>
                             <td><a href="<?= $url; ?>"><?= File::created($value)->format('Y-m-d'); ?></a>
                     <?php endforeach; endif; ?>
@@ -103,7 +103,7 @@ echo $this->getData('nav')->render();
                 <?php else : ?>
                     <button class="floatRight">Edit</button>
 
-                    <?php if (!file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path)) : ?>
+                    <?php if (!\file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path)) : ?>
                         <div class="centerText"><i class="fa fa-question fa-5x"></i></div>
                     <?php else : ?>
                     <pre>

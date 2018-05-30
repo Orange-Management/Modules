@@ -452,7 +452,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      */
     public function __toString()
     {
-        return json_encode($this->toArray());
+        return \json_encode($this->toArray());
     }
 
     /**

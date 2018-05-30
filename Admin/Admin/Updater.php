@@ -36,7 +36,7 @@ class Updater extends UpdaterAbstract
     public static function update(DatabasePool $dbPool, InfoManager $info) : void
     {
         Directory::deletePath(__DIR__ . '/Update');
-        mkdir('Update');
+        \mkdir('Update');
         parent::update($dbPool, $info);
     }
 }

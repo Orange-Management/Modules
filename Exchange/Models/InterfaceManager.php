@@ -48,7 +48,7 @@ final class InterfaceManager
     /**
      * Info data.
      *
-     * @var array
+     * @var array<string, mixed>
      * @since 1.0.0
      */
     private $info = [];
@@ -87,6 +87,18 @@ final class InterfaceManager
     public function getPath() : string
     {
         return $this->path;
+    }
+
+    /**
+     * Get info path
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getInterfacePath() : string
+    {
+        return $this->info['path'];
     }
 
     /**
@@ -136,11 +148,11 @@ final class InterfaceManager
      */
     public function load() : void
     {
-        if (!file_exists($this->path)) {
+        if (!\file_exists($this->path)) {
             throw new PathException($this->path);
         }
 
-        $this->info = json_decode(file_get_contents($this->path), true);
+        $this->info = \json_decode(file_get_contents($this->path), true);
     }
 
     /**
@@ -152,11 +164,11 @@ final class InterfaceManager
      */
     public function update() : void
     {
-        if (!file_exists($this->path)) {
+        if (!\file_exists($this->path)) {
             throw new PathException($this->path);
         }
 
-        file_put_contents($this->path, json_encode($this->info, JSON_PRETTY_PRINT));
+        \file_put_contents($this->path, \json_encode($this->info, JSON_PRETTY_PRINT));
     }
 
     /**
@@ -182,7 +194,7 @@ final class InterfaceManager
     /**
      * Get info data.
      *
-     * @return array
+     * @return array<string, mixed>
      *
      * @since  1.0.0
      */

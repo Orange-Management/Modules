@@ -310,7 +310,7 @@ class Installer extends InstallerAbstract
         );
 
         $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
-        $sth->bindValue(':pid', sha1(str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
+        $sth->bindValue(':pid', sha1(\str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
         $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
         $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
         $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);
@@ -338,7 +338,7 @@ class Installer extends InstallerAbstract
         );
 
         $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
-        $sth->bindValue(':pid', sha1(str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
+        $sth->bindValue(':pid', sha1(\str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
         $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
         $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
         $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);

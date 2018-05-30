@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/monitoring/logs/single?{?}&id=' . $key);?>
             <tr>
                 <td><a href=<?= $this->printHtml($url); ?>><i class="fa fa-clock-o"></i> <?= $this->printHtml($value[0] ?? ''); ?></a>
-                <td><a href=<?= $this->printHtml($url); ?>><i class="fa fa-<?= $this->printHtml(in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i> <?= $this->printHtml($value[1] ?? ''); ?></a>
+                <td><a href=<?= $this->printHtml($url); ?>><i class="fa fa-<?= $this->printHtml(\in_array($value[1], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i> <?= $this->printHtml($value[1] ?? ''); ?></a>
                 <td><a href=<?= $this->printHtml($url); ?>><i class="fa fa-wifi"></i> <?= $this->printHtml($value[2] ?? ''); ?></a>
                 <td><a href=<?= $this->printHtml($url); ?>><i class="fa fa-commenting"></i> <?= $this->printHtml($value[7] ?? ''); ?></a>
                     <?php endforeach;

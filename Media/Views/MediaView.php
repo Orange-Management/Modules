@@ -36,7 +36,7 @@ class MediaView extends View
     {
         if (is_file($media->getPath() . $sub)
             && StringUtils::startsWith(
-                str_replace('\\', '/', realpath($media->getPath() . $sub)),
+                \str_replace('\\', '/', realpath($media->getPath() . $sub)),
                 $media->getPath()
             )
         ) {
@@ -50,7 +50,7 @@ class MediaView extends View
     {
         if (is_dir($media->getPath() . $sub)
             && StringUtils::startsWith(
-                str_replace('\\', '/', realpath($media->getPath() . $sub)),
+                \str_replace('\\', '/', realpath($media->getPath() . $sub)),
                 $media->getPath()
             )
         ) {
@@ -65,14 +65,14 @@ class MediaView extends View
         return ($media->getExtension() === 'collection'
                 && !is_file($media->getPath() . $sub))
             || (is_dir($media->getPath())
-                && ($sub === null || is_dir($media->getPath() . $sub))
+                && ($sub === null || \is_dir($media->getPath() . $sub))
         );
     }
 
     protected function lineContentFunction(string $path) : array
     {
-        $output = file_get_contents($path);
-        $output = str_replace(["\r\n", "\r"], "\n", $output);
+        $output = \file_get_contents($path);
+        $output = \str_replace(["\r\n", "\r"], "\n", $output);
 
         return explode("\n", $output);
     }

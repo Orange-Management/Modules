@@ -88,7 +88,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         ];
         self::assertEquals($arr, $news->toArray());
         self::assertEquals($arr, $news->jsonSerialize());
-        self::assertEquals(json_encode($arr), $news->__toString());
+        self::assertEquals(\json_encode($arr), $news->__toString());
     }
 
     /**

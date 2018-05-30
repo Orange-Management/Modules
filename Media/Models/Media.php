@@ -269,7 +269,7 @@ class Media
      */
     public function setPath(string $path)
     {
-        $this->path = str_replace('\\', '/', $path);
+        $this->path = \str_replace('\\', '/', $path);
     }
 
     /**

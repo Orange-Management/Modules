@@ -26,7 +26,7 @@ class BadgeMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     static protected $columns = [

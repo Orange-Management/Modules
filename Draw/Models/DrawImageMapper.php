@@ -26,7 +26,7 @@ class DrawImageMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     static protected $columns = [
@@ -38,7 +38,7 @@ class DrawImageMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static $ownsOne = [

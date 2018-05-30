@@ -17,7 +17,7 @@ $mails = $mail->getEmail($this->getData('id'));
 echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
-    <header><h1><?= $this->printHtml(str_replace('_',' ', mb_decode_mimeheader($mails['overview'][0]->subject))); ?></h1></header>
+    <header><h1><?= $this->printHtml(\str_replace('_',' ', mb_decode_mimeheader($mails['overview'][0]->subject))); ?></h1></header>
     <div class="inner">
         <?= $this->printHtml($mail::decode($mails['body'], $mails['encoding']->encoding)); ?>
     </div>

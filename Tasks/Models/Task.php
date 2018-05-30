@@ -179,7 +179,7 @@ class Task implements \JsonSerializable
      *
      * @param bool $closable Is closable
      *
-     * @return int
+     * @return void
      *
      * @since  1.0.0
      */
@@ -223,7 +223,7 @@ class Task implements \JsonSerializable
     /**
      * Get all media
      *
-     * @return array
+     * @return array<int|\Modules\Media\Models\Media>
      *
      * @since  1.0.0
      */

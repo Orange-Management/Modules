@@ -46,7 +46,7 @@ $id = (string) $this->request->getData('id') ?? 1;
                         <td><?= $this->printHtml($modules[$id]['description'] ); ?>
                     <tr>
                         <td colspan="2">
-                            <?php if (in_array($id, $active)) : ?>
+                            <?php if (\in_array($id, $active)) : ?>
                                 <button id="iModuleDeactivateButton" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
@@ -54,7 +54,7 @@ $id = (string) $this->request->getData('id') ?? 1;
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Deactivate'); ?></button>
-                            <?php elseif (in_array($id, $installed)) : ?>
+                            <?php elseif (\in_array($id, $installed)) : ?>
                                 <button id="iModuleUninstallButton" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [

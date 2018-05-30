@@ -48,7 +48,7 @@ class UploadFile
     /**
      * Allowed mime types.
      *
-     * @var array
+     * @var string[]
      * @since 1.0.0
      */
     private $allowedTypes = [];
@@ -135,14 +135,14 @@ class UploadFile
                 $this->fileName = $f['name'];
             }
 
-            $split                     = explode('.', $f['name']);
+            $split                     = \explode('.', $f['name']);
             $result[$key]['name']      = $split[0];
             $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 
             // ! and empty same?!
             $result[$key]['filename'] = $this->fileName;
-            if (!$this->fileName || empty($this->fileName) || file_exists($path . '/' . $this->fileName)) {
+            if (!$this->fileName || empty($this->fileName) || \file_exists($path . '/' . $this->fileName)) {
                 $rnd = '';
 
                 $limit = 0;
@@ -183,7 +183,7 @@ class UploadFile
                 return $result;
             }
 
-            if ($this->interlaced && in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
+            if ($this->interlaced && \in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
                 $this->interlace($extension, $dest);
             }
 
@@ -276,7 +276,7 @@ class UploadFile
     }
 
     /**
-     * @param int $maxSize
+     * @param int $maxSize Max allowed file size
      *
      * @return void
      *
@@ -288,7 +288,7 @@ class UploadFile
     }
 
     /**
-     * @return array
+     * @return string[]
      *
      * @since  1.0.0
      */
@@ -298,7 +298,7 @@ class UploadFile
     }
 
     /**
-     * @param array $allowedTypes
+     * @param string[] $allowedTypes Allowed file types
      *
      * @return void
      *
@@ -310,7 +310,7 @@ class UploadFile
     }
 
     /**
-     * @param array $allowedTypes
+     * @param string[] $allowedTypes Allowed file types
      *
      * @return void
      *
@@ -332,7 +332,9 @@ class UploadFile
     }
 
     /**
-     * @param string $outputDir
+     * Define output directory of the upload
+     * 
+     * @param string $outputDir Output directory of the uploaded file
      *
      * @return void
      *
@@ -354,7 +356,9 @@ class UploadFile
     }
 
     /**
-     * @param string $fileName
+     * Set the file name of the uploaded file
+     * 
+     * @param string $fileName File name of the uploaded file
      *
      * @return void
      *
@@ -366,7 +370,9 @@ class UploadFile
     }
 
     /**
-     * @param bool $preserveFileName
+     * Define if the uploaded file name should be the same file name as the original file
+     * 
+     * @param bool $preserveFileName Keep file name of the original file
      *
      * @return void
      *

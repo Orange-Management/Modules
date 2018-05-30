@@ -35,7 +35,7 @@ class KanbanCardMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static $columns = [
@@ -61,7 +61,7 @@ class KanbanCardMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array
+     * @var array<string, array<string, string|null>>
      * @since 1.0.0
      */
     protected static $hasMany = [

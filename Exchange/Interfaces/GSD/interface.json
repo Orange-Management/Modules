@@ -3,6 +3,6 @@
     "version": "1.0.0",
     "website": "",
     "path": "GSD",
-    "export": true,
-    "import": false
+    "export": false,
+    "import": true
 }

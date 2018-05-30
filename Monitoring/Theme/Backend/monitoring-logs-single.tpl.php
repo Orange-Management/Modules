@@ -16,7 +16,7 @@
 
 $log              = $this->app->logger->getByLine((int) $this->request->getData('id') ?? 1);
 $temp             = trim($log['backtrace']);
-$log['backtrace'] = json_decode($temp, true);
+$log['backtrace'] = \json_decode($temp, true);
 
 $details = '* Uri: `' . trim($log['path']) . "`\n"
     . '* Level: `' . trim($log['level']) . "`\n"
@@ -25,7 +25,7 @@ $details = '* Uri: `' . trim($log['path']) . "`\n"
     . '* Line: `' . trim($log['line']) . "`\n"
     . '* Version: `' . trim($log['version']) . "`\n"
     . '* OS: `' . trim($log['os']) . "`\n\n"
-    . "Backtrace: \n\n```\n" . json_encode($log['backtrace'], JSON_PRETTY_PRINT);
+    . "Backtrace: \n\n```\n" . \json_encode($log['backtrace'], JSON_PRETTY_PRINT);
 
 echo $this->getData('nav')->render(); ?>
 
@@ -55,7 +55,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr>
                         <td><?= $this->getHtml('Level') ?>
                         <td>
-                            <i class="fa fa-<?= $this->printHtml(in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i>
+                            <i class="fa fa-<?= $this->printHtml(\in_array($log['level'], ['notice', 'info', 'debug']) ? 'info-circle' : 'warning'); ?>"></i>
                         <td><?= $this->printHtml($log['level']); ?>
                     <tr>
                         <td><?= $this->getHtml('Message') ?>
@@ -81,7 +81,7 @@ echo $this->getData('nav')->render(); ?>
                         <td colspan="3"><?= $this->getHtml('Backtrace') ?>
                     <tr>
                         <td colspan="3">
-                            <pre><?= $this->printHtml(json_encode($log['backtrace'], JSON_PRETTY_PRINT)); ?></pre>
+                            <pre><?= $this->printHtml(\json_encode($log['backtrace'], JSON_PRETTY_PRINT)); ?></pre>
                     <tr>
                         <td colspan="3" style="padding-top: 10px"><a class="button" target="_blank"
                             href="https://gitreports.com/issue/Orange-Management/Orange-Management/?name=Guest&issue_title=<?= $this->printHtml(urlencode($log['message'])); ?>&details=<?= $this->printHtml(urlencode($details)); ?>"><?= $this->getHtml('Report') ?></a>

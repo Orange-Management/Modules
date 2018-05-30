@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $this->getHtml('Deprecated') ?>
                 <td><?= $this->getHtml('Integrity') ?>
                     <tbody>
-                    <?php foreach ($files as $key => $file) : $source = file_get_contents($file); ?>
+                    <?php foreach ($files as $key => $file) : $source = \file_get_contents($file); ?>
             <tr>
                 <td><?= $file; ?>
                 <td><?= \phpOMS\Security\PhpCode::hasUnicode($source); ?>

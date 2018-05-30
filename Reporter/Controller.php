@@ -409,7 +409,7 @@ final class Controller extends ModuleAbstract implements WebInterface
             return -1;
         }
 
-        $files = json_decode((string) $request->getData('files'));
+        $files = \json_decode((string) $request->getData('files'));
         // TODO: make sure this user has permissions for provided files
 
         /* Create collection */
@@ -437,7 +437,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $reporterTemplate->setStandalone((bool) $request->getData('standalone') ?? false);
-        $reporterTemplate->setExpected(!empty($expected) ? json_decode($expected, true) : []);
+        $reporterTemplate->setExpected(!empty($expected) ? \json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getHeader()->getAccount());
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
@@ -491,7 +491,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     private function handleTemplateDatabaseFromRequest(RequestAbstract $request) : void
     {
-        $files = json_decode((string) ($request->getData('files')));
+        $files = \json_decode((string) ($request->getData('files')));
 
         // TODO: make sure user has permission for files
         // TODO: make sure user has permission for template

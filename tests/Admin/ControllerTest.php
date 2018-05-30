@@ -98,7 +98,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
-        $request->setData('settings', json_encode(['1000000019' => 'US']));
+        $request->setData('settings', \json_encode(['1000000019' => 'US']));
 
         $this->module->apiSettingsSet($request, $response);
 
