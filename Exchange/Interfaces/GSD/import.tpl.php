@@ -7,6 +7,16 @@
                 <form id="fImport" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/exchange/import/profile?{?}&exchange=GSD&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
+                        <tr><td><label for="iHost"><?= $this->getHtml('Host') ?></label>
+                        <tr><td><input type="text" id="iHost" name="host" placeholder="&#xf040; <?= $this->getHtml('Host') ?>" required><input type="hidden" id="iDb" name="db" value="<?= \phpOMS\DataStorage\Database\DatabaseType::SQLSRV; ?>" required>
+                        <tr><td><label for="iPort"><?= $this->getHtml('Port') ?></label>
+                        <tr><td><input type="text" id="iPort" name="port" value="1433" required>
+                        <tr><td><label for="iDatabase"><?= $this->getHtml('Database') ?></label>
+                        <tr><td><input type="text" id="iDatabase" name="database" placeholder="&#xf040; <?= $this->getHtml('Database') ?>" required>
+                        <tr><td><label for="iLogin"><?= $this->getHtml('Login') ?></label>
+                        <tr><td><input type="text" id="iLogin" name="login" placeholder="&#xf040; <?= $this->getHtml('Login') ?>" required>
+                        <tr><td><label for="iPassword"><?= $this->getHtml('Password') ?></label>
+                        <tr><td><input type="password" id="iPassword" name="password" placeholder="&#xf040; <?= $this->getHtml('Password') ?>" required>
                         <tr><td><label for="iStart"><?= $this->getHtml('Start') ?></label>
                         <tr><td><input type="datetime-local" id="iStart" name="start" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iEnd"><?= $this->getHtml('End') ?></label>

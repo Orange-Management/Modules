@@ -12,12 +12,12 @@
  */
 declare(strict_types=1);
 
-namespace Interfaces\GSD;
+namespace Modules\Exchange\Interfaces\GSD;
 
-use Interfaces\ImporterAbstract;
-use Interfaces\GSD\Model\GSDCostCenterMapper;
-use Interfaces\GSD\Model\GSDCostObjectMapper;
-use Interfaces\GSD\Model\GSDCustomerMapper;
+use Modules\Exchange\Models\ImporterAbstract;
+use Modules\Exchange\Interfaces\GSD\Model\GSDCostCenterMapper;
+use Modules\Exchange\Interfaces\GSD\Model\GSDCostObjectMapper;
+use Modules\Exchange\Interfaces\GSD\Model\GSDCustomerMapper;
 
 use Modules\Accounting\Models\CostCenterMapper;
 use Modules\Accounting\Models\CostCenter;
@@ -28,17 +28,28 @@ use Modules\ClientManagement\Models\ClientMapper;
 use Modules\ClientManagement\Models\Client;
 
 use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
+use phpOMS\DataStorage\Database\DatabaseStatus;
+use phpOMS\Message\RequestAbstract;
 
 /**
  * GSD import class
  *
- * @package    Interfaces\GSD
+ * @package    Modules\Exchange\Models\Interfaces\GSD
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 final class Importer extends ImporterAbstract
 {
+    /**
+     * Database connection.
+     *
+     * @var ConnectionInterface
+     * @since 1.0.0
+     */
+    private $remote = null;
+
     /**
      * Import all data in time span
      *
@@ -63,6 +74,57 @@ final class Importer extends ImporterAbstract
         $this->importBatchPosting($start, $end);
     }
 
+    public function importFromRequest(RequestAbstract $request) : bool
+    {
+        $start = new \DateTime($request->getData('start') ?? 'now');
+        $end   = new \DateTime($request->getData('end') ?? 'now');
+
+        $this->remote = ConnectionFactory::create([
+            'db'       => $request->getData('db') ?? '',
+            'host'     => $request->getData('host') ?? '',
+            'port'     => (int) ($request->getData('port') ?? 0),
+            'database' => $request->getData('database') ?? '',
+            'login'    => $request->getData('login') ?? '',
+            'password' => $request->getData('password') ?? '',
+        ]);
+
+        if ($this->remote->getStatus() !== DatabaseStatus::OK) {
+            return false;
+        }
+
+        if (((bool) ($request->getData('customers') ?? false))) {
+            $this->importAddress($start, $end);
+            $this->importCustomer($start, $end);
+        }
+
+        if (((bool) ($request->getData('suppliers') ?? false))) {
+            $this->importAddress($start, $end);
+            $this->importSupplier($start, $end);
+        }
+
+        if (((bool) ($request->getData('accounts') ?? false))) {
+            $this->importAccount($start, $end);
+        }
+
+        if (((bool) ($request->getData('costcenters') ?? false))) {
+            $this->importCostCenter($start, $end);
+        }
+
+        if (((bool) ($request->getData('costobjects') ?? false))) {
+            $this->importCostObject($start, $end);
+        }
+
+        if (((bool) ($request->getData('articles') ?? false))) {
+            $this->importArticle($start, $end);
+        }
+
+        if (((bool) ($request->getData('invoices') ?? false))) {
+            $this->importInvoice($start, $end);
+        }
+
+        return true;
+    }
+
     /**
      * Import cost centers
      *
@@ -75,11 +137,11 @@ final class Importer extends ImporterAbstract
      */
     public function importCostCenter(\DateTime $start, \DateTime $end) : void
     {
-        DataMapperAbstract::setConnection($this->app->dbPool->get('gsd'));
+        DataMapperAbstract::setConnection($this->remote);
         $costCenters = GSDCostCenterMapper::getAll();
 
         $obj = new CostCenter();
-        DataMapperAbstract::setConnection($this->app->dbPool->get('oms'));
+        DataMapperAbstract::setConnection($this->local);
 
         foreach ($costCenters as $cc) {
             $obj->setCostCenter((int) $cc->getCostCenter());
@@ -101,11 +163,11 @@ final class Importer extends ImporterAbstract
      */
     public function importCostObject(\DateTime $start, \DateTime $end) : void
     {
-        DataMapperAbstract::setConnection($this->app->dbPool->get('gsd'));
+        DataMapperAbstract::setConnection($this->remote);
         $costObjects = GSDCostObjectMapper::getAll();
 
         $obj = new CostObject();
-        DataMapperAbstract::setConnection($this->app->dbPool->get('oms'));
+        DataMapperAbstract::setConnection($this->local);
 
         foreach ($costObjects as $co) {
             $obj->setCostObject((int) $co->getCostObject());

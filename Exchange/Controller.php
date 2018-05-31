@@ -187,21 +187,20 @@ final class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $import = $this->importDataFromRequest($request);
+        $import  = $this->importDataFromRequest($request);
+        $status  = NotificationLevel::ERROR;
+        $message = 'Import failed.';
 
         if ($import) {
-            $response->set($request->getUri()->__toString(), [
-                'status' => NotificationLevel::OK,
-                'title' => 'Exchange',
-                'message' => 'Import succeeded.'
-            ]);
-        } else {
-            $response->set($request->getUri()->__toString(), [
-                'status' => NotificationLevel::ERROR,
-                'title' => 'Exchange',
-                'message' => 'Import failed.'
-            ]);
+            $status  = NotificationLevel::OK;
+            $message = 'Import succeeded.';
         }
+
+        $response->set($request->getUri()->__toString(), [
+            'status' => status,
+            'title' => 'Exchange',
+            'message' => $message
+        ]);
     }
 
     /**
@@ -217,11 +216,11 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $interfaces = InterfaceManagerMapper::getAll();
         foreach ($interfaces as $interface) {
-            if ($request->getData('exchange') === $interface->getInterfacePath()) {
+            if ($request->getData('exchange') ?? '' === $interface->getInterfacePath()) {
                 $class    = '\\Modules\\Exchange\\Interfaces\\' . $interface->getInterfacePath() . '\\Importer';
-                $importer = new $class();
+                $importer = new $class($this->app->dbPool->get());
 
-                return $importer->importRequest($request);
+                return $importer->importFromRequest($request);
             }
         }
 

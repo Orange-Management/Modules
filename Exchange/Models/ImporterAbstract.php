@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Interfaces;
+namespace Modules\Exchange\Models;
 
 use phpOMS\DataStorage\Database\Connection\ConnectionInterface;
 
@@ -35,14 +35,6 @@ abstract class ImporterAbstract
     private $local = null;
 
     /**
-     * Database connection.
-     *
-     * @var ConnectionInterface
-     * @since 1.0.0
-     */
-    private $remote = null;
-
-    /**
      * Constructor
      *
      * @param ConnectionInterface $local  Database connection
@@ -50,9 +42,8 @@ abstract class ImporterAbstract
      *
      * @since  1.0.0
      */
-    public function __construct(ConnectionInterface $local, ConnectionInterface $remote)
+    public function __construct(ConnectionInterface $local)
     {
         $this->remote = $remote;
-        $this->local  = $local;
     }
 }

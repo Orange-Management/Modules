@@ -11,13 +11,18 @@
  * @link       http://website.orange-management.de
  */
 return ['Exchange' => [
-    'End' => 'End',
+    'Database' => 'Database',
+    'End'      => 'End',
     'Exchange' => 'Exchange',
-    'Export'  => 'Export',
+    'Export'   => 'Export',
     'Exports'  => 'Exports',
-    'Import'  => 'Import',
+    'Host'     => 'Host',
+    'Import'   => 'Import',
     'Imports'  => 'Imports',
+    'Login'    => 'Login',
     'Options'  => 'Options',
+    'Password' => 'Password',
+    'Port'     => 'Port',
     'Start'    => 'Start',
     'Title'    => 'Title',
     'Website'  => 'Website',
