@@ -41,18 +41,18 @@ class TaskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'task_id'      => ['name' => 'task_id', 'type' => 'int', 'internal' => 'id'],
-        'task_title'   => ['name' => 'task_title', 'type' => 'string', 'internal' => 'title'],
-        'task_desc'    => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
-        'task_desc_raw'    => ['name' => 'task_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'task_type'    => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
-        'task_status'  => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
-        'task_closable'  => ['name' => 'task_closable', 'type' => 'bool', 'internal' => 'isClosable'],
-        'task_priority'  => ['name' => 'task_priority', 'type' => 'int', 'internal' => 'priority'],
-        'task_due'     => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
-        'task_done'    => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
-        'task_schedule'    => ['name' => 'task_schedule', 'type' => 'int', 'internal' => 'schedule'],
-        'task_start' => ['name' => 'task_start', 'type' => 'DateTime', 'internal' => 'start'],
+        'task_id'         => ['name' => 'task_id', 'type' => 'int', 'internal' => 'id'],
+        'task_title'      => ['name' => 'task_title', 'type' => 'string', 'internal' => 'title'],
+        'task_desc'       => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
+        'task_desc_raw'   => ['name' => 'task_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'task_type'       => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
+        'task_status'     => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
+        'task_closable'   => ['name' => 'task_closable', 'type' => 'bool', 'internal' => 'isClosable'],
+        'task_priority'   => ['name' => 'task_priority', 'type' => 'int', 'internal' => 'priority'],
+        'task_due'        => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
+        'task_done'       => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
+        'task_schedule'   => ['name' => 'task_schedule', 'type' => 'int', 'internal' => 'schedule'],
+        'task_start'      => ['name' => 'task_start', 'type' => 'DateTime', 'internal' => 'start'],
         'task_created_by' => ['name' => 'task_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
@@ -65,22 +65,22 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'taskElements' => [
-            'mapper'         => TaskElementMapper::class,
-            'table'          => 'task_element',
-            'dst'            => 'task_element_task',
-            'src'            => null,
+            'mapper' => TaskElementMapper::class,
+            'table'  => 'task_element',
+            'dst'    => 'task_element_task',
+            'src'    => null,
         ],
-        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
-            'mapper'         => MediaMapper::class,
-            'table'          => 'task_media',
-            'dst'            => 'task_media_src',
-            'src'            => 'task_media_dst',
+        'media'        => [
+            'mapper' => MediaMapper::class,
+            'table'  => 'task_media',
+            'dst'    => 'task_media_src',
+            'src'    => 'task_media_dst',
         ],
-        'acc' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
-            'mapper'         => AccountMapper::class,
-            'table'          => 'task_account',
-            'dst'            => 'task_account_account',
-            'src'            => 'task_account_task',
+        'acc'          => [
+            'mapper' => AccountMapper::class,
+            'table'  => 'task_account',
+            'dst'    => 'task_account_account',
+            'src'    => 'task_account_task',
         ],
     ];
 
@@ -99,8 +99,8 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'schedule' => [
-            'mapper'         => ScheduleMapper::class,
-            'src'            => 'task_schedule',
+            'mapper' => ScheduleMapper::class,
+            'src'    => 'task_schedule',
         ],
     ];
 
@@ -144,10 +144,10 @@ class TaskMapper extends DataMapperAbstract
             $query = new Builder(self::$db);
 
             $query->prefix(self::$db->getPrefix())
-                  ->count()
-                  ->from(self::$table)
-                  ->where(self::$table . '.task_created_by', '=', $user)
-                  ->where(self::$table . '.task_status', '=', TaskStatus::OPEN, 'and');
+                ->count()
+                ->from(self::$table)
+                ->where(self::$table . '.task_created_by', '=', $user)
+                ->where(self::$table . '.task_status', '=', TaskStatus::OPEN, 'and');
 
             $sth = self::$db->con->prepare($query->toSql());
             $sth->execute();

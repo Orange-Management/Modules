@@ -49,12 +49,12 @@ class UnitMapper extends DataMapperAbstract
      */
     protected static $belongsTo = [
         'account' => [
-            'mapper'         => UnitMapper::class,
-            'dest'            => 'organization_uni_parent',
+            'mapper' => UnitMapper::class,
+            'dest'   => 'organization_uni_parent',
         ],
-        'parent' => [
-            'mapper'         => UnitMapper::class,
-            'dest'            => 'organization_unit_parent',
+        'parent'  => [
+            'mapper' => UnitMapper::class,
+            'dest'   => 'organization_unit_parent',
         ],
     ];
 

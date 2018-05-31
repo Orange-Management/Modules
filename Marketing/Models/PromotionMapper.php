@@ -49,7 +49,7 @@ class PromotionMapper extends DataMapperAbstract
         'marketing_promotion_earnings'    => ['name' => 'marketing_promotion_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
         'marketing_promotion_start'       => ['name' => 'marketing_promotion_start', 'type' => 'DateTime', 'internal' => 'start'],
         'marketing_promotion_end'         => ['name' => 'marketing_promotion_end', 'type' => 'DateTime', 'internal' => 'end'],
-        'marketing_promotion_created_by' => ['name' => 'marketing_promotion_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'marketing_promotion_created_by'  => ['name' => 'marketing_promotion_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'marketing_promotion_created_at'  => ['name' => 'marketing_promotion_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
@@ -61,16 +61,16 @@ class PromotionMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'tasks' => [
-            'mapper'         => TaskMapper::class,
-            'table'          => 'marketing_promotion_task_relation',
-            'dst'            => 'marketing_promotion_task_relation_dst',
-            'src'            => 'marketing_promotion_task_relation_src',
+            'mapper' => TaskMapper::class,
+            'table'  => 'marketing_promotion_task_relation',
+            'dst'    => 'marketing_promotion_task_relation_dst',
+            'src'    => 'marketing_promotion_task_relation_src',
         ],
         'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
-            'mapper'         => MediaMapper::class,
-            'table'          => 'marketing_promotion_media',
-            'dst'            => 'marketing_promotion_media_src',
-            'src'            => 'marketing_promotion_media_dst',
+                     'mapper' => MediaMapper::class,
+                     'table'  => 'marketing_promotion_media',
+                     'dst'    => 'marketing_promotion_media_src',
+                     'src'    => 'marketing_promotion_media_dst',
         ],
     ];
 

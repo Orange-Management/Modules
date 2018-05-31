@@ -34,14 +34,14 @@ class ClientMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'clientmgmt_client_id'         => ['name' => 'clientmgmt_client_id', 'type' => 'int', 'internal' => 'id'],
-        'clientmgmt_client_no'     => ['name' => 'clientmgmt_client_no', 'type' => 'int', 'internal' => 'number'],
-        'clientmgmt_client_no_reverse'       => ['name' => 'clientmgmt_client_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
-        'clientmgmt_client_status'    => ['name' => 'clientmgmt_client_status', 'type' => 'int', 'internal' => 'status'],
-        'clientmgmt_client_type'    => ['name' => 'clientmgmt_client_type', 'type' => 'int', 'internal' => 'type'],
+        'clientmgmt_client_no'         => ['name' => 'clientmgmt_client_no', 'type' => 'int', 'internal' => 'number'],
+        'clientmgmt_client_no_reverse' => ['name' => 'clientmgmt_client_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
+        'clientmgmt_client_status'     => ['name' => 'clientmgmt_client_status', 'type' => 'int', 'internal' => 'status'],
+        'clientmgmt_client_type'       => ['name' => 'clientmgmt_client_type', 'type' => 'int', 'internal' => 'type'],
         'clientmgmt_client_taxid'      => ['name' => 'clientmgmt_client_taxid', 'type' => 'string', 'internal' => 'taxId'],
-        'clientmgmt_client_info'      => ['name' => 'clientmgmt_client_info', 'type' => 'string', 'internal' => 'info'],
+        'clientmgmt_client_info'       => ['name' => 'clientmgmt_client_info', 'type' => 'string', 'internal' => 'info'],
         'clientmgmt_client_created_at' => ['name' => 'clientmgmt_client_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
-        'clientmgmt_client_account' => ['name' => 'clientmgmt_client_account', 'type' => 'int', 'internal' => 'profile'],
+        'clientmgmt_client_account'    => ['name' => 'clientmgmt_client_account', 'type' => 'int', 'internal' => 'profile'],
     ];
 
     /**
@@ -76,23 +76,23 @@ class ClientMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'profile' => [
-            'mapper'         => ProfileMapper::class,
-            'src'            => 'clientmgmt_client_account',
+            'mapper' => ProfileMapper::class,
+            'src'    => 'clientmgmt_client_account',
         ],
     ];
 
     protected static $hasMany = [
-        'files' => [
-            'mapper'         => MediaMapper::class, /* mapper of the related object */
-            'table'          => 'clientmgmt_client_media', /* table of the related object, null if no relation table is used (many->1) */
-            'dst'            => 'clientmgmt_client_media_dst',
-            'src'            => 'clientmgmt_client_media_src',
+        'files'           => [
+            'mapper' => MediaMapper::class, /* mapper of the related object */
+            'table'  => 'clientmgmt_client_media', /* table of the related object, null if no relation table is used (many->1) */
+            'dst'    => 'clientmgmt_client_media_dst',
+            'src'    => 'clientmgmt_client_media_src',
         ],
         'contactElements' => [
-            'mapper'         => ContactElementMapper::class,
-            'table'          => 'clientmgmt_client_contactelement',
-            'dst'            => 'clientmgmt_client_contactelement_dst',
-            'src'            => 'clientmgmt_client_contactelement_src',
+            'mapper' => ContactElementMapper::class,
+            'table'  => 'clientmgmt_client_contactelement',
+            'dst'    => 'clientmgmt_client_contactelement_dst',
+            'src'    => 'clientmgmt_client_contactelement_src',
         ],
     ];
 }

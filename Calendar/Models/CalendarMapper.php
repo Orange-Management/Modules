@@ -9,7 +9,7 @@
  * @license    OMS License 1.0
  * @version    1.0.0
  * @link       http://website.orange-management.de
- * @todo only load events of 3 month or 1 year?!
+ * @todo       only load events of 3 month or 1 year?!
  */
 declare(strict_types=1);
 
@@ -59,10 +59,10 @@ class CalendarMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'events' => [
-            'mapper'         => EventMapper::class,
-            'table'          => 'calendar_event',
-            'dst'            => 'calendar_event_calendar',
-            'src'            => null,
+            'mapper' => EventMapper::class,
+            'table'  => 'calendar_event',
+            'dst'    => 'calendar_event_calendar',
+            'src'    => null,
         ],
     ];
 

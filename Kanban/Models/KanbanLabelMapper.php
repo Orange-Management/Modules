@@ -37,10 +37,10 @@ class KanbanLabelMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'kanban_label_id'      => ['name' => 'kanban_label_id', 'type' => 'int', 'internal' => 'id'],
-        'kanban_label_name'   => ['name' => 'kanban_label_name', 'type' => 'string', 'internal' => 'name'],
-        'kanban_label_color'    => ['name' => 'kanban_label_color', 'type' => 'int', 'internal' => 'color'],
-        'kanban_label_board'  => ['name' => 'kanban_label_board', 'type' => 'int', 'internal' => 'board'],
+        'kanban_label_id'    => ['name' => 'kanban_label_id', 'type' => 'int', 'internal' => 'id'],
+        'kanban_label_name'  => ['name' => 'kanban_label_name', 'type' => 'string', 'internal' => 'name'],
+        'kanban_label_color' => ['name' => 'kanban_label_color', 'type' => 'int', 'internal' => 'color'],
+        'kanban_label_board' => ['name' => 'kanban_label_board', 'type' => 'int', 'internal' => 'board'],
     ];
 
     /**

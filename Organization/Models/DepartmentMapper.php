@@ -49,13 +49,13 @@ class DepartmentMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $belongsTo = [
-        'unit' => [
-            'mapper'         => UnitMapper::class,
-            'dest'            => 'organization_department_unit',
+        'unit'   => [
+            'mapper' => UnitMapper::class,
+            'dest'   => 'organization_department_unit',
         ],
         'parent' => [
-            'mapper'         => DepartmentMapper::class,
-            'dest'            => 'organization_department_parent',
+            'mapper' => DepartmentMapper::class,
+            'dest'   => 'organization_department_parent',
         ],
     ];
 

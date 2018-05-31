@@ -28,7 +28,7 @@ class ContactElementMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_contact_id'         => ['name' => 'profile_contact_id', 'type' => 'int', 'internal' => 'id'],
+        'profile_contact_id' => ['name' => 'profile_contact_id', 'type' => 'int', 'internal' => 'id'],
     ];
 
     /**

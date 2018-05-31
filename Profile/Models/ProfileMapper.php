@@ -32,11 +32,11 @@ class ProfileMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_account_id'         => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
-        'profile_account_image'         => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
-        'profile_account_birthday'         => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday'],
-        'profile_account_account'         => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
-        'profile_account_calendar'         => ['name' => 'profile_account_calendar', 'type' => 'int', 'internal' => 'calendar'],
+        'profile_account_id'       => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
+        'profile_account_image'    => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
+        'profile_account_birthday' => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday'],
+        'profile_account_account'  => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
+        'profile_account_calendar' => ['name' => 'profile_account_calendar', 'type' => 'int', 'internal' => 'calendar'],
     ];
 
     /**
@@ -46,17 +46,17 @@ class ProfileMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $ownsOne = [
-        'account' => [
-            'mapper'         => AccountMapper::class,
-            'src'            => 'profile_account_account',
+        'account'  => [
+            'mapper' => AccountMapper::class,
+            'src'    => 'profile_account_account',
         ],
-        'image' => [
-            'mapper'         => MediaMapper::class,
-            'src'            => 'profile_account_image',
+        'image'    => [
+            'mapper' => MediaMapper::class,
+            'src'    => 'profile_account_image',
         ],
         'calendar' => [
-            'mapper'         => CalendarMapper::class,
-            'src'            => 'profile_account_calendar',
+            'mapper' => CalendarMapper::class,
+            'src'    => 'profile_account_calendar',
         ],
     ];
 
@@ -68,10 +68,10 @@ class ProfileMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'location' => [
-            'mapper'         => AddressMapper::class,
-            'table'          => 'profile_address',
-            'dst'            => 'profile_address_account',
-            'src'            => null,
+            'mapper' => AddressMapper::class,
+            'table'  => 'profile_address',
+            'dst'    => 'profile_address_account',
+            'src'    => null,
         ],
     ];
 

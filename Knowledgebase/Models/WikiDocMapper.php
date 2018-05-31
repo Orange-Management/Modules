@@ -37,12 +37,12 @@ class WikiDocMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'wiki_article_id'      => ['name' => 'wiki_article_id', 'type' => 'int', 'internal' => 'id'],
-        'wiki_article_title'   => ['name' => 'wiki_article_title', 'type' => 'string', 'internal' => 'name'],
+        'wiki_article_id'         => ['name' => 'wiki_article_id', 'type' => 'int', 'internal' => 'id'],
+        'wiki_article_title'      => ['name' => 'wiki_article_title', 'type' => 'string', 'internal' => 'name'],
         'wiki_article_language'   => ['name' => 'wiki_article_language', 'type' => 'string', 'internal' => 'language'],
-        'wiki_article_doc'    => ['name' => 'wiki_article_doc', 'type' => 'string', 'internal' => 'doc'],
-        'wiki_article_status'  => ['name' => 'wiki_article_status', 'type' => 'int', 'internal' => 'status'],
-        'wiki_article_category'  => ['name' => 'wiki_article_category', 'type' => 'int', 'internal' => 'category'],
+        'wiki_article_doc'        => ['name' => 'wiki_article_doc', 'type' => 'string', 'internal' => 'doc'],
+        'wiki_article_status'     => ['name' => 'wiki_article_status', 'type' => 'int', 'internal' => 'status'],
+        'wiki_article_category'   => ['name' => 'wiki_article_category', 'type' => 'int', 'internal' => 'category'],
         'wiki_article_created_by' => ['name' => 'wiki_article_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'wiki_article_created_at' => ['name' => 'wiki_article_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
@@ -55,10 +55,10 @@ class WikiDocMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'badges' => [
-            'mapper'         => WikiBadgeMapper::class,
-            'table'          => 'wiki_article_badge',
-            'src'            => 'wiki_article_badge_badge',
-            'dst'            => 'wiki_article_badge_article',
+            'mapper' => WikiBadgeMapper::class,
+            'table'  => 'wiki_article_badge',
+            'src'    => 'wiki_article_badge_badge',
+            'dst'    => 'wiki_article_badge_article',
         ],
     ];
 
@@ -70,8 +70,8 @@ class WikiDocMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'category' => [
-            'mapper'         => WikiCategoryMapper::class,
-            'dst'            => 'wiki_article_category',
+            'mapper' => WikiCategoryMapper::class,
+            'dst'    => 'wiki_article_category',
         ],
     ];
 

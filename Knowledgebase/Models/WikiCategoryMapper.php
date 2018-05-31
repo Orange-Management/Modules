@@ -37,9 +37,9 @@ class WikiCategoryMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'wiki_category_id'      => ['name' => 'wiki_category_id', 'type' => 'int', 'internal' => 'id'],
+        'wiki_category_id'     => ['name' => 'wiki_category_id', 'type' => 'int', 'internal' => 'id'],
         'wiki_category_name'   => ['name' => 'wiki_category_name', 'type' => 'string', 'internal' => 'name'],
-        'wiki_category_parent'  => ['name' => 'wiki_category_parent', 'type' => 'int', 'internal' => 'parent'],
+        'wiki_category_parent' => ['name' => 'wiki_category_parent', 'type' => 'int', 'internal' => 'parent'],
     ];
 
     /**

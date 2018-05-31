@@ -31,17 +31,17 @@ class RiskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'riskmngmt_risk_id'         => ['name' => 'riskmngmt_risk_id', 'type' => 'int', 'internal' => 'id'],
-        'riskmngmt_risk_name'     => ['name' => 'riskmngmt_risk_name', 'type' => 'string', 'internal' => 'name'],
-        'riskmngmt_risk_description'     => ['name' => 'riskmngmt_risk_description', 'type' => 'string', 'internal' => 'description'],
-        'riskmngmt_risk_descriptionraw'     => ['name' => 'riskmngmt_risk_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'riskmngmt_risk_unit' => ['name' => 'riskmngmt_risk_unit', 'type' => 'int', 'internal' => 'unit'],
-        'riskmngmt_risk_department' => ['name' => 'riskmngmt_risk_department', 'type' => 'int', 'internal' => 'department'],
-        'riskmngmt_risk_category' => ['name' => 'riskmngmt_risk_category', 'type' => 'int', 'internal' => 'category'],
-        'riskmngmt_risk_project' => ['name' => 'riskmngmt_risk_project', 'type' => 'int', 'internal' => 'project'],
-        'riskmngmt_risk_process' => ['name' => 'riskmngmt_risk_process', 'type' => 'int', 'internal' => 'process'],
-        'riskmngmt_risk_responsible' => ['name' => 'riskmngmt_risk_responsible', 'type' => 'int', 'internal' => 'responsible'],
-        'riskmngmt_risk_deputy' => ['name' => 'riskmngmt_risk_deputy', 'type' => 'int', 'internal' => 'deputy'],
+        'riskmngmt_risk_id'             => ['name' => 'riskmngmt_risk_id', 'type' => 'int', 'internal' => 'id'],
+        'riskmngmt_risk_name'           => ['name' => 'riskmngmt_risk_name', 'type' => 'string', 'internal' => 'name'],
+        'riskmngmt_risk_description'    => ['name' => 'riskmngmt_risk_description', 'type' => 'string', 'internal' => 'description'],
+        'riskmngmt_risk_descriptionraw' => ['name' => 'riskmngmt_risk_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'riskmngmt_risk_unit'           => ['name' => 'riskmngmt_risk_unit', 'type' => 'int', 'internal' => 'unit'],
+        'riskmngmt_risk_department'     => ['name' => 'riskmngmt_risk_department', 'type' => 'int', 'internal' => 'department'],
+        'riskmngmt_risk_category'       => ['name' => 'riskmngmt_risk_category', 'type' => 'int', 'internal' => 'category'],
+        'riskmngmt_risk_project'        => ['name' => 'riskmngmt_risk_project', 'type' => 'int', 'internal' => 'project'],
+        'riskmngmt_risk_process'        => ['name' => 'riskmngmt_risk_process', 'type' => 'int', 'internal' => 'process'],
+        'riskmngmt_risk_responsible'    => ['name' => 'riskmngmt_risk_responsible', 'type' => 'int', 'internal' => 'responsible'],
+        'riskmngmt_risk_deputy'         => ['name' => 'riskmngmt_risk_deputy', 'type' => 'int', 'internal' => 'deputy'],
     ];
 
     /**
@@ -51,52 +51,52 @@ class RiskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $hasMany = [
-        'media' => [
-            'mapper'         => MediaMapper::class,
-            'table'          => 'riskmngmt_risk_media',
-            'dst'            => 'riskmngmt_risk_media_risk',
-            'src'            => 'riskmngmt_risk_media_media',
+        'media'       => [
+            'mapper' => MediaMapper::class,
+            'table'  => 'riskmngmt_risk_media',
+            'dst'    => 'riskmngmt_risk_media_risk',
+            'src'    => 'riskmngmt_risk_media_media',
         ],
         'riskObjects' => [
-            'mapper'         => RiskObjectMapper::class,
-            'table'          => 'riskmngmt_risk_object',
-            'dst'            => 'riskmngmt_risk_object_risk',
-            'src'            => null,
+            'mapper' => RiskObjectMapper::class,
+            'table'  => 'riskmngmt_risk_object',
+            'dst'    => 'riskmngmt_risk_object_risk',
+            'src'    => null,
         ],
-        'causes' => [
-            'mapper'         => CauseMapper::class,
-            'table'          => 'riskmngmt_cause',
-            'dst'            => 'riskmngmt_cause_risk',
-            'src'            => null,
+        'causes'      => [
+            'mapper' => CauseMapper::class,
+            'table'  => 'riskmngmt_cause',
+            'dst'    => 'riskmngmt_cause_risk',
+            'src'    => null,
         ],
-        'solutions' => [
-            'mapper'         => SolutionMapper::class,
-            'table'          => 'riskmngmt_solution',
-            'dst'            => 'riskmngmt_solution_risk',
-            'src'            => null,
+        'solutions'   => [
+            'mapper' => SolutionMapper::class,
+            'table'  => 'riskmngmt_solution',
+            'dst'    => 'riskmngmt_solution_risk',
+            'src'    => null,
         ],
     ];
 
     protected static $belongsTo = [
-        'project' => [
-            'mapper'         => ProjectMapper::class,
-            'dest'            => 'riskmngmt_risk_project',
+        'project'    => [
+            'mapper' => ProjectMapper::class,
+            'dest'   => 'riskmngmt_risk_project',
         ],
-        'process' => [
-            'mapper'         => ProcessMapper::class,
-            'dest'            => 'riskmngmt_risk_process',
+        'process'    => [
+            'mapper' => ProcessMapper::class,
+            'dest'   => 'riskmngmt_risk_process',
         ],
-        'category' => [
-            'mapper'         => CategoryMapper::class,
-            'dest'            => 'riskmngmt_risk_category',
+        'category'   => [
+            'mapper' => CategoryMapper::class,
+            'dest'   => 'riskmngmt_risk_category',
         ],
         'department' => [
-            'mapper'         => DepartmentMapper::class,
-            'dest'            => 'riskmngmt_risk_department',
+            'mapper' => DepartmentMapper::class,
+            'dest'   => 'riskmngmt_risk_department',
         ],
-        'unit' => [
-            'mapper'         => UnitMapper::class,
-            'dest'            => 'riskmngmt_risk_unit',
+        'unit'       => [
+            'mapper' => UnitMapper::class,
+            'dest'   => 'riskmngmt_risk_unit',
         ],
     ];
 

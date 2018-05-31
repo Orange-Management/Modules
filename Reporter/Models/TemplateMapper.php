@@ -31,19 +31,19 @@ class TemplateMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'reporter_template_id'       => ['name' => 'reporter_template_id', 'type' => 'int', 'internal' => 'id'],
-        'reporter_template_status'   => ['name' => 'reporter_template_status', 'type' => 'int', 'internal' => 'status'],
-        'reporter_template_title'    => ['name' => 'reporter_template_title', 'type' => 'string', 'internal' => 'name'],
-        'reporter_template_data'     => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
-        'reporter_template_standalone'     => ['name' => 'reporter_template_standalone', 'type' => 'bool', 'internal' => 'isStandalone'],
-        'reporter_template_expected' => ['name' => 'reporter_template_expected', 'type' => 'Json', 'internal' => 'expected'],
-        'reporter_template_desc'     => ['name'     => 'reporter_template_desc', 'type' => 'string', 'internal' => 'description'],
-        'reporter_template_desc_raw'     => ['name'     => 'reporter_template_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'reporter_template_media'    => ['name' => 'reporter_template_media', 'type' => 'int', 'internal' => 'source'],
-        'reporter_template_creator'  => ['name'     => 'reporter_template_creator', 'type' => 'int',
-                                         'internal' => 'createdBy'],
-        'reporter_template_created'  => ['name'     => 'reporter_template_created', 'type' => 'DateTime',
-                                         'internal' => 'createdAt'],
+        'reporter_template_id'         => ['name' => 'reporter_template_id', 'type' => 'int', 'internal' => 'id'],
+        'reporter_template_status'     => ['name' => 'reporter_template_status', 'type' => 'int', 'internal' => 'status'],
+        'reporter_template_title'      => ['name' => 'reporter_template_title', 'type' => 'string', 'internal' => 'name'],
+        'reporter_template_data'       => ['name' => 'reporter_template_data', 'type' => 'int', 'internal' => 'datatype'],
+        'reporter_template_standalone' => ['name' => 'reporter_template_standalone', 'type' => 'bool', 'internal' => 'isStandalone'],
+        'reporter_template_expected'   => ['name' => 'reporter_template_expected', 'type' => 'Json', 'internal' => 'expected'],
+        'reporter_template_desc'       => ['name' => 'reporter_template_desc', 'type' => 'string', 'internal' => 'description'],
+        'reporter_template_desc_raw'   => ['name' => 'reporter_template_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'reporter_template_media'      => ['name' => 'reporter_template_media', 'type' => 'int', 'internal' => 'source'],
+        'reporter_template_creator'    => ['name'     => 'reporter_template_creator', 'type' => 'int',
+                                           'internal' => 'createdBy'],
+        'reporter_template_created'    => ['name'     => 'reporter_template_created', 'type' => 'DateTime',
+                                           'internal' => 'createdAt'],
     ];
 
     /**
@@ -54,8 +54,8 @@ class TemplateMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'source' => [
-            'mapper'         => CollectionMapper::class,
-            'src'            => 'reporter_template_media',
+            'mapper' => CollectionMapper::class,
+            'src'    => 'reporter_template_media',
         ],
     ];
 
@@ -69,10 +69,10 @@ class TemplateMapper extends DataMapperAbstract
 
     protected static $hasMany = [
         'reports' => [
-            'mapper'         => ReportMapper::class,
-            'table'          => 'reporter_report',
-            'dst'            => 'reporter_report_template',
-            'src'            => null,
+            'mapper' => ReportMapper::class,
+            'table'  => 'reporter_report',
+            'dst'    => 'reporter_report_template',
+            'src'    => null,
         ],
     ];
 

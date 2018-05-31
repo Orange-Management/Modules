@@ -37,10 +37,10 @@ class KanbanColumnMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'kanban_column_id'      => ['name' => 'kanban_column_id', 'type' => 'int', 'internal' => 'id'],
-        'kanban_column_name'   => ['name' => 'kanban_column_name', 'type' => 'string', 'internal' => 'name'],
-        'kanban_column_order'    => ['name' => 'kanban_column_order', 'type' => 'int', 'internal' => 'order'],
-        'kanban_column_board'  => ['name' => 'kanban_column_board', 'type' => 'int', 'internal' => 'board'],
+        'kanban_column_id'    => ['name' => 'kanban_column_id', 'type' => 'int', 'internal' => 'id'],
+        'kanban_column_name'  => ['name' => 'kanban_column_name', 'type' => 'string', 'internal' => 'name'],
+        'kanban_column_order' => ['name' => 'kanban_column_order', 'type' => 'int', 'internal' => 'order'],
+        'kanban_column_board' => ['name' => 'kanban_column_board', 'type' => 'int', 'internal' => 'board'],
     ];
 
     /**
@@ -51,10 +51,10 @@ class KanbanColumnMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'cards' => [
-            'mapper'         => KanbanCardMapper::class,
-            'table'          => 'kanban_card',
-            'dst'            => 'kanban_card_column',
-            'src'            => null,
+            'mapper' => KanbanCardMapper::class,
+            'table'  => 'kanban_card',
+            'dst'    => 'kanban_card_column',
+            'src'    => null,
         ],
     ];
 

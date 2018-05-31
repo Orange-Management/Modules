@@ -39,7 +39,7 @@ class TaskElementMapper extends DataMapperAbstract
     protected static $columns = [
         'task_element_id'         => ['name' => 'task_element_id', 'type' => 'int', 'internal' => 'id'],
         'task_element_desc'       => ['name' => 'task_element_desc', 'type' => 'string', 'internal' => 'description'],
-        'task_element_desc_raw'       => ['name' => 'task_element_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
+        'task_element_desc_raw'   => ['name' => 'task_element_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
         'task_element_status'     => ['name' => 'task_element_status', 'type' => 'int', 'internal' => 'status'],
         'task_element_due'        => ['name' => 'task_element_due', 'type' => 'DateTime', 'internal' => 'due'],
         'task_element_forwarded'  => ['name' => 'task_element_forwarded', 'type' => 'int', 'internal' => 'forwarded'],
@@ -56,10 +56,10 @@ class TaskElementMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'media' => [
-            'mapper'         => MediaMapper::class,
-            'table'          => 'task_element_media',
-            'dst'            => 'task_element_media_src',
-            'src'            => 'task_element_media_dst',
+            'mapper' => MediaMapper::class,
+            'table'  => 'task_element_media',
+            'dst'    => 'task_element_media_src',
+            'src'    => 'task_element_media_dst',
         ],
     ];
 

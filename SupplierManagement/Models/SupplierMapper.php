@@ -34,14 +34,14 @@ class SupplierMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'suppliermgmt_supplier_id'         => ['name' => 'suppliermgmt_supplier_id', 'type' => 'int', 'internal' => 'id'],
-        'suppliermgmt_supplier_no'     => ['name' => 'suppliermgmt_supplier_no', 'type' => 'int', 'internal' => 'number'],
-        'suppliermgmt_supplier_no_reverse'       => ['name' => 'suppliermgmt_supplier_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
-        'suppliermgmt_supplier_status'    => ['name' => 'suppliermgmt_supplier_status', 'type' => 'int', 'internal' => 'status'],
-        'suppliermgmt_supplier_type'    => ['name' => 'suppliermgmt_supplier_type', 'type' => 'int', 'internal' => 'type'],
+        'suppliermgmt_supplier_no'         => ['name' => 'suppliermgmt_supplier_no', 'type' => 'int', 'internal' => 'number'],
+        'suppliermgmt_supplier_no_reverse' => ['name' => 'suppliermgmt_supplier_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
+        'suppliermgmt_supplier_status'     => ['name' => 'suppliermgmt_supplier_status', 'type' => 'int', 'internal' => 'status'],
+        'suppliermgmt_supplier_type'       => ['name' => 'suppliermgmt_supplier_type', 'type' => 'int', 'internal' => 'type'],
         'suppliermgmt_supplier_taxid'      => ['name' => 'suppliermgmt_supplier_taxid', 'type' => 'string', 'internal' => 'taxId'],
-        'suppliermgmt_supplier_info'      => ['name' => 'suppliermgmt_supplier_info', 'type' => 'string', 'internal' => 'info'],
+        'suppliermgmt_supplier_info'       => ['name' => 'suppliermgmt_supplier_info', 'type' => 'string', 'internal' => 'info'],
         'suppliermgmt_supplier_created_at' => ['name' => 'suppliermgmt_supplier_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
-        'suppliermgmt_supplier_account' => ['name' => 'suppliermgmt_supplier_account', 'type' => 'int', 'internal' => 'profile'],
+        'suppliermgmt_supplier_account'    => ['name' => 'suppliermgmt_supplier_account', 'type' => 'int', 'internal' => 'profile'],
     ];
 
     /**
@@ -76,23 +76,23 @@ class SupplierMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'profile' => [
-            'mapper'         => ProfileMapper::class,
-            'src'            => 'suppliermgmt_supplier_account',
+            'mapper' => ProfileMapper::class,
+            'src'    => 'suppliermgmt_supplier_account',
         ],
     ];
 
     protected static $hasMany = [
-        'files' => [
-            'mapper'         => MediaMapper::class, /* mapper of the related object */
-            'table'          => 'suppliermgmt_supplier_media', /* table of the related object, null if no relation table is used (many->1) */
-            'dst'            => 'suppliermgmt_supplier_media_dst',
-            'src'            => 'suppliermgmt_supplier_media_src',
+        'files'           => [
+            'mapper' => MediaMapper::class, /* mapper of the related object */
+            'table'  => 'suppliermgmt_supplier_media', /* table of the related object, null if no relation table is used (many->1) */
+            'dst'    => 'suppliermgmt_supplier_media_dst',
+            'src'    => 'suppliermgmt_supplier_media_src',
         ],
         'contactElements' => [
-            'mapper'         => ContactElementMapper::class,
-            'table'          => 'suppliermgmt_supplier_contactelement',
-            'dst'            => 'suppliermgmt_supplier_contactelement_dst',
-            'src'            => 'suppliermgmt_supplier_contactelement_src',
+            'mapper' => ContactElementMapper::class,
+            'table'  => 'suppliermgmt_supplier_contactelement',
+            'dst'    => 'suppliermgmt_supplier_contactelement_dst',
+            'src'    => 'suppliermgmt_supplier_contactelement_src',
         ],
     ];
 }

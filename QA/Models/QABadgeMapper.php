@@ -37,8 +37,8 @@ class QABadgeMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'qa_badge_id'      => ['name' => 'qa_badge_id', 'type' => 'int', 'internal' => 'id'],
-        'qa_badge_name'   => ['name' => 'qa_badge_name', 'type' => 'string', 'internal' => 'name'],
+        'qa_badge_id'   => ['name' => 'qa_badge_id', 'type' => 'int', 'internal' => 'id'],
+        'qa_badge_name' => ['name' => 'qa_badge_name', 'type' => 'string', 'internal' => 'name'],
     ];
 
     /**

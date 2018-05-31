@@ -34,11 +34,11 @@ final class GSDCostObjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'ROW_ID'             => ['name' => 'ROW_ID', 'type' => 'int', 'internal' => 'id'],
-        'row_create_time'    => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
-        'row_create_user'    => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
-        'KTR'                => ['name' => 'KTR', 'type' => 'string', 'internal' => 'costobject'],
-        'Bezeichnung'        => ['name' => 'Bezeichnung', 'type' => 'string', 'internal' => 'description'],
+        'ROW_ID'          => ['name' => 'ROW_ID', 'type' => 'int', 'internal' => 'id'],
+        'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'row_create_user' => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
+        'KTR'             => ['name' => 'KTR', 'type' => 'string', 'internal' => 'costobject'],
+        'Bezeichnung'     => ['name' => 'Bezeichnung', 'type' => 'string', 'internal' => 'description'],
     ];
 
     /**

@@ -38,7 +38,7 @@ class CommentListMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'comments_list_id'      => ['name' => 'comments_list_id', 'type' => 'int', 'internal' => 'id'],
+        'comments_list_id' => ['name' => 'comments_list_id', 'type' => 'int', 'internal' => 'id'],
     ];
 
     /**
@@ -49,10 +49,10 @@ class CommentListMapper extends DataMapperAbstract
      */
     protected static $hasMany = [
         'comments' => [
-            'mapper'         => CommentMapper::class,
-            'table'          => 'comments_comment',
-            'dst'            => 'comments_comment_list',
-            'src'            => null,
+            'mapper' => CommentMapper::class,
+            'table'  => 'comments_comment',
+            'dst'    => 'comments_comment_list',
+            'src'    => null,
         ],
     ];
 

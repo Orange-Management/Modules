@@ -37,8 +37,8 @@ class WikiBadgeMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'wiki_badge_id'      => ['name' => 'wiki_badge_id', 'type' => 'int', 'internal' => 'id'],
-        'wiki_badge_name'   => ['name' => 'wiki_badge_name', 'type' => 'string', 'internal' => 'name'],
+        'wiki_badge_id'   => ['name' => 'wiki_badge_id', 'type' => 'int', 'internal' => 'id'],
+        'wiki_badge_name' => ['name' => 'wiki_badge_name', 'type' => 'string', 'internal' => 'name'],
     ];
 
     /**

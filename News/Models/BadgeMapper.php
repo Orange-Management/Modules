@@ -30,8 +30,8 @@ class BadgeMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     static protected $columns = [
-        'news_badge_id'         => ['name' => 'news_badge_id', 'type' => 'int', 'internal' => 'id'],
-        'news_badge_title'      => ['name' => 'news_badge_title', 'type' => 'string', 'internal' => 'title'],
+        'news_badge_id'    => ['name' => 'news_badge_id', 'type' => 'int', 'internal' => 'id'],
+        'news_badge_title' => ['name' => 'news_badge_title', 'type' => 'string', 'internal' => 'title'],
     ];
 
     /**

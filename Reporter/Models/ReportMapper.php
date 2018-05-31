@@ -33,11 +33,11 @@ class ReportMapper extends DataMapperAbstract
         'reporter_report_id'       => ['name' => 'reporter_report_id', 'type' => 'int', 'internal' => 'id'],
         'reporter_report_status'   => ['name' => 'reporter_report_status', 'type' => 'int', 'internal' => 'status'],
         'reporter_report_title'    => ['name' => 'reporter_report_title', 'type' => 'string', 'internal' => 'title'],
-        'reporter_report_desc'     => ['name'     => 'reporter_report_desc', 'type' => 'string', 'internal' => 'description'],
+        'reporter_report_desc'     => ['name' => 'reporter_report_desc', 'type' => 'string', 'internal' => 'description'],
         'reporter_report_media'    => ['name' => 'reporter_report_media', 'type' => 'int', 'internal' => 'source'],
         'reporter_report_template' => ['name' => 'reporter_report_template', 'type' => 'int', 'internal' => 'template'],
         'reporter_report_creator'  => ['name' => 'reporter_report_creator', 'type' => 'int', 'internal' => 'createdBy'],
-        'reporter_report_created'  => ['name'     => 'reporter_report_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'reporter_report_created'  => ['name' => 'reporter_report_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**
@@ -47,14 +47,14 @@ class ReportMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $ownsOne = [
-        'source' => [
+        'source'   => [
             'mapper' => \Modules\Media\Models\CollectionMapper::class,
             'src'    => 'reporter_report_media',
         ],
         'template' => [
             'mapper' => \Modules\Reporter\Models\TemplateMapper::class,
             'src'    => 'reporter_report_template',
-        ]
+        ],
     ];
 
     static protected $belongsTo = [

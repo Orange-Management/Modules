@@ -30,13 +30,13 @@ class AddressMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_address_id'         => ['name' => 'profile_address_id', 'type' => 'int', 'internal' => 'id'],
-        'profile_address_type'         => ['name' => 'profile_address_type', 'type' => 'int', 'internal' => 'type'],
-        'profile_address_address'         => ['name' => 'profile_address_address', 'type' => 'string', 'internal' => 'address'],
-        'profile_address_street'         => ['name' => 'profile_address_street', 'type' => 'string', 'internal' => 'street'],
-        'profile_address_city'         => ['name' => 'profile_address_city', 'type' => 'string', 'internal' => 'city'],
-        'profile_address_zip'         => ['name' => 'profile_address_zip', 'type' => 'string', 'internal' => 'postal'],
-        'profile_address_country'         => ['name' => 'profile_address_country', 'type' => 'string', 'internal' => 'country'],
+        'profile_address_id'      => ['name' => 'profile_address_id', 'type' => 'int', 'internal' => 'id'],
+        'profile_address_type'    => ['name' => 'profile_address_type', 'type' => 'int', 'internal' => 'type'],
+        'profile_address_address' => ['name' => 'profile_address_address', 'type' => 'string', 'internal' => 'address'],
+        'profile_address_street'  => ['name' => 'profile_address_street', 'type' => 'string', 'internal' => 'street'],
+        'profile_address_city'    => ['name' => 'profile_address_city', 'type' => 'string', 'internal' => 'city'],
+        'profile_address_zip'     => ['name' => 'profile_address_zip', 'type' => 'string', 'internal' => 'postal'],
+        'profile_address_country' => ['name' => 'profile_address_country', 'type' => 'string', 'internal' => 'country'],
     ];
 
     /**
