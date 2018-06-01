@@ -24,7 +24,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getHtml('Position') ?></h1></header>
             <div class="inner">
                 <form id="iPosition" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/organization/position?{?}') ?>" method="PUT">
-                    <table class="layout wf-100">
+                    <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= $this->printHtml($position->getName()); ?>">
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
@@ -36,8 +36,8 @@ echo $this->getData('nav')->render(); ?>
                                     <option><?= $this->getHtml('Active') ?>
                                     <option><?= $this->getHtml('Inactive') ?>
                                 </select>
-                        <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
-                        <tr><td><textarea name="description" id="iDescription"><?= $this->printHtml($position->getDescription()); ?></textarea>
+                        <tr><td><?= $this->getData('editor')->render('position-editor'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render('position-editor', 'description', 'iPosition'); ?>
                         <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>

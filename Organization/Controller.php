@@ -156,6 +156,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('unit', UnitMapper::get((int) $request->getData('id')));
 
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 
@@ -186,6 +189,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
         $view->addData('unit-selector', $selectorView);
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
 
         return $view;
     }
@@ -253,6 +259,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('department', DepartmentMapper::get((int) $request->getData('id')));
 
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 
@@ -286,6 +295,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $unitSelectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
         $view->addData('unit-selector', $unitSelectorView);
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
 
         return $view;
     }
@@ -353,6 +365,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('position', PositionMapper::get((int) $request->getData('id')));
 
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 
@@ -386,6 +401,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $departmentSelectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
         $view->addData('department-selector', $departmentSelectorView);
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
 
         return $view;
     }

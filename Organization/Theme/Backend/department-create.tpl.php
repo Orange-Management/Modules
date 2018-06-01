@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getHtml('Department') ?></h1></header>
             <div class="inner">
                 <form id="fDepartmentCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/rootPath}{/lang}/api/organization/department'); ?>">
-                    <table class="layout wf-100">
+                    <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; R&D" required>
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
@@ -30,7 +30,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iUnit"><?= $this->getHtml('Unit') ?></label>
                         <tr><td><?= $this->getData('unit-selector')->render('iUnit', false); ?>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
-                        <tr><td><textarea name="description" id="iDescription" placeholder="&#xf040;"></textarea>
+                        <tr><td><?= $this->getData('editor')->render('department-editor'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render('department-editor', 'description', 'fDepartmentCreate'); ?>
                         <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
                     </table>
                 </form>
