@@ -74,6 +74,15 @@ final class Importer extends ImporterAbstract
         $this->importBatchPosting($start, $end);
     }
 
+    /**
+     * Import data from request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     public function importFromRequest(RequestAbstract $request) : bool
     {
         $start = new \DateTime($request->getData('start') ?? 'now');

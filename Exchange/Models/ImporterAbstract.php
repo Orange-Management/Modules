@@ -38,7 +38,6 @@ abstract class ImporterAbstract
      * Constructor
      *
      * @param ConnectionInterface $local  Database connection
-     * @param ConnectionInterface $remote Database connection
      *
      * @since  1.0.0
      */
@@ -46,4 +45,15 @@ abstract class ImporterAbstract
     {
         $this->remote = $remote;
     }
+
+    /**
+     * Import data from request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    abstract public function importFromRequest(RequestAbstract $request) : bool;
 }
