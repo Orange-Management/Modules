@@ -91,11 +91,11 @@ final class Controller extends ModuleAbstract implements WebInterface
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      *
-     * @return RenderableInterface
+     * @return NavigationView
      *
      * @since  1.0.0
      */
-    public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response)
+    public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
         $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);
@@ -123,8 +123,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $nav    = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
         $nav->setNav($navObj->getNav());
         $nav->setLanguage($request->getHeader()->getL11n()->getLanguage());
-        $unread = [];
 
+        $unread = [];
         foreach ($this->receiving as $receiving) {
             $unread[$receiving] = $this->app->moduleManager->get($receiving)->openNav($request->getHeader()->getAccount());
         }
@@ -167,11 +167,11 @@ final class Controller extends ModuleAbstract implements WebInterface
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      *
-     * @return RenderableInterface
+     * @return NavigationView
      *
      * @since  1.0.0
      */
-    public function createNavigationSplash(int $pageId, RequestAbstract $request, ResponseAbstract $response)
+    public function createNavigationSplash(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
         $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
         $navView = new NavigationView($this->app, $request, $response);

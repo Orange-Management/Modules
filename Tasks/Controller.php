@@ -273,6 +273,15 @@ final class Controller extends ModuleAbstract implements WebInterface
         return [];
     }
 
+    /**
+     * Count unread messages
+     * 
+     * @param int $account Account id
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
     public function openNav(int $account) : int
     {
         return TaskMapper::countUnread($account);
