@@ -128,6 +128,23 @@ class TaskMapper extends DataMapperAbstract
      */
     protected static $primaryField = 'task_id';
 
+    /**
+     * Get open tasks
+     *
+     * @param int $user User
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
+    public static function getOpen(int $user) : array
+    {
+        $query = self::getQuery();
+        $query->where(self::$table . '.task_created_by', '=', $user)
+            ->where(self::$table . '.task_status', '=', TaskStatus::OPEN);
+
+        return self::getAllByQuery($query);
+    }
 
     /**
      * Count unread task
