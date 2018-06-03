@@ -47,6 +47,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         $taskElement1 = new TaskElement();
         $taskElement1->setDescription('Desc1');
         $taskElement1->setCreatedBy(1);
+        $taskElement1->setStatus($task->getStatus());
         $task->addElement($taskElement1);
 
         $media = new Media();
@@ -61,6 +62,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         $taskElement2 = new TaskElement();
         $taskElement2->setDescription('Desc2');
         $taskElement2->setCreatedBy(1);
+        $taskElement2->setStatus($task->getStatus());
         $task->addElement($taskElement2);
 
         $media = new Media();
@@ -134,11 +136,13 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
             $taskElement1->setCreatedBy(1);
+            $taskElement1->setStatus($status);
             $task->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription('Desc2');
             $taskElement2->setCreatedBy(1);
+            $taskElement2->setStatus($status);
             $task->addElement($taskElement2);
 
             $id = TaskMapper::create($task);
@@ -161,7 +165,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
             $task->getSchedule()->setCreatedBy(1);
             $task->setTitle($text->generateText(mt_rand(1, 5)));
             $task->setStatus($status);
-            $task->setClosable($status);
+            $task->setClosable(true);
             $task->setDescription($text->generateText(mt_rand(10, 30)));
             $task->setDone(new \DateTime('2000-05-06'));
             $task->setDue(new \DateTime('2000-05-05'));
@@ -169,11 +173,13 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
             $taskElement1->setCreatedBy(2);
+            $taskElement1->setStatus($status);
             $task->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription($text->generateText(mt_rand(3, 20)));
             $taskElement2->setCreatedBy(1);
+            $taskElement2->setStatus($status);
             $task->addElement($taskElement2);
 
             $id = TaskMapper::create($task);
@@ -204,11 +210,13 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
             $taskElement1->setCreatedBy(1);
+            $taskElement1->setStatus($status);
             $task->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription($text->generateText(mt_rand(3, 20)));
             $taskElement2->setCreatedBy(2);
+            $taskElement2->setStatus($status);
             $task->addElement($taskElement2);
 
             $id = TaskMapper::create($task);
