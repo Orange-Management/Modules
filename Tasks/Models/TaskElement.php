@@ -43,6 +43,12 @@ class TaskElement implements \JsonSerializable
      */
     private $description = '';
 
+    /**
+     * Description raw.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $descriptionRaw = '';
 
     /**
