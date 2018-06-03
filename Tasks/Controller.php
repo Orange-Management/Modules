@@ -124,7 +124,9 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
+        $open  = TaskMapper::getOpen($request->getHeader()->getAccount());
         $tasks = TaskMapper::getNewest(25);
+
         $view->addData('tasks', $tasks);
 
         return $view;
@@ -492,8 +494,12 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $element = $this->createTaskElementFromRequest($request);
+        $task    = TaskMapper::get($element->getTask());
+        $task->setStatus($element->getStatus());
 
         TaskElementMapper::create($element);
+        TaskMapper::update($task);
+
         $response->set($request->getUri()->__toString(), $element->jsonSerialize());
     }
 
