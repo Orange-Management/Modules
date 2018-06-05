@@ -49,7 +49,29 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner" style="background: #efefef; border-top: 1px solid #dfdfdf;">
                 <div class="pAlignTable">
                     <div class="vCenterTable wf-100">By <?= $this->printHtml($task->getCreatedBy()->getName1()); ?></div>
-                    <span class="vCenterTable nobreak tag <?= $color; ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span>
+                    <span id="task-status-badge" class="vCenterTable nobreak tag <?= $color; ?>" data-action='[
+                        {
+                            "key": 1, "listener": "click", "action": [
+                                {"key": 1, "type": "dom.hide", "id": "task-status-badge"},
+                                {"key": 2, "type": "dom.show", "id": "task-status"}
+                            ]
+                        }
+                    ]'><?= $this->getHtml('S' . $task->getStatus()) ?></span>
+                    <select id="task-status" class="vh" data-action='[
+                        {
+                            "key": 1, "listener": "change", "action": [
+                                {"key": 1, "type": "dom.hide", "id": "task-status"},
+                                {"key": 2, "type": "dom.show", "id": "task-status-badge"}
+                            ]
+                        }
+                    ]'> 
+                        <option><?= $this->getHtml('S' . 1) ?>
+                        <option><?= $this->getHtml('S' . 2) ?>
+                        <option><?= $this->getHtml('S' . 3) ?>
+                        <option><?= $this->getHtml('S' . 4) ?>
+                        <option><?= $this->getHtml('S' . 5) ?>
+                        <option><?= $this->getHtml('S' . 6) ?>
+                    </select>
                 </div>
             </div>
         </section>
@@ -57,6 +79,13 @@ echo $this->getData('nav')->render(); ?>
         <?php $c = 0;
         foreach ($elements as $key => $element) : $c++;
             $color = $this->getStatus($element->getStatus()); ?>
+            <?php if ($c > 1 && $element->getForwarded() !== 0 && $forwarded !== $element->getCreatedBy()->getId()) : ?>
+                <section class="box wf-100">
+                    <div class="inner">
+                        Forwarded <?= $this->printHtml($element->getForwarded()->getName1()); ?>
+                    </div>
+                </section>
+            <?php endif; $forwarded = $element->getForwarded(); ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
                     <div class="vCenterTable wf-100"><?= $this->printHtml($element->getCreatedBy()->getName1()); ?> <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
@@ -85,14 +114,6 @@ echo $this->getData('nav')->render(); ?>
                     <div class="vCenterTable nobreak">Due <?= $this->printHtml($element->getDue()->format('Y-m-d H:i')); ?></div>
                 <?php endif; ?>
             </section>
-
-            <?php if ($element->getForwarded() !== 0 && $forwarded !== $element->getCreatedBy()->getId()) : ?>
-                <section class="box wf-100">
-                    <div class="inner">
-                        Forwarded <?= $this->printHtml($element->getForwarded()->getName1()); ?>
-                    </div>
-                </section>
-            <?php endif; ?>
         <?php endforeach; ?>
 
         <section class="box wf-100">
@@ -106,11 +127,11 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= $this->printHtml(TaskStatus::OPEN); ?>" selected>Open
-                                    <option value="<?= $this->printHtml(TaskStatus::WORKING); ?>">Working
-                                    <option value="<?= $this->printHtml(TaskStatus::SUSPENDED); ?>">Suspended
-                                    <option value="<?= $this->printHtml(TaskStatus::CANCELED); ?>">Canceled
-                                    <option value="<?= $this->printHtml(TaskStatus::DONE); ?>">Done
+                                    <option value="<?= $this->printHtml(TaskStatus::OPEN); ?>"<?= $task->getStatus() === TaskStatus::OPEN ? 'selected' : ''?>>Open
+                                    <option value="<?= $this->printHtml(TaskStatus::WORKING); ?>"<?= $task->getStatus() === TaskStatus::WORKING ? 'selected' : ''?>>Working
+                                    <option value="<?= $this->printHtml(TaskStatus::SUSPENDED); ?>"<?= $task->getStatus() === TaskStatus::SUSPENDED ? 'selected' : ''?>>Suspended
+                                    <option value="<?= $this->printHtml(TaskStatus::CANCELED); ?>"<?= $task->getStatus() === TaskStatus::CANCELED ? 'selected' : ''?>>Canceled
+                                    <option value="<?= $this->printHtml(TaskStatus::DONE); ?>"<?= $task->getStatus() === TaskStatus::DONE ? 'selected' : ''?>>Done
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
                         <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', true); ?>
