@@ -99,6 +99,18 @@ final class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Method which generates the export list view.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable Serializable web view
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewExchangeExportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
@@ -119,6 +131,18 @@ final class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Method which generates the import list view.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable Serializable web view
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewExchangeImportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
@@ -139,6 +163,18 @@ final class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Method which generates the export view.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable Serializable web view
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewExchangeExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
@@ -148,6 +184,18 @@ final class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Method which generates the import view.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable Serializable web view
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewExchangeImport(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
