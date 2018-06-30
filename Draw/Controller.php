@@ -107,7 +107,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Controller.js');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/DrawType.enum.js');
+        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/DrawType.js');
         $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/Editor.js');
     }
 
@@ -204,6 +204,15 @@ final class Controller extends ModuleAbstract implements WebInterface
         return $view;
     }
 
+    /**
+     * Validate draw create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
     private function validateDrawCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -277,6 +286,16 @@ final class Controller extends ModuleAbstract implements WebInterface
         $response->set('image', $draw->jsonSerialize());
     }
 
+    /**
+     * Create local image file
+     *
+     * @param string $outputPath Output path
+     * @param string $raw        Base64 encoded image string
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
     private function createLocalFile(string $outputPath, string $raw) : bool
     {
         $imageData = ImageUtils::decodeBase64Image($raw);
