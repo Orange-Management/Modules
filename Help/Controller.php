@@ -124,9 +124,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         if ($path === false) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
+            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
         }
 
         $content    = Markdown::parse(\file_get_contents($path));
@@ -210,9 +209,24 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewHelpDeveloper(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Help/Theme/Backend/help-developer');
 
-        $view->setData('markdown', Markdown::parse(file_get_contents(__DIR__ . '/../../Developer-Guide/README.md')));
+        if ($request->getData('page') === 'README' || $request->getData('page') === null) {
+            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
+        } else {
+            $path = \realpath(__DIR__ . '/../../Developer-Guide/' . $request->getData('page') . '.md');
+        }
+
+        if ($path === false) {
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
+        }
+
+        $content    = Markdown::parse(\file_get_contents($path));
+        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../Developer-Guide/SUMMARY.md'));
+
+        $view->setTemplate('/Modules/Help/Theme/Backend/help-developer');
+        $view->setData('content', $content);
+        $view->setData('navigation', $navigation);
 
         return $view;
     }
