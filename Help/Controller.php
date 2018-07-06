@@ -23,6 +23,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Help class.
@@ -152,8 +153,30 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function viewHelpModule(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
+        $active = $this->app->moduleManager->getActiveModules();
+
+        if ($request->getData('id') === null || !isset($active[$request->getData('id')])) {
+            return $this->viewHelpModuleList();
+        }
+
         $view = new View($this->app, $request, $response);
+
+        if ($request->getData('page') === 'table-of-contencts' || $request->getData('page') === null) {
+            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/table_of_contents.md');
+        } else {
+            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/' . $request->getData('page') . '.md');
+        }
+
+        if ($path === false) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
+        $markdown = Markdown::parse(\file_get_contents($path));
+
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module');
+        $view->setData('content', $markdown);
 
         return $view;
     }

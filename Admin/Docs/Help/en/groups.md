@@ -4,7 +4,11 @@ In `Groups` you can create, delete and modify the groups. Groups are global for 
 
 ## General
 
-![General Settings](img/groups/groups_general.png)
+![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/groups/groups_general.png)
+
+### ID
+
+The id (unique identifier) is automatically generated.
 
 ### Name
 
@@ -16,7 +20,7 @@ Sometimes it makes sense to provide some additional information for a group. In 
 
 ## Permissions
 
-![General Settings](img/groups/groups_permissions.png)
+![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/groups/groups_permissions.png)
 
 Permissions have the following components which can be combined to either address a wide e.g. range of units, applications or modules or in order to address a very specific combination of those.
 
@@ -70,7 +74,7 @@ This allows a user to change permissions. Usually a user should also have (C, R,
 
 ## Accounts
 
-![General Settings](img/groups/groups_accounts.png)
+![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/groups/groups_accounts.png)
 
 In the accounts section you can see all users that are assigned to this group and you can also add or remove accounts. If you would like to add all users from a different group simply select the group and all the users that are part of this group will be added to this group as well (one time only, there will be **no relation** (e.g. parent/child group) between these two groups).
 

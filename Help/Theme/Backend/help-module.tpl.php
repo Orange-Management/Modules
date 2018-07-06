@@ -3,7 +3,7 @@
         <section class="box wf-100">
             <div class="inner">
                 <article>
-                    <?= $this->getData('markdown'); ?>
+                    <?= $this->getData('content'); ?>
                 </article>
             </div>
         </section>

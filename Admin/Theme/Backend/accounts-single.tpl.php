@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iEmail"><?= $this->getHtml('Email'); ?></label>
                         <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= $this->printHtml($account->getEmail()); ?>">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Password'); ?></label>
-                        <tr><td><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?">
+                        <tr><td><div class="ipt-wrap"><div class="ipt-first"><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?"></div><div class="ipt-second"> or <button><?= $this->getHtml('Reset'); ?></button></div></div>
                         <tr><td><input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>

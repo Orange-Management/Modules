@@ -93,6 +93,7 @@ return [
         'Profile'            => 'Profile',
         'RAddress'           => 'Remote Address',
         'ReCache'            => 'Re-Cache',
+        'Reset'              => 'Reset',
         'Running'            => 'Running',
         'Short'              => 'Short',
         'Sea'                => 'Sea',
