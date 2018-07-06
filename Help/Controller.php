@@ -177,7 +177,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         if ($request->getData('page') === 'table-of-contencts' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/table_of_contents.md');
+            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/introduction.md');
         } else {
             $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/' . $request->getData('page') . '.md');
         }
@@ -188,10 +188,12 @@ final class Controller extends ModuleAbstract implements WebInterface
             return $view;
         }
 
-        $markdown = Markdown::parse(\file_get_contents($path));
+        $content    = Markdown::parse(\file_get_contents($path));
+        $navigation = Markdown::parse(\file_get_contents(\realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/table_of_contents.md')));
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module');
-        $view->setData('content', $markdown);
+        $view->setData('content', $content);
+        $view->setData('navigation', $navigation);
 
         return $view;
     }
