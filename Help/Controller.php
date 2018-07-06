@@ -116,9 +116,25 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewHelpGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Help/Theme/Backend/help-general');
 
-        $view->setData('markdown', Markdown::parse(file_get_contents(__DIR__ . '/../../Documentation/README.md')));
+        if ($request->getData('page') === 'README' || $request->getData('page') === null) {
+            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
+        } else {
+            $path = \realpath(__DIR__ . '/../../Documentation/' . $request->getData('page') . '.md');
+        }
+
+        if ($path === false) {
+            $view->setTemplate('/Web/Backend/Error/403_inline');
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }
+
+        $content    = Markdown::parse(\file_get_contents($path));
+        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../Documentation/SUMMARY.md'));
+
+        $view->setTemplate('/Modules/Help/Theme/Backend/help-general');
+        $view->setData('content', $content);
+        $view->setData('navigation', $navigation);
 
         return $view;
     }
