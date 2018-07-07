@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('BudgetManagement');
 
-        $moduleManager->deactivate('BudgetManagement');
+        self::assertTrue($moduleManager->deactivate('BudgetManagement'));
         self::assertFalse($moduleManager->isActive('BudgetManagement'));
 
-        $moduleManager->activate('BudgetManagement');
+        self::assertTrue($moduleManager->activate('BudgetManagement'));
         self::assertTrue($moduleManager->isActive('BudgetManagement'));
     }
 }

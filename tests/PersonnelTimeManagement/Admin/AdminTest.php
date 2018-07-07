@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('PersonnelTimeManagement');
 
-        $moduleManager->deactivate('PersonnelTimeManagement');
+        self::assertTrue($moduleManager->deactivate('PersonnelTimeManagement'));
         self::assertFalse($moduleManager->isActive('PersonnelTimeManagement'));
 
-        $moduleManager->activate('PersonnelTimeManagement');
+        self::assertTrue($moduleManager->activate('PersonnelTimeManagement'));
         self::assertTrue($moduleManager->isActive('PersonnelTimeManagement'));
     }
 }

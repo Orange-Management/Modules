@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('AccountsReceivable');
 
-        $moduleManager->deactivate('AccountsReceivable');
+        self::assertTrue($moduleManager->deactivate('AccountsReceivable'));
         self::assertFalse($moduleManager->isActive('AccountsReceivable'));
 
-        $moduleManager->activate('AccountsReceivable');
+        self::assertTrue($moduleManager->activate('AccountsReceivable'));
         self::assertTrue($moduleManager->isActive('AccountsReceivable'));
     }
 }

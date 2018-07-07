@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('RiskManagement');
 
-        $moduleManager->deactivate('RiskManagement');
+        self::assertTrue($moduleManager->deactivate('RiskManagement'));
         self::assertFalse($moduleManager->isActive('RiskManagement'));
 
-        $moduleManager->activate('RiskManagement');
+        self::assertTrue($moduleManager->activate('RiskManagement'));
         self::assertTrue($moduleManager->isActive('RiskManagement'));
     }
 }

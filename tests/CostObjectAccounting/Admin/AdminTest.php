@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('CostObjectAccounting');
 
-        $moduleManager->deactivate('CostObjectAccounting');
+        self::assertTrue($moduleManager->deactivate('CostObjectAccounting'));
         self::assertFalse($moduleManager->isActive('CostObjectAccounting'));
 
-        $moduleManager->activate('CostObjectAccounting');
+        self::assertTrue($moduleManager->activate('CostObjectAccounting'));
         self::assertTrue($moduleManager->isActive('CostObjectAccounting'));
     }
 }

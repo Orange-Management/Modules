@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('SupplierManagement');
 
-        $moduleManager->deactivate('SupplierManagement');
+        self::assertTrue($moduleManager->deactivate('SupplierManagement'));
         self::assertFalse($moduleManager->isActive('SupplierManagement'));
 
-        $moduleManager->activate('SupplierManagement');
+        self::assertTrue($moduleManager->activate('SupplierManagement'));
         self::assertTrue($moduleManager->isActive('SupplierManagement'));
     }
 }

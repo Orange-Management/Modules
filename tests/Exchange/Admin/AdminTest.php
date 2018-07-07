@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('Exchange');
 
-        $moduleManager->deactivate('Exchange');
+        self::assertTrue($moduleManager->deactivate('Exchange'));
         self::assertFalse($moduleManager->isActive('Exchange'));
 
-        $moduleManager->activate('Exchange');
+        self::assertTrue($moduleManager->activate('Exchange'));
         self::assertTrue($moduleManager->isActive('Exchange'));
     }
 }

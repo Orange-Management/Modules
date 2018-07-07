@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('AccountsPayable');
 
-        $moduleManager->deactivate('AccountsPayable');
+        self::assertTrue($moduleManager->deactivate('AccountsPayable'));
         self::assertFalse($moduleManager->isActive('AccountsPayable'));
 
-        $moduleManager->activate('AccountsPayable');
+        self::assertTrue($moduleManager->activate('AccountsPayable'));
         self::assertTrue($moduleManager->isActive('AccountsPayable'));
     }
 }

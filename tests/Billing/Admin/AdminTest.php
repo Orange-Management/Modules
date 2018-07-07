@@ -34,10 +34,10 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('Billing');
 
-        $moduleManager->deactivate('Billing');
+        self::assertTrue($moduleManager->deactivate('Billing'));
         self::assertFalse($moduleManager->isActive('Billing'));
 
-        $moduleManager->activate('Billing');
+        self::assertTrue($moduleManager->activate('Billing'));
         self::assertTrue($moduleManager->isActive('Billing'));
     }
 }

@@ -39,10 +39,9 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $moduleManager->install('Accounting');
 
-        $moduleManager->deactivate('Accounting');
+        self::assertTrue($moduleManager->deactivate('Accounting'));
         self::assertFalse($moduleManager->isActive('Accounting'));
-
-        $moduleManager->activate('Accounting');
+        self::assertTrue($moduleManager->activate('Accounting'));
         self::assertTrue($moduleManager->isActive('Accounting'));
     }
 
