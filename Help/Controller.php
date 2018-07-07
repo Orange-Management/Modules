@@ -116,17 +116,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewHelpGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-
-        if ($request->getData('page') === 'README' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
-        } else {
-            $path = \realpath(__DIR__ . '/../../Documentation/' . $request->getData('page') . '.md');
-        }
-
-        if ($path === false) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
-        }
+        $path = $this->getHelpGeneralPath($request);
 
         $content    = Markdown::parse(\file_get_contents($path));
         $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../Documentation/SUMMARY.md'));
@@ -136,6 +126,31 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setData('navigation', $navigation);
 
         return $view;
+    }
+
+    /**
+     * Create markdown parsing path
+     * 
+     * @param RequestAbstract $request Request
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    private function getHelpGeneralPath(RequestAbstract $request) : string
+    {
+        if ($request->getData('page') === 'README' || $request->getData('page') === null) {
+            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
+        } else {
+            $path = \realpath(__DIR__ . '/../../Documentation/' . $request->getData('page') . '.md');
+        }
+
+        if ($path === false) {
+            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
+        }
+
+        return $path;
     }
 
     /**
@@ -175,7 +190,30 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $view = new View($this->app, $request, $response);
+        $path = $this->getHelpModulePath($request);
 
+        $content    = Markdown::parse(\file_get_contents($path));
+        $navigation = Markdown::parse(\file_get_contents(\realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md')));
+
+        $view->setTemplate('/Modules/Help/Theme/Backend/help-module');
+        $view->setData('content', $content);
+        $view->setData('navigation', $navigation);
+
+        return $view;
+    }
+
+    /**
+     * Create markdown parsing path
+     * 
+     * @param RequestAbstract $request Request
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    private function getHelpModulePath(RequestAbstract $request) : string
+    {
         if ($request->getData('page') === 'table-of-contencts' || $request->getData('page') === null) {
             $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/introduction.md');
         } else {
@@ -183,19 +221,10 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         if ($path === false) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
+            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/introduction.md');
         }
 
-        $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(\realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/table_of_contents.md')));
-
-        $view->setTemplate('/Modules/Help/Theme/Backend/help-module');
-        $view->setData('content', $content);
-        $view->setData('navigation', $navigation);
-
-        return $view;
+        return $path;
     }
 
     /**
@@ -211,17 +240,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewHelpDeveloper(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-
-        if ($request->getData('page') === 'README' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
-        } else {
-            $path = \realpath(__DIR__ . '/../../Developer-Guide/' . $request->getData('page') . '.md');
-        }
-
-        if ($path === false) {
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
-        }
+        $path = $this->getHelpDeveloperPath($request);
 
         $content    = Markdown::parse(\file_get_contents($path));
         $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../Developer-Guide/SUMMARY.md'));
@@ -231,5 +250,30 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setData('navigation', $navigation);
 
         return $view;
+    }
+
+    /**
+     * Create markdown parsing path
+     * 
+     * @param RequestAbstract $request Request
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    private function getHelpDeveloperPath(RequestAbstract $request) : string
+    {
+        if ($request->getData('page') === 'README' || $request->getData('page') === null) {
+            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
+        } else {
+            $path = \realpath(__DIR__ . '/../../Developer-Guide/' . $request->getData('page') . '.md');
+        }
+
+        if ($path === false) {
+            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
+        }
+
+        return $path;
     }
 }
