@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
-                        <tr><td><select id="iType" name="type">
+                        <tr><td><select id="*iType" name="type">
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::USER); ?>"><?= $this->getHtml('Person'); ?>
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::GROUP); ?>"><?= $this->getHtml('Organization'); ?>
                                 </select>
