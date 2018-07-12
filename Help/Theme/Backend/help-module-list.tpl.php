@@ -31,7 +31,7 @@ $modules = $this->app->moduleManager->getInstalledModules();
                     <td>
                 <tbody>
                     <?php $count = 0; foreach ($modules as $key => $module) : 
-                        if ((\realpath(__DIR__ . '/../../../' . $module['directory'] . '/Docs/Help/en/table_of_contents.md')) === false) {
+                        if ((\realpath(__DIR__ . '/../../../' . $module['directory'] . '/Docs/Help/en/SUMMARY.md')) === false) {
                             continue;
                         }
 
