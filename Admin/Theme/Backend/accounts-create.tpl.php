@@ -24,8 +24,9 @@ echo $this->getData('nav')->render(); ?>
                 <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account'); ?>" method="put">
                     <table class="layout wf-100">
                         <tbody>
+                        <img src="" >
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
-                        <tr><td><select id="*iType" name="type">
+                        <tr><td><select id="*Type" name="type">
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::USER); ?>"><?= $this->getHtml('Person'); ?>
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::GROUP); ?>"><?= $this->getHtml('Organization'); ?>
                                 </select>
