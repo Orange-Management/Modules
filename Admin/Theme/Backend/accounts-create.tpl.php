@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
                         <tbody>
                         <img src="" >
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
-                        <tr><td><select id="Type" name="type">
+                        <tr><td><select id="*Type" name="type">
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::USER); ?>"><?= $this->getHtml('Person'); ?>
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::GROUP); ?>"><?= $this->getHtml('Organization'); ?>
                                 </select>
