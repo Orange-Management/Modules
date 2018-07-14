@@ -115,9 +115,9 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
-        return $this->name = $name;
+        $this->name = $name;
     }
 
     /**
@@ -137,11 +137,11 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @param mixed $parent Parent
      *
-     * @return mixed
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setParent($parent)
+    public function setParent($parent) : void
     {
         $this->parent = $parent;
     }
@@ -167,7 +167,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -189,11 +189,11 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @param mixed $unit Unit
      *
-     * @return mixed
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setUnit($unit)
+    public function setUnit($unit) : void
     {
         $this->unit = $unit;
     }
@@ -213,13 +213,13 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Set description
      *
-     * @param int $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescription(string $desc)
+    public function setDescription(string $desc) : void
     {
         $this->description = $desc;
     }
@@ -239,13 +239,13 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Set description
      *
-     * @param int $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $desc)
+    public function setDescriptionRaw(string $desc) : void
     {
         $this->descriptionRaw = $desc;
     }
@@ -272,7 +272,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      */
     public function __toString()
     {
-        return \json_encode($this->toArray());
+        return (string) \json_encode($this->toArray());
     }
 
     /**

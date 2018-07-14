@@ -335,7 +335,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @param string $title News article title
      *
-     * @return mixed
+     * @return void
      *
      * @since  1.0.0
      */
@@ -452,7 +452,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      */
     public function __toString()
     {
-        return \json_encode($this->toArray());
+        return (string) \json_encode($this->toArray());
     }
 
     /**

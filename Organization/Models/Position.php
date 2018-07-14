@@ -115,7 +115,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -137,11 +137,11 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @param mixed $parent Parent
      *
-     * @return mixed
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setParent($parent)
+    public function setParent($parent) : void
     {
         $this->parent = $parent;
     }
@@ -163,11 +163,11 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @param mixed $department Department
      *
-     * @return mixed
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setDepartment($department)
+    public function setDepartment($department) : void
     {
         $this->department = $department;
     }
@@ -193,7 +193,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -213,13 +213,13 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Set description
      *
-     * @param int $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescription(string $desc)
+    public function setDescription(string $desc) : void
     {
         $this->description = $desc;
     }
@@ -239,13 +239,13 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Set description
      *
-     * @param int $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $desc)
+    public function setDescriptionRaw(string $desc) : void
     {
         $this->descriptionRaw = $desc;
     }
@@ -273,7 +273,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      */
     public function __toString()
     {
-        return \json_encode($this->toArray());
+        return (string) \json_encode($this->toArray());
     }
 
     /**

@@ -129,7 +129,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      *
      * @param mixed $parent Parent
      *
-     * @return mixed
+     * @return void
      *
      * @since  1.0.0
      */
@@ -179,7 +179,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Set description
      *
-     * @param int $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
@@ -205,13 +205,13 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Set description
      *
-     * @param int $desc Description
+     * @param string $desc Description
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $desc)
+    public function setDescriptionRaw(string $desc) : void
     {
         $this->descriptionRaw = $desc;
     }
@@ -238,7 +238,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      */
     public function __toString()
     {
-        return \json_encode($this->toArray());
+        return (string) \json_encode($this->toArray());
     }
 
     /**
