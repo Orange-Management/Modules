@@ -146,6 +146,38 @@ final class Controller extends ModuleAbstract implements WebInterface
     }
 
     /**
+     * Method which generates the general settings view.
+     *
+     * In this view general settings for the entire application can be seen and adjusted. Settings which can be modified
+     * here are localization, password, database, etc.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable Serializable web view
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+
+        /*if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SETTINGS)
+        ) {
+            //$view->setTemplate('/Web/Backend/Error/403_inline');
+            //$response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return $view;
+        }*/
+
+        $view->setTemplate('/Modules/Admin/Theme/Console/empty-command');
+
+        return $view;
+    }
+
+    /**
      * Method which generates the account list view.
      *
      * @param RequestAbstract  $request  Request
@@ -457,12 +489,12 @@ final class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
-        $success = $this->app->appSettings->set(
+        $this->app->appSettings->set(
             \json_decode((string) $request->getData('settings'), true),
             true
         );
 
-        $response->set($request->getUri()->__toString(), $success);
+        $response->set($request->getUri()->__toString(), true);
     }
 
     /**
