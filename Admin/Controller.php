@@ -555,6 +555,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $group = $this->updateGroupFromRequest($request);
 
         GroupMapper::update($group);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Group',
@@ -641,6 +643,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         GroupMapper::create($group);
         $this->app->eventManager->trigger('POST:Module:Admin-groupcreate', '', $group);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Group',
@@ -699,6 +702,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status = GroupMapper::delete($group);
         $this->app->eventManager->trigger('POST:Module:Admin-groupdelete', '', $group);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Group',
@@ -731,6 +735,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $account = AccountMapper::get((int) $request->getData('id'));
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Account',
@@ -827,6 +833,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $this->app->eventManager->trigger('POST:Module:Admin-accountcreate', '', $account);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Account',
@@ -888,6 +895,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $status = AccountMapper::delete($account);
         $this->app->eventManager->trigger('POST:Module:Admin-accountdelete', '', $account);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Account',
@@ -922,6 +930,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $account = $this->updateAccountFromRequest($request, true);
         $status  = AccountMapper::update($account);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Account',
@@ -976,8 +985,10 @@ final class Controller extends ModuleAbstract implements WebInterface
         $module = $request->getData('module');
         $status = $request->getData('status');
 
-        if (!$module || !$status) {
-            // todo: create failure response
+        if ($module === null || $status === null) {
+            $response->set('module_stutus_update', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
         }
 
         switch ($status) {
@@ -1007,6 +1018,7 @@ final class Controller extends ModuleAbstract implements WebInterface
                 $msg  = 'Unknown module status change request.';
         }
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => $done ? 'ok' : 'warning',
             'title' => 'Module',

@@ -32,6 +32,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Utils\Parser\Markdown\Markdown;
+use phpOMS\System\MimeType;
 
 use phpOMS\Account\PermissionType;
 use Modules\Organization\Models\PermissionState;
@@ -423,7 +424,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         if (($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
                 !empty($request->getData('parent'))
-                && !is_numeric($request->getData('parent'))
+                && !\is_numeric($request->getData('parent'))
             ))
             || ($val['status'] = (
                 $request->getData('status') === null
@@ -460,6 +461,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $unit = UnitMapper::get((int) $request->getData('id'));
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Unit',
@@ -494,6 +497,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $unit = $this->updateUnitFromRequest($request);
 
         UnitMapper::update($unit);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Unit',
@@ -551,6 +556,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $unit   = UnitMapper::get((int) $request->getData('id'));
         $status = UnitMapper::delete($unit);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Unit',
@@ -591,6 +597,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $unit = $this->createUnitFromRequest($request);
 
         UnitMapper::create($unit);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Unit',
@@ -637,7 +645,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         if (($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
                 !empty($request->getData('parent'))
-                && !is_numeric($request->getData('parent'))
+                && !\is_numeric($request->getData('parent'))
             ))
             || ($val['status'] = (
                 $request->getData('status') === null
@@ -674,6 +682,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $position = PositionMapper::get((int) $request->getData('id'));
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Position',
@@ -708,6 +718,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $position = PositionMapper::get((int) $request->getData('id'));
         $status   = PositionMapper::delete($position);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Position',
@@ -742,6 +753,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $position = $this->updatePositionFromRequest($request);
 
         PositionMapper::update($position);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Position',
@@ -808,6 +821,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $position = $this->createPositionFromRequest($request);
 
         PositionMapper::create($position);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Position',
@@ -857,10 +872,10 @@ final class Controller extends ModuleAbstract implements WebInterface
         if (($val['name'] = empty($request->getData('name')))
             || ($val['parent'] = (
                 !empty($request->getData('parent'))
-                && !is_numeric($request->getData('parent'))
+                && !\is_numeric($request->getData('parent'))
             ))
             || ($val['unit'] = (
-                !is_numeric((int) $request->getData('unit'))
+                !\is_numeric($request->getData('unit'))
             ))
         ) {
             return $val;
@@ -893,6 +908,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         $department = DepartmentMapper::get((int) $request->getData('id'));
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Department',
@@ -928,6 +945,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         DepartmentMapper::update($department);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Department',
@@ -988,6 +1006,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $department = DepartmentMapper::get((int) $request->getData('id'));
         $status     = DepartmentMapper::delete($department);
 
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Department',
@@ -1028,6 +1047,8 @@ final class Controller extends ModuleAbstract implements WebInterface
         $department = $this->createDepartmentFromRequest($request);
 
         DepartmentMapper::create($department);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Department',
