@@ -98,7 +98,7 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setTemplate('/Modules/Job/Theme/Backend/job-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005701001, $request, $response));
 
-        SchedulerAbstract::setBin('c:/WINDOWS/system32/schtasks.exe');
+        SchedulerAbstract::guessBin();
         $scheduler = SchedulerFactory::create();
         $jobs      = $scheduler->getAllByName('Adobe', false);
 
