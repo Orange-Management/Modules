@@ -16,7 +16,7 @@
                     <label for="iSearchAcc">Search</label>
                     <input type="text" id="iSearchAcc" name="receiver-search" data-action='[
                         {
-                            "listener": "keyup", "action": [
+                            "key": 1, "listener": "keyup", "action": [
                                 {"key": 1, "type": "utils.timer", "id": "iSearchAcc", "delay": 500, "resets": true},
                                 {"key": 2, "type": "dom.table.clear", "id": "acc-table"},
                                 {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iSearchAcc}", "method": "GET", "request_type": "json"},
@@ -46,9 +46,9 @@
                         ]'>
                         <tfoot>
                     </table>
-                    <button type="button" data-action='[
+                    <button type="button" id="iSearchAcc-close" data-action='[
                             {
-                                "listener": "click", "action": [
+                                "key": 1, "listener": "click", "action": [
                                     {"key": 1, "type": "dom.remove", "selector": "#acc-grp", "aniOut": "fadeOut"}
                                 ]
                             }
@@ -59,7 +59,7 @@
                     <label for="iSearchGrp">Search</label>
                     <input type="text" id="iSearchGrp" name="receiver-search" data-action='[
                         {
-                            "listener": "keyup", "action": [
+                            "key": 1, "listener": "keyup", "action": [
                                 {"key": 1, "type": "utils.timer", "id": "iSearchGrp", "delay": 500, "resets": true},
                                 {"key": 2, "type": "dom.table.clear", "id": "grp-table"},
                                 {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#iSearchGrp}", "method": "GET", "request_type": "json"},
@@ -76,9 +76,9 @@
                         <tbody>
                         <tfoot>
                     </table>
-                    <button type="button" data-action='[
+                    <button type="button" id="iSearchAcc-close" data-action='[
                             {
-                                "listener": "click", "action": [
+                                "key": 1, "listener": "click", "action": [
                                     {"key": 1, "type": "dom.remove", "selector": "#acc-grp", "aniOut": "fadeOut"}
                                 ]
                             }
