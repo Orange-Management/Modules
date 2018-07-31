@@ -1080,4 +1080,85 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         return $department;
     }
+
+    /**
+     * Api method to find units
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiUnitFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::UNIT)
+        ) {
+            $response->set('unit_find', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set($request->getUri()->__toString(), array_values(UnitMapper::find((string) ($request->getData('search') ?? ''))));
+    }
+
+    /**
+     * Api method to find departments
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiDepartmentFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DEPARTMENT)
+        ) {
+            $response->set('department_find', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set($request->getUri()->__toString(), array_values(DepartmentMapper::find((string) ($request->getData('search') ?? ''))));
+    }
+
+    /**
+     * Api method to find positions
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiPositionFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::POSITION)
+        ) {
+            $response->set('position_find', null);
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            return;
+        }
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
+        $response->set($request->getUri()->__toString(), array_values(PositionMapper::find((string) ($request->getData('search') ?? ''))));
+    }
 }

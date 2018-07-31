@@ -45,3 +45,5 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 </div>
+
+<?= $this->getData('department-selector')->getData('department-selector-popup')->render(); ?>

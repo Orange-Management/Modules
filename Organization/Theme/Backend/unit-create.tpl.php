@@ -41,3 +41,5 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 </div>
+
+<?= $this->getData('unit-selector')->getData('unit-selector-popup')->render(); ?>

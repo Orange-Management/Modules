@@ -43,3 +43,5 @@ echo $this->getData('nav')->render(); ?>
         </section>
     </div>
 </div>
+
+<?= $this->getData('position-selector')->getData('position-selector-popup')->render(); ?>

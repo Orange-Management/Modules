@@ -57,4 +57,23 @@ return [
             'verb' => RouteVerb::DELETE,
         ],
     ],
+
+    '^.*/api/organization/find/unit.*$' => [
+        [
+            'dest' => '\Modules\Organization\Controller:apiUnitFind',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/api/organization/find/department.*$' => [
+        [
+            'dest' => '\Modules\Organization\Controller:apiDepartmentFind',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
+    '^.*/api/organization/find/position.*$' => [
+        [
+            'dest' => '\Modules\Organization\Controller:apiPositionFind',
+            'verb' => RouteVerb::GET,
+        ],
+    ],
 ];
