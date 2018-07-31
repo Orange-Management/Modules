@@ -42,17 +42,46 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::BANNED); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : ''); ?>><?= $this->getHtml('Banned'); ?>
                                 </select>
                         <tr><td><label for="iUsername"><?= $this->getHtml('Username'); ?></label>
-                        <tr><td><input id="iUsername" name="name" type="text" placeholder="&#xf007; Fred" value="<?= $this->printHtml($account->getName()); ?>" disabled>
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-user"></i></button>
+                                <input id="iUsername" name="name" type="text" value="<?= $this->printHtml($account->getName()); ?>" disabled>
+                            </span>        
                         <tr><td><label for="iName1"><?= $this->getHtml('Name1'); ?></label>
-                        <tr><td><input id="iName1" name="name1" type="text" placeholder="&#xf007; Donald" value="<?= $this->printHtml($account->getName1()); ?>" required>
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-user"></i></button>
+                                <input id="iName1" name="name1" type="text" value="<?= $this->printHtml($account->getName1()); ?>" required>
+                            </span>      
                         <tr><td><label for="iName2"><?= $this->getHtml('Name2'); ?></label>
-                        <tr><td><input id="iName2" name="name2" type="text" placeholder="&#xf007; Fauntleroy" value="<?= $this->printHtml($account->getName2()); ?>">
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-user"></i></button>
+                                <input id="iName2" name="name2" type="text" value="<?= $this->printHtml($account->getName2()); ?>">
+                            </span>    
                         <tr><td><label for="iName3"><?= $this->getHtml('Name3'); ?></label>
-                        <tr><td><input id="iName3" name="name3" type="text" placeholder="&#xf007; Duck" value="<?= $this->printHtml($account->getName3()); ?>">
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-user"></i></button>
+                                <input id="iName3" name="name3" type="text" value="<?= $this->printHtml($account->getName3()); ?>">
+                            </span>
                         <tr><td><label for="iEmail"><?= $this->getHtml('Email'); ?></label>
-                        <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com" value="<?= $this->printHtml($account->getEmail()); ?>">
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-envelope-o"></i></button>
+                                <input id="iEmail" name="email" type="email" value="<?= $this->printHtml($account->getEmail()); ?>">
+                            </span>
                         <tr><td><label for="iPassword"><?= $this->getHtml('Password'); ?></label>
-                        <tr><td><div class="ipt-wrap"><div class="ipt-first"><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?"></div><div class="ipt-second"> or <button><?= $this->getHtml('Reset'); ?></button></div></div>
+                        <tr><td>
+                            <div class="ipt-wrap">
+                                <div class="ipt-first">
+                                    <span class="input">
+                                        <button type="button"><i class="fa fa-lock"></i></button>
+                                        <input id="iPassword" name="password" type="password">
+                                    </span>
+                                </div>
+                                <div class="ipt-second"> or <button><?= $this->getHtml('Reset'); ?></button></div>
+                        </div>
                         <tr><td><input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                     </table>
                 </form>
@@ -88,7 +117,11 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iGroup" name="group" type="text" placeholder="&#xf0c0; Guest">
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-group"></i></button>
+                                <input id="iGroup" name="group" type="text">
+                            </span>
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
@@ -142,7 +175,11 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iPermiision"><?= $this->getHtml('Name'); ?></label>
-                        <tr><td><input id="iPermiision" name="permission" type="text" placeholder="&#xf084; permission_create">
+                        <tr><td>
+                            <span class="input">
+                                <button type="button"><i class="fa fa-key"></i></button>
+                                <input id="iPermiision" name="permission" type="text">
+                            </span>      
                         <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
