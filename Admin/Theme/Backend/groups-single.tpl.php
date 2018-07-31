@@ -16,7 +16,7 @@
  */
 $group       = $this->getData('group');
 $permissions = $this->getData('permissions');
-$accounts    = $this->getData('accounts');
+$accounts    = $group->getAccounts();
 
 echo $this->getData('nav')->render(); ?>
 
@@ -66,11 +66,10 @@ echo $this->getData('nav')->render(); ?>
                                 <td><?= $this->getHtml('ID', 0, 0); ?>
                                 <td class="wf-100">Name
                         <tbody>
-                            <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
+                            <?php $c = 0; foreach ($accounts as $key => $value) : $c++; ?>
                             <tr>
                                 <td><a href="#"><i class="fa fa-times"></i></a>
-                                <td>
-                                <td>
+                                <td><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
                             <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

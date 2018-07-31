@@ -49,6 +49,14 @@ class Group extends \phpOMS\Account\Group
     protected $descriptionRaw = '';
 
     /**
+     * Accounts
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected $accounts = [];
+
+    /**
      * Constructor
      *
      * @since  1.0.0
@@ -120,5 +128,17 @@ class Group extends \phpOMS\Account\Group
     public function getDescriptionRaw() : string
     {
         return $this->descriptionRaw;
+    }
+
+    /**
+     * Get accounts
+     *
+     * @return array Accounts
+     *
+     * @since  1.0.0
+     */
+    public function getAccounts() : array
+    {
+        return $this->accounts;
     }
 }

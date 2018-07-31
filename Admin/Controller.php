@@ -39,6 +39,7 @@ use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
+use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Admin controller class.
@@ -203,7 +204,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
-        $view->setData('list:elements', AccountMapper::getNewest(50));
+        $view->setData('list:elements', AccountMapper::getNewest(50, null, RelationType::NONE));
         $view->setData('list:count', 1);
 
         return $view;
@@ -235,7 +236,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
-        $view->addData('account', AccountMapper::get((int) $request->getData('id')));
+        $view->addData('account', AccountMapper::get((int) $request->getData('id'), RelationType::ALL, null, 2));
 
         $permissions = AccountPermissionMapper::getFor((int) $request->getData('id'), 'account');
 
@@ -306,7 +307,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
-        $view->setData('list:elements', GroupMapper::getAll());
+        $view->setData('list:elements', GroupMapper::getAll(RelationType::NONE));
 
         return $view;
     }
@@ -337,7 +338,7 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
-        $view->addData('group', GroupMapper::get((int) $request->getData('id')));
+        $view->addData('group', GroupMapper::get((int) $request->getData('id'), RelationType::ALL, null, 2));
 
         $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
 

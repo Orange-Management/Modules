@@ -65,4 +65,19 @@ class GroupMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $createdAt = 'group_created';
+
+    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
+    protected static $hasMany = [
+        'accounts' => [
+            'mapper' => AccountMapper::class,
+            'table'  => 'account_group',
+            'dst'    => 'account_group_group',
+            'src'    => 'account_group_account',
+        ],
+    ];
 }

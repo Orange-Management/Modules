@@ -10,6 +10,11 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
+use phpOMS\Message\Http\Rest;
+use phpOMS\Message\Http\Request;
+use phpOMS\Uri\Http;
+
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -34,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $file; ?>
                 <td><?= \phpOMS\Security\PhpCode::hasUnicode($source); ?>
                 <td><?= \phpOMS\Security\PhpCode::hasDeprecatedFunction($source); ?>
-                <td><?= \phpOMS\Security\PhpCode::validateFileIntegrity($file, ''); ?>
+                <td><?= \phpOMS\Security\PhpCode::validateFileIntegrity($file, \md5(Rest::request(new Request(new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php'))))); ?>
                     <?php endforeach; ?>
         </table>
     </div>
