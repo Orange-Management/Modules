@@ -170,6 +170,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
         $request->setData('status', Status::INACTIVE);
+        $request->setData('unit', 1);
         $request->setData('description', 'test description');
 
         $this->module->apiDepartmentCreate($request, $response);
