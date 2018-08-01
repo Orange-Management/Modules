@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Media\Models;
 
 use phpOMS\System\File\Local\Directory;
+use phpOMS\System\File\FileUtils;
 
 /**
  * Upload.
@@ -32,10 +33,10 @@ class UploadFile
     /**
      * Image interlaced.
      *
-     * @var int
+     * @var bool
      * @since 1.0.0
      */
-    private $interlaced = true;
+    private $isInterlaced = true;
 
     /**
      * Upload max size.
@@ -80,7 +81,8 @@ class UploadFile
     /**
      * Upload file to server.
      *
-     * @param array $files File data ($_FILE)
+     * @param array  $files    File data ($_FILE)
+     * @param string $encoding Encoding used for uploaded file. Empty string will not convert file content.
      *
      * @return array
      *
@@ -88,7 +90,7 @@ class UploadFile
      *
      * @since  1.0.0
      */
-    public function upload(array $files) : array
+    public function upload(array $files, string $encoding = 'UTF-8') : array
     {
         $result = [];
 
@@ -96,7 +98,10 @@ class UploadFile
             $files = [$files];
         }
 
-        $this->findOutputDir($files);
+        if (count($files) > 1) {
+            $this->outputDir = $this->findOutputDir($files);
+        }
+
         $path = $this->outputDir;
 
         foreach ($files as $key => $f) {
@@ -117,7 +122,6 @@ class UploadFile
             $result[$key]['size'] = $f['size'];
 
             if ($f['size'] > $this->maxSize) {
-                // too large2
                 $result[$key]['status'] = UploadStatus::CONFIG_SIZE;
 
                 return $result;
@@ -125,14 +129,9 @@ class UploadFile
 
             // TODO: do I need pecl fileinfo?
             if (!empty($this->allowedTypes) && ($ext = array_search($f['type'], $this->allowedTypes, true)) === false) {
-                // wrong file format
                 $result[$key]['status'] = UploadStatus::WRONG_EXTENSION;
 
                 return $result;
-            }
-
-            if ($this->preserveFileName) {
-                $this->fileName = $f['name'];
             }
 
             $split                     = \explode('.', $f['name']);
@@ -140,81 +139,125 @@ class UploadFile
             $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 
-            // ! and empty same?!
-            $result[$key]['filename'] = $this->fileName;
-            if (!$this->fileName || empty($this->fileName) || \file_exists($path . '/' . $this->fileName)) {
-                $rnd = '';
+            if ($this->preserveFileName) {
+                $this->fileName = $f['name'];
+            }
 
-                $limit = 0;
-                do {
-                    $sha = sha1_file($f['tmp_name'] . $rnd);
+            if (empty($this->fileName) || \file_exists($path . '/' . $this->fileName)) {
+                try {
+                    $this->fileName           = $this->createFileName($path, $f['tmp_name'], $extension);
+                    $result[$key]['filename'] = $this->fileName;
+                } catch (\Exception $e) {
+                    $result[$key]['filename'] = $f['name'];
+                    $result[$key]['status']   = UploadStatus::FAILED_HASHING;
 
-                    if ($sha === false) {
-                        $result[$key]['status'] = UploadStatus::FAILED_HASHING;
-
-                        return $result;
-                    }
-
-                    $sha .= '.' . $extension;
-
-                    $this->fileName = $sha;
-                    $rnd            = mt_rand();
-                    $limit++;
-                } while (file_exists($path . '/' . $this->fileName) && $limit < self::PATH_GENERATION_LIMIT);
-
-                if ($limit >= self::PATH_GENERATION_LIMIT) {
-                    throw new \Exception('No file path could be found. Potential attack!');
+                    return $result;
                 }
             }
 
-            if (!is_dir($path)) {
+            if (!\is_dir($path)) {
                 Directory::create($path, 0655, true);
             }
 
-            if (!is_uploaded_file($f['tmp_name'])) {
+            if (!\is_uploaded_file($f['tmp_name'])) {
                 $result[$key]['status'] = UploadStatus::NOT_UPLOADED;
 
                 return $result;
             }
 
-            if (!move_uploaded_file($f['tmp_name'], $dest = $path . '/' . $this->fileName)) {
+            if (!\move_uploaded_file($f['tmp_name'], $dest = $path . '/' . $this->fileName)) {
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
             }
 
-            if ($this->interlaced && \in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
+            if ($this->isInterlaced && \in_array($extension, FileUtils::IMAGE_EXTENSION)) {
                 $this->interlace($extension, $dest);
             }
 
-            $result[$key]['path'] = realpath($this->outputDir);
+            if ($encoding !== '') {
+                FileUtils::changeFileEncoding($dest, $encoding);
+            }
+
+            $result[$key]['path'] = \realpath($this->outputDir);
         }
 
         return $result;
     }
 
+    /**
+     * Create file name if file already exists or if file name should be random.
+     *
+     * @param string $path      Path where file should be saved
+     * @param string $tempName  Temp. file name generated during upload
+     * @param string $extension Extension name
+     *
+     * @return string
+     *
+     * @throws \Exception
+     *
+     * @since  1.0.0
+     */
+    private function createFileName(string $path, string $tempName, string $extension) : string
+    {
+        $rnd   = '';
+        $limit = 0;
+
+        do {
+            $sha = \sha1_file($tempName . $rnd);
+
+            if ($sha === false) {
+                throw new \Exception('No file path could be found. Potential attack!');
+            }
+
+            $sha     .= '.' . $extension;
+            $fileName = $sha;
+            $rnd      = \mt_rand();
+            $limit++;
+        } while (\file_exists($path . '/' . $fileName) && $limit < self::PATH_GENERATION_LIMIT);
+
+        if ($limit >= self::PATH_GENERATION_LIMIT) {
+            throw new \Exception('No file path could be found. Potential attack!');
+        }
+
+        return $fileName;
+    }
+
+    /**
+     * Make image interlace
+     *
+     * @param string $extension Image extension
+     * @param string $path      File path
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
     private function interlace(string $extension, string $path) : void
     {
+        if ($extension === 'png') {
+            $img = \imagecreatefrompng($path);
+        } elseif ($extension === 'jpg' || $extension === 'jpeg') {
+            $img = \imagecreatefromjpeg($path);
+        } else {
+            $img = \imagecreatefromgif($path);
+        }
 
-                if ($extension === 'png') {
-                    $img = imagecreatefrompng($path);
-                } elseif ($extension === 'jpg' || $extension === 'jpeg') {
-                    $img = imagecreatefromjpeg($path);
-                } else {
-                    $img = imagecreatefromgif($path);
-                }
+        if ($img === false) {
+            return;
+        }
 
-                imageinterlace($img, (int) $this->interlaced);
+        \imageinterlace($img, (int) $this->isInterlaced);
 
-                if ($extension === 'png') {
-                    imagepng($img, $path);
-                } elseif ($extension === 'jpg' || $extension === 'jpeg') {
-                    imagejpeg($img, $path);
-                } else {
-                    imagegif($img, $path);
-                }
+        if ($extension === 'png') {
+            \imagepng($img, $path);
+        } elseif ($extension === 'jpg' || $extension === 'jpeg') {
+            \imagejpeg($img, $path);
+        } else {
+            \imagegif($img, $path);
+        }
 
-                imagedestroy($img);
+        \imagedestroy($img);
     }
 
     /**
@@ -222,19 +265,17 @@ class UploadFile
      *
      * @param array $files Array of files
      *
-     * @return void
+     * @return string
      *
      * @since  1.0.0
      */
-    private function findOutputDir(array $files)
+    private function findOutputDir(array $files) : string
     {
-        if (count($files) > 1) {
-            do {
-                $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
-            } while (file_exists($this->outputDir . '/' . $rndPath));
+        do {
+            $rndPath = \str_pad(\dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+        } while (\file_exists($this->outputDir . '/' . $rndPath));
 
-            $this->outputDir = $this->outputDir . '/' . $rndPath;
-        }
+        return $this->outputDir . '/' . $rndPath;
     }
 
     /**
@@ -270,9 +311,16 @@ class UploadFile
         return $this->maxSize;
     }
 
-    public function setInterlaced(bool $interlaced) : void
+    /**
+     * @param bool $isInterlaced Is interlaced
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setInterlaced(bool $isInterlaced) : void
     {
-        $this->interlaced = $interlaced;
+        $this->isInterlaced = $isInterlaced;
     }
 
     /**
@@ -282,7 +330,7 @@ class UploadFile
      *
      * @since  1.0.0
      */
-    public function setMaxSize(int $maxSize)
+    public function setMaxSize(int $maxSize) : void
     {
         $this->maxSize = $maxSize;
     }
@@ -310,13 +358,13 @@ class UploadFile
     }
 
     /**
-     * @param string[] $allowedTypes Allowed file types
+     * @param string $allowedTypes Allowed file types
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function addAllowedTypes($allowedTypes)
+    public function addAllowedTypes(string $allowedTypes) : void
     {
         $this->allowedTypes[] = $allowedTypes;
     }
@@ -333,14 +381,14 @@ class UploadFile
 
     /**
      * Define output directory of the upload
-     * 
+     *
      * @param string $outputDir Output directory of the uploaded file
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setOutputDir(string $outputDir)
+    public function setOutputDir(string $outputDir) : void
     {
         $this->outputDir = $outputDir;
     }
@@ -357,28 +405,28 @@ class UploadFile
 
     /**
      * Set the file name of the uploaded file
-     * 
+     *
      * @param string $fileName File name of the uploaded file
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setFileName(string $fileName)
+    public function setFileName(string $fileName) : void
     {
         $this->fileName = $fileName;
     }
 
     /**
      * Define if the uploaded file name should be the same file name as the original file
-     * 
+     *
      * @param bool $preserveFileName Keep file name of the original file
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setPreserveFileName(bool $preserveFileName)
+    public function setPreserveFileName(bool $preserveFileName) : void
     {
         $this->preserveFileName = $preserveFileName;
     }
