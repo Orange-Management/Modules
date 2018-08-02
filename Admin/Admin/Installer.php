@@ -54,22 +54,6 @@ class Installer extends InstallerAbstract
                         )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
 
-                /* Create group relations table */
-                $dbPool->get()->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'group_relations` (
-                            `group_relations_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `group_relations_group` int(11) DEFAULT NULL,
-                            `group_relations_parent` int(11) DEFAULT NULL,
-                            PRIMARY KEY (`group_relations_id`),
-                            KEY `group_relations_group` (`group_relations_group`)
-                        ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-                )->execute();
-
-                $dbPool->get()->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get()->prefix . 'group_relations`
-                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'group_relations_ibfk_1` FOREIGN KEY (`group_relations_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`);'
-                )->execute();
-
                 /* Create group permission table */
                 /*
                  * idx = module specific element id (since one module can have multiple things that need permissions)
