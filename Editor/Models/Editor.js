@@ -31,6 +31,9 @@
     {
         let textarea = this.editor.getElementsByTagName('textarea')[0];
 
+        const startPosition = textarea.selectionStart,
+            endPosition = textarea.selectionEnd;
+
         switch (e.dataset['editorButton']) {
             case 'undo':
 
@@ -39,68 +42,71 @@
 
                 break;
             case 'bold':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart) 
-                    + '**' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd) + '**' 
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + '**' + textarea.value.slice(startPosition, endPosition) + '**'
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'italic':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart)
-                    + '*' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd) + '*'
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + '*' + textarea.value.slice(startPosition, endPosition) + '*'
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'underline':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart)
-                    + '__' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd) + '__'
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + '__' + textarea.value.slice(startPosition, endPosition) + '__'
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'strikethrough':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart)
-                    + '~~' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd) + '~~'
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + '~~' + textarea.value.slice(startPosition, endPosition) + '~~'
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'ulist':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart) + "\n"
-                    + '    * ' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd)
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition) + "\n"
+                    + '    * ' + textarea.value.slice(startPosition, endPosition)
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'olist':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart) + "\n"
-                    + '    1. ' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd)
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition) + "\n"
+                    + '    1. ' + textarea.value.slice(startPosition, endPosition)
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'indent':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart)
-                    + '    ' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd)
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + '    ' + textarea.value.slice(startPosition, endPosition)
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'table':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart) + "\n"
+                textarea.value = textarea.value.slice(0, startPosition) + "\n"
                     + '| Tables        | Are               | Cool  |' + "\n"
                     + '| ------------- |:-----------------:| -----:|' + "\n"
                     + '| col 3 is      | right - aligned   | $1600 |' + "\n"
                     + '| col 2 is      | centered          | $12   |' + "\n"
                     + '| zebra stripes | are neat          | $1    |' + "\n"
-                    + textarea.value.slice(textarea.selectionStart, textarea.value.length);
+                    + textarea.value.slice(startPosition, textarea.value.length);
                 break;
             case 'link':
-                let link = textarea.value.slice(textarea.selectionStart, textarea.selectionEnd);
+                let link = textarea.value.slice(startPosition, endPosition);
 
-                textarea.value = textarea.value.slice(0, textarea.selectionStart) 
-                    + ((link.startsWith('http') || link.startsWith('www')) ? '[' + link + ']' : '[' + link + '](https://www.website.com "' + link + '")') 
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + ((link.startsWith('http') || link.startsWith('www')) ? '[' + link + ']' : '[' + link + '](https://www.website.com "' + link + '")')
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'code':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart)
-                    + '`' + textarea.value.slice(textarea.selectionStart, textarea.selectionEnd) + '`'
-                    + textarea.value.slice(textarea.selectionEnd, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition)
+                    + '`' + textarea.value.slice(startPosition, endPosition) + '`'
+                    + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'quote':
-                textarea.value = textarea.value.slice(0, textarea.selectionStart) + "\n"
-                    + '> ' + textarea.value.slice(textarea.selectionStart, textarea.value.length);
+                textarea.value = textarea.value.slice(0, startPosition) + "\n"
+                    + '> ' + textarea.value.slice(startPosition, textarea.value.length);
                 break;
             default:
                 break;
         }
+
+        textarea.focus();
+        textarea.setSelectionRange(endPosition, endPosition);
     };
 
     jsOMS.Modules.Models.Editor.Editor.prototype.getSelectedText = function()
