@@ -11,7 +11,7 @@
                         {"key": 5, "type": "dom.table.append", "id": "grp-table", "aniIn": "fadeIn", "data": [], "bindings": {"id": "id", "name": "name/0"}, "position": -1}
                     ]
                 }
-            ]' formaction=""><i class="fa fa-book"></i></button>
+            ]'><i class="fa fa-book"></i></button>
             <input type="text" list="<?= $this->printHtml($this->getId()); ?>-datalist" id="<?= $this->printHtml($this->getId()); ?>" name="receiver" placeholder="&#xf007; Guest" data-action='[
                 {
                     "key": 1, "listener": "keyup", "action": [
@@ -26,8 +26,8 @@
                     "key": 2, "listener": "keydown", "action" : [
                         {"key": 1, "type": "validate.keypress", "pressed": "13|9"},
                         {"key": 2, "type": "message.request", "uri": "{/base}/{/lang}/api/organization/find/department?search={#<?= $this->printHtml($this->getId()); ?>}", "method": "GET", "request_type": "json"},
-                        {"key": 3, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
-                        {"key": 4, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}</span>", "data": ""},
+                        {"key": 3, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
+                        {"key": 4, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}</span>", "data": ""},
                         {"key": 5, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
                     ]
                 }
