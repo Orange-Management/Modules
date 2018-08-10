@@ -50,7 +50,8 @@ $id = (string) $this->request->getData('id') ?? 1;
                                 <button id="iModuleDeactivateButton" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 2, "type": "message.log"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Deactivate'); ?></button>
@@ -58,14 +59,16 @@ $id = (string) $this->request->getData('id') ?? 1;
                                 <button id="iModuleUninstallButton" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 2, "type": "message.log"}
                                         ]
                                     }
                                 ]'>><?= $this->getHtml('Uninstall'); ?></button>
                                 <button id="iModuleActivateButton" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 2, "type": "message.log"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Activate'); ?></button>
@@ -83,7 +86,8 @@ $id = (string) $this->request->getData('id') ?? 1;
                                 <button id="iModuleDeleteButton" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=delete&module=' . $id); ?>", "method": "POST", "request_type": "json"}
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=delete&module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 2, "type": "message.log"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Delete', 0); ?></button>
