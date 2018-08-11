@@ -45,7 +45,7 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($question->getStatus(), $questionR->getStatus());
         self::assertEquals($question->getLanguage(), $questionR->getLanguage());
         self::assertEquals($question->getCategory(), $questionR->getCategory()->getId());
-        self::assertEquals($question->getCreatedBy(), $questionR->getCreatedBy());
+        self::assertEquals($question->getCreatedBy(), $questionR->getCreatedBy()->getId());
         self::assertEquals(count($question->getBadges()), count($questionR->getBadges()));
     }
 

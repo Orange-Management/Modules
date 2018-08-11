@@ -88,12 +88,12 @@ class QAAnswer implements \JsonSerializable
         return $this->isAccepted;
     }
 
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) : void
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }

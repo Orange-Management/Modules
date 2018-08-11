@@ -42,7 +42,7 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($answer->getQuestion(), $answerR->getQuestion());
         self::assertEquals($answer->getStatus(), $answerR->getStatus());
         self::assertEquals($answer->isAccepted(), $answerR->isAccepted());
-        self::assertEquals($answer->getCreatedBy(), $answerR->getCreatedBy());
+        self::assertEquals($answer->getCreatedBy(), $answerR->getCreatedBy()->getId());
     }
 
     /**
