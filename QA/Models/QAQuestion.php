@@ -126,7 +126,7 @@ class QAQuestion implements \JsonSerializable
         $this->category = $category;
     }
 
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

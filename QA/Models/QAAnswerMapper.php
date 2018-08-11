@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\QA\Models;
 
+use Modules\Profile\Models\ProfileMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
@@ -69,4 +70,17 @@ class QAAnswerMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'qa_answer_id';
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
+    protected static $belongsTo = [
+        'createdBy' => [
+            'mapper' => ProfileMapper::class,
+            'dest'   => 'qa_answer_created_by',
+        ],
+    ];
 }
