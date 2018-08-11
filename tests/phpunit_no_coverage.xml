@@ -10,8 +10,8 @@
         >
     <testsuites>
         <testsuite name="phpOMS">
-            <directory>./</directory>
-            <directory>./tests/</directory>
+            <directory>*/Models/*</directory>
+            <exclude>./vendor</exclude>
             <exclude>./vendor</exclude>
             <exclude>./Build</exclude>
         </testsuite>
@@ -23,6 +23,7 @@
                 <directory suffix="tpl.php">../*</directory>
                 <directory suffix="lang.php">../*</directory>
                 <directory suffix="Test.php">../*</directory>
+                <directory suffix="MapperTest.php">*</directory>
                 <directory>./Build</directory>
             </exclude>
         </whitelist>
