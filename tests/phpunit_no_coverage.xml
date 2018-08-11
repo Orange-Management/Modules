@@ -11,7 +11,7 @@
     <testsuites>
         <testsuite name="phpOMS">
             <directory>*/Models/*</directory>
-            <exclude>./vendor</exclude>
+            <exclude>*/phpOMS/*</exclude>
             <exclude>./vendor</exclude>
             <exclude>./Build</exclude>
         </testsuite>
