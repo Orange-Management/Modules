@@ -11,6 +11,7 @@
     <testsuites>
         <testsuite name="phpOMS">
             <directory>*/Models/*</directory>
+            <exclude>*ModuleManagerTest.php</exclude>
             <exclude>*/phpOMS/*</exclude>
             <exclude>./vendor</exclude>
             <exclude>./Build</exclude>
