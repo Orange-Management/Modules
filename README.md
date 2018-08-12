@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/49d1e277f99c40f36d25/maintainability)](https://codeclimate.com/github/Orange-Management/Modules/maintainability)
+[![Build Status](https://travis-ci.org/Orange-Management/Modules.svg?branch=develop)](https://travis-ci.org/Orange-Management/Modules)
 
 # General
 
