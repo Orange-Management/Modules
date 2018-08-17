@@ -227,14 +227,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiExchangeImport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::IMPORT)
-        ) {
-            $response->set('exchange_import', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $import  = $this->importDataFromRequest($request);
         $status  = NotificationLevel::ERROR;
         $message = 'Import failed.';

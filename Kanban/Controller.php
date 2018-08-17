@@ -129,14 +129,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
 
@@ -245,14 +237,6 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     public function apiKanbanCardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::CARD)
-        ) {
-            $response->set('kanban_card_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateKanbanCardCreate($request))) {
             $response->set('kanban_card_create', new FormValidation($val));
 
@@ -307,14 +291,6 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     public function apiKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD)
-        ) {
-            $response->set('kanban_board_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateKanbanBoardCreate($request))) {
             $response->set('kanban_board_create', new FormValidation($val));
 
@@ -358,14 +334,6 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     public function apiKanbanColumnCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::COLUMN)
-        ) {
-            $response->set('kanban_column_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateKanbanColumnCreate($request))) {
             $response->set('kanban_column_create', new FormValidation($val));
 

@@ -109,14 +109,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/News/Theme/Backend/news-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
@@ -193,14 +185,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARCHIVE)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/News/Theme/Backend/news-archive');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
 
@@ -223,14 +207,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
 
         $view->setTemplate('/Modules/News/Theme/Backend/news-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000701001, $request, $response));
@@ -289,14 +265,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
-        ) {
-            $response->set('news_update', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $news = $this->updateNewsFromRequest($request);
 
         NewsArticleMapper::update($news);
@@ -347,14 +315,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
-        ) {
-            $response->set('news_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateNewsCreate($request))) {
             $response->set('news_create', new FormValidation($val));
 
@@ -407,14 +367,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
-        ) {
-            $response->set('news_read', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $news = NewsArticleMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -459,14 +411,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BADGE)
-        ) {
-            $response->set('badge_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateBadgeCreate($request))) {
             $response->set('badge_create', new FormValidation($val));
 
@@ -563,14 +507,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE)
-        ) {
-            $response->set('news_delete', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $news   = NewsArticleMapper::get((int) $request->getData('id'));
         $status = NewsArticleMapper::delete($news);
 
@@ -597,14 +533,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::DELETE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BADGE)
-        ) {
-            $response->set('badge_delete', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         BadgeMapper::delete((int) $request->getData('id'));
         $response->set('badge_delete', (int) $request->getData('id'));
     }
