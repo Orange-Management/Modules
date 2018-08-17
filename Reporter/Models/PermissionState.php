@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Reporter
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -19,14 +19,13 @@ use phpOMS\Stdlib\Base\Enum;
 /**
  * Permision state enum.
  *
- * @package    Tasks
+ * @package    Modules\Reporter
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 abstract class PermissionState extends Enum
 {
-    public const DASHBOARD = 1;
-    public const TEMPLATE  = 2;
-    public const REPORT    = 3;
+    public const TEMPLATE = 1;
+    public const REPORT   = 2;
 }

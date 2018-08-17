@@ -115,14 +115,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::PROFILE)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
 
         $view->setData('accounts', ProfileMapper::getNewest(25));
@@ -143,14 +135,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::PROFILE)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
 
         /** @var Head $head */
         $head = $response->get('Content')->getData('head');

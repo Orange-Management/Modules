@@ -113,14 +113,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
@@ -213,14 +205,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
@@ -302,14 +286,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $response->set('task_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateTaskCreate($request))) {
             $response->set('task_create', new FormValidation($val));
 
@@ -369,14 +345,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $response->set('task_read', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $task = TaskMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -401,14 +369,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $response->set('task_update', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $task   = $this->updateTaskFromRequest($request);
         $status = TaskMapper::update($task);
 
@@ -479,14 +439,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $response->set('task_element_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateTaskElementCreate($request))) {
             $response->set('task_element_create', new FormValidation($val));
 
@@ -541,14 +493,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskElementGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $response->set('task_read', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $task = TaskElementMapper::get((int) $request->getData('id'));
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -573,14 +517,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTaskElementSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::MODIFY, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK)
-        ) {
-            $response->set('task_update', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $task   = $this->updateTaskElementFromRequest($request);
         $status = TaskElementMapper::update($task);
 

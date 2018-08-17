@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Calendar
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -19,14 +19,12 @@ use phpOMS\Stdlib\Base\Enum;
 /**
  * Permision state enum.
  *
- * @package    Tasks
+ * @package    Modules\Calendar
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
 abstract class PermissionState extends Enum
 {
-    public const DASHBOARD = 1;
-    public const EVENT     = 2;
-    public const CALENDAR  = 3;
+    public const CALENDAR = 1;
 }

@@ -124,14 +124,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
@@ -155,14 +147,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TEMPLATE)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-template-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
 
@@ -182,14 +166,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::REPORT)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
 
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
@@ -388,14 +364,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::TEMPLATE)
-        ) {
-            $response->set('template_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
@@ -459,14 +427,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::REPORT)
-        ) {
-            $response->set('report_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         $this->handleTemplateDatabaseFromRequest($request);
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $report       = $this->createReportFromRequest($request, $response, $collectionId);

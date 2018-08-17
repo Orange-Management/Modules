@@ -124,13 +124,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -154,13 +147,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -183,13 +169,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewKnowledgebaseDocList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
-
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DASHBOARD)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            return $view;
-        }
 
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-doc-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
@@ -290,14 +269,6 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $view = new View($this->app, $request, $response);
 
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DOC)
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
@@ -308,14 +279,6 @@ final class Controller extends ModuleAbstract implements WebInterface
 
     public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DOC)
-        ) {
-            $response->set('wiki_doc_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
         if (!empty($val = $this->validateWikiDocCreate($request))) {
             $response->set('wiki_doc_create', new FormValidation($val));
 
