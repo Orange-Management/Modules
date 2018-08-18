@@ -156,7 +156,7 @@ class Installer extends InstallerAbstract
                             `account_name2` varchar(50) NOT NULL,
                             `account_name3` varchar(50) NOT NULL,
                             `account_password` varchar(64) DEFAULT NULL,
-                            `account_temp` varchar(64) DEFAULT NULL,
+                            `account_password_temp` varchar(64) DEFAULT NULL,
                             `account_email` varchar(70) NOT NULL,
                             `account_tries` tinyint(2) NOT NULL DEFAULT 0,
                             `account_lactive` datetime DEFAULT NULL,
