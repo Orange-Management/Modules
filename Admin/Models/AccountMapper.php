@@ -99,8 +99,6 @@ class AccountMapper extends DataMapperAbstract
      *
      * @return int Login code
      *
-     * @todo   move this to the admin accountMapper
-     *
      * @since  1.0.0
      */
     public static function login(string $login, string $password) : int
@@ -112,24 +110,12 @@ class AccountMapper extends DataMapperAbstract
         try {
             $result = null;
 
-            switch (self::$db->getType()) {
-                case DatabaseType::MYSQL:
-                    $sth = self::$db->con->prepare(
-                        'SELECT
-                            `' . self::$db->prefix . 'account`.*
-                        FROM
-                            `' . self::$db->prefix . 'account`
-                        WHERE
-                            `account_login` = :login'
-                    );
-                    $sth->bindValue(':login', $login, \PDO::PARAM_STR);
-                    $sth->execute();
-
-                    $result = $sth->fetchAll();
-                    break;
-            }
-
-            // TODO: check if user is allowed to login on THIS page (backend|frontend|etc...)
+            $query  = new Builder(self::$db);
+            $result = $query->prefix(self::$db->getPrefix())
+                ->select('*')
+                ->from('account')
+                ->where('account_login', '=', $login)
+                ->execute()->fetchAll();
 
             if (!isset($result[0])) {
                 return LoginReturnType::WRONG_USERNAME;
@@ -145,7 +131,13 @@ class AccountMapper extends DataMapperAbstract
                 return LoginReturnType::EMPTY_PASSWORD;
             }
 
-            if (password_verify($password, $result['account_password'])) {
+            if (\password_verify($password, $result['account_password'])) {
+                return $result['account_id'];
+            }
+
+            if ($result['account_password_temp'] !== '' && \password_verify($password, $result['account_password_temp'])) {
+                $query->update('account')->set(['account_password_temp' => ''])->where('account_login', '=', $login)->execute();
+
                 return $result['account_id'];
             }
 
