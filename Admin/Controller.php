@@ -120,19 +120,20 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view     = new View($this->app, $request, $response);
-        $settings = $this->app->appSettings->get([1000000009, 1000000019, 1000000020, 1000000021, 1000000022, 1000000023, 1000000027, 1000000028,]);
+        $settings = $this->app->appSettings->get([
+                1000000001, 1000000002, 1000000003, 1000000004, 1000000005, 1000000006, 1000000007, 1000000008, 1000000009,
+                1000000010, 1000000011, 1000000012, 1000000013, 1000000014, 1000000015, 1000000016, 1000000017, 1000000018, 1000000019,
+                1000000020, 1000000021, 1000000022, 1000000023, 1000000024, 1000000025, 1000000026, 1000000027, 1000000028, 1000000029,
+                1000001001, 1000001002, 1000001003, 1000001004, 1000001005,
+                1000002001, 1000002002, 1000002003, 1000002004, 1000002005, 1000002006,
+                1000003001, 1000003002, 1000003003, 1000003004, 1000003005, 1000003006,
+                1000004001, 1000004002, 1000004003, 1000004004, 1000004005,
+                1000005001, 1000005002, 1000005003, 1000005004, 1000005005, 1000005006, 1000005007, 1000005008,
+            ]);
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/settings-general');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
-        $view->setData('oname', $settings[1000000009]);
-        $view->setData('country', $settings[1000000019]);
-        $view->setData('timezone', $settings[1000000021]);
-        $view->setData('timeformat', $settings[1000000022]);
-        $view->setData('language', $settings[1000000020]);
-        $view->setData('currency', $settings[1000000023]);
-        $view->setData('decimal_point', $settings[1000000027]);
-        $view->setData('thousands_sep', $settings[1000000028]);
-        $view->setData('countries', $settings[1000000028]);
+        $view->setData('settings', $settings);
 
         return $view;
     }
@@ -376,7 +377,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $response->set(
-            $request->getUri()->__toString(), 
+            $request->getUri()->__toString(),
             [
                 'response' => $this->app->appSettings->get((int) $request->getData('id'))
             ]
@@ -398,12 +399,20 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $this->app->appSettings->set(
-            \json_decode((string) $request->getData('settings'), true),
-            true
-        );
+        if (($data = $request->getData('settings')) === null) {
+            $data = $request->getLike('(settings_)(.*)');
+        } else {
+            $data = \json_decode((string) $request->getData('settings'), true);
+        }
 
-        $response->set($request->getUri()->__toString(), true);
+        $this->app->appSettings->set($data, true);
+
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Settings',
+            'message' => 'Settings successfully modified.',
+            'response' => $data
+        ]);
     }
 
     /**
@@ -631,7 +640,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set(
-            $request->getUri()->__toString(), 
+            $request->getUri()->__toString(),
             \array_values(
                 AccountMapper::find((string) ($request->getData('search') ?? ''))
             )
