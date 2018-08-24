@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Kanban
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -41,7 +41,7 @@ use Modules\Kanban\Models\BoardStatus;
 /**
  * Task class.
  *
- * @package    Modules
+ * @package    Modules\Kanban
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

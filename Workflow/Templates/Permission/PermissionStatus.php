@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Workflow\Templates\Permission
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -19,7 +19,7 @@ use phpOMS\Stdlib\Base\Enum;
 /**
  * Task status enum.
  *
- * @package    Tasks
+ * @package    Modules\Workflow\Templates\Permission
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

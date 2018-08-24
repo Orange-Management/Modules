@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\PL\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -22,7 +22,7 @@ use phpOMS\Module\InstallerAbstract;
 /**
  * Budgeting install class.
  *
- * @package    Modules
+ * @package    Modules\PL\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

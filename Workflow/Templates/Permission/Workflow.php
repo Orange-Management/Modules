@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Media
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 /**
  * Media class.
  *
- * @package    Modules
+ * @package    Modules\Media
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
