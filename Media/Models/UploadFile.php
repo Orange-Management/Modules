@@ -94,11 +94,11 @@ class UploadFile
     {
         $result = [];
 
-        if (count($files) == count($files, COUNT_RECURSIVE)) {
+        if (\count($files) == \count($files, COUNT_RECURSIVE)) {
             $files = [$files];
         }
 
-        if (count($files) > 1) {
+        if (\count($files) > 1) {
             $this->outputDir = $this->findOutputDir($files);
         }
 
@@ -136,7 +136,7 @@ class UploadFile
 
             $split                     = \explode('.', $f['name']);
             $result[$key]['name']      = $split[0];
-            $extension                 = count($split) > 1 ? $split[count($split) - 1] : '';
+            $extension                 = \count($split) > 1 ? $split[\count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 
             if ($this->preserveFileName) {

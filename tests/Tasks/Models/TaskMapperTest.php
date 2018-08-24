@@ -98,8 +98,8 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $task->getTaskElements();
         $actual   = $taskR->getTaskElements();
 
-        $expectedMedia = reset($expected)->getMedia();
-        $actualMedia   = reset($actual)->getMedia();
+        $expectedMedia = \reset($expected)->getMedia();
+        $actualMedia   = \reset($actual)->getMedia();
 
         self::assertEquals(end($expected)->getDescription(), end($actual)->getDescription());
         self::assertEquals(end($expectedMedia)->getName(), end($actualMedia)->getName());

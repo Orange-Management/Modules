@@ -150,7 +150,7 @@ class Calendar
         $this->events[] = $event;
 
         end($this->events);
-        $key = key($this->events);
+        $key = \key($this->events);
         reset($this->events);
 
         return $key;

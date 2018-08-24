@@ -186,9 +186,9 @@ class Event
     {
         $this->people[] = $person;
 
-        end($this->people);
-        $key = key($this->people);
-        reset($this->people);
+        \end($this->people);
+        $key = \key($this->people);
+        \reset($this->people);
 
         return $key;
     }
