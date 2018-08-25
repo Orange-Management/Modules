@@ -121,20 +121,20 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Localization'); ?></h1></header>
                         <div class="inner">
-                            <form id="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
+                            <form id="fLocalization" name="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/settings/localization'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iDefaultLocalizations"><?= $this->getHtml('Defaults'); ?></label>
                                     <tr><td>
                                         <div class="ipt-wrap">
                                             <div class="ipt-first"><select id="iDefaultLocalizations" name="defaultlocalizations">
-                                                    <option selected><?= $this->getHtml('Customized'); ?>
+                                                    <option selected disabled><?= $this->getHtml('Customized'); ?>
                                                     <?php foreach ($l11nDefinitions as $def) : ?>
                                                         <option value="<?= $this->printHtml(\explode('.', $def)[0]); ?>"><?= $this->printHtml(\explode('.', $def)[0]); ?>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
-                                            <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Load') ?>"></div>
+                                            <div class="ipt-second"><input type="submit" name="loadDefaultLocalization" value="<?= $this->getHtml('Load') ?>"></div>
                                         </div>
                                     <tr><td colspan="2"><label for="iCountries"><?= $this->getHtml('Country'); ?></label>
                                     <tr><td colspan="2">
@@ -175,7 +175,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100 green">
                         <header><h1><?= $this->getHtml('Numeric'); ?></h1></header>
                         <div class="inner">
-                            <form>
+                            <form id="fNumerics" name="fNumerics">
                                 <table class="layout wf-100">
                                         <tr><td colspan="2"><label for="iCurrencies"><?= $this->getHtml('Currency'); ?></label>
                                     <tr><td colspan="2">
@@ -199,7 +199,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100 red">
                         <header><h1><?= $this->getHtml('Weight'); ?></h1></header>
                         <div class="inner">
-                            <form>
+                            <form id="fWeight" name="fWeight">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iVeryLight"><?= $this->getHtml('VeryLight'); ?></label>
@@ -249,7 +249,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100 blue">
                         <header><h1><?= $this->getHtml('Speed'); ?></h1></header>
                         <div class="inner">
-                            <form>
+                            <form id="fSpeed" name="fSpeed">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iVerySlow"><?= $this->getHtml('VerySlow'); ?></label>
@@ -304,7 +304,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100 purple">
                         <header><h1><?= $this->getHtml('Length'); ?></h1></header>
                         <div class="inner">
-                            <form>
+                            <form id="fLength" name="fLength">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iVeryShort"><?= $this->getHtml('VeryShort'); ?></label>
@@ -359,7 +359,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Area'); ?></h1></header>
                         <div class="inner">
-                            <form>
+                            <form  id="fArea" name="fArea">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iVerySmall"><?= $this->getHtml('VerySmall'); ?></label>
@@ -409,7 +409,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Volume'); ?></h1></header>
                         <div class="inner">
-                            <form>
+                            <form  id="fVolume" name="fVolume">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iVerySmall"><?= $this->getHtml('VerySmall'); ?></label>
