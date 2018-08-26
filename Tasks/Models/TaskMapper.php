@@ -146,6 +146,44 @@ class TaskMapper extends DataMapperAbstract
         return self::getAllByQuery($query);
     }
 
+    public static function getRelatedToAccount(int $user, int $limit = 25) : array
+    {
+        /*
+        select oms_task.*
+        from oms_task
+        where oms_task.task_id in (
+            select distinct oms_task_element.task_element_task
+            from oms_task_element
+            where oms_task_element.task_element_created_by = 1 or oms_task_element.task_element_forwarded = 1
+        ) or oms_task.task_id in (
+            select distinct oms_task.task_id
+            from oms_task
+            where oms_task.task_created_by = 1
+        )
+        */
+
+        $query = self::getQuery();
+
+        $whereClause1 = new Builder();
+        $whereClause1->select(TaskElementMapper::$table . '.task_element_task')
+            ->distinct()
+            ->from(TaskElementMapper::$table)
+            ->where(TaskElementMapper::$table . '.task_elment_created_by', '=', $user)
+            ->orWhere(TaskElementMapper::$table . '.task_element_forwarded', '=', $user);
+
+        $whereClause2 = new Builder();
+        $whereClause2->select(self::$table . '.' . self::$primaryField)
+            ->distinct()
+            ->from(self::$table)
+            ->where(self::$table . '.task_created_by', '=', $user);
+
+        $query->where(self::$table . '.' . self::$primaryField, 'in', $whereClause1)
+            ->orWhere(self::$table. '.' . self::$primaryField, 'in', $whereClause2)
+            ->limit($limit);
+
+        return self::getAllByQuery($query);
+    }
+
     /**
      * Count unread task
      *
