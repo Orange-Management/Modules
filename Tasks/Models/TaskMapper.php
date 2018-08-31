@@ -173,7 +173,6 @@ class TaskMapper extends DataMapperAbstract
 
         $whereClause2 = new Builder();
         $whereClause2->select(self::$table . '.' . self::$primaryField)
-            ->distinct()
             ->from(self::$table)
             ->where(self::$table . '.task_created_by', '=', $user);
 
