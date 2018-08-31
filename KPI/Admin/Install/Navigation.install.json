@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1007201001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "KPI",
+        "uri": "/{/lang}/backend/controlling/kpi/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": "KPI",
+        "permission": { "type": null, "element": null },
+        "parent": 1002801001,
+        "children": [
+            {
+                "id": 1007202001,
+                "pid": "/backend/controlling/kpi",
+                "type": 3,
+                "subtype": 1,
+                "name": "Dashboard",
+                "uri": "/{/lang}/backend/controlling/kpi/dashboard?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "KPI",
+                "permission": { "type": null, "element": null },
+                "parent": 1007201001,
+                "children": []
+            }
+        ]
+    }
+]
