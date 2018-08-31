@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    Modules\Admin\Admin
+ * @package    Modules\Admin
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -12,19 +12,22 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Admin\Admin;
+namespace Modules\Admin\Models;
 
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Install type enum.
+ * Permision state enum.
  *
- * @package    Modules\Admin\Admin
+ * @package    Modules\Admin
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-abstract class InstallType extends Enum
+abstract class ModuleStatusUpdateType extends Enum
 {
-    public const GROUP = 1;
+    public const ACTIVATE   = 1;
+    public const DEACTIVATE = 2;
+    public const INSTALL    = 3;
+    public const UNINSTALL  = 4;
 }

@@ -17,6 +17,7 @@ use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
+use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
@@ -47,5 +48,13 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($account->getStatus(), $accountR->getStatus());
         self::assertEquals($account->getType(), $accountR->getType());
         self::assertEquals($account->getEmail(), $accountR->getEmail());
+    }
+
+    public function testLogin()
+    {
+        self::assertEquals(LoginReturnType::WRONG_PASSWORD, AccountMapper::login('admin', ''));
+        self::assertEquals(LoginReturnType::WRONG_USERNAME, AccountMapper::login('zzzzInvalidTestzzz', 'orange'));
+        self::assertEquals(LoginReturnType::WRONG_PASSWORD, AccountMapper::login('admin', 'invalid'));
+        self::assertGreaterThan(0, AccountMapper::login('admin', 'orange'));
     }
 }

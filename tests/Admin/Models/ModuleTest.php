@@ -26,6 +26,8 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $module->getName());
         self::assertEquals('', $module->getDescription());
         self::assertEquals(ModuleStatus::INACTIVE, $module->getStatus());
+        self::assertEquals(\json_encode($module->jsonSerialize()), $module->__toString());
+        self::assertEquals($module->jsonSerialize(), $module->toArray());
     }
 
     public function testGetSet()
@@ -40,5 +42,8 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
         $module->setStatus(ModuleStatus::ACTIVE);
         self::assertEquals(ModuleStatus::ACTIVE, $module->getStatus());
+
+        self::assertEquals(\json_encode($module->jsonSerialize()), $module->__toString());
+        self::assertEquals($module->jsonSerialize(), $module->toArray());
     }
 }

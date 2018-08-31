@@ -269,40 +269,10 @@ class Installer extends InstallerAbstract
     public static function installExternal(DatabasePool $dbPool, array $data) : void
     {
         foreach ($data as $type => $element) {
-            if ($type === InstallType::PERMISSION) {
-                self::installPermission($dbPool, $element);
-            } elseif ($type === InstallType::GROUP) {
+            if ($type === InstallType::GROUP) {
                 self::installGroup($dbPool, $element);
             }
         }
-    }
-
-    /**
-     * Install permission
-     *
-     * @param DatabasePool $dbPool Database pool
-     * @param array        $data   Data to install
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public static function installPermission(DatabasePool $dbPool, array $data) : void
-    {
-        $sth = $dbPool->get()->con->prepare(
-            'INSERT INTO `' . $dbPool->get()->prefix . 'permission` (`permission_id`, `permission_name`, `permission_description`) VALUES
-                        (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
-        );
-
-        $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
-        $sth->bindValue(':pid', sha1(\str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
-        $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
-        $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
-        $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);
-
-        $sth->execute();
-
-        $lastInsertID = $dbPool->get()->con->lastInsertId();
     }
 
     /**
@@ -311,25 +281,28 @@ class Installer extends InstallerAbstract
      * @param DatabasePool $dbPool Database pool
      * @param array        $data   Data to install
      *
-     * @return void
+     * @return int
      *
      * @since  1.0.0
      */
-    public static function installGroup(DatabasePool $dbPool, array $data) : void
+    public static function installGroup(DatabasePool $dbPool, array $data) : int
     {
         $sth = $dbPool->get()->con->prepare(
-            'INSERT INTO `' . $dbPool->get()->prefix . 'group` (`group_id`, `group_name`, `group_description`) VALUES
-                        (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm);'
+            'INSERT INTO `' . $dbPool->get()->prefix . 'group` (
+                `group_id`, `group_name`, `group_description`, `group_description_raw`, `group_status`, `group_created`) 
+                VALUES (:id, :name, :desc, :desc_raw, :status, :created);'
         );
 
         $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
-        $sth->bindValue(':pid', sha1(\str_replace('/', '', $data['pid'] ?? '')), \PDO::PARAM_STR);
         $sth->bindValue(':name', $data['name'] ?? '', \PDO::PARAM_STR);
-        $sth->bindValue(':type', $data['type'] ?? 1, \PDO::PARAM_INT);
-        $sth->bindValue(':subtype', $data['subtype'] ?? 2, \PDO::PARAM_INT);
-
+        $sth->bindValue(':desc', $data['desc'] ?? '', \PDO::PARAM_STR);
+        $sth->bindValue(':desc_raw', $data['desc_raw'] ?? '', \PDO::PARAM_STR);
+        $sth->bindValue(':status', $data['status'] ?? 1, \PDO::PARAM_INT);
+        $sth->bindValue(':created', (new \DateTime('now'))->format('Y-m-d H:i:s'), \PDO::PARAM_STR);
         $sth->execute();
 
         $lastInsertID = $dbPool->get()->con->lastInsertId();
+
+        return $lastInsertID;
     }
 }

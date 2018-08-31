@@ -131,11 +131,11 @@ class AccountMapper extends DataMapperAbstract
                 return LoginReturnType::EMPTY_PASSWORD;
             }
 
-            if (\password_verify($password, $result['account_password'])) {
+            if (\password_verify($password, $result['account_password'] ?? '')) {
                 return $result['account_id'];
             }
 
-            if ($result['account_password_temp'] !== '' && \password_verify($password, $result['account_password_temp'])) {
+            if (!empty($result['account_password_temp']) && \password_verify($password, $result['account_password_temp'] ?? '')) {
                 $query->update('account')->set(['account_password_temp' => ''])->where('account_login', '=', $login)->execute();
 
                 return $result['account_id'];

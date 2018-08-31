@@ -25,6 +25,7 @@ use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Admin\Models\NullGroupPermission;
 use Modules\Admin\Models\PermissionState;
+use Modules\Admin\Models\ModuleStatusUpdateType;
 
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
@@ -399,7 +400,7 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (($data = $request->getData('settings')) === null) {
+        if ($request->getData('settings') === null) {
             $data = $request->getLike('(settings_)(.*)');
         } else {
             $data = \json_decode((string) $request->getData('settings'), true);
@@ -500,9 +501,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $val = [];
         if (($val['name'] = empty($request->getData('name')))
-            || ($val['status'] = ($request->getData('status') === null
-                || !GroupStatus::isValidValue((int) $request->getData('status'))
-            ))
+            || ($val['status'] = !GroupStatus::isValidValue((int) $request->getData('status')))
         ) {
             return $val;
         }
@@ -638,7 +637,6 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set(
             $request->getUri()->__toString(),
             \array_values(
@@ -834,7 +832,7 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $module = $request->getData('module');
-        $status = $request->getData('status');
+        $status = (int) $request->getData('status');
 
         if ($module === null || $status === null) {
             $response->set('module_stutus_update', null);
@@ -843,25 +841,24 @@ final class Controller extends ModuleAbstract implements WebInterface
         }
 
         switch ($status) {
-            case 'activate':
-                $done = $this->app->moduleManager->activate($module);
-                $msg  = 'Module successfully activated.';
+            case ModuleStatusUpdateType::ACTIVATE:
+                $done = $module === 'Admin' ? false : $this->app->moduleManager->activate($module);
+                $msg  = $done ? 'Module successfully activated.' : 'Module not activated.';
 
                 break;
-            case 'deactivate':
-                $done = $this->app->moduleManager->deactivate($module);
-                $msg  = 'Module successfully deactivated.';
+            case ModuleStatusUpdateType::DEACTIVATE:
+                $done = $module === 'Admin' ? false : $this->app->moduleManager->deactivate($module);
+                $msg  = $done ? 'Module successfully deactivated.' : 'Module not deactivated.';
 
                 break;
-            case 'install':
-                $done = $this->app->moduleManager->install($module);
-                $msg  = 'Module successfully installed.';
+            case ModuleStatusUpdateType::INSTALL:
+                $done = $module === 'Admin' ? false : $this->app->moduleManager->install($module);
+                $msg  = $done ? 'Module successfully installed.' : 'Module not installed.';
 
                 break;
-            case 'uninstall':
-                //$done = $this->app->moduleManager->uninstall($module);
-                $done = true;
-                $msg  = 'Module successfully uninstalled.';
+            case ModuleStatusUpdateType::UNINSTALL:
+                $done = $module === 'Admin' ? false : $this->app->moduleManager->uninstall($module);
+                $msg  = $done ? 'Module successfully uninstalled.' : 'Module not uninstalled.';
 
                 break;
             default:

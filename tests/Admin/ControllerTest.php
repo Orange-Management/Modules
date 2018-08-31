@@ -21,19 +21,22 @@ use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleFactory;
+use phpOMS\Module\ModuleManager;
 use phpOMS\Router\Router;
 use phpOMS\Uri\Http;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Utils\TestUtils;
-use Modules\Admin\Models\AccountPermission;
 use phpOMS\Account\PermissionType;
 use phpOMS\Event\EventManager;
 
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
+
+use Modules\Admin\Models\AccountPermission;
+use Modules\Admin\Models\ModuleStatusUpdateType;
 
 use Model\CoreSettings;
 
@@ -54,6 +57,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
         $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
         $this->app->eventManager   = new EventManager();
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
 
         $account = new Account();
         TestUtils::setMember($account, 'id', 1);
@@ -88,7 +92,6 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('id', '1000000019');
 
         $this->module->apiSettingsGet($request, $response);
-
         self::assertEquals('DE', $response->get('')['response']);
     }
 
@@ -99,13 +102,20 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('settings', \json_encode(['1000000019' => 'US']));
-
         $this->module->apiSettingsSet($request, $response);
 
         $request->setData('id', '1000000019');
         $this->module->apiSettingsGet($request, $response);
-
         self::assertEquals('US', $response->get('')['response']);
+
+        $request2 = new Request(new Http(''));
+        $request2->getHeader()->setAccount(1);
+        $request2->setData('settings_1000000019', 'DE');
+        $this->module->apiSettingsSet($request2, $response);
+
+        $request2->setData('id', '1000000019');
+        $this->module->apiSettingsGet($request2, $response);
+        self::assertEquals('DE', $response->get('')['response']);
     }
 
     public function testApiGroupGet()
@@ -162,6 +172,19 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']);
     }
 
+    public function testApiGroupCreateInvalid()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('status', 999);
+        $request->setData('description', 'test description');
+
+        $this->module->apiGroupCreate($request, $response);
+        self::assertEquals('validation', $response->get('group_create')::TYPE);
+    }
+
     public function testApiAccountGet()
     {
         $response = new Response();
@@ -174,6 +197,19 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals('admin', $response->get('')['response']['login']);
         self::assertGreaterThan(0, $response->get('')['response']['id']);
+    }
+
+    public function testApiAccountFind()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('search', 'admin');
+
+        $this->module->apiAccountFind($request, $response);
+        self::assertEquals(1, \count($response->get('')));
+        self::assertEquals('admin', $response->get('')[0]->getName1());
     }
 
     public function testApiAccountCreate()
@@ -200,6 +236,19 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']);
     }
 
+    public function testApiAccountCreateInvalid()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('status', 999);
+        $request->setData('description', 'test description');
+
+        $this->module->apiAccountCreate($request, $response);
+        self::assertEquals('validation', $response->get('account_create')::TYPE);
+    }
+
     public function testApiAccountUpdate()
     {
         $response = new Response();
@@ -214,5 +263,68 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals('oms@orange-management.de', $response->get('')['response']['email']);
         self::assertGreaterThan(0, $response->get('')['response']['id']);
+    }
+
+    public function testApiModuleStatusUpdate()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('module', 'TestModule');
+
+        $request->setData('status', ModuleStatusUpdateType::INSTALL);
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+
+        $request->setData('status', ModuleStatusUpdateType::ACTIVATE);
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+
+        $request->setData('status', ModuleStatusUpdateType::DEACTIVATE);
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+
+        $request->setData('status', ModuleStatusUpdateType::UNINSTALL);
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+    }
+
+    public function testApiModuleStatusUpdateEmptyModule()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+
+        $request->setData('status', ModuleStatusUpdateType::INSTALL);
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals(null, $response->get('module_stutus_update'));
+    }
+
+    public function testApiModuleStatusUpdateInvalidStatus()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('module', 'TestModule');
+
+        $request->setData('status', 'invalid');
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals('warning', $response->get('')['status']);
+    }
+
+    public function testApiModuleStatusUpdateInvalidModule()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('module', 'invalid');
+
+        $request->setData('status', ModuleStatusUpdateType::INSTALL);
+        $this->module->apiModuleStatusUpdate($request, $response);
+        self::assertEquals('warning', $response->get('')['status']);
     }
 }

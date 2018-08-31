@@ -81,11 +81,11 @@ class Group extends \phpOMS\Account\Group
     /**
      * Get created by.
      *
-     * @return int
+     * @return mixed
      *
      * @since  1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
