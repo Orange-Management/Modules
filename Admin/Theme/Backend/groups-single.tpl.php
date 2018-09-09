@@ -126,7 +126,7 @@ echo $this->getData('nav')->render(); ?>
                                     <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
-                            <tr><td colspan="8" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                            <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
                             <?php endif; ?>
                     </table>
 

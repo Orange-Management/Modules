@@ -74,7 +74,7 @@ echo $this->getData('nav')->render(); ?>
                             </div>
                         <tr><td><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
                         <tr><td>
-                            <input type="file" id="iUpload" name="upload" form="fTask">
+                            <input type="file" id="iUpload" name="upload" form="fTask" multiple>
                             <input form="fTask" type="hidden" name="type"><td>
                     </table>
                 </form>
