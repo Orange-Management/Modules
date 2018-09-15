@@ -59,5 +59,50 @@
                 "children": []
             }
         ]
+    },
+    {
+        "id": 1000304001,
+        "pid": "/backend/admin/module/settings",
+        "type": 3,
+        "subtype": 1,
+        "name": "Overview",
+        "uri": "/{/lang}/backend/admin/module/settings?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": "Profile",
+        "permission": { "type": null, "element": null },
+        "parent": 1000300000,
+        "children": []
+    },
+    {
+        "id": 1000304002,
+        "pid": "/backend/admin/module/settings",
+        "type": 3,
+        "subtype": 1,
+        "name": "Settings",
+        "uri": "/{/lang}/backend/admin/module/settings/profile/settings?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": "Profile",
+        "permission": { "type": null, "element": null },
+        "parent": 1000300000,
+        "children": []
+    },
+    {
+        "id": 1000304003,
+        "pid": "/backend/admin/module/settings",
+        "type": 3,
+        "subtype": 1,
+        "name": "Create",
+        "uri": "/{/lang}/backend/admin/module/settings/profile/create?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 2,
+        "from": "Profile",
+        "permission": { "type": null, "element": null },
+        "parent": 1000300000,
+        "children": []
     }
 ]

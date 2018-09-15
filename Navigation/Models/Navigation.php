@@ -18,6 +18,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Account\Account;
 use phpOMS\Account\PermissionType;
+use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
  * Navigation class.
@@ -85,24 +86,17 @@ class Navigation
     {
         if (empty($this->nav)) {
             $this->nav = [];
-            $uriPdo    = '';
 
-            $i = 1;
-            foreach ($hashes as $hash) {
-                $uriPdo .= ':pid' . $i . ',';
-                $i++;
-            }
+            $query = new Builder($this->dbPool->get('select'));
+            $query->prefix($this->dbPool->get('select')->prefix);
+            $sth = $query->select('*')
+                ->from('nav')
+                ->whereIn('nav.nav_pid', $hashes)
+                ->orderBy('nav.nav_order', 'ASC')
+                ->execute();
 
-            $uriPdo = \rtrim($uriPdo, ',');
-            $sth    = $this->dbPool->get('select')->con->prepare('SELECT * FROM `' . $this->dbPool->get('select')->prefix . 'nav` WHERE `nav_pid` IN(' . $uriPdo . ') ORDER BY `nav_order` ASC');
+            $qry = $query->toSql();
 
-            $i = 1;
-            foreach ($hashes as $hash) {
-                $sth->bindValue(':pid' . $i, $hash, \PDO::PARAM_STR);
-                $i++;
-            }
-
-            $sth->execute();
             $tempNav = $sth->fetchAll(\PDO::FETCH_GROUP);
 
             foreach ($tempNav as $id => $link) {

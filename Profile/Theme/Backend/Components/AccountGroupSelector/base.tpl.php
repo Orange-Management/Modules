@@ -36,7 +36,7 @@
             <input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-idlist"<?= $this->isRequired() ? ' required' : ''; ?>>
         </span>
     </div>
-    <div class="ipt-second"><button><?= $this->getHtml('Add', 0, 0); ?></button></div>
+    <div class="ipt-second"><button><?= $this->getHtml('Select', 0, 0); ?></button></div>
 </div>
 <div class="box taglist" id="<?= $this->printHtml($this->getId()); ?>-taglist" data-action='[
     {

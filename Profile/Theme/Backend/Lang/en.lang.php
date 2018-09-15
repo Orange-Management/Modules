@@ -11,6 +11,7 @@
  * @link       http://website.orange-management.de
  */
 return ['Profile' => [
+    'Account'            => 'Account',
     'Account/Group'      => 'Account/Group',
     'Activity'           => 'Activity',
     'Area'               => 'Area',
@@ -18,6 +19,7 @@ return ['Profile' => [
     'ContactInformation' => 'Contact Information',
     'Community'          => 'Community',
     'Country'            => 'Country',
+    'CreateProfile'     => 'Create Profile',
     'Currency'           => 'Currency',
     'Customized'         => 'Customized',
     'DecimalPoint'       => 'Decimal Point',

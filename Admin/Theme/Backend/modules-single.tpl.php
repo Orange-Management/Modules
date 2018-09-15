@@ -14,11 +14,16 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-$modules   = $this->app->moduleManager->getAllModules();
-$active    = $this->app->moduleManager->getActiveModules();
-$installed = $this->app->moduleManager->getInstalledModules();
+$modules   = $this->getData('modules');
+$active    = $this->getData('active');
+$installed = $this->getData('installed');
+$id        = $this->getData('id');
 
-$id = (string) $this->request->getData('id') ?? 1;
+$nav = $this->getData('nav');
+
+if ($nav !== null) {
+    echo $this->getData('nav')->render();
+}
 ?>
 
 <div class="row">
@@ -46,32 +51,17 @@ $id = (string) $this->request->getData('id') ?? 1;
                         <td><?= $this->printHtml($modules[$id]['description'] ); ?>
                     <tr>
                         <td colspan="2">
-                            <?php if (\in_array($id, $active)) : ?>
-                                <button id="iModuleDeactivateButton" data-action='[
-                                    {
-                                        "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>", "method": "POST", "request_type": "json"},
-                                            {"key": 2, "type": "message.log"}
-                                        ]
-                                    }
-                                ]'><?= $this->getHtml('Deactivate'); ?></button>
-                            <?php elseif (\in_array($id, $installed)) : ?>
-                                <button id="iModuleUninstallButton" data-action='[
-                                    {
-                                        "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>", "method": "POST", "request_type": "json"},
-                                            {"key": 2, "type": "message.log"}
-                                        ]
-                                    }
-                                ]'>><?= $this->getHtml('Uninstall'); ?></button>
-                                <button id="iModuleActivateButton" data-action='[
-                                    {
-                                        "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>", "method": "POST", "request_type": "json"},
-                                            {"key": 2, "type": "message.log"}
-                                        ]
-                                    }
-                                ]'><?= $this->getHtml('Activate'); ?></button>
+                            <?php if (isset($active[$id])) : ?>
+                                <form id="fModuleDeactivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>" method="POST">
+                                    <button id="fModuleDeactivateButton" type="submit" value="deactivate"><?= $this->getHtml('Deactivate'); ?></button>
+                                </form>
+                            <?php elseif (isset($installed[$id])) : ?>
+                                <form id="fModuleUninstall" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>" method="POST">
+                                    <button id="fModuleUninstallButton" type="submit" value="uninstall"><?= $this->getHtml('Uninstall'); ?></button>
+                                </form>
+                                <form id="fModuleActivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>" method="POST">
+                                    <button id="fModuleActivateButton" type="submit" value="activate"><?= $this->getHtml('Activate'); ?></button>
+                                </form>
                             <?php elseif (isset($modules[$id])) : ?>
                                 <button id="iModuleInstallButton" data-action='[
                                     {

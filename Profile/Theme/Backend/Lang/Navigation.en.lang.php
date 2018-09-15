@@ -12,6 +12,8 @@
  */
 return ['Navigation' => [
     'List'     => 'List',
+    'Overview' => 'Overview',
     'Profile'  => 'Profile',
     'Profiles' => 'Profiles',
+    'Settings' => 'Settings',
 ]];

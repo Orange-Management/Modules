@@ -39,4 +39,26 @@ return [
             ],
         ],
     ],
+    '^.*/backend/admin/module/settings/profile/settings.*$' => [
+        [
+            'dest' => '\Modules\Profile\Controller:viewProfileAdminSettings',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::PROFILE,
+            ],
+        ],
+    ],
+    '^.*/backend/admin/module/settings/profile/create.*$' => [
+        [
+            'dest' => '\Modules\Profile\Controller:viewProfileAdminCreate',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::PROFILE,
+            ],
+        ],
+    ],
 ];

@@ -14,8 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Profile;
 
+use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
 use Modules\Profile\Models\PermissionState;
+use Modules\Admin\Models\AccountMapper;
+
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -169,5 +172,100 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view->setData('settings', $settings);
 
         return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewProfileAdminSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Profile/Theme/Backend/modules-settings');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000300000, $request, $response));
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return \Serializable
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewProfileAdminCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Profile/Theme/Backend/modules-create');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000300000, $request, $response));
+
+        $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
+        $view->addData('accGrpSelector', $accGrpSelector);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiProfileCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $profiles = $this->createProfilesFromRequest($request);
+        $created  = [];
+
+        foreach ($profiles as $profile) {
+            ProfileMapper::create($profile);
+            $created[] = $profile->jsonSerialize();
+        }
+
+        $response->set($request->getUri()->__toString(), $created);
+    }
+
+    /**
+     * Method to create profile from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<Profile>
+     *
+     * @since  1.0.0
+     */
+    private function createProfilesFromRequest(RequestAbstract $request) : array
+    {
+        $profiles = [];
+        $accounts = \json_decode($request->getData('iaccount-idlist') ?? '[]', true);
+
+        if ($accounts === false) {
+            return $profiles;
+        }
+
+        if (\is_int($accounts)) {
+            $accounts = [$accounts];
+        }
+        
+        foreach ($accounts as $account) {
+            $account = AccountMapper::get((int) $account);
+            $profiles[] = new Profile(AccountMapper::get((int) $account));
+        }
+
+        return $profiles;
     }
 }

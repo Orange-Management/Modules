@@ -41,11 +41,11 @@ class Profile
 
     private $location = [];
 
-    public function __construct()
+    public function __construct(Account $account = null)
     {
         $this->image    = new NullMedia();
         $this->birthday = new \DateTime('now');
-        $this->account  = new Account();
+        $this->account  = $account ?? new Account();
     }
 
     public function getId() : int
@@ -91,5 +91,12 @@ class Profile
     public function getBirthday() : \DateTime
     {
         return $this->birthday;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id
+        ];
     }
 }

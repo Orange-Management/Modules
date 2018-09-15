@@ -41,6 +41,7 @@ use phpOMS\System\MimeType;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\Module\InfoManager;
 
 /**
  * Admin controller class.
@@ -358,6 +359,22 @@ final class Controller extends ModuleAbstract implements WebInterface
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-single');
+
+        $id = $request->getData('id') ?? '';
+        $view->setData('modules', $this->app->moduleManager->getAllModules());
+        $view->setData('active', $this->app->moduleManager->getActiveModules());
+        $view->setData('installed', $installed = $this->app->moduleManager->getInstalledModules());
+        $view->setData('id', $id);
+
+        if (isset($installed[$id]) && ($path = \realpath(__DIR__ . '/../' . $id . '/info.json')) !== false) {
+            $info = new InfoManager($path);
+            $info->load();
+
+            $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(
+                $info->getId(),
+                $request, $response
+            ));
+        }
 
         return $view;
     }

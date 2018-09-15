@@ -94,7 +94,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/module/settings.*$' => [
+    '^.*/backend/admin/module/settings\?.*$' => [
         [
             'dest' => '\Modules\Admin\Controller:viewModuleProfile',
             'verb' => RouteVerb::GET,
