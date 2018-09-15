@@ -22,6 +22,7 @@ use Modules\Admin\Models\AccountMapper;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
@@ -236,7 +237,12 @@ final class Controller extends ModuleAbstract implements WebInterface
             $created[] = $profile->jsonSerialize();
         }
 
-        $response->set($request->getUri()->__toString(), $created);
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Profile(s)',
+            'message' => 'Profile(s) successfully created.',
+            'response' => $created
+        ]);
     }
 
     /**
@@ -251,19 +257,18 @@ final class Controller extends ModuleAbstract implements WebInterface
     private function createProfilesFromRequest(RequestAbstract $request) : array
     {
         $profiles = [];
-        $accounts = \json_decode($request->getData('iaccount-idlist') ?? '[]', true);
-
-        if ($accounts === false) {
-            return $profiles;
-        }
-
-        if (\is_int($accounts)) {
-            $accounts = [$accounts];
-        }
+        $accounts = $request->getDataList('iaccount-idlist');
         
         foreach ($accounts as $account) {
-            $account = AccountMapper::get((int) $account);
-            $profiles[] = new Profile(AccountMapper::get((int) $account));
+            $account = (int) \trim($account);
+            $isInDb  = ProfileMapper::getFor($account, 'account');
+
+            if ($isInDb->getId() !== 0) {
+                $profiles[] = $isInDb;
+                continue;
+            }
+
+            $profiles[] = new Profile(AccountMapper::get($account));
         }
 
         return $profiles;

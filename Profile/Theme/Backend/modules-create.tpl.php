@@ -4,7 +4,7 @@ echo $this->getData('nav')->render();
 ?>
 
 <div class="row">
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-6">
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('CreateProfile'); ?></h1></header>
 

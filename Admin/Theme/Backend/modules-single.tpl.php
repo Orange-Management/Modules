@@ -11,6 +11,8 @@
  * @link       http://website.orange-management.de
  */
 
+use Modules\Admin\Models\ModuleStatusUpdateType;
+
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -52,31 +54,32 @@ if ($nav !== null) {
                     <tr>
                         <td colspan="2">
                             <?php if (isset($active[$id])) : ?>
-                                <form id="fModuleDeactivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=deactivate&module=' . $id); ?>" method="POST">
-                                    <button id="fModuleDeactivateButton" type="submit" value="deactivate"><?= $this->getHtml('Deactivate'); ?></button>
+                                <form id="fModuleDeactivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                    <button id="fModuleDeactivateButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::DEACTIVATE ?>"><?= $this->getHtml('Deactivate'); ?></button>
                                 </form>
                             <?php elseif (isset($installed[$id])) : ?>
-                                <form id="fModuleUninstall" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=uninstall&module=' . $id); ?>" method="POST">
-                                    <button id="fModuleUninstallButton" type="submit" value="uninstall"><?= $this->getHtml('Uninstall'); ?></button>
+                                <form id="fModuleUninstall" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                    <button id="fModuleUninstallButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::UNINSTALL ?>"><?= $this->getHtml('Uninstall'); ?></button>
                                 </form>
-                                <form id="fModuleActivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=activate&module=' . $id); ?>" method="POST">
-                                    <button id="fModuleActivateButton" type="submit" value="activate"><?= $this->getHtml('Activate'); ?></button>
+                                <form id="fModuleActivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                    <button id="fModuleActivateButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::ACTIVATE ?>"><?= $this->getHtml('Activate'); ?></button>
                                 </form>
                             <?php elseif (isset($modules[$id])) : ?>
-                                <button id="iModuleInstallButton" data-action='[
+                                <button id="iModuleInstallButton" name="status" value="<?= ModuleStatusUpdateType::INSTALL ?>" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=install&module=' . $id); ?>", "method": "POST", "request_type": "json"},
-                                            {"key": 2, "type": "message.log"},
-                                            {"key": 3, "type": "utils.timer", "id": "iModuleInstallButton", "delay": 1500, "resets": true},
-                                            {"key": 4, "type": "redirect", "uri": "{%}", "target": "self"}
+                                            {"key": 1, "type": "dom.getvalue", "base": "self", "selector": ""},
+                                            {"key": 2, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 3, "type": "message.log"},
+                                            {"key": 4, "type": "utils.timer", "id": "iModuleInstallButton", "delay": 1500, "resets": true},
+                                            {"key": 5, "type": "redirect", "uri": "{%}", "target": "self"}
                                         ]
                                     }
                                 ]'><?= $this->getHtml('Install'); ?></button>
-                                <button id="iModuleDeleteButton" data-action='[
+                                <button id="iModuleDeleteButton" name="status" value="<?= ModuleStatusUpdateType::DELETE ?>" data-action='[
                                     {
                                         "key": 1, "listener": "click", "action": [
-                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?status=delete&module=' . $id); ?>", "method": "POST", "request_type": "json"},
+                                            {"key": 1, "type": "message.request", "uri": "<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>", "method": "POST", "request_type": "json"},
                                             {"key": 2, "type": "message.log"}
                                         ]
                                     }
