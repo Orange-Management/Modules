@@ -35,7 +35,7 @@ class GroupMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'group_id'       => ['name' => 'group_id', 'type' => 'int', 'internal' => 'id'],
-        'group_name'     => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name'],
+        'group_name'     => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name', 'autocomplete' => true],
         'group_status'   => ['name' => 'group_status', 'type' => 'int', 'internal' => 'status'],
         'group_desc'     => ['name' => 'group_desc', 'type' => 'string', 'internal' => 'description'],
         'group_desc_raw' => ['name' => 'group_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],

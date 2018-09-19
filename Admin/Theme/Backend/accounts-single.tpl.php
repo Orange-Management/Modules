@@ -113,16 +113,14 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Groups'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                <form id="iAddGroupToAccount" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account/group'); ?>" method="put">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
+                        <tr><td><?= $this->getData('grpSelector')->render('iGroup', true); ?>
                         <tr><td>
-                            <span class="input">
-                                <button type="button"><i class="fa fa-group"></i></button>
-                                <input id="iGroup" name="group" type="text">
-                            </span>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <input name="account" type="hidden" value="<?= $this->printHtml($account->getId()); ?>">
+                            <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
             </div>
@@ -137,13 +135,13 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                     <td>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td>Unit
-                    <td class="wf-100">App
-                    <td>Module
-                    <td>Type
-                    <td>Ele.
-                    <td>Comp.
-                    <td class="wf-100">Perm.
+                    <td><?= $this->getHtml('Unit'); ?>
+                    <td><?= $this->getHtml('App'); ?>
+                    <td><?= $this->getHtml('Module'); ?>
+                    <td><?= $this->getHtml('Type'); ?>
+                    <td><?= $this->getHtml('Ele'); ?>
+                    <td><?= $this->getHtml('Comp'); ?>
+                    <td class="wf-100"><?= $this->getHtml('Perm'); ?>
             <tbody>
                 <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
                 <tr>
@@ -171,16 +169,47 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                <form id="fAccountAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
                     <table class="layout wf-100">
-                        <tbody>
-                        <tr><td><label for="iPermiision"><?= $this->getHtml('Name'); ?></label>
+                    <tbody>
+                        <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>
+                        <tr><td><input id="iPermissionUnit" name="permissionunit" type="text">
+                        <tr><td><label for="iPermissionApp"><?= $this->getHtml('App'); ?></label>
+                        <tr><td><input id="iPermissionApp" name="permissionapp" type="text">
+                        <tr><td><label for="iPermissionModule"><?= $this->getHtml('Module'); ?></label>
+                        <tr><td><input id="iPermissionModule" name="permissionmodule" type="text">
+                        <tr><td><label for="iPermissionType"><?= $this->getHtml('Type'); ?></label>
+                        <tr><td><input id="iPermissionType" name="permissiontype" type="text">
+                        <tr><td><label for="iPermissionElement"><?= $this->getHtml('Element'); ?></label>
+                        <tr><td><input id="iPermissionElement" name="permissionelement" type="text">
+                        <tr><td><label for="iPermissionComponent"><?= $this->getHtml('Component'); ?></label>
+                        <tr><td><input id="iPermissionComponent" name="permissioncomponent" type="text">
+                        <tr><td><label><?= $this->getHtml('Permission'); ?></label>
                         <tr><td>
-                            <span class="input">
-                                <button type="button"><i class="fa fa-key"></i></button>
-                                <input id="iPermiision" name="permission" type="text">
-                            </span>      
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <span class="checkbox">
+                                <input id="iPermissionCreate" name="permissioncreate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::CREATE ?>">
+                                <label for="iPermissionCreate"><?= $this->getHtml('Create') ?></label>
+                            </span>
+                            <span class="checkbox">
+                                <input id="iPermissionRead" name="permissionread" type="checkbox" value="<?= \phpOMS\Account\PermissionType::READ ?>">
+                                <label for="iPermissionRead"><?= $this->getHtml('Read') ?></label>
+                            </span>
+                            <span class="checkbox">
+                                <input id="iPermissionUpdate" name="permissionupdate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::MODIFY ?>">
+                                <label for="iPermissionUpdate"><?= $this->getHtml('Update') ?></label>
+                            </span>
+                            <span class="checkbox">
+                                <input id="iPermissionDelete" name="permissiondelete" type="checkbox" value="<?= \phpOMS\Account\PermissionType::DELETE ?>">
+                                <label for="iPermissionDelete"><?= $this->getHtml('Delete') ?></label>
+                            </span>
+                            <span class="checkbox">
+                                <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= \phpOMS\Account\PermissionType::PERMISSION ?>">
+                                <label for="iPermissionPermission"><?= $this->getHtml('Permission') ?></label>
+                            </span>
+                        <tr><td>
+                            <input type="hidden" name="permissionref" value="<?= $this->printHtml($group->getId()); ?>">
+                            <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::GROUP ?>">
+                            <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>
             </div>

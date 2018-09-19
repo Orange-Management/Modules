@@ -233,7 +233,10 @@ final class Controller extends ModuleAbstract implements WebInterface
         $created  = [];
 
         foreach ($profiles as $profile) {
+            $this->app->eventManager->trigger('PRE:Module:Admin-profile-create', '', $profile);
             ProfileMapper::create($profile);
+            $this->app->eventManager->trigger('POST:Module:Admin-profile-create', '', $profile);
+
             $created[] = $profile->jsonSerialize();
         }
 

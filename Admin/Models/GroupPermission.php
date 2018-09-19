@@ -37,6 +37,18 @@ class GroupPermission extends PermissionAbstract
     private $group = 0;
 
     /**
+     * Constructor.
+     * 
+     * @param int $group Group id
+     *
+     * @since  1.0.0
+     */
+    public function __construct(int $group = 0)
+    {
+        $this->group = $group;
+    }
+
+    /**
      * Get group id
      *
      * @return int

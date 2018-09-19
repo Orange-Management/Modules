@@ -18,10 +18,12 @@ use Model\Message\FormValidation;
 
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\AccountPermission;
 use Modules\Admin\Models\AccountPermissionMapper;
 use Modules\Admin\Models\NullAccountPermission;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
+use Modules\Admin\Models\GroupPermission;
 use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Admin\Models\NullGroupPermission;
 use Modules\Admin\Models\PermissionState;
@@ -42,6 +44,8 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Module\InfoManager;
+use phpOMS\Account\PermissionAbstract;
+use phpOMS\Account\PermissionOwner;
 
 /**
  * Admin controller class.
@@ -218,6 +222,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('permissions', $permissions);
 
+        $accGrpSelector = new \Modules\Admin\Theme\Backend\Components\GroupTagSelector\GroupTagSelectorView($this->app, $request, $response);
+        $view->addData('grpSelector', $accGrpSelector);
+
         return $view;
     }
 
@@ -296,6 +303,12 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->addData('permissions', $permissions);
 
+        $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
+        $view->addData('accGrpSelector', $accGrpSelector);
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 
@@ -317,6 +330,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
 
         return $view;
     }
@@ -423,7 +439,9 @@ final class Controller extends ModuleAbstract implements WebInterface
             $data = \json_decode((string) $request->getData('settings'), true);
         }
 
+        $this->app->eventManager->trigger('PRE:Module:Admin-settings-set', '', $data);
         $this->app->appSettings->set($data, true);
+        $this->app->eventManager->trigger('POST:Module:Admin-settings-set', '', $data);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -474,7 +492,9 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $group = $this->updateGroupFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Admin-group-update', '', $group);
         GroupMapper::update($group);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-update', '', $group);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -549,9 +569,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $group = $this->createGroupFromRequest($request);
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-groupcreate', '', $group);
+        $this->app->eventManager->trigger('PRE:Module:Admin-group-create', '', $group);
         GroupMapper::create($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-groupcreate', '', $group);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-create', '', $group);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -600,9 +620,9 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $group = GroupMapper::get((int) $request->getData('id'));
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-groupdelete', '', $group);
+        $this->app->eventManager->trigger('PRE:Module:Admin-group-delete', '', $group);
         $status = GroupMapper::delete($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-groupdelete', '', $group);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-delete', '', $group);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -611,6 +631,29 @@ final class Controller extends ModuleAbstract implements WebInterface
             'message' => 'Group successfully deleted.',
             'response' => $status
         ]);
+    }
+
+    /**
+     * Api method to find groups
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiGroupFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $response->set(
+            $request->getUri()->__toString(),
+            \array_values(
+                GroupMapper::find((string) ($request->getData('search') ?? ''))
+            )
+        );
     }
 
     /**
@@ -709,11 +752,9 @@ final class Controller extends ModuleAbstract implements WebInterface
 
         $account = $this->createAccountFromRequest($request);
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-accountcreate', '', $account);
-
+        $this->app->eventManager->trigger('PRE:Module:Admin-account-create', '', $account);
         AccountMapper::create($account);
-
-        $this->app->eventManager->trigger('POST:Module:Admin-accountcreate', '', $account);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-create', '', $account);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -765,9 +806,9 @@ final class Controller extends ModuleAbstract implements WebInterface
     {
         $account = AccountMapper::get((int) ($request->getData('id')));
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-accountdelete', '', $account);
+        $this->app->eventManager->trigger('PRE:Module:Admin-account-delete', '', $account);
         $status = AccountMapper::delete($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-accountdelete', '', $account);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-delete', '', $account);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -794,7 +835,10 @@ final class Controller extends ModuleAbstract implements WebInterface
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = $this->updateAccountFromRequest($request, true);
-        $status  = AccountMapper::update($account);
+
+        $this->app->eventManager->trigger('PRE:Module:Admin-account-update', '', $account);
+        $status = AccountMapper::update($account);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-update', '', $account);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -857,6 +901,7 @@ final class Controller extends ModuleAbstract implements WebInterface
             return;
         }
 
+        $this->app->eventManager->trigger('PRE:Module:Admin-module-status', '', ['status' => $status, 'module' => $module]);
         switch ($status) {
             case ModuleStatusUpdateType::ACTIVATE:
                 $done = $module === 'Admin' ? false : $this->app->moduleManager->activate($module);
@@ -882,12 +927,122 @@ final class Controller extends ModuleAbstract implements WebInterface
                 $done = false;
                 $msg  = 'Unknown module status change request.';
         }
+        $this->app->eventManager->trigger('POST:Module:Admin-module-status', '', ['status' => $status, 'module' => $module]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
             'status' => $done ? 'ok' : 'warning',
             'title' => 'Module',
             'message' => $msg,
+            'response' => []
+        ]);
+    }
+
+    public function apiAddGroupPermission(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!empty($val = $this->validatePermissionCreate($request))) {
+            $response->set('permission_create', new FormValidation($val));
+
+            return;
+        }
+
+        $permission = $this->createPermissionFromRequest($request);
+
+        $this->app->eventManager->trigger('PRE:Module:Admin-group-permission-create', '', $permission);
+        GroupMapper::create($permission);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-permission-create', '', $permission);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Group',
+            'message' => 'Group permission successfully created.',
+            'response' => $permission->jsonSerialize()
+        ]);
+    }
+
+    /**
+     * Validate permission create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
+    private function validatePermissionCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (($val['permissionowner'] = !PermissionOwner::isValidValue($request->getData('permissionowner')))
+            || ($val['permissionref'] = !\is_numeric($request->getData('permissionref')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * Method to create a permission from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return GroupPermission
+     *
+     * @since  1.0.0
+     */
+    public function createPermissionFromRequest(RequestAbstract $request) : PermissionAbstract
+    {
+        $permission = $request->getData('permissionowner') === PermissionOwner::GROUP ? new GroupPermission((int) $request->getData('permissionref')) : new AccountPermission((int) $request->getData('permissionref'));
+        $permission->setUnit($request->getData('permissionunit') === null ? null : (int) $request->getData('permissionunit'));
+        $permission->setApp($request->getData('permissionapp') === null ? null : (string) $request->getData('permissionapp'));
+        $permission->setModule($request->getData('permissionmodule') === null ? null : (string) $request->getData('permissionmodule'));
+        $permission->setType($request->getData('permissiontype') === null ? null : (int) $request->getData('permissiontype'));
+        $permission->setElement($request->getData('permissionelement') === null ? null : (int) $request->getData('permissionelement'));
+        $permission->setComponent($request->getData('permissioncomponent') === null ? null : (int) $request->getData('permissioncomponent'));
+        $permission->setPermission(
+            (int) $request->getData('permissioncreate')
+            | (int) $request->getData('permissionread')
+            | (int) $request->getData('permissionupdate')
+            | (int) $request->getData('permissiondelete')
+            | (int) $request->getData('permissionpermission')
+        );
+
+        return $permission;
+    }
+
+    public function apiAddGroupToAccount(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $account = (int) $request->getData('account');
+        $groups  = \array_map('intval', $request->getDataList('igroup-idlist'));
+
+        $this->app->eventManager->trigger('PRE:Module:Admin-account-group-add', '', ['account' => $account, 'groups' => $groups]);
+        $success = AccountMapper::createRelation('groups', $account, $groups);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-group-add', '', ['account' => $account, 'groups' => $groups]);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set($request->getUri()->__toString(), [
+            'status' => 'ok',
+            'title' => 'Account',
+            'message' => 'Group added to account',
+            'response' => []
+        ]);
+    }
+
+    public function apiAddAccountToGroup(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $group    = (int) $request->getData('group');
+        $accounts = \array_map('intval', $request->getDataList('iaccount-idlist'));
+
+        $this->app->eventManager->trigger('PRE:Module:Admin-group-account-add', '', ['group' => $group, 'accounts' => $accounts]);
+        $success = GroupMapper::createRelation('accounts', $group, $accounts);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-account-add', '', ['group' => $group, 'accounts' => $accounts]);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set($request->getUri()->__toString(), [
+            'status' => 'ok',
+            'title' => 'Group',
+            'message' => 'Account added to group',
             'response' => []
         ]);
     }

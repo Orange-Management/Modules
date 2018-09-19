@@ -37,6 +37,18 @@ class AccountPermission extends PermissionAbstract
     private $account = 0;
 
     /**
+     * Constructor.
+     * 
+     * @param int $group Group id
+     *
+     * @since  1.0.0
+     */
+    public function __construct(int $account = 0)
+    {
+        $this->account = $account;
+    }
+
+    /**
      * Get account id
      *
      * @return int

@@ -78,6 +78,17 @@ return [
             ],
         ],
     ],
+    '^.*/api/admin/find/group.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller:apiGroupFind',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::ACCOUNT,
+            ],
+        ],
+    ],
 
     '^.*/api/admin/account.*$' => [
         [
@@ -125,6 +136,52 @@ return [
             'permission' => [
                 'module' => Controller::MODULE_NAME,
                 'type'  => PermissionType::MODIFY,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+    ],
+
+    '^.*/api/admin/group/account.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller:apiAddAccountToGroup',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::MODIFY,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+    ],
+    '^.*/api/admin/account/group.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller:apiAddGroupToAccount',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::MODIFY,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+    ],
+
+    '^.*/api/admin/group/permission.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller:apiAddGroupPermission',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+    ],
+    '^.*/api/admin/account/permission.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller:apiAddAccountPermission',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => Controller::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
                 'state' => PermissionState::MODULE,
             ],
         ],
