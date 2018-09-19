@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\News\Models\PermissionState;
-use Modules\News\Controller;
+use Modules\News\Controller\BackendController;
 
 return [
     '^.*/backend/news/dashboard.*$' => [
         [
-            'dest' => '\Modules\News\Controller:viewNewsDashboard',
+            'dest' => '\Modules\News\Controller\BackendController:viewNewsDashboard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::NEWS,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/news/article.*$' => [
         [
-            'dest' => '\Modules\News\Controller:viewNewsArticle',
+            'dest' => '\Modules\News\Controller\BackendController:viewNewsArticle',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::NEWS,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/news/archive.*$' => [
         [
-            'dest' => '\Modules\News\Controller:viewNewsArchive',
+            'dest' => '\Modules\News\Controller\BackendController:viewNewsArchive',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::NEWS,
             ],
@@ -41,19 +41,19 @@ return [
     ],
     '^.*/backend/news/create.*$' => [
         [
-            'dest' => '\Modules\Editor\Controller:setUpEditorEditor',
+            'dest' => '\Modules\Editor\Controller\BackendController:setUpEditorEditor',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::NEWS,
             ],
         ],
         [
-            'dest' => '\Modules\News\Controller:viewNewsCreate',
+            'dest' => '\Modules\News\Controller\BackendController:viewNewsCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::NEWS,
             ],

@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\EventManagement\Models\PermissionState;
-use Modules\EventManagement\Controller;
+use Modules\EventManagement\Controller\BackendController;
 
 return [
     '^.*/backend/eventmanagement/list.*$' => [
         [
-            'dest' => '\Modules\EventManagement\Controller:viewEventManagementList',
+            'dest' => '\Modules\EventManagement\Controller\BackendController:viewEventManagementList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::EVENT,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/eventmanagement/create.*$' => [
         [
-            'dest' => '\Modules\EventManagement\Controller:viewEventManagementCreate',
+            'dest' => '\Modules\EventManagement\Controller\BackendController:viewEventManagementCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::EVENT,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/eventmanagement/profile.*$' => [
         [
-            'dest' => '\Modules\EventManagement\Controller:viewEventManagementProfile',
+            'dest' => '\Modules\EventManagement\Controller\BackendController:viewEventManagementProfile',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::EVENT,
             ],

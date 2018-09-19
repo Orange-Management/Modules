@@ -42,7 +42,7 @@ class QAQuestionTest extends \PHPUnit\Framework\TestCase
         $question->setQuestion('Question content');
         $question->setStatus(QAQuestionStatus::ACTIVE);
         $question->setCategory(1);
-        $question->setCreatedBy(2);
+        $question->setCreatedBy(1);
         $question->setLanguage('en');
         $question->addBadge(new QABadge());
 
@@ -51,7 +51,7 @@ class QAQuestionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(QAQuestionStatus::ACTIVE, $question->getStatus());
         self::assertEquals('en', $question->getLanguage());
         self::assertEquals(1, $question->getCategory());
-        self::assertEquals(2, $question->getCreatedBy());
+        self::assertEquals(1, $question->getCreatedBy());
         self::assertEquals([new QABadge()], $question->getBadges());
     }
 }

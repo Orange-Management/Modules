@@ -50,11 +50,12 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     {
         $this->app = new class extends ApplicationAbstract
         {
+            protected $appName = 'Api';
         };
 
         $this->app->dbPool         = $GLOBALS['dbpool'];
         $this->app->orgId          = 1;
-        $this->app->appName        = 'backend';
+        $this->app->appName        = 'Backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
         $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
 

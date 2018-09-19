@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\AccountsReceivable\Models\PermissionState;
-use Modules\AccountsReceivable\Controller;
+use Modules\AccountsReceivable\Controller\BackendController;
 
 return [
     '^.*/backend/accounting/receivable/list.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorList',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/create.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorCreate',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/profile.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorProfile',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorProfile',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/outstanding.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorOutstanding',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorOutstanding',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/age.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorAge',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorAge',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/receivable.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorPayable',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorPayable',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -74,10 +74,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/dun/list.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDunList',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorDunList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -85,10 +85,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/dso/list.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewDebitorDsoList',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorDsoList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::DSO,
             ],
@@ -96,10 +96,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/journal/list.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewJournalList',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewJournalList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -107,10 +107,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/entries.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewEntriesList',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewEntriesList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],
@@ -118,10 +118,10 @@ return [
     ],
     '^.*/backend/accounting/receivable/analyze.*$' => [
         [
-            'dest' => '\Modules\AccountsReceivable\Controller:viewAnalyzeDashboard',
+            'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewAnalyzeDashboard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::RECEIVABLE,
             ],

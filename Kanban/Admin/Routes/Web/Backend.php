@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Kanban\Models\PermissionState;
-use Modules\Kanban\Controller;
+use Modules\Kanban\Controller\BackendController;
 
 return [
     '^.*/backend/kanban.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:setupStyles',
+            'dest' => '\Modules\Kanban\Controller\BackendController:setupStyles',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::KANBAN,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/kanban/dashboard.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:viewKanbanDashboard',
+            'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanDashboard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::KANBAN,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/kanban/archive.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:viewKanbanArchive',
+            'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanArchive',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::KANBAN,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/kanban/board.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:viewKanbanBoard',
+            'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanBoard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::BOARD,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/kanban/card.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:viewKanbanCard',
+            'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanCard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::CARD,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '^.*/backend/kanban/create.*$' => [
         [
-            'dest' => '\Modules\Kanban\Controller:viewKanbanBoardCreate',
+            'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanBoardCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::KANBAN,
             ],

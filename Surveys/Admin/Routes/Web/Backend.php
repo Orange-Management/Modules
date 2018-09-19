@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Surveys\Models\PermissionState;
-use Modules\Surveys\Controller;
+use Modules\Surveys\Controller\BackendController;
 
 return [
     '^.*/backend/survey/list.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller:viewSurveysList',
+            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SURVEY,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/survey/create.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller:viewSurveysCreate',
+            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::SURVEY,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/survey/profile.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller:viewSurveysProfile',
+            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysProfile',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SURVEY,
             ],

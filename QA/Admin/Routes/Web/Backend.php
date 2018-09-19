@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\QA\Models\PermissionState;
-use Modules\QA\Controller;
+use Modules\QA\Controller\BackendController;
 
 return [
     '^.*/backend/qa.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:setUpBackend',
+            'dest' => '\Modules\QA\Controller\BackendController:setUpBackend',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::QA,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/qa/dashboard.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQADashboard',
+            'dest' => '\Modules\QA\Controller\BackendController:viewQADashboard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::QA,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/qa/badge/list.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQABadgeList',
+            'dest' => '\Modules\QA\Controller\BackendController:viewQABadgeList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::BADGE,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/qa/badge/single.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQABadgeEdit',
+            'dest' => '\Modules\QA\Controller\BackendController:viewQABadgeEdit',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::BADGE,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/qa/question.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQADoc',
+            'dest' => '\Modules\QA\Controller\BackendController:viewQADoc',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::QUESTION,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '^.*/backend/qa/question/create.*$' => [
         [
-            'dest' => '\Modules\QA\Controller:viewQAQuestionCreate',
+            'dest' => '\Modules\QA\Controller\BackendController:viewQAQuestionCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::QUESTION,
             ],

@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\SupplierManagement\Models\PermissionState;
-use Modules\SupplierManagement\Controller;
+use Modules\SupplierManagement\Controller\BackendController;
 
 return [
     '^.*/backend/purchase/supplier/list.*$' => [
         [
-            'dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierList',
+            'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SUPPLIER,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/purchase/supplier/create.*$' => [
         [
-            'dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierCreate',
+            'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::SUPPLIER,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/purchase/supplier/profile.*$' => [
         [
-            'dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierProfile',
+            'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierProfile',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SUPPLIER,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/purchase/supplier/analysis.*$' => [
         [
-            'dest' => '\Modules\SupplierManagement\Controller:viewSupplierManagementSupplierAnalysis',
+            'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierAnalysis',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ANALYSIS,
             ],

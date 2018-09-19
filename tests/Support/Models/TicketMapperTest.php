@@ -136,7 +136,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
-            $taskElement1->setCreatedBy(2);
+            $taskElement1->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
@@ -160,8 +160,8 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
         foreach ($taskStatus as $status) {
             $ticket = new Ticket();
 
-            $ticket->getTask()->setCreatedBy(2);
-            $ticket->getTask()->getSchedule()->setCreatedBy(2);
+            $ticket->getTask()->setCreatedBy(1);
+            $ticket->getTask()->getSchedule()->setCreatedBy(1);
             $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -176,7 +176,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription($text->generateText(mt_rand(3, 20)));
-            $taskElement2->setCreatedBy(2);
+            $taskElement2->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement2);
 
             $id = TicketMapper::create($ticket);

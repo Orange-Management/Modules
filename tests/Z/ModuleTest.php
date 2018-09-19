@@ -31,6 +31,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     {
         $this->app = new class extends ApplicationAbstract
         {
+            protected $appName = 'Api';
         };
 
         $this->app->dbPool     = $GLOBALS['dbpool'];
@@ -53,7 +54,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
             if (!($module instanceof NullModule)) {
                 self::assertEquals($name, $module::MODULE_NAME);
-                self::assertEquals(realpath(__DIR__ . '/../../../Modules/' . $module::MODULE_NAME), $module::MODULE_PATH);
+                self::assertEquals(realpath(__DIR__ . '/../../../Modules/' . $module::MODULE_NAME), realpath($module::MODULE_PATH));
                 $version = Version::compare($module::MODULE_VERSION, '1.0.0');
                 self::assertGreaterThanOrEqual(0, $version);
 

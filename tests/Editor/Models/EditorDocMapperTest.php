@@ -55,7 +55,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 
             // Test other
 
-            $doc->setCreatedBy(mt_rand(1, 2));
+            $doc->setCreatedBy(mt_rand(1, 1));
             $doc->setTitle($text->generateText(mt_rand(3, 7)));
             $doc->setContent($text->generateText(mt_rand(20, 500)));
             $doc->setPath('/some/test/path');

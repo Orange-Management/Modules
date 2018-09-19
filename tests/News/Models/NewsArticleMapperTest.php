@@ -65,7 +65,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         // Created by other
 
         $news = new NewsArticle();
-        $news->setCreatedBy(2);
+        $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -77,7 +77,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $id = NewsArticleMapper::create($news);
 
         $news = new NewsArticle();
-        $news->setCreatedBy(2);
+        $news->setCreatedBy(1);
         $news->setTitle($text->generateText(mt_rand(3, 7)));
         $news->setContent($text->generateText(mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));

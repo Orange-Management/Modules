@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Draw\Models\PermissionState;
-use Modules\Draw\Controller;
+use Modules\Draw\Controller\ApiController;
 
 return [
     '^.*/api/draw.*$' => [
         [
-            'dest' => '\Modules\Draw\Controller:apiDrawCreate',
+            'dest' => '\Modules\Draw\ControllerApiController:apiDrawCreate',
             'verb' => RouteVerb::SET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::DRAW,
             ],

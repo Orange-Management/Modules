@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Exchange\Models\PermissionState;
-use Modules\Exchange\Controller;
+use Modules\Exchange\Controller\ApiController;
 
 return [
     '^.*/api/admin/exchange/import/profile.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:apiExchangeImport',
+            'dest' => '\Modules\Exchange\Controller\ApiController:apiExchangeImport',
             'verb' => RouteVerb::SET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::IMPORT,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/api/admin/exchange/export/profile.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:apiExchangeExport',
+            'dest' => '\Modules\Exchange\Controller\ApiController:apiExchangeExport',
             'verb' => RouteVerb::SET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::EXPORT,
             ],

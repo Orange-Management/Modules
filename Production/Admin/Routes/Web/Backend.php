@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Production\Models\PermissionState;
-use Modules\Production\Controller;
+use Modules\Production\Controller\BackendController;
 
 return [
     '^.*/backend/production/list.*$' => [
         [
-            'dest' => '\Modules\Production\Controller:viewProductionList',
+            'dest' => '\Modules\Production\Controller\BackendController:viewProductionList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::PRODUCTION,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/production/create.*$' => [
         [
-            'dest' => '\Modules\Production\Controller:viewProductionCreate',
+            'dest' => '\Modules\Production\Controller\BackendController:viewProductionCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::PRODUCTION,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/production/process/list.*$' => [
         [
-            'dest' => '\Modules\Production\Controller:viewProductionProcessList',
+            'dest' => '\Modules\Production\Controller\BackendController:viewProductionProcessList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::PROCESS,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/production/process/create.*$' => [
         [
-            'dest' => '\Modules\Production\Controller:viewProductionProcessCreate',
+            'dest' => '\Modules\Production\Controller\BackendController:viewProductionProcessCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::PROCESS,
             ],

@@ -42,7 +42,7 @@ class WikiDocTest extends \PHPUnit\Framework\TestCase
         $doc->setDoc('Doc content');
         $doc->setStatus(WikiStatus::DRAFT);
         $doc->setCategory(1);
-        $doc->setCreatedBy(2);
+        $doc->setCreatedBy(1);
         $doc->setLanguage('en');
         $doc->addBadge(new WikiBadge());
 
@@ -51,6 +51,6 @@ class WikiDocTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(WikiStatus::DRAFT, $doc->getStatus());
         self::assertEquals('en', $doc->getLanguage());
         self::assertEquals(1, $doc->getCategory());
-        self::assertEquals(2, $doc->getCreatedBy());
+        self::assertEquals(1, $doc->getCreatedBy());
     }
 }

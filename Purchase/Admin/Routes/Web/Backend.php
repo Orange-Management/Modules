@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Purchase\Models\PermissionState;
-use Modules\Purchase\Controller;
+use Modules\Purchase\Controller\BackendController;
 
 return [
     '^.*/backend/purchase/invoice/create.*$' => [
         [
-            'dest' => '\Modules\Purchase\Controller:viewPurchaseInvoiceCreate',
+            'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseInvoiceCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::INVOICE,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/purchase/invoice/list.*$' => [
         [
-            'dest' => '\Modules\Purchase\Controller:viewPurchaseInvoiceList',
+            'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseInvoiceList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::INVOICE,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/purchase/article/list.*$' => [
         [
-            'dest' => '\Modules\Purchase\Controller:viewPurchaseArticleList',
+            'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseArticleList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ARTICLE,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/purchase/article/recommend.*$' => [
         [
-            'dest' => '\Modules\Purchase\Controller:viewPurchaseOrderRecommendation',
+            'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseOrderRecommendation',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ARTICLE,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/purchase/article/create.*$' => [
         [
-            'dest' => '\Modules\Purchase\Controller:viewPurchaseArticleCreate',
+            'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseArticleCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::ARTICLE,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '^.*/backend/purchase/article/profile.*$' => [
         [
-            'dest' => '\Modules\Purchase\Controller:viewPurchaseArticleProfile',
+            'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseArticleProfile',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ARTICLE,
             ],

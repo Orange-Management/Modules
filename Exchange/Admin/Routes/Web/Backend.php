@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Exchange\Models\PermissionState;
-use Modules\Exchange\Controller;
+use Modules\Exchange\Controller\BackendController;
 
 return [
     '^.*/backend/admin/exchange/import/list.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:viewExchangeImportList',
+            'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeImportList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::IMPORT,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/admin/exchange/export/list.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:viewExchangeExportList',
+            'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeExportList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::EXPORT,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/admin/exchange/import/profile.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:viewExchangeImport',
+            'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeImport',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::IMPORT,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/admin/exchange/export/profile.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:viewExchangeExport',
+            'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeExport',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::EXPORT,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/admin/exchange/dashboard.*$' => [
         [
-            'dest' => '\Modules\Exchange\Controller:viewExchangeDashboard',
+            'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeDashboard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::DASHBOARD,
             ],

@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\ItemManagement\Models\PermissionState;
-use Modules\ItemManagement\Controller;
+use Modules\ItemManagement\Controller\BackendController;
 
 return [
     '^.*/backend/sales/item/list.*$' => [
         [
-            'dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesList',
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementSalesList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SALES_ITEM,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/purchase/item/list.*$' => [
         [
-            'dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseList',
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementPurchaseList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::PURCHASE_ITEM,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/warehouse/stock/list.*$' => [
         [
-            'dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingList',
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementWarehousingList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::STOCK_ITEM,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/sales/item/create.*$' => [
         [
-            'dest' => '\Modules\ItemManagement\Controller:viewItemManagementSalesCreate',
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementSalesCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::SALES_ITEM,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/purchase/item/create.*$' => [
         [
-            'dest' => '\Modules\ItemManagement\Controller:viewItemManagementPurchaseCreate',
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementPurchaseCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::PURCHASE_ITEM,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '.*/backend/warehouse/stock/create.*$' => [
         [
-            'dest' => '\Modules\ItemManagement\Controller:viewItemManagementWarehousingCreate',
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementWarehousingCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::STOCK_ITEM,
             ],

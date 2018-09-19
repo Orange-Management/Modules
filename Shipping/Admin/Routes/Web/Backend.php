@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Shipping\Models\PermissionState;
-use Modules\Shipping\Controller;
+use Modules\Shipping\Controller\BackendController;
 
 return [
     '^.*/backend/warehouse/shipping/list.*$' => [
         [
-            'dest' => '\Modules\Shipping\Controller:viewShippingList',
+            'dest' => '\Modules\Shipping\Controller\BackendController:viewShippingList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SHIPPING,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/warehouse/shipping/create.*$' => [
         [
-            'dest' => '\Modules\Shipping\Controller:viewShippingCreate',
+            'dest' => '\Modules\Shipping\Controller\BackendController:viewShippingCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::SHIPPING,
             ],

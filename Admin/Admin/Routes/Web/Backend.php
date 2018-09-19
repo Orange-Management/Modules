@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Admin\Models\PermissionState;
-use Modules\Admin\Controller;
+use Modules\Admin\Controller\BackendController;
 
 return [
     '^.*/backend/admin/settings/general.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewSettingsGeneral',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewSettingsGeneral',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SETTINGS,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/admin/account/list.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewAccountList',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewAccountList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ACCOUNT,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/admin/account/settings.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewAccountSettings',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewAccountSettings',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ACCOUNT,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/admin/account/create.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewAccountCreate',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewAccountCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::ACCOUNT,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/admin/group/list.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewGroupList',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewGroupList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::GROUP,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '^.*/backend/admin/group/settings.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewGroupSettings',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewGroupSettings',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::MODIFY,
                 'state' => PermissionState::GROUP,
             ],
@@ -74,10 +74,10 @@ return [
     ],
     '^.*/backend/admin/group/create.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewGroupCreate',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewGroupCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::GROUP,
             ],
@@ -85,10 +85,10 @@ return [
     ],
     '^.*/backend/admin/module/list.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewModuleList',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewModuleList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::MODULE,
             ],
@@ -96,10 +96,10 @@ return [
     ],
     '^.*/backend/admin/module/settings\?.*$' => [
         [
-            'dest' => '\Modules\Admin\Controller:viewModuleProfile',
+            'dest' => '\Modules\Admin\Controller\BackendController:viewModuleProfile',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::MODULE,
             ],

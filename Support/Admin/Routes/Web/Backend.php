@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Support\Models\PermissionState;
-use Modules\Support\Controller;
+use Modules\Support\Controller\BackendController;
 
 return [
     '^.*/backend/support/list.*$' => [
         [
-            'dest' => '\Modules\Support\Controller:viewSupportList',
+            'dest' => '\Modules\Support\Controller\BackendController:viewSupportList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SUPPORT,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/backend/support/single.*$' => [
         [
-            'dest' => '\Modules\Support\Controller:viewSupportTicket',
+            'dest' => '\Modules\Support\Controller\BackendController:viewSupportTicket',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SUPPORT,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/backend/support/create.*$' => [
         [
-            'dest' => '\Modules\Support\Controller:viewSupportCreate',
+            'dest' => '\Modules\Support\Controller\BackendController:viewSupportCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::SUPPORT,
             ],
@@ -41,10 +41,10 @@ return [
     ],
     '^.*/backend/support/analysis.*$' => [
         [
-            'dest' => '\Modules\Support\Controller:viewSupportAnalysis',
+            'dest' => '\Modules\Support\Controller\BackendController:viewSupportAnalysis',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::ANALYSIS,
             ],
@@ -52,10 +52,10 @@ return [
     ],
     '^.*/backend/support/settings.*$' => [
         [
-            'dest' => '\Modules\Support\Controller:viewSupportSettings',
+            'dest' => '\Modules\Support\Controller\BackendController:viewSupportSettings',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SETTINGS,
             ],
@@ -63,10 +63,10 @@ return [
     ],
     '^.*/backend/private/support/dashboard.*$' => [
         [
-            'dest' => '\Modules\Support\Controller:viewPrivateSupportDashboard',
+            'dest' => '\Modules\Support\Controller\BackendController:viewPrivateSupportDashboard',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::DASHBOARD,
             ],

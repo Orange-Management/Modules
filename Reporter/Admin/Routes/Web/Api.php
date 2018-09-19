@@ -3,15 +3,15 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Reporter\Models\PermissionState;
-use Modules\Reporter\Controller;
+use Modules\Reporter\Controller\ApiController;
 
 return [
     '^.*/api/reporter/report/export.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:apiReporterExport',
+            'dest' => '\Modules\Reporter\Controller\ApiController:apiReporterExport',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::REPORT,
             ],
@@ -19,10 +19,10 @@ return [
     ],
     '^.*/api/reporter/report/template.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:apiTemplateCreate',
+            'dest' => '\Modules\Reporter\Controller\ApiController:apiTemplateCreate',
             'verb' => RouteVerb::SET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::TEMPLATE,
             ],
@@ -30,10 +30,10 @@ return [
     ],
     '^.*/api/reporter/report/report.*$' => [
         [
-            'dest' => '\Modules\Reporter\Controller:apiReportCreate',
+            'dest' => '\Modules\Reporter\Controller\ApiController:apiReportCreate',
             'verb' => RouteVerb::SET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::REPORT,
             ],

@@ -3,24 +3,24 @@
 use phpOMS\Router\RouteVerb;
 use phpOMS\Account\PermissionType;
 use Modules\Editor\Models\PermissionState;
-use Modules\Editor\Controller;
+use Modules\Editor\Controller\BackendController;
 
 return [
     '^.*/backend/editor/create.*$' => [
         [
-            'dest' => '\Modules\Editor\Controller:setUpEditorEditor',
+            'dest' => '\Modules\Editor\Controller\BackendController:setUpEditorEditor',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::DOC,
             ],
         ],
         [
-            'dest' => '\Modules\Editor\Controller:viewEditorCreate',
+            'dest' => '\Modules\Editor\Controller\BackendController:viewEditorCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::DOC,
             ],
@@ -28,10 +28,10 @@ return [
     ],
     '^.*/backend/editor/list.*$' => [
         [
-            'dest' => '\Modules\Editor\Controller:viewEditorList',
+            'dest' => '\Modules\Editor\Controller\BackendController:viewEditorList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::DOC,
             ],
@@ -39,10 +39,10 @@ return [
     ],
     '^.*/backend/editor/single.*$' => [
         [
-            'dest' => '\Modules\Editor\Controller:viewEditorSingle',
+            'dest' => '\Modules\Editor\Controller\BackendController:viewEditorSingle',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => Controller::MODULE_NAME,
+                'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::DOC,
             ],
