@@ -186,7 +186,7 @@ class BackendController extends Controller
 
     /**
      * Count unread messages
-     * 
+     *
      * @param int $account Account id
      *
      * @return int

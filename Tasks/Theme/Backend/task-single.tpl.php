@@ -64,7 +64,7 @@ echo $this->getData('nav')->render(); ?>
                                 {"key": 2, "type": "dom.show", "id": "task-status-badge"}
                             ]
                         }
-                    ]'> 
+                    ]'>
                         <option><?= $this->getHtml('S' . 1) ?>
                         <option><?= $this->getHtml('S' . 2) ?>
                         <option><?= $this->getHtml('S' . 3) ?>

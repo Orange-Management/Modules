@@ -16,6 +16,6 @@
 /**
  * @var \phpOMS\Views\View         $this
  */
-echo $this->getData('nav')->render(); 
+echo $this->getData('nav')->render();
 
 include __DIR__ . '/../../Interfaces/' . $this->getData('interface')->getInterfacePath() . '/import.tpl.php';

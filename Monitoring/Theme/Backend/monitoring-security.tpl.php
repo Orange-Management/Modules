@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Modified') ?>
                     <td><?= $this->getHtml('Integrity') ?>
                 <tbody>
-                        <?php 
+                        <?php
                         $files = Directory::listByExtension(__DIR__ . '/../../../../phpOMS/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../phpOMS/' . $file); ?>
                         <tr>
@@ -60,7 +60,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><?= File::changed(__DIR__ . '/../../../../phpOMS/' . $file)->format('Y-m-d'); ?>
                             <td>
                                 <?= \phpOMS\Security\PhpCode::validateStringIntegrity(
-                                    $content, 
+                                    $content,
                                     Rest::request(
                                         new Request(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/' . $file)
@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
                                     )
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
-                        <?php 
+                        <?php
                         $files = Directory::listByExtension(__DIR__ . '/../../../../Model/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../Model/' . $file); ?>
                         <tr>
@@ -79,7 +79,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><?= File::changed(__DIR__ . '/../../../../Model/' . $file)->format('Y-m-d'); ?>
                             <td>
                                 <?= \phpOMS\Security\PhpCode::validateStringIntegrity(
-                                    $content, 
+                                    $content,
                                     Rest::request(
                                         new Request(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/Model/develop/' . $file)
@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
                                     )
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
-                        <?php 
+                        <?php
                         $files = Directory::listByExtension(__DIR__ . '/../../../../Modules/', 'php', 'tests(\/|\\\)');
                         foreach ($files as $file) : $content = \file_get_contents(__DIR__ . '/../../../../Modules/' . $file); ?>
                         <tr>
@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><?= File::changed(__DIR__ . '/../../../../Modules/' . $file)->format('Y-m-d'); ?>
                             <td>
                                 <?= \phpOMS\Security\PhpCode::validateStringIntegrity(
-                                    $content, 
+                                    $content,
                                     Rest::request(
                                         new Request(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/Modules/develop/' . $file)
