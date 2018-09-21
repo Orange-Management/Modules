@@ -69,7 +69,7 @@ class BackendController extends Controller
         $path = $this->getHelpGeneralPath($request);
 
         $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../Documentation/SUMMARY.md'));
+        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../../Documentation/SUMMARY.md'));
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-general');
         $view->setData('content', $content);
@@ -80,7 +80,7 @@ class BackendController extends Controller
 
     /**
      * Create markdown parsing path
-     * 
+     *
      * @param RequestAbstract $request Request
      *
      * @return string
@@ -91,13 +91,13 @@ class BackendController extends Controller
     private function getHelpGeneralPath(RequestAbstract $request) : string
     {
         if ($request->getData('page') === 'README' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
+            $path = \realpath(__DIR__ . '/../../../Documentation/README.md');
         } else {
-            $path = \realpath(__DIR__ . '/../../Documentation/' . $request->getData('page') . '.md');
+            $path = \realpath(__DIR__ . '/../../../Documentation/' . $request->getData('page') . '.md');
         }
 
         if ($path === false) {
-            $path = \realpath(__DIR__ . '/../../Documentation/README.md');
+            $path = \realpath(__DIR__ . '/../../../Documentation/README.md');
         }
 
         return $path;
@@ -143,7 +143,7 @@ class BackendController extends Controller
         $path = $this->getHelpModulePath($request);
 
         $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(\realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md')));
+        $navigation = Markdown::parse(\file_get_contents(\realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md')));
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module');
         $view->setData('content', $content);
@@ -154,7 +154,7 @@ class BackendController extends Controller
 
     /**
      * Create markdown parsing path
-     * 
+     *
      * @param RequestAbstract $request Request
      *
      * @return string
@@ -165,13 +165,13 @@ class BackendController extends Controller
     private function getHelpModulePath(RequestAbstract $request) : string
     {
         if ($request->getData('page') === 'table-of-contencts' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/introduction.md');
+            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/introduction.md');
         } else {
-            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/Help/en/' . $request->getData('page') . '.md');
+            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/' . $request->getData('page') . '.md');
         }
 
         if ($path === false) {
-            $path = \realpath(__DIR__ . '/../' . $request->getData('id') . '/Docs/introduction.md');
+            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/introduction.md');
         }
 
         return $path;
@@ -193,7 +193,7 @@ class BackendController extends Controller
         $path = $this->getHelpDeveloperPath($request);
 
         $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../Developer-Guide/SUMMARY.md'));
+        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../../Developer-Guide/SUMMARY.md'));
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-developer');
         $view->setData('content', $content);
@@ -204,7 +204,7 @@ class BackendController extends Controller
 
     /**
      * Create markdown parsing path
-     * 
+     *
      * @param RequestAbstract $request Request
      *
      * @return string
@@ -215,13 +215,13 @@ class BackendController extends Controller
     private function getHelpDeveloperPath(RequestAbstract $request) : string
     {
         if ($request->getData('page') === 'README' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
+            $path = \realpath(__DIR__ . '/../../../Developer-Guide/README.md');
         } else {
-            $path = \realpath(__DIR__ . '/../../Developer-Guide/' . $request->getData('page') . '.md');
+            $path = \realpath(__DIR__ . '/../../../Developer-Guide/' . $request->getData('page') . '.md');
         }
 
         if ($path === false) {
-            $path = \realpath(__DIR__ . '/../../Developer-Guide/README.md');
+            $path = \realpath(__DIR__ . '/../../../Developer-Guide/README.md');
         }
 
         return $path;

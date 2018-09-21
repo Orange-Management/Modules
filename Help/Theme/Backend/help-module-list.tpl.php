@@ -30,14 +30,14 @@ $modules = $this->app->moduleManager->getInstalledModules();
                 <tr>
                     <td>
                 <tbody>
-                    <?php $count = 0; foreach ($modules as $key => $module) : 
+                    <?php $count = 0; foreach ($modules as $key => $module) :
                         if ((\realpath(__DIR__ . '/../../../' . $module['directory'] . '/Docs/Help/en/SUMMARY.md')) === false) {
                             continue;
                         }
 
                         $count++;
                         $url = \phpOMS\Uri\UriFactory::build(
-                            '/{/lang}/backend/help/module/single?id={$module}', 
+                            '/{/lang}/backend/help/module/single?id={$module}',
                             ['$module' => $module['name']['internal']]
                         ); ?>
                 <tr data-href="<?= $url; ?>">
