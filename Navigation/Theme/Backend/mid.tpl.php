@@ -14,7 +14,7 @@
  * @var \Modules\Navigation\Views\NavigationView $this
  */
 
-if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT]) 
+if (isset($this->nav[\Modules\Navigation\Models\NavigationType::CONTENT])
     && \phpOMS\Utils\ArrayUtils::inArrayRecursive($this->parent, $this->nav[\Modules\Navigation\Models\NavigationType::CONTENT], 'nav_parent')
 ) {
     echo '<div class="row"><div class="col-xs-12"><ul class="nav-top" role="navigation">';

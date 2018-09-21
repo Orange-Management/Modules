@@ -47,28 +47,12 @@ class NavigationView extends View
     protected $nav = [];
 
     /**
-     * Language used for the navigation.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected $language = 'en';
-
-    /**
      * Parent element used for navigation.
      *
      * @var int
      * @since 1.0.0
      */
     protected $parent = 0;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __construct($app, $request, $response)
-    {
-        parent::__construct($app, $request, $response);
-    }
 
     /**
      * Get navigation Id.
@@ -116,28 +100,6 @@ class NavigationView extends View
     public function setNav(array $nav)
     {
         $this->nav = $nav;
-    }
-
-    /**
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    public function getLanguage() : string
-    {
-        return $this->language;
-    }
-
-    /**
-     * @param string $language
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     */
-    public function setLanguage(string $language)
-    {
-        $this->language = $language;
     }
 
     /**

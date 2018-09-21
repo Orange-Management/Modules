@@ -63,13 +63,15 @@ class Navigation
      * @param RequestAbstract $request Request hashes
      * @param Account         $account Account
      * @param DatabasePool    $dbPool  Database pool
+     * @param int             $unit    Unit
+     * @param string          $appName App name
      *
      * @since  1.0.0
      */
-    private function __construct(RequestAbstract $request, Account $account, DatabasePool $dbPool)
+    private function __construct(RequestAbstract $request, Account $account, DatabasePool $dbPool, int $unit, string $appName)
     {
         $this->dbPool = $dbPool;
-        $this->load($request->getHash(), $account);
+        $this->load($request->getHash(), $account, $unit, $appName);
     }
 
     /**
@@ -77,12 +79,14 @@ class Navigation
      *
      * @param string[] $hashes  Request hashes
      * @param Account  $account Account
+     * @param int      $unit    Unit
+     * @param string   $app     App name
      *
      * @return void
      *
      * @since  1.0.0
      */
-    private function load(array $hashes, Account $account)
+    private function load(array $hashes, Account $account, int $unit, string $app)
     {
         if (empty($this->nav)) {
             $this->nav = [];
@@ -102,8 +106,8 @@ class Navigation
             foreach ($tempNav as $id => $link) {
                 $isReadable = $account->hasPermission(
                     PermissionType::READ,
-                    null,
-                    null,
+                    $unit,
+                    $app,
                     (string) $link[0]['nav_from'],
                     (int) $link[0]['nav_permission_type'],
                     (int) $link[0]['nav_permission_element']
@@ -154,6 +158,8 @@ class Navigation
      * @param RequestAbstract $hashes  Request hashes
      * @param Account         $account Account
      * @param DatabasePool    $dbPool  Database pool
+     * @param int             $unit    Unit
+     * @param string          $appName App name
      *
      * @return \Modules\Navigation\Models\Navigation
      *
@@ -161,14 +167,14 @@ class Navigation
      *
      * @since  1.0.0
      */
-    public static function getInstance(RequestAbstract $hashes = null, Account $account, DatabasePool $dbPool)
+    public static function getInstance(RequestAbstract $hashes = null, Account $account, DatabasePool $dbPool, int $unit, string $appName)
     {
         if (!isset(self::$instance)) {
             if (!isset($hashes) || !isset($dbPool)) {
                 throw new \Exception('Invalid parameters');
             }
 
-            self::$instance = new self($hashes, $account, $dbPool);
+            self::$instance = new self($hashes, $account, $dbPool, $unit, $appName);
         }
 
         return self::$instance;

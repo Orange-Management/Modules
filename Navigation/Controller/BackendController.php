@@ -46,11 +46,16 @@ class BackendController extends Controller
      */
     public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
-        $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
+        $nav = Navigation::getInstance($request,
+            $this->app->accountManager->get($request->getHeader()->getAccount()),
+            $this->app->dbPool,
+            $this->app->orgId,
+            $this->app->appName
+        );
+
         $navView = new NavigationView($this->app, $request, $response);
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/mid');
         $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $navView->setParent($pageId);
 
         return $navView;
@@ -68,10 +73,16 @@ class BackendController extends Controller
      */
     public function getView(RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
-        $navObj = \Modules\Navigation\Models\Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
-        $nav    = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
+        $navObj = \Modules\Navigation\Models\Navigation::getInstance(
+            $request,
+            $this->app->accountManager->get($request->getHeader()->getAccount()),
+            $this->app->dbPool,
+            $this->app->orgId,
+            $this->app->appName
+        );
+
+        $nav = new \Modules\Navigation\Views\NavigationView($this->app, $request, $response);
         $nav->setNav($navObj->getNav());
-        $nav->setLanguage($request->getHeader()->getL11n()->getLanguage());
 
         $unread = [];
         foreach ($this->receiving as $receiving) {
@@ -107,6 +118,7 @@ class BackendController extends Controller
 
             /** @noinspection PhpIncludeInspection */
             $lang = include $path;
+
             $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), 'Navigation', $lang);
         }
     }
@@ -122,12 +134,17 @@ class BackendController extends Controller
      */
     public function createNavigationSplash(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
-        $nav     = Navigation::getInstance($request, $this->app->accountManager->get($request->getHeader()->getAccount()), $this->app->dbPool);
+        $nav = Navigation::getInstance($request,
+            $this->app->accountManager->get($request->getHeader()->getAccount()),
+            $this->app->dbPool,
+            $this->app->orgId,
+            $this->app->appName
+        );
+
         $navView = new NavigationView($this->app, $request, $response);
 
         $navView->setTemplate('/Modules/Navigation/Theme/Backend/splash');
         $navView->setNav($nav->getNav());
-        $navView->setLanguage($request->getHeader()->getL11n()->getLanguage());
         $navView->setParent($pageId);
 
         return $navView;
