@@ -233,6 +233,6 @@ class BackendController extends Controller
             $path = \realpath(__DIR__ . '/../../../Developer-Guide/README.md');
         }
 
-        return $path;
+        return $path === false ? '' : $path;
     }
 }
