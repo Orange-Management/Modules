@@ -134,7 +134,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
                         <div class="inner">
-                            <form id="fGroupAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                            <form id="fGroupAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group/permission'); ?>" method="put">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>

@@ -97,7 +97,7 @@ final class ApiController extends Controller
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if ($request->getData('settings') === null) {
+        if (empty($request->getData('settings'))) {
             $data = $request->getLike('(settings_)(.*)');
         } else {
             $data = \json_decode((string) $request->getData('settings'), true);
@@ -559,7 +559,7 @@ final class ApiController extends Controller
         $module = $request->getData('module');
         $status = (int) $request->getData('status');
 
-        if ($module === null || $status === null) {
+        if (empty($module) || empty($status)) {
             $response->set('module_stutus_update', null);
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
@@ -613,7 +613,7 @@ final class ApiController extends Controller
         $permission = $this->createPermissionFromRequest($request);
 
         $this->app->eventManager->trigger('PRE:Module:Admin-group-permission-create', '', $permission);
-        GroupMapper::create($permission);
+        GroupPermissionMapper::create($permission);
         $this->app->eventManager->trigger('POST:Module:Admin-group-permission-create', '', $permission);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
@@ -621,6 +621,29 @@ final class ApiController extends Controller
             'status' => NotificationLevel::OK,
             'title' => 'Group',
             'message' => 'Group permission successfully created.',
+            'response' => $permission->jsonSerialize()
+        ]);
+    }
+
+    public function apiAddAccountPermission(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!empty($val = $this->validatePermissionCreate($request))) {
+            $response->set('permission_create', new FormValidation($val));
+
+            return;
+        }
+
+        $permission = $this->createPermissionFromRequest($request);
+
+        $this->app->eventManager->trigger('PRE:Module:Admin-account-permission-create', '', $permission);
+        AccountPermissionMapper::create($permission);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-permission-create', '', $permission);
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Account',
+            'message' => 'Account permission successfully created.',
             'response' => $permission->jsonSerialize()
         ]);
     }
@@ -637,7 +660,7 @@ final class ApiController extends Controller
     private function validatePermissionCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['permissionowner'] = !PermissionOwner::isValidValue($request->getData('permissionowner')))
+        if (($val['permissionowner'] = !PermissionOwner::isValidValue((int) $request->getData('permissionowner')))
             || ($val['permissionref'] = !\is_numeric($request->getData('permissionref')))
         ) {
             return $val;
@@ -657,13 +680,13 @@ final class ApiController extends Controller
      */
     public function createPermissionFromRequest(RequestAbstract $request) : PermissionAbstract
     {
-        $permission = $request->getData('permissionowner') === PermissionOwner::GROUP ? new GroupPermission((int) $request->getData('permissionref')) : new AccountPermission((int) $request->getData('permissionref'));
-        $permission->setUnit($request->getData('permissionunit') === null ? null : (int) $request->getData('permissionunit'));
-        $permission->setApp($request->getData('permissionapp') === null ? null : (string) $request->getData('permissionapp'));
-        $permission->setModule($request->getData('permissionmodule') === null ? null : (string) $request->getData('permissionmodule'));
-        $permission->setType($request->getData('permissiontype') === null ? null : (int) $request->getData('permissiontype'));
-        $permission->setElement($request->getData('permissionelement') === null ? null : (int) $request->getData('permissionelement'));
-        $permission->setComponent($request->getData('permissioncomponent') === null ? null : (int) $request->getData('permissioncomponent'));
+        $permission = ((int) $request->getData('permissionowner')) === PermissionOwner::GROUP ? new GroupPermission((int) $request->getData('permissionref')) : new AccountPermission((int) $request->getData('permissionref'));
+        $permission->setUnit(empty($request->getData('permissionunit')) ? null : (int) $request->getData('permissionunit'));
+        $permission->setApp(empty($request->getData('permissionapp')) ? null : (string) $request->getData('permissionapp'));
+        $permission->setModule(empty($request->getData('permissionmodule')) ? null : (string) $request->getData('permissionmodule'));
+        $permission->setType(empty($request->getData('permissiontype')) ? null : (int) $request->getData('permissiontype'));
+        $permission->setElement(empty($request->getData('permissionelement')) ? null : (int) $request->getData('permissionelement'));
+        $permission->setComponent(empty($request->getData('permissioncomponent')) ? null : (int) $request->getData('permissioncomponent'));
         $permission->setPermission(
             (int) $request->getData('permissioncreate')
             | (int) $request->getData('permissionread')

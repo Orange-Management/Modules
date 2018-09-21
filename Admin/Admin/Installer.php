@@ -197,7 +197,7 @@ class Installer extends InstallerAbstract
                             `account_permission_account` int(11) NOT NULL,
                             `account_permission_unit` int(11) DEFAULT NULL,
                             `account_permission_app` int(11) DEFAULT NULL,
-                            `account_permission_module` int(11) DEFAULT NULL,
+                            `account_permission_module` varchar(255) DEFAULT NULL,
                             `account_permission_from` int(11) DEFAULT NULL,
                             `account_permission_type` int(11) DEFAULT NULL,
                             `account_permission_element` int(11) DEFAULT NULL,
@@ -289,7 +289,7 @@ class Installer extends InstallerAbstract
     {
         $sth = $dbPool->get()->con->prepare(
             'INSERT INTO `' . $dbPool->get()->prefix . 'group` (
-                `group_id`, `group_name`, `group_description`, `group_description_raw`, `group_status`, `group_created`) 
+                `group_id`, `group_name`, `group_description`, `group_description_raw`, `group_status`, `group_created`)
                 VALUES (:id, :name, :desc, :desc_raw, :status, :created);'
         );
 

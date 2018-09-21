@@ -46,19 +46,19 @@ echo $this->getData('nav')->render(); ?>
                             <span class="input">
                                 <button type="button"><i class="fa fa-user"></i></button>
                                 <input id="iUsername" name="name" type="text" value="<?= $this->printHtml($account->getName()); ?>" disabled>
-                            </span>        
+                            </span>
                         <tr><td><label for="iName1"><?= $this->getHtml('Name1'); ?></label>
                         <tr><td>
                             <span class="input">
                                 <button type="button"><i class="fa fa-user"></i></button>
                                 <input id="iName1" name="name1" type="text" value="<?= $this->printHtml($account->getName1()); ?>" required>
-                            </span>      
+                            </span>
                         <tr><td><label for="iName2"><?= $this->getHtml('Name2'); ?></label>
                         <tr><td>
                             <span class="input">
                                 <button type="button"><i class="fa fa-user"></i></button>
                                 <input id="iName2" name="name2" type="text" value="<?= $this->printHtml($account->getName2()); ?>">
-                            </span>    
+                            </span>
                         <tr><td><label for="iName3"><?= $this->getHtml('Name3'); ?></label>
                         <tr><td>
                             <span class="input">
@@ -169,7 +169,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
             <div class="inner">
-                <form id="fAccountAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                <form id="fAccountAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/account/permission'); ?>" method="put">
                     <table class="layout wf-100">
                     <tbody>
                         <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>
@@ -207,7 +207,7 @@ echo $this->getData('nav')->render(); ?>
                                 <label for="iPermissionPermission"><?= $this->getHtml('Permission') ?></label>
                             </span>
                         <tr><td>
-                            <input type="hidden" name="permissionref" value="<?= $this->printHtml($group->getId()); ?>">
+                            <input type="hidden" name="permissionref" value="<?= $this->printHtml($account->getId()); ?>">
                             <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::GROUP ?>">
                             <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>

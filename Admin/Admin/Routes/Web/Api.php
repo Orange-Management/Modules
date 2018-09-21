@@ -27,7 +27,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/group.*$' => [
+    '^.*/api/admin/group$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiGroupCreate',
             'verb' => RouteVerb::PUT,
@@ -90,7 +90,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/account.*$' => [
+    '^.*/api/admin/account$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAccountCreate',
             'verb' => RouteVerb::PUT,
