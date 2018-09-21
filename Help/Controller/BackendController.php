@@ -146,7 +146,7 @@ class BackendController extends Controller
         $path = $this->getHelpModulePath($request);
 
         $toParse = \file_get_contents($path);
-        $summary = \file_get_contents(\realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md'));
+        $summary = \file_get_contents(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md');
 
         $content    = Markdown::parse($toParse === false ? '' : $toParse);
         $navigation = Markdown::parse($summary === false ? '' : $summary);
@@ -180,7 +180,7 @@ class BackendController extends Controller
             $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/introduction.md');
         }
 
-        return $path;
+        return $path === false ? '' : $path;
     }
 
     /**
@@ -198,8 +198,11 @@ class BackendController extends Controller
         $view = new View($this->app, $request, $response);
         $path = $this->getHelpDeveloperPath($request);
 
-        $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../../Developer-Guide/SUMMARY.md'));
+        $toParse = \file_get_contents($path);
+        $summary = \file_get_contents(__DIR__ . '/../../../Developer-Guide/SUMMARY.md');
+
+        $content    = Markdown::parse($toParse === false ? '' : $toParse);
+        $navigation = Markdown::parse($summary === false ? '' : $summary);
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-developer');
         $view->setData('content', $content);
