@@ -68,8 +68,11 @@ class BackendController extends Controller
         $view = new View($this->app, $request, $response);
         $path = $this->getHelpGeneralPath($request);
 
-        $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(__DIR__ . '/../../../Documentation/SUMMARY.md'));
+        $toParse = \file_get_contents($path);
+        $summary = \file_get_contents(__DIR__ . '/../../../Documentation/SUMMARY.md');
+
+        $content    = Markdown::parse($toParse === false ? '' : $toParse);
+        $navigation = Markdown::parse($summary === false ? '' : $summary);
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-general');
         $view->setData('content', $content);
