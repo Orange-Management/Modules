@@ -103,7 +103,7 @@ class BackendController extends Controller
             $path = \realpath(__DIR__ . '/../../../Documentation/README.md');
         }
 
-        return $path;
+        return $path === false ? '' : $path;
     }
 
     /**
@@ -139,14 +139,17 @@ class BackendController extends Controller
         $active = $this->app->moduleManager->getActiveModules();
 
         if ($request->getData('id') === null || !isset($active[$request->getData('id')])) {
-            return $this->viewHelpModuleList();
+            return $this->viewHelpModuleList($request, $response, $data);
         }
 
         $view = new View($this->app, $request, $response);
         $path = $this->getHelpModulePath($request);
 
-        $content    = Markdown::parse(\file_get_contents($path));
-        $navigation = Markdown::parse(\file_get_contents(\realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md')));
+        $toParse = \file_get_contents($path);
+        $summary = \file_get_contents(\realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/SUMMARY.md'));
+
+        $content    = Markdown::parse($toParse === false ? '' : $toParse);
+        $navigation = Markdown::parse($summary === false ? '' : $summary);
 
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module');
         $view->setData('content', $content);
