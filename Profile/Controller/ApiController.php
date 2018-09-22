@@ -83,7 +83,7 @@ class ApiController extends Controller
     {
         $profiles = [];
         $accounts = $request->getDataList('iaccount-idlist');
-        
+
         foreach ($accounts as $account) {
             $account = (int) \trim($account);
             $isInDb  = ProfileMapper::getFor($account, 'account');
