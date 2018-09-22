@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\TestModule;
 
-use phpOMS\Message\RequestDestination;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 
