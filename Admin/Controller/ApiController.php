@@ -39,7 +39,6 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\System\MimeType;
 use phpOMS\Utils\Parser\Markdown\Markdown;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Module\InfoManager;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
