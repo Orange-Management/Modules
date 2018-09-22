@@ -152,7 +152,7 @@ final class BackendController extends Controller
 
         if (!isset($permissions) || $permissions instanceof NullAccountPermission) {
             $permissions = [];
-        } elseif (!is_array($permissions)) {
+        } elseif (!\is_array($permissions)) {
             $permissions = [$permissions];
         }
 
@@ -233,7 +233,7 @@ final class BackendController extends Controller
 
         if (!isset($permissions) || $permissions instanceof NullGroupPermission) {
             $permissions = [];
-        } elseif (!is_array($permissions)) {
+        } elseif (!\is_array($permissions)) {
             $permissions = [$permissions];
         }
 
