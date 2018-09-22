@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Profile
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -21,6 +21,14 @@ use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Stdlib\Base\Location;
 
+/**
+ * Address mapper.
+ *
+ * @package    Modules\Profile
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class AddressMapper extends DataMapperAbstract
 {
     /**

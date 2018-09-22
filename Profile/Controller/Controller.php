@@ -14,19 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Profile\Controller;
 
-use Modules\Profile\Models\Profile;
-use Modules\Profile\Models\ProfileMapper;
-use Modules\Profile\Models\PermissionState;
-use Modules\Admin\Models\AccountMapper;
-
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
 
 /**
  * Profile class.

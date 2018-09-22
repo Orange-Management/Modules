@@ -16,15 +16,9 @@ namespace Modules\Profile\Controller;
 
 use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
-use Modules\Profile\Models\PermissionState;
-use Modules\Admin\Models\AccountMapper;
 
-use phpOMS\Account\PermissionType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
 use phpOMS\Asset\AssetType;
 
@@ -50,7 +44,7 @@ class BackendController extends Controller
      */
     public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /** @var Head $head */
+        /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Profile/Theme/Backend/css/styles.css');
     }
@@ -90,7 +84,7 @@ class BackendController extends Controller
     {
         $view = new View($this->app, $request, $response);
 
-        /** @var Head $head */
+        /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Calendar/Theme/Backend/css/styles.css');
 

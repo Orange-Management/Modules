@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Exchange\Models;
 
 use phpOMS\DataStorage\Database\Connection\ConnectionInterface;
+use phpOMS\Message\RequestAbstract;
 
 /**
  * Import abstract
@@ -37,13 +38,13 @@ abstract class ImporterAbstract
     /**
      * Constructor
      *
-     * @param ConnectionInterface $local  Database connection
+     * @param ConnectionInterface $local Database connection
      *
      * @since  1.0.0
      */
     public function __construct(ConnectionInterface $local)
     {
-        $this->remote = $remote;
+        $this->local = $local;
     }
 
     /**
