@@ -16,7 +16,7 @@ namespace Modules\Organization\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\UpdaterAbstract;
-use phpOMS\System\File\Directory;
+use phpOMS\System\File\Local\Directory;
 use phpOMS\Module\InfoManager;
 
 /**
@@ -35,7 +35,7 @@ class Updater extends UpdaterAbstract
      */
     public static function update(DatabasePool $dbPool, InfoManager $info) : void
     {
-        Directory::deletePath(__DIR__ . '/Update');
+        Directory::delete(__DIR__ . '/Update');
         \mkdir('Update');
         parent::update($dbPool, $info);
     }

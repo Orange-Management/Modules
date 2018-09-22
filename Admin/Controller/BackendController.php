@@ -318,7 +318,9 @@ final class BackendController extends Controller
         $view->setData('installed', $installed = $this->app->moduleManager->getInstalledModules());
         $view->setData('id', $id);
 
-        if (isset($installed[$id]) && ($path = \realpath(__DIR__ . '/../' . $id . '/info.json')) !== false) {
+        $path = \realpath(__DIR__ . '/../' . $id . '/info.json');
+
+        if (isset($installed[$id]) && $path !== false) {
             $info = new InfoManager($path);
             $info->load();
 

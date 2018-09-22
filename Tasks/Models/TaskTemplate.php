@@ -27,7 +27,7 @@ class TaskTemplate extends Task
     /**
      * Type.
      *
-     * @var TaskType
+     * @var int
      * @since 1.0.0
      */
     protected $type = TaskType::TEMPLATE;

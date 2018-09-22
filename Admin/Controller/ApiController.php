@@ -553,7 +553,13 @@ final class ApiController extends Controller
         $status = (int) $request->getData('status');
 
         if (empty($module) || empty($status)) {
-            $response->set('module_stutus_update', null);
+            $response->set($request->getUri()->__toString(), [
+                'status' => 'warning',
+                'title' => 'Module',
+                'message' => 'Invalid module or status',
+                'response' => []
+            ]);
+
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
             return;
         }

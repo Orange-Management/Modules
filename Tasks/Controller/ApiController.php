@@ -343,6 +343,6 @@ class ApiController extends Controller
         $element->setDescription(Markdown::parse((string) ($request->getData('description') ?? $element->getDescriptionRaw())));
         $element->setDescriptionRaw((string) ($request->getData('description') ?? $element->getDescriptionRaw()));
 
-        return $task;
+        return $element;
     }
 }

@@ -39,7 +39,7 @@ class AccountPermission extends PermissionAbstract
     /**
      * Constructor.
      *
-     * @param int $group Group id
+     * @param int $account Group id
      *
      * @since  1.0.0
      */

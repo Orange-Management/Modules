@@ -37,7 +37,7 @@ class TaskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array<string, string|bool>>
      * @since 1.0.0
      */
     protected static $columns = [
@@ -164,14 +164,14 @@ class TaskMapper extends DataMapperAbstract
 
         $query = self::getQuery();
 
-        $whereClause1 = new Builder();
-        $whereClause1->select(TaskElementMapper::$table . '.task_element_task')
+        $whereClause1 = new Builder(self::$db);
+        $whereClause1->select(TaskElementMapper::getTable() . '.task_element_task')
             ->distinct()
-            ->from(TaskElementMapper::$table)
-            ->where(TaskElementMapper::$table . '.task_elment_created_by', '=', $user)
-            ->orWhere(TaskElementMapper::$table . '.task_element_forwarded', '=', $user);
+            ->from(TaskElementMapper::getTable())
+            ->where(TaskElementMapper::getTable() . '.task_elment_created_by', '=', $user)
+            ->orWhere(TaskElementMapper::getTable() . '.task_element_forwarded', '=', $user);
 
-        $whereClause2 = new Builder();
+        $whereClause2 = new Builder(self::$db);
         $whereClause2->select(self::$table . '.' . self::$primaryField)
             ->from(self::$table)
             ->where(self::$table . '.task_created_by', '=', $user);

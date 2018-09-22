@@ -26,7 +26,7 @@ class RiskObjectMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array<string, string|bool>>
      * @since 1.0.0
      */
     protected static $columns = [

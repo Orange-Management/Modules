@@ -214,7 +214,7 @@ class Task implements \JsonSerializable
         $this->taskElements[] = $element;
 
         \end($this->taskElements);
-        $key = \key($this->taskElements);
+        $key = (int) \key($this->taskElements);
         \reset($this->taskElements);
 
         return $key;
