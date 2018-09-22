@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\TestModule\Controller;
+namespace Modules\TestModule;
 
 use phpOMS\Message\RequestDestination;
 use phpOMS\Module\ModuleAbstract;
@@ -68,6 +68,5 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var string[]
      * @since 1.0.0
      */
-    protected static $dependencies = [
-    ];
+    protected static $dependencies = [];
 }
