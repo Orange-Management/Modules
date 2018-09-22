@@ -602,6 +602,19 @@ final class ApiController extends Controller
         ]);
     }
 
+    /**
+     * Api method to add a permission to a group
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiAddGroupPermission(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validatePermissionCreate($request))) {
@@ -611,6 +624,10 @@ final class ApiController extends Controller
         }
 
         $permission = $this->createPermissionFromRequest($request);
+
+        if (!($permission instanceof GroupPermission)) {
+            return;
+        }
 
         $this->app->eventManager->trigger('PRE:Module:Admin-group-permission-create', '', $permission);
         GroupPermissionMapper::create($permission);
@@ -625,6 +642,19 @@ final class ApiController extends Controller
         ]);
     }
 
+    /**
+     * Api method to add a permission to a account
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiAddAccountPermission(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validatePermissionCreate($request))) {
@@ -634,6 +664,10 @@ final class ApiController extends Controller
         }
 
         $permission = $this->createPermissionFromRequest($request);
+
+        if (!($permission instanceof AccountPermission)) {
+            return;
+        }
 
         $this->app->eventManager->trigger('PRE:Module:Admin-account-permission-create', '', $permission);
         AccountPermissionMapper::create($permission);
@@ -674,7 +708,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return GroupPermission
+     * @return AccountPermission|GroupPermission
      *
      * @since  1.0.0
      */
@@ -698,6 +732,19 @@ final class ApiController extends Controller
         return $permission;
     }
 
+    /**
+     * Api method to add a group to an account
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiAddGroupToAccount(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = (int) $request->getData('account');
@@ -716,6 +763,19 @@ final class ApiController extends Controller
         ]);
     }
 
+    /**
+     * Api method to add an account to a group
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiAddAccountToGroup(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $group    = (int) $request->getData('group');

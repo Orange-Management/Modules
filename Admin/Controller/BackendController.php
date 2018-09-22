@@ -37,8 +37,6 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
