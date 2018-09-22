@@ -43,7 +43,7 @@ use phpOMS\Account\PermissionOwner;
 /**
  * Admin controller class.
  *
- * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules
+ * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
  * @package    Modules\Admin
  * @license    OMS License 1.0
