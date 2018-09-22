@@ -31,7 +31,7 @@ use phpOMS\Views\View;
 final class ConsoleController extends Controller
 {
     /**
-     * Method which generates the general settings view.
+     * Method which generates the general settings view
      *
      * In this view general settings for the entire application can be seen and adjusted. Settings which can be modified
      * here are localization, password, database, etc.
