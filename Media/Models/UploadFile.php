@@ -94,7 +94,7 @@ class UploadFile
     {
         $result = [];
 
-        if (\count($files) == \count($files, COUNT_RECURSIVE)) {
+        if (\count($files) === \count($files, COUNT_RECURSIVE)) {
             $files = [$files];
         }
 
