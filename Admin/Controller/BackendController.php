@@ -40,6 +40,7 @@ use phpOMS\Module\InfoManager;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 final class BackendController extends Controller
 {
@@ -57,7 +58,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -93,7 +93,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -114,7 +113,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -138,7 +136,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -174,7 +171,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -196,7 +192,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -219,7 +214,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -258,7 +252,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -283,7 +276,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -304,7 +296,6 @@ final class BackendController extends Controller
      * @return \Serializable Serializable web view
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {

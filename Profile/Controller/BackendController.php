@@ -29,6 +29,7 @@ use phpOMS\Asset\AssetType;
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
+ * @codeCoverageIgnore
  */
 class BackendController extends Controller
 {
@@ -40,7 +41,6 @@ class BackendController extends Controller
      * @return void
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function setupProfileStyles(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -57,14 +57,12 @@ class BackendController extends Controller
      * @return \Serializable
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
-
         $view->setData('accounts', ProfileMapper::getNewest(25));
 
         return $view;
@@ -78,7 +76,6 @@ class BackendController extends Controller
      * @return \Serializable
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -127,7 +124,6 @@ class BackendController extends Controller
      * @return \Serializable
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewProfileAdminSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
@@ -146,7 +142,6 @@ class BackendController extends Controller
      * @return \Serializable
      *
      * @since  1.0.0
-     * @codeCoverageIgnore
      */
     public function viewProfileAdminCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
     {
