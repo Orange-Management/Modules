@@ -90,13 +90,13 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table class="box table red">
+        <table id="groupTable" class="box table red">
             <caption><?= $this->getHtml('Groups') ?></caption>
             <thead>
                 <tr>
                     <td>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
             <tbody>
                 <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>

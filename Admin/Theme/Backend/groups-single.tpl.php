@@ -62,8 +62,8 @@ echo $this->getData('nav')->render(); ?>
                         <caption><?= $this->getHtml('Accounts') ?></caption>
                         <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
-                                <td class="wf-100">Name
+                                <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td class="wf-100"><?= $this->getHtml('Name'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                         <tbody>
                             <?php $c = 0; foreach ($accounts as $key => $value) : $c++; ?>
                             <tr>
@@ -93,19 +93,19 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table class="box table red wf-100">
+                    <table id="groupPermissions" class="box table red wf-100">
                         <caption><?= $this->getHtml('Permissions') ?></caption>
                         <thead>
                             <tr>
                                 <td>
                                 <td>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
-                                <td><?= $this->getHtml('Unit'); ?>
-                                <td><?= $this->getHtml('App'); ?>
-                                <td><?= $this->getHtml('Module'); ?>
-                                <td><?= $this->getHtml('Type'); ?>
-                                <td><?= $this->getHtml('Ele'); ?>
-                                <td><?= $this->getHtml('Comp'); ?>
+                                <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('Unit'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('App'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('Module'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('Type'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('Ele'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('Comp'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td class="wf-100"><?= $this->getHtml('Perm'); ?>
                         <tbody>
                             <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
