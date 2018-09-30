@@ -21,11 +21,11 @@ $modules = $this->app->moduleManager->getInstalledModules();
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table red">
+            <table id="moduleList" class="table red">
                 <caption><?= $this->getHtml('Modules') ?></caption>
                 <thead>
                 <tr>
-                    <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                 <tfoot>
                 <tr>
                     <td>

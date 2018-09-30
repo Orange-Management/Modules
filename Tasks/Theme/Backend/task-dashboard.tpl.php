@@ -10,6 +10,9 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
+ use Modules\Tasks\Models\TaskStatus;
+
 /**
  * @var \phpOMS\Views\View $this
  * @var \Modules\Tasks\Models\Task[] $tasks
@@ -20,24 +23,24 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
-            <table class="table red">
+            <table id="taskList" class="table red">
                 <caption><?= $this->getHtml('Tasks') ?></caption>
                 <thead>
-                    <td><?= $this->getHtml('Status') ?>
-                    <td><?= $this->getHtml('Due') ?>
-                    <td class="full"><?= $this->getHtml('Title') ?>
-                    <td><?= $this->getHtml('Creator') ?>
-                    <td><?= $this->getHtml('Created') ?>
+                    <td><?= $this->getHtml('Status') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Due') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td class="full"><?= $this->getHtml('Title') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Creator') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Created') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                 <tfoot>
                 <tbody>
                 <?php $c = 0; foreach ($tasks as $key => $task) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/task/single?{?}&id=' . $task->getId());
                 $color = 'darkred';
-                if ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
-                elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
-                elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }
-                elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::CANCELED) { $color = 'red'; }
-                elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
+                if ($task->getStatus() === TaskStatus::DONE) { $color = 'green'; }
+                elseif ($task->getStatus() === TaskStatus::OPEN) { $color = 'darkblue'; }
+                elseif ($task->getStatus() === TaskStatus::WORKING) { $color = 'purple'; }
+                elseif ($task->getStatus() === TaskStatus::CANCELED) { $color = 'red'; }
+                elseif ($task->getStatus() === TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
                     <tr data-href="<?= $url; ?>">
                         <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span></a>
                         <td data-label="<?= $this->getHtml('Due') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?></a>

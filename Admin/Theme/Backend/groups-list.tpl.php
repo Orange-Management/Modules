@@ -18,14 +18,14 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <table class="box table red">
+        <table id="groupList" class="box table red">
             <caption><?= $this->getHtml('Groups') ?></caption>
             <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td><?= $this->getHtml('Status') ?>
-                    <td class="wf-100"><?= $this->getHtml('Name') ?>
-                    <td><?= $this->getHtml('Members') ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Status') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Members') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
             <tfoot>
                 <tr><td colspan="5">
             <tbody>

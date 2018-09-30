@@ -28,14 +28,14 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table red">
+            <table id="positionList" class="table red">
                 <caption><?= $this->getHtml('Positions') ?></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getHtml('Name') ?>
-                    <td><?= $this->getHtml('Parent') ?>
-                    <td><?= $this->getHtml('Department') ?>
+                    <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Parent') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Department') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                         <tfoot>
                 <tr><td colspan="3">
                         <tbody>
