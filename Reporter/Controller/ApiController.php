@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Reporter\Controller;
 
-use Model\Message\Redirect;
+use phpOMS\Model\Message\Redirect;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;

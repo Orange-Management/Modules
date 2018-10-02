@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Controller;
 
-use Model\Message\FormValidation;
+use phpOMS\Model\Message\FormValidation;
 
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;

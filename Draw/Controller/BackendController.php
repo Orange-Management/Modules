@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Draw\Controller;
 
-use Model\Message\FormValidation;
+use phpOMS\Model\Message\FormValidation;
 use Modules\Draw\Models\DrawImage;
 use Modules\Draw\Models\DrawImageMapper;
 use Modules\Draw\Models\PermissionState;

@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\News\Controller;
 
-use Model\Message\FormValidation;
+use phpOMS\Model\Message\FormValidation;
 
 use Modules\News\Models\BadgeMapper;
 use Modules\News\Models\NewsArticle;

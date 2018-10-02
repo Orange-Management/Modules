@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Editor\Controller;
 
-use Model\Message\FormValidation;
+use phpOMS\Model\Message\FormValidation;
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
 use Modules\Editor\Models\EditorDoc;

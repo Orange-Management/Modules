@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Controller;
 
-use Model\Message\FormValidation;
+use phpOMS\Model\Message\FormValidation;
 
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
