@@ -16,7 +16,7 @@
 
 
 $templates = $this->getData('reports');
-$footerView = new \Web\Views\Lists\PaginationView($this->app, $this->request, $this->response);
+$footerView = new \phpOMS\Views\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 
 $footerView->setPages(count($templates) / 25);
