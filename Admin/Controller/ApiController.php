@@ -625,6 +625,8 @@ final class ApiController extends Controller
         $permission = $this->createPermissionFromRequest($request);
 
         if (!($permission instanceof GroupPermission)) {
+            $response->set('permission_create', new FormValidation($val));
+
             return;
         }
 
@@ -665,6 +667,8 @@ final class ApiController extends Controller
         $permission = $this->createPermissionFromRequest($request);
 
         if (!($permission instanceof AccountPermission)) {
+            $response->set('permission_create', new FormValidation($val));
+
             return;
         }
 

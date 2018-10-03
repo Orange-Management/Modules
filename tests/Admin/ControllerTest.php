@@ -34,6 +34,7 @@ use phpOMS\Event\EventManager;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
+use phpOMS\Account\PermissionOwner;
 
 use Modules\Admin\Models\AccountPermission;
 use Modules\Admin\Models\ModuleStatusUpdateType;
@@ -149,6 +150,19 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->setData('name', 'admin');
         $this->module->apiGroupUpdate($request, $response);
+    }
+
+    public function testApiGroupFind()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('search', 'admin');
+
+        $this->module->apiGroupFind($request, $response);
+        self::assertEquals(1, \count($response->get('')));
+        self::assertEquals('admin', $response->get('')[0]->getName());
     }
 
     public function testApiGroupCreateDelete()
@@ -311,7 +325,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->getHeader()->setAccount(1);
         $request->setData('module', 'TestModule');
 
-        $request->setData('status', 'invalid');
+        $request->setData('status', 99);
         $this->module->apiModuleStatusUpdate($request, $response);
         self::assertEquals('warning', $response->get('')['status']);
     }
@@ -327,5 +341,109 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('status', ModuleStatusUpdateType::INSTALL);
         $this->module->apiModuleStatusUpdate($request, $response);
         self::assertEquals('warning', $response->get('')['status']);
+    }
+
+    public function testApiAddGroupPermission()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('permissionowner', PermissionOwner::GROUP);
+        $request->setData('permissionref', 1);
+
+        $this->module->apiAddGroupPermission($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
+    }
+
+    public function testApiAddAccountPermission()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('permissionowner', PermissionOwner::ACCOUNT);
+        $request->setData('permissionref', 1);
+
+        $this->module->apiAddAccountPermission($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
+    }
+
+    public function testApiAddGroupPermissionInvalidData()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('permissionowner', PermissionOwner::GROUP);
+
+        $this->module->apiAddGroupPermission($request, $response);
+        self::assertEquals('validation', $response->get('permission_create')::TYPE);
+    }
+
+    public function testApiAddGroupPermissionInvalidType()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('permissionowner', PermissionOwner::ACCOUNT);
+        $request->setData('permissionref', 1);
+
+        $this->module->apiAddGroupPermission($request, $response);
+        self::assertEquals('validation', $response->get('permission_create')::TYPE);
+    }
+
+    public function testApiAddAccountPermissionInvalidData()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('permissionowner', PermissionOwner::ACCOUNT);
+
+        $this->module->apiAddAccountPermission($request, $response);
+        self::assertEquals('validation', $response->get('permission_create')::TYPE);
+    }
+
+    public function testApiAddAccountPermissionInvalidType()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('permissionowner', PermissionOwner::GROUP);
+        $request->setData('permissionref', 1);
+
+        $this->module->apiAddAccountPermission($request, $response);
+        self::assertEquals('validation', $response->get('permission_create')::TYPE);
+    }
+
+    public function testApiAddGroupToAccount()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('account', 1);
+        $request->setData('igroup-idlist', '1');
+
+        $this->module->apiAddGroupToAccount($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
+    }
+
+    public function testApiAddAccountToGroup()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('group', 1);
+        $request->setData('iaccount-idlist', '1');
+
+        $this->module->apiAddAccountToGroup($request, $response);
+        self::assertEquals('ok', $response->get('')['status']);
     }
 }
