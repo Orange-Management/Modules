@@ -14,6 +14,12 @@ before_script:
     - cd ..
     - git clone -b develop https://github.com/Orange-Management/phpOMS.git
     - cd Modules
+    - printf "\n" | pecl install memcached
+addons:
+    addons:
+        apt:
+            packages:
+                - libmemcached-dev
 script:
     - vendor/bin/phpunit --version && vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml
     - ./Build/Hooks/travis.sh
