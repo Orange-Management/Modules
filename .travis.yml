@@ -14,6 +14,12 @@ before_script:
     - cd ..
     - git clone -b develop https://github.com/Orange-Management/phpOMS.git
     - cd Modules
+    - pecl install redis
+    - echo "extension=redis.so" | tee /.phpenv/versions/$(phpenv version-name)/etc/conf.d/redis.ini
+    - phpenmod redis
+    - pecl install memcached
+    - echo "extension=memcached.so" | tee /.phpenv/versions/$(phpenv version-name)/etc/conf.d/memcached.ini
+    - phpenmod memcached
 script:
     - vendor/bin/phpunit --version && vendor/bin/phpunit --configuration tests/phpunit_no_coverage.xml
     - ./Build/Hooks/travis.sh
