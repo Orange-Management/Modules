@@ -48,7 +48,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         $allModules    = $moduleManager->getInstalledModules(false);
         $sampleInfo    = \json_decode(file_get_contents(__DIR__ . '/info.json'), true);
         $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Routes.php';
-        $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Hooks.php';
+        $totalHooks   = include __DIR__ . '/../../../Web/Api/Hooks.php';
 
         foreach ($allModules as $name => $module) {
             $module = $moduleManager->get($name);
