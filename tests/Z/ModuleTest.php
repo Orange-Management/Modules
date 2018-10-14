@@ -48,6 +48,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         $allModules    = $moduleManager->getInstalledModules(false);
         $sampleInfo    = \json_decode(file_get_contents(__DIR__ . '/info.json'), true);
         $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Routes.php';
+        $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Hooks.php';
 
         foreach ($allModules as $name => $module) {
             $module = $moduleManager->get($name);
@@ -76,6 +77,11 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                 if (file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
                     $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
                     self::assertTrue($this->routesTest($moduleRoutes, $totalRoutes), 'Route assert failed for '. $name);
+                }
+
+                if (file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
+                    $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
+                    self::assertTrue($this->hooksTest($moduleHooks, $totalHooks), 'Hook assert failed for '. $name);
                 }
 
                 $info = \json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true);
@@ -117,6 +123,19 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     }
 
     private function routesTest(array $module, array $total) : bool
+    {
+        foreach ($module as $route => $dests) {
+            if (!isset($total[$route])) {
+                return false;
+            }
+
+            // todo: check dest path currently only route is checked
+        }
+
+        return true;
+    }
+
+    private function hooksTest(array $module, array $total) : bool
     {
         foreach ($module as $route => $dests) {
             if (!isset($total[$route])) {
