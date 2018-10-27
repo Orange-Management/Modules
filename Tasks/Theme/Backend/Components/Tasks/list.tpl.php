@@ -2,7 +2,7 @@
     <caption><?= $this->getHtml('Tasks', 'Tasks') ?></caption>
     <thead>
         <td><?= $this->getHtml('Status', 'Tasks') ?>
-        <td><?= $this->getHtml('Due', 'Tasks') ?>
+        <td><?= $this->getHtml('Due/Priority', 'Tasks') ?>
         <td class="full"><?= $this->getHtml('Title', 'Tasks') ?>
     <tfoot>
     <tbody>
@@ -16,7 +16,13 @@
     elseif ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ;?>
         <tr data-href="<?= $url; ?>">
             <td><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $task->getStatus(), 'Tasks') ?></span></a>
-            <td><a href="<?= $url; ?>"><?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?></a>
+            <td><a href="<?= $url; ?>">
+                <?php if ($task->getPriority() === \Modules\Tasks\Models\TaskPriority::NONE) : ?>
+                    <?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?>
+                <?php else : ?>
+                    <?= $this->getHtml('P' . $task->getPriority()); ?>
+                <?php endif; ?>
+                </a>
             <td><a href="<?= $url; ?>"><?= $this->printHtml($task->getTitle()); ?></a>
     <?php endforeach; if ($c == 0) : ?>
     <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

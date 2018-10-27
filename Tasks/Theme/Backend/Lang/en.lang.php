@@ -22,6 +22,7 @@ return ['Tasks' => [
     'Default'            => 'Default',
     'Day'                => 'Day',
     'Due'                => 'Due',
+    'Due/Priority'       => 'Due/Priority',
     'Forward'            => 'Forward',
     'Forwarded'          => 'Forwarded',
     'From'               => 'From',

@@ -8,7 +8,7 @@ use Modules\Reporter\Controller\BackendController;
 return [
     '^.*/backend/reporter/template/create.*$' => [
         [
-            'dest' => '\Modules\Media\BackendController::setUpFileUploader',
+            'dest' => '\Modules\Media\Controller\BackendController::setUpFileUploader',
             'verb' => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::MODULE_NAME,
@@ -28,7 +28,7 @@ return [
     ],
     '^.*/backend/reporter/report/create.*$' => [
         [
-            'dest' => '\Modules\Media\BackendController::setUpFileUploader',
+            'dest' => '\Modules\Media\Controller\BackendController::setUpFileUploader',
             'verb' => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::MODULE_NAME,

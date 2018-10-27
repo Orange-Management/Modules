@@ -12,6 +12,7 @@
  */
 
 use \Modules\Tasks\Models\TaskStatus;
+use \Modules\Tasks\Models\TaskPriority;
 
 /**
  * @var \phpOMS\Views\View         $this
@@ -30,7 +31,13 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <section class="box wf-100">
             <div class="inner">
-                <div class="floatRight">Due <?= $this->printHtml($task->getDue()->format('Y/m/d H:i')); ?></div>
+                <div class="floatRight">
+                    <?php if ($task->getPriority() === TaskPriority::NONE) : ?>
+                        Due: <?= $this->printHtml($task->getDue()->format('Y/m/d H:i')); ?>
+                    <?php else : ?>
+                        Priority: <?= $this->getHtml('P' . $task->getPriority()) ?>
+                    <?php endif; ?>
+                </div>
                 <div>Created <?= $this->printHtml($task->getCreatedAt()->format('Y/m/d H:i')); ?></div>
             </div>
             <header><h1><?= $this->printHtml($task->getTitle()); ?></h1></header>
@@ -111,7 +118,13 @@ echo $this->getData('nav')->render(); ?>
                     $element->getStatus() !== TaskStatus::DONE ||
                     $element->getStatus() !== TaskStatus::SUSPENDED || $c != $cElements
                 ) : ?>
-                    <div class="vCenterTable nobreak">Due <?= $this->printHtml($element->getDue()->format('Y-m-d H:i')); ?></div>
+                    <div class="vCenterTable nobreak">
+                        <?php if ($element->getPriority() === TaskPriority::NONE) : ?>
+                            Due: <?= $this->printHtml($element->getDue()->format('Y/m/d H:i')); ?>
+                        <?php else : ?>
+                            Priority: <?= $this->getHtml('P' . $element->getPriority()) ?>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
             </section>
         <?php endforeach; ?>

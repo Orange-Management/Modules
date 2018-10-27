@@ -92,6 +92,14 @@ class TaskElement implements \JsonSerializable
     private $due = null;
 
     /**
+     * Priority
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected $priority = TaskPriority::NONE;
+
+    /**
      * Forwarded to.
      *
      * @var int
@@ -258,6 +266,38 @@ class TaskElement implements \JsonSerializable
     public function setDue(\DateTime $due) : void
     {
         $this->due = $due;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
+    public function getPriority() : int
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param int $priority Task priority
+     *
+     * @return void
+     *
+     * @throws InvalidEnumValue
+     *
+     * @since  1.0.0
+     */
+    public function setPriority(int $priority) : void
+    {
+        if (!TaskPriority::isValidValue($priority)) {
+            throw new InvalidEnumValue((string) $priority);
+        }
+
+        $this->priority = $priority;
     }
 
     /**

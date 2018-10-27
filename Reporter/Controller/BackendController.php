@@ -26,6 +26,8 @@ use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
 use Modules\Reporter\Models\PermissionState;
+use Modules\Media\Theme\Backend\Components\Upload\BaseView;
+
 use phpOMS\Asset\AssetType;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
@@ -100,6 +102,10 @@ class BackendController extends Controller
 
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-template-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
+        $view->addData('media-upload', new BaseView($this->app, $request, $response));
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
 
         return $view;
     }
@@ -120,6 +126,10 @@ class BackendController extends Controller
 
         $view->setTemplate('/Modules/Reporter/Theme/Backend/reporter-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
+        $view->addData('media-upload', new BaseView($this->app, $request, $response));
+
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
 
         return $view;
     }

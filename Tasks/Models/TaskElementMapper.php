@@ -41,6 +41,7 @@ class TaskElementMapper extends DataMapperAbstract
         'task_element_desc'       => ['name' => 'task_element_desc', 'type' => 'string', 'internal' => 'description'],
         'task_element_desc_raw'   => ['name' => 'task_element_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
         'task_element_status'     => ['name' => 'task_element_status', 'type' => 'int', 'internal' => 'status'],
+        'task_element_priority'   => ['name' => 'task_element_priority', 'type' => 'int', 'internal' => 'priority'],
         'task_element_due'        => ['name' => 'task_element_due', 'type' => 'DateTime', 'internal' => 'due'],
         'task_element_forwarded'  => ['name' => 'task_element_forwarded', 'type' => 'int', 'internal' => 'forwarded'],
         'task_element_task'       => ['name' => 'task_element_task', 'type' => 'int', 'internal' => 'task'],

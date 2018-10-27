@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Tasks') ?></caption>
                 <thead>
                     <td><?= $this->getHtml('Status') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                    <td><?= $this->getHtml('Due') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('Due/Priority') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td class="full"><?= $this->getHtml('Title') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td><?= $this->getHtml('Creator') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td><?= $this->getHtml('Created') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
@@ -43,7 +43,14 @@ echo $this->getData('nav')->render(); ?>
                 elseif ($task->getStatus() === TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
                     <tr data-href="<?= $url; ?>">
                         <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span></a>
-                        <td data-label="<?= $this->getHtml('Due') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?></a>
+                        <td data-label="<?= $this->getHtml('Due/Priority') ?>">
+                            <a href="<?= $url; ?>">
+                            <?php if ($task->getPriority() === \Modules\Tasks\Models\TaskPriority::NONE) : ?>
+                                <?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?>
+                            <?php else : ?>
+                                <?= $this->getHtml('P' . $task->getPriority()); ?>
+                            <?php endif; ?>
+                            </a>
                         <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getTitle()); ?></a>
                         <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedBy()->getName1()); ?></a>
                         <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedAt()->format('Y-m-d H:i')); ?></a>

@@ -114,6 +114,7 @@ class Installer extends InstallerAbstract
                             `task_element_task` int(11) NOT NULL,
                             `task_element_created_by` int(11) NOT NULL,
                             `task_element_status` tinyint(1) NOT NULL,
+                            `task_element_priority` tinyint(1) NOT NULL,
                             `task_element_due` datetime NOT NULL,
                             `task_element_forwarded` int(11) DEFAULT NULL,
                             `task_element_created_at` datetime NOT NULL,

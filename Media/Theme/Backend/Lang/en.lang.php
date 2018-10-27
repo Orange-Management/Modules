@@ -26,6 +26,7 @@ return ['Media' => [
     'Name'        => 'Name',
     'Permission'  => 'Permission',
     'Preview'     => 'Preview',
+    'Select'      => 'Select',
     'Settings'    => 'Settings',
     'Size'        => 'Size',
     'Type'        => 'Type',

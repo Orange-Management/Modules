@@ -41,26 +41,6 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Media') ?></h1></header>
-
-            <div class="inner">
-                <form>
-                    <table class="layout wf-100">
-                        <tbody>
-                        <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
-                        <tr><td>
-                            <div class="ipt-wrap">
-                                <div class="ipt-first"><input type="text" id="iMedia" name="mediaFile" placeholder="&#xf15b; File"></div>
-                                <div class="ipt-second"><button><?= $this->getHtml('Select') ?></button></div>
-                            </div>
-                        <tr><td><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
-                        <tr><td>
-                            <input type="file" id="iUpload" name="upload" form="fTask" multiple>
-                            <input form="fTask" type="hidden" name="type"><td>
-                    </table>
-                </form>
-            </div>
-        </section>
+        <?= $this->getData('media-upload')->render('reporter-report-create'); ?>
     </div>
 </div>

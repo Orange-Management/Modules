@@ -146,7 +146,7 @@ class Task implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $priority = TaskPriority::MEDIUM;
+    protected $priority = TaskPriority::NONE;
 
     /**
      * Media files

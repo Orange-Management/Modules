@@ -26,6 +26,7 @@ use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
 use Modules\Reporter\Models\PermissionState;
+
 use phpOMS\Asset\AssetType;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
@@ -41,6 +42,7 @@ use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Utils\Parser\Markdown\Markdown;
+use phpOMS\Message\NotificationLevel;
 
 /**
  * TODO: Implement auto sqlite generator on upload
@@ -152,7 +154,12 @@ class ApiController extends Controller
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), $template->jsonSerialize());
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Template',
+            'message' => 'Template successfully created.',
+            'response' => $template->jsonSerialize()
+        ]);
     }
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
@@ -216,8 +223,12 @@ class ApiController extends Controller
         $report       = $this->createReportFromRequest($request, $response, $collectionId);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), $report);
-
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Report',
+            'message' => 'Report successfully created.',
+            'response' => $report->jsonSerialize()
+        ]);
     }
 
     private function createReportFromRequest(RequestAbstract $request, ResponseAbstract $response, int $collectionId) : Report

@@ -92,7 +92,12 @@ class ApiController extends Controller
         $task = $this->createTaskFromRequest($request);
 
         TaskMapper::create($task);
-        $response->set($request->getUri()->__toString(), $task->jsonSerialize());
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Task',
+            'message' => 'Task successfully created.',
+            'response' => $task->jsonSerialize()
+        ]);
     }
 
     /**
@@ -114,12 +119,13 @@ class ApiController extends Controller
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
-        $task->setPriority(TaskPriority::NONE);
+        $task->setPriority((int) $request->getData('priority'));
 
         $element = new TaskElement();
         $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
         $element->setCreatedBy($task->getCreatedBy());
         $element->setDue($task->getDue());
+        $element->setPriority($task->getPriority());
         $element->setStatus(TaskStatus::OPEN);
 
         $task->addElement($element);
