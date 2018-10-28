@@ -255,7 +255,12 @@ class ApiController extends Controller
         TaskElementMapper::create($element);
         TaskMapper::update($task);
 
-        $response->set($request->getUri()->__toString(), $element->jsonSerialize());
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'Task element',
+            'message' => 'Task element successfully created.',
+            'response' => $element->jsonSerialize()
+        ]);
     }
 
     /**
@@ -273,10 +278,11 @@ class ApiController extends Controller
         $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
         $element->setCreatedBy($request->getHeader()->getAccount());
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
+        $element->setPriority((int) $request->getData('priority'));
         $element->setStatus((int) ($request->getData('status')));
         $element->setTask((int) ($request->getData('task')));
-        $element->setDescription(Markdown::parse((string) ($request->getData('description'))));
-        $element->setDescriptionRaw((string) ($request->getData('description')));
+        $element->setDescription(Markdown::parse((string) ($request->getData('plain') ?? '')));
+        $element->setDescriptionRaw((string) ($request->getData('plain') ?? ''));
 
         return $element;
     }

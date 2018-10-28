@@ -86,7 +86,7 @@ echo $this->getData('nav')->render(); ?>
         <?php $c = 0;
         foreach ($elements as $key => $element) : $c++;
             $color = $this->getStatus($element->getStatus()); ?>
-            <?php if ($c > 1 && $element->getForwarded() !== 0 && $forwarded !== $element->getCreatedBy()->getId()) : ?>
+            <?php if ($c > 1 && $element->getForwarded() !== 0 && $forwarded->getId() !== $element->getCreatedBy()->getId()) : ?>
                 <section class="box wf-100">
                     <div class="inner">
                         Forwarded <?= $this->printHtml($element->getForwarded()->getName1()); ?>
@@ -135,7 +135,17 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
                         <tr><td><?= $this->getData('editor')->render('task-editor'); ?>
-                        <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor', 'plain', 'fTask'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor', 'plain', 'taskElementCreate'); ?>
+                        <tr><td><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
+                        <tr><td>
+                            <select id="iPriority" name="priority">
+                                <option value="<?= $this->printHtml(TaskPriority::NONE); ?>"<?= $task->getPriority() === TaskPriority::NONE ? 'selected' : ''?>><?= $this->getHtml('P0') ?>
+                                <option value="<?= $this->printHtml(TaskPriority::VLOW); ?>"<?= $task->getPriority() === TaskPriority::VLOW ? 'selected' : ''?>><?= $this->getHtml('P1') ?>
+                                <option value="<?= $this->printHtml(TaskPriority::LOW); ?>"<?= $task->getPriority() === TaskPriority::LOW ? 'selected' : ''?>><?= $this->getHtml('P2') ?>
+                                <option value="<?= $this->printHtml(TaskPriority::MEDIUM); ?>"<?= $task->getPriority() === TaskPriority::MEDIUM ? 'selected' : ''?>><?= $this->getHtml('P3') ?>
+                                <option value="<?= $this->printHtml(TaskPriority::HIGH); ?>"<?= $task->getPriority() === TaskPriority::HIGH ? 'selected' : ''?>><?= $this->getHtml('P4') ?>
+                                <option value="<?= $this->printHtml(TaskPriority::VHIGH); ?>"<?= $task->getPriority() === TaskPriority::VHIGH ? 'selected' : ''?>><?= $this->getHtml('P5') ?>
+                            </select>
                         <tr><td><label for="iDue"><?= $this->getHtml('Due') ?></label>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
