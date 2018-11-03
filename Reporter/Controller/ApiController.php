@@ -153,6 +153,8 @@ class ApiController extends Controller
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
+        TemplateMapper::create($template);
+
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -164,11 +166,11 @@ class ApiController extends Controller
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
     {
-        if ($request->getData('files') === null) {
+        if ($request->getData('media-list') === null) {
             return -1;
         }
 
-        $files = \json_decode((string) $request->getData('files'));
+        $files = \json_decode((string) $request->getData('media-list'));
         // TODO: make sure this user has permissions for provided files
 
         /* Create collection */
@@ -199,8 +201,6 @@ class ApiController extends Controller
         $reporterTemplate->setExpected(!empty($expected) ? \json_decode($expected, true) : []);
         $reporterTemplate->setCreatedBy($request->getHeader()->getAccount());
         $reporterTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
-
-        TemplateMapper::create($reporterTemplate);
 
         return $reporterTemplate;
     }

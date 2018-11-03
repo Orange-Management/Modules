@@ -28,6 +28,8 @@ class TaskView extends View
     {
         if ($status === TaskStatus::OPEN) {
             return 'darkblue';
+        } elseif ($status === TaskStatus::DONE) {
+            return 'green';
         } elseif ($status === TaskStatus::WORKING) {
             return 'purple';
         } elseif ($status === TaskStatus::CANCELED) {

@@ -156,7 +156,7 @@ class UploadFile
             }
 
             if (!\is_dir($path)) {
-                Directory::create($path, 0655, true);
+                Directory::create($path, 0755, true);
             }
 
             if (!\is_uploaded_file($f['tmp_name'])) {

@@ -66,9 +66,9 @@
     {
         // TODO: validate file type + file size
 
-        let request  = new jsOMS.Message.Request.Request(),
-            formData = new FormData(),
-            self     = this;
+        const request = new jsOMS.Message.Request.Request(),
+            formData  = new FormData(),
+            self      = this;
 
         this.files.forEach(function (element, index)
         {
@@ -76,23 +76,22 @@
         });
 
         request.setData(formData);
-        request.setType(jsOMS.Message.Request.RequestType.RAW);
+        request.setType(jsOMS.Message.Request.RequestType.FILE);
         request.setUri(this.uri);
         request.setMethod(jsOMS.Message.Request.RequestMethod.POST);
         request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
         request.setSuccess(function (xhr)
         {
             try {
-                let response = JSON.parse(xhr.response);
+                const response = JSON.parse(xhr.response);
 
-                for (let k = 0; k < response.length; ++k) {
-                    if (!self.success[formId]) {
-                        self.responseManager.run(response[k].type, response[k]);
-                    } else {
-                        self.success[formId](response[k].type, response[k]);
-                    }
+                if (!self.success[formId]) {
+                    self.responseManager.run(null, response);
+                } else {
+                    self.success[formId](null, response);
                 }
             } catch (e) {
+                console.log(e);
                 jsOMS.Log.Logger.instance.error(e);
                 jsOMS.Log.Logger.instance.error('Invalid media upload response: ' + xhr.response);
             }

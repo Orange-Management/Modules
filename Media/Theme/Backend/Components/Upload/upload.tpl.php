@@ -2,7 +2,7 @@
     <header><h1><?= $this->getHtml('Media') ?></h1></header>
 
     <div class="inner">
-        <form>
+        <form id="<?= $this->form; ?>-upload">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
@@ -14,7 +14,7 @@
                 <tr><td><label for="iUpload"><?= $this->getHtml('Upload', 'Media') ?></label>
                 <tr><td>
                     <input type="file" id="iUpload" name="upload" form="<?= $this->form; ?>" multiple>
-                    <input form="<?= $this->form; ?>" type="hidden" name="type"><td>
+                    <input form="<?= $this->form; ?>" type="hidden" name="media-list"><td>
             </table>
         </form>
     </div>

@@ -61,7 +61,7 @@ class ApiController extends Controller
         $uploads = $this->uploadFiles(
             $request->getFiles(),
             $request->getHeader()->getAccount(),
-            (string) ($request->getData('path') ?? __DIR__ . '/../../Modules/Media/Files')
+            (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files')
         );
 
         $ids = [];
@@ -70,7 +70,7 @@ class ApiController extends Controller
         }
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), [['uploads' => $ids, 'type' => 'UI']]);
+        $response->set($request->getUri()->__toString(), $ids);
     }
 
     /**
@@ -117,7 +117,7 @@ class ApiController extends Controller
 
     public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
     {
-        $rndPath = str_pad(dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+        $rndPath = \str_pad(\dechex(\mt_rand(0, 65535)), 4, '0', STR_PAD_LEFT);
         return $basePath . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
     }
 

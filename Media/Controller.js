@@ -29,25 +29,32 @@
 
         const self = this;
 
-        if (!form.querySelector('input[type=file]')|| !document.querySelector('input[type=file][form=' + form.id + ']')) {
+        if (!form.querySelector('input[type=file]') || !document.querySelector('input[type=file][form=' + form.id + ']')) {
             try {
                 // Inject media upload into form view
-                this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId, requestGroup)
+                this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId)
                 {
                     /** global: jsOMS */
-                    let fileFields = e.querySelectorAll('input[type=file]'),
+                    let fileFields = document.querySelectorAll(
+                            '#' + e.id + ' input[type=file], '
+                            + 'input[form=' + e.id + '][type=file]'
+                        ),
                         uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
 
                     uploader.setSuccess(e.id, function (type, response)
                     {
-                        e.querySelector('input[type=file]+input[type=hidden]').value = JSON.stringify(response.uploads);
-                        self.app.eventManager.trigger(requestGroup, requestId);
+                        document.querySelector('input[form=' + e.id + '][type=file]+input[form=' + e.id + '][type=hidden]').value = JSON.stringify(response);
+                        self.app.eventManager.trigger(form.id, requestId);
                     });
 
                     uploader.setUri('{/base}/{/lang}/api/media');
 
-                    for (let i = 0; i < fileFields.length; i++) {
-                        for (let j = 0; j < fileFields[i].files.length; j++) {
+                    const length   = fileFields.length;
+                    let fileLength = 0;
+
+                    for (let i = 0; i < length; i++) {
+                        fileLength = fileFields[i].files.length;
+                        for (let j = 0; j < fileLength; j++) {
                             uploader.addFile(fileFields[i].files[j]);
                         }
                     }
