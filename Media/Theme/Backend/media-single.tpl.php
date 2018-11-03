@@ -61,9 +61,13 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Creator') ?>
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
-                    <?php if (!is_dir($media->getPath())) : foreach ($media as $key => $value) :
-                        $url  = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
-                        $icon = $this->fileIconFunction(FileUtils::getExtensionType($value->getExtension()));
+                    <?php 
+                        if (!is_dir($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($media->getPath(), '//'))
+                            || $media->getPath() === ''
+                        ) : 
+                            foreach ($media as $key => $value) :
+                                $url  = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
+                                $icon = $fileIconFunction(FileUtils::getExtensionType($value->getExtension()));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
@@ -103,12 +107,12 @@ echo $this->getData('nav')->render();
                 <?php else : ?>
                     <button class="floatRight">Edit</button>
 
-                    <?php if (!\file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path)) : ?>
+                    <?php if (!\file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($path, '/'))) : ?>
                         <div class="centerText"><i class="fa fa-question fa-5x"></i></div>
                     <?php else : ?>
                     <pre>
                     <?php
-                    $output = $this->lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . $path);
+                    $output = $this->lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($path, '/'));
                     foreach ($output as $line) : ?><span><?= $this->printHtml($line); ?></span><?php endforeach; ?>
                     </pre>
                     <?php endif; ?>

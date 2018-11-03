@@ -140,7 +140,8 @@ class UploadFile
             $result[$key]['extension'] = $extension;
 
             if ($this->preserveFileName) {
-                $this->fileName = $f['name'];
+                $this->fileName           = $f['name'];
+                $result[$key]['filename'] = $this->fileName;
             }
 
             if (empty($this->fileName) || \file_exists($path . '/' . $this->fileName)) {
