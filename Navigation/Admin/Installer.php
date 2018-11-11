@@ -52,6 +52,7 @@ class Installer extends InstallerAbstract
                             `nav_from` varchar(255) DEFAULT NULL,
                             `nav_order` smallint(3) DEFAULT NULL,
                             `nav_parent` int(11) DEFAULT NULL,
+                            `nav_permission_permission` int(11) DEFAULT NULL,
                             `nav_permission_type` int(11) DEFAULT NULL,
                             `nav_permission_element` int(11) DEFAULT NULL,
                             PRIMARY KEY (`nav_id`)
@@ -97,8 +98,8 @@ class Installer extends InstallerAbstract
     private static function installLink($dbPool, $data) : void
     {
         $sth = $dbPool->get()->con->prepare(
-            'INSERT INTO `' . $dbPool->get()->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission_type`, `nav_permission_element`) VALUES
-                        (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm_type, :perm_element);'
+            'INSERT INTO `' . $dbPool->get()->prefix . 'nav` (`nav_id`, `nav_pid`, `nav_name`, `nav_type`, `nav_subtype`, `nav_icon`, `nav_uri`, `nav_target`, `nav_from`, `nav_order`, `nav_parent`, `nav_permission_permission`, `nav_permission_type`, `nav_permission_element`) VALUES
+                        (:id, :pid, :name, :type, :subtype, :icon, :uri, :target, :from, :order, :parent, :perm_perm, :perm_type, :perm_element);'
         );
 
         $sth->bindValue(':id', $data['id'] ?? 0, \PDO::PARAM_INT);
@@ -112,6 +113,7 @@ class Installer extends InstallerAbstract
         $sth->bindValue(':from', $data['from'] ?? 0, \PDO::PARAM_STR);
         $sth->bindValue(':order', $data['order'] ?? 1, \PDO::PARAM_INT);
         $sth->bindValue(':parent', $data['parent'], \PDO::PARAM_INT);
+        $sth->bindValue(':perm_perm', $data['permission']['permission'] ?? null, \PDO::PARAM_INT);
         $sth->bindValue(':perm_type', $data['permission']['type'] ?? null, \PDO::PARAM_INT);
         $sth->bindValue(':perm_element', $data['permission']['element'] ?? null, \PDO::PARAM_INT);
 
@@ -121,7 +123,7 @@ class Installer extends InstallerAbstract
 
         foreach ($data['children'] as $link) {
             $parent = ($link['parent'] == null ? $lastInsertID : $link['parent']);
-            self::installLink($dbPool, $link, $parent);
+            self::installLink($dbPool, $link);
         }
     }
 }

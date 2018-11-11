@@ -24,12 +24,13 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
                     <?php endif; ?>
                     <?= $this->getHtml($parent['nav_name']) ?><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>"><i class="fa fa-chevron-down min"></i>
                     <i class="fa fa-chevron-up max"></i></label>
-                    <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
+                    <?php if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK])) :
+                        foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
                     if ($link['nav_parent'] === $key) : ?>
                 <li>
                     <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>"><?= $this->getHtml($link['nav_name']) ?></a>
                     <?php endif;
-                    endforeach; ?>
+                    endforeach; endif; ?>
             </ul>
             <?php endforeach; ?>
     </ul>

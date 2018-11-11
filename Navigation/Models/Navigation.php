@@ -105,7 +105,7 @@ class Navigation
 
             foreach ($tempNav as $id => $link) {
                 $isReadable = $account->hasPermission(
-                    PermissionType::READ,
+                    (int) $link[0]['nav_permission_permission'],
                     $unit,
                     $app,
                     (string) $link[0]['nav_from'],
@@ -170,7 +170,7 @@ class Navigation
     public static function getInstance(RequestAbstract $hashes = null, Account $account, DatabasePool $dbPool, int $unit, string $appName)
     {
         if (!isset(self::$instance)) {
-            if (!isset($hashes) || !isset($dbPool)) {
+            if (!isset($hashes)) {
                 throw new \Exception('Invalid parameters');
             }
 
