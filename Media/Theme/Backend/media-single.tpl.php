@@ -35,11 +35,11 @@ echo $this->getData('nav')->render();
             <div class="inner">
                 <table class="list w-100">
                     <tbody>
-                        <tr><td>Name<td class="wf-100"><?= $this->printHtml($media->getName()); ?>
-                        <tr><td>Size<td class="wf-100"><?= $this->printHtml($media->getSize()); ?>
-                        <tr><td>Created at<td><?= $this->printHtml($media->getCreatedAt()->format('Y-m-d')); ?>
-                        <tr><td>Created by<td><?= $this->printHtml($media->getCreatedBy()->getName1()); ?>
-                        <tr><td>Description<td><?= $this->printHtml($media->getDescription()); ?>
+                        <tr><td><?= $this->getHtml('Name') ?><td class="wf-100"><?= $this->printHtml($media->getName()); ?>
+                        <tr><td><?= $this->getHtml('Size') ?><td class="wf-100"><?= $this->printHtml($media->getSize()); ?>
+                        <tr><td><?= $this->getHtml('Created') ?><td><?= $this->printHtml($media->getCreatedAt()->format('Y-m-d')); ?>
+                        <tr><td><?= $this->getHtml('Creator') ?><td><?= $this->printHtml($media->getCreatedBy()->getName1()); ?>
+                        <tr><td><?= $this->getHtml('Description') ?><td><?= $this->printHtml($media->getDescription()); ?>
                 </table>
             </div>
         </section>
@@ -61,10 +61,10 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Creator') ?>
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
-                    <?php 
+                    <?php
                         if (!is_dir($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($media->getPath(), '//'))
                             || $media->getPath() === ''
-                        ) : 
+                        ) :
                             foreach ($media as $key => $value) :
                                 $url  = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
                                 $icon = $fileIconFunction(FileUtils::getExtensionType($value->getExtension()));

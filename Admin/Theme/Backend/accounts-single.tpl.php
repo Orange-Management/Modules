@@ -11,6 +11,10 @@
  * @link       http://website.orange-management.de
  */
 
+use phpOMS\Account\AccountStatus;
+use phpOMS\Account\AccountType;
+use phpOMS\Account\PermissionType;
+
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -31,15 +35,15 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iId" name="id" type="text" value="<?= $this->printHtml($account->getId()); ?>" disabled>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                         <tr><td><select id="iType" name="type">
-                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::USER); ?>"<?= $this->printHtml($account->getType() === \phpOMS\Account\AccountType::USER ? ' selected' : ''); ?>><?= $this->getHtml('Person'); ?>
-                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountType::GROUP); ?>"<?= $this->printHtml($account->getType() === \phpOMS\Account\AccountType::GROUP ? ' selected' : ''); ?>><?= $this->getHtml('Organization'); ?>
+                                    <option value="<?= $this->printHtml(AccountType::USER); ?>"<?= $this->printHtml($account->getType() === AccountType::USER ? ' selected' : ''); ?>><?= $this->getHtml('Person'); ?>
+                                    <option value="<?= $this->printHtml(AccountType::GROUP); ?>"<?= $this->printHtml($account->getType() === AccountType::GROUP ? ' selected' : ''); ?>><?= $this->getHtml('Organization'); ?>
                                 </select>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::ACTIVE); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::ACTIVE ? ' selected' : ''); ?>><?= $this->getHtml('Active'); ?>
-                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::INACTIVE); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::INACTIVE ? ' selected' : ''); ?>><?= $this->getHtml('Inactive'); ?>
-                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::TIMEOUT); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::TIMEOUT ? ' selected' : ''); ?>><?= $this->getHtml('Timeout'); ?>
-                                    <option value="<?= $this->printHtml(\phpOMS\Account\AccountStatus::BANNED); ?>"<?= $this->printHtml($account->getStatus() === \phpOMS\Account\AccountStatus::BANNED ? ' selected' : ''); ?>><?= $this->getHtml('Banned'); ?>
+                                    <option value="<?= $this->printHtml(AccountStatus::ACTIVE); ?>"<?= $this->printHtml($account->getStatus() === AccountStatus::ACTIVE ? ' selected' : ''); ?>><?= $this->getHtml('Active'); ?>
+                                    <option value="<?= $this->printHtml(AccountStatus::INACTIVE); ?>"<?= $this->printHtml($account->getStatus() === AccountStatus::INACTIVE ? ' selected' : ''); ?>><?= $this->getHtml('Inactive'); ?>
+                                    <option value="<?= $this->printHtml(AccountStatus::TIMEOUT); ?>"<?= $this->printHtml($account->getStatus() === AccountStatus::TIMEOUT ? ' selected' : ''); ?>><?= $this->getHtml('Timeout'); ?>
+                                    <option value="<?= $this->printHtml(AccountStatus::BANNED); ?>"<?= $this->printHtml($account->getStatus() === AccountStatus::BANNED ? ' selected' : ''); ?>><?= $this->getHtml('Banned'); ?>
                                 </select>
                         <tr><td><label for="iUsername"><?= $this->getHtml('Username'); ?></label>
                         <tr><td>
@@ -155,11 +159,11 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $value->getElement(); ?>
                     <td><?= $value->getComponent(); ?>
                     <td>
-                        <?= (\phpOMS\Account\PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
-                        <?= (\phpOMS\Account\PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
-                        <?= (\phpOMS\Account\PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
-                        <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
-                        <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
+                        <?= (PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
+                        <?= (PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
+                        <?= (PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
+                        <?= (PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
+                        <?= (PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
                 <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -187,28 +191,28 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label><?= $this->getHtml('Permission'); ?></label>
                         <tr><td>
                             <span class="checkbox">
-                                <input id="iPermissionCreate" name="permissioncreate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::CREATE ?>">
+                                <input id="iPermissionCreate" name="permissioncreate" type="checkbox" value="<?= PermissionType::CREATE ?>">
                                 <label for="iPermissionCreate"><?= $this->getHtml('Create') ?></label>
                             </span>
                             <span class="checkbox">
-                                <input id="iPermissionRead" name="permissionread" type="checkbox" value="<?= \phpOMS\Account\PermissionType::READ ?>">
+                                <input id="iPermissionRead" name="permissionread" type="checkbox" value="<?= PermissionType::READ ?>">
                                 <label for="iPermissionRead"><?= $this->getHtml('Read') ?></label>
                             </span>
                             <span class="checkbox">
-                                <input id="iPermissionUpdate" name="permissionupdate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::MODIFY ?>">
+                                <input id="iPermissionUpdate" name="permissionupdate" type="checkbox" value="<?= PermissionType::MODIFY ?>">
                                 <label for="iPermissionUpdate"><?= $this->getHtml('Update') ?></label>
                             </span>
                             <span class="checkbox">
-                                <input id="iPermissionDelete" name="permissiondelete" type="checkbox" value="<?= \phpOMS\Account\PermissionType::DELETE ?>">
+                                <input id="iPermissionDelete" name="permissiondelete" type="checkbox" value="<?= PermissionType::DELETE ?>">
                                 <label for="iPermissionDelete"><?= $this->getHtml('Delete') ?></label>
                             </span>
                             <span class="checkbox">
-                                <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= \phpOMS\Account\PermissionType::PERMISSION ?>">
+                                <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= PermissionType::PERMISSION ?>">
                                 <label for="iPermissionPermission"><?= $this->getHtml('Permission') ?></label>
                             </span>
                         <tr><td>
                             <input type="hidden" name="permissionref" value="<?= $this->printHtml($account->getId()); ?>">
-                            <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::GROUP ?>">
+                            <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::ACCOUNT ?>">
                             <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                     </table>
                 </form>

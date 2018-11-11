@@ -67,7 +67,7 @@ class Installer extends InstallerAbstract
                             `group_permission_group` int(11) NOT NULL,
                             `group_permission_unit` int(11) DEFAULT NULL,
                             `group_permission_app` varchar(255) DEFAULT NULL,
-                            `group_permission_module` int(11) DEFAULT NULL,
+                            `group_permission_module` varchar(255) DEFAULT NULL,
                             `group_permission_from` int(11) DEFAULT NULL,
                             `group_permission_type` int(11) DEFAULT NULL,
                             `group_permission_element` int(11) DEFAULT NULL,
