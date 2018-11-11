@@ -1,0 +1,45 @@
+{
+    "name": {
+        "id": 1007400000,
+        "internal": "DatabaseEditor",
+        "external": "DatabaseEditor"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The administration module.",
+    "directory": "DatabaseEditor",
+    "dependencies": {
+        "Admin": "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/dbeditor"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "DatabaseEditor",
+            "from": "DatabaseEditor"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "DatabaseEditor",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}
