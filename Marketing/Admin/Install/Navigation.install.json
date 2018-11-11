@@ -10,7 +10,7 @@
         "icon": "fa fa-paint-brush",
         "order": 60,
         "from": "Marketing",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Marketing",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1001901001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "Marketing",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1001902001,
                         "children": []
                     },
@@ -53,7 +53,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Marketing",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 4, "type": null, "element": null },
                         "parent": 1001902001,
                         "children": []
                     }
@@ -70,7 +70,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Marketing",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1001901001,
                 "children": [
                     {
@@ -84,7 +84,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "Marketing",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1001903001,
                         "children": []
                     },
@@ -99,7 +99,7 @@
                         "icon": null,
                         "order": 5,
                         "from": "Marketing",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 4, "type": null, "element": null },
                         "parent": 1001903001,
                         "children": []
                     }

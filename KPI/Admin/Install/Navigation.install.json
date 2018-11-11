@@ -10,7 +10,7 @@
         "icon": null,
         "order": 1,
         "from": "KPI",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1002801001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "KPI",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1007201001,
                 "children": []
             }

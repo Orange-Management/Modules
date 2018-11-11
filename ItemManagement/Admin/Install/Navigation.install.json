@@ -10,7 +10,7 @@
         "icon": null,
         "order": 10,
         "from": "ItemManagement",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1001601001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1004805001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "ItemManagement",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1004805101,
                         "children": []
                     }
@@ -55,7 +55,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1004805001,
                 "children": []
             }
@@ -72,7 +72,7 @@
         "icon": null,
         "order": 10,
         "from": "ItemManagement",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1002101001,
         "children": [
             {
@@ -86,7 +86,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1004806001,
                 "children": [
                     {
@@ -100,7 +100,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "ItemManagement",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1004806101,
                         "children": []
                     }
@@ -117,7 +117,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1004806001,
                 "children": []
             }
@@ -134,7 +134,7 @@
         "icon": null,
         "order": 10,
         "from": "ItemManagement",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1001301001,
         "children": [
             {
@@ -148,7 +148,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1004807001,
                 "children": [
                     {
@@ -162,7 +162,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "ItemManagement",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1004807101,
                         "children": []
                     }
@@ -179,7 +179,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1004807001,
                 "children": []
             }
@@ -196,7 +196,7 @@
         "icon": null,
         "order": 5,
         "from": "ItemManagement",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1004301001,
         "children": [
             {
@@ -210,7 +210,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1004808001,
                 "children": [
                     {
@@ -224,7 +224,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "ItemManagement",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1004808101,
                         "children": []
                     }
@@ -241,7 +241,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "ItemManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1004807001,
                 "children": []
             }

@@ -10,7 +10,7 @@
         "icon": "fa fa-comment",
         "order": 1,
         "from": "Chat",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 0,
         "children": []
     }

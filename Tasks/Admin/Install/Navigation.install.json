@@ -10,7 +10,7 @@
         "icon": "fa fa-bolt",
         "order": 15,
         "from": "Tasks",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 0,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Tasks",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1001101001,
                 "children": [
                     {
@@ -38,7 +38,7 @@
                         "icon": null,
                         "order": 1,
                         "from": "Tasks",
-                        "permission": { "type": null, "element": null },
+                        "permission": { "permission": 2, "type": null, "element": null },
                         "parent": 1001102001,
                         "children": []
                     }
@@ -55,7 +55,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "Tasks",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1001101001,
                 "children": []
             },
@@ -70,7 +70,7 @@
                 "icon": null,
                 "order": 20,
                 "from": "Tasks",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1001101001,
                 "children": []
             }

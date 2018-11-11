@@ -10,7 +10,7 @@
         "icon": null,
         "order": 10,
         "from": "Profile",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1006901001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Profile",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000301001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 3,
                 "from": "Profile",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000301001,
                 "children": []
             },
@@ -54,7 +54,7 @@
                 "icon": null,
                 "order": 999,
                 "from": "Profile",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000301001,
                 "children": []
             }
@@ -71,7 +71,7 @@
         "icon": null,
         "order": 1,
         "from": "Profile",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1000300000,
         "children": []
     },
@@ -86,7 +86,7 @@
         "icon": null,
         "order": 1,
         "from": "Profile",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1000300000,
         "children": []
     },
@@ -101,7 +101,7 @@
         "icon": null,
         "order": 2,
         "from": "Profile",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 4, "type": null, "element": null },
         "parent": 1000300000,
         "children": []
     }

@@ -10,7 +10,7 @@
         "icon": "fa fa-calendar",
         "order": 10,
         "from": "Calendar",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1006901001,
         "children": []
     },
@@ -25,7 +25,7 @@
         "icon": null,
         "order": 30,
         "from": "Calendar",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1003601001,
         "children": []
     }

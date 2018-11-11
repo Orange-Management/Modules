@@ -10,7 +10,7 @@
         "icon": "fa fa-wrench",
         "order": 15,
         "from": "Tools",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 0,
         "children": [
         ]

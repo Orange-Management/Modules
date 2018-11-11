@@ -10,7 +10,7 @@
         "icon": null,
         "order": 1,
         "from": "Dashboard",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1006901001,
         "children": []
     }

@@ -10,7 +10,7 @@
         "icon": null,
         "order": 20,
         "from": "Media",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1006901001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Media",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000401001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Media",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1000401001,
                 "children": []
             }
@@ -56,7 +56,7 @@
         "icon": null,
         "order": 3,
         "from": "Media",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1000301001,
         "children": []
     },
@@ -71,7 +71,7 @@
         "icon": null,
         "order": 3,
         "from": "Media",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1000104001,
         "children": []
     }

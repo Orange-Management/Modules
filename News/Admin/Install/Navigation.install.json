@@ -10,7 +10,7 @@
         "icon": null,
         "order": 40,
         "from": "News",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1006901001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "News",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000701001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "News",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000701001,
                 "children": []
             },
@@ -54,7 +54,7 @@
                 "icon": null,
                 "order": 10,
                 "from": "News",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1000701001,
                 "children": []
             },
@@ -69,7 +69,7 @@
                 "icon": null,
                 "order": 15,
                 "from": "News",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1000701001,
                 "children": []
             }

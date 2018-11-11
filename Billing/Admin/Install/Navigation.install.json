@@ -10,7 +10,7 @@
         "icon": null,
         "order": 5,
         "from": "Billing",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1001601001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Billing",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1005104001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Billing",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1005104001,
                 "children": []
             }
@@ -56,7 +56,7 @@
         "icon": null,
         "order": 5,
         "from": "Invoice",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1002101001,
         "children": [
             {
@@ -70,7 +70,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "Billing",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1005105001,
                 "children": []
             },
@@ -85,7 +85,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "Billing",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1005105001,
                 "children": []
             }

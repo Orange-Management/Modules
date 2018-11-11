@@ -10,7 +10,7 @@
         "icon": null,
         "order": 65,
         "from": "EventManagement",
-        "permission": { "type": null, "element": null },
+        "permission": { "permission": 2, "type": null, "element": null },
         "parent": 1003301001,
         "children": [
             {
@@ -24,7 +24,7 @@
                 "icon": null,
                 "order": 1,
                 "from": "EventManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 2, "type": null, "element": null },
                 "parent": 1004201001,
                 "children": []
             },
@@ -39,7 +39,7 @@
                 "icon": null,
                 "order": 5,
                 "from": "EventManagement",
-                "permission": { "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1004201001,
                 "children": []
             }
