@@ -76,6 +76,8 @@ class ApiController extends Controller
      */
     public function apiReporterSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        // todo: check permission here
+
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
@@ -150,6 +152,8 @@ class ApiController extends Controller
      */
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        // todo: check permission here
+
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
@@ -170,7 +174,7 @@ class ApiController extends Controller
             return -1;
         }
 
-        $files = \json_decode((string) $request->getData('media-list'));
+        $files = \json_decode((string) $request->getData('media-list'), true);
         // TODO: make sure this user has permissions for provided files
 
         /* Create collection */
@@ -218,6 +222,8 @@ class ApiController extends Controller
      */
     public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        // todo: check permission here
+
         $this->handleTemplateDatabaseFromRequest($request);
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $report       = $this->createReportFromRequest($request, $response, $collectionId);

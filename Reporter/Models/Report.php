@@ -22,7 +22,7 @@ namespace Modules\Reporter\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Report
+class Report implements \JsonSerializable
 {
 
     /**
@@ -249,5 +249,22 @@ class Report
     public function getSource()
     {
         return $this->source;
+    }
+
+    public function toArray() : array
+    {
+        return [
+            'id' => $this->id,
+            'createdBy' => $this->createdBy,
+            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
+            'name' => $this->title,
+            'description' => $this->description,
+            'status' => $this->status,
+        ];
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

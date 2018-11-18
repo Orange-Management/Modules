@@ -135,14 +135,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('name', 'Test template');
         $request->setData('description', 'Template description');
         $request->setData('datatype', TemplateDataType::OTHER);
-        $request->setData('files', \json_encode($ids));
+        $request->setData('media-list', \json_encode($ids));
         $request->getHeader()->setAccount(1);
 
         $response = new Response(new Localization());
         $this->module->apiTemplateCreate($request, $response);
 
-        self::assertEquals('Test template', $response->get('')['name']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('Test template', $response->get('')['response']['name']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     /**
@@ -205,7 +205,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request = new Request(new Http(''));
         $request->setData('name', 'Test report');
         $request->setData('template', 1);
-        $request->setData('files', \json_encode($ids));
+        $request->setData('media-list', \json_encode($ids));
         $request->getHeader()->setAccount(1);
 
         $response = new Response(new Localization());

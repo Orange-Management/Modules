@@ -57,6 +57,26 @@ class Installer extends InstallerAbstract
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_ibfk_2` FOREIGN KEY (`profile_account_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`);'
                 )->execute();
 
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'profile_account_permission` (
+                            `profile_account_permission_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `profile_account_permission_profile` int(11) NOT NULL,
+                            `profile_account_permission_account` int(11) NOT NULL,
+                            `profile_account_permission_group` int(11) NOT NULL,
+                            PRIMARY KEY (`profile_account_permission_id`),
+                            KEY `profile_account_permission_profile` (`profile_account_permission_profile`),
+                            KEY `profile_account_permission_account` (`profile_account_permission_account`),
+                            KEY `profile_account_permission_group` (`profile_account_permission_group`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+                )->execute();
+
+                $dbPool->get()->con->prepare(
+                    'ALTER TABLE `' . $dbPool->get()->prefix . 'profile_account_permission`
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_permission_ibfk_1` FOREIGN KEY (`profile_account_permission_profile`) REFERENCES `' . $dbPool->get()->prefix . 'profile_account` (`profile_account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_permission_ibfk_2` FOREIGN KEY (`profile_account_permission_account`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
+                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'profile_account_permission_ibfk_3` FOREIGN KEY (`profile_account_permission_group`) REFERENCES `' . $dbPool->get()->prefix . 'group` (`group_id`);'
+                )->execute();
+
                 // real contacts that you also save in your email contact list. this is to store other accounts
                 $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'profile_contact` (

@@ -131,7 +131,7 @@ echo $this->getData('nav')->render(); ?>
 
         <section class="box wf-100">
             <div class="inner">
-                <form id="taskElementCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task/element?{?}&csrf={$CSRF}'); ?>">
+                <form id="taskElementCreate" method="PUT" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/task/element?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
                         <tr><td><?= $this->getData('editor')->render('task-editor'); ?>

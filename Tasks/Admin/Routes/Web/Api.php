@@ -38,7 +38,7 @@ return [
     '^.*/api/task/element.*$' => [
         [
             'dest' => '\Modules\Tasks\Controller\ApiController:apiTaskElementCreate',
-            'verb' => RouteVerb::SET,
+            'verb' => RouteVerb::PUT,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
