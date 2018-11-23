@@ -78,7 +78,7 @@ class Module
     }
 
     /**
-     * Get group id.
+     * Get module id.
      *
      * @return int
      *
@@ -102,7 +102,7 @@ class Module
     }
 
     /**
-     * Get group name.
+     * Get module name.
      *
      * @return string
      *
@@ -114,9 +114,9 @@ class Module
     }
 
     /**
-     * Set group name.
+     * Set module name.
      *
-     * @param string $name Group name
+     * @param string $name module name
      *
      * @return void
      *
@@ -128,7 +128,7 @@ class Module
     }
 
     /**
-     * Get group description.
+     * Get module description.
      *
      * @return string
      *
@@ -140,9 +140,9 @@ class Module
     }
 
     /**
-     * Set group description.
+     * Set module description.
      *
-     * @param string $description Group description
+     * @param string $description Module description
      *
      * @return void
      *
@@ -154,9 +154,9 @@ class Module
     }
 
     /**
-     * Get group status.
+     * Get module status.
      *
-     * @return int Group status
+     * @return int Module status
      *
      * @since  1.0.0
      */
@@ -166,9 +166,9 @@ class Module
     }
 
     /**
-     * Set group status.
+     * Set module status.
      *
-     * @param int $status Group status
+     * @param int $status Module status
      *
      * @return void
      *

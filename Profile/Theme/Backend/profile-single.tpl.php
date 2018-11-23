@@ -117,7 +117,7 @@ echo $this->getData('nav')->render();
 
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <?= $this->getData('calendar')->render($account->getCalendar()); ?>
+                    <?= $this->getData('calendar')->render(null /* calendar object here */); ?>
                 </div>
             </div>
         </div>

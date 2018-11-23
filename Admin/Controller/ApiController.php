@@ -39,6 +39,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Module\InfoManager;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
+use phpOMS\Validation\Network\Email;
 
 /**
  * Admin controller class.
@@ -305,6 +306,7 @@ final class ApiController extends Controller
      */
     public function apiGroupFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set(
             $request->getUri()->__toString(),
             \array_values(
@@ -354,6 +356,7 @@ final class ApiController extends Controller
      */
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set(
             $request->getUri()->__toString(),
             \array_values(
@@ -373,12 +376,12 @@ final class ApiController extends Controller
      */
     private function validateAccountCreate(RequestAbstract $request) : array
     {
-        // todo: validate email correctness
         $val = [];
         if (($val['login'] = empty($request->getData('login')))
             || ($val['name1'] = empty($request->getData('name1')))
             || ($val['type'] = !AccountType::isValidValue((int) $request->getData('type')))
             || ($val['status'] = !AccountStatus::isValidValue((int) $request->getData('status')))
+            || ($val['email'] = !empty($request->getData('email')) && !Email::isValid((string) $request->getData('email')))
         ) {
             return $val;
         }
@@ -442,6 +445,8 @@ final class ApiController extends Controller
         $account->setName3((string) ($request->getData('name3') ?? ''));
         $account->setEmail((string) ($request->getData('email') ?? ''));
         $account->generatePassword((string) ($request->getData('password') ?? ''));
+
+        // todo: set remaining login tries based on global default config here. but before you have to add it to the model and mapper
 
         return $account;
     }

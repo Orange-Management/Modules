@@ -10,100 +10,107 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+use phpOMS\DataStorage\Database\DatabaseType;
+
+$dbTypes = DatabaseType::getConstants();
+
 echo $this->getData('nav')->render(); ?>
 
+<div class="row">
+    <div class="col-xs-12 col-md-3">
+        <section class="box wf-100">
+            <div class="inner">
+                <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/editor?{?}&csrf={$CSRF}'); ?>">
+                    <table class="layout wf-100" style="table-layout: fixed">
+                        <tbody>
+                        <tr><td><label for="iDatabaseType"><?= $this->getHtml('DatabaseType') ?></label>
+                        <tr><td>
+                            <select id="iDatabaseType" name="type">
+                                <?php foreach ($dbTypes as $type): ?>
+                                <option value="<?= $this->printHtml($type); ?>"><?= $this->printHtml($type) ?>
+                                <?php endforeach; ?>
+                            </select>
+                        <tr><td><label for="iHost"><?= $this->getHtml('Host') ?></label>
+                        <tr><td><input type="text" id="iHost" name="host">
+                        <tr><td><label for="iPort"><?= $this->getHtml('Port') ?></label>
+                        <tr><td><input min="0" max="65536" type="number" id="iPort" name="port">
+                        <tr><td><label for="iDatabase"><?= $this->getHtml('Database') ?></label>
+                        <tr><td><input type="text" id="iDatabase" name="database">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Connect'); ?>">
+                    </table>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-xs-12 col-md-9">
+        <section class="box wf-100">
+            <div class="inner">
+                <table class="layout wf-100" style="table-layout: fixed">
+                    <tbody>
+                    <tr><td><textarea style="height: 200px" form="fDatabaseConnection"></textarea>
+                    <tr><td><input form="fDatabaseConnection" type="submit" value="<?= $this->getHtml('Execute'); ?>">
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+
 <div class="tabular-2">
-    <div class="box">
+    <div class="box wf-100">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->getHtml('General'); ?></label></li>
-            <li><label for="c-tab-2"><?= $this->getHtml('Modules'); ?></label></li>
-            <li><label for="c-tab-3"><?= $this->getHtml('Elements'); ?></label></li>
-            <li><label for="c-tab-4"><?= $this->getHtml('Fixdata'); ?></label></li>
-            <li><label for="c-tab-5"><?= $this->getHtml('Calculation'); ?></label></li>
-            <li><label for="c-tab-6"><?= $this->getHtml('Dataformat'); ?></label></li>
-            <li><label for="c-tab-7"><?= $this->getHtml('Headlines'); ?></label></li>
-            <li><label for="c-tab-8"><?= $this->getHtml('Permissions'); ?></label></li>
-            <li><label for="c-tab-9"><?= $this->getHtml('Options'); ?></label></li>
+            <li><label for="c-tab-1"><?= $this->getHtml('Query'); ?></label></li>
+            <li><label for="c-tab-2"><?= $this->getHtml('Database'); ?></label></li>
         </ul>
     </div>
     <div class="tab-content">
         <input type="radio" id="c-tab-1" name="tabular-2" checked>
         <div class="tab">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-md-3">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('General') ?></h1></header>
                         <div class="inner">
-                            <form>
-                                <table class="layout">
-                                    <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
-                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
-                                </table>
-                            </form>
+                            <div class="ipt-wrap">
+                                <div class="ipt-first">
+                                    <select id="iExport" name="type">
+                                        <option value="excel"><?= $this->getHtml('Excel') ?>
+                                        <option value="csv"><?= $this->getHtml('CSV') ?>
+                                        <option value="json"><?= $this->getHtml('JSON') ?>
+                                    </select>
+                                </div>
+                                <div class="ipt-second"><button><?= $this->getHtml('Export') ?></button></div>
+                            </div>
                         </div>
                     </section>
                 </div>
+
+                <div class="col-xs-12">
+                    <table class="table red">
+                    <caption><?= $this->getHtml('QueryResult') ?> - <?= $this->getHtml('Limit1000') ?></caption>
+                    <thead>
+                    <tbody>
+                        <tr><td><?= $this->getHtml('NoResults') ?>
+                    </table>
+                </div>
             </div>
         </div>
-
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-3">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Query') ?></h1></header>
                         <div class="inner">
-                            <form>
-                                <table class="layout">
-                                    <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>
-                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Next') ?>">
-                                </table>
-                            </form>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="col-xs-9">
+                    <section class="box wf-100">
+                        <div class="inner">
                         </div>
                     </section>
                 </div>
             </div>
-        </div>
-
-        <input type="radio" id="c-tab-3" name="tabular-2">
-        <div class="tab">
-        </div>
-
-        <input type="radio" id="c-tab-4" name="tabular-2">
-        <div class="tab">
-        </div>
-
-        <input type="radio" id="c-tab-5" name="tabular-2">
-        <div class="tab">
-        </div>
-
-        <input type="radio" id="c-tab-6" name="tabular-2">
-        <div class="tab">
-        </div>
-
-        <input type="radio" id="c-tab-7" name="tabular-2">
-        <div class="tab">
-        </div>
-
-        <input type="radio" id="c-tab-8" name="tabular-2">
-        <div class="tab">
-        </div>
-
-        <input type="radio" id="c-tab-9" name="tabular-2">
-        <div class="tab">
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12">
-        <div class="box wf-100">
-            <table class="table red">
-                <caption><?= $this->getHtml('Result') ?></caption>
-                <thead>
-                <tbody>
-                <tr><td colspan="1" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
-            </table>
         </div>
     </div>
 </div>

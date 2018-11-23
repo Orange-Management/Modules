@@ -31,6 +31,10 @@ class BaseView extends View
 
     public function render(...$data) : string
     {
+        if (empty($data) || $data[0] === null) {
+            return '';
+        }
+
         $this->calendar = $data[0];
         return parent::render();
     }

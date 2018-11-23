@@ -152,7 +152,12 @@ class ApiController extends Controller
         $newsArticle = $this->createNewsArticleFromRequest($request);
 
         NewsArticleMapper::create($newsArticle);
-        $response->set($request->getUri()->__toString(), $newsArticle->jsonSerialize());
+        $response->set($request->getUri()->__toString(), [
+            'status' => NotificationLevel::OK,
+            'title' => 'News',
+            'message' => 'News article successfully created.',
+            'response' => $newsArticle->jsonSerialize()
+        ]);
     }
 
     /**

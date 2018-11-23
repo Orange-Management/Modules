@@ -639,8 +639,13 @@ class ApiController extends Controller
      */
     public function apiUnitFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), array_values(UnitMapper::find((string) ($request->getData('search') ?? ''))));
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set(
+            $request->getUri()->__toString(),
+            \array_values(
+                UnitMapper::find((string) ($request->getData('search') ?? ''))
+            )
+        );
     }
 
     /**
@@ -658,8 +663,13 @@ class ApiController extends Controller
      */
     public function apiDepartmentFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), array_values(DepartmentMapper::find((string) ($request->getData('search') ?? ''))));
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set(
+            $request->getUri()->__toString(),
+            \array_values(
+                DepartmentMapper::find((string) ($request->getData('search') ?? ''))
+            )
+        );
     }
 
     /**
@@ -677,7 +687,12 @@ class ApiController extends Controller
      */
     public function apiPositionFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), array_values(PositionMapper::find((string) ($request->getData('search') ?? ''))));
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set(
+            $request->getUri()->__toString(),
+            \array_values(
+                PositionMapper::find((string) ($request->getData('search') ?? ''))
+            )
+        );
     }
 }

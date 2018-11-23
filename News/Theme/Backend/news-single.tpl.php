@@ -22,9 +22,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->printHtml($news->getTitle()); ?></h1></header>
             <div class="inner">
-                <article>
-                    <?= $this->printHtml($news->getContent()); ?>
-                </article>
+                <article><?= $news->getContent(); ?></article>
             </div>
         </section>
     </div>

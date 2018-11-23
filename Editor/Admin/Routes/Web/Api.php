@@ -9,7 +9,7 @@ return [
     '^.*/api/editor.*$' => [
         [
             'dest' => '\Modules\Editor\Controller\ApiController:apiEditorCreate',
-            'verb' => RouteVerb::SET,
+            'verb' => RouteVerb::PUT,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
