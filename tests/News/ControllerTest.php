@@ -89,8 +89,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiNewsCreate($request, $response);
 
-        self::assertEquals('Controller Test Title', $response->get('')['title']);
-        self::assertGreaterThan(0, $response->get('')['id']);
+        self::assertEquals('Controller Test Title', $response->get('')['response']['title']);
+        self::assertGreaterThan(0, $response->get('')['response']['id']);
     }
 
     public function testApiNewsGet()
