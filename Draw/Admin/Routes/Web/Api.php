@@ -8,7 +8,7 @@ use Modules\Draw\Controller\ApiController;
 return [
     '^.*/api/draw.*$' => [
         [
-            'dest' => '\Modules\Draw\ControllerApiController:apiDrawCreate',
+            'dest' => '\Modules\Draw\Controller\ApiController:apiDrawCreate',
             'verb' => RouteVerb::SET,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
