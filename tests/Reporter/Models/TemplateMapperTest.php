@@ -23,7 +23,7 @@ use Modules\Media\Models\CollectionMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-class TemplateMapperTest extends \PHPUnit\Framework\TestCase
+final class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

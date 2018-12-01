@@ -22,7 +22,7 @@ namespace Modules\Knowledgebase\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class WikiDoc implements \JsonSerializable
+final class WikiDoc implements \JsonSerializable
 {
     private $id = 0;
 

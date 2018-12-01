@@ -17,7 +17,7 @@ use Modules\Reporter\Models\ReporterStatus;
 use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 
-class TemplateTest extends \PHPUnit\Framework\TestCase
+final class TemplateTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

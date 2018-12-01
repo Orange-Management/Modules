@@ -15,7 +15,7 @@ namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QABadge;
 
-class QABadgeTest extends \PHPUnit\Framework\TestCase
+final class QABadgeTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

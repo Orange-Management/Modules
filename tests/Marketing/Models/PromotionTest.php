@@ -17,7 +17,7 @@ use Modules\Marketing\Models\Promotion;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
-class PromotionTest extends \PHPUnit\Framework\TestCase
+final class PromotionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

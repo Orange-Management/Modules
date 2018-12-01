@@ -20,7 +20,7 @@ use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 use Modules\Admin\Models\AccountMapper;
 
-class MediaMapper extends DataMapperAbstract
+final class MediaMapper extends DataMapperAbstract
 {
 
     /**

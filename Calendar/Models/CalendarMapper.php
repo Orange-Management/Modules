@@ -28,7 +28,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class CalendarMapper extends DataMapperAbstract
+final class CalendarMapper extends DataMapperAbstract
 {
     /**
      * Class name.

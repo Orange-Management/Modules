@@ -22,7 +22,7 @@ namespace Modules\Kanban\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class KanbanBoard implements \JsonSerializable
+final class KanbanBoard implements \JsonSerializable
 {
     private $id = 0;
 

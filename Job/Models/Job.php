@@ -22,7 +22,7 @@ namespace Modules\Job\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Job
+final class Job
 {
 
 }

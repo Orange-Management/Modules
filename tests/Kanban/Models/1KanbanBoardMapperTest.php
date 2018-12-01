@@ -19,7 +19,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
-class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
+final class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

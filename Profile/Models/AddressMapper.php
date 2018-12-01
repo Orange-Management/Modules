@@ -29,7 +29,7 @@ use phpOMS\Stdlib\Base\Location;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class AddressMapper extends DataMapperAbstract
+final class AddressMapper extends DataMapperAbstract
 {
     /**
      * Columns.

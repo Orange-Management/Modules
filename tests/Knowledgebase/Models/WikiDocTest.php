@@ -17,7 +17,7 @@ use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiStatus;
 use Modules\Knowledgebase\Models\WikiBadge;
 
-class WikiDocTest extends \PHPUnit\Framework\TestCase
+final class WikiDocTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

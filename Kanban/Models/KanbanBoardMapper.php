@@ -28,7 +28,7 @@ use Modules\Admin\Models\AccountMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class KanbanBoardMapper extends DataMapperAbstract
+final class KanbanBoardMapper extends DataMapperAbstract
 {
 
     /**

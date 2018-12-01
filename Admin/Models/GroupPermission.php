@@ -26,7 +26,7 @@ use phpOMS\Account\PermissionAbstract;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class GroupPermission extends PermissionAbstract
+final class GroupPermission extends PermissionAbstract
 {
     /**
      * Group id

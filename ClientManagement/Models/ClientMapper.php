@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class ClientMapper extends DataMapperAbstract
+final class ClientMapper extends DataMapperAbstract
 {
     /**
      * Columns.

@@ -22,7 +22,7 @@ namespace Modules\Accounting\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class InvoicePosting extends PostingAbstract
+final class InvoicePosting extends PostingAbstract
 {
 
     /**

@@ -25,7 +25,7 @@ use Modules\Media\Models\CollectionMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-class ReportMapperTest extends \PHPUnit\Framework\TestCase
+final class ReportMapperTest extends \PHPUnit\Framework\TestCase
 {
     private function createTemplate()
     {

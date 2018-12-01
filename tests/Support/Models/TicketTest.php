@@ -20,7 +20,7 @@ use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskElement;
 
-class TicketTest extends \PHPUnit\Framework\TestCase
+final class TicketTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

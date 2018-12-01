@@ -22,7 +22,7 @@ namespace Modules\QA\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class QAQuestion implements \JsonSerializable
+final class QAQuestion implements \JsonSerializable
 {
     private $id = 0;
 

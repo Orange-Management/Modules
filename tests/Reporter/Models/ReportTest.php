@@ -16,7 +16,7 @@ namespace Modules\tests\Reporter\Models;
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReporterStatus;
 
-class ReportTest extends \PHPUnit\Framework\TestCase
+final class ReportTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

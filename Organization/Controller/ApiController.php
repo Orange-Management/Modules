@@ -45,7 +45,7 @@ use Modules\Organization\Models\PermissionState;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class ApiController extends Controller
+final class ApiController extends Controller
 {
 
     /**

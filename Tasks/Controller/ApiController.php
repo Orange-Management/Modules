@@ -31,7 +31,6 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 use phpOMS\Account\PermissionType;
@@ -45,7 +44,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class ApiController extends Controller
+final class ApiController extends Controller
 {
     /**
      * Validate task create request
@@ -91,7 +90,10 @@ class ApiController extends Controller
 
         $task = $this->createTaskFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Tasks-task-create', '', $task);
         TaskMapper::create($task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-task-create', '', $task);
+
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'Task',
@@ -172,8 +174,11 @@ class ApiController extends Controller
      */
     public function apiTaskSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $task   = $this->updateTaskFromRequest($request);
+        $task = $this->updateTaskFromRequest($request);
+
+        $this->app->eventManager->trigger('PRE:Module:Tasks-task-update', '', $task);
         $status = TaskMapper::update($task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-task-update', '', $task);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -252,8 +257,10 @@ class ApiController extends Controller
         $task    = TaskMapper::get($element->getTask());
         $task->setStatus($element->getStatus());
 
+        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-create', '', $element);
         TaskElementMapper::create($element);
         TaskMapper::update($task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-create', '', $element);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -326,8 +333,11 @@ class ApiController extends Controller
      */
     public function apiTaskElementSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $task   = $this->updateTaskElementFromRequest($request);
+        $task = $this->updateTaskElementFromRequest($request);
+
+        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-update', '', $task);
         $status = TaskElementMapper::update($task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-update', '', $task);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,

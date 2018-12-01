@@ -19,7 +19,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
-class WikiBadgeMapperTest extends \PHPUnit\Framework\TestCase
+final class WikiBadgeMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

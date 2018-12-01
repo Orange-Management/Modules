@@ -22,7 +22,7 @@ namespace Modules\Support;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Issue
+final class Issue
 {
     /**
      * Id.

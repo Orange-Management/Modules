@@ -15,7 +15,7 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\AccountType;
 
-class AccountTypeTest extends \PHPUnit\Framework\TestCase
+final class AccountTypeTest extends \PHPUnit\Framework\TestCase
 {
     public function testEnums()
     {

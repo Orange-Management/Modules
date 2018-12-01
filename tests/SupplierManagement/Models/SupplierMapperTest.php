@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
-class SupplierMapperTest extends \PHPUnit\Framework\TestCase
+final class SupplierMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

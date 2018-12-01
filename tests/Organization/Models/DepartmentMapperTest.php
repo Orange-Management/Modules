@@ -18,7 +18,7 @@ use Modules\Organization\Models\DepartmentMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
+final class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

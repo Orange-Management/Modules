@@ -30,7 +30,7 @@ use Modules\Media\Models\MediaMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class PromotionMapper extends DataMapperAbstract
+final class PromotionMapper extends DataMapperAbstract
 {
 
     /**

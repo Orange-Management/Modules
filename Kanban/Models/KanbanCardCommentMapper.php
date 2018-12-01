@@ -28,7 +28,7 @@ use Modules\Media\Models\MediaMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class KanbanCardCommentMapper extends DataMapperAbstract
+final class KanbanCardCommentMapper extends DataMapperAbstract
 {
 
     /**

@@ -19,7 +19,7 @@ use Modules\EventManagement\Models\ProgressType;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
-class EventTest extends \PHPUnit\Framework\TestCase
+final class EventTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

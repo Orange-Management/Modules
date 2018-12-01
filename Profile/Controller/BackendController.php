@@ -31,7 +31,7 @@ use phpOMS\Asset\AssetType;
  * @since      1.0.0
  * @codeCoverageIgnore
  */
-class BackendController extends Controller
+final class BackendController extends Controller
 {
     /**
      * @param RequestAbstract  $request  Request

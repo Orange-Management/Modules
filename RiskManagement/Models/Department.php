@@ -24,7 +24,7 @@ use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Department
+final class Department
 {
     private $id = 0;
 

@@ -20,7 +20,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class ProjectMapper extends DataMapperAbstract
+final class ProjectMapper extends DataMapperAbstract
 {
     /**
      * Columns.

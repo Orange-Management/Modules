@@ -25,7 +25,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\StringUtils;
 use phpOMS\Utils\RnG\Text;
 
-class TaskMapperTest extends \PHPUnit\Framework\TestCase
+final class TaskMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

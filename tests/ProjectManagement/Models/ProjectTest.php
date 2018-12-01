@@ -18,7 +18,7 @@ use Modules\ProjectManagement\Models\ProgressType;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
-class ProjectTest extends \PHPUnit\Framework\TestCase
+final class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

@@ -16,7 +16,7 @@ namespace Modules\tests\QA\Models;
 use Modules\QA\Models\QAAnswer;
 use Modules\QA\Models\QAAnswerStatus;
 
-class QAAnswerTest extends \PHPUnit\Framework\TestCase
+final class QAAnswerTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

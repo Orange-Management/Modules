@@ -15,7 +15,7 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Category;
 
-class CategoryTest extends \PHPUnit\Framework\TestCase
+final class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

@@ -18,7 +18,7 @@ use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-class MediaMapperTest extends \PHPUnit\Framework\TestCase
+final class MediaMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

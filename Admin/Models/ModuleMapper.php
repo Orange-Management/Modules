@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class ModuleMapper extends DataMapperAbstract
+final class ModuleMapper extends DataMapperAbstract
 {
 
     /**

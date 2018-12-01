@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class RiskObjectMapper extends DataMapperAbstract
+final class RiskObjectMapper extends DataMapperAbstract
 {
     /**
      * Columns.

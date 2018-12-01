@@ -20,7 +20,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 
-class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
+final class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

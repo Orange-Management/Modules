@@ -16,7 +16,7 @@ namespace Modules\tests\Organization\Models;
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Status;
 
-class DepartmentTest extends \PHPUnit\Framework\TestCase
+final class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

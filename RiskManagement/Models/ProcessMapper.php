@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class ProcessMapper extends DataMapperAbstract
+final class ProcessMapper extends DataMapperAbstract
 {
     /**
      * Columns.

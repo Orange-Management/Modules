@@ -24,7 +24,7 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Schedule
+final class Schedule
 {
     /**
      * Schedule ID.

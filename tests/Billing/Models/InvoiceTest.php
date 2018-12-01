@@ -18,7 +18,7 @@ use Modules\Billing\Models\InvoiceType;
 use Modules\Billing\Models\InvoiceStatus;
 use phpOMS\Localization\ISO4217CharEnum;
 
-class InvoiceTest extends \PHPUnit\Framework\TestCase
+final class InvoiceTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

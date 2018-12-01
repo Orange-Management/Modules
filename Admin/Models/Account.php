@@ -22,6 +22,6 @@ namespace Modules\Admin\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Account extends \phpOMS\Account\Account
+final class Account extends \phpOMS\Account\Account
 {
 }

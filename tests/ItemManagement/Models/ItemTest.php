@@ -16,7 +16,7 @@ namespace Modules\tests\ItemManagement\Models;
 use Modules\ItemManagement\Models\Item;
 use Modules\Media\Models\Media;
 
-class ItemTest extends \PHPUnit\Framework\TestCase
+final class ItemTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

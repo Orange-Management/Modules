@@ -32,7 +32,7 @@ use Modules\QA\Models\QABadgeMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class ApiController extends Controller
+final class ApiController extends Controller
 {
     public function apiQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

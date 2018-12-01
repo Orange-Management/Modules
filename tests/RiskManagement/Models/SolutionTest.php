@@ -15,7 +15,7 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Solution;
 
-class SolutionTest extends \PHPUnit\Framework\TestCase
+final class SolutionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

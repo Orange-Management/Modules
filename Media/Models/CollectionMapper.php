@@ -18,7 +18,7 @@ use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 
-class CollectionMapper extends MediaMapper
+final class CollectionMapper extends MediaMapper
 {
     protected static $hasMany = [
         'sources' => [

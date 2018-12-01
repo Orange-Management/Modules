@@ -18,7 +18,7 @@ use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\Department;
 
-class RiskTest extends \PHPUnit\Framework\TestCase
+final class RiskTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

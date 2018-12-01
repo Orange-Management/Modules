@@ -25,7 +25,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\StringUtils;
 use phpOMS\Utils\RnG\Text;
 
-class TicketMapperTest extends \PHPUnit\Framework\TestCase
+final class TicketMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

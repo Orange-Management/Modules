@@ -27,7 +27,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class KanbanLabelMapper extends DataMapperAbstract
+final class KanbanLabelMapper extends DataMapperAbstract
 {
 
     /**

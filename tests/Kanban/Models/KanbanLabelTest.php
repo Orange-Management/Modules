@@ -15,7 +15,7 @@ namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanLabel;
 
-class KanbanLabelTest extends \PHPUnit\Framework\TestCase
+final class KanbanLabelTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

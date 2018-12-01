@@ -20,7 +20,7 @@ use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskType;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
-class TaskTest extends \PHPUnit\Framework\TestCase
+final class TaskTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

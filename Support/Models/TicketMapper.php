@@ -29,7 +29,7 @@ use Modules\Tasks\Models\TaskMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class TicketMapper extends DataMapperAbstract
+final class TicketMapper extends DataMapperAbstract
 {
 
     /**

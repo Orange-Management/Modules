@@ -20,7 +20,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
-class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
+final class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\RelationType;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Admin\Models\AccountMapper;
 
-class TemplateMapper extends DataMapperAbstract
+final class TemplateMapper extends DataMapperAbstract
 {
 
     /**

@@ -31,7 +31,7 @@ use Modules\Calendar\Models\CalendarMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class ProfileMapper extends DataMapperAbstract
+final class ProfileMapper extends DataMapperAbstract
 {
     /**
      * Columns.

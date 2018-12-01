@@ -15,7 +15,7 @@ namespace Modules\tests\Admin\Models;
 
 use Modules\Admin\Models\Group;
 
-class GroupTest extends \PHPUnit\Framework\TestCase
+final class GroupTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

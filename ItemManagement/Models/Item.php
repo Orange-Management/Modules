@@ -24,7 +24,7 @@ use Modules\Media\Models\Media;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Item
+final class Item
 {
     private $id = 0;
 

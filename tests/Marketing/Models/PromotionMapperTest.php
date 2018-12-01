@@ -22,7 +22,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 
-class PromotionMapperTest extends \PHPUnit\Framework\TestCase
+final class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

@@ -16,7 +16,7 @@ namespace Modules\tests\Kanban\Models;
 use Modules\Kanban\Models\KanbanBoard;
 use Modules\Kanban\Models\BoardStatus;
 
-class KanbanBoardTest extends \PHPUnit\Framework\TestCase
+final class KanbanBoardTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

@@ -15,7 +15,7 @@ namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanCardComment;
 
-class KanbanCardCommentTest extends \PHPUnit\Framework\TestCase
+final class KanbanCardCommentTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

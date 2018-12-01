@@ -27,7 +27,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class TaskElementMapper extends DataMapperAbstract
+final class TaskElementMapper extends DataMapperAbstract
 {
 
     /**

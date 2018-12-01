@@ -29,7 +29,7 @@ use phpOMS\Auth\LoginReturnType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class AccountMapper extends DataMapperAbstract
+final class AccountMapper extends DataMapperAbstract
 {
     /**
      * Columns.

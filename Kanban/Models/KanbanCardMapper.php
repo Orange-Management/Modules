@@ -29,7 +29,7 @@ use Modules\Admin\Models\AccountMapper;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class KanbanCardMapper extends DataMapperAbstract
+final class KanbanCardMapper extends DataMapperAbstract
 {
 
     /**

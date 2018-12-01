@@ -15,7 +15,7 @@ namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QACategory;
 
-class QACategoryTest extends \PHPUnit\Framework\TestCase
+final class QACategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

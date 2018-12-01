@@ -22,7 +22,7 @@ namespace Modules\RiskManagement\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class RiskObject
+final class RiskObject
 {
     private $id = 0;
 

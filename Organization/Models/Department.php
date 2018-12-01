@@ -24,7 +24,7 @@ use phpOMS\Contract\ArrayableInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Department implements ArrayableInterface, \JsonSerializable
+final class Department implements ArrayableInterface, \JsonSerializable
 {
     /**
      * Article ID.

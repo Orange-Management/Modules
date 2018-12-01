@@ -16,7 +16,7 @@ namespace Modules\tests\Calendar\Models;
 use Modules\Calendar\Models\Event;
 use phpOMS\Account\Account;
 
-class EventTest extends \PHPUnit\Framework\TestCase
+final class EventTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

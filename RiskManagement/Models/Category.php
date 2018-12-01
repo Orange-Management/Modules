@@ -22,7 +22,7 @@ namespace Modules\RiskManagement\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Category
+final class Category
 {
     private $id = 0;
 

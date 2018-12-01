@@ -19,7 +19,7 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
-class CauseMapper extends DataMapperAbstract
+final class CauseMapper extends DataMapperAbstract
 {
     /**
      * Columns.

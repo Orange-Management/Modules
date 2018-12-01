@@ -15,7 +15,7 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\BatchPosting;
 
-class BatchPostingTest extends \PHPUnit\Framework\TestCase
+final class BatchPostingTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

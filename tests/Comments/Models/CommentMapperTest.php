@@ -16,7 +16,7 @@ namespace Modules\tests\Comments\Models;
 use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentMapper;
 
-class CommentMapperTest extends \PHPUnit\Framework\TestCase
+final class CommentMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

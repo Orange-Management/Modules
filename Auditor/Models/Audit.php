@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Auditor\Models;
 
-class Audit
+use phpOMS\Account\Account;
+
+final class Audit
 {
     private $id = 0;
 
@@ -36,14 +38,16 @@ class Audit
 
     private $createdAt = null;
 
-    public function __construct()
-    {
+    public function __construct(
+        Account $account,
+        string $old,
+        string $new,
+        int $type = 0,
+        int $subtype = 0,
+        string $module = null,
+        string $content = null
+    ) {
         $this->createdAt = new \DateTime('now');
-    }
-
-    public function setType(int $type) : void
-    {
-        $this->type = $type;
     }
 
     public function getType() : int
@@ -51,19 +55,9 @@ class Audit
         return $this->type;
     }
 
-    public function setSubType(int $subtype) : void
-    {
-        $this->subtype = $subtype;
-    }
-
     public function getSubType() : int
     {
         return $this->subtype;
-    }
-
-    public function setModule(int $module) : void
-    {
-        $this->module = $module;
     }
 
     public function getModule() : int
@@ -71,19 +65,9 @@ class Audit
         return $this->module;
     }
 
-    public function setRef(string $ref) : void
-    {
-        $this->ref = $ref;
-    }
-
     public function getRef() : string
     {
         return $this->ref;
-    }
-
-    public function setContent(string $content) : void
-    {
-        $this->content = $content;
     }
 
     public function getContent() : string
@@ -91,29 +75,14 @@ class Audit
         return $this->content;
     }
 
-    public function setOld(string $old) : void
-    {
-        $this->old = $old;
-    }
-
     public function getOld() : string
     {
         return $this->old;
     }
 
-    public function setNew(string $new) : void
-    {
-        $this->new = $new;
-    }
-
     public function getNew() : string
     {
         return $this->new;
-    }
-
-    public function setCreatedBy($createdBy) : void
-    {
-        $this->createdBy = $createdBy;
     }
 
     public function getCreatedBy()

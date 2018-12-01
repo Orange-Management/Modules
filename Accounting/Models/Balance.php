@@ -24,7 +24,7 @@ use phpOMS\Utils\IO\ExchangeInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Balance
+final class Balance
 {
 
     /**
