@@ -15,7 +15,7 @@ namespace Modules\tests\SupplierManagement\Models;
 
 use Modules\SupplierManagement\Models\Supplier;
 
-final class SupplierTest extends \PHPUnit\Framework\TestCase
+class SupplierTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

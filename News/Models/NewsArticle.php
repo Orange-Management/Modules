@@ -26,7 +26,7 @@ use phpOMS\Localization\ISO639x1Enum;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class NewsArticle implements ArrayableInterface, \JsonSerializable
+class NewsArticle implements ArrayableInterface, \JsonSerializable
 {
 
     /**

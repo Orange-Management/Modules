@@ -20,7 +20,7 @@ use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
-final class NewsArticleTest extends \PHPUnit\Framework\TestCase
+class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

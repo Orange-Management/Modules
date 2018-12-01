@@ -26,7 +26,7 @@ use phpOMS\System\File\FileUtils;
  * @since      1.0.0
  * @codeCoverageIgnore
  */
-final class UploadFile
+class UploadFile
 {
     public const PATH_GENERATION_LIMIT = 1000;
 

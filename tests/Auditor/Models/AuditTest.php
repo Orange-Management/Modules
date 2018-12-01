@@ -15,7 +15,7 @@ namespace Modules\tests\Auditor\Models;
 
 use Modules\Auditor\Models\Audit;
 
-final class AuditTest extends \PHPUnit\Framework\TestCase
+class AuditTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

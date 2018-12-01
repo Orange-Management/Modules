@@ -29,7 +29,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
-final class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
+class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
 {
     private static $unitId       = 0;
     private static $departmentId = 0;

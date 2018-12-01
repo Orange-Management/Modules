@@ -22,6 +22,6 @@ namespace Modules\RiskManagement\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class NullDepartment extends Department
+class NullDepartment extends Department
 {
 }

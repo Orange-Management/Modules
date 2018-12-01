@@ -25,7 +25,7 @@ use Modules\Tasks\Models\TaskType;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Ticket
+class Ticket
 {
 
     private $id = 0;

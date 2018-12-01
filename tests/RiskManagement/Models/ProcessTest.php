@@ -15,7 +15,7 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Process;
 
-final class ProcessTest extends \PHPUnit\Framework\TestCase
+class ProcessTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

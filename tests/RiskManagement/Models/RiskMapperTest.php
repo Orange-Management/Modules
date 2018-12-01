@@ -25,7 +25,7 @@ use Modules\Media\Models\Media;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class RiskMapperTest extends \PHPUnit\Framework\TestCase
+class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

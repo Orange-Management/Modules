@@ -22,7 +22,7 @@ namespace Modules\Tasks\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class NullTask extends Task
+class NullTask extends Task
 {
 
 }

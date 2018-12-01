@@ -15,7 +15,7 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Project;
 
-final class ProjectTest extends \PHPUnit\Framework\TestCase
+class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

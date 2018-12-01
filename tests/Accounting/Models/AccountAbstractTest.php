@@ -15,7 +15,7 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\AccountAbstract;
 
-final class AccountAbstractTest extends \PHPUnit\Framework\TestCase
+class AccountAbstractTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp()
     {

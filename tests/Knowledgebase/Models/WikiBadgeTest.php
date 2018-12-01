@@ -15,7 +15,7 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiBadge;
 
-final class WikiBadgeTest extends \PHPUnit\Framework\TestCase
+class WikiBadgeTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

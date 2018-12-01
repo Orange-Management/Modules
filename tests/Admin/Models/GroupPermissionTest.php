@@ -15,7 +15,7 @@ namespace Modules\tests\Admin\Models;
 
 use Modules\Admin\Models\GroupPermission;
 
-final class GroupPermissionTest extends \PHPUnit\Framework\TestCase
+class GroupPermissionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

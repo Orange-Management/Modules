@@ -15,7 +15,7 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\Balance;
 
-final class BalanceTest extends \PHPUnit\Framework\TestCase
+class BalanceTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

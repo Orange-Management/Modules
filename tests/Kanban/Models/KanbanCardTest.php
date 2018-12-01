@@ -17,7 +17,7 @@ use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\CardStatus;
 use Modules\Kanban\Models\CardType;
 
-final class KanbanCardTest extends \PHPUnit\Framework\TestCase
+class KanbanCardTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

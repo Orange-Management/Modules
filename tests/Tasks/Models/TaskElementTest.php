@@ -16,7 +16,7 @@ namespace Modules\tests\Tasks\Models;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskStatus;
 
-final class TaskElementTest extends \PHPUnit\Framework\TestCase
+class TaskElementTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

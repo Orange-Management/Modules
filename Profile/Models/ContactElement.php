@@ -22,7 +22,7 @@ namespace Modules\Profile\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class ContactElement
+class ContactElement
 {
     private $id = 0;
 

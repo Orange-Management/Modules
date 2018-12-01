@@ -22,7 +22,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
-final class AccountMapperTest extends \PHPUnit\Framework\TestCase
+class AccountMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

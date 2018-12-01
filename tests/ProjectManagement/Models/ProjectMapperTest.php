@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 
-final class ProjectMapperTest extends \PHPUnit\Framework\TestCase
+class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

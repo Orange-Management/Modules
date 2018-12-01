@@ -20,7 +20,7 @@ use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Position;
 
-final class EmployeeTest extends \PHPUnit\Framework\TestCase
+class EmployeeTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

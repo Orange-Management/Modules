@@ -22,7 +22,7 @@ namespace Modules\Reporter\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Template implements \JsonSerializable
+class Template implements \JsonSerializable
 {
 
     /**

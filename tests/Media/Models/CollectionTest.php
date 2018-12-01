@@ -15,7 +15,7 @@ namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Collection;
 
-final class CollectionTest extends \PHPUnit\Framework\TestCase
+class CollectionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

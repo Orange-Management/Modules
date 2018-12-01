@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\Process;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
+class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

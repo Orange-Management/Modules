@@ -22,7 +22,7 @@ namespace Modules\Warehousing\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Arrival
+class Arrival
 {
 
     /**

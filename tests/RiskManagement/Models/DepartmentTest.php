@@ -16,7 +16,7 @@ namespace Modules\tests\RiskManagement\Models;
 use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\NullDepartment;
 
-final class DepartmentTest extends \PHPUnit\Framework\TestCase
+class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

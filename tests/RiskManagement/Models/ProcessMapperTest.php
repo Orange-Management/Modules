@@ -18,7 +18,7 @@ use Modules\RiskManagement\Models\ProcessMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
+class ProcessMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

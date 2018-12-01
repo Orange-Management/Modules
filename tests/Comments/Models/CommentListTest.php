@@ -16,7 +16,7 @@ namespace Modules\tests\Comments\Models;
 use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\Comment;
 
-final class CommentListTest extends \PHPUnit\Framework\TestCase
+class CommentListTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

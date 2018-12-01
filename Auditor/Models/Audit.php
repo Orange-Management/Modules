@@ -16,7 +16,7 @@ namespace Modules\Auditor\Models;
 
 use phpOMS\Account\Account;
 
-final class Audit
+class Audit
 {
     private $id = 0;
 

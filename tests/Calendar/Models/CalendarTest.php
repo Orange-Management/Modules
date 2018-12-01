@@ -16,7 +16,7 @@ namespace Modules\tests\Calendar\Models;
 use Modules\Calendar\Models\Calendar;
 use Modules\Calendar\Models\Event;
 
-final class CalendarTest extends \PHPUnit\Framework\TestCase
+class CalendarTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

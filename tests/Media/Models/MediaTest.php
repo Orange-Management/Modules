@@ -15,7 +15,7 @@ namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Media;
 
-final class MediaTest extends \PHPUnit\Framework\TestCase
+class MediaTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

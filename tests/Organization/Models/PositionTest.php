@@ -17,7 +17,7 @@ use Modules\Organization\Models\Position;
 use Modules\Organization\Models\NullDepartment;
 use Modules\Organization\Models\Status;
 
-final class PositionTest extends \PHPUnit\Framework\TestCase
+class PositionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

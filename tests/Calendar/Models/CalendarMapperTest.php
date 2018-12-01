@@ -19,7 +19,7 @@ use Modules\Calendar\Models\Event;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class CalendarMapperTest extends \PHPUnit\Framework\TestCase
+class CalendarMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

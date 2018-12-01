@@ -22,7 +22,7 @@ namespace Modules\Admin\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Group extends \phpOMS\Account\Group
+class Group extends \phpOMS\Account\Group
 {
     /**
      * Created at.

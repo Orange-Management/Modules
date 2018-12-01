@@ -26,7 +26,7 @@ use phpOMS\Account\PermissionAbstract;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class AccountPermission extends PermissionAbstract
+class AccountPermission extends PermissionAbstract
 {
     /**
      * Account id

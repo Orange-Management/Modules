@@ -24,7 +24,7 @@ use Modules\Media\Models\Media;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class KanbanLabel implements \JsonSerializable
+class KanbanLabel implements \JsonSerializable
 {
     private $id = 0;
 

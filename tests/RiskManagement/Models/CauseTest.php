@@ -15,7 +15,7 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Cause;
 
-final class CauseTest extends \PHPUnit\Framework\TestCase
+class CauseTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

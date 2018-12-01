@@ -25,7 +25,7 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Task implements \JsonSerializable
+class Task implements \JsonSerializable
 {
 
     /**

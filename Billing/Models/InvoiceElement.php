@@ -22,7 +22,7 @@ namespace Modules\Billing\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class InvoiceElement implements \JsonSerializable
+class InvoiceElement implements \JsonSerializable
 {
     private $id = 0;
 

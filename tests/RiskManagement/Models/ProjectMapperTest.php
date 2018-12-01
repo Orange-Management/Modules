@@ -18,7 +18,7 @@ use Modules\RiskManagement\Models\ProjectMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class ProjectMapperTest extends \PHPUnit\Framework\TestCase
+class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

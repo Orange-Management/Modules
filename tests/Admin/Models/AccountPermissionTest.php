@@ -15,7 +15,7 @@ namespace Modules\tests\Admin\Models;
 
 use Modules\Admin\Models\AccountPermission;
 
-final class AccountPermissionTest extends \PHPUnit\Framework\TestCase
+class AccountPermissionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {

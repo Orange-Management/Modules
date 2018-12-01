@@ -27,7 +27,7 @@ use phpOMS\Utils\ArrayUtils;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class InterfaceManager
+class InterfaceManager
 {
     /**
      * Interface ID.

@@ -18,7 +18,7 @@ use Modules\RiskManagement\Models\CategoryMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class CategoryMapperTest extends \PHPUnit\Framework\TestCase
+class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

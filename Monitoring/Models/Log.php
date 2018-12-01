@@ -1,6 +1,6 @@
 <?php
 
-final class Log implements \JsonSerializable
+class Log implements \JsonSerializable
 {
     private $id = 0;
 

@@ -15,7 +15,7 @@ namespace Modules\tests\Tasks\Models;
 
 use Modules\Editor\Models\EditorDoc;
 
-final class EditorDocTest extends \PHPUnit\Framework\TestCase
+class EditorDocTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

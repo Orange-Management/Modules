@@ -18,7 +18,7 @@ use Modules\Organization\Models\PositionMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class PositionMapperTest extends \PHPUnit\Framework\TestCase
+class PositionMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

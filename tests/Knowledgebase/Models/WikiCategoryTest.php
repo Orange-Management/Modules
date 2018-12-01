@@ -15,7 +15,7 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiCategory;
 
-final class WikiCategoryTest extends \PHPUnit\Framework\TestCase
+class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

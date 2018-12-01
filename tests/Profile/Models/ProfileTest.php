@@ -15,7 +15,7 @@ namespace Modules\tests\Profile\Models;
 
 use Modules\Profile\Models\Profile;
 
-final class ProfileTest extends \PHPUnit\Framework\TestCase
+class ProfileTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

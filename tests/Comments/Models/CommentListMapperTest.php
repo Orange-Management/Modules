@@ -17,7 +17,7 @@ use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\CommentListMapper;
 use Modules\Comments\Models\Comment;
 
-final class CommentListMapperTest extends \PHPUnit\Framework\TestCase
+class CommentListMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

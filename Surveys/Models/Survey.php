@@ -22,7 +22,7 @@ namespace Modules\Surveys;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Survey
+class Survey
 {
 
     /**

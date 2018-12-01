@@ -25,7 +25,7 @@ use Modules\Profile\Models\Profile;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Supplier
+class Supplier
 {
     private $id = 0;
 

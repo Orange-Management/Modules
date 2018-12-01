@@ -21,7 +21,7 @@ use Modules\RiskManagement\Models\CauseMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class CauseMapperTest extends \PHPUnit\Framework\TestCase
+class CauseMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

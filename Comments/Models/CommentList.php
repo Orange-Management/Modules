@@ -22,7 +22,7 @@ namespace Modules\Comments\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class CommentList
+class CommentList
 {
     private $id = 0;
 

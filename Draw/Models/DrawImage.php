@@ -25,7 +25,7 @@ use phpOMS\Contract\ArrayableInterface;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class DrawImage implements ArrayableInterface, \JsonSerializable
+class DrawImage implements ArrayableInterface, \JsonSerializable
 {
 
     /**

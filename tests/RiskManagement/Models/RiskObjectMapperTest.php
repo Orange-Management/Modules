@@ -18,7 +18,7 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-final class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
+class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testCRUD()

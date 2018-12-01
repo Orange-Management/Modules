@@ -17,7 +17,7 @@ use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionStatus;
 use Modules\QA\Models\QABadge;
 
-final class QAQuestionTest extends \PHPUnit\Framework\TestCase
+class QAQuestionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {

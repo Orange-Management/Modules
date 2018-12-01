@@ -22,7 +22,7 @@ namespace Modules\Media\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Collection extends Media implements \Iterator
+class Collection extends Media implements \Iterator
 {
 
     /**

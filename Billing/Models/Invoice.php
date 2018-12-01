@@ -25,7 +25,7 @@ use phpOMS\Localization\Money;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Invoice implements \JsonSerializable
+class Invoice implements \JsonSerializable
 {
     private $id = 0;
 

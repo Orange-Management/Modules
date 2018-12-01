@@ -15,7 +15,7 @@ namespace Modules\tests\ClientManagement\Models;
 
 use Modules\ClientManagement\Models\Client;
 
-final class ClientTest extends \PHPUnit\Framework\TestCase
+class ClientTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefult()
     {
