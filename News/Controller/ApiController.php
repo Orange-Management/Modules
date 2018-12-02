@@ -276,7 +276,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return NewsArticle
+     * @return Badge
      *
      * @since  1.0.0
      */
@@ -285,7 +285,7 @@ final class ApiController extends Controller
         $mardkownParser = new Markdown();
 
         $badge = new Badge();
-        $badge->setTitle((string) ($request->getData('title') ?? ''));
+        $badge->setName((string) ($request->getData('title') ?? ''));
 
         return $badge;
     }
