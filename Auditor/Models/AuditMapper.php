@@ -81,4 +81,28 @@ final class AuditMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $createdAt = 'auditor_audit_created_at';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function update($obj, int $relations = RelationType::ALL, int $depth = 1)
+    {
+        // prevent updating
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function updateArray(array &$obj, int $relations = RelationType::ALL, int $depth = 1)
+    {
+        // prevent updating
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function delete($obj, int $relations = RelationType::REFERENCE)
+    {
+        // prevent deleting
+    }
 }

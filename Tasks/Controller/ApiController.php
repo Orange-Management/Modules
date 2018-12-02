@@ -90,9 +90,9 @@ final class ApiController extends Controller
 
         $task = $this->createTaskFromRequest($request);
 
-        $this->app->eventManager->trigger('PRE:Module:Tasks-task-create', '', $task);
+        $this->app->eventManager->trigger('PRE:Module:Tasks-task-create', '', [$task]);
         TaskMapper::create($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-task-create', '', $task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-task-create', '', [$task]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -176,9 +176,9 @@ final class ApiController extends Controller
     {
         $task = $this->updateTaskFromRequest($request);
 
-        $this->app->eventManager->trigger('PRE:Module:Tasks-task-update', '', $task);
+        $this->app->eventManager->trigger('PRE:Module:Tasks-task-update', '', [$task]);
         $status = TaskMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-task-update', '', $task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-task-update', '', [$task]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -257,10 +257,10 @@ final class ApiController extends Controller
         $task    = TaskMapper::get($element->getTask());
         $task->setStatus($element->getStatus());
 
-        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-create', '', $element);
+        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-create', '', [$element]);
         TaskElementMapper::create($element);
         TaskMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-create', '', $element);
+        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-create', '', [$element]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -335,9 +335,9 @@ final class ApiController extends Controller
     {
         $task = $this->updateTaskElementFromRequest($request);
 
-        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-update', '', $task);
+        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-update', '', [$task]);
         $status = TaskElementMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-update', '', $task);
+        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-update', '', [$task]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,

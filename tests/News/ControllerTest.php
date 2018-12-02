@@ -29,6 +29,7 @@ use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Utils\TestUtils;
 use Modules\Admin\Models\AccountPermission;
 use phpOMS\Account\PermissionType;
+use phpOMS\Event\EventManager;
 
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
@@ -49,6 +50,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->orgId          = 1;
         $this->app->appName        = 'Backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
+        $this->app->eventManager   = new EventManager();
+        $this->app->eventManager->importFromFile(__DIR__ . '/../../../Web/Api/Hooks.php');
 
         $account = new Account();
         TestUtils::setMember($account, 'id', 1);

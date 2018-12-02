@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'PRE:Module:.*?\-create' => [
+    'POST:Module:.*?\-create' => [
         'callback' => ['\Modules\Auditor\Controller\ApiController:apiLogCreate'],
     ],
-    'PRE:Module:.*?\-update' => [
+    'POST:Module:.*?\-update' => [
         'callback' => ['\Modules\Auditor\Controller\ApiController:apiLogUpdate'],
     ],
-    'PRE:Module:.*?\-delete' => [
+    'POST:Module:.*?\-delete' => [
         'callback' => ['\Modules\Auditor\Controller\ApiController:apiLogDelete'],
     ],
 ];

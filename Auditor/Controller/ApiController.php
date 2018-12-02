@@ -24,6 +24,9 @@ use phpOMS\Account\Account;
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\RelationType;
 
+use Modules\Auditor\Models\Audit;
+use Modules\Auditor\Models\AuditMapper;
+
 final class ApiController extends Controller
 {
     public function apiLogCreate(
@@ -33,10 +36,12 @@ final class ApiController extends Controller
         int $type = 0,
         int $subtype = 0,
         string $module = null,
+        string $ref = null,
         string $content = null
     ) : void
     {
-
+        $audit = new Audit($account, null, $new->__toString(), $type, $subtype, $module, $ref, $content);
+        AuditMapper::create($audit);
     }
 
     public function apiLogUpdate(
@@ -46,10 +51,12 @@ final class ApiController extends Controller
         int $type = 0,
         int $subtype = 0,
         string $module = null,
+        string $ref = null,
         string $content = null
     ) : void
     {
-
+        $audit = new Audit($account, $old->__toString(), $new->__toString(), $type, $subtype, $module, $ref, $content);
+        AuditMapper::create($audit);
     }
 
     public function apiLogDelete(
@@ -59,9 +66,11 @@ final class ApiController extends Controller
         int $type = 0,
         int $subtype = 0,
         string $module = null,
+        string $ref = null,
         string $content = null
     ) : void
     {
-
+        $audit = new Audit($account, $new->__toString(), null, $type, $subtype, $module, $ref, $content);
+        AuditMapper::create($audit);
     }
 }
