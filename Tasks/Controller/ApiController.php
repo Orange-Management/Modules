@@ -92,7 +92,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Tasks-task-create', '', [$task]);
         TaskMapper::create($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-task-create', '', [$task]);
+        $this->app->eventManager->trigger('POST:Module:Tasks-task-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $task,
+        ]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -178,7 +182,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Tasks-task-update', '', [$task]);
         $status = TaskMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-task-update', '', [$task]);
+        $this->app->eventManager->trigger('POST:Module:Tasks-task-update', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $task,
+        ]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -260,7 +268,11 @@ final class ApiController extends Controller
         $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-create', '', [$element]);
         TaskElementMapper::create($element);
         TaskMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-create', '', [$element]);
+        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-create', '', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $element,
+        ]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -337,7 +349,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-update', '', [$task]);
         $status = TaskElementMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-update', '', [$task]);
+        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-update', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $task,
+        ]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,

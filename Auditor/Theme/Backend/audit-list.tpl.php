@@ -39,7 +39,15 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach ($audits as $key => $audit) : $count++;
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/audit/single?{?}&id=' . $audit->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td>
+                        <td><?= $audit->getId(); ?>
+                        <td><?= $audit->getModule(); ?>
+                        <td><?= $audit->getType(); ?>
+                        <td><?= $audit->getSubtype(); ?>
+                        <td><?= $audit->getOld(); ?>
+                        <td><?= $audit->getNew(); ?>
+                        <td><?= $audit->getContent(); ?>
+                        <td><?= $audit->getCreatedBy()->getName(); ?>
+                        <td><?= $audit->getCreatedAt()->format('Y-m-d H:i:s'); ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

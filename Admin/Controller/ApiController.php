@@ -99,7 +99,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-settings-set', '', $data);
         $this->app->appSettings->set($data, true);
-        $this->app->eventManager->trigger('POST:Module:Admin-settings-set', '', $data);
+        $this->app->eventManager->trigger('POST:Module:Admin-settings-set', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $data,
+        ]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
@@ -152,7 +156,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-group-update', '', $group);
         GroupMapper::update($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-update', '', $group);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-update', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $group,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -229,7 +237,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-group-create', '', $group);
         GroupMapper::create($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-create', '', $group);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $group,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -280,7 +292,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-group-delete', '', $group);
         $status = GroupMapper::delete($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-delete', '', $group);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-delete', '', [
+            $request->getHeader()->getAccount(),
+            $group,
+            null,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -414,7 +430,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-account-create', '', $account);
         AccountMapper::create($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-create', '', $account);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $account,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -470,7 +490,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-account-delete', '', $account);
         $status = AccountMapper::delete($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-delete', '', $account);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-delete', '', [
+            $request->getHeader()->getAccount(),
+            $account,
+            null,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -500,7 +524,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-account-update', '', $account);
         $status = AccountMapper::update($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-update', '', $account);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-update', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $account,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -637,7 +665,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-group-permission-create', '', $permission);
         GroupPermissionMapper::create($permission);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-permission-create', '', $permission);
+        $this->app->eventManager->trigger('POST:Module:Admin-group-permission-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $permission,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -679,7 +711,11 @@ final class ApiController extends Controller
 
         $this->app->eventManager->trigger('PRE:Module:Admin-account-permission-create', '', $permission);
         AccountPermissionMapper::create($permission);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-permission-create', '', $permission);
+        $this->app->eventManager->trigger('POST:Module:Admin-account-permission-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $permission,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [

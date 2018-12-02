@@ -35,14 +35,6 @@ class Audit
     private $id = 0;
 
     /**
-     * Audit account.
-     *
-     * @var int|Account
-     * @since 1.0.0
-     */
-    private $account = 0;
-
-    /**
      * Audit type.
      *
      * @var int
@@ -140,9 +132,9 @@ class Audit
      * @since  1.0.0
      */
     public function __construct(
-        Account $account,
-        ?string $old,
-        ?string $new,
+        $account = 0,
+        string $old = null,
+        string $new = null,
         int $type = 0,
         int $subtype = 0,
         string $module = null,
@@ -150,7 +142,7 @@ class Audit
         string $content = null
     ) {
         $this->createdAt = new \DateTime('now');
-        $this->account   = $account;
+        $this->createdBy = $account;
         $this->old       = $old;
         $this->new       = $new;
         $this->type      = $type;
@@ -158,6 +150,18 @@ class Audit
         $this->module    = $module;
         $this->ref       = $ref;
         $this->content   = $content;
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
     }
 
     /**

@@ -30,6 +30,7 @@ use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Utils\TestUtils;
 use phpOMS\Account\PermissionType;
 use phpOMS\Event\EventManager;
+use phpOMS\Dispatcher\Dispatcher;
 
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\AccountStatus;
@@ -59,7 +60,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
         $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
         $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
-        $this->app->eventManager   = new EventManager();
+        $this->app->dispatcher     = new Dispatcher($this->app);
+        $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->eventManager->importFromFile(__DIR__ . '/../../../Web/Api/Hooks.php');
 
         $account = new Account();

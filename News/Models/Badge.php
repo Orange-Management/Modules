@@ -22,7 +22,7 @@ namespace Modules\News\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Badge
+class Badge implements \JsonSerializable
 {
     private $id = 0;
 
@@ -46,5 +46,13 @@ class Badge
     public function getName() : string
     {
         return $this->name;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+        ];
     }
 }

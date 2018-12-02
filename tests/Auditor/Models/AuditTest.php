@@ -14,49 +14,42 @@
 namespace Modules\tests\Auditor\Models;
 
 use Modules\Auditor\Models\Audit;
+use phpOMS\Account\Account;
 
 class AuditTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault()
     {
-        $audit = new Audit();
+        $audit = new Audit(new Account(), null, null);
         self::assertEquals(0, $audit->getType());
         self::assertEquals(0, $audit->getSubType());
-        self::assertEquals(0, $audit->getModule());
-        self::assertEquals('', $audit->getRef());
-        self::assertEquals('', $audit->getContent());
-        self::assertEquals('', $audit->getOld());
-        self::assertEquals('', $audit->getNew());
-        self::assertEquals(0, $audit->getCreatedBy());
+        self::assertEquals(null, $audit->getModule());
+        self::assertEquals(null, $audit->getRef());
+        self::assertEquals(null, $audit->getContent());
+        self::assertEquals(null, $audit->getOld());
+        self::assertEquals(null, $audit->getNew());
+        self::assertEquals(0, $audit->getCreatedBy()->getId());
         self::assertInstanceOf('\DateTime', $audit->getCreatedAt());
     }
 
     public function testSetGet()
     {
-        $audit = new Audit();
+        $audit = new Audit(
+            new Account(),
+            'old', 'new',
+            1, 2,
+            3,
+            'test',
+            'content'
+        );
 
-        $audit->setType(1);
         self::assertEquals(1, $audit->getType());
-
-        $audit->setSubType(2);
         self::assertEquals(2, $audit->getSubType());
-
-        $audit->setModule(3);
         self::assertEquals(3, $audit->getModule());
-
-        $audit->setRef('test');
         self::assertEquals('test', $audit->getRef());
-
-        $audit->setContent('content');
         self::assertEquals('content', $audit->getContent());
-
-        $audit->setOld('old');
         self::assertEquals('old', $audit->getOld());
-
-        $audit->setNew('new');
         self::assertEquals('new', $audit->getNew());
-
-        $audit->setCreatedBy(99);
-        self::assertEquals(99, $audit->getCreatedBy());
+        self::assertEquals(0, $audit->getCreatedBy()->getId());
     }
 }

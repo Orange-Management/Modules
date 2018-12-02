@@ -30,7 +30,7 @@ use Modules\Auditor\Models\AuditMapper;
 final class ApiController extends Controller
 {
     public function apiLogCreate(
-        Account $account,
+        $account,
         $old,
         $new,
         int $type = 0,
@@ -40,12 +40,14 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $audit = new Audit($account, null, $new->__toString(), $type, $subtype, $module, $ref, $content);
+        $newString = $this->stringify($new);
+        $audit     = new Audit($account, null, $newString, $type, $subtype, $module, $ref, $content);
+
         AuditMapper::create($audit);
     }
 
     public function apiLogUpdate(
-        Account $account,
+        $account,
         $old,
         $new,
         int $type = 0,
@@ -55,12 +57,15 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $audit = new Audit($account, $old->__toString(), $new->__toString(), $type, $subtype, $module, $ref, $content);
+        $oldString = $this->stringify($old);
+        $newString = $this->stringify($new);
+        $audit     = new Audit($account, $oldString, $newString, $type, $subtype, $module, $ref, $content);
+
         AuditMapper::create($audit);
     }
 
     public function apiLogDelete(
-        Account $account,
+        $account,
         $old,
         $new,
         int $type = 0,
@@ -70,7 +75,28 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $audit = new Audit($account, $new->__toString(), null, $type, $subtype, $module, $ref, $content);
+        $oldString = $this->stringify($old);
+        $audit     = new Audit($account, $oldString, null, $type, $subtype, $module, $ref, $content);
+
         AuditMapper::create($audit);
+    }
+
+    private function stringify($element) : ?string
+    {
+        $stringified = '';
+
+        if ($element instanceof \JsonSerializable) {
+            $stringified = \json_encode($element);
+        } elseif ($element instanceof \Serializable) {
+            $stringified = $element->serialize();
+        } elseif (\is_string($element)) {
+            $stringified = $element;
+        } elseif ($element === null) {
+            return null;
+        } else {
+            $stringified = $element->__toString();
+        }
+
+        return $stringified;
     }
 }

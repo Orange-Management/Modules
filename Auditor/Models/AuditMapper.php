@@ -42,7 +42,7 @@ final class AuditMapper extends DataMapperAbstract
         'auditor_audit_created_by' => ['name' => 'auditor_audit_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'auditor_audit_created_at' => ['name' => 'auditor_audit_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'auditor_audit_ip'         => ['name' => 'auditor_audit_ip', 'type' => 'int', 'internal' => 'ip'],
-        'auditor_audit_module'     => ['name' => 'auditor_audit_module', 'type' => 'int', 'internal' => 'module'],
+        'auditor_audit_module'     => ['name' => 'auditor_audit_module', 'type' => 'string', 'internal' => 'module'],
         'auditor_audit_ref'        => ['name' => 'auditor_audit_ref', 'type' => 'string', 'internal' => 'ref'],
         'auditor_audit_type'       => ['name' => 'auditor_audit_type', 'type' => 'int', 'internal' => 'type'],
         'auditor_audit_subtype'    => ['name' => 'auditor_audit_subtype', 'type' => 'int', 'internal' => 'subtype'],
@@ -72,7 +72,7 @@ final class AuditMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'auditor_audit';
+    protected static $primaryField = 'auditor_audit_id';
 
     /**
      * Created at.

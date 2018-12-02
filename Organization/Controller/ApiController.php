@@ -119,7 +119,13 @@ final class ApiController extends Controller
     {
         $unit = $this->updateUnitFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Organization-unit-update', '', $unit);
         UnitMapper::update($unit);
+        $this->app->eventManager->trigger('POST:Module:Organization-unit-update', '', [
+            $request->getHeader()->getAccount(),
+            $unit,
+            $unit,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -168,8 +174,15 @@ final class ApiController extends Controller
      */
     public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $unit   = UnitMapper::get((int) $request->getData('id'));
+        $unit = UnitMapper::get((int) $request->getData('id'));
+
+        $this->app->eventManager->trigger('PRE:Module:Organization-unit-delete', '', $unit);
         $status = UnitMapper::delete($unit);
+        $this->app->eventManager->trigger('POST:Module:Organization-unit-delete', '', [
+            $request->getHeader()->getAccount(),
+            $unit,
+            null,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -203,7 +216,13 @@ final class ApiController extends Controller
 
         $unit = $this->createUnitFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Organization-unit-create', '', $unit);
         UnitMapper::create($unit);
+        $this->app->eventManager->trigger('POST:Module:Organization-unit-update', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $unit,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -307,7 +326,14 @@ final class ApiController extends Controller
     public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $position = PositionMapper::get((int) $request->getData('id'));
-        $status   = PositionMapper::delete($position);
+
+        $this->app->eventManager->trigger('PRE:Module:Organization-position-delete', '', $position);
+        $status = PositionMapper::delete($position);
+        $this->app->eventManager->trigger('POST:Module:Organization-position-delete', '', [
+            $request->getHeader()->getAccount(),
+            $position,
+            null,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -335,7 +361,13 @@ final class ApiController extends Controller
     {
         $position = $this->updatePositionFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Organization-position-update', '', $position);
         PositionMapper::update($position);
+        $this->app->eventManager->trigger('POST:Module:Organization-position-update', '', [
+            $request->getHeader()->getAccount(),
+            $position,
+            $position,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -395,7 +427,13 @@ final class ApiController extends Controller
 
         $position = $this->createPositionFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Organization-position-create', '', $position);
         PositionMapper::create($position);
+        $this->app->eventManager->trigger('POST:Module:Organization-position-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $position,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -502,7 +540,13 @@ final class ApiController extends Controller
     {
         $department = $this->updateDepartmentFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Organization-department-update', '', $department);
         DepartmentMapper::update($department);
+        $this->app->eventManager->trigger('POST:Module:Organization-department-update', '', [
+            $request->getHeader()->getAccount(),
+            $department,
+            $department,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -555,7 +599,14 @@ final class ApiController extends Controller
     public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $department = DepartmentMapper::get((int) $request->getData('id'));
-        $status     = DepartmentMapper::delete($department);
+
+        $this->app->eventManager->trigger('PRE:Module:Organization-department-delete', '', $department);
+        $status = DepartmentMapper::delete($department);
+        $this->app->eventManager->trigger('POST:Module:Organization-department-delete', '', [
+            $request->getHeader()->getAccount(),
+            $department,
+            null,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [
@@ -589,7 +640,13 @@ final class ApiController extends Controller
 
         $department = $this->createDepartmentFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:Organization-department-create', '', $department);
         DepartmentMapper::create($department);
+        $this->app->eventManager->trigger('POST:Module:Organization-department-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $department,
+        ]);
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [

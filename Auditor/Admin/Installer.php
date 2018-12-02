@@ -42,13 +42,13 @@ class Installer extends InstallerAbstract
                 $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'auditor_audit` (
                         `auditor_audit_id` int(11) NOT NULL AUTO_INCREMENT,
-                        `auditor_audit_module` int(11) NOT NULL,
-                        `auditor_audit_ref` int(11) NOT NULL,
+                        `auditor_audit_module` varchar(255) DEFAULT NULL,
+                        `auditor_audit_ref` int(11) DEFAULT NULL,
                         `auditor_audit_type` smallint(3) NOT NULL,
                         `auditor_audit_subtype` smallint(3) NOT NULL,
-                        `auditor_audit_content` text NOT NULL,
-                        `auditor_audit_old` text NOT NULL,
-                        `auditor_audit_new` text NOT NULL,
+                        `auditor_audit_content` text DEFAULT NULL,
+                        `auditor_audit_old` text DEFAULT NULL,
+                        `auditor_audit_new` text DEFAULT NULL,
                         `auditor_audit_created_at` datetime NOT NULL,
                         `auditor_audit_created_by` int(11) NOT NULL,
                         `auditor_audit_ip` int(11) NOT NULL,

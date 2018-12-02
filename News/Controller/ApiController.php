@@ -16,6 +16,7 @@ namespace Modules\News\Controller;
 
 use phpOMS\Model\Message\FormValidation;
 
+use Modules\News\Models\Badge;
 use Modules\News\Models\BadgeMapper;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
@@ -151,7 +152,14 @@ final class ApiController extends Controller
 
         $newsArticle = $this->createNewsArticleFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:News-article-create', '', $newsArticle);
         NewsArticleMapper::create($newsArticle);
+        $this->app->eventManager->trigger('POST:Module:News-article-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $newsArticle,
+        ]);
+
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
             'title' => 'News',
@@ -252,7 +260,14 @@ final class ApiController extends Controller
 
         $badge = $this->createBadgeFromRequest($request);
 
+        $this->app->eventManager->trigger('PRE:Module:News-badge-create', '', $badge);
         BadgeMapper::create($badge);
+        $this->app->eventManager->trigger('POST:Module:News-badge-create', '', [
+            $request->getHeader()->getAccount(),
+            null,
+            $badge,
+        ]);
+
         $response->set('badge', $badge->jsonSerialize());
     }
 
@@ -340,8 +355,15 @@ final class ApiController extends Controller
      */
     public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $news   = NewsArticleMapper::get((int) $request->getData('id'));
+        $news = NewsArticleMapper::get((int) $request->getData('id'));
+
+        $this->app->eventManager->trigger('PRE:Module:News-article-delete', '', $news);
         $status = NewsArticleMapper::delete($news);
+        $this->app->eventManager->trigger('POST:Module:News-article-delete', '', [
+            $request->getHeader()->getAccount(),
+            $news,
+            null,
+        ]);
 
         $response->set($request->getUri()->__toString(), [
             'status' => NotificationLevel::OK,
