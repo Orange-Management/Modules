@@ -41,6 +41,8 @@ use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
 use phpOMS\Validation\Network\Email;
 
+use Model\Settings;
+
 /**
  * Admin controller class.
  *
@@ -435,6 +437,21 @@ final class ApiController extends Controller
             null,
             $account,
         ]);
+
+        if (((string) ($request->getData('password') ?? '')) !== ''
+            && ((string) ($request->getData('login') ?? '')) !== ''
+        ) {
+            $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(new \Modules\Profile\Models\Profile($account));
+            
+            $this->app->eventManager->trigger('PRE:Module:Admin-account-update', '', $account);
+            $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
+            AccountMapper::update($account);
+            $this->app->eventManager->trigger('POST:Module:Admin-account-update', '', [
+                $request->getHeader()->getAccount(),
+                null,
+                $account,
+            ]);
+        }
 
         $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
         $response->set($request->getUri()->__toString(), [

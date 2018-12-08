@@ -151,7 +151,7 @@ class Installer extends InstallerAbstract
                             `account_id` int(11) NOT NULL AUTO_INCREMENT,
                             `account_status` tinyint(2) NOT NULL,
                             `account_type` tinyint(2) NOT NULL,
-                            `account_login` varchar(30) NOT NULL,
+                            `account_login` varchar(50) NOT NULL,
                             `account_name1` varchar(50) NOT NULL,
                             `account_name2` varchar(50) NOT NULL,
                             `account_name3` varchar(50) NOT NULL,
@@ -163,6 +163,7 @@ class Installer extends InstallerAbstract
                             `account_localization` int(11) DEFAULT NULL,
                             `account_created_at` datetime NOT NULL,
                             PRIMARY KEY (`account_id`),
+                            UNIQUE KEY `account_login` (`account_login`),
                             KEY `account_localization` (`account_localization`)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
                 )->execute();
