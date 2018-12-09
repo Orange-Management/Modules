@@ -14,23 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Media\Controller;
 
-use Modules\Media\Models\Media;
-use Modules\Media\Models\MediaMapper;
-use Modules\Media\Models\CollectionMapper;
-use Modules\Media\Models\Collection;
-use Modules\Media\Views\MediaView;
-
-use Modules\Media\Models\UploadFile;
-use Modules\Media\Models\UploadStatus;
-use phpOMS\Asset\AssetType;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Html\Head;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
-use phpOMS\System\MimeType;
-use phpOMS\Views\View;
-use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Media class.
