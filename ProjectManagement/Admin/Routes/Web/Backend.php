@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\ProjectManagement\Models\PermissionState;
 use Modules\ProjectManagement\Controller\BackendController;
+use Modules\ProjectManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/projectmanagement/list.*$' => [

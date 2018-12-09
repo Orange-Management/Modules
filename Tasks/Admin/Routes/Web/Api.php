@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Tasks\Models\PermissionState;
 use Modules\Tasks\Controller\ApiController;
+use Modules\Tasks\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/api/task(\?.*|$)' => [

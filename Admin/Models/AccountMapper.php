@@ -14,12 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Models;
 
-use Modules\Media\Models\MediaMapper;
 
+use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\Auth\LoginReturnType;
 
 /**
  * Account mapper class.

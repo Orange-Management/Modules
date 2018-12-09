@@ -21,7 +21,6 @@ use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Html\Head;
 
 /**
  * Media class.

@@ -13,8 +13,8 @@
 
 namespace Modules\tests\Organization\Models;
 
-use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\Status;
+use Modules\Organization\Models\Unit;
 
 class UnitTest extends \PHPUnit\Framework\TestCase
 {

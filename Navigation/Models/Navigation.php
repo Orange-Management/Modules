@@ -14,11 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Navigation\Models;
 
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Message\RequestAbstract;
 use phpOMS\Account\Account;
-use phpOMS\Account\PermissionType;
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\Message\RequestAbstract;
 
 /**
  * Navigation class.

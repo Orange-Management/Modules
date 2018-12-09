@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\EventManagement\Models\PermissionState;
 use Modules\EventManagement\Controller\BackendController;
+use Modules\EventManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/eventmanagement/list.*$' => [

@@ -15,8 +15,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Project;
 use Modules\RiskManagement\Models\ProjectMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {

@@ -13,10 +13,7 @@
 
 namespace Modules\tests\RiskManagement\Admin;
 
-use Modules\RiskManagement\Admin\Installer;
-use Modules\RiskManagement\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

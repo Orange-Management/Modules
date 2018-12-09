@@ -14,11 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Views;
 
-use phpOMS\Views\View;
-use phpOMS\ApplicationAbstract;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use Modules\Tasks\Models\TaskStatus;
+use phpOMS\Views\View;
 
 class TaskView extends View
 {

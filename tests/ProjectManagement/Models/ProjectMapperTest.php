@@ -13,14 +13,11 @@
 
 namespace Modules\tests\ProjectManagement\Models;
 
-use Modules\ProjectManagement\Models\Project;
+use Modules\Media\Models\Media;
 use Modules\ProjectManagement\Models\ProgressType;
-use Modules\ProjectManagement\Models\ProgressStatus;
+use Modules\ProjectManagement\Models\Project;
 use Modules\ProjectManagement\Models\ProjectMapper;
 use Modules\Tasks\Models\Task;
-use Modules\Media\Models\Media;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 

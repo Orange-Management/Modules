@@ -14,15 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Comments\Controller;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
-use phpOMS\Asset\AssetType;
-use phpOMS\Contract\RenderableInterface;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
 
 /**
  * Calendar controller class.

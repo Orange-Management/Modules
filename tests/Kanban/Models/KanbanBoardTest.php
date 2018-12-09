@@ -13,8 +13,8 @@
 
 namespace Modules\tests\Kanban\Models;
 
-use Modules\Kanban\Models\KanbanBoard;
 use Modules\Kanban\Models\BoardStatus;
+use Modules\Kanban\Models\KanbanBoard;
 
 class KanbanBoardTest extends \PHPUnit\Framework\TestCase
 {

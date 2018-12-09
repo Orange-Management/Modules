@@ -14,19 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Auditor\Controller;
 
-use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Views\View;
-use phpOMS\Account\Account;
-use phpOMS\Account\PermissionType;
-use phpOMS\DataStorage\Database\RelationType;
-use phpOMS\Utils\StringUtils;
-
 use Modules\Auditor\Models\Audit;
 use Modules\Auditor\Models\AuditMapper;
+use phpOMS\Account\Account;
+
+use phpOMS\Utils\StringUtils;
 
 /**
  * Auditor api controller class.

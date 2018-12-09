@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Kanban\Models\PermissionState;
 use Modules\Kanban\Controller\BackendController;
+use Modules\Kanban\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/kanban.*$' => [

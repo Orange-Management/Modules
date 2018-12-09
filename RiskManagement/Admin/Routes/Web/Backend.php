@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\RiskManagement\Models\PermissionState;
 use Modules\RiskManagement\Controller\BackendController;
+use Modules\RiskManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/riskmanagement/cockpit.*$' => [

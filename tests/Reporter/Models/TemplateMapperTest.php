@@ -13,15 +13,12 @@
 
 namespace Modules\tests\Reporter\Models;
 
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\Media;
 use Modules\Reporter\Models\ReporterStatus;
 use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
-use Modules\Media\Models\Media;
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\CollectionMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 {

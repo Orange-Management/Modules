@@ -13,16 +13,10 @@
 
 namespace Modules\tests\ClientMapper\Models;
 
-use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Media\Models\Media;
 use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
-use Modules\Media\Models\Media;
-use phpOMS\Account\AccountStatus;
-use phpOMS\Account\AccountType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Utils\RnG\Name;
 
 class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 {

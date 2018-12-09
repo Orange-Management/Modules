@@ -16,8 +16,8 @@ namespace Modules\EventManagement\Models;
 
 use Modules\Calendar\Models\Calendar;
 use Modules\Tasks\Models\Task;
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 use phpOMS\Localization\Money;
+use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Event class.

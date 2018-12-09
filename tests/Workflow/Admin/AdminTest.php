@@ -13,10 +13,7 @@
 
 namespace Modules\tests\Workflow\Admin;
 
-use Modules\Workflow\Admin\Installer;
-use Modules\Workflow\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

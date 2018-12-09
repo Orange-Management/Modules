@@ -14,9 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Address\Controller;
 
-use phpOMS\Message\RequestDestination;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 
 /**
  * Sales class.

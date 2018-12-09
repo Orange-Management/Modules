@@ -14,14 +14,14 @@ declare(strict_types=1);
 
 namespace Modules\Exchange\Admin;
 
-use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\InstallerAbstract;
-use phpOMS\Module\InfoManager;
-use phpOMS\System\File\Local\Directory;
-
 use Modules\Exchange\Models\InterfaceManager;
 use Modules\Exchange\Models\InterfaceManagerMapper;
+use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\DataStorage\Database\DatabaseType;
+use phpOMS\Module\InfoManager;
+
+use phpOMS\Module\InstallerAbstract;
+use phpOMS\System\File\Local\Directory;
 
 /**
  * Exchange install class.

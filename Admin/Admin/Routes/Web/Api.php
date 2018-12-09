@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Admin\Models\PermissionState;
 use Modules\Admin\Controller\ApiController;
+use Modules\Admin\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/api/admin/settings.*$' => [

@@ -13,10 +13,7 @@
 
 namespace Modules\tests\Contact\Admin;
 
-use Modules\Contact\Admin\Installer;
-use Modules\Contact\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

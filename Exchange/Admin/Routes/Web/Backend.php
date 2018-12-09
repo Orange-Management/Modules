@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Exchange\Models\PermissionState;
 use Modules\Exchange\Controller\BackendController;
+use Modules\Exchange\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/admin/exchange/import/list.*$' => [

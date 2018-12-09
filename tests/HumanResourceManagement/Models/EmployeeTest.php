@@ -16,9 +16,9 @@ namespace Modules\tests\HumanResourceManagement\Models;
 use Modules\Admin\Models\Account;
 use Modules\HumanResourceManagement\Models\Employee;
 
-use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Position;
+use Modules\Organization\Models\Unit;
 
 class EmployeeTest extends \PHPUnit\Framework\TestCase
 {

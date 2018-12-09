@@ -15,10 +15,9 @@ namespace Modules\tests\Tasks\Models;
 
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
-use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskPriority;
+use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 class TaskTest extends \PHPUnit\Framework\TestCase
 {

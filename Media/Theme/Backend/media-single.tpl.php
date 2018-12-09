@@ -11,9 +11,8 @@
  * @link       http://website.orange-management.de
  */
 
-use \phpOMS\System\File\Local\File;
 use \phpOMS\System\File\FileUtils;
-use \phpOMS\System\File\ExtensionType;
+use \phpOMS\System\File\Local\File;
 use \phpOMS\Uri\UriFactory;
 
 include __DIR__ . '/template-functions.php';

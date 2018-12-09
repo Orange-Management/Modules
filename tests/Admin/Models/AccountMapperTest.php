@@ -18,9 +18,6 @@ use Modules\Admin\Models\AccountMapper;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Auth\LoginReturnType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Utils\RnG\Name;
 
 class AccountMapperTest extends \PHPUnit\Framework\TestCase
 {

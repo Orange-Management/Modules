@@ -15,32 +15,29 @@ namespace Modules\tests\Admin;
 
 require_once __DIR__ . '/../Autoloader.php';
 
+use Model\CoreSettings;
+use Modules\Admin\Models\AccountPermission;
+use Modules\Admin\Models\ModuleStatusUpdateType;
+use phpOMS\Account\Account;
+use phpOMS\Account\AccountManager;
+use phpOMS\Account\AccountStatus;
+use phpOMS\Account\AccountType;
+use phpOMS\Account\GroupStatus;
+use phpOMS\Account\PermissionOwner;
+use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Localization\Localization;
+use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
+
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleFactory;
 use phpOMS\Module\ModuleManager;
+
 use phpOMS\Router\Router;
 use phpOMS\Uri\Http;
-use phpOMS\Account\Account;
-use phpOMS\Account\AccountManager;
-use phpOMS\DataStorage\Session\HttpSession;
+
 use phpOMS\Utils\TestUtils;
-use phpOMS\Account\PermissionType;
-use phpOMS\Event\EventManager;
-use phpOMS\Dispatcher\Dispatcher;
-
-use phpOMS\Account\GroupStatus;
-use phpOMS\Account\AccountStatus;
-use phpOMS\Account\AccountType;
-use phpOMS\Account\PermissionOwner;
-
-use Modules\Admin\Models\AccountPermission;
-use Modules\Admin\Models\ModuleStatusUpdateType;
-
-use Model\CoreSettings;
 
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {

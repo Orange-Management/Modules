@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\HumanResourcetimeRecording\Models\PermissionState;
 use Modules\HumanResourcetimeRecording\Controller\BackendController;
+use Modules\HumanResourcetimeRecording\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/hr/timerecording/dashboard.*$' => [

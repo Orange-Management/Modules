@@ -15,8 +15,6 @@ namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QACategory;
 use Modules\QA\Models\QACategoryMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class QACategoryMapperTest extends \PHPUnit\Framework\TestCase

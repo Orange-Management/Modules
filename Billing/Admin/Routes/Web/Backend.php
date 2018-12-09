@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Billing\Models\PermissionState;
 use Modules\Billing\Controller\BackendController;
+use Modules\Billing\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/sales/invoice/create.*$' => [

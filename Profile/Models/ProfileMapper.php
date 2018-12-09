@@ -14,14 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Profile\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
-use Modules\Admin\Models\Account;
-use Modules\Admin\Models\AccountMapper;
-use Modules\Calendar\Models\CalendarMapper;
 
 /**
  * Profile mapper.

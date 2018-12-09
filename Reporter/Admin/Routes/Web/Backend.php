@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Reporter\Models\PermissionState;
 use Modules\Reporter\Controller\BackendController;
+use Modules\Reporter\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/reporter/template/create.*$' => [

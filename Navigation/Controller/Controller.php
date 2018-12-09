@@ -15,11 +15,6 @@ declare(strict_types=1);
 namespace Modules\Navigation\Controller;
 
 use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Models\NavigationType;
-use Modules\Navigation\Views\NavigationView;
-use phpOMS\Contract\RenderableInterface;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 

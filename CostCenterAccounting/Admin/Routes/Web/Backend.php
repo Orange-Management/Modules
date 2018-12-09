@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\CostCenterAccounting\Models\PermissionState;
 use Modules\CostCenterAccounting\Controller\BackendController;
+use Modules\CostCenterAccounting\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/accounting/costcenter/list.*$' => [

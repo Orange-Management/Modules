@@ -17,8 +17,6 @@ use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 

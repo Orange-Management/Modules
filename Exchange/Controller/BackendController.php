@@ -14,21 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\Exchange\Controller;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
+use Modules\Exchange\Models\InterfaceManagerMapper;
 
-use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use phpOMS\Account\PermissionType;
 
-use Modules\Exchange\Models\InterfaceManager;
-use Modules\Exchange\Models\InterfaceManagerMapper;
-use Modules\Exchange\Models\PermissionState;
+use phpOMS\Views\View;
 
 /**
  * Exchange controller class.

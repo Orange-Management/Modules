@@ -14,9 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Billing\Admin;
 
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\StatusAbstract;
-use phpOMS\Module\InfoManager;
 
 /**
  * Navigation class.

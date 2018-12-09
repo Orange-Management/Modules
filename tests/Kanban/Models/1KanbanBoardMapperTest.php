@@ -15,8 +15,6 @@ namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanBoard;
 use Modules\Kanban\Models\KanbanBoardMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase

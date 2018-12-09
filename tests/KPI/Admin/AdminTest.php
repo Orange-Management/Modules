@@ -13,10 +13,7 @@
 
 namespace Modules\tests\KPI\Admin;
 
-use Modules\KPI\Admin\Installer;
-use Modules\KPI\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

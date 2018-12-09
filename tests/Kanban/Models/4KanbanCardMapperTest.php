@@ -13,12 +13,10 @@
 
 namespace Modules\tests\Kanban\Models;
 
-use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\CardStatus;
 use Modules\Kanban\Models\CardType;
+use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\KanbanCardMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase

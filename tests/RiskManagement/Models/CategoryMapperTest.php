@@ -15,8 +15,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\CategoryMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {

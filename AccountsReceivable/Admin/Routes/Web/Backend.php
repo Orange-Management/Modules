@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\AccountsReceivable\Models\PermissionState;
 use Modules\AccountsReceivable\Controller\BackendController;
+use Modules\AccountsReceivable\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/accounting/receivable/list.*$' => [

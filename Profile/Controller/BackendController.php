@@ -17,10 +17,10 @@ namespace Modules\Profile\Controller;
 use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
 
+use phpOMS\Asset\AssetType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
 
 /**
  * Profile class.

@@ -16,8 +16,6 @@ namespace Modules\Auditor\Models;
 
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
 use phpOMS\DataStorage\Database\RelationType;
 
 /**

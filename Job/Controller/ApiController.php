@@ -16,11 +16,6 @@ namespace Modules\Job\Controller;
 
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use phpOMS\Utils\TaskSchedule\SchedulerFactory;
-use phpOMS\Utils\TaskSchedule\SchedulerAbstract;
 
 /**
  * Task class.

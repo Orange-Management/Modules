@@ -16,8 +16,6 @@ namespace Modules\tests\Knowledgebase\Models;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class WikiDocMapperTest extends \PHPUnit\Framework\TestCase

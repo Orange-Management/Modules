@@ -15,13 +15,7 @@ declare(strict_types=1);
 namespace Modules\ItemManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
-use Modules\Profile\Models\ContactElement;
-use Modules\Profile\Models\ContactElementMapper;
-use Modules\Profile\Models\ContactMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 
 final class ItemMapper extends DataMapperAbstract
 {

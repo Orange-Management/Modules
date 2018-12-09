@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Marketing\Models\PermissionState;
 use Modules\Marketing\Controller\BackendController;
+use Modules\Marketing\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/marketing/promotion/list.*$' => [

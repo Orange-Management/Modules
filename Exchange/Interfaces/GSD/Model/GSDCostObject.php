@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Interfaces\GSD\Models;
 
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Cost object class.

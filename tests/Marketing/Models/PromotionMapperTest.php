@@ -15,10 +15,8 @@ namespace Modules\tests\Marketing\Models;
 
 use Modules\Marketing\Models\Promotion;
 use Modules\Marketing\Models\PromotionMapper;
-use Modules\Tasks\Models\Task;
 use Modules\Media\Models\Media;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
+use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 

@@ -14,10 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Media\Controller;
 
+use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
-use Modules\Media\Models\CollectionMapper;
-use Modules\Media\Models\Collection;
 use Modules\Media\Views\MediaView;
 
 use phpOMS\Asset\AssetType;

@@ -15,14 +15,10 @@ namespace Modules\tests\Support\Models;
 
 use Modules\Support\Models\Ticket;
 use Modules\Support\Models\TicketMapper;
-use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
-use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskPriority;
+use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Utils\RnG\StringUtils;
 use phpOMS\Utils\RnG\Text;
 
 class TicketMapperTest extends \PHPUnit\Framework\TestCase

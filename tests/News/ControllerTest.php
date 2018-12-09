@@ -15,25 +15,22 @@ namespace Modules\tests\News;
 
 require_once __DIR__ . '/../Autoloader.php';
 
+use Modules\Admin\Models\AccountPermission;
+use Modules\News\Models\NewsStatus;
+use Modules\News\Models\NewsType;
+use phpOMS\Account\Account;
+use phpOMS\Account\AccountManager;
+use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Localization\Localization;
+use phpOMS\Dispatcher\Dispatcher;
+use phpOMS\Event\EventManager;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleFactory;
 use phpOMS\Router\Router;
-use phpOMS\Uri\Http;
-use phpOMS\Account\Account;
-use phpOMS\Account\AccountManager;
-use phpOMS\DataStorage\Session\HttpSession;
-use phpOMS\Utils\TestUtils;
-use Modules\Admin\Models\AccountPermission;
-use phpOMS\Account\PermissionType;
-use phpOMS\Event\EventManager;
-use phpOMS\Dispatcher\Dispatcher;
 
-use Modules\News\Models\NewsStatus;
-use Modules\News\Models\NewsType;
+use phpOMS\Uri\Http;
+use phpOMS\Utils\TestUtils;
 
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {

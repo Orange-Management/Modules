@@ -14,29 +14,16 @@ declare(strict_types=1);
 
 namespace Modules\Kanban\Controller;
 
+use Modules\Kanban\Models\KanbanBoardMapper;
+
+use Modules\Kanban\Models\KanbanCardMapper;
+use Modules\Kanban\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Asset\AssetType;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\Http\RequestStatusCode;
-
-use Modules\Kanban\Models\PermissionState;
-use Modules\Kanban\Models\KanbanBoard;
-use Modules\Kanban\Models\KanbanBoardMapper;
-use Modules\Kanban\Models\KanbanLabel;
-use Modules\Kanban\Models\KanbanLabelMapper;
-use Modules\Kanban\Models\KanbanColumn;
-use Modules\Kanban\Models\KanbanColumnMapper;
-use Modules\Kanban\Models\KanbanCard;
-use Modules\Kanban\Models\KanbanCardMapper;
-use Modules\Kanban\Models\KanbanCardComment;
-use Modules\Kanban\Models\KanbanCardCommentMapper;
-use Modules\Kanban\Models\CardStatus;
-use Modules\Kanban\Models\CardType;
-use Modules\Kanban\Models\BoardStatus;
 
 /**
  * Task class.

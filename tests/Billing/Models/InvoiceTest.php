@@ -14,8 +14,8 @@
 namespace Modules\tests\Billing\Models;
 
 use Modules\Billing\Models\Invoice;
-use Modules\Billing\Models\InvoiceType;
 use Modules\Billing\Models\InvoiceStatus;
+use Modules\Billing\Models\InvoiceType;
 use phpOMS\Localization\ISO4217CharEnum;
 
 class InvoiceTest extends \PHPUnit\Framework\TestCase

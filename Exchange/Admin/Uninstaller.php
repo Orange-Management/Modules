@@ -14,9 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Exchange\Admin;
 
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\UninstallerAbstract;
-use phpOMS\Module\InfoManager;
 
 /**
  * Uninstaller class.

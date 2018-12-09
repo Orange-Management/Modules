@@ -14,11 +14,10 @@
 namespace Modules\tests\Support\Models;
 
 use Modules\Support\Models\Ticket;
-use Modules\Tasks\Models\Task;
-use Modules\Tasks\Models\TaskType;
-use Modules\Tasks\Models\TaskStatus;
-use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskElement;
+use Modules\Tasks\Models\TaskPriority;
+use Modules\Tasks\Models\TaskStatus;
+use Modules\Tasks\Models\TaskType;
 
 class TicketTest extends \PHPUnit\Framework\TestCase
 {

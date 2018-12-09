@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Chart\Models\PermissionState;
 use Modules\Chart\Controller\BackendController;
+use Modules\Chart\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/chart/create($|\?.*)' => [

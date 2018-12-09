@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Calendar\Models\PermissionState;
 use Modules\Calendar\Controller\BackendController;
+use Modules\Calendar\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/calendar/dashboard.*$' => [

@@ -14,25 +14,15 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Controller;
 
+use Modules\Knowledgebase\Models\WikiBadge;
+use Modules\Knowledgebase\Models\WikiCategory;
+use Modules\Knowledgebase\Models\WikiCategoryMapper;
+use Modules\Knowledgebase\Models\WikiDoc;
+use Modules\Knowledgebase\Models\WikiDocMapper;
+
+use Modules\Knowledgebase\Models\WikiStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\Http\RequestStatusCode;
-
-use Modules\Knowledgebase\Models\WikiCategoryMapper;
-use Modules\Knowledgebase\Models\NullWikiCategory;
-use Modules\Knowledgebase\Models\WikiDocMapper;
-use Modules\Knowledgebase\Models\NullWikiDoc;
-use Modules\Knowledgebase\Models\WikiStatus;
-use Modules\Knowledgebase\Models\WikiStatusMapper;
-use Modules\Knowledgebase\Models\WikiDoc;
-use Modules\Knowledgebase\Models\WikiCategory;
-use Modules\Knowledgebase\Models\WikiBadge;
-use Modules\Knowledgebase\Models\PermissionState;
 
 /**
  * Task class.

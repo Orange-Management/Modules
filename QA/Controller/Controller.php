@@ -14,15 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\QA\Controller;
 
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
 
-use Modules\QA\Models\QAQuestionMapper;
-use Modules\QA\Models\QABadgeMapper;
+use phpOMS\Module\WebInterface;
 
 /**
  * Task class.

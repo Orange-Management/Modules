@@ -13,10 +13,7 @@
 
 namespace Modules\tests\AccountsPayable\Admin;
 
-use Modules\AccountsPayable\Admin\Installer;
-use Modules\AccountsPayable\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

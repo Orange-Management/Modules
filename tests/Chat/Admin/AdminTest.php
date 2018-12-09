@@ -13,10 +13,7 @@
 
 namespace Modules\tests\Chat\Admin;
 
-use Modules\Chat\Admin\Installer;
-use Modules\Chat\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

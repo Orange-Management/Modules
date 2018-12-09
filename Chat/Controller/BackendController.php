@@ -14,10 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Chat\Controller;
 
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 
 /**
  * Chat controller class.

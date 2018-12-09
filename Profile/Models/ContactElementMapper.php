@@ -15,9 +15,6 @@ declare(strict_types=1);
 namespace Modules\Profile\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 
 final class ContactElementMapper extends DataMapperAbstract
 {

@@ -13,10 +13,7 @@
 
 namespace Modules\tests\Shipping\Admin;
 
-use Modules\Shipping\Admin\Installer;
-use Modules\Shipping\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

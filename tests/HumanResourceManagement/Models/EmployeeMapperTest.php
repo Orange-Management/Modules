@@ -13,20 +13,18 @@
 
 namespace Modules\tests\HumanResourceManagement\Models;
 
-use Modules\Organization\Models\Unit;
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\AccountMapper;
+use Modules\HumanResourceManagement\Models\Employee;
+
+use Modules\HumanResourceManagement\Models\EmployeeMapper;
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Position;
+use Modules\Organization\Models\Unit;
 
-use Modules\Admin\Models\Account;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
-use Modules\Admin\Models\AccountMapper;
 
-use Modules\HumanResourceManagement\Models\Employee;
-use Modules\HumanResourceManagement\Models\EmployeeMapper;
-
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
 class EmployeeMapperTest extends \PHPUnit\Framework\TestCase

@@ -14,7 +14,6 @@
 namespace Modules\tests\Organization\Models;
 
 use Modules\Organization\Models\Position;
-use Modules\Organization\Models\NullDepartment;
 use Modules\Organization\Models\Status;
 
 class PositionTest extends \PHPUnit\Framework\TestCase

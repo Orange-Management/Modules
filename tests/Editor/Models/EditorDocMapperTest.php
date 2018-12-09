@@ -15,9 +15,6 @@ namespace Modules\tests\Editor\Models;
 
 use Modules\Editor\Models\EditorDoc;
 use Modules\Editor\Models\EditorDocMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 
 class EditorDocMapperTest extends \PHPUnit\Framework\TestCase

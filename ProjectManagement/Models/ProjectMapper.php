@@ -15,12 +15,9 @@ declare(strict_types=1);
 namespace Modules\ProjectManagement\Models;
 
 use Modules\Calendar\Models\CalendarMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
-use Modules\Tasks\Models\TaskMapper;
 use Modules\Media\Models\MediaMapper;
+use Modules\Tasks\Models\TaskMapper;
+use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
  * Mapper class.

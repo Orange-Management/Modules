@@ -14,23 +14,15 @@ declare(strict_types=1);
 
 namespace Modules\Draw\Controller;
 
-use phpOMS\Model\Message\FormValidation;
-use Modules\Draw\Models\DrawImage;
 use Modules\Draw\Models\DrawImageMapper;
 use Modules\Draw\Models\PermissionState;
-use Modules\Media\Models\UploadStatus;
+use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use Modules\Media\Controller as MediaController;
-use phpOMS\System\File\Local\File;
-use phpOMS\Utils\ImageUtils;
 use phpOMS\Views\View;
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Calendar controller class.

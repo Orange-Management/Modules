@@ -14,11 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Controller;
 
-use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
-use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
-use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 
 use phpOMS\Message\RequestAbstract;

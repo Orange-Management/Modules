@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\AssetManagement\Models\PermissionState;
 use Modules\AssetManagement\Controller\BackendController;
+use Modules\AssetManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 
 return [

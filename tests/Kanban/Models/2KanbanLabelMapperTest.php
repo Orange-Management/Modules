@@ -15,8 +15,6 @@ namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanLabel;
 use Modules\Kanban\Models\KanbanLabelMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class KanbanLabelMapperTest extends \PHPUnit\Framework\TestCase

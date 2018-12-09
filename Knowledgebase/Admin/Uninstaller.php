@@ -14,10 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Admin;
 
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\Schema\Builder;
 use phpOMS\Module\UninstallerAbstract;
-use phpOMS\Module\InfoManager;
 
 /**
  * Navigation class.

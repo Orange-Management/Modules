@@ -15,8 +15,6 @@ namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanCardComment;
 use Modules\Kanban\Models\KanbanCardCommentMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase

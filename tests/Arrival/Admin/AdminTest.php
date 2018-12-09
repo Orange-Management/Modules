@@ -13,15 +13,12 @@
 
 namespace Modules\tests\Arrival\Admin;
 
-use Modules\Arrival\Admin\Installer;
-use Modules\Arrival\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\ModuleManager;
+use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Message\Http\Request;
+use phpOMS\Module\ModuleManager;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
-use phpOMS\Dispatcher\Dispatcher;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {

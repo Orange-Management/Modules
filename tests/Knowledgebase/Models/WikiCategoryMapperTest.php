@@ -15,8 +15,6 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase

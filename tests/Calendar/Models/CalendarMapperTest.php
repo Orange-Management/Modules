@@ -16,8 +16,6 @@ namespace Modules\tests\Calendar\Models;
 use Modules\Calendar\Models\Calendar;
 use Modules\Calendar\Models\CalendarMapper;
 use Modules\Calendar\Models\Event;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class CalendarMapperTest extends \PHPUnit\Framework\TestCase
 {

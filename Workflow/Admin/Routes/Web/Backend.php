@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Workflow\Models\PermissionState;
 use Modules\Workflow\Controller\BackendController;
+use Modules\Workflow\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/workflow/template/list.*$' => [

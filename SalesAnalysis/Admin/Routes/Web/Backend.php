@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\SalesAnalysis\Models\PermissionState;
 use Modules\SalesAnalysis\Controller\BackendController;
+use Modules\SalesAnalysis\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/sales/analysis/dashboard.*$' => [

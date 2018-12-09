@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\ItemManagement\Models\PermissionState;
 use Modules\ItemManagement\Controller\BackendController;
+use Modules\ItemManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/sales/item/list.*$' => [

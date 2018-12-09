@@ -16,8 +16,6 @@ namespace Modules\tests\QA\Models;
 use Modules\QA\Models\QAAnswer;
 use Modules\QA\Models\QAAnswerMapper;
 use Modules\QA\Models\QAAnswerStatus;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase

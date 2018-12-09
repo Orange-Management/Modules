@@ -13,10 +13,10 @@
 
 namespace Modules\tests\RiskManagement\Models;
 
-use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\Cause;
-use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\Department;
+use Modules\RiskManagement\Models\Risk;
+use Modules\RiskManagement\Models\Solution;
 
 class RiskTest extends \PHPUnit\Framework\TestCase
 {

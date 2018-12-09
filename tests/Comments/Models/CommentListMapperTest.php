@@ -13,9 +13,9 @@
 
 namespace Modules\tests\Comments\Models;
 
+use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\CommentListMapper;
-use Modules\Comments\Models\Comment;
 
 class CommentListMapperTest extends \PHPUnit\Framework\TestCase
 {

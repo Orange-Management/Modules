@@ -15,8 +15,6 @@ namespace Modules\tests\Organization\Models;
 
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class PositionMapperTest extends \PHPUnit\Framework\TestCase
 {

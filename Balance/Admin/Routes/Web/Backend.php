@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Balance\Models\PermissionState;
 use Modules\Balance\Controller\BackendController;
+use Modules\Balance\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/controlling/balance/dashboard.*$' => [

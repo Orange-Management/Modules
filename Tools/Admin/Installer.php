@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\Tools\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\InstallerAbstract;
 use phpOMS\Module\InfoManager;
+use phpOMS\Module\InstallerAbstract;
 
 /**
  * Tools install class.

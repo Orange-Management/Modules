@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Theme\Backend\Components\PositionTagSelector;
 
-use phpOMS\Views\View;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Views\View;
 
 class PositionTagSelectorView extends View
 {

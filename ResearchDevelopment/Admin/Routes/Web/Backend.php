@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\ResearchDevelopment\Models\PermissionState;
 use Modules\ResearchDevelopment\Controller\BackendController;
+use Modules\ResearchDevelopment\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/rnd/list.*$' => [

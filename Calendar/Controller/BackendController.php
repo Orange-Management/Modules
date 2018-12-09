@@ -15,20 +15,12 @@ declare(strict_types=1);
 namespace Modules\Calendar\Controller;
 
 use Modules\Calendar\Models\CalendarMapper;
-use Modules\Calendar\Models\PermissionState;
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
 
-use phpOMS\Contract\RenderableInterface;
-use phpOMS\Stdlib\Base\SmartDateTime;
+use phpOMS\Asset\AssetType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
+use phpOMS\Stdlib\Base\SmartDateTime;
 use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Calendar controller class.

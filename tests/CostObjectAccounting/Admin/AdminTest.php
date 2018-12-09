@@ -13,10 +13,7 @@
 
 namespace Modules\tests\CostObjectAccounting\Admin;
 
-use Modules\CostObjectAccounting\Admin\Installer;
-use Modules\CostObjectAccounting\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

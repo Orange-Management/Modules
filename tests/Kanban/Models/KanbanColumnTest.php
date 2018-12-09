@@ -13,8 +13,8 @@
 
 namespace Modules\tests\Kanban\Models;
 
-use Modules\Kanban\Models\KanbanColumn;
 use Modules\Kanban\Models\KanbanCard;
+use Modules\Kanban\Models\KanbanColumn;
 
 class KanbanColumnTest extends \PHPUnit\Framework\TestCase
 {

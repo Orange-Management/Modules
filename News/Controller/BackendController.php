@@ -14,25 +14,14 @@ declare(strict_types=1);
 
 namespace Modules\News\Controller;
 
-use phpOMS\Model\Message\FormValidation;
 
-use Modules\News\Models\BadgeMapper;
-use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
-use Modules\News\Models\NewsStatus;
-use Modules\News\Models\NewsType;
 use Modules\News\Models\PermissionState;
 
-use phpOMS\Account\Account;
 use phpOMS\Account\PermissionType;
-use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
 
 /**

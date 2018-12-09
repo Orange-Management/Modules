@@ -14,14 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\AccountsReceivable\Controller;
 
-use Modules\Navigation\Models\Navigation;
-use Modules\Navigation\Views\NavigationView;
-use phpOMS\Contract\RenderableInterface;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
 
 /**
  * Sales class.

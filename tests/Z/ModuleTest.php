@@ -14,10 +14,8 @@
 namespace Modules\tests\Z;
 
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Module\ModuleFactory;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Module\NullModule;
 use phpOMS\Router\Router;

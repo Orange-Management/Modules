@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Controller;
 
-use phpOMS\Model\Message\FormValidation;
+use Model\Settings;
 
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
@@ -29,18 +29,17 @@ use Modules\Admin\Models\ModuleStatusUpdateType;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
-use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\System\MimeType;
-use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
-use phpOMS\Validation\Network\Email;
+use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Message\NotificationLevel;
+use phpOMS\Message\RequestAbstract;
+use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Message\FormValidation;
+use phpOMS\System\MimeType;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 
-use Model\Settings;
+use phpOMS\Validation\Network\Email;
 
 /**
  * Admin controller class.

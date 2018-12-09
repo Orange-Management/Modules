@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Monitoring\Admin;
 
-use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\InstallerAbstract;
+use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Module\InfoManager;
+use phpOMS\Module\InstallerAbstract;
 
 /**
  * Monitoring install class.

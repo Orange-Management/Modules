@@ -14,17 +14,17 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Controller;
 
+use Modules\Tasks\Models\PermissionState;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskMapper;
-use Modules\Tasks\Models\PermissionState;
 use Modules\Tasks\Views\TaskView;
 
+use phpOMS\Account\PermissionType;
+use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
-use phpOMS\Account\PermissionType;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Task class.

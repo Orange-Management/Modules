@@ -13,10 +13,7 @@
 
 namespace Modules\tests\CreditManagement\Admin;
 
-use Modules\CreditManagement\Admin\Installer;
-use Modules\CreditManagement\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\News\Models;
 
 use phpOMS\Contract\ArrayableInterface;
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 use phpOMS\Localization\ISO639x1Enum;
+use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * News article class.

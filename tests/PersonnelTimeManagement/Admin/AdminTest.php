@@ -13,10 +13,7 @@
 
 namespace Modules\tests\PersonnelTimeManagement\Admin;
 
-use Modules\PersonnelTimeManagement\Admin\Installer;
-use Modules\PersonnelTimeManagement\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

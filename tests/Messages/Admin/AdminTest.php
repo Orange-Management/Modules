@@ -13,13 +13,8 @@
 
 namespace Modules\tests\Messages\Admin;
 
-use Modules\Messages\Admin\Installer;
-use Modules\Messages\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Message\Http\Request;
-use phpOMS\Uri\Http;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {

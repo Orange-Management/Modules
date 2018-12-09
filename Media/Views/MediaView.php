@@ -14,13 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\Media\Views;
 
-use phpOMS\Views\View;
+use Modules\Media\Models\Media;
+use phpOMS\System\File\ExtensionType;
 use phpOMS\System\File\FileUtils;
 use phpOMS\System\File\Local\File;
 use phpOMS\Utils\StringUtils;
-use phpOMS\System\File\ExtensionType;
 
-use Modules\Media\Models\Media;
+use phpOMS\Views\View;
 
 /**
  * Media view.

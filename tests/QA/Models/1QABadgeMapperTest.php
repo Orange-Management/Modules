@@ -15,8 +15,6 @@ namespace Modules\tests\QA\Models;
 
 use Modules\QA\Models\QABadge;
 use Modules\QA\Models\QABadgeMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class QABadgeMapperTest extends \PHPUnit\Framework\TestCase

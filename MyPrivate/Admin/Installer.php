@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\MyPrivate\Admin;
 
-use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;

@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\InvestmentManagement\Models\PermissionState;
 use Modules\InvestmentManagement\Controller\BackendController;
+use Modules\InvestmentManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/controlling/investment/dashboard.*$' => [

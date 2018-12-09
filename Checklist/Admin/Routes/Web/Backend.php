@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Checklist\Models\PermissionState;
 use Modules\Checklist\Controller\BackendController;
+use Modules\Checklist\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/checklist/list.*$' => [

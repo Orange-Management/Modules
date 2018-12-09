@@ -14,16 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Auditor\Controller;
 
-use phpOMS\Asset\AssetType;
-use phpOMS\Contract\RenderableInterface;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
 use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
 
-use Modules\Auditor\Models\AuditMapper;
-use Modules\Auditor\Models\Audit;
+use phpOMS\Module\WebInterface;
 
 /**
  * Calendar controller class.

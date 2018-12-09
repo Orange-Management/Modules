@@ -15,8 +15,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\RiskObject;
 use Modules\RiskManagement\Models\RiskObjectMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {

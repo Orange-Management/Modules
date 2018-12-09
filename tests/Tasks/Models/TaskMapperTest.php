@@ -13,16 +13,12 @@
 
 namespace Modules\tests\Tasks\Models;
 
+use Modules\Media\Models\Media;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskMapper;
-use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskPriority;
-use Modules\Tasks\Models\TaskType;
-use Modules\Media\Models\Media;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Utils\RnG\StringUtils;
+use Modules\Tasks\Models\TaskStatus;
 use phpOMS\Utils\RnG\Text;
 
 class TaskMapperTest extends \PHPUnit\Framework\TestCase

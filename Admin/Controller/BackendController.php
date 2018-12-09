@@ -16,20 +16,18 @@ namespace Modules\Admin\Controller;
 
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
-use Modules\Admin\Models\AccountPermission;
 use Modules\Admin\Models\AccountPermissionMapper;
-use Modules\Admin\Models\NullAccountPermission;
 use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
-use Modules\Admin\Models\GroupPermission;
 use Modules\Admin\Models\GroupPermissionMapper;
+use Modules\Admin\Models\NullAccountPermission;
 use Modules\Admin\Models\NullGroupPermission;
 
+use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Views\View;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Module\InfoManager;
+use phpOMS\Views\View;
 
 /**
  * Admin controller class.

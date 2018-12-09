@@ -15,8 +15,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\DepartmentMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {

@@ -15,8 +15,6 @@ namespace Modules\tests\Organization\Models;
 
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class UnitMapperTest extends \PHPUnit\Framework\TestCase
 {

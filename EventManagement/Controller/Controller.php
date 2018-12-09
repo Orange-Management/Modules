@@ -14,14 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\EventManagement\Controller;
 
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
+use Modules\EventManagement\Models\Event;
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use Modules\EventManagement\Models\EventMapper;
-use Modules\EventManagement\Models\Event;
-use phpOMS\Asset\AssetType;
 
 /**
  * Event Management controller class.

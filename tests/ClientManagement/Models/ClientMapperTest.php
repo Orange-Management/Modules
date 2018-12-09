@@ -17,8 +17,6 @@ use Modules\ClientManagement\Models\Client;
 use Modules\ClientManagement\Models\ClientMapper;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
 class ClientMapperTest extends \PHPUnit\Framework\TestCase

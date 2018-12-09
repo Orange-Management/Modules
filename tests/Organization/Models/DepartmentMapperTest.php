@@ -15,8 +15,6 @@ namespace Modules\tests\Organization\Models;
 
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {

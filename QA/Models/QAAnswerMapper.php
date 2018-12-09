@@ -16,9 +16,6 @@ namespace Modules\QA\Models;
 
 use Modules\Profile\Models\ProfileMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Mapper class.

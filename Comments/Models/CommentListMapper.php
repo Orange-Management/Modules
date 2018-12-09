@@ -14,11 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Comments\Models;
 
-use Modules\Comments\Models\CommentMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Mapper class.

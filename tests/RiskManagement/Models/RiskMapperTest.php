@@ -13,17 +13,15 @@
 
 namespace Modules\tests\RiskManagement\Models;
 
+use Modules\Media\Models\Media;
+use Modules\RiskManagement\Models\Category;
+use Modules\RiskManagement\Models\Cause;
+use Modules\RiskManagement\Models\Process;
+use Modules\RiskManagement\Models\Project;
 use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\RiskMapper;
-use Modules\RiskManagement\Models\Cause;
-use Modules\RiskManagement\Models\Solution;
-use Modules\RiskManagement\Models\Category;
-use Modules\RiskManagement\Models\Project;
-use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\RiskObject;
-use Modules\Media\Models\Media;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
+use Modules\RiskManagement\Models\Solution;
 
 class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {

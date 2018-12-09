@@ -14,9 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Media\Models;
 
-use Modules\Media\Models\MediaMapper;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
 
 final class CollectionMapper extends MediaMapper
 {

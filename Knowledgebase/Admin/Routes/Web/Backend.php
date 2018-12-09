@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Knowledgebase\Models\PermissionState;
 use Modules\Knowledgebase\Controller\BackendController;
+use Modules\Knowledgebase\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/wiki.*$' => [

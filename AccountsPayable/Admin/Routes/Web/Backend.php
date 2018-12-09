@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\AccountsPayable\Models\PermissionState;
 use Modules\AccountsPayable\Controller\BackendController;
+use Modules\AccountsPayable\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/accounting/payable/list.*$' => [

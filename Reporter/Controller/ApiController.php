@@ -16,27 +16,25 @@ namespace Modules\Reporter\Controller;
 
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
-use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
+use Modules\Reporter\Models\PermissionState;
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReportMapper;
 use Modules\Reporter\Models\Template;
 use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
-use Modules\Reporter\Models\PermissionState;
 
+use phpOMS\Account\PermissionType;
+use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Html\Head;
 use phpOMS\System\MimeType;
 use phpOMS\Utils\IO\Csv\CsvDatabaseMapper;
 use phpOMS\Utils\IO\Excel\ExcelDatabaseMapper;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Utils\Parser\Markdown\Markdown;
-use phpOMS\Message\NotificationLevel;
 
 /**
  * TODO: Implement auto sqlite generator on upload

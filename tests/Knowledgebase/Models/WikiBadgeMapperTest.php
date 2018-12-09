@@ -15,8 +15,6 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiBadge;
 use Modules\Knowledgebase\Models\WikiBadgeMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class WikiBadgeMapperTest extends \PHPUnit\Framework\TestCase

@@ -11,8 +11,8 @@
  * @link       http://website.orange-management.de
  */
 
-use phpOMS\Message\Http\Rest;
 use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\Rest;
 use phpOMS\Uri\Http;
 
 /**

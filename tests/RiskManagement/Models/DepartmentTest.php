@@ -14,7 +14,6 @@
 namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Department;
-use Modules\RiskManagement\Models\NullDepartment;
 
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {

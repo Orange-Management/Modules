@@ -13,14 +13,8 @@
 
 namespace Modules\tests\RiskManagement\Models;
 
-use Modules\RiskManagement\Models\Risk;
-use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\SolutionMapper;
-use Modules\RiskManagement\Models\Category;
-use Modules\RiskManagement\Models\Process;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 {

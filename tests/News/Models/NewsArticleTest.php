@@ -13,12 +13,11 @@
 
 namespace Modules\tests\News\Models;
 
-use Modules\News\Models\NewsArticle;
 use Modules\News\Models\Badge;
+use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {

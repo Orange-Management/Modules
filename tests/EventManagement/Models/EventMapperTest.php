@@ -17,10 +17,8 @@ use Modules\EventManagement\Models\Event;
 use Modules\EventManagement\Models\EventMapper;
 use Modules\EventManagement\Models\EventType;
 use Modules\EventManagement\Models\ProgressType;
-use Modules\Tasks\Models\Task;
 use Modules\Media\Models\Media;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
+use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 

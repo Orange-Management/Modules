@@ -15,8 +15,6 @@ namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanColumn;
 use Modules\Kanban\Models\KanbanColumnMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Text;
 
 class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase

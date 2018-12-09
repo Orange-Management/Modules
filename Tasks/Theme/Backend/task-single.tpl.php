@@ -11,8 +11,8 @@
  * @link       http://website.orange-management.de
  */
 
-use \Modules\Tasks\Models\TaskStatus;
 use \Modules\Tasks\Models\TaskPriority;
+use \Modules\Tasks\Models\TaskStatus;
 
 /**
  * @var \phpOMS\Views\View         $this

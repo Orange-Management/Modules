@@ -13,8 +13,8 @@
 
 namespace Modules\tests\Comments\Models;
 
-use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\Comment;
+use Modules\Comments\Models\CommentList;
 
 class CommentListTest extends \PHPUnit\Framework\TestCase
 {

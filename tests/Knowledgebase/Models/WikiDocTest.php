@@ -13,9 +13,9 @@
 
 namespace Modules\tests\Knowledgebase\Models;
 
+use Modules\Knowledgebase\Models\WikiBadge;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiStatus;
-use Modules\Knowledgebase\Models\WikiBadge;
 
 class WikiDocTest extends \PHPUnit\Framework\TestCase
 {

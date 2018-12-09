@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Editor\Theme\Backend\Components\Editor;
 
-use phpOMS\Views\View;
 use phpOMS\ApplicationAbstract;
+use phpOMS\Asset\AssetType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Asset\AssetType;
+use phpOMS\Views\View;
 
 class BaseView extends View
 {

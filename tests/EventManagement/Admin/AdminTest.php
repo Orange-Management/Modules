@@ -13,10 +13,7 @@
 
 namespace Modules\tests\EventManagement\Admin;
 
-use Modules\EventManagement\Admin\Installer;
-use Modules\EventManagement\Admin\Uninstall;
 use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\ModuleManager;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

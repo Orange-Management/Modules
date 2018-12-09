@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Media\Models;
 
-use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\FileUtils;
+use phpOMS\System\File\Local\Directory;
 
 /**
  * Upload.

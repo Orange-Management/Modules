@@ -16,11 +16,7 @@ namespace Modules\RiskManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
 use Modules\Organization\Models\UnitMapper;
-use Modules\RiskManagement\Models\RiskObject;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 
 final class RiskMapper extends DataMapperAbstract
 {

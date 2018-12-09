@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Accounting\Models;
 
-use Modules\Accounting\Models\PersonalAccountAbstract;
 
 /**
  * Creditor account class.

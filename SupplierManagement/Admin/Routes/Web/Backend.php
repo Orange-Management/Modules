@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\SupplierManagement\Models\PermissionState;
 use Modules\SupplierManagement\Controller\BackendController;
+use Modules\SupplierManagement\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/purchase/supplier/list.*$' => [

@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Monitoring\Models\PermissionState;
 use Modules\Monitoring\Controller\BackendController;
+use Modules\Monitoring\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/admin/monitoring/general.*$' => [

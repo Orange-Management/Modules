@@ -15,11 +15,6 @@ namespace Modules\tests\ItemManagement\Models;
 
 use Modules\ItemManagement\Models\Item;
 use Modules\ItemManagement\Models\ItemMapper;
-use phpOMS\Account\AccountStatus;
-use phpOMS\Account\AccountType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Utils\RnG\Name;
 
 class ItemMapperTest extends \PHPUnit\Framework\TestCase
 {

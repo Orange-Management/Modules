@@ -14,12 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Reporter\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
-use Modules\Media\Models\CollectionMapper;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Media\Models\CollectionMapper;
+use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 final class TemplateMapper extends DataMapperAbstract
 {

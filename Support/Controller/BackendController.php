@@ -14,14 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Support\Controller;
 
+use Modules\Support\Models\TicketMapper;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
 
-use Modules\Support\Models\Ticket;
-use Modules\Support\Models\TicketMapper;
+use phpOMS\Views\View;
 
 /**
  * Support controller class.

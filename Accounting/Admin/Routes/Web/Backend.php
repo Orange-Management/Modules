@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Accounting\Models\PermissionState;
 use Modules\Accounting\Controller\BackendController;
+use Modules\Accounting\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/accounting/personal/entries.*$' => [

@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\DatabaseEditor\Models\PermissionState;
 use Modules\DatabaseEditor\Controller\BackendController;
+use Modules\DatabaseEditor\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/dbeditor/editor.*$' => [

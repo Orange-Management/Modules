@@ -16,8 +16,8 @@ namespace Modules\AccountsReceivable\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Schema\Builder;
-use phpOMS\Module\UninstallerAbstract;
 use phpOMS\Module\InfoManager;
+use phpOMS\Module\UninstallerAbstract;
 
 /**
  * Navigation class.

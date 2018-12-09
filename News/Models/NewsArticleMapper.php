@@ -16,9 +16,6 @@ namespace Modules\News\Models;
 
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
 
 final class NewsArticleMapper extends DataMapperAbstract
 {

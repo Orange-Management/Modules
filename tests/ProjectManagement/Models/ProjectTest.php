@@ -13,8 +13,8 @@
 
 namespace Modules\tests\ProjectManagement\Models;
 
-use Modules\ProjectManagement\Models\Project;
 use Modules\ProjectManagement\Models\ProgressType;
+use Modules\ProjectManagement\Models\Project;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 

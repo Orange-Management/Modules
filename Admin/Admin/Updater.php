@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\Admin\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\UpdaterAbstract;
 use phpOMS\Module\InfoManager;
+use phpOMS\Module\UpdaterAbstract;
 use phpOMS\System\File\Local\Directory;
 
 /**

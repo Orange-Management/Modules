@@ -15,8 +15,6 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\ProcessMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 class ProcessMapperTest extends \PHPUnit\Framework\TestCase
 {

@@ -17,8 +17,6 @@ use Modules\SupplierManagement\Models\Supplier;
 use Modules\SupplierManagement\Models\SupplierMapper;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Utils\RnG\Name;
 
 class SupplierMapperTest extends \PHPUnit\Framework\TestCase

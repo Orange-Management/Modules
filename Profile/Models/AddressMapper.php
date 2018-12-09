@@ -14,12 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Profile\Models;
 
-use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Column;
-use phpOMS\DataStorage\Database\RelationType;
-use phpOMS\Stdlib\Base\Location;
 
 /**
  * Address mapper.

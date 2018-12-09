@@ -1,9 +1,9 @@
 <?php
 
-use phpOMS\Router\RouteVerb;
-use phpOMS\Account\PermissionType;
-use Modules\Arrival\Models\PermissionState;
 use Modules\Arrival\Controller\BackendController;
+use Modules\Arrival\Models\PermissionState;
+use phpOMS\Account\PermissionType;
+use phpOMS\Router\RouteVerb;
 
 return [
     '^.*/backend/warehouse/stock/arrival/list.*$' => [
