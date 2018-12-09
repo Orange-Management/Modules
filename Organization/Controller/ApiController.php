@@ -92,14 +92,7 @@ final class ApiController extends Controller
     public function apiUnitGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $unit = UnitMapper::get((int) $request->getData('id'));
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Unit',
-            'message' => 'Unit successfully returned.',
-            'response' => $unit->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully returned.', $unit);
     }
 
     /**
@@ -118,22 +111,8 @@ final class ApiController extends Controller
     public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $unit = $this->updateUnitFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-unit-update', '', $unit);
-        UnitMapper::update($unit);
-        $this->app->eventManager->trigger('POST:Module:Organization-unit-update', '', [
-            $request->getHeader()->getAccount(),
-            $unit,
-            $unit,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Unit',
-            'message' => 'Unit successfully updated.',
-            'response' => $unit->jsonSerialize()
-        ]);
+        $this->updateModel($request, $unit, $unit, UnitMapper::class, 'unit');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully updated.', $unit);
     }
 
     /**
@@ -175,22 +154,8 @@ final class ApiController extends Controller
     public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $unit = UnitMapper::get((int) $request->getData('id'));
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-unit-delete', '', $unit);
-        $status = UnitMapper::delete($unit);
-        $this->app->eventManager->trigger('POST:Module:Organization-unit-delete', '', [
-            $request->getHeader()->getAccount(),
-            $unit,
-            null,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Unit',
-            'message' => 'Unit successfully deleted.',
-            'response' => $status
-        ]);
+        $this->deleteModel($request, $unit, UnitMapper::class, 'unit');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully deleted.', $unit);
     }
 
     /**
@@ -215,22 +180,8 @@ final class ApiController extends Controller
         }
 
         $unit = $this->createUnitFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-unit-create', '', $unit);
-        UnitMapper::create($unit);
-        $this->app->eventManager->trigger('POST:Module:Organization-unit-update', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $unit,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Unit',
-            'message' => 'Unit successfully created.',
-            'response' => $unit->jsonSerialize()
-        ]);
+        $this->createModel($request, $unit, UnitMapper::class, 'unit');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully created.', $unit);
     }
 
     /**
@@ -300,14 +251,7 @@ final class ApiController extends Controller
     public function apiPositionGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $position = PositionMapper::get((int) $request->getData('id'));
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Position',
-            'message' => 'Position successfully returned.',
-            'response' => $position->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully returned.', $position);
     }
 
     /**
@@ -326,22 +270,8 @@ final class ApiController extends Controller
     public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $position = PositionMapper::get((int) $request->getData('id'));
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-position-delete', '', $position);
-        $status = PositionMapper::delete($position);
-        $this->app->eventManager->trigger('POST:Module:Organization-position-delete', '', [
-            $request->getHeader()->getAccount(),
-            $position,
-            null,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Position',
-            'message' => 'Position successfully deleted.',
-            'response' => $status
-        ]);
+        $this->deleteModel($request, $position, PositionMapper::class, 'position');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully deleted.', $position);
     }
 
     /**
@@ -360,22 +290,8 @@ final class ApiController extends Controller
     public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $position = $this->updatePositionFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-position-update', '', $position);
-        PositionMapper::update($position);
-        $this->app->eventManager->trigger('POST:Module:Organization-position-update', '', [
-            $request->getHeader()->getAccount(),
-            $position,
-            $position,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Position',
-            'message' => 'Position successfully updated.',
-            'response' => $position->jsonSerialize()
-        ]);
+        $this->updateModel($request, $position, $position, PositionMapper::class, 'position');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully updated.', $position);
     }
 
     /**
@@ -426,22 +342,8 @@ final class ApiController extends Controller
         }
 
         $position = $this->createPositionFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-position-create', '', $position);
-        PositionMapper::create($position);
-        $this->app->eventManager->trigger('POST:Module:Organization-position-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $position,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Position',
-            'message' => 'Position successfully created.',
-            'response' => $position->jsonSerialize()
-        ]);
+        $this->createModel($request, $position, PositionMapper::class, 'position');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully created.', $position);
     }
 
     /**
@@ -513,14 +415,7 @@ final class ApiController extends Controller
     public function apiDepartmentGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $department = DepartmentMapper::get((int) $request->getData('id'));
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Department',
-            'message' => 'Department successfully returned.',
-            'response' => $department->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully returned.', $department);
     }
 
     /**
@@ -539,22 +434,8 @@ final class ApiController extends Controller
     public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $department = $this->updateDepartmentFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-department-update', '', $department);
-        DepartmentMapper::update($department);
-        $this->app->eventManager->trigger('POST:Module:Organization-department-update', '', [
-            $request->getHeader()->getAccount(),
-            $department,
-            $department,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Department',
-            'message' => 'Department successfully updated.',
-            'response' => $department->jsonSerialize()
-        ]);
+        $this->updateModel($request, $department, $department, DepartmentMapper::class, 'department');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully updated.', $department);
     }
 
     /**
@@ -599,22 +480,8 @@ final class ApiController extends Controller
     public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $department = DepartmentMapper::get((int) $request->getData('id'));
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-department-delete', '', $department);
-        $status = DepartmentMapper::delete($department);
-        $this->app->eventManager->trigger('POST:Module:Organization-department-delete', '', [
-            $request->getHeader()->getAccount(),
-            $department,
-            null,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Department',
-            'message' => 'Department successfully deleted.',
-            'response' => $status
-        ]);
+        $this->deleteModel($request, $department, DepartmentMapper::class, 'department');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully deleted.', $department);
     }
 
     /**
@@ -639,22 +506,8 @@ final class ApiController extends Controller
         }
 
         $department = $this->createDepartmentFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Organization-department-create', '', $department);
-        DepartmentMapper::create($department);
-        $this->app->eventManager->trigger('POST:Module:Organization-department-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $department,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Department',
-            'message' => 'Department successfully created.',
-            'response' => $department->jsonSerialize()
-        ]);
+        $this->createModel($request, $department, DepartmentMapper::class, 'department');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully created.', $department);
     }
 
     /**

@@ -48,7 +48,7 @@ class Account extends \phpOMS\Account\Account
      * Set remaining login tries
      *
      * @param int $tries Remaining login tries
-     * 
+     *
      * @return void
      *
      * @since  1.0.0

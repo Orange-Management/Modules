@@ -93,26 +93,13 @@ final class ApiController extends Controller
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (empty($request->getData('settings'))) {
-            $data = $request->getLike('(settings_)(.*)');
-        } else {
-            $data = \json_decode((string) $request->getData('settings'), true);
-        }
+        $data = empty($request->getData('settings')) ? $request->getLike('(settings_)(.*)') : \json_decode((string) $request->getData('settings'), true);
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-settings-set', '', $data);
-        $this->app->appSettings->set($data, true);
-        $this->app->eventManager->trigger('POST:Module:Admin-settings-set', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $data,
-        ]);
+        $this->updateModel($request, $data, $data, function() use($data) {
+            $this->app->appSettings->set($data, true);
+        }, 'settings');
 
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Settings',
-            'message' => 'Settings successfully modified.',
-            'response' => $data
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Settigns', 'Settings successfully modified', $data);
     }
 
     /**
@@ -131,12 +118,7 @@ final class ApiController extends Controller
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $group = GroupMapper::get((int) $request->getData('id'));
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Group',
-            'message' => 'Group successfully returned.',
-            'response' => $group->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully returned', $group);
     }
 
     /**
@@ -155,22 +137,8 @@ final class ApiController extends Controller
     public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $group = $this->updateGroupFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Admin-group-update', '', $group);
-        GroupMapper::update($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-update', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $group,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Group',
-            'message' => 'Group successfully updated.',
-            'response' => $group->jsonSerialize()
-        ]);
+        $this->updateModel($request, $group, $group, GroupMapper::class, 'group');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully updated', $group);
     }
 
     /**
@@ -236,22 +204,8 @@ final class ApiController extends Controller
         }
 
         $group = $this->createGroupFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Admin-group-create', '', $group);
-        GroupMapper::create($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $group,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Group',
-            'message' => 'Group successfully created.',
-            'response' => $group->jsonSerialize()
-        ]);
+        $this->createModel($request, $group, GroupMapper::class, 'group');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully created', $group);
     }
 
     /**
@@ -291,22 +245,8 @@ final class ApiController extends Controller
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $group = GroupMapper::get((int) $request->getData('id'));
-
-        $this->app->eventManager->trigger('PRE:Module:Admin-group-delete', '', $group);
-        $status = GroupMapper::delete($group);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-delete', '', [
-            $request->getHeader()->getAccount(),
-            $group,
-            null,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Group',
-            'message' => 'Group successfully deleted.',
-            'response' => $status
-        ]);
+        $this->deleteModel($request, $group, GroupMapper::class, 'group');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully deleted', $group);
     }
 
     /**
@@ -349,14 +289,7 @@ final class ApiController extends Controller
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = AccountMapper::get((int) $request->getData('id'));
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Account',
-            'message' => 'Account successfully returned.',
-            'response' => $account->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully returned', $account);
     }
 
     /**
@@ -429,20 +362,18 @@ final class ApiController extends Controller
         }
 
         $account = $this->createAccountFromRequest($request);
+        $this->createModel($request, $account, AccountMapper::class, 'account');
+        $this->createProfileForAccount($account, $request);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully created', $account);
+    }
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-account-create', '', $account);
-        AccountMapper::create($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $account,
-        ]);
-
+    private function createProfileForAccount(Account $account, RequestAbstract $request) : void
+    {
         if (((string) ($request->getData('password') ?? '')) !== ''
             && ((string) ($request->getData('login') ?? '')) !== ''
         ) {
             $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(new \Modules\Profile\Models\Profile($account));
-            
+
             $this->app->eventManager->trigger('PRE:Module:Admin-account-update', '', $account);
             $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
             AccountMapper::update($account);
@@ -452,14 +383,6 @@ final class ApiController extends Controller
                 $account,
             ]);
         }
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Account',
-            'message' => 'Account successfully created.',
-            'response' => $account->jsonSerialize()
-        ]);
     }
 
     /**
@@ -504,22 +427,8 @@ final class ApiController extends Controller
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = AccountMapper::get((int) ($request->getData('id')));
-
-        $this->app->eventManager->trigger('PRE:Module:Admin-account-delete', '', $account);
-        $status = AccountMapper::delete($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-delete', '', [
-            $request->getHeader()->getAccount(),
-            $account,
-            null,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Account',
-            'message' => 'Account successfully deleted.',
-            'response' => $status
-        ]);
+        $this->deleteModel($request, $account, AccountMapper::class, 'account');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully deleted', $account);
     }
 
     /**
@@ -538,22 +447,8 @@ final class ApiController extends Controller
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = $this->updateAccountFromRequest($request, true);
-
-        $this->app->eventManager->trigger('PRE:Module:Admin-account-update', '', $account);
-        $status = AccountMapper::update($account);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-update', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $account,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Account',
-            'message' => 'Account successfully updated.',
-            'response' => $account->jsonSerialize()
-        ]);
+        $this->updateModel($request, $account, $account, AccountMapper::class, 'account');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully updated', $account);
     }
 
     /**
@@ -642,13 +537,7 @@ final class ApiController extends Controller
         }
         $this->app->eventManager->trigger('POST:Module:Admin-module-status', '', ['status' => $status, 'module' => $module]);
 
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => $done ? 'ok' : 'warning',
-            'title' => 'Module',
-            'message' => $msg,
-            'response' => []
-        ]);
+        $this->fillJsonResponse($request, $response, $done ? NotificationLevel::OK : NotificationLevel::WARNING, 'Module', $msg, []);
     }
 
     /**
@@ -680,21 +569,8 @@ final class ApiController extends Controller
             return;
         }
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-group-permission-create', '', $permission);
-        GroupPermissionMapper::create($permission);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-permission-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $permission,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Group',
-            'message' => 'Group permission successfully created.',
-            'response' => $permission->jsonSerialize()
-        ]);
+        $this->createModel($request, $permission, GroupPermissionMapper::class, 'group-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group permission successfully created', $permission);
     }
 
     /**
@@ -726,21 +602,8 @@ final class ApiController extends Controller
             return;
         }
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-account-permission-create', '', $permission);
-        AccountPermissionMapper::create($permission);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-permission-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $permission,
-        ]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Account',
-            'message' => 'Account permission successfully created.',
-            'response' => $permission->jsonSerialize()
-        ]);
+        $this->createModel($request, $permission, AccountPermissionMapper::class, 'account-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account permission successfully created', $permission);
     }
 
     /**
@@ -811,17 +674,8 @@ final class ApiController extends Controller
         $account = (int) $request->getData('account');
         $groups  = \array_map('intval', $request->getDataList('igroup-idlist'));
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-account-group-add', '', ['account' => $account, 'groups' => $groups]);
-        $success = AccountMapper::createRelation('groups', $account, $groups);
-        $this->app->eventManager->trigger('POST:Module:Admin-account-group-add', '', ['account' => $account, 'groups' => $groups]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
-            'title' => 'Account',
-            'message' => 'Group added to account',
-            'response' => []
-        ]);
+        $this->createModelRelation($request, $account, $groups, AccountMapper::class, 'groups', 'account-group');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Relation added', []);
     }
 
     /**
@@ -842,16 +696,7 @@ final class ApiController extends Controller
         $group    = (int) $request->getData('group');
         $accounts = \array_map('intval', $request->getDataList('iaccount-idlist'));
 
-        $this->app->eventManager->trigger('PRE:Module:Admin-group-account-add', '', ['group' => $group, 'accounts' => $accounts]);
-        $success = GroupMapper::createRelation('accounts', $group, $accounts);
-        $this->app->eventManager->trigger('POST:Module:Admin-group-account-add', '', ['group' => $group, 'accounts' => $accounts]);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => 'ok',
-            'title' => 'Group',
-            'message' => 'Account added to group',
-            'response' => []
-        ]);
+        $this->createModelRelation($request, $group, $accounts, GroupMapper::class, 'accounts', 'group-account');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Relation added', []);
     }
 }

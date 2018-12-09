@@ -69,8 +69,7 @@ final class ApiController extends Controller
             $ids[] = $file->getId();
         }
 
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), $ids);
+        $this->fillJsonRawResponse($request, $response, $ids);
     }
 
     /**
@@ -163,9 +162,15 @@ final class ApiController extends Controller
 
     private static function normalizeDbPath(string $path) : string
     {
+        $realpath = \realpath(__DIR__ . '/../../');
+
+        if ($realpath === false) {
+            throw new \Exception();
+        }
+
         return \str_replace('\\', '/',
-            \str_replace(realpath(__DIR__ . '/../../'), '',
-                rtrim($path, '/')
+            \str_replace($realpath, '',
+                \rtrim($path, '/')
             )
         );
     }

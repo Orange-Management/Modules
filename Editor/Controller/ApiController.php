@@ -76,14 +76,8 @@ final class ApiController extends Controller
         }
 
         $doc = $this->createDocFromRequest($request);
-
-        EditorDocMapper::create($doc);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Document',
-            'message' => 'Document successfully created.',
-            'response' => $doc->jsonSerialize()
-        ]);
+        $this->createModel($request, $doc, EditorDocMapper::class, 'doc');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully created', $doc);
     }
 
     /**

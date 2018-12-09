@@ -89,21 +89,8 @@ final class ApiController extends Controller
         }
 
         $task = $this->createTaskFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Tasks-task-create', '', [$task]);
-        TaskMapper::create($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-task-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $task,
-        ]);
-
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Task',
-            'message' => 'Task successfully created.',
-            'response' => $task->jsonSerialize()
-        ]);
+        $this->createModel($request, $task, TaskMapper::class, 'task');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully created.', $task);
     }
 
     /**
@@ -155,12 +142,7 @@ final class ApiController extends Controller
     public function apiTaskGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $task = TaskMapper::get((int) $request->getData('id'));
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Task',
-            'message' => 'Task successfully returned.',
-            'response' => $task->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully returned.', $task);
     }
 
     /**
@@ -179,21 +161,8 @@ final class ApiController extends Controller
     public function apiTaskSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $task = $this->updateTaskFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Tasks-task-update', '', [$task]);
-        $status = TaskMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-task-update', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $task,
-        ]);
-
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Task',
-            'message' => 'Task successfully updated.',
-            'response' => $task->jsonSerialize()
-        ]);
+        $this->updateModel($request, $task, $task, TaskMapper::class, 'task');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully updated.', $task);
     }
 
     /**
@@ -265,21 +234,9 @@ final class ApiController extends Controller
         $task    = TaskMapper::get($element->getTask());
         $task->setStatus($element->getStatus());
 
-        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-create', '', [$element]);
-        TaskElementMapper::create($element);
-        TaskMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-create', '', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $element,
-        ]);
-
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Task element',
-            'message' => 'Task element successfully created.',
-            'response' => $element->jsonSerialize()
-        ]);
+        $this->createModel($request, $element, TaskElementMapper::class, 'taskelement');
+        $this->updateModel($request, $task, $task, TaskMapper::class, 'task');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully created.', $element);
     }
 
     /**
@@ -322,12 +279,7 @@ final class ApiController extends Controller
     public function apiTaskElementGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $task = TaskElementMapper::get((int) $request->getData('id'));
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Task',
-            'message' => 'Task successfully returned.',
-            'response' => $task->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully returned.', $task);
     }
 
     /**
@@ -345,22 +297,11 @@ final class ApiController extends Controller
      */
     public function apiTaskElementSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $task = $this->updateTaskElementFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:Tasks-taskelement-update', '', [$task]);
-        $status = TaskElementMapper::update($task);
-        $this->app->eventManager->trigger('POST:Module:Tasks-taskelement-update', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $task,
-        ]);
-
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Task element',
-            'message' => 'Task element successfully updated.',
-            'response' => $task->jsonSerialize()
-        ]);
+        $element = $this->updateTaskElementFromRequest($request);
+        $this->updateModel($request, $element, $element, TaskElementMapper::class, 'taskelement');
+        // todo: update task if elment status change had effect on task status!!!
+        //$this->updateModel($request, $task, $task, TaskMapper::class, 'task');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully updated.', $element);
     }
 
     /**

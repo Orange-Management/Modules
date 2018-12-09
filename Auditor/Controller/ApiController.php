@@ -23,12 +23,39 @@ use phpOMS\Views\View;
 use phpOMS\Account\Account;
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\Utils\StringUtils;
 
 use Modules\Auditor\Models\Audit;
 use Modules\Auditor\Models\AuditMapper;
 
+/**
+ * Auditor api controller class.
+ *
+ * @package    Modules\Auditor
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 final class ApiController extends Controller
 {
+    /**
+     * Log model creation
+     *
+     * @param mixed  $account Account who created the model
+     * @param mixed  $old     Old value (always null)
+     * @param mixed  $new     New value
+     * @param int    $type    Module model type
+     * @param int    $subtype Module model subtype
+     * @param string $module  Module name
+     * @param string $ref     Reference to other model
+     * @param string $content Message
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiLogCreate(
         $account,
         $old,
@@ -40,12 +67,30 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $newString = $this->stringify($new);
+        $newString = StringUtils::stringify($new);
         $audit     = new Audit($account, null, $newString, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
     }
 
+    /**
+     * Log model update
+     *
+     * @param mixed  $account Account who created the model
+     * @param mixed  $old     Old value
+     * @param mixed  $new     New value
+     * @param int    $type    Module model type
+     * @param int    $subtype Module model subtype
+     * @param string $module  Module name
+     * @param string $ref     Reference to other model
+     * @param string $content Message
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiLogUpdate(
         $account,
         $old,
@@ -57,13 +102,31 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $oldString = $this->stringify($old);
-        $newString = $this->stringify($new);
+        $oldString = StringUtils::stringify($old);
+        $newString = StringUtils::stringify($new);
         $audit     = new Audit($account, $oldString, $newString, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
     }
 
+    /**
+     * Log model delete
+     *
+     * @param mixed  $account Account who created the model
+     * @param mixed  $old     Old value
+     * @param mixed  $new     New value (always null)
+     * @param int    $type    Module model type
+     * @param int    $subtype Module model subtype
+     * @param string $module  Module name
+     * @param string $ref     Reference to other model
+     * @param string $content Message
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiLogDelete(
         $account,
         $old,
@@ -75,28 +138,9 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $oldString = $this->stringify($old);
+        $oldString = StringUtils::stringify($old);
         $audit     = new Audit($account, $oldString, null, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
-    }
-
-    private function stringify($element) : ?string
-    {
-        $stringified = '';
-
-        if ($element instanceof \JsonSerializable) {
-            $stringified = \json_encode($element);
-        } elseif ($element instanceof \Serializable) {
-            $stringified = $element->serialize();
-        } elseif (\is_string($element)) {
-            $stringified = $element;
-        } elseif ($element === null) {
-            return null;
-        } else {
-            $stringified = $element->__toString();
-        }
-
-        return $stringified;
     }
 }

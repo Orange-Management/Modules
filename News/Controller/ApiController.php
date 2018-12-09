@@ -95,14 +95,8 @@ final class ApiController extends Controller
     public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $news = $this->updateNewsFromRequest($request);
-
-        NewsArticleMapper::update($news);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Group',
-            'message' => 'Group successfully updated.',
-            'response' => $news->jsonSerialize()
-        ]);
+        $this->updateModel($request, $news, $news, NewsArticleMapper::class, 'news');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully updated', $news);
     }
 
     /**
@@ -151,21 +145,8 @@ final class ApiController extends Controller
         }
 
         $newsArticle = $this->createNewsArticleFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:News-article-create', '', $newsArticle);
-        NewsArticleMapper::create($newsArticle);
-        $this->app->eventManager->trigger('POST:Module:News-article-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $newsArticle,
-        ]);
-
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'News',
-            'message' => 'News article successfully created.',
-            'response' => $newsArticle->jsonSerialize()
-        ]);
+        $this->createModel($request, $newsArticle, NewsArticleMapper::class, 'news');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully created', $newsArticle);
     }
 
     /**
@@ -209,12 +190,7 @@ final class ApiController extends Controller
     public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $news = NewsArticleMapper::get((int) $request->getData('id'));
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'News',
-            'message' => 'News successfully returned.',
-            'response' => $news->jsonSerialize()
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully returned', $news);
     }
 
     /**
@@ -259,16 +235,8 @@ final class ApiController extends Controller
         }
 
         $badge = $this->createBadgeFromRequest($request);
-
-        $this->app->eventManager->trigger('PRE:Module:News-badge-create', '', $badge);
-        BadgeMapper::create($badge);
-        $this->app->eventManager->trigger('POST:Module:News-badge-create', '', [
-            $request->getHeader()->getAccount(),
-            null,
-            $badge,
-        ]);
-
-        $response->set('badge', $badge->jsonSerialize());
+        $this->createModel($request, $badge, BadgeMapper::class, 'badge');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Badge', 'Badge successfully created', $badge);
     }
 
     /**
@@ -356,21 +324,8 @@ final class ApiController extends Controller
     public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $news = NewsArticleMapper::get((int) $request->getData('id'));
-
-        $this->app->eventManager->trigger('PRE:Module:News-article-delete', '', $news);
-        $status = NewsArticleMapper::delete($news);
-        $this->app->eventManager->trigger('POST:Module:News-article-delete', '', [
-            $request->getHeader()->getAccount(),
-            $news,
-            null,
-        ]);
-
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'News',
-            'message' => 'News successfully deleted.',
-            'response' => $status
-        ]);
+        $this->deleteModel($request, $news, NewsArticleMapper::class, 'news');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully deleted', $news);
     }
 
     /**
@@ -388,7 +343,8 @@ final class ApiController extends Controller
      */
     public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        BadgeMapper::delete((int) $request->getData('id'));
-        $response->set('badge_delete', (int) $request->getData('id'));
+        $badge = BadgeMapper::get((int) $request->getData('id'));
+        $this->deleteModel($request, $badge, BadgeMapper::class, 'badge');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Badge', 'Badge successfully deleted', $badge);
     }
 }
