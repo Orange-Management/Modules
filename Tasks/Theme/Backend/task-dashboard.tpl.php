@@ -14,7 +14,7 @@
  use Modules\Tasks\Models\TaskStatus;
 
 /**
- * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Views\View           $this
  * @var \Modules\Tasks\Models\Task[] $tasks
  */
 $tasks = $this->getData('tasks');

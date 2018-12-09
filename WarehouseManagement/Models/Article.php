@@ -323,7 +323,7 @@ class Article
      * Add price to pricelist.
      *
      * @param array $price Price
-     * @param bool $db    Update DB and cache?
+     * @param bool  $db    Update DB and cache?
      *
      * @return void
      *
@@ -355,9 +355,9 @@ class Article
     /**
      * Add price to pricelist.
      *
-     * @param int  $id    Price ID
+     * @param int   $id    Price ID
      * @param array $price Price
-     * @param bool $db    Update DB and cache?
+     * @param bool  $db    Update DB and cache?
      *
      * @return void
      *

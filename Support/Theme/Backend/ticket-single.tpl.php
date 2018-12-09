@@ -11,7 +11,7 @@
  * @link       http://website.orange-management.de
  */
 /**
- * @var \phpOMS\Views\View         $this
+ * @var \phpOMS\Views\View             $this
  * @var \Modules\Support\Models\Ticket $ticket
  */
 $ticket      = $this->getData('ticket');

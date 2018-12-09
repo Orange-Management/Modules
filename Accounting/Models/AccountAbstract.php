@@ -86,9 +86,9 @@ abstract class AccountAbstract
     /**
      * Get entry.
      *
-     * @param \DateTime $start Interval start
-     * @param \DateTime $end   Interval end
-     * @param int      $dateType
+     * @param \DateTime $start    Interval start
+     * @param \DateTime $end      Interval end
+     * @param int       $dateType
      *
      * @internal \Modules\Accounting\Models\TimeRangeType $dateTime Time range type
      *

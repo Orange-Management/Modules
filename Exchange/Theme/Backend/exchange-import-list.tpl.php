@@ -12,7 +12,7 @@
  */
 
  /**
- * @var \phpOMS\Views\View         $this
+ * @var \phpOMS\Views\View $this
  */
 $interfaces = $this->getData('interfaces');
 
