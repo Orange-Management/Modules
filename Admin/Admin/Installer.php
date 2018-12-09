@@ -151,7 +151,7 @@ class Installer extends InstallerAbstract
                             `account_id` int(11) NOT NULL AUTO_INCREMENT,
                             `account_status` tinyint(2) NOT NULL,
                             `account_type` tinyint(2) NOT NULL,
-                            `account_login` varchar(50) NOT NULL,
+                            `account_login` varchar(50) DEFAULT NULL,
                             `account_name1` varchar(50) NOT NULL,
                             `account_name2` varchar(50) NOT NULL,
                             `account_name3` varchar(50) NOT NULL,

@@ -94,8 +94,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiNewsCreate($request, $response);
 
-        self::assertEquals('Controller Test Title', $response->get('')['response']['title']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('Controller Test Title', $response->get('')['response']->getTitle());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiNewsGet()
@@ -108,7 +108,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiNewsGet($request, $response);
 
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiNewsSet()
@@ -124,7 +124,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiNewsUpdate($request, $response);
         $this->module->apiNewsGet($request, $response);
 
-        self::assertEquals('New Title', $response->get('')['response']['title']);
+        self::assertEquals('New Title', $response->get('')['response']->getTitle());
     }
 
     public function testApiNewsDelete()
@@ -136,6 +136,6 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('id', 1);
         $this->module->apiNewsDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get('')['response']);
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 }

@@ -133,8 +133,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiGroupGet($request, $response);
 
-        self::assertEquals('admin', $response->get('')['response']['name']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('admin', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiGroupSet()
@@ -149,7 +149,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiGroupUpdate($request, $response);
         $this->module->apiGroupGet($request, $response);
 
-        self::assertEquals('root', $response->get('')['response']['name']);
+        self::assertEquals('root', $response->get('')['response']->getName());
 
         $request->setData('name', 'admin');
         $this->module->apiGroupUpdate($request, $response);
@@ -180,14 +180,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiGroupCreate($request, $response);
 
-        self::assertEquals('test', $response->get('')['response']['name']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('test', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
 
         // test delete
-        $request->setData('id', $response->get('')['response']['id']);
+        $request->setData('id', $response->get('')['response']->getId());
         $this->module->apiGroupDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get('')['response']);
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiGroupCreateInvalid()
@@ -213,8 +213,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiAccountGet($request, $response);
 
-        self::assertEquals('admin', $response->get('')['response']['login']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('admin', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiAccountFind()
@@ -244,14 +244,14 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiAccountCreate($request, $response);
 
-        self::assertEquals('guest', $response->get('')['response']['login']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('guest', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
 
         // test delete
-        $request->setData('id', $response->get('')['response']['id']);
+        $request->setData('id', $response->get('')['response']->getId());
         $this->module->apiAccountDelete($request, $response);
 
-        self::assertGreaterThan(0, $response->get('')['response']);
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiAccountCreateInvalid()
@@ -279,8 +279,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiAccountUpdate($request, $response);
         $this->module->apiAccountGet($request, $response);
 
-        self::assertEquals('oms@orange-management.de', $response->get('')['response']['email']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('oms@orange-management.de', $response->get('')['response']->getEmail());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiModuleStatusUpdate()
@@ -357,7 +357,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiAddGroupPermission($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiAddAccountPermission()
@@ -371,7 +371,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiAddAccountPermission($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     public function testApiAddGroupPermissionInvalidData()

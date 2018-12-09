@@ -146,8 +146,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $response = new Response(new Localization());
         $this->module->apiTemplateCreate($request, $response);
 
-        self::assertEquals('Test template', $response->get('')['response']['name']);
-        self::assertGreaterThan(0, $response->get('')['response']['id']);
+        self::assertEquals('Test template', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
     /**

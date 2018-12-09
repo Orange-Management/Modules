@@ -152,20 +152,11 @@ final class ApiController extends Controller
      */
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: check permission here
-
         $collectionId = $this->createMediaCollectionFromRequest($request);
         $template     = $this->createTemplateFromRequest($request, $collectionId);
 
-        TemplateMapper::create($template);
-
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Template',
-            'message' => 'Template successfully created.',
-            'response' => $template->jsonSerialize()
-        ]);
+        $this->createModel($request, $template, TemplateMapper::class, 'template');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Template', 'Template successfully created', $template);
     }
 
     private function createMediaCollectionFromRequest(RequestAbstract $request) : int
@@ -226,15 +217,10 @@ final class ApiController extends Controller
 
         $this->handleTemplateDatabaseFromRequest($request);
         $collectionId = $this->createMediaCollectionFromRequest($request);
-        $report       = $this->createReportFromRequest($request, $response, $collectionId);
 
-        $response->getHeader()->set('Content-Type', MimeType::M_JSON . '; charset=utf-8', true);
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Report',
-            'message' => 'Report successfully created.',
-            'response' => $report->jsonSerialize()
-        ]);
+        $report = $this->createReportFromRequest($request, $response, $collectionId);
+        $this->createModel($request, $report, ReportMapper::class, 'report');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Report', 'Report successfully created', $report);
     }
 
     private function createReportFromRequest(RequestAbstract $request, ResponseAbstract $response, int $collectionId) : Report
@@ -244,8 +230,6 @@ final class ApiController extends Controller
         $reporterReport->setSource((int) $collectionId);
         $reporterReport->setTemplate((int) $request->getData('template'));
         $reporterReport->setCreatedBy($request->getHeader()->getAccount());
-
-        ReportMapper::create($reporterReport);
 
         return $reporterReport;
     }
