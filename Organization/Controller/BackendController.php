@@ -14,28 +14,16 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Controller;
 
-use phpOMS\Model\Message\FormValidation;
-
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
-use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\Views\View;
-use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Utils\Parser\Markdown\Markdown;
-use phpOMS\System\MimeType;
-
-use phpOMS\Account\PermissionType;
-use Modules\Organization\Models\PermissionState;
 
 /**
  * Organization Controller class.

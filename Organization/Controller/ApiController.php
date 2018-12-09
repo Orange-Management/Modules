@@ -27,15 +27,8 @@ use Modules\Organization\Models\UnitMapper;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Message\NotificationLevel;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
-use phpOMS\Views\View;
-use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\System\MimeType;
-
-use phpOMS\Account\PermissionType;
-use Modules\Organization\Models\PermissionState;
 
 /**
  * Organization Controller class.

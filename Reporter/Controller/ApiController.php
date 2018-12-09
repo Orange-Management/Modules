@@ -14,12 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Reporter\Controller;
 
-use phpOMS\Model\Message\Redirect;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
-use Modules\Reporter\Models\NullReport;
 use Modules\Reporter\Models\Report;
 use Modules\Reporter\Models\ReportMapper;
 use Modules\Reporter\Models\Template;
@@ -27,13 +25,9 @@ use Modules\Reporter\Models\TemplateDataType;
 use Modules\Reporter\Models\TemplateMapper;
 use Modules\Reporter\Models\PermissionState;
 
-use phpOMS\Asset\AssetType;
-use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\System\MimeType;
 use phpOMS\Utils\IO\Csv\CsvDatabaseMapper;
 use phpOMS\Utils\IO\Excel\ExcelDatabaseMapper;
