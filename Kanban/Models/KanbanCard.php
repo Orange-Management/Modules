@@ -210,7 +210,7 @@ class KanbanCard implements \JsonSerializable
         ];
     }
 
-    public static function createFromTask(Task $task) : KanbanCard
+    public static function createFromTask(Task $task) : self
     {
         $card = new self();
         $card->setRef($task->getId());

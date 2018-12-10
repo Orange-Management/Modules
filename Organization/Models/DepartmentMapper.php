@@ -54,7 +54,7 @@ final class DepartmentMapper extends DataMapperAbstract
             'dest'   => 'organization_department_unit',
         ],
         'parent' => [
-            'mapper' => DepartmentMapper::class,
+            'mapper' => self::class,
             'dest'   => 'organization_department_parent',
         ],
     ];
