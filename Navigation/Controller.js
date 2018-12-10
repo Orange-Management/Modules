@@ -49,7 +49,7 @@
         const e    = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
             length = e.length;
 
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < length; ++i) {
             this.bindElement(e[i]);
         }
     };

@@ -14,7 +14,7 @@
         const e    = typeof id === 'undefined' ? document.getElementsByTagName('form') : [document.getElementById(id)],
             length = e.length;
 
-        for (let i = 0; i < length; i++) {
+        for (let i = 0; i < length; ++i) {
             this.bindElement(e[i]);
         }
     };
@@ -52,9 +52,9 @@
                     const length   = fileFields.length;
                     let fileLength = 0;
 
-                    for (let i = 0; i < length; i++) {
+                    for (let i = 0; i < length; ++i) {
                         fileLength = fileFields[i].files.length;
-                        for (let j = 0; j < fileLength; j++) {
+                        for (let j = 0; j < fileLength; ++j) {
                             uploader.addFile(fileFields[i].files[j]);
                         }
                     }
