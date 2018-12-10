@@ -31,7 +31,7 @@ final class ProfileMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, string|bool>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static $columns = [
@@ -61,7 +61,7 @@ final class ProfileMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, string|null>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static $hasMany = [

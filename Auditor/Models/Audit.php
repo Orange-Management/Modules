@@ -53,7 +53,7 @@ class Audit
     /**
      * Audit module.
      *
-     * @var string|null
+     * @var null|string
      * @since 1.0.0
      */
     private $module = null;
@@ -63,7 +63,7 @@ class Audit
      *
      * This could be used to reference other model ids
      *
-     * @var string|null
+     * @var null|string
      * @since 1.0.0
      */
     private $ref = null;
@@ -73,7 +73,7 @@ class Audit
      *
      * Additional audit information
      *
-     * @var string|null
+     * @var null|string
      * @since 1.0.0
      */
     private $content = null;
@@ -81,7 +81,7 @@ class Audit
     /**
      * Old value.
      *
-     * @var string|null
+     * @var null|string
      * @since 1.0.0
      */
     private $old = null;
@@ -89,7 +89,7 @@ class Audit
     /**
      * New value.
      *
-     * @var string|null
+     * @var null|string
      * @since 1.0.0
      */
     private $new = null;
@@ -191,7 +191,7 @@ class Audit
     /**
      * Get Module.
      *
-     * @return string|null
+     * @return null|string
      *
      * @since  1.0.0
      */
@@ -205,7 +205,7 @@ class Audit
      *
      * If existing this can be a reference to another model
      *
-     * @return string|null
+     * @return null|string
      *
      * @since  1.0.0
      */
@@ -217,7 +217,7 @@ class Audit
     /**
      * Get content.
      *
-     * @return string|null
+     * @return null|string
      *
      * @since  1.0.0
      */
@@ -229,7 +229,7 @@ class Audit
     /**
      * Get old value.
      *
-     * @return string|null
+     * @return null|string
      *
      * @since  1.0.0
      */
@@ -241,7 +241,7 @@ class Audit
     /**
      * Get new value.
      *
-     * @return string|null
+     * @return null|string
      *
      * @since  1.0.0
      */
@@ -253,7 +253,7 @@ class Audit
     /**
      * Get created by.
      *
-     * @return int|Account
+     * @return Account|int
      *
      * @since  1.0.0
      */

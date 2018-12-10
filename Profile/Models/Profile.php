@@ -74,7 +74,7 @@ class Profile implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @param Account|null $account Account to initialize this profile with
+     * @param null|Account $account Account to initialize this profile with
      *
      * @since  1.0.0
      */

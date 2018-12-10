@@ -29,7 +29,7 @@ final class AddressMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, string|bool>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static $columns = [

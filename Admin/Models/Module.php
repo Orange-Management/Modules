@@ -195,7 +195,7 @@ class Module
     /**
      * Json serialize.
      *
-     * @return array<string, string|int>
+     * @return array<string, int|string>
      *
      * @since  1.0.0
      */
@@ -207,7 +207,7 @@ class Module
     /**
      * To array
      *
-     * @return array<string, string|int>
+     * @return array<string, int|string>
      *
      * @since  1.0.0
      */
