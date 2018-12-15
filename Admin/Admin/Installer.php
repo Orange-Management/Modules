@@ -41,6 +41,16 @@ class Installer extends InstallerAbstract
             case DatabaseType::MYSQL:
                 $dbPool->get()->con->beginTransaction();
 
+                /* Languages */
+                $dbPool->get()->con->prepare(
+                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'language` (
+                            `language_id` int(11) NOT NULL AUTO_INCREMENT,
+                            `language_name` varchar(100) NOT NULL,
+                            `language_native` varchar(100) NOT NULL,
+                            PRIMARY KEY (`language_id`)
+                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
+                )->execute();
+
                 /* Create group table */
                 $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'group` (

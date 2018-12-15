@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/draw/single?{?}&id=' . $value->getId()); ?>
                     <tr>
                         <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getName()); ?></a>
-                        <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedBy()); ?></a>
+                        <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedBy()->getName()); ?></a>
                         <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getCreatedAt()->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>

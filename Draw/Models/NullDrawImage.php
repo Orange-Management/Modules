@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Draw\Models;
 
 /**
- * News article class.
+ * Null draw class.
  *
  * @package    Modules\Draw\Models
  * @license    OMS License 1.0

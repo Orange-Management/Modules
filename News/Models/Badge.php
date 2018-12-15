@@ -24,30 +24,63 @@ namespace Modules\News\Models;
  */
 class Badge implements \JsonSerializable
 {
+    /**
+     * Id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
     private $id = 0;
 
+    /**
+     * Badge name
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $name = '';
 
-    public function __construct()
-    {
-
-    }
-
+    /**
+     * Get id.
+     *
+     * @return int Badge id
+     *
+     * @since  1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
     }
 
+    /**
+     * Set badge name.
+     *
+     * @param int Badge name
+     *
+     * @return void;
+     *
+     * @since  1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
+    /**
+     * Get name.
+     *
+     * @return string Badge name
+     *
+     * @since  1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return [

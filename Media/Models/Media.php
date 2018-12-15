@@ -334,6 +334,12 @@ class Media
 
     public function toArray()
     {
-        return [];
+        return [
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'description' => $this->description,
+            'extension'   => $this->extension,
+            'size'        => $this->size,
+        ];
     }
 }

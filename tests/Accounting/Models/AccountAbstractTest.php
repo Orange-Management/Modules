@@ -25,16 +25,10 @@ class AccountAbstractTest extends \PHPUnit\Framework\TestCase
     public function testDefault()
     {
         self::assertEquals(0, $this->account->getId());
-        self::assertEquals(null, $this->account->getPositiveParent());
-        self::assertEquals(null, $this->account->getNegativeParent());
-    }
-
-    public function testSetGet()
-    {
-        $this->account->setPositiveParent(2);
-        self::assertEquals(2, $this->account->getPositiveParent());
-
-        $this->account->setNegativeParent(3);
-        self::assertEquals(3, $this->account->getNegativeParent());
+        self::assertEquals(null, $this->account->getEntryById(1));
+        self::assertEquals([], $this->account->getEntriesByDate(
+            new \DateTime('now'),
+            new \DateTime('now')
+        ));
     }
 }

@@ -43,7 +43,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
 
         return $view;
     }
@@ -62,7 +62,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-generator');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
 
         return $view;
     }
@@ -81,7 +81,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-query-result');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
 
         return $view;
     }

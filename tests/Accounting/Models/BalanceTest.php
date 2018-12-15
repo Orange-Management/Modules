@@ -21,5 +21,18 @@ class BalanceTest extends \PHPUnit\Framework\TestCase
     {
         $balance = new Balance();
         self::assertEquals(0, $balance->getId());
+        self::assertEquals('', $balance->getName());
+        self::assertEquals('', $balance->getDescription());
+    }
+
+    public function testGetSet()
+    {
+        $balance = new Balance();
+
+        $balance->setName('Name');
+        self::assertEquals('Name', $balance->getName());
+
+        $balance->setDescription('Description');
+        self::assertEquals('Description', $balance->getDescription());
     }
 }

@@ -17,6 +17,14 @@ namespace Modules\News\Models;
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * News mapper class.
+ *
+ * @package    Modules\News
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 final class NewsArticleMapper extends DataMapperAbstract
 {
 

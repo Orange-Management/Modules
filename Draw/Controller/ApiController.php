@@ -16,8 +16,9 @@ namespace Modules\Draw\Controller;
 
 use Modules\Draw\Models\DrawImage;
 use Modules\Draw\Models\DrawImageMapper;
-use Modules\Media\Controller as MediaController;
+use Modules\Media\Controller\ApiController as MediaController;
 use Modules\Media\Models\UploadStatus;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
@@ -82,13 +83,13 @@ final class ApiController extends Controller
 
         // todo: implement limit since this could get exploited
         do {
-            $filename  = sha1(((string) $request->getData('image')) . $rnd);
+            $filename  = \sha1(((string) $request->getData('image')) . $rnd);
             $filename .= '.' . $extension;
 
-            $rnd = mt_rand();
-        } while (file_exists($path . '/' . $filename));
+            $rnd = \mt_rand();
+        } while (\file_exists($path . '/' . $filename));
 
-        $fullPath = __DIR__ . '/../../' . $path . '/' . $filename;
+        $fullPath = __DIR__ . '/../../../' . $path . '/' . $filename;
 
         $this->createLocalFile($fullPath, (string) $request->getData('image'));
 
@@ -104,9 +105,8 @@ final class ApiController extends Controller
         $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
         $draw  = DrawImage::fromMedia($media);
 
-        DrawImageMapper::create($draw);
-
-        $response->set('image', $draw->jsonSerialize());
+        $this->createModel($request, $draw, DrawImageMapper::class, 'draw');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Draw', 'Draw successfully created.', $draw);
     }
 
     /**

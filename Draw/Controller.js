@@ -1,7 +1,7 @@
 (function (jsOMS) {
     "use strict";
     /** @namespace jsOMS.Modules */
-    jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
+    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
 
     jsOMS.Modules.Draw = function (app) {
         this.app     = app;

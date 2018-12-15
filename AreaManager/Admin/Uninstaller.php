@@ -28,21 +28,4 @@ use phpOMS\Module\UninstallerAbstract;
  */
 class Uninstaller extends UninstallerAbstract
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function uninstall(DatabasePool $dbPool, InfoManager $info) : void
-    {
-        parent::uninstall($dbPool, $info);
-
-        $query = new Builder($dbPool->get());
-
-        $query->prefix($dbPool->get()->getPrefix())->drop(
-            'area_manager_account',
-            'area_manager_area'
-        );
-
-        $dbPool->get()->con->prepare($query->toSql())->execute();
-    }
 }

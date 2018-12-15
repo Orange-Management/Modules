@@ -36,22 +36,18 @@ abstract class AccountAbstract
     /**
      * Type.
      *
-     * @var \Modules\Accounting\Models\AccountType
+     * @var AccountType
      * @since 1.0.0
      */
-    protected $type = null;
-
-    protected $positiveParent = null;
-
-    protected $negativeParent = null;
+    protected $type = AccountType::IMPERSONAL;
 
     /**
      * Entry list.
      *
-     * @var \Modules\Accounting\Models\EntryInterface[]
+     * @var EntryInterface[]
      * @since 1.0.0
      */
-    protected $entryList = [];
+    protected $entries = [];
 
     /**
      * Constructor.
@@ -65,6 +61,13 @@ abstract class AccountAbstract
         $this->id = $id;
     }
 
+    /**
+     * Get account id.
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -75,12 +78,13 @@ abstract class AccountAbstract
      *
      * @param int $id Entry ID
      *
-     * @return void
+     * @return null|EntryInterface
      *
      * @since  1.0.0
      */
-    public function getEntryById($id)
+    public function getEntryById(int $id) : ?EntryInterface
     {
+        return $this->entries[$id] ?? null;
     }
 
     /**
@@ -90,31 +94,12 @@ abstract class AccountAbstract
      * @param \DateTime $end      Interval end
      * @param int       $dateType
      *
-     * @internal \Modules\Accounting\Models\TimeRangeType $dateTime Time range type
+     * @return array
      *
      * @since    1.0.0
      */
-    public function getEntriesByDate($start, $end, $dateType = TimeRangeType::RECEIPT_DATE)
+    public function getEntriesByDate(\DateTime $start, \DateTime $end, int $dateType = TimeRangeType::RECEIPT_DATE) : array
     {
-    }
-
-    public function getPositiveParent()
-    {
-        return $this->positiveParent;
-    }
-
-    public function setPositiveParent($parent)
-    {
-        $this->positiveParent = $parent;
-    }
-
-    public function getNegativeParent()
-    {
-        return $this->negativeParent;
-    }
-
-    public function setNegativeParent($parent)
-    {
-        $this->negativeParent = $parent;
+        return [];
     }
 }

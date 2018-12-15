@@ -60,7 +60,7 @@ class BatchPosting implements \Countable
     /**
      * Postings.
      *
-     * @var \Modules\Accounting\Models\PostingAbstract[]
+     * @var PostingAbstract[]
      * @since 1.0.0
      */
     private $postings = [];
@@ -82,7 +82,7 @@ class BatchPosting implements \Countable
      *
      * @since  1.0.0
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -108,7 +108,7 @@ class BatchPosting implements \Countable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $desc)
+    public function setDescription(string $desc) : void
     {
         $this->description = $desc;
     }
@@ -146,7 +146,7 @@ class BatchPosting implements \Countable
      *
      * @since  1.0.0
      */
-    public function setCreator($creator)
+    public function setCreator($creator) : void
     {
         $this->creator = $creator;
     }
@@ -156,13 +156,13 @@ class BatchPosting implements \Countable
      *
      * @param int $id Posting ID
      *
-     * @return \Modules\Accounting\Models\PostingAbstract
+     * @return null|PostingAbstract
      *
      * @since  1.0.0
      */
-    public function getPosting($id)
+    public function getPosting(int $id) : ?PostingAbstract
     {
-        return $this->postings[$id];
+        return $this->postings[$id] ?? null;
     }
 
     /**
@@ -170,25 +170,31 @@ class BatchPosting implements \Countable
      *
      * @param int $id Posting ID
      *
-     * @return void
+     * @return bool
      *
      * @since  1.0.0
      */
-    public function removePosting($id)
+    public function removePosting($id) : bool
     {
+        if (!isset($this->postings[$id])) {
+            return false;
+        }
+            
         unset($this->postings[$id]);
+
+        return true;
     }
 
     /**
      * Add posting.
      *
-     * @param \Modules\Accounting\Models\PostingAbstract $posting Posting
+     * @param PostingAbstract $posting Posting
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function addPosting($posting)
+    public function addPosting(PostingAbstract $posting) : void
     {
         $this->postings[] = $posting;
     }
@@ -196,7 +202,7 @@ class BatchPosting implements \Countable
     /**
      * {@inheritdoc}
      */
-    public function count()
+    public function count() : int
     {
         return count($this->postings);
     }

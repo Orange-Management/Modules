@@ -26,9 +26,11 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
     {
         $account = new Account();
 
+        $account->setName('TestLogin');
         $account->setName1('Donald');
         $account->setName2('Fauntleroy');
         $account->setName3('Duck');
+        $account->setLoginTries(3);
         $account->setEmail('d.duck@duckburg.com');
         $account->setStatus(AccountStatus::ACTIVE);
         $account->setType(AccountType::USER);
@@ -39,12 +41,14 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
 
         $accountR = AccountMapper::get($account->getId());
         self::assertEquals($account->getCreatedAt()->format('Y-m-d'), $accountR->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals($account->getName(), $accountR->getName());
         self::assertEquals($account->getName1(), $accountR->getName1());
         self::assertEquals($account->getName2(), $accountR->getName2());
         self::assertEquals($account->getName3(), $accountR->getName3());
         self::assertEquals($account->getStatus(), $accountR->getStatus());
         self::assertEquals($account->getType(), $accountR->getType());
         self::assertEquals($account->getEmail(), $accountR->getEmail());
+        self::assertEquals($account->getLoginTries(), $accountR->getLoginTries());
     }
 
     public function testLogin()

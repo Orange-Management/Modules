@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Accounting\Models;
 
+use Modules\Admin\Models\Account;
+
 /**
  * Creditor class.
  *
@@ -26,11 +28,42 @@ class Creditor
 {
 
     /**
-     * Constructor.
+     * Creditor ID.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected $id = 0;
+
+    /**
+     * Account.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected $account = null;
+
+    /**
+     * Get id.
+     *
+     * @return int
      *
      * @since  1.0.0
      */
-    public function __construct()
+    public function getId() : int
     {
+        return $this->id;
+    }
+
+    /**
+     * Get account.
+     *
+     * @return null|int|Account
+     *
+     * @since  1.0.0
+     */
+    public function getAccount()
+    {
+        return $this->account;
     }
 }

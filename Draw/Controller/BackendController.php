@@ -91,15 +91,6 @@ final class BackendController extends Controller
         $draw      = DrawImageMapper::get((int) ($request->getData('id')));
         $accountId = $request->getHeader()->getAccount();
 
-        if ($draw->getCreatedBy()->getId() !== $accountId
-            && !$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DRAW, $draw->getId())
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
-
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 

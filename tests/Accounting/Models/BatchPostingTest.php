@@ -23,6 +23,10 @@ class BatchPostingTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $batch->count());
         self::assertEquals(0, $batch->getId());
         self::assertEquals(0, $batch->getCreator());
+        self::assertEquals(null, $batch->getPosting(1));
+        self::assertFalse($batch->removePosting(1));
+        self::assertEquals(0, $batch->count());
+        self::assertEquals(0, count($batch));
         self::assertInstanceOf('\DateTime', $batch->getCreatedAt());
     }
 

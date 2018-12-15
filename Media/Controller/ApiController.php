@@ -48,6 +48,7 @@ final class ApiController extends Controller
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        // todo: handle logging
         $uploads = $this->uploadFiles(
             $request->getFiles(),
             $request->getHeader()->getAccount(),

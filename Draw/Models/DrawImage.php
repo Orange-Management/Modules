@@ -37,14 +37,6 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     private $id = 0;
 
     /**
-     * Doc path for organizing.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    private $path = '';
-
-    /**
      * Media object.
      *
      * @var Media
@@ -53,15 +45,8 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     private $media = null;
 
     /**
-     * Constructor.
+     * Get id
      *
-     * @since  1.0.0
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @return int
      *
      * @since  1.0.0
@@ -72,29 +57,9 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @return string
+     * Get media
      *
-     * @since  1.0.0
-     */
-    public function getPath() : string
-    {
-        return $this->path;
-    }
-
-    /**
-     * @param string $path
-     *
-     * @return mixed
-     *
-     * @since  1.0.0
-     */
-    public function setPath(string $path)
-    {
-        $this->path = $path;
-    }
-
-    /**
-     * @return mixed
+     * @return int|Media
      *
      * @since  1.0.0
      */
@@ -104,35 +69,56 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param mixed $media
+     * Set media
+     *
+     * @param int|Media $media
+     *
+     * @return void
      *
      * @since  1.0.0
      */
-    public function setMedia($media)
+    public function setMedia($media) : void
     {
         $this->media = $media;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray() : array
     {
         return [
             'id' => $this->id,
-            'path' => $this->path,
             'media' => $this->media->toArray(),
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
         return (string) \json_encode($this->toArray());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return $this->toArray();
     }
 
-    public static function fromMedia(Media $media)
+    /**
+     * Create Image from media
+     *
+     * @param Media $media Media object
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public static function fromMedia(Media $media) : self
     {
         $image = new self();
         $image->setMedia($media);

@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Draw
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -14,8 +14,17 @@ declare(strict_types=1);
 
 namespace Modules\Draw\Models;
 
+use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Mapper class.
+ *
+ * @package    Modules\Draw
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 final class DrawImageMapper extends DataMapperAbstract
 {
 
@@ -28,7 +37,6 @@ final class DrawImageMapper extends DataMapperAbstract
     static protected $columns = [
         'draw_image_id'    => ['name' => 'draw_image_id', 'type' => 'int', 'internal' => 'id'],
         'draw_image_media' => ['name' => 'draw_image_media', 'type' => 'int', 'internal' => 'media'],
-        'draw_image_path'  => ['name' => 'draw_image_path', 'type' => 'string', 'internal' => 'path'],
     ];
 
     /**
@@ -39,7 +47,7 @@ final class DrawImageMapper extends DataMapperAbstract
      */
     protected static $ownsOne = [
         'media' => [
-            'mapper' => \Modules\Media\Models\MediaMapper::class,
+            'mapper' => MediaMapper::class,
             'src'    => 'draw_image_media',
         ],
     ];

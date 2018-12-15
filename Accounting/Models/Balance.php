@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Accounting\Models;
 
-
 /**
  * Balance class.
  *
@@ -43,21 +42,82 @@ class Balance
     private $balance = [];
 
     /**
-     * Constructor.
+     * Balance name.
      *
-     * @since  1.0.0
+     * @var string
+     * @since 1.0.0
      */
-    public function __construct()
-    {
-    }
+    private $name = '';
 
     /**
+     * Balance description.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private $description = '';
+
+    /**
+     * Get balance id
+     *
      * @return int
      *
      * @since  1.0.0
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name Balance name
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setName(string $name) : void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description Balance description
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setDescription(string $description) : void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getDescription() : string
+    {
+        return $this->description;
     }
 }
