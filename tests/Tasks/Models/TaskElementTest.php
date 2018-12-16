@@ -14,6 +14,7 @@
 namespace Modules\tests\Tasks\Models;
 
 use Modules\Tasks\Models\TaskElement;
+use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskStatus;
 
 class TaskElementTest extends \PHPUnit\Framework\TestCase
@@ -31,6 +32,7 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $task->getDescriptionRaw());
         self::assertEquals(0, $task->getForwarded());
         self::assertEquals(0, $task->getTask());
+        self::assertEquals(TaskPriority::NONE, $task->getPriority());
     }
 
     public function testSetGet()
@@ -45,6 +47,9 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
 
         $task->setStatus(TaskStatus::DONE);
         self::assertEquals(TaskStatus::DONE, $task->getStatus());
+
+        $task->setPriority(TaskPriority::MEDIUM);
+        self::assertEquals(TaskPriority::MEDIUM, $task->getPriority());
 
         $task->setDescription('Description');
         self::assertEquals('Description', $task->getDescription());
@@ -66,5 +71,14 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
     {
         $task = new TaskElement();
         $task->setStatus(9999);
+    }
+
+    /**
+     * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
+     */
+    public function testInvalidPriority()
+    {
+        $task = new TaskElement();
+        $task->setPriority(9999);
     }
 }

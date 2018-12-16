@@ -49,35 +49,27 @@ final class ApiController extends Controller
         $created  = [];
 
         foreach ($profiles as $profile) {
-            $this->apiProfileCreateDbEntry($profile);
+            $this->apiProfileCreateDbEntry($profile, $request);
 
-            $created[] = $profile->jsonSerialize();
+            $created[] = $profile;
         }
 
-        $response->set($request->getUri()->__toString(), [
-            'status' => NotificationLevel::OK,
-            'title' => 'Profile(s)',
-            'message' => 'Profile(s) successfully created.',
-            'response' => $created
-        ]);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Profil', 'Profil successfully created.', $created);
     }
 
     /**
-     * @param Profile $profile Profile to create in the database
+     * @param Profile         $profile Profile to create in the database
+     * @param RequestAbstract $request  Request
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function apiProfileCreateDbEntry(Profile $profile) : void
+    public function apiProfileCreateDbEntry(Profile $profile, RequestAbstract $request) : void
     {
-        $this->app->eventManager->trigger('PRE:Module:Admin-profile-create', '', $profile);
-        ProfileMapper::create($profile);
-        $this->app->eventManager->trigger('POST:Module:Admin-profile-create', '', [
-            $profile->getAccount()->getId(),
-            null,
-            $profile,
-        ]);
+        if ($profile->getId() === 0) {
+            $this->createModel($request, $profile, ProfileMapper::class, 'profile');
+        }
     }
 
     /**

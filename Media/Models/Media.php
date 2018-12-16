@@ -22,7 +22,7 @@ namespace Modules\Media\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class Media
+class Media implements \JsonSerializable
 {
 
     /**
@@ -332,6 +332,9 @@ class Media
         $this->versioned = $versioned;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray()
     {
         return [
@@ -341,5 +344,13 @@ class Media
             'extension'   => $this->extension,
             'size'        => $this->size,
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

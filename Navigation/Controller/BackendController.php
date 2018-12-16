@@ -39,6 +39,7 @@ final class BackendController extends Controller
      * @return NavigationView
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
@@ -66,6 +67,7 @@ final class BackendController extends Controller
      * @return NavigationView
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function getView(RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
@@ -99,6 +101,7 @@ final class BackendController extends Controller
      * @return void
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) : void
     {
@@ -127,6 +130,7 @@ final class BackendController extends Controller
      * @return NavigationView
      *
      * @since  1.0.0
+     * @codeCoverageIgnore
      */
     public function createNavigationSplash(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {

@@ -230,18 +230,6 @@ class Unit implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * Get string representation.
-     *
-     * @return string
-     *
-     * @since  1.0.0
-     */
-    public function __toString()
-    {
-        return (string) \json_encode($this->toArray());
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function jsonSerialize()

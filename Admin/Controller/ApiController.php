@@ -370,16 +370,12 @@ final class ApiController extends Controller
         if (((string) ($request->getData('password') ?? '')) !== ''
             && ((string) ($request->getData('login') ?? '')) !== ''
         ) {
-            $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(new \Modules\Profile\Models\Profile($account));
+            $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(new \Modules\Profile\Models\Profile($account), $request);
 
-            $this->app->eventManager->trigger('PRE:Module:Admin-account-update', '', $account);
-            $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
-            AccountMapper::update($account);
-            $this->app->eventManager->trigger('POST:Module:Admin-account-update', '', [
-                $request->getHeader()->getAccount(),
-                null,
-                $account,
-            ]);
+            $this->updateModel($request, $account, $account, function() use($account) {
+                $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
+                AccountMapper::update($account);
+            }, 'account');
         }
     }
 
@@ -403,8 +399,6 @@ final class ApiController extends Controller
         $account->setName3((string) ($request->getData('name3') ?? ''));
         $account->setEmail((string) ($request->getData('email') ?? ''));
         $account->generatePassword((string) ($request->getData('password') ?? ''));
-
-        // todo: set remaining login tries based on global default config here. but before you have to add it to the model and mapper
 
         return $account;
     }

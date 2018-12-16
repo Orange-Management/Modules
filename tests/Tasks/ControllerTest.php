@@ -16,6 +16,8 @@ namespace Modules\tests\Task;
 require_once __DIR__ . '/../Autoloader.php';
 
 use Modules\Admin\Models\AccountPermission;
+use Modules\Tasks\Models\TaskPriority;
+use Modules\Tasks\Models\TaskStatus;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -99,7 +101,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiTaskGet($request, $response);
 
-        self::assertGreaterThan(0, $response->get('')['response']->getId());
+        self::assertEquals(1, $response->get('')['response']->getId());
     }
 
     public function testApiTaskSet()
@@ -116,5 +118,52 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiTaskGet($request, $response);
 
         self::assertEquals('New Title', $response->get('')['response']->getTitle());
+    }
+
+    public function testCreateTaskElement()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('forward', 1);
+        $request->setData('due', (new \DateTime)->format('Y-m-d H:i:s'));
+        $request->setData('priority', TaskPriority::HIGH);
+        $request->setData('status', TaskStatus::DONE);
+        $request->setData('task', 1);
+        $request->setData('plain', 'Controller Test');
+
+        $this->module->apiTaskElementCreate($request, $response);
+
+        self::assertEquals('Controller Test', $response->get('')['response']->getDescriptionRaw());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
+    }
+
+    public function testApiTaskElementGet()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', '1');
+
+        $this->module->apiTaskElementGet($request, $response);
+
+        self::assertEquals(1, $response->get('')['response']->getId());
+    }
+
+    public function testApiTaskElementSet()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', 1);
+        $request->setData('description', 'This is a changed description');
+
+        $this->module->apiTaskElementSet($request, $response);
+        $this->module->apiTaskElementGet($request, $response);
+
+        self::assertEquals('This is a changed description', $response->get('')['response']->getDescriptionRaw());
     }
 }

@@ -308,7 +308,7 @@ final class ApiController extends Controller
     private function updateTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = TaskElementMapper::get((int) ($request->getData('id')));
-        $element->setForwarded((int) ($request->getData('forward') ?? $element->getForwarded()));
+        $element->setForwarded((int) ($request->getData('forward') ?? !\is_int($forwarded = $element->getForwarded()) ? $forwarded->getId() : $forwarded));
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? $element->getDue()->format('Y-m-d H:i:s'))));
         $element->setStatus((int) ($request->getData('status') ?? $element->getStatus()));
         $element->setDescription(Markdown::parse((string) ($request->getData('description') ?? $element->getDescriptionRaw())));

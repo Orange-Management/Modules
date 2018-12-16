@@ -86,6 +86,8 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($task->getType(), $taskR->getType());
         self::assertEquals($task->getDone()->format('Y-m-d'), $taskR->getDone()->format('Y-m-d'));
         self::assertEquals($task->getDue()->format('Y-m-d'), $taskR->getDue()->format('Y-m-d'));
+        self::assertGreaterThan(0, TaskMapper::countUnread(1));
+        self::assertGreaterThan(0, count(TaskMapper::getRelatedToAccount(1)));
 
         $expected = $task->getMedia();
         $actual   = $taskR->getMedia();
@@ -143,6 +145,8 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
             $id = TaskMapper::create($task);
         }
+
+        self::assertGreaterThan(0, TaskMapper::countUnread(1));
     }
 
     /**

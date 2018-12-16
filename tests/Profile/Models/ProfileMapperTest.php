@@ -23,10 +23,6 @@ class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 
     public function testCRUD()
     {
-        $profile = new Profile();
-
-        $profile->setAccount(AccountMapper::get(1));
-
         $media = new Media();
         $media->setCreatedBy(1);
         $media->setDescription('desc');
@@ -35,12 +31,22 @@ class ProfileMapperTest extends \PHPUnit\Framework\TestCase
         $media->setExtension('png');
         $media->setName('Image');
 
-        $profile->setImage($media);
-        $profile->setBirthday($date = new \DateTime('now'));
+        if (($profile = ProfileMapper::getFor(1, 'account'))->getId() === 0) {
+            $profile = new Profile();
 
-        $id = ProfileMapper::create($profile);
-        self::assertGreaterThan(0, $profile->getId());
-        self::assertEquals($id, $profile->getId());
+            $profile->setAccount(AccountMapper::get(1));
+            $profile->setImage($media);
+            $profile->setBirthday($date = new \DateTime('now'));
+
+            $id = ProfileMapper::create($profile);
+            self::assertGreaterThan(0, $profile->getId());
+            self::assertEquals($id, $profile->getId());
+        } else {
+            $profile->setImage($media);
+            $profile->setBirthday($date = new \DateTime('now'));
+
+            ProfileMapper::update($profile);
+        }
 
         $profileR = ProfileMapper::get($profile->getId());
         self::assertEquals($profile->getBirthday()->format('Y-m-d'), $profileR->getBirthday()->format('Y-m-d'));

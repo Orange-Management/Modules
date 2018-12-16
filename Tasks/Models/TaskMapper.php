@@ -143,33 +143,31 @@ final class TaskMapper extends DataMapperAbstract
         return self::getAllByQuery($query);
     }
 
+    /**
+     * Get tasks related to user
+     *
+     * @param int $user  User
+     * @param int $limit Result limit
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
     public static function getRelatedToAccount(int $user, int $limit = 25) : array
     {
-        /*
-        select oms_task.*
-        from oms_task
-        where oms_task.task_id in (
-            select distinct oms_task_element.task_element_task
-            from oms_task_element
-            where oms_task_element.task_element_created_by = 1 or oms_task_element.task_element_forwarded = 1
-        ) or oms_task.task_id in (
-            select distinct oms_task.task_id
-            from oms_task
-            where oms_task.task_created_by = 1
-        )
-        */
-
         $query = self::getQuery();
 
         $whereClause1 = new Builder(self::$db);
-        $whereClause1->select(TaskElementMapper::getTable() . '.task_element_task')
+        $whereClause1->prefix(self::$db->getPrefix())
+            ->select(TaskElementMapper::getTable() . '.task_element_task')
             ->distinct()
             ->from(TaskElementMapper::getTable())
-            ->where(TaskElementMapper::getTable() . '.task_elment_created_by', '=', $user)
+            ->where(TaskElementMapper::getTable() . '.task_element_created_by', '=', $user)
             ->orWhere(TaskElementMapper::getTable() . '.task_element_forwarded', '=', $user);
 
         $whereClause2 = new Builder(self::$db);
-        $whereClause2->select(self::$table . '.' . self::$primaryField)
+        $whereClause2->prefix(self::$db->getPrefix())
+            ->select(self::$table . '.' . self::$primaryField)
             ->from(self::$table)
             ->where(self::$table . '.task_created_by', '=', $user);
 

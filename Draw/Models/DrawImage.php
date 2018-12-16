@@ -39,7 +39,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     /**
      * Media object.
      *
-     * @var Media
+     * @var int|Media
      * @since 1.0.0
      */
     private $media = null;
@@ -89,16 +89,8 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     {
         return [
             'id' => $this->id,
-            'media' => $this->media->toArray(),
+            'media' => \is_scalar($this->media) ? $this->media : $this->media->toArray(),
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return (string) \json_encode($this->toArray());
     }
 
     /**
@@ -114,7 +106,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
      *
      * @param Media $media Media object
      *
-     * @return void
+     * @return DrawImage
      *
      * @since  1.0.0
      */
