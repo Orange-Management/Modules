@@ -44,7 +44,7 @@ class BatchPosting implements \Countable
     /**
      * Created.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $created = null;
@@ -116,7 +116,7 @@ class BatchPosting implements \Countable
     /**
      * Get created.
      *
-     * @return \Datetime
+     * @return \DateTime
      *
      * @since  1.0.0
      */
@@ -179,7 +179,7 @@ class BatchPosting implements \Countable
         if (!isset($this->postings[$id])) {
             return false;
         }
-            
+
         unset($this->postings[$id]);
 
         return true;

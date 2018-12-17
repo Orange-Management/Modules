@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
                     <div class="ipt-wrap">
                         <div class="ipt-first"><input type="text" id="iTitle" name="title" class="wf-100" value="<?= $this->printHtml($image->getMedia()->getName()); ?>"></div>
                         <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>"></div>
-                    </div>    
+                    </div>
                 </form>
             </div>
         </section>
