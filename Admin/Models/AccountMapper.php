@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Models;
 
-
 use phpOMS\Auth\LoginReturnType;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
@@ -88,6 +88,27 @@ final class AccountMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $createdAt = 'account_created_at';
+
+    /**
+     * Get account with permissions
+     *
+     * @param int $id Account id
+     *
+     * @return Account
+     *
+     * @since 1.0.0
+     */
+    public static function getWithPermissions(int $id) : Account
+    {
+        $account          = AccountMapper::get($id);
+        $groupPermissions = GroupPermissionMapper::getFor(\array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
+        $account->addPermissions(\is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
+
+        $accountPermissions = AccountPermissionMapper::getFor($id, 'account', RelationType::ALL, null, 2);
+        $account->addPermissions(\is_array($accountPermissions) ? $accountPermissions : [$accountPermissions]);
+
+        return $account;
+    }
 
     /**
      * Login user.

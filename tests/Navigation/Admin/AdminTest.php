@@ -13,8 +13,12 @@
 
 namespace Modules\tests\Navigation\Admin;
 
+use Modules\Navigation\Models\Navigation;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Module\ModuleManager;
+use Modules\Admin\Models\AccountMapper;
+use phpOMS\Message\Http\Request;
+use phpOMS\Uri\Http;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
@@ -36,5 +40,26 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 
         self::assertTrue($moduleManager->activate('Navigation'));
         self::assertTrue($moduleManager->isActive('Navigation'));
+    }
+
+    /**
+     * Test if navigation model works correct
+     *
+     * @group final
+     */
+    public function testNavigationElements()
+    {
+        $app         = new class extends ApplicationAbstract { protected $appName = 'Backend'; };
+        $app->dbPool = $GLOBALS['dbpool'];
+
+        $request = new Request(new Http('http://127.0.0.1/en/backend'));
+        $request->createRequestHashs(1);
+
+        $account       = AccountMapper::getWithPermissions(1);
+        $nav           = Navigation::getInstance($request, $account, $GLOBALS['dbpool'], 1, 'Backend')->getNav();
+        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
+        $modules       = $moduleManager->getInstalledModules(false);
+
+        self::assertGreaterThan(0, count($nav));
     }
 }

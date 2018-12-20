@@ -98,8 +98,6 @@ class Navigation
                 ->orderBy('nav.nav_order', 'ASC')
                 ->execute();
 
-            $qry = $query->toSql();
-
             $tempNav = $sth->fetchAll(\PDO::FETCH_GROUP);
 
             foreach ($tempNav as $id => $link) {

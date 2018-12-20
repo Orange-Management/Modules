@@ -36,7 +36,7 @@ class NavigationView extends View
      * @var int
      * @since 1.0.0
      */
-    protected $navId = null;
+    protected $navId = 0;
 
     /**
      * Navigation.

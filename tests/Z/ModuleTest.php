@@ -19,6 +19,7 @@ use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Module\NullModule;
 use phpOMS\Router\Router;
+use phpOMS\Validation\Base\Json;
 use phpOMS\Version\Version;
 
 class ModuleTest extends \PHPUnit\Framework\TestCase
@@ -46,7 +47,8 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         $allModules    = $moduleManager->getInstalledModules(false);
         $sampleInfo    = \json_decode(file_get_contents(__DIR__ . '/info.json'), true);
         $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Routes.php';
-        $totalHooks   = include __DIR__ . '/../../../Web/Api/Hooks.php';
+        $totalHooks    = include __DIR__ . '/../../../Web/Api/Hooks.php';
+        $infoTemplate  = \json_decode(file_get_contents(__DIR__ . '/../../../phpOMS/Module/infoLayout.json'), true);
 
         foreach ($allModules as $name => $module) {
             $module = $moduleManager->get($name);
@@ -54,9 +56,9 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
             if (!($module instanceof NullModule)) {
                 self::assertEquals($name, $module::MODULE_NAME);
                 self::assertEquals(realpath(__DIR__ . '/../../../Modules/' . $module::MODULE_NAME), realpath($module::MODULE_PATH));
-                $version = Version::compare($module::MODULE_VERSION, '1.0.0');
-                self::assertGreaterThanOrEqual(0, $version);
+                self::assertGreaterThanOrEqual(0, Version::compare($module::MODULE_VERSION, '1.0.0'));
 
+                // test if db entries match json files
                 if (isset($allModules['Navigation'])
                     && \file_exists($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
                 ) {
@@ -84,6 +86,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
                 $info = \json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true);
                 self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. $name);
+                self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid template for ' . $name);
 
                 self::assertTrue($this->dependencyTest($info, $allModules));
             }
