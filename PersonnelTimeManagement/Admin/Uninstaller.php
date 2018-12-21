@@ -17,7 +17,7 @@ namespace Modules\PersonnelTimeManagement\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\PersonnelTimeManagement\Admin
  * @license    OMS License 1.0

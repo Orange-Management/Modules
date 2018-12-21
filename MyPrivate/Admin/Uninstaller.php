@@ -17,7 +17,7 @@ namespace Modules\MyPrivate\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\MyPrivate\Admin
  * @license    OMS License 1.0

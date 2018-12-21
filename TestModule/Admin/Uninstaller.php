@@ -17,7 +17,7 @@ namespace Modules\TestModule\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\TestModule\Admin
  * @license    OMS License 1.0

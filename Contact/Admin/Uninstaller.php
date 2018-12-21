@@ -17,7 +17,7 @@ namespace Modules\Contact\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Contact\Admin
  * @license    OMS License 1.0

@@ -17,7 +17,7 @@ namespace Modules\EventManagement\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\EventManagement\Admin
  * @license    OMS License 1.0

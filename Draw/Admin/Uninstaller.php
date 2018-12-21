@@ -17,7 +17,7 @@ namespace Modules\Draw\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Draw\Admin
  * @license    OMS License 1.0

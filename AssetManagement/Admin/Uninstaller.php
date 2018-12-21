@@ -17,7 +17,7 @@ namespace Modules\AssetManagement\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\AssetManagement\Admin
  * @license    OMS License 1.0

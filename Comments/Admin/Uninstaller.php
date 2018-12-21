@@ -17,7 +17,7 @@ namespace Modules\Comments\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Comments\Admin
  * @license    OMS License 1.0

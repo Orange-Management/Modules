@@ -17,7 +17,7 @@ namespace Modules\Surveys\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Surveys\Admin
  * @license    OMS License 1.0

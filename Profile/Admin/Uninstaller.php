@@ -20,7 +20,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Profile\Admin
  * @license    OMS License 1.0
@@ -29,24 +29,4 @@ use phpOMS\Module\UninstallerAbstract;
  */
 class Uninstaller extends UninstallerAbstract
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function uninstall(DatabasePool $dbPool, InfoManager $info) : void
-    {
-        parent::uninstall($dbPool, $info);
-
-        $query = new Builder($dbPool->get());
-
-        $query->prefix($dbPool->get()->getPrefix())->drop(
-            'profile_account_setting',
-            'profile_account_relation',
-            'profile_address',
-            'profile_phone',
-            'profile_account'
-        );
-
-        $dbPool->get()->con->prepare($query->toSql())->execute();
-    }
 }

@@ -20,7 +20,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\WarehouseManagement\Admin
  * @license    OMS License 1.0
@@ -29,29 +29,4 @@ use phpOMS\Module\UninstallerAbstract;
  */
 class Uninstaller extends UninstallerAbstract
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function uninstall(DatabasePool $dbPool, InfoManager $info) : void
-    {
-        parent::uninstall($dbPool, $info);
-
-        $query = new Builder($dbPool->get());
-
-        $query->prefix($dbPool->get()->getPrefix())->drop(
-            'warehousing_shipping',
-            'warehousing_article_transfer_single',
-            'warehousing_article_transfer',
-            'warehousing_arrival_transfer',
-            'warehousing_article_stock',
-            'warehousing_arrival',
-            'warehousing_article_disposal',
-            'warehousing_article',
-            'warehousing_stock_location',
-            'warehousing_stock'
-        );
-
-        $dbPool->get()->con->prepare($query->toSql())->execute();
-    }
 }

@@ -17,7 +17,7 @@ namespace Modules\Dashboard\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Dashboard\Admin
  * @license    OMS License 1.0

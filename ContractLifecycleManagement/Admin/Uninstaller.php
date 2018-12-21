@@ -17,7 +17,7 @@ namespace Modules\ContractLifecycleManagement\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\ContractLifecycleManagement\Admin
  * @license    OMS License 1.0

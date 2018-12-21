@@ -17,7 +17,7 @@ namespace Modules\Checklist\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\Checklist\Admin
  * @license    OMS License 1.0

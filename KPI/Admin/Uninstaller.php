@@ -17,7 +17,7 @@ namespace Modules\KPI\Admin;
 use phpOMS\Module\UninstallerAbstract;
 
 /**
- * Navigation class.
+ * Uninstaller class.
  *
  * @package    Modules\KPI\Admin
  * @license    OMS License 1.0
