@@ -38,7 +38,7 @@ final class GSDCustomerMapper extends DataMapperAbstract
         'row_create_user'      => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
         'Kundennummer'         => ['name' => 'Kundennummer', 'type' => 'string', 'internal' => 'number'],
     ];
-    
+
     protected static $ownsOne = [
         'mainAddress' => [
             'mapper' => GSDAddress::class,
