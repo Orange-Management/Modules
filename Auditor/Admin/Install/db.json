@@ -1,0 +1,71 @@
+{
+    "auditor_audit": {
+        "name": "auditor_audit",
+        "fields": {
+            "auditor_audit_id": {
+                "name": "auditor_audit_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "auditor_audit_module": {
+                "name": "auditor_audit_module",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "auditor_audit_ref": {
+                "name": "auditor_audit_ref",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "auditor_audit_type": {
+                "name": "auditor_audit_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "auditor_audit_subtype": {
+                "name": "auditor_audit_subtype",
+                "type": "TINYINT",
+                "null": false
+            },
+            "auditor_audit_content": {
+                "name": "auditor_audit_content",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "auditor_audit_old": {
+                "name": "auditor_audit_old",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "auditor_audit_new": {
+                "name": "auditor_audit_new",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "auditor_audit_created_at": {
+                "name": "auditor_audit_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "auditor_audit_created_by": {
+                "name": "auditor_audit_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "auditor_audit_ip": {
+                "name": "auditor_audit_ip",
+                "type": "INT",
+                "null": false
+            }
+        }
+    }
+}

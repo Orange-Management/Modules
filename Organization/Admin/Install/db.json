@@ -1,0 +1,149 @@
+{
+    "organization_unit": {
+        "name": "organization_unit",
+        "fields": {
+            "organization_unit_id": {
+                "name": "organization_unit_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "organization_unit_name": {
+                "name": "organization_unit_name",
+                "type": "VARCHAR(50)",
+                "default": null,
+                "null": true
+            },
+            "organization_unit_description": {
+                "name": "organization_unit_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "organization_unit_descriptionraw": {
+                "name": "organization_unit_descriptionraw",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "organization_unit_parent": {
+                "name": "organization_unit_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_unit",
+                "foreignKey": "organization_unit_id"
+            },
+            "organization_unit_status": {
+                "name": "organization_unit_status",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "organization_department": {
+        "name": "organization_department",
+        "fields": {
+            "organization_department_id": {
+                "name": "organization_department_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "organization_department_name": {
+                "name": "organization_department_name",
+                "type": "VARCHAR(50)",
+                "default": null,
+                "null": true
+            },
+            "organization_department_description": {
+                "name": "organization_department_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "organization_department_descriptionraw": {
+                "name": "organization_department_descriptionraw",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "organization_department_parent": {
+                "name": "organization_department_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_department",
+                "foreignKey": "organization_department_id"
+            },
+            "organization_department_status": {
+                "name": "organization_department_status",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            },
+            "organization_department_unit": {
+                "name": "organization_department_unit",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "organization_unit",
+                "foreignKey": "organization_unit_id"
+            }
+        }
+    },
+    "organization_position": {
+        "name": "organization_position",
+        "fields": {
+            "organization_position_id": {
+                "name": "organization_position_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "organization_position_name": {
+                "name": "organization_position_name",
+                "type": "VARCHAR(50)",
+                "default": null,
+                "null": true
+            },
+            "organization_position_description": {
+                "name": "organization_position_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "organization_position_descriptionraw": {
+                "name": "organization_position_descriptionraw",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "organization_position_parent": {
+                "name": "organization_position_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_position",
+                "foreignKey": "organization_position_id"
+            },
+            "organization_position_status": {
+                "name": "organization_position_status",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            },
+            "organization_position_department": {
+                "name": "organization_position_department",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_department",
+                "foreignKey": "organization_department_id"
+            }
+        }
+    }
+}

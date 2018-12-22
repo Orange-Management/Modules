@@ -29,17 +29,4 @@ use phpOMS\Module\InstallerAbstract;
  */
 class Installer extends InstallerAbstract
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function install(DatabasePool $dbPool, InfoManager $info) : void
-    {
-        parent::install($dbPool, $info);
-
-        switch ($dbPool->get()->getType()) {
-            case DatabaseType::MYSQL:
-                break;
-        }
-    }
 }

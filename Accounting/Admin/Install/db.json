@@ -1,0 +1,140 @@
+{
+    "accounting_account": {
+        "name": "accounting_account",
+        "fields": {
+            "accounting_account_id": {
+                "name": "accounting_account_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounting_account_name": {
+                "name": "accounting_account_name",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "accounting_account_description": {
+                "name": "accounting_account_description",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "accounting_account_type": {
+                "name": "accounting_account_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "accounting_account_parent": {
+                "name": "accounting_account_parent",
+                "type": "INT",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "accounting_batch": {
+        "name": "accounting_batch",
+        "fields": {
+            "accounting_batch_id": {
+                "name": "accounting_batch_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounting_batch_title": {
+                "name": "accounting_batch_title",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "accounting_batch_creator": {
+                "name": "accounting_batch_creator",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "accounting_batch_created": {
+                "name": "accounting_batch_created",
+                "type": "DATETIME",
+                "null": false
+            },
+            "accounting_batch_type": {
+                "name": "accounting_batch_type",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "accounting_posting": {
+        "name": "accounting_posting",
+        "fields": {
+            "accounting_posting_id": {
+                "name": "accounting_posting_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounting_posting_batch": {
+                "name": "accounting_posting_batch",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "accounting_batch",
+                "foreignKey": "accounting_batch_id"
+            },
+            "accounting_posting_receipt": {
+                "name": "accounting_posting_receipt",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "accounting_posting_receipt_ext": {
+                "name": "accounting_posting_receipt_ext",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "accounting_posting_price": {
+                "name": "accounting_posting_price",
+                "type": "BIGINT",
+                "null": false
+            }
+        }
+    },
+    "accounting_posting_ele": {
+        "name": "accounting_posting_ele",
+        "fields": {
+            "accounting_posting_ele_id": {
+                "name": "accounting_posting_ele_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounting_posting_ele_type": {
+                "name": "accounting_posting_ele_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "accounting_posting_ele_account": {
+                "name": "accounting_posting_ele_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "accounting_account",
+                "foreignKey": "accounting_account_id"
+            },
+            "accounting_posting_ele_value": {
+                "name": "accounting_posting_ele_value",
+                "type": "BIGINT",
+                "null": false
+            },
+            "accounting_posting_ele_tax": {
+                "name": "accounting_posting_ele_tax",
+                "type": "INT",
+                "null": false
+            }
+        }
+    }
+}

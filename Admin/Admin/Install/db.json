@@ -1,0 +1,577 @@
+{
+    "language": {
+        "name": "language",
+        "fields": {
+            "language_id": {
+                "name": "language_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "language_name": {
+                "name": "language_name",
+                "type": "VARCHAR(100)",
+                "null": false
+            },
+            "language_native": {
+                "name": "language_native",
+                "type": "VARCHAR(100)",
+                "null": false
+            }
+        }
+    },
+    "group": {
+        "name": "group",
+        "fields": {
+            "group_id": {
+                "name": "group_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "group_name": {
+                "name": "group_name",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "group_status": {
+                "name": "group_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "group_desc": {
+                "name": "group_desc",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "group_desc_raw": {
+                "name": "group_desc_raw",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "group_created": {
+                "name": "group_created",
+                "type": "DATETIME",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "group_permission": {
+        "name": "group_permission",
+        "fields": {
+            "group_permission_id": {
+                "name": "group_permission_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "group_permission_group": {
+                "name": "group_permission_group",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "group",
+                "foreignKey": "group_id"
+            },
+            "group_permission_unit": {
+                "name": "group_permission_unit",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "group_permission_app": {
+                "name": "group_permission_app",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "group_permission_module": {
+                "name": "group_permission_module",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "group_permission_from": {
+                "name": "group_permission_from",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "group_permission_type": {
+                "name": "group_permission_type",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "group_permission_element": {
+                "name": "group_permission_element",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "group_permission_component": {
+                "name": "group_permission_component",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "group_permission_permission": {
+                "name": "group_permission_permission",
+                "type": "INT",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "l11n": {
+        "name": "l11n",
+        "fields": {
+            "l11n_id": {
+                "name": "l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "l11n_country": {
+                "name": "l11n_country",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_language": {
+                "name": "l11n_language",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_currency": {
+                "name": "l11n_currency",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_number_thousand": {
+                "name": "l11n_number_thousand",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_number_decimal": {
+                "name": "l11n_number_decimal",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_angle": {
+                "name": "l11n_angle",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_temperature": {
+                "name": "l11n_temperature",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_weight_very_light": {
+                "name": "l11n_weight_very_light",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_weight_light": {
+                "name": "l11n_weight_light",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_weight_medium": {
+                "name": "l11n_weight_medium",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_weight_heavy": {
+                "name": "l11n_weight_heavy",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_weight_very_heavy": {
+                "name": "l11n_weight_very_heavy",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_speed_very_slow": {
+                "name": "l11n_speed_very_slow",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_speed_slow": {
+                "name": "l11n_speed_slow",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_speed_medium": {
+                "name": "l11n_speed_medium",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_speed_fast": {
+                "name": "l11n_speed_fast",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_speed_very_fast": {
+                "name": "l11n_speed_very_fast",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_speed_sea": {
+                "name": "l11n_speed_sea",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_length_very_short": {
+                "name": "l11n_length_very_short",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_length_short": {
+                "name": "l11n_length_short",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_length_medium": {
+                "name": "l11n_length_medium",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_length_long": {
+                "name": "l11n_length_long",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_length_very_long": {
+                "name": "l11n_length_very_long",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_length_sea": {
+                "name": "l11n_length_sea",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_area_very_small": {
+                "name": "l11n_area_very_small",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_area_small": {
+                "name": "l11n_area_small",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_area_medium": {
+                "name": "l11n_area_medium",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_area_large": {
+                "name": "l11n_area_large",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_area_very_large": {
+                "name": "l11n_area_very_large",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_very_small": {
+                "name": "l11n_volume_very_small",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_small": {
+                "name": "l11n_volume_small",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_medium": {
+                "name": "l11n_volume_medium",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_large": {
+                "name": "l11n_volume_large",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_very_large": {
+                "name": "l11n_volume_very_large",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_teaspoon": {
+                "name": "l11n_volume_teaspoon",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_tablespoon": {
+                "name": "l11n_volume_tablespoon",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "l11n_volume_glass": {
+                "name": "l11n_volume_glass",
+                "type": "VARCHAR(20)",
+                "null": false
+            }
+        }
+    },
+    "account": {
+        "name": "account",
+        "fields": {
+            "account_id": {
+                "name": "account_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "account_status": {
+                "name": "account_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "account_type": {
+                "name": "account_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "account_login": {
+                "name": "account_login",
+                "type": "VARCHAR(50)",
+                "default": null,
+                "null": true,
+                "unique": true
+            },
+            "account_name1": {
+                "name": "account_name1",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "account_name2": {
+                "name": "account_name2",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "account_name3": {
+                "name": "account_name3",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "account_password": {
+                "name": "account_password",
+                "type": "VARCHAR(64)",
+                "default": null,
+                "null": true
+            },
+            "account_password_temp": {
+                "name": "account_password_temp",
+                "type": "VARCHAR(64)",
+                "default": null,
+                "null": true
+            },
+            "account_email": {
+                "name": "account_email",
+                "type": "VARCHAR(70)",
+                "null": false
+            },
+            "account_tries": {
+                "name": "account_tries",
+                "type": "TINYINT",
+                "null": false,
+                "default": 0
+            },
+            "account_lactive": {
+                "name": "account_lactive",
+                "type": "DATETIME",
+                "default": null,
+                "null": true
+            },
+            "account_localization": {
+                "name": "account_localization",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "l11n",
+                "foreignKey": "l11n_id"
+            },
+            "account_created_at": {
+                "name": "account_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "account_group": {
+        "name": "account_group",
+        "fields": {
+            "account_group_id": {
+                "name": "account_group_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "account_group_group": {
+                "name": "account_group_group",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "group",
+                "foreignKey": "group_id"
+            },
+            "account_group_account": {
+                "name": "account_group_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "account_permission": {
+        "name": "account_permission",
+        "fields": {
+            "account_permission_id": {
+                "name": "account_permission_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "account_permission_account": {
+                "name": "account_permission_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "account_permission_unit": {
+                "name": "account_permission_unit",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "account_permission_app": {
+                "name": "account_permission_app",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "account_permission_module": {
+                "name": "account_permission_module",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "account_permission_from": {
+                "name": "account_permission_from",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "account_permission_type": {
+                "name": "account_permission_type",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "account_permission_element": {
+                "name": "account_permission_element",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "account_permission_component": {
+                "name": "account_permission_component",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "account_permission_permission": {
+                "name": "account_permission_permission",
+                "type": "INT",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "account_settings": {
+        "name": "account_settings",
+        "fields": {
+            "account_settings_id": {
+                "name": "account_settings_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "account_settings_name": {
+                "name": "account_settings_name",
+                "type": "VARCHAR(30)",
+                "null": false,
+                "unique": true
+            },
+            "account_settings_content": {
+                "name": "account_settings_content",
+                "type": "VARCHAR(250)",
+                "null": false
+            },
+            "account_settings_account": {
+                "name": "account_settings_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "settings": {
+        "name": "settings",
+        "fields": {
+            "settings_id": {
+                "name": "settings_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "settings_module": {
+                "name": "settings_module",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true,
+                "unique": true,
+                "foreignTable": "module",
+                "foreignKey": "module_id"
+            },
+            "settings_name": {
+                "name": "settings_name",
+                "type": "VARCHAR(30)",
+                "null": false,
+                "unique": true
+            },
+            "settings_content": {
+                "name": "settings_content",
+                "type": "VARCHAR(250)",
+                "null": false
+            },
+            "settings_group": {
+                "name": "settings_group",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "group",
+                "foreignKey": "group_id"
+            }
+        }
+    }
+}

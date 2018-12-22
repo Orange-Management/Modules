@@ -1,0 +1,55 @@
+{
+    "area_manager_area": {
+        "name": "area_manager_area",
+        "fields": {
+            "area_manager_area_id": {
+                "name": "area_manager_area_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "area_manager_area_name": {
+                "name": "area_manager_area_name",
+                "type": "VARCHAR(50)",
+                "null": false
+            }
+        }
+    },
+    "area_manager_account": {
+        "name": "area_manager_account",
+        "fields": {
+            "area_manager_account_id": {
+                "name": "area_manager_account_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "area_manager_account_start": {
+                "name": "area_manager_account_start",
+                "type": "DATETIME",
+                "null": false
+            },
+            "area_manager_account_end": {
+                "name": "area_manager_account_end",
+                "type": "DATETIME",
+                "null": false
+            },
+            "area_manager_account_account": {
+                "name": "area_manager_account_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "area_manager_account_area": {
+                "name": "area_manager_account_area",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "area_manager_area",
+                "foreignKey": "area_manager_area_id"
+            }
+        }
+    }
+}

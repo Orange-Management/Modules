@@ -1,0 +1,68 @@
+{
+    "arrival": {
+        "name": "arrival",
+        "fields": {
+            "arrival_id": {
+                "name": "arrival_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "arrival_date": {
+                "name": "arrival_date",
+                "type": "DATETIME",
+                "null": false
+            },
+            "arrival_carrier": {
+                "name": "arrival_carrier",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "arrival_responsible": {
+                "name": "arrival_responsible",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+            ,
+            "arrival_media": {
+                "name": "arrival_media",
+                "type": "INT",
+                "null": false
+            }
+        }
+    },
+    "arrival_status": {
+        "name": "arrival_status",
+        "fields": {
+            "arrival_status_id": {
+                "name": "arrival_status_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "arrival_status_amount": {
+                "name": "arrival_status_amount",
+                "type": "TINYINT",
+                "null": false
+            },
+            "arrival_status_condition": {
+                "name": "arrival_status_condition",
+                "type": "TINYINT",
+                "null": false
+            },
+            "arrival_status_arrival": {
+                "name": "arrival_status_arrival",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "arrival",
+                "foreignKey": "arrival_id"
+            }
+        }
+    }
+}

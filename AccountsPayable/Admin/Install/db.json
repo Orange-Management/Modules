@@ -1,0 +1,46 @@
+{
+    "accounts_payable": {
+        "name": "accounts_payable",
+        "fields": {
+            "accounts_payable_id": {
+                "name": "accounts_payable_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounts_payable_account": {
+                "name": "accounts_payable_account",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "accounts_payable_payment": {
+        "name": "accounts_payable_payment",
+        "fields": {
+            "accounts_payable_payment_id": {
+                "name": "accounts_payable_payment_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounts_payable_payment_account": {
+                "name": "accounts_payable_payment_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "accounts_payable",
+                "foreignKey": "accounts_payable_id"
+            },
+            "accounts_payable_payment_info": {
+                "name": "accounts_payable_payment_info",
+                "type": "INT",
+                "null": false
+            }
+        }
+    }
+}

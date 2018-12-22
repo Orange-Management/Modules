@@ -1,0 +1,110 @@
+{
+    "news": {
+        "name": "news",
+        "fields": {
+            "news_id": {
+                "name": "news_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "news_title": {
+                "name": "news_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "news_featured": {
+                "name": "news_featured",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            },
+            "news_content": {
+                "name": "news_content",
+                "type": "TEXT",
+                "null": false
+            },
+            "news_plain": {
+                "name": "news_plain",
+                "type": "TEXT",
+                "null": false
+            },
+            "news_type": {
+                "name": "news_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "news_status": {
+                "name": "news_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "news_lang": {
+                "name": "news_lang",
+                "type": "VARCHAR(2)",
+                "null": false
+            },
+            "news_publish": {
+                "name": "news_publish",
+                "type": "DATETIME",
+                "null": false
+            },
+            "news_created_at": {
+                "name": "news_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "news_created_by": {
+                "name": "news_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "news_badge": {
+        "name": "news_badge",
+        "fields": {
+            "news_badge_id": {
+                "name": "news_badge_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "news_badge_title": {
+                "name": "news_badge_title",
+                "type": "VARCHAR(25)",
+                "null": false
+            }
+        }
+    },
+    "news_badge_relation": {
+        "name": "news_badge_relation",
+        "fields": {
+            "news_badge_relation_id": {
+                "name": "news_badge_relation_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "news_badge_relation_news": {
+                "name": "news_badge_relation_news",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "news",
+                "foreignKey": "news_id"
+            },
+            "news_badge_relation_badge": {
+                "name": "news_badge_relation_badge",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "news_badge",
+                "foreignKey": "news_badge_id"
+            }
+        }
+    }
+}

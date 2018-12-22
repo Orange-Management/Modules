@@ -1,0 +1,46 @@
+{
+    "accounts_receivable": {
+        "name": "accounts_receivable",
+        "fields": {
+            "accounts_receivable_id": {
+                "name": "accounts_receivable_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounts_receivable_account": {
+                "name": "accounts_receivable_account",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "accounts_receivable_payment": {
+        "name": "accounts_receivable_payment",
+        "fields": {
+            "accounts_receivable_payment_id": {
+                "name": "accounts_receivable_payment_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "accounts_receivable_payment_account": {
+                "name": "accounts_receivable_payment_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "accounts_receivable",
+                "foreignKey": "accounts_receivable_id"
+            },
+            "accounts_receivable_payment_info": {
+                "name": "accounts_receivable_payment_info",
+                "type": "INT",
+                "null": false
+            }
+        }
+    }
+}
