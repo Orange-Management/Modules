@@ -1,0 +1,73 @@
+{
+    "comments_list": {
+        "name": "comments_list",
+        "fields": {
+            "comments_list_id": {
+                "name": "comments_list_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            }
+        }
+    },
+    "comments_comment": {
+        "name": "comments_comment",
+        "fields": {
+            "comments_comment_id": {
+                "name": "comments_comment_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "comments_comment_status": {
+                "name": "comments_comment_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "comments_comment_title": {
+                "name": "comments_comment_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "comments_comment_content": {
+                "name": "comments_comment_content",
+                "type": "TEXT",
+                "null": false
+            },
+            "comments_comment_content_raw": {
+                "name": "comments_comment_content_raw",
+                "type": "TEXT",
+                "null": false
+            },
+            "comments_comment_list": {
+                "name": "comments_comment_list",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "comments_list",
+                "foreignKey": "comments_list_id"
+            },
+            "comments_comment_ref": {
+                "name": "comments_comment_ref",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "comments_comment",
+                "foreignKey": "comments_comment_id"
+            },
+            "comments_comment_created_by": {
+                "name": "comments_comment_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "comments_comment_created_at": {
+                "name": "comments_comment_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    }
+}

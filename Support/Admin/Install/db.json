@@ -1,0 +1,21 @@
+{
+    "support_ticket": {
+        "name": "support_ticket",
+        "fields": {
+            "support_ticket_id": {
+                "name": "support_ticket_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "support_ticket_task": {
+                "name": "support_ticket_task",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "task",
+                "foreignKey": "task_id"
+            }
+        }
+    }
+}

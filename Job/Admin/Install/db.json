@@ -1,0 +1,75 @@
+{
+    "job": {
+        "name": "job",
+        "fields": {
+            "job_id": {
+                "name": "job_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "job_name": {
+                "name": "job_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "job_status": {
+                "name": "job_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "job_desc": {
+                "name": "job_desc",
+                "type": "TEXT",
+                "null": false
+            },
+            "job_created_by": {
+                "name": "job_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "job_created": {
+                "name": "job_created",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "job_log": {
+        "name": "job_log",
+        "fields": {
+            "job_log_id": {
+                "name": "job_log_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "job_log_status": {
+                "name": "job_log_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "job_log_message": {
+                "name": "job_log_message",
+                "type": "TEXT",
+                "null": false
+            },
+            "job_log_job": {
+                "name": "job_log_job",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "job",
+                "foreignKey": "job_id"
+            },
+            "job_log_created": {
+                "name": "job_log_created",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    }
+}

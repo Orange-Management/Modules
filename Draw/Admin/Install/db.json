@@ -1,0 +1,21 @@
+{
+    "draw_image": {
+        "name": "draw_image",
+        "fields": {
+            "draw_image_id": {
+                "name": "draw_image_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "draw_image_media": {
+                "name": "draw_image_media",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "media": {
+        "name": "media",
+        "fields": {
+            "media_id": {
+                "name": "media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "media_name": {
+                "name": "media_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "media_description": {
+                "name": "media_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "media_description_raw": {
+                "name": "media_description_raw",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "media_path": {
+                "name": "media_path",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "media_versioned": {
+                "name": "media_versioned",
+                "type": "TINYINT",
+                "null": false
+            },
+            "media_file": {
+                "name": "media_file",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "media_absolute": {
+                "name": "media_absolute",
+                "type": "TINYINT",
+                "null": false
+            },
+            "media_extension": {
+                "name": "media_extension",
+                "type": "VARCHAR(50)",
+                "default": null,
+                "null": true
+            },
+            "media_collection": {
+                "name": "media_collection",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            },
+            "media_size": {
+                "name": "media_size",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "media_created_by": {
+                "name": "media_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "media_created_at": {
+                "name": "media_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "media_relation": {
+        "name": "media_relation",
+        "fields": {
+            "media_relation_id": {
+                "name": "media_relation_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "media_relation_src": {
+                "name": "media_relation_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "media_relation_dst": {
+                "name": "media_relation_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    }
+}

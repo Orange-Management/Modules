@@ -1,0 +1,46 @@
+{
+    "editor_doc": {
+        "name": "editor_doc",
+        "fields": {
+            "editor_doc_id": {
+                "name": "editor_doc_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "editor_doc_title": {
+                "name": "editor_doc_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "editor_doc_plain": {
+                "name": "editor_doc_plain",
+                "type": "TEXT",
+                "null": false
+            },
+            "editor_doc_content": {
+                "name": "editor_doc_content",
+                "type": "TEXT",
+                "null": false
+            },
+            "editor_doc_path": {
+                "name": "editor_doc_path",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "editor_doc_created_by": {
+                "name": "editor_doc_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "editor_doc_created_at": {
+                "name": "editor_doc_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    }
+}

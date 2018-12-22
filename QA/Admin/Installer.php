@@ -55,14 +55,6 @@ class Installer extends InstallerAbstract
                 )->execute();
 
                 $dbPool->get()->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'qa_badge` (
-                            `qa_badge_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `qa_badge_name` varchar(255) NOT NULL,
-                            PRIMARY KEY (`qa_badge_id`)
-                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-                )->execute();
-
-                $dbPool->get()->con->prepare(
                     'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'qa_question` (
                             `qa_question_id` int(11) NOT NULL AUTO_INCREMENT,
                             `qa_question_status` int(11) NOT NULL,
@@ -82,23 +74,6 @@ class Installer extends InstallerAbstract
                     'ALTER TABLE `' . $dbPool->get()->prefix . 'qa_question`
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'qa_question_ibfk_1` FOREIGN KEY (`qa_question_created_by`) REFERENCES `' . $dbPool->get()->prefix . 'account` (`account_id`),
                             ADD CONSTRAINT `' . $dbPool->get()->prefix . 'qa_question_ibfk_2` FOREIGN KEY (`qa_question_category`) REFERENCES `' . $dbPool->get()->prefix . 'qa_category` (`qa_category_id`);'
-                )->execute();
-
-                $dbPool->get()->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'qa_question_badge` (
-                            `qa_question_badge_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `qa_question_badge_question` int(11) NOT NULL,
-                            `qa_question_badge_badge` int(11) DEFAULT NULL,
-                            PRIMARY KEY (`qa_question_badge_id`),
-                            KEY `qa_question_badge_question` (`qa_question_badge_question`),
-                            KEY `qa_question_badge_badge` (`qa_question_badge_badge`)
-                        )ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-                )->execute();
-
-                $dbPool->get()->con->prepare(
-                    'ALTER TABLE `' . $dbPool->get()->prefix . 'qa_question_badge`
-                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'qa_question_badge_ibfk_1` FOREIGN KEY (`qa_question_badge_question`) REFERENCES `' . $dbPool->get()->prefix . 'qa_question` (`qa_question_id`),
-                            ADD CONSTRAINT `' . $dbPool->get()->prefix . 'qa_question_badge_ibfk_2` FOREIGN KEY (`qa_question_badge_badge`) REFERENCES `' . $dbPool->get()->prefix . 'qa_badge` (`qa_badge_id`)'
                 )->execute();
 
                 $dbPool->get()->con->prepare(
