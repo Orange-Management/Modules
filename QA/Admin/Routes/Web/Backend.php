@@ -28,28 +28,6 @@ return [
             ],
         ],
     ],
-    '^.*/backend/qa/badge/list.*$' => [
-        [
-            'dest' => '\Modules\QA\Controller\BackendController:viewQABadgeList',
-            'verb' => RouteVerb::GET,
-            'permission' => [
-                'module' => BackendController::MODULE_NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::BADGE,
-            ],
-        ],
-    ],
-    '^.*/backend/qa/badge/single.*$' => [
-        [
-            'dest' => '\Modules\QA\Controller\BackendController:viewQABadgeEdit',
-            'verb' => RouteVerb::GET,
-            'permission' => [
-                'module' => BackendController::MODULE_NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::BADGE,
-            ],
-        ],
-    ],
     '^.*/backend/qa/question.*$' => [
         [
             'dest' => '\Modules\QA\Controller\BackendController:viewQADoc',

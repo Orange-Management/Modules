@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Controller;
 
-use Modules\Knowledgebase\Models\WikiBadge;
 use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\WikiDoc;
@@ -107,40 +106,6 @@ final class ApiController extends Controller
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
             || ($val['parent'] = empty($request->getData('parent')))
-        ) {
-            return $val;
-        }
-
-        return [];
-    }
-
-    public function apiWikiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
-    {
-        if (!empty($val = $this->validateWikiBadgeCreate($request))) {
-            $response->set('wiki_badge_create', new FormValidation($val));
-
-            return;
-        }
-
-        $badge = $this->createWikiBadgeFromRquest($request);
-        WikiBadgeMapper::create($badge);
-        $response->set('badge', $badge->jsonSerialize());
-    }
-
-    public function createWikiBadgeFromRquest(RequestAbstract $request) : WikiBadge
-    {
-        $mardkownParser = new Markdown();
-
-        $badge = new WikiBadge();
-        $badge->setName((string) $request->getData('title'));
-
-        return $badge;
-    }
-
-    private function validateWikiBadgeCreate(RequestAbstract $request) : array
-    {
-        $val = [];
-        if (($val['title'] = empty($request->getData('title')))
         ) {
             return $val;
         }

@@ -28,5 +28,4 @@ abstract class PermissionState extends Enum
 {
     public const QA       = 1;
     public const QUESTION = 2;
-    public const BADGE    = 3;
 }

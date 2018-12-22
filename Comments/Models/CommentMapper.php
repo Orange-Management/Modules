@@ -34,13 +34,15 @@ final class CommentMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'comments_comment_id'         => ['name' => 'comments_comment_id', 'type' => 'int', 'internal' => 'id'],
-        'comments_comment_title'      => ['name' => 'comments_comment_title', 'type' => 'string', 'internal' => 'title'],
-        'comments_comment_content'    => ['name' => 'comments_comment_content', 'type' => 'string', 'internal' => 'content'],
-        'comments_comment_list'       => ['name' => 'comments_comment_list', 'type' => 'int', 'internal' => 'list'],
-        'comments_comment_ref'        => ['name' => 'comments_comment_ref', 'type' => 'int', 'internal' => 'ref'],
-        'comments_comment_created_by' => ['name' => 'comments_comment_created_by', 'type' => 'int', 'internal' => 'createdBy'],
-        'comments_comment_created_at' => ['name' => 'comments_comment_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'comments_comment_id'          => ['name' => 'comments_comment_id', 'type' => 'int', 'internal' => 'id'],
+        'comments_comment_title'       => ['name' => 'comments_comment_title', 'type' => 'string', 'internal' => 'title'],
+        'comments_comment_status'      => ['name' => 'comments_comment_status', 'type' => 'string', 'internal' => 'status'],
+        'comments_comment_content'     => ['name' => 'comments_comment_content', 'type' => 'string', 'internal' => 'content'],
+        'comments_comment_content_raw' => ['name' => 'comments_comment_content_raw', 'type' => 'string', 'internal' => 'contentRaw'],
+        'comments_comment_list'        => ['name' => 'comments_comment_list', 'type' => 'int', 'internal' => 'list'],
+        'comments_comment_ref'         => ['name' => 'comments_comment_ref', 'type' => 'int', 'internal' => 'ref'],
+        'comments_comment_created_by'  => ['name' => 'comments_comment_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'comments_comment_created_at'  => ['name' => 'comments_comment_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**

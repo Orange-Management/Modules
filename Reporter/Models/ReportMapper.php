@@ -31,6 +31,7 @@ final class ReportMapper extends DataMapperAbstract
         'reporter_report_status'   => ['name' => 'reporter_report_status', 'type' => 'int', 'internal' => 'status'],
         'reporter_report_title'    => ['name' => 'reporter_report_title', 'type' => 'string', 'internal' => 'title'],
         'reporter_report_desc'     => ['name' => 'reporter_report_desc', 'type' => 'string', 'internal' => 'description'],
+        'reporter_report_desc_raw' => ['name' => 'reporter_report_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
         'reporter_report_media'    => ['name' => 'reporter_report_media', 'type' => 'int', 'internal' => 'source'],
         'reporter_report_template' => ['name' => 'reporter_report_template', 'type' => 'int', 'internal' => 'template'],
         'reporter_report_creator'  => ['name' => 'reporter_report_creator', 'type' => 'int', 'internal' => 'createdBy'],

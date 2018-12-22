@@ -31,7 +31,6 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
         $doc->setCategory(1);
         $doc->setCreatedBy(1);
         $doc->setLanguage('en');
-        $doc->addBadge(1);
 
         $id = WikiDocMapper::create($doc);
         self::assertGreaterThan(0, $doc->getId());
@@ -44,7 +43,6 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($doc->getLanguage(), $docR->getLanguage());
         self::assertEquals($doc->getCategory(), $docR->getCategory()->getId());
         self::assertEquals($doc->getCreatedBy(), $docR->getCreatedBy());
-        self::assertEquals(count($doc->getBadges()), count($docR->getBadges()));
     }
 
     /**
@@ -62,7 +60,6 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
             $doc->setCategory(mt_rand(1, 9));
             $doc->setCreatedBy(1);
             $doc->setLanguage('en');
-            $doc->addBadge(mt_rand(1, 9));
 
             $id = WikiDocMapper::create($doc);
         }

@@ -151,13 +151,13 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Add badge
      *
-     * @param Badge $badge Badge to add
+     * @param mixed $badge Badge to add
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function addBadge(Badge $badge) : void
+    public function addBadge($badge) : void
     {
         $this->badges[] = $badge;
     }

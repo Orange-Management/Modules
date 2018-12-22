@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\QA\Controller;
 
-use Modules\QA\Models\QABadgeMapper;
 use Modules\QA\Models\QAQuestionMapper;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -149,40 +148,6 @@ final class ApiController extends Controller
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
             || ($val['parent'] = empty($request->getData('parent')))
-        ) {
-            return $val;
-        }
-
-        return [];
-    }
-
-    public function apiQABadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
-    {
-        if (!empty($val = $this->validateQABadgeCreate($request))) {
-            $response->set('qa_badge_create', new FormValidation($val));
-
-            return;
-        }
-
-        $badge = $this->createQABadgeFromRquest($request);
-        QABadgeMapper::create($badge);
-        $response->set('badge', $badge->jsonSerialize());
-    }
-
-    public function createQABadgeFromRquest(RequestAbstract $request) : QABadge
-    {
-        $mardkownParser = new Markdown();
-
-        $badge = new QABadge();
-        $badge->setName((string) $request->getData('title'));
-
-        return $badge;
-    }
-
-    private function validateQABadgeCreate(RequestAbstract $request) : array
-    {
-        $val = [];
-        if (($val['title'] = empty($request->getData('title')))
         ) {
             return $val;
         }

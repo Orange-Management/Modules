@@ -52,12 +52,6 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $hasMany = [
-        'badges'  => [
-            'mapper' => QABadgeMapper::class,
-            'table'  => 'qa_question_badge',
-            'src'    => 'qa_question_badge_badge',
-            'dst'    => 'qa_question_badge_question',
-        ],
         'answers' => [
             'mapper' => QAAnswerMapper::class,
             'table'  => 'qa_answer',

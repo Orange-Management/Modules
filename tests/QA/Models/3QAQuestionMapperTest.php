@@ -31,7 +31,6 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
         $question->setCategory(1);
         $question->setCreatedBy(1);
         $question->setLanguage('en');
-        $question->addBadge(1);
 
         $id = QAQuestionMapper::create($question);
         self::assertGreaterThan(0, $question->getId());
@@ -44,7 +43,6 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($question->getLanguage(), $questionR->getLanguage());
         self::assertEquals($question->getCategory(), $questionR->getCategory()->getId());
         self::assertEquals($question->getCreatedBy(), $questionR->getCreatedBy()->getId());
-        self::assertEquals(count($question->getBadges()), count($questionR->getBadges()));
     }
 
     /**
@@ -62,7 +60,6 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
             $question->setCategory(mt_rand(1, 9));
             $question->setCreatedBy(1);
             $question->setLanguage('en');
-            $question->addBadge(mt_rand(1, 9));
 
             $id = QAQuestionMapper::create($question);
         }

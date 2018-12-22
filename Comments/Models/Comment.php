@@ -34,7 +34,11 @@ class Comment
 
     private $title = '';
 
+    private $status = 0;
+
     private $content = '';
+
+    private $contentRaw = '';
 
     private $ref = null;
 
@@ -86,6 +90,16 @@ class Comment
     public function setContent(string $content)
     {
         $this->content = $content;
+    }
+
+    public function getContentRaw() : string
+    {
+        return $this->contentRaw;
+    }
+
+    public function setContentRaw(string $contentRaw)
+    {
+        $this->contentRaw = $contentRaw;
     }
 
     public function getCreatedBy()

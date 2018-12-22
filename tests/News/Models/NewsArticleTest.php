@@ -13,7 +13,6 @@
 
 namespace Modules\tests\News\Models;
 
-use Modules\News\Models\Badge;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
@@ -54,9 +53,6 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
 
         $news->setPlain('Plain');
         self::assertEquals('Plain', $news->getPlain());
-
-        $news->addBadge(new Badge());
-        self::assertEquals([new Badge()], $news->getBadges());
 
         $news->setPublish($data = new \DateTime('2001-05-07'));
         self::assertEquals($data, $news->getPublish());

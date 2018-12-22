@@ -14,9 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\News\Controller;
 
-use Modules\News\Models\Badge;
-
-use Modules\News\Models\BadgeMapper;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\NewsStatus;
@@ -188,71 +185,6 @@ final class ApiController extends Controller
     }
 
     /**
-     * Validate badge create request
-     *
-     * @param RequestAbstract $request Request
-     *
-     * @return array<string, bool>
-     *
-     * @since  1.0.0
-     */
-    private function validateBadgeCreate(RequestAbstract $request) : array
-    {
-        $val = [];
-        if (($val['title'] = empty($request->getData('title')))
-        ) {
-            return $val;
-        }
-
-        return [];
-    }
-
-    /**
-     * Api method to create Badge
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return void
-     *
-     * @api
-     *
-     * @since  1.0.0
-     */
-    public function apiBadgeCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
-    {
-        if (!empty($val = $this->validateBadgeCreate($request))) {
-            $response->set('badge_create', new FormValidation($val));
-
-            return;
-        }
-
-        $badge = $this->createBadgeFromRequest($request);
-        $this->createModel($request, $badge, BadgeMapper::class, 'badge');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Badge', 'Badge successfully created', $badge);
-    }
-
-    /**
-     * Method to create badge from request.
-     *
-     * @param RequestAbstract $request Request
-     *
-     * @return Badge
-     *
-     * @since  1.0.0
-     */
-    private function createBadgeFromRequest(RequestAbstract $request) : Badge
-    {
-        $mardkownParser = new Markdown();
-
-        $badge = new Badge();
-        $badge->setName((string) ($request->getData('title') ?? ''));
-
-        return $badge;
-    }
-
-    /**
      * Get Newslists.
      *
      * @param int     $limit   News limit
@@ -320,25 +252,5 @@ final class ApiController extends Controller
         $news = NewsArticleMapper::get((int) $request->getData('id'));
         $this->deleteModel($request, $news, NewsArticleMapper::class, 'news');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully deleted', $news);
-    }
-
-    /**
-     * Api method to delete badge
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return void
-     *
-     * @api
-     *
-     * @since  1.0.0
-     */
-    public function apiDeleteNewsBadge(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
-    {
-        $badge = BadgeMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $badge, BadgeMapper::class, 'badge');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Badge', 'Badge successfully deleted', $badge);
     }
 }

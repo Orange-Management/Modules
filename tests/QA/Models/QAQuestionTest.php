@@ -10,10 +10,8 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-
 namespace Modules\tests\QA\Models;
 
-use Modules\QA\Models\QABadge;
 use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionStatus;
 
@@ -44,7 +42,6 @@ class QAQuestionTest extends \PHPUnit\Framework\TestCase
         $question->setCategory(1);
         $question->setCreatedBy(1);
         $question->setLanguage('en');
-        $question->addBadge(new QABadge());
 
         self::assertEquals('Question Name', $question->getName());
         self::assertEquals('Question content', $question->getQuestion());
@@ -52,6 +49,5 @@ class QAQuestionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('en', $question->getLanguage());
         self::assertEquals(1, $question->getCategory());
         self::assertEquals(1, $question->getCreatedBy());
-        self::assertEquals([new QABadge()], $question->getBadges());
     }
 }

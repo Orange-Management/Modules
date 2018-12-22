@@ -13,7 +13,6 @@
 
 namespace Modules\tests\Knowledgebase\Models;
 
-use Modules\Knowledgebase\Models\WikiBadge;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiStatus;
 
@@ -44,7 +43,6 @@ class WikiDocTest extends \PHPUnit\Framework\TestCase
         $doc->setCategory(1);
         $doc->setCreatedBy(1);
         $doc->setLanguage('en');
-        $doc->addBadge(new WikiBadge());
 
         self::assertEquals('Doc Name', $doc->getName());
         self::assertEquals('Doc content', $doc->getDoc());
