@@ -446,4 +446,23 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiAddAccountToGroup($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
     }
+
+    public function testApiReInit()
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+
+        $routes = include __DIR__ . '/../../../Web/Api/Routes.php';
+        $hooks  = include __DIR__ . '/../../../Web/Api/Hooks.php';
+
+        $this->module->apiReInit($request, $response);
+
+        $routes2 = include __DIR__ . '/../../../Web/Api/Routes.php';
+        $hooks2  = include __DIR__ . '/../../../Web/Api/Hooks.php';
+
+        self::assertEquals($routes, $routes2, '', 0.0, 10, true);
+        self::assertEquals($hooks, $hooks2, '', 0.0, 10, true);
+    }
 }
