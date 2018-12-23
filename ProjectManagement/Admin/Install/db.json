@@ -1,0 +1,130 @@
+{
+    "projectmanagement_project": {
+        "name": "projectmanagement_project",
+        "fields": {
+            "projectmanagement_project_id": {
+                "name": "projectmanagement_project_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "projectmanagement_project_name": {
+                "name": "projectmanagement_project_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "projectmanagement_project_description": {
+                "name": "projectmanagement_project_description",
+                "type": "TEXT",
+                "null": true
+            },
+            "projectmanagement_project_calendar": {
+                "name": "projectmanagement_project_calendar",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "calendar",
+                "foreignKey": "calendar_id"
+            },
+            "projectmanagement_project_costs": {
+                "name": "projectmanagement_project_costs",
+                "type": "INT",
+                "null": false
+            },
+            "projectmanagement_project_budget": {
+                "name": "projectmanagement_project_budget",
+                "type": "INT",
+                "null": false
+            },
+            "projectmanagement_project_earnings": {
+                "name": "projectmanagement_project_earnings",
+                "type": "INT",
+                "null": false
+            },
+            "projectmanagement_project_start": {
+                "name": "projectmanagement_project_start",
+                "type": "DATETIME",
+                "null": false
+            },
+            "projectmanagement_project_end": {
+                "name": "projectmanagement_project_end",
+                "type": "DATETIME",
+                "null": false
+            },
+            "projectmanagement_project_progress": {
+                "name": "projectmanagement_project_progress",
+                "type": "INT",
+                "null": false
+            },
+            "projectmanagement_project_progress_type": {
+                "name": "projectmanagement_project_progress_type",
+                "type": "INT",
+                "null": false
+            },
+            "projectmanagement_project_created_at": {
+                "name": "projectmanagement_project_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "projectmanagement_project_created_by": {
+                "name": "projectmanagement_project_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "projectmanagement_project_media": {
+        "name": "projectmanagement_project_media",
+        "fields": {
+            "projectmanagement_project_media_id": {
+                "name": "projectmanagement_project_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "projectmanagement_project_media_src": {
+                "name": "projectmanagement_project_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "projectmanagement_project",
+                "foreignKey": "projectmanagement_project_id"
+            },
+            "projectmanagement_project_media_dst": {
+                "name": "projectmanagement_project_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    },
+    "projectmanagement_task_relation": {
+        "name": "projectmanagement_task_relation",
+        "fields": {
+            "projectmanagement_task_relation_id": {
+                "name": "projectmanagement_task_relation_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "projectmanagement_task_relation_src": {
+                "name": "projectmanagement_task_relation_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "task",
+                "foreignKey": "task_id"
+            },
+            "projectmanagement_task_relation_dst": {
+                "name": "projectmanagement_task_relation_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "projectmanagement_project",
+                "foreignKey": "projectmanagement_project_id"
+            }
+        }
+    }
+}

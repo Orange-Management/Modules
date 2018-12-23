@@ -1,0 +1,88 @@
+{
+    "nav": {
+        "name": "nav",
+        "fields": {
+            "nav_id": {
+                "name": "nav_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "nav_pid": {
+                "name": "nav_pid",
+                "type": "VARCHAR(40)",
+                "null": false
+            },
+            "nav_name": {
+                "name": "nav_name",
+                "type": "VARCHAR(40)",
+                "null": false
+            },
+            "nav_type": {
+                "name": "nav_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "nav_subtype": {
+                "name": "nav_subtype",
+                "type": "TINYINT",
+                "null": false
+            },
+            "nav_icon": {
+                "name": "nav_icon",
+                "type": "VARCHAR(40)",
+                "default": null,
+                "null": true
+            },
+            "nav_uri": {
+                "name": "nav_uri",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "nav_target": {
+                "name": "nav_target",
+                "type": "VARCHAR(10)",
+                "default": null,
+                "null": true
+            },
+            "nav_from": {
+                "name": "nav_from",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "nav_order": {
+                "name": "nav_order",
+                "type": "SMALLINT",
+                "default": null,
+                "null": true
+            },
+            "nav_parent": {
+                "name": "nav_parent",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "nav_permission_permission": {
+                "name": "nav_permission_permission",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "nav_permission_type": {
+                "name": "nav_permission_type",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "nav_permission_element": {
+                "name": "nav_permission_element",
+                "type": "INT",
+                "default": null,
+                "null": true
+            }
+        }
+    }
+}

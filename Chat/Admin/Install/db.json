@@ -1,0 +1,37 @@
+{
+    "chat_room": {
+        "name": "chat_room",
+        "fields": {
+            "chat_room_id": {
+                "name": "chat_room_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "chat_room_name": {
+                "name": "chat_room_name",
+                "type": "VARCHAR(50)",
+                "null": false
+            },
+            "chat_room_description": {
+                "name": "chat_room_description",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "chat_room_password": {
+                "name": "chat_room_password",
+                "type": "VARCHAR(64)",
+                "null": false
+            },
+            "chat_room_owner": {
+                "name": "chat_room_owner",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    }
+}

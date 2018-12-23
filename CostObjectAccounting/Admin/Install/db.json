@@ -1,0 +1,39 @@
+{
+    "cost_unit_accounting": {
+        "name": "cost_unit_accounting",
+        "fields": {
+            "cost_unit_accounting_id": {
+                "name": "cost_unit_accounting_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "cost_unit_accounting_name": {
+                "name": "cost_unit_accounting_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "cost_unit_accounting_parent": {
+                "name": "cost_unit_accounting_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "cost_unit_accounting",
+                "foreignKey": "cost_unit_accounting_id"
+            },
+            "cost_unit_accounting_created_at": {
+                "name": "cost_unit_accounting_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "cost_unit_accounting_created_by": {
+                "name": "cost_unit_accounting_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    }
+}

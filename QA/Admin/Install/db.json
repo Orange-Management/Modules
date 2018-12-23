@@ -1,0 +1,128 @@
+{
+    "qa_category": {
+        "name": "qa_category",
+        "fields": {
+            "qa_category_id": {
+                "name": "qa_category_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "qa_category_name": {
+                "name": "qa_category_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "qa_category_parent": {
+                "name": "qa_category_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "qa_category",
+                "foreignKey": "qa_category_id"
+            }
+        }
+    },
+    "qa_question": {
+        "name": "qa_question",
+        "fields": {
+            "qa_question_id": {
+                "name": "qa_question_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "qa_question_status": {
+                "name": "qa_question_status",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "qa_question_title": {
+                "name": "qa_question_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "qa_question_language": {
+                "name": "qa_question_language",
+                "type": "VARCHAR(3)",
+                "null": false
+            },
+            "qa_question_question": {
+                "name": "qa_question_question",
+                "type": "TEXT",
+                "null": false
+            },
+            "qa_question_created_at": {
+                "name": "qa_question_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "qa_question_created_by": {
+                "name": "qa_question_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "qa_question_category": {
+                "name": "qa_question_category",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "qa_category",
+                "foreignKey": "qa_category_id"
+            }
+        }
+    },
+    "qa_answer": {
+        "name": "qa_answer",
+        "fields": {
+            "qa_answer_id": {
+                "name": "qa_answer_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "qa_answer_status": {
+                "name": "qa_answer_status",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "qa_answer_accepted": {
+                "name": "qa_answer_accepted",
+                "type": "TINYINT",
+                "null": false
+            },
+            "qa_answer_answer": {
+                "name": "qa_answer_answer",
+                "type": "TEXT",
+                "null": false
+            },
+            "qa_answer_created_at": {
+                "name": "qa_answer_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "qa_answer_created_by": {
+                "name": "qa_answer_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "qa_answer_question": {
+                "name": "qa_answer_question",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "qa_question",
+                "foreignKey": "qa_question_id"
+            }
+        }
+    }
+}

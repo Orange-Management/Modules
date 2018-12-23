@@ -1,0 +1,135 @@
+{
+    "eventmanagement_event": {
+        "name": "eventmanagement_event",
+        "fields": {
+            "eventmanagement_event_id": {
+                "name": "eventmanagement_event_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "eventmanagement_event_name": {
+                "name": "eventmanagement_event_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "eventmanagement_event_description": {
+                "name": "eventmanagement_event_description",
+                "type": "TEXT",
+                "null": true
+            },
+            "eventmanagement_event_type": {
+                "name": "eventmanagement_event_type",
+                "type": "TINYINT",
+                "null": true
+            },
+            "eventmanagement_event_calendar": {
+                "name": "eventmanagement_event_calendar",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "calendar",
+                "foreignKey": "calendar_id"
+            },
+            "eventmanagement_event_costs": {
+                "name": "eventmanagement_event_costs",
+                "type": "INT",
+                "null": false
+            },
+            "eventmanagement_event_budget": {
+                "name": "eventmanagement_event_budget",
+                "type": "INT",
+                "null": false
+            },
+            "eventmanagement_event_earnings": {
+                "name": "eventmanagement_event_earnings",
+                "type": "INT",
+                "null": false
+            },
+            "eventmanagement_event_start": {
+                "name": "eventmanagement_event_start",
+                "type": "DATETIME",
+                "null": false
+            },
+            "eventmanagement_event_end": {
+                "name": "eventmanagement_event_end",
+                "type": "DATETIME",
+                "null": false
+            },
+            "eventmanagement_event_progress": {
+                "name": "eventmanagement_event_progress",
+                "type": "INT",
+                "null": false
+            },
+            "eventmanagement_event_progress_type": {
+                "name": "eventmanagement_event_progress_type",
+                "type": "INT",
+                "null": false
+            },
+            "eventmanagement_event_created_at": {
+                "name": "eventmanagement_event_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "eventmanagement_event_created_by": {
+                "name": "eventmanagement_event_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "eventmanagement_event_media": {
+        "name": "eventmanagement_event_media",
+        "fields": {
+            "eventmanagement_event_media_id": {
+                "name": "eventmanagement_event_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "eventmanagement_event_media_src": {
+                "name": "eventmanagement_event_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "eventmanagement_event",
+                "foreignKey": "eventmanagement_event_id"
+            },
+            "eventmanagement_event_media_dst": {
+                "name": "eventmanagement_event_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    },
+    "eventmanagement_task_relation": {
+        "name": "eventmanagement_task_relation",
+        "fields": {
+            "eventmanagement_task_relation_id": {
+                "name": "eventmanagement_task_relation_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "eventmanagement_task_relation_src": {
+                "name": "eventmanagement_task_relation_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "task",
+                "foreignKey": "task_id"
+            },
+            "eventmanagement_task_relation_dst": {
+                "name": "eventmanagement_task_relation_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "eventmanagement_event",
+                "foreignKey": "eventmanagement_event_id"
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "exchange": {
+        "name": "exchange",
+        "fields": {
+            "exchange_id": {
+                "name": "exchange_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "exchange_title": {
+                "name": "exchange_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "exchange_path": {
+                "name": "exchange_path",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "exchange_import": {
+                "name": "exchange_import",
+                "type": "TINYINT",
+                "null": false
+            },
+            "exchange_export": {
+                "name": "exchange_export",
+                "type": "TINYINT",
+                "null": false
+            },
+            "exchange_website": {
+                "name": "exchange_website",
+                "type": "VARCHAR(255)",
+                "null": false
+            }
+        }
+    }
+}

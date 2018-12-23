@@ -1,0 +1,39 @@
+{
+    "cost_center_accounting": {
+        "name": "cost_center_accounting",
+        "fields": {
+            "cost_center_accounting_id": {
+                "name": "cost_center_accounting_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "cost_center_accounting_name": {
+                "name": "cost_center_accounting_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "cost_center_accounting_parent": {
+                "name": "cost_center_accounting_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "cost_center_accounting",
+                "foreignKey": "cost_center_accounting_id"
+            },
+            "cost_center_accounting_created_at": {
+                "name": "cost_center_accounting_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "cost_center_accounting_created_by": {
+                "name": "cost_center_accounting_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    }
+}

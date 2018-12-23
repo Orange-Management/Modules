@@ -1,0 +1,79 @@
+{
+    "wiki_category": {
+        "name": "wiki_category",
+        "fields": {
+            "wiki_category_id": {
+                "name": "wiki_category_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "wiki_category_name": {
+                "name": "wiki_category_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "wiki_category_parent": {
+                "name": "wiki_category_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "wiki_category",
+                "foreignKey": "wiki_category_id"
+            }
+        }
+    },
+    "wiki_article": {
+        "name": "wiki_article",
+        "fields": {
+            "wiki_article_id": {
+                "name": "wiki_article_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "wiki_article_status": {
+                "name": "wiki_article_status",
+                "type": "INT",
+                "null": false
+            },
+            "wiki_article_title": {
+                "name": "wiki_article_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "wiki_article_language": {
+                "name": "wiki_article_language",
+                "type": "VARCHAR(3)",
+                "null": false
+            },
+            "wiki_article_doc": {
+                "name": "wiki_article_doc",
+                "type": "TEXT",
+                "null": false
+            },
+            "wiki_article_created_at": {
+                "name": "wiki_article_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "wiki_article_created_by": {
+                "name": "wiki_article_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "wiki_article_category": {
+                "name": "wiki_article_category",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "wiki_category",
+                "foreignKey": "wiki_category_id"
+            }
+        }
+    }
+}
