@@ -17,7 +17,7 @@ namespace Modules\ContractLifecycleManagement\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Budgeting install class.
+ * Installer class.
  *
  * @package    Modules\ContractLifecycleManagement\Admin
  * @license    OMS License 1.0

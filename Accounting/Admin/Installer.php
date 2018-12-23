@@ -17,7 +17,7 @@ namespace Modules\Accounting\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Navigation class.
+ * Installer class.
  *
  * @package    Modules\Accounting\Admin
  * @license    OMS License 1.0

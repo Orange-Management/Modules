@@ -17,7 +17,7 @@ namespace Modules\KPI\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Budgeting install class.
+ * Installer class.
  *
  * @package    Modules\KPI\Admin
  * @license    OMS License 1.0

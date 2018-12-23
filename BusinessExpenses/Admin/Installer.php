@@ -19,7 +19,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Navigation class.
+ * Installer class.
  *
  * @package    Modules\BusinessExpenses\Admin
  * @license    OMS License 1.0

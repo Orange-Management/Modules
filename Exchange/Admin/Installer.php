@@ -17,7 +17,6 @@ namespace Modules\Exchange\Admin;
 use Modules\Exchange\Models\InterfaceManager;
 use Modules\Exchange\Models\InterfaceManagerMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Module\InfoManager;
 
 use phpOMS\Module\InstallerAbstract;
@@ -39,29 +38,6 @@ class Installer extends InstallerAbstract
     public static function install(DatabasePool $dbPool, InfoManager $info) : void
     {
         parent::install($dbPool, $info);
-
-        switch ($dbPool->get()->getType()) {
-            case DatabaseType::MYSQL:
-                $dbPool->get()->con->beginTransaction();
-
-                $dbPool->get()->con->prepare(
-                    'CREATE TABLE if NOT EXISTS `' . $dbPool->get()->prefix . 'exchange` (
-                            `exchange_id` int(11) NOT NULL AUTO_INCREMENT,
-                            `exchange_title` varchar(255) DEFAULT NULL,
-                            `exchange_path` text NOT NULL,
-                            `exchange_import` tinyint(1) NOT NULL,
-                            `exchange_export` tinyint(1) NOT NULL,
-                            `exchange_version` varchar(255) NOT NULL,
-                            `exchange_website` varchar(255) NOT NULL,
-                            `exchange_created_by` int(11) DEFAULT NULL,
-                            `exchange_created_at` datetime DEFAULT NULL,
-                            PRIMARY KEY (`exchange_id`)
-                        )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;'
-                )->execute();
-
-                $dbPool->get()->con->commit();
-                break;
-        }
 
         $interfaces = Directory::list(__DIR__ . '/../Interfaces', '.*interface\.json');
 

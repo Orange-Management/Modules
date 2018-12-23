@@ -17,7 +17,7 @@ namespace Modules\ResearchDevelopment\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Navigation class.
+ * Installer class.
  *
  * @package    Modules\ResearchDevelopment\Admin
  * @license    OMS License 1.0

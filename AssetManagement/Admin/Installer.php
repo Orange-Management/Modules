@@ -17,7 +17,7 @@ namespace Modules\AssetManagement\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Budgeting install class.
+ * Installer class.
  *
  * @package    Modules\AssetManagement\Admin
  * @license    OMS License 1.0

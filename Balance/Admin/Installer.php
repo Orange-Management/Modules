@@ -17,7 +17,7 @@ namespace Modules\Balance\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Budgeting install class.
+ * Installer class.
  *
  * @package    Modules\Balance\Admin
  * @license    OMS License 1.0

@@ -20,7 +20,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Navigation class.
+ * Installer class.
  *
  * @package    Modules\WarehouseManagement\Admin
  * @license    OMS License 1.0
