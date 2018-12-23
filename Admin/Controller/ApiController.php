@@ -719,6 +719,14 @@ final class ApiController extends Controller
             }
         }
 
+        if (\file_exists($path = __DIR__ . '/../../../Console/Routes.php')) {
+            \file_put_contents($path, '<?php return [];');
+        }
+
+        if (\file_exists($path = __DIR__ . '/../../../Socket/Routes.php')) {
+            \file_put_contents($path, '<?php return [];');
+        }
+
         $installedModules = $this->app->moduleManager->getActiveModules();
         foreach ($installedModules as $name => $module) {
             $this->app->moduleManager->reInit($name);
