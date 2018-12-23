@@ -1,0 +1,319 @@
+{
+    "profile_account": {
+        "name": "profile_account",
+        "fields": {
+            "profile_account_id": {
+                "name": "profile_account_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_account_image": {
+                "name": "profile_account_image",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "profile_account_birthday": {
+                "name": "profile_account_birthday",
+                "type": "DATETIME",
+                "default": null,
+                "null": true
+            },
+            "profile_account_account": {
+                "name": "profile_account_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "profile_account_permission": {
+        "name": "profile_account_permission",
+        "fields": {
+            "profile_account_permission_id": {
+                "name": "profile_account_permission_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_account_permission_profile": {
+                "name": "profile_account_permission_profile",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_account",
+                "foreignKey": "profile_account_id"
+            },
+            "profile_account_permission_group": {
+                "name": "profile_account_permission_group",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "group",
+                "foreignKey": "group_id"
+            },
+            "profile_account_permission_account": {
+                "name": "profile_account_permission_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "profile_contact": {
+        "name": "profile_contact",
+        "fields": {
+            "profile_contact_id": {
+                "name": "profile_contact_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_contact_name1": {
+                "name": "profile_contact_name1",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_name2": {
+                "name": "profile_contact_name2",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_name3": {
+                "name": "profile_contact_name3",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_company": {
+                "name": "profile_contact_company",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_company_job": {
+                "name": "profile_contact_company_job",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_address": {
+                "name": "profile_contact_address",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_website": {
+                "name": "profile_contact_website",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_birthday": {
+                "name": "profile_contact_birthday",
+                "type": "DATETIME",
+                "default": null,
+                "null": true
+            },
+            "profile_contact_description": {
+                "name": "profile_contact_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "profile_contact_account": {
+                "name": "profile_contact_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_account",
+                "foreignKey": "profile_account_id"
+            }
+        }
+    },
+    "profile_contact_element": {
+        "name": "profile_contact_element",
+        "comment": "email, phone etc",
+        "fields": {
+            "profile_contact_element_id": {
+                "name": "profile_contact_element_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_contact_element_type": {
+                "name": "profile_contact_element_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "profile_contact_element_subtype": {
+                "name": "profile_contact_element_subtype",
+                "type": "TINYINT",
+                "null": false
+            },
+            "profile_contact_element_content": {
+                "name": "profile_contact_element_content",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contact_element_contact": {
+                "name": "profile_contact_element_contact",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_contact",
+                "foreignKey": "profile_contact_id"
+            }
+        }
+    },
+    "profile_contactelement": {
+        "name": "profile_contactelement",
+        "comment": "not a full contact only the element like email, phone etc. for the accounts themselves (not profile_account)",
+        "fields": {
+            "profile_contactelement_id": {
+                "name": "profile_contactelement_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_contactelement_type": {
+                "name": "profile_contactelement_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "profile_contactelement_subtype": {
+                "name": "profile_contactelement_subtype",
+                "type": "TINYINT",
+                "null": false
+            },
+            "profile_contactelement_content": {
+                "name": "profile_contactelement_content",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_contactelement_account": {
+                "name": "profile_contactelement_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "profile_address": {
+        "name": "profile_address",
+        "fields": {
+            "profile_address_id": {
+                "name": "profile_address_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_address_type": {
+                "name": "profile_address_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "profile_address_address": {
+                "name": "profile_address_address",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_address_street": {
+                "name": "profile_address_street",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_address_city": {
+                "name": "profile_address_city",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_address_zip": {
+                "name": "profile_address_zip",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_address_country": {
+                "name": "profile_address_country",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "profile_address_account": {
+                "name": "profile_address_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_account",
+                "foreignKey": "profile_account_id"
+            }
+        }
+    },
+    "profile_account_relation": {
+        "name": "profile_account_relation",
+        "fields": {
+            "profile_account_relation_id": {
+                "name": "profile_account_relation_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_account_relation_type": {
+                "name": "profile_account_relation_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "profile_account_relation_relation": {
+                "name": "profile_account_relation_relation",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "profile_account_relation_account": {
+                "name": "profile_account_relation_account",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "profile_account_setting": {
+        "name": "profile_account_setting",
+        "fields": {
+            "profile_account_setting_id": {
+                "name": "profile_account_setting_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "profile_account_setting_module": {
+                "name": "profile_account_setting_module",
+                "type": "INT",
+                "null": false
+            },
+            "profile_account_setting_type": {
+                "name": "profile_account_setting_type",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
+            "profile_account_setting_value": {
+                "name": "profile_account_setting_value",
+                "type": "VARCHAR(32)",
+                "default": null,
+                "null": true
+            },
+            "profile_account_setting_account": {
+                "name": "profile_account_setting_account",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    }
+}

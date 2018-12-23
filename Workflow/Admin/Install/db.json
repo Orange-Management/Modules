@@ -1,0 +1,178 @@
+{
+    "workflow": {
+        "name": "workflow",
+        "fields": {
+            "workflow_id": {
+                "name": "workflow_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "workflow_name": {
+                "name": "workflow_name",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "workflow_status": {
+                "name": "workflow_status",
+                "type": "INT",
+                "null": false
+            },
+            "workflow_desc": {
+                "name": "workflow_desc",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "workflow_created": {
+                "name": "workflow_created",
+                "type": "DATETIME",
+                "null": false
+            },
+            "workflow_created_by": {
+                "name": "workflow_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "workflow_media": {
+        "name": "workflow_media",
+        "fields": {
+            "workflow_media_id": {
+                "name": "workflow_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "workflow_media_media": {
+                "name": "workflow_media_media",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "workflow_media_workflow": {
+                "name": "workflow_media_workflow",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "workflow",
+                "foreignKey": "workflow_id"
+            },
+            "workflow_media_type": {
+                "name": "workflow_media_type",
+                "type": "TINYINT",
+                "null": false
+            }
+        }
+    },
+    "workflow_element": {
+        "name": "workflow_element",
+        "fields": {
+            "workflow_element_id": {
+                "name": "workflow_element_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "workflow_element_name": {
+                "name": "workflow_element_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "workflow_element_status": {
+                "name": "workflow_element_status",
+                "type": "INT",
+                "null": false
+            },
+            "workflow_element_data": {
+                "name": "workflow_element_data",
+                "type": "TEXT",
+                "null": false
+            },
+            "workflow_element_desc": {
+                "name": "workflow_element_desc",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "workflow_element_created": {
+                "name": "workflow_element_created",
+                "type": "DATETIME",
+                "null": false
+            },
+            "workflow_element_created_by": {
+                "name": "workflow_element_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "workflow_element_workflow": {
+                "name": "workflow_element_workflow",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "workflow",
+                "foreignKey": "workflow_id"
+            }
+        }
+    },
+    "workflow_element_media": {
+        "name": "workflow_element_media",
+        "fields": {
+            "workflow_element_media_id": {
+                "name": "workflow_element_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "workflow_element_media_media": {
+                "name": "workflow_element_media_media",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "workflow_element_media_workflow_element": {
+                "name": "workflow_element_media_workflow_element",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "workflow_element",
+                "foreignKey": "workflow_element_id"
+            }
+        }
+    },
+    "workflow_element_task": {
+        "name": "workflow_element_task",
+        "fields": {
+            "workflow_element_task_id": {
+                "name": "workflow_element_task_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "workflow_element_task_task": {
+                "name": "workflow_element_task_task",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "task",
+                "foreignKey": "task_id"
+            },
+            "workflow_element_task_workflow_element": {
+                "name": "workflow_element_task_workflow_element",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "workflow_element",
+                "foreignKey": "workflow_element_id"
+            }
+        }
+    }
+}

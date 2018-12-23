@@ -63,48 +63,5 @@
                 "foreignKey": "account_id"
             }
         }
-    },
-    "news_badge": {
-        "name": "news_badge",
-        "fields": {
-            "news_badge_id": {
-                "name": "news_badge_id",
-                "type": "INT",
-                "null": false,
-                "primary": true,
-                "autoincrement": true
-            },
-            "news_badge_title": {
-                "name": "news_badge_title",
-                "type": "VARCHAR(25)",
-                "null": false
-            }
-        }
-    },
-    "news_badge_relation": {
-        "name": "news_badge_relation",
-        "fields": {
-            "news_badge_relation_id": {
-                "name": "news_badge_relation_id",
-                "type": "INT",
-                "null": false,
-                "primary": true,
-                "autoincrement": true
-            },
-            "news_badge_relation_news": {
-                "name": "news_badge_relation_news",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "news",
-                "foreignKey": "news_id"
-            },
-            "news_badge_relation_badge": {
-                "name": "news_badge_relation_badge",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "news_badge",
-                "foreignKey": "news_badge_id"
-            }
-        }
     }
 }

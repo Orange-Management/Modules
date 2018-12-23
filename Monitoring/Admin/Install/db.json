@@ -1,0 +1,60 @@
+{
+    "monitoring_file": {
+        "name": "monitoring_file",
+        "fields": {
+            "monitoring_file_id": {
+                "name": "monitoring_file_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "monitoring_file_path": {
+                "name": "monitoring_file_path",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "monitoring_file_modified": {
+                "name": "monitoring_file_modified",
+                "type": "DATETIME",
+                "null": false
+            },
+            "monitoring_file_deprecated": {
+                "name": "monitoring_file_deprecated",
+                "type": "TINYINT",
+                "null": false
+            },
+            "monitoring_file_dangerous": {
+                "name": "monitoring_file_dangerous",
+                "type": "TINYINT",
+                "null": false
+            },
+            "monitoring_file_unicode": {
+                "name": "monitoring_file_unicode",
+                "type": "TINYINT",
+                "null": false
+            },
+            "monitoring_file_version": {
+                "name": "monitoring_file_version",
+                "type": "TINYINT",
+                "null": false
+            },
+            "monitoring_file_hash": {
+                "name": "monitoring_file_hash",
+                "type": "TINYINT",
+                "null": false
+            },
+            "monitoring_file_status": {
+                "name": "monitoring_file_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "monitoring_file_inspected": {
+                "name": "monitoring_file_inspected",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    }
+}
