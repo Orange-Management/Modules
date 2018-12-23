@@ -186,4 +186,15 @@ return [
             ],
         ],
     ],
+    '^.*/api/admin/module/reinit.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiReInit',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::ROUTE,
+            ],
+        ],
+    ],
 ];

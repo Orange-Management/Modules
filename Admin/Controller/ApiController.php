@@ -691,4 +691,37 @@ final class ApiController extends Controller
         $this->createModelRelation($request, $group, $accounts, GroupMapper::class, 'accounts', 'group-account');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Relation added', []);
     }
+
+    /**
+     * Api re-init routes
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiReInit(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $p = __DIR__ . '/../../../Web/*';
+        $directories = \glob(__DIR__ . '/../../../Web/*' , \GLOB_ONLYDIR);
+        foreach ($directories as $directory) {
+            if (\file_exists($path = $directory . '/Routes.php')) {
+                \file_put_contents($path, '<?php return [];');
+            }
+
+            if (\file_exists($path = $directory . '/Hooks.php')) {
+                \file_put_contents($path, '<?php return [];');
+            }
+        }
+
+        $installedModules = $this->app->moduleManager->getActiveModules();
+        foreach ($installedModules as $name => $module) {
+            $this->app->moduleManager->reInit($name);
+        }
+    }
 }
