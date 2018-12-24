@@ -17,7 +17,7 @@ namespace Modules\ProjectManagement\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Project Management install class.
+ * Installer class.
  *
  * @package    Modules\ProjectManagement\Admin
  * @license    OMS License 1.0

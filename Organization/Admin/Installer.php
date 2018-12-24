@@ -23,7 +23,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Organization install class.
+ * Installer class.
  *
  * @package    Modules\Organization\Admin
  * @license    OMS License 1.0

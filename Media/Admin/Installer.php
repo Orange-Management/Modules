@@ -17,7 +17,7 @@ namespace Modules\Media\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Media install class.
+ * Installer class.
  *
  * @package    Modules\Media\Admin
  * @license    OMS License 1.0

@@ -17,7 +17,7 @@ namespace Modules\StockTaking\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * StockTaking install class.
+ * Installer class.
  *
  * @package    Modules\StockTaking\Admin
  * @license    OMS License 1.0

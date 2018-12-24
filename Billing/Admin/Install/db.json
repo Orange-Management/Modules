@@ -1,0 +1,363 @@
+{
+    "billing_invoice": {
+        "name": "billing_invoice",
+        "fields": {
+            "billing_invoice_id": {
+                "name": "billing_invoice_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "billing_invoice_number": {
+                "name": "billing_invoice_number",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "billing_invoice_info": {
+                "name": "billing_invoice_info",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_status": {
+                "name": "billing_invoice_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "billing_invoice_type": {
+                "name": "billing_invoice_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "billing_invoice_client": {
+                "name": "billing_invoice_client",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "billing_invoice_shipTo": {
+                "name": "billing_invoice_shipTo",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "billing_invoice_shipFAO": {
+                "name": "billing_invoice_shipFAO",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_shipAddr": {
+                "name": "billing_invoice_shipAddr",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_shipCity": {
+                "name": "billing_invoice_shipCity",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_shipZip": {
+                "name": "billing_invoice_shipZip",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_shipCountry": {
+                "name": "billing_invoice_shipCountry",
+                "type": "VARCHAR(3)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_billTo": {
+                "name": "billing_invoice_billTo",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "billing_invoice_billFAO": {
+                "name": "billing_invoice_billFAO",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_billAddr": {
+                "name": "billing_invoice_billAddr",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_billCity": {
+                "name": "billing_invoice_billCity",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_billZip": {
+                "name": "billing_invoice_billZip",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_billCountry": {
+                "name": "billing_invoice_billCountry",
+                "type": "VARCHAR(3)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_created_at": {
+                "name": "billing_invoice_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "billing_invoice_created_by": {
+                "name": "billing_invoice_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "billing_invoice_finished_at": {
+                "name": "billing_invoice_finished_at",
+                "type": "DATETIME",
+                "default": null,
+                "null": false
+            },
+            "billing_invoice_gross": {
+                "name": "billing_invoice_gross",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_net": {
+                "name": "billing_invoice_net",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_costs": {
+                "name": "billing_invoice_costs",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_profit": {
+                "name": "billing_invoice_profit",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_currency": {
+                "name": "billing_invoice_currency",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_freightage": {
+                "name": "billing_invoice_freightage",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_insurance": {
+                "name": "billing_invoice_insurance",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_customs": {
+                "name": "billing_invoice_customs",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_packaging": {
+                "name": "billing_invoice_packaging",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_referral": {
+                "name": "billing_invoice_referral",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "billing_invoice_referral_name": {
+                "name": "billing_invoice_referral_name",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_reference": {
+                "name": "billing_invoice_reference",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_payment": {
+                "name": "billing_invoice_payment",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_payment_text": {
+                "name": "billing_invoice_payment_text",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_terms": {
+                "name": "billing_invoice_terms",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_terms_text": {
+                "name": "billing_invoice_terms_text",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            },
+            "billing_invoice_ship_type": {
+                "name": "billing_invoice_ship_type",
+                "type": "INT",
+                "null": false
+            },
+            "billing_invoice_ship_text": {
+                "name": "billing_invoice_ship_type_text",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "billing_element": {
+        "name": "billing_element",
+        "fields": {
+            "billing_element_id": {
+                "name": "billing_element_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "billing_element_order": {
+                "name": "billing_element_order",
+                "type": "SMALLINT",
+                "null": false
+            },
+            "billing_element_item": {
+                "name": "billing_element_item",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_item_segment": {
+                "name": "billing_element_item_segment",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "billing_element_item_name": {
+                "name": "billing_element_item_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "billing_element_item_desc": {
+                "name": "billing_element_item_desc",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "billing_element_quantity": {
+                "name": "billing_element_quantity",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_purchase_price": {
+                "name": "billing_element_purchase_price",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_single": {
+                "name": "billing_element_price_single",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_total": {
+                "name": "billing_element_price_total",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_discount_single": {
+                "name": "billing_element_price_discount_single",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_discount_total": {
+                "name": "billing_element_price_discount_total",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_percentage_discount_single": {
+                "name": "billing_element_percentage_discount_single",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_percentage_discount_total": {
+                "name": "billing_element_percentage_discount_total",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_quantity_discount": {
+                "name": "billing_element_quantity_discount",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_single_net": {
+                "name": "billing_element_price_single_net",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_total_net": {
+                "name": "billing_element_price_total_net",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_tax_price": {
+                "name": "billing_element_tax_price",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_tax_type": {
+                "name": "billing_element_tax_type",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_tax_percentage": {
+                "name": "billing_element_tax_percentage",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_single_gross": {
+                "name": "billing_element_price_single_gross",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_price_total_gross": {
+                "name": "billing_element_price_total_gross",
+                "type": "INT",
+                "null": false
+            },
+            "billing_element_invoice": {
+                "name": "billing_element_invoice",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "billing_invoice",
+                "foreignKey": "billing_invoice_id"
+            },
+            "billing_element_promotion": {
+                "name": "billing_element_promotion",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "billing_element_event": {
+                "name": "billing_element_event",
+                "type": "INT",
+                "default": null,
+                "null": true
+            }
+        }
+    }
+}

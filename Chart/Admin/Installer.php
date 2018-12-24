@@ -17,7 +17,7 @@ namespace Modules\Chart\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Calendar install class.
+ * Installer class.
  *
  * @package    Modules\Chart\Admin
  * @license    OMS License 1.0

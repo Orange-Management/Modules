@@ -17,7 +17,7 @@ namespace Modules\HumanResourceTimeRecording\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Calendar install class.
+ * Installer class.
  *
  * @package    Modules\HumanResourceTimeRecording\Admin
  * @license    OMS License 1.0

@@ -17,7 +17,7 @@ namespace Modules\Surveys\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Surveys install class.
+ * Installer class.
  *
  * @package    Modules\Surveys\Admin
  * @license    OMS License 1.0

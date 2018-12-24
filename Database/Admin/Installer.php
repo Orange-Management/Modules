@@ -17,7 +17,7 @@ namespace Modules\Database\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Calendar install class.
+ * Installer class.
  *
  * @package    Modules\Database\Admin
  * @license    OMS License 1.0

@@ -17,7 +17,7 @@ namespace Modules\CreditManagement\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Credit Management install class.
+ * Installer class.
  *
  * @package    Modules\CreditManagement\Admin
  * @license    OMS License 1.0

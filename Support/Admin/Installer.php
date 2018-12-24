@@ -17,7 +17,7 @@ namespace Modules\Support\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Support install class.
+ * Installer class.
  *
  * @package    Modules\Support\Admin
  * @license    OMS License 1.0

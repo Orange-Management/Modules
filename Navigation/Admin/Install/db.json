@@ -6,8 +6,7 @@
                 "name": "nav_id",
                 "type": "INT",
                 "null": false,
-                "primary": true,
-                "autoincrement": true
+                "primary": true
             },
             "nav_pid": {
                 "name": "nav_pid",

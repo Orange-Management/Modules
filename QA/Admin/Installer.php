@@ -17,7 +17,7 @@ namespace Modules\QA\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Tasks install class.
+ * Installer class.
  *
  * @package    Modules\QA\Admin
  * @license    OMS License 1.0

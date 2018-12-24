@@ -17,7 +17,7 @@ namespace Modules\BankAccounting\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * B install class.
+ * Installer class.
  *
  * @package    Modules\BankAccounting\Admin
  * @license    OMS License 1.0

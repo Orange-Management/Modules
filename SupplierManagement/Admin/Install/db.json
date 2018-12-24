@@ -1,0 +1,118 @@
+{
+    "suppliermgmt_supplier": {
+        "name": "suppliermgmt_supplier",
+        "fields": {
+            "suppliermgmt_supplier_id": {
+                "name": "suppliermgmt_supplier_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "suppliermgmt_supplier_no": {
+                "name": "suppliermgmt_supplier_no",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "suppliermgmt_supplier_no_reverse": {
+                "name": "suppliermgmt_supplier_no_reverse",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "suppliermgmt_supplier_status": {
+                "name": "suppliermgmt_supplier_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "suppliermgmt_supplier_type": {
+                "name": "suppliermgmt_supplier_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "suppliermgmt_supplier_taxid": {
+                "name": "suppliermgmt_supplier_taxid",
+                "type": "INT",
+                "null": false
+            },
+            "suppliermgmt_supplier_info": {
+                "name": "suppliermgmt_supplier_info",
+                "type": "TEXT",
+                "null": false
+            },
+            "suppliermgmt_supplier_created_at": {
+                "name": "suppliermgmt_supplier_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "suppliermgmt_supplier_account": {
+                "name": "suppliermgmt_supplier_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "suppliermgmt_supplier_contactelement": {
+        "name": "suppliermgmt_supplier_contactelement",
+        "fields": {
+            "suppliermgmt_supplier_contactelement_id": {
+                "name": "suppliermgmt_supplier_contactelement_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "suppliermgmt_supplier_contactelement_dst": {
+                "name": "suppliermgmt_supplier_contactelement_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_contactelement",
+                "foreignKey": "profile_contactelement_id"
+            },
+            "suppliermgmt_supplier_contactelement_src": {
+                "name": "suppliermgmt_supplier_contactelement_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "suppliermgmt_supplier",
+                "foreignKey": "suppliermgmt_supplier_id"
+            },
+            "suppliermgmt_supplier_contactelement_type": {
+                "name": "suppliermgmt_supplier_contactelement_type",
+                "type": "TINYINT",
+                "null": false
+            }
+        }
+    },
+    "suppliermgmt_supplier_media": {
+        "name": "suppliermgmt_supplier_media",
+        "fields": {
+            "suppliermgmt_supplier_media_id": {
+                "name": "suppliermgmt_supplier_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "suppliermgmt_supplier_media_dst": {
+                "name": "suppliermgmt_supplier_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "suppliermgmt_supplier_media_src": {
+                "name": "suppliermgmt_supplier_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "suppliermgmt_supplier",
+                "foreignKey": "suppliermgmt_supplier_id"
+            },
+            "suppliermgmt_supplier_media_type": {
+                "name": "suppliermgmt_supplier_media_type",
+                "type": "TINYINT",
+                "null": false
+            }
+        }
+    }
+}

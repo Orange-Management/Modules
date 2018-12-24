@@ -17,7 +17,7 @@ namespace Modules\Draw\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Calendar install class.
+ * Installer class.
  *
  * @package    Modules\Draw\Admin
  * @license    OMS License 1.0

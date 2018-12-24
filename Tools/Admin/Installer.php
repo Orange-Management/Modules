@@ -19,7 +19,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Tools install class.
+ * Installer class.
  *
  * @package    Modules\Tools\Admin
  * @license    OMS License 1.0

@@ -37,7 +37,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
         $supplier->setReverseNumber('asdf');
         $supplier->setStatus(2);
         $supplier->setType(3);
-        $supplier->setTaxId('a123546');
+        $supplier->setTaxId(5);
         $supplier->setInfo('Some info.');
 
         $id = SupplierMapper::create($supplier);
@@ -57,7 +57,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('asdf', $supplier->getReverseNumber());
         self::assertEquals(2, $supplier->getStatus());
         self::assertEquals(3, $supplier->getType());
-        self::assertEquals('a123546', $supplier->getTaxId());
+        self::assertEquals(5, $supplier->getTaxId());
         self::assertEquals('Some info.', $supplier->getInfo());
     }
 

@@ -34,7 +34,7 @@ final class ClientMapper extends DataMapperAbstract
         'clientmgmt_client_no_reverse' => ['name' => 'clientmgmt_client_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
         'clientmgmt_client_status'     => ['name' => 'clientmgmt_client_status', 'type' => 'int', 'internal' => 'status'],
         'clientmgmt_client_type'       => ['name' => 'clientmgmt_client_type', 'type' => 'int', 'internal' => 'type'],
-        'clientmgmt_client_taxid'      => ['name' => 'clientmgmt_client_taxid', 'type' => 'string', 'internal' => 'taxId'],
+        'clientmgmt_client_taxid'      => ['name' => 'clientmgmt_client_taxid', 'type' => 'int', 'internal' => 'taxId'],
         'clientmgmt_client_info'       => ['name' => 'clientmgmt_client_info', 'type' => 'string', 'internal' => 'info'],
         'clientmgmt_client_created_at' => ['name' => 'clientmgmt_client_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'clientmgmt_client_account'    => ['name' => 'clientmgmt_client_account', 'type' => 'int', 'internal' => 'profile'],

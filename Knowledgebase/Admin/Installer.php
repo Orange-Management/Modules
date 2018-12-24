@@ -17,7 +17,7 @@ namespace Modules\Knowledgebase\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Tasks install class.
+ * Installer class.
  *
  * @package    Modules\Knowledgebase\Admin
  * @license    OMS License 1.0

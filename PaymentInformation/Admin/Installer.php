@@ -20,7 +20,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Accounts receivable install class.
+ * Installer class.
  *
  * @package    Modules\PaymentInformation\Admin
  * @license    OMS License 1.0

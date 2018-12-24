@@ -17,7 +17,7 @@ namespace Modules\Monitoring\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Monitoring install class.
+ * Installer class.
  *
  * @package    Modules\Monitoring\Admin
  * @license    OMS License 1.0

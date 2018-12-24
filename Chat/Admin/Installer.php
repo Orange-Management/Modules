@@ -17,7 +17,7 @@ namespace Modules\Chat\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Chat install class.
+ * Installer class.
  *
  * @package    Modules\Chat\Admin
  * @license    OMS License 1.0

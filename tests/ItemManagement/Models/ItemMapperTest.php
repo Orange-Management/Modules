@@ -24,10 +24,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
         $item = new Item();
 
         $item->setNumber(1);
-        $item->setArticleGroup(2);
-        $item->setProductGroup(3);
         $item->setSegment(4);
-        $item->setSalesGroup(6);
         $item->setSuccessor(5);
         $item->setInfo('info text');
 
@@ -38,11 +35,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
         $itemR = ItemMapper::get($item->getId());
         self::assertEquals($item->getNumber(), $itemR->getNumber());
         self::assertEquals($item->getSegment(), $itemR->getSegment());
-        self::assertEquals($item->getArticleGroup(), $itemR->getArticleGroup());
-        self::assertEquals($item->getProductGroup(), $itemR->getProductGroup());
-        self::assertEquals($item->getSalesGroup(), $itemR->getSalesGroup());
         self::assertEquals($item->getInfo(), $itemR->getInfo());
-        self::assertEquals($item->getSuccessor(), $itemR->getSuccessor());
     }
 
     /**
@@ -54,11 +47,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
             $item = new Item();
 
             $item->setNumber($i + 1);
-            $item->setArticleGroup(mt_rand(1000, 3000));
-            $item->setProductGroup(mt_rand(11, 30));
             $item->setSegment(mt_rand(1, 9));
-            $item->setSalesGroup(mt_rand(100, 300));
-            $item->setSuccessor(5);
             $item->setInfo('info text');
 
             $id = ItemMapper::create($item);

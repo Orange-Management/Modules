@@ -17,7 +17,7 @@ namespace Modules\Arrival\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Arrival install class.
+ * Installer class.
  *
  * @package    Modules\Arrival\Admin
  * @license    OMS License 1.0

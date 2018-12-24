@@ -17,7 +17,7 @@ namespace Modules\AccountsPayable\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Accounts payable install class.
+ * Installer class.
  *
  * @package    Modules\AccountsPayable\Admin
  * @license    OMS License 1.0

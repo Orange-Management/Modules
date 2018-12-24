@@ -17,7 +17,7 @@ namespace Modules\Workflow\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Tasks install class.
+ * Installer class.
  *
  * @package    Modules\Workflow\Admin
  * @license    OMS License 1.0

@@ -46,8 +46,8 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         $client->setType(3);
         self::assertEquals(3, $client->getType());
 
-        $client->setTaxId('a123456');
-        self::assertEquals('a123456', $client->getTaxId());
+        $client->setTaxId(44);
+        self::assertEquals(44, $client->getTaxId());
 
         $client->setInfo('Some info.');
         self::assertEquals('Some info.', $client->getInfo());

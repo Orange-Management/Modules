@@ -1,0 +1,227 @@
+{
+    "kanban_board": {
+        "name": "kanban_board",
+        "fields": {
+            "kanban_board_id": {
+                "name": "kanban_board_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "kanban_board_name": {
+                "name": "kanban_board_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "kanban_board_desc": {
+                "name": "kanban_board_desc",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "kanban_board_status": {
+                "name": "kanban_board_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "kanban_board_order": {
+                "name": "kanban_board_order",
+                "type": "INT",
+                "null": false
+            },
+            "kanban_board_created_at": {
+                "name": "kanban_board_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "kanban_board_created_by": {
+                "name": "kanban_board_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "kanban_column": {
+        "name": "kanban_column",
+        "fields": {
+            "kanban_column_id": {
+                "name": "kanban_column_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "kanban_column_name": {
+                "name": "kanban_column_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "kanban_column_order": {
+                "name": "kanban_column_order",
+                "type": "INT",
+                "null": false
+            },
+            "kanban_column_board": {
+                "name": "kanban_column_board",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "kanban_board",
+                "foreignKey": "kanban_board_id"
+            }
+        }
+    },
+    "kanban_card": {
+        "name": "kanban_card",
+        "fields": {
+            "kanban_card_id": {
+                "name": "kanban_card_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "kanban_card_name": {
+                "name": "kanban_card_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "kanban_card_description": {
+                "name": "kanban_card_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "kanban_card_type": {
+                "name": "kanban_card_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "kanban_card_status": {
+                "name": "kanban_card_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "kanban_card_order": {
+                "name": "kanban_card_order",
+                "type": "INT",
+                "null": false
+            },
+            "kanban_card_ref": {
+                "name": "kanban_card_ref",
+                "type": "INT",
+                "null": false
+            },
+            "kanban_card_column": {
+                "name": "kanban_card_column",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "kanban_column",
+                "foreignKey": "kanban_column_id"
+            },
+            "kanban_card_created_at": {
+                "name": "kanban_card_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "kanban_card_created_by": {
+                "name": "kanban_card_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "kanban_card_media": {
+        "name": "kanban_card_media",
+        "fields": {
+            "kanban_card_media_id": {
+                "name": "kanban_card_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "kanban_card_media_src": {
+                "name": "kanban_card_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "kanban_card",
+                "foreignKey": "kanban_card_id"
+            },
+            "kanban_card_media_dst": {
+                "name": "kanban_card_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    },
+    "kanban_card_comment": {
+        "name": "kanban_card_comment",
+        "fields": {
+            "kanban_card_comment_id": {
+                "name": "kanban_card_comment_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "kanban_card_comment_description": {
+                "name": "kanban_card_comment_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "kanban_card_comment_card": {
+                "name": "kanban_card_comment_card",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "kanban_card",
+                "foreignKey": "kanban_card_id"
+            },
+            "kanban_card_comment_created_at": {
+                "name": "kanban_card_comment_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "kanban_card_comment_created_by": {
+                "name": "kanban_card_comment_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "kanban_card_comment_media": {
+        "name": "kanban_card_comment_media",
+        "fields": {
+            "kanban_card_comment_media_id": {
+                "name": "kanban_card_comment_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "kanban_card_comment_media_src": {
+                "name": "kanban_card_comment_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "kanban_card_comment",
+                "foreignKey": "kanban_card_comment_id"
+            },
+            "kanban_card_comment_media_dst": {
+                "name": "kanban_card_comment_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    }
+}

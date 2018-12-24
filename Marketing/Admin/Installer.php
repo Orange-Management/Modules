@@ -17,7 +17,7 @@ namespace Modules\Marketing\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Marketing install class.
+ * Installer class.
  *
  * @package    Modules\Marketing\Admin
  * @license    OMS License 1.0

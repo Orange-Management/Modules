@@ -17,7 +17,7 @@ namespace Modules\News\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * News install class.
+ * Installer class.
  *
  * @package    Modules\News\Admin
  * @license    OMS License 1.0

@@ -1,0 +1,56 @@
+{
+    "itemmgmt_item": {
+        "name": "itemmgmt_item",
+        "fields": {
+            "itemmgmt_item_id": {
+                "name": "itemmgmt_item_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "itemmgmt_item_no": {
+                "name": "itemmgmt_item_no",
+                "type": "VARCHAR(30)",
+                "null": false
+            },
+            "itemmgmt_item_segment": {
+                "name": "itemmgmt_item_segment",
+                "type": "INT",
+                "null": false
+            },
+            "itemmgmt_item_info": {
+                "name": "itemmgmt_item_info",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            }
+        }
+    },
+    "itemmgmt_item_media": {
+        "name": "itemmgmt_item_media",
+        "fields": {
+            "itemmgmt_item_media_id": {
+                "name": "itemmgmt_item_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "itemmgmt_item_media_src": {
+                "name": "itemmgmt_item_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "itemmgmt_item",
+                "foreignKey": "itemmgmt_item_id"
+            },
+            "itemmgmt_item_media_dst": {
+                "name": "itemmgmt_item_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    }
+}

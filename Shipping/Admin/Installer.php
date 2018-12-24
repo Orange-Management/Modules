@@ -17,7 +17,7 @@ namespace Modules\Shipping\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Shipping install class.
+ * Installer class.
  *
  * @package    Modules\Shipping\Admin
  * @license    OMS License 1.0

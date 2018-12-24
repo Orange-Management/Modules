@@ -56,8 +56,11 @@ class Risk
 
     private $media = [];
 
+    private $createdAt = null;
+
     public function __construct()
     {
+        $this->createdAt = new \DateTime('now');
     }
 
     public function getId() : int

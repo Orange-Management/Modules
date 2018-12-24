@@ -19,7 +19,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Dashboard install class.
+ * Installer class.
  *
  * @package    Modules\Dashboard\Admin
  * @license    OMS License 1.0

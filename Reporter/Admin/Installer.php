@@ -17,7 +17,7 @@ namespace Modules\Reporter\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Data evaluation install class.
+ * Installer class.
  *
  * @package    Modules\Reporter\Admin
  * @license    OMS License 1.0

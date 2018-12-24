@@ -46,8 +46,8 @@ class SupplierTest extends \PHPUnit\Framework\TestCase
         $supplier->setType(3);
         self::assertEquals(3, $supplier->getType());
 
-        $supplier->setTaxId('a123456');
-        self::assertEquals('a123456', $supplier->getTaxId());
+        $supplier->setTaxId(5);
+        self::assertEquals(5, $supplier->getTaxId());
 
         $supplier->setInfo('Some info.');
         self::assertEquals('Some info.', $supplier->getInfo());

@@ -1,0 +1,543 @@
+{
+    "riskmngmt_category": {
+        "name": "riskmngmt_category",
+        "fields": {
+            "riskmngmt_category_id": {
+                "name": "riskmngmt_category_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_category_name": {
+                "name": "riskmngmt_category_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "riskmngmt_category_description": {
+                "name": "riskmngmt_category_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_category_descriptionraw": {
+                "name": "riskmngmt_category_descriptionraw",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_category_parent": {
+                "name": "riskmngmt_category_parent",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_category",
+                "foreignKey": "riskmngmt_category_id"
+            },
+            "riskmngmt_category_responsible": {
+                "name": "riskmngmt_category_responsible",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_category_deputy": {
+                "name": "riskmngmt_category_deputy",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "riskmngmt_process": {
+        "name": "riskmngmt_process",
+        "fields": {
+            "riskmngmt_process_id": {
+                "name": "riskmngmt_process_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_process_name": {
+                "name": "riskmngmt_process_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "riskmngmt_process_description": {
+                "name": "riskmngmt_process_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_process_descriptionraw": {
+                "name": "riskmngmt_process_descriptionraw",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_process_department": {
+                "name": "riskmngmt_process_department",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_department",
+                "foreignKey": "organization_department_id"
+            }
+            ,
+            "riskmngmt_process_unit": {
+                "name": "riskmngmt_process_unit",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_unit",
+                "foreignKey": "organization_unit_id"
+            },
+            "riskmngmt_process_responsible": {
+                "name": "riskmngmt_process_responsible",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_process_deputy": {
+                "name": "riskmngmt_process_deputy",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "riskmngmt_project": {
+        "name": "riskmngmt_project",
+        "fields": {
+            "riskmngmt_project_id": {
+                "name": "riskmngmt_project_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_project_project": {
+                "name": "riskmngmt_project_project",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "projectmanagement_project",
+                "foreignKey": "projectmanagement_project_id"
+            },
+            "riskmngmt_project_responsible": {
+                "name": "riskmngmt_project_responsible",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_project_deputy": {
+                "name": "riskmngmt_project_deputy",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "riskmngmt_department": {
+        "name": "riskmngmt_department",
+        "fields": {
+            "riskmngmt_department_id": {
+                "name": "riskmngmt_department_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_department_department": {
+                "name": "riskmngmt_department_department",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "organization_department",
+                "foreignKey": "organization_department_id"
+            },
+            "riskmngmt_department_responsible": {
+                "name": "riskmngmt_department_responsible",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_department_deputy": {
+                "name": "riskmngmt_department_deputy",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "riskmngmt_unit": {
+        "name": "riskmngmt_unit",
+        "fields": {
+            "riskmngmt_unit_id": {
+                "name": "riskmngmt_unit_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_unit_unit": {
+                "name": "riskmngmt_unit_unit",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "organization_unit",
+                "foreignKey": "organization_unit_id"
+            },
+            "riskmngmt_unit_responsible": {
+                "name": "riskmngmt_unit_responsible",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_unit_deputy": {
+                "name": "riskmngmt_unit_deputy",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "riskmngmt_risk": {
+        "name": "riskmngmt_risk",
+        "fields": {
+            "riskmngmt_risk_id": {
+                "name": "riskmngmt_risk_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_risk_name": {
+                "name": "riskmngmt_risk_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "riskmngmt_risk_description": {
+                "name": "riskmngmt_risk_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_risk_descriptionraw": {
+                "name": "riskmngmt_risk_descriptionraw",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_risk_unit": {
+                "name": "riskmngmt_risk_unit",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "organization_unit",
+                "foreignKey": "organization_unit_id"
+            },
+            "riskmngmt_risk_department": {
+                "name": "riskmngmt_risk_department",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "organization_department",
+                "foreignKey": "organization_department_id"
+            },
+            "riskmngmt_risk_category": {
+                "name": "riskmngmt_risk_category",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_category",
+                "foreignKey": "riskmngmt_category_id"
+            },
+            "riskmngmt_risk_project": {
+                "name": "riskmngmt_risk_project",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "projectmanagement_project",
+                "foreignKey": "projectmanagement_project_id"
+            },
+            "riskmngmt_risk_process": {
+                "name": "riskmngmt_risk_process",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_process",
+                "foreignKey": "riskmngmt_process_id"
+            },
+            "riskmngmt_risk_responsible": {
+                "name": "riskmngmt_risk_responsible",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_risk_deputy": {
+                "name": "riskmngmt_risk_deputy",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "riskmngmt_risk_created_at": {
+                "name": "riskmngmt_risk_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "riskmngmt_risk_object": {
+        "name": "riskmngmt_risk_object",
+        "fields": {
+            "riskmngmt_risk_object_id": {
+                "name": "riskmngmt_risk_object_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_risk_object_name": {
+                "name": "riskmngmt_risk_object_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "riskmngmt_risk_object_description": {
+                "name": "riskmngmt_risk_object_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_risk_object_descriptionraw": {
+                "name": "riskmngmt_risk_object_descriptionraw",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_risk_object_risk": {
+                "name": "riskmngmt_risk_object_risk",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "riskmngmt_risk",
+                "foreignKey": "riskmngmt_risk_id"
+            }
+        }
+    },
+    "riskmngmt_risk_eval": {
+        "name": "riskmngmt_risk_eval",
+        "fields": {
+            "riskmngmt_risk_eval_id": {
+                "name": "riskmngmt_risk_eval_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_risk_eval_gross_probability": {
+                "name": "riskmngmt_risk_eval_gross_probability",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_risk_eval_gross_risk": {
+                "name": "riskmngmt_risk_eval_gross_risk",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_risk_eval_gross_score": {
+                "name": "riskmngmt_risk_eval_gross_score",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_risk_eval_net_probability": {
+                "name": "riskmngmt_risk_eval_net_probability",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_risk_eval_net_risk": {
+                "name": "riskmngmt_risk_eval_net_risk",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_risk_eval_net_score": {
+                "name": "riskmngmt_risk_eval_net_score",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_risk_eval_risk": {
+                "name": "riskmngmt_risk_eval_risk",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "riskmngmt_risk",
+                "foreignKey": "riskmngmt_risk_id"
+            },
+            "riskmngmt_risk_eval_date": {
+                "name": "riskmngmt_risk_eval_date",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "riskmngmt_risk_media": {
+        "name": "riskmngmt_risk_media",
+        "fields": {
+            "riskmngmt_risk_media_id": {
+                "name": "riskmngmt_risk_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_risk_media_risk": {
+                "name": "riskmngmt_risk_media_risk",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "riskmngmt_risk",
+                "foreignKey": "riskmngmt_risk_id"
+            },
+            "riskmngmt_risk_media_media": {
+                "name": "riskmngmt_risk_media_media",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    },
+    "riskmngmt_cause": {
+        "name": "riskmngmt_cause",
+        "fields": {
+            "riskmngmt_cause_id": {
+                "name": "riskmngmt_cause_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_cause_name": {
+                "name": "riskmngmt_cause_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "riskmngmt_cause_description": {
+                "name": "riskmngmt_cause_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_cause_descriptionraw": {
+                "name": "riskmngmt_cause_descriptionraw",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_cause_probability": {
+                "name": "riskmngmt_cause_probability",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_cause_department": {
+                "name": "riskmngmt_cause_department",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_department",
+                "foreignKey": "riskmngmt_department_id"
+            },
+            "riskmngmt_cause_category": {
+                "name": "riskmngmt_cause_category",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_category",
+                "foreignKey": "riskmngmt_category_id"
+            },
+            "riskmngmt_cause_project": {
+                "name": "riskmngmt_cause_project",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_project",
+                "foreignKey": "riskmngmt_project_id"
+            },
+            "riskmngmt_cause_process": {
+                "name": "riskmngmt_cause_process",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_process",
+                "foreignKey": "riskmngmt_process_id"
+            },
+            "riskmngmt_cause_risk": {
+                "name": "riskmngmt_cause_risk",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "riskmngmt_risk",
+                "foreignKey": "riskmngmt_risk_id"
+            }
+        }
+    },
+    "riskmngmt_solution": {
+        "name": "riskmngmt_solution",
+        "fields": {
+            "riskmngmt_solution_id": {
+                "name": "riskmngmt_solution_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "riskmngmt_solution_name": {
+                "name": "riskmngmt_solution_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "riskmngmt_solution_description": {
+                "name": "riskmngmt_solution_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_solution_descriptionraw": {
+                "name": "riskmngmt_solution_descriptionraw",
+                "type": "TEXT",
+                "null": false
+            },
+            "riskmngmt_solution_probability": {
+                "name": "riskmngmt_solution_probability",
+                "type": "INT",
+                "null": false
+            },
+            "riskmngmt_solution_effect": {
+                "name": "riskmngmt_solution_effect",
+                "type": "INT",
+                "default": null,
+                "null": true
+            },
+            "riskmngmt_solution_cause": {
+                "name": "riskmngmt_solution_cause",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "riskmngmt_cause",
+                "foreignKey": "riskmngmt_cause_id"
+            },
+            "riskmngmt_solution_risk": {
+                "name": "riskmngmt_solution_risk",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "riskmngmt_risk",
+                "foreignKey": "riskmngmt_risk_id"
+            }
+        }
+    }
+}

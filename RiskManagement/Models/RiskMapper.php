@@ -38,6 +38,7 @@ final class RiskMapper extends DataMapperAbstract
         'riskmngmt_risk_process'        => ['name' => 'riskmngmt_risk_process', 'type' => 'int', 'internal' => 'process'],
         'riskmngmt_risk_responsible'    => ['name' => 'riskmngmt_risk_responsible', 'type' => 'int', 'internal' => 'responsible'],
         'riskmngmt_risk_deputy'         => ['name' => 'riskmngmt_risk_deputy', 'type' => 'int', 'internal' => 'deputy'],
+        'riskmngmt_risk_created_at'     => ['name' => 'riskmngmt_risk_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**

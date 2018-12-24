@@ -1,0 +1,118 @@
+{
+    "clientmgmt_client": {
+        "name": "clientmgmt_client",
+        "fields": {
+            "clientmgmt_client_id": {
+                "name": "clientmgmt_client_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "clientmgmt_client_no": {
+                "name": "clientmgmt_client_no",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "clientmgmt_client_no_reverse": {
+                "name": "clientmgmt_client_no_reverse",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "clientmgmt_client_status": {
+                "name": "clientmgmt_client_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "clientmgmt_client_type": {
+                "name": "clientmgmt_client_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "clientmgmt_client_taxid": {
+                "name": "clientmgmt_client_taxid",
+                "type": "INT",
+                "null": false
+            },
+            "clientmgmt_client_info": {
+                "name": "clientmgmt_client_info",
+                "type": "TEXT",
+                "null": false
+            },
+            "clientmgmt_client_created_at": {
+                "name": "clientmgmt_client_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "clientmgmt_client_account": {
+                "name": "clientmgmt_client_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_account",
+                "foreignKey": "profile_account_id"
+            }
+        }
+    },
+    "clientmgmt_client_contactelement": {
+        "name": "clientmgmt_client_contactelement",
+        "fields": {
+            "clientmgmt_client_contactelement_id": {
+                "name": "clientmgmt_client_contactelement_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "clientmgmt_client_contactelement_dst": {
+                "name": "clientmgmt_client_contactelement_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "profile_contactelement",
+                "foreignKey": "profile_contactelement_id"
+            },
+            "clientmgmt_client_contactelement_src": {
+                "name": "clientmgmt_client_contactelement_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "clientmgmt_client",
+                "foreignKey": "clientmgmt_client_id"
+            },
+            "clientmgmt_client_contactelement_type": {
+                "name": "clientmgmt_client_contactelement_type",
+                "type": "TINYINT",
+                "null": false
+            }
+        }
+    },
+    "clientmgmt_client_media": {
+        "name": "clientmgmt_client_media",
+        "fields": {
+            "clientmgmt_client_media_id": {
+                "name": "clientmgmt_client_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "clientmgmt_client_media_dst": {
+                "name": "clientmgmt_client_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "clientmgmt_client_media_src": {
+                "name": "clientmgmt_client_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "clientmgmt_client",
+                "foreignKey": "clientmgmt_client_id"
+            },
+            "clientmgmt_client_media_type": {
+                "name": "clientmgmt_client_media_type",
+                "type": "TINYINT",
+                "null": false
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@ namespace Modules\EventManagement\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Event Management install class.
+ * Installer class.
  *
  * @package    Modules\EventManagement\Admin
  * @license    OMS License 1.0

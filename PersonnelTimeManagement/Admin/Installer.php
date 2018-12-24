@@ -17,7 +17,7 @@ namespace Modules\PersonnelTimeManagement\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Tasks install class.
+ * Installer class.
  *
  * @package    Modules\PersonnelTimeManagement\Admin
  * @license    OMS License 1.0

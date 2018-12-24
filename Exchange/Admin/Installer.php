@@ -23,7 +23,7 @@ use phpOMS\Module\InstallerAbstract;
 use phpOMS\System\File\Local\Directory;
 
 /**
- * Exchange install class.
+ * Installer class.
  *
  * @package    Modules\Exchange
  * @license    OMS License 1.0

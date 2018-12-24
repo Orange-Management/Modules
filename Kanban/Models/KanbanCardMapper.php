@@ -68,12 +68,6 @@ final class KanbanCardMapper extends DataMapperAbstract
             'dst'    => 'kanban_card_media_dst',
             'src'    => 'kanban_card_media_src',
         ],
-        'labels'   => [
-            'mapper' => KanbanLabelMapper::class,
-            'table'  => 'kanban_label_relation',
-            'dst'    => 'kanban_label_relation_card',
-            'src'    => 'kanban_label_relation_label',
-        ],
         'comments' => [
             'mapper' => KanbanCardCommentMapper::class,
             'table'  => 'kanban_card_comment',

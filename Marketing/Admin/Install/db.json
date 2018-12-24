@@ -17,6 +17,7 @@
             "marketing_promotion_description": {
                 "name": "marketing_promotion_description",
                 "type": "TEXT",
+                "default": null,
                 "null": true
             },
             "marketing_promotion_calendar": {

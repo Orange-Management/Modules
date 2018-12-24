@@ -48,7 +48,6 @@ class KanbanCardTest extends \PHPUnit\Framework\TestCase
         $card->setOrder(2);
         $card->setCreatedBy(1);
         $card->addComment(5);
-        $card->addLabel(6);
         $card->addMedia(7);
 
         self::assertEquals(CardStatus::ARCHIVED, $card->getStatus());
@@ -59,7 +58,6 @@ class KanbanCardTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(2, $card->getOrder());
         self::assertEquals(1, $card->getCreatedBy());
         self::assertEquals([5], $card->getComments());
-        self::assertEquals([6], $card->getLabels());
         self::assertEquals([7], $card->getMedia());
     }
 }

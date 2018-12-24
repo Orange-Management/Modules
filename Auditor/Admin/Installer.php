@@ -17,7 +17,7 @@ namespace Modules\Auditor\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Auditor install class.
+ * Installer class.
  *
  * @package    Modules\Auditor\Admin
  * @license    OMS License 1.0

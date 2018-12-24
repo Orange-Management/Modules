@@ -17,7 +17,7 @@ namespace Modules\Checklist\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Calendar install class.
+ * Installer class.
  *
  * @package    Modules\Checklist\Admin
  * @license    OMS License 1.0

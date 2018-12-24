@@ -37,7 +37,7 @@ class Supplier
 
     private $type = 0;
 
-    private $taxId = '';
+    private $taxId = 0;
 
     private $info = '';
 
@@ -106,12 +106,12 @@ class Supplier
         $this->type = $type;
     }
 
-    public function getTaxId() : string
+    public function getTaxId() : int
     {
         return $this->taxId;
     }
 
-    public function setTaxId(string $taxId) : void
+    public function setTaxId(int $taxId) : void
     {
         $this->taxId = $taxId;
     }

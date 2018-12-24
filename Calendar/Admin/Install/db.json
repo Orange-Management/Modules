@@ -1,0 +1,171 @@
+{
+    "calendar": {
+        "name": "calendar",
+        "fields": {
+            "calendar_id": {
+                "name": "calendar_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "calendar_name": {
+                "name": "calendar_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "calendar_description": {
+                "name": "calendar_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "calendar_created_at": {
+                "name": "calendar_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "schedule": {
+        "name": "schedule",
+        "fields": {
+            "schedule_id": {
+                "name": "schedule_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "schedule_uid": {
+                "name": "schedule_uid",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "schedule_status": {
+                "name": "schedule_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "schedule_freq_type": {
+                "name": "schedule_freq_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "schedule_freq_interval": {
+                "name": "schedule_freq_interval",
+                "type": "SMALLINT",
+                "null": false
+            },
+            "schedule_freq_interval_type": {
+                "name": "schedule_freq_interval_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "schedule_freq_relative_interval": {
+                "name": "schedule_freq_relative_interval",
+                "type": "TINYINT",
+                "null": false
+            },
+            "schedule_freq_recurrence_factor": {
+                "name": "schedule_freq_recurrence_factor",
+                "type": "TINYINT",
+                "null": false
+            },
+            "schedule_start": {
+                "name": "schedule_start",
+                "type": "DATETIME",
+                "null": false
+            },
+            "schedule_duration": {
+                "name": "schedule_duration",
+                "type": "INT",
+                "null": false
+            },
+            "schedule_end": {
+                "name": "schedule_end",
+                "type": "DATETIME",
+                "null": false
+            },
+            "schedule_created_by": {
+                "name": "schedule_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "schedule_created_at": {
+                "name": "schedule_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "calendar_event": {
+        "name": "calendar_event",
+        "fields": {
+            "calendar_event_id": {
+                "name": "calendar_event_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "calendar_event_name": {
+                "name": "calendar_event_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "calendar_event_description": {
+                "name": "calendar_event_description",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "calendar_event_status": {
+                "name": "calendar_event_status",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            },
+            "calendar_event_type": {
+                "name": "calendar_event_type",
+                "type": "TINYINT",
+                "default": null,
+                "null": true
+            },
+            "calendar_event_location": {
+                "name": "calendar_event_location",
+                "type": "TEXT",
+                "default": null,
+                "null": true
+            },
+            "calendar_event_calendar": {
+                "name": "calendar_event_calendar",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "calendar",
+                "foreignKey": "calendar_id"
+            },
+            "calendar_event_schedule": {
+                "name": "calendar_event_schedule",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "schedule",
+                "foreignKey": "schedule_id"
+            },
+            "calendar_event_created_at": {
+                "name": "calendar_event_created_at",
+                "type": "DATETIME",
+                "null": false
+            },
+            "calendar_event_created_by": {
+                "name": "calendar_event_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    }
+}

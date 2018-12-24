@@ -19,7 +19,7 @@ use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Accounts payable install class.
+ * Installer class.
  *
  * @package    Modules\Contact\Admin
  * @license    OMS License 1.0

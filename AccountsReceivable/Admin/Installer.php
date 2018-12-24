@@ -17,7 +17,7 @@ namespace Modules\AccountsReceivable\Admin;
 use phpOMS\Module\InstallerAbstract;
 
 /**
- * Accounts receivable install class.
+ * Installer class.
  *
  * @package    Modules\AccountsReceivable\Admin
  * @license    OMS License 1.0
