@@ -19,6 +19,7 @@ use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\System\File\PathException;
 use Modules\Navigation\Models\NavElement;
 use Modules\Navigation\Models\NavElementMapper;
 
@@ -41,6 +42,9 @@ class Installer extends InstallerAbstract
      *
      * @return void
      *
+     * @throws PathException This exception is thrown if the Navigation install file couldn't be found
+     * @throws \Exception    This exception is thrown if the Navigation install file is invalid json
+     *
      * @since  1.0.0
      */
     public static function installExternal(DatabasePool $dbPool, array $data) : void
@@ -51,7 +55,19 @@ class Installer extends InstallerAbstract
             return;
         }
 
-        foreach ($data as $link) {
+        $navFile = \file_get_contents($data['path'] ?? '');
+
+        if ($navFile === false) {
+            throw new PathException($data['path'] ?? '');
+        }
+
+        $navData = \json_decode($navFile, true);
+
+        if ($navData === false) {
+            throw new \Exception();
+        }
+
+        foreach ($navData as $link) {
             self::installLink($dbPool, $link);
         }
     }
