@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Kanban\Controller;
 
+use Modules\Kanban\Models\BoardStatus;
 use Modules\Kanban\Models\CardStatus;
 use Modules\Kanban\Models\CardType;
 use Modules\Kanban\Models\KanbanBoard;
@@ -26,13 +27,16 @@ use Modules\Kanban\Models\KanbanColumnMapper;
 use Modules\Kanban\Models\KanbanLabel;
 use Modules\Kanban\Models\KanbanLabelMapper;
 use Modules\Kanban\Models\PermissionState;
+
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Message\NotificationLevel;
+use phpOMS\Model\Message\FormValidation;
 
 /**
- * Task class.
+ * Kanban controller class.
  *
  * @package    Modules\Kanban
  * @license    OMS License 1.0
@@ -41,6 +45,17 @@ use phpOMS\Message\ResponseAbstract;
  */
 final class ApiController extends Controller
 {
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiKanbanCardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateKanbanCardCreate($request))) {
@@ -50,43 +65,55 @@ final class ApiController extends Controller
         }
 
         $card = $this->createKanbanCardFromRquest($request);
-        KanbanCardMapper::create($card);
-        $response->set('card', $card->jsonSerialize());
+        $this->createModel($request, $card, KanbanCardMapper::class, 'card');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Card', 'Card successfully created.', $card);
     }
 
+    /**
+     * Method to create card from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return KanbanCard
+     *
+     * @since  1.0.0
+     */
     public function createKanbanCardFromRquest(RequestAbstract $request) : KanbanCard
     {
-        $mardkownParser = new Markdown();
-
         $card = new KanbanCard();
         $card->setName((string) ($request->getData('title')));
-        $card->setDescription((string) ($request->getData('plain')));
+        $card->setDescription((string) ($request->getData('plain') ?? ''));
         $card->setColumn((int) $request->getData('column'));
-        $card->setOrder((int) $request->getData('order'));
-        $card->setRef((int) $request->getData('ref'));
-        $card->setLabels((array) $request->getData('labels'));
-        $card->setStatus((int) $request->getData('status'));
-        $card->setType((int) $request->getData('type'));
+        $card->setOrder((int) ($request->getData('order') ?? 1));
+        $card->setRef((int) ($request->getData('ref') ?? 0));
+        $card->setStatus((int) ($request->getData('status') ?? CardStatus::ACTIVE));
+        $card->setType((int) ($request->getData('type') ?? CardType::TEXT));
+        $card->setCreatedBy($request->getHeader()->getAccount());
 
         return $card;
     }
 
+    /**
+     * Validate card create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
     private function validateKanbanCardCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
-            || ($val['plain'] = empty($request->getData('plain')))
             || ($val['column'] = empty($request->getData('column')))
-            || ($val['order'] = empty($request->getData('order')))
-            || ($val['ref'] = empty($request->getData('ref')))
-            || ($val['labels'] = empty($request->getData('labels')))
             || ($val['status'] = (
                 $request->getData('status') !== null
                 && !CardStatus::isValidValue((int) $request->getData('status'))
             ))
             || ($val['type'] = (
-                $request->getData('type') === null
-                || !CardType::isValidValue((int) $request->getData('type'))
+                $request->getData('type') !== null
+                && !CardType::isValidValue((int) $request->getData('type'))
             ))
         ) {
             return $val;
@@ -95,6 +122,17 @@ final class ApiController extends Controller
         return [];
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateKanbanBoardCreate($request))) {
@@ -104,29 +142,44 @@ final class ApiController extends Controller
         }
 
         $board = $this->createKanbanBoardFromRquest($request);
-        KanbanBoardMapper::create($board);
-        $response->set('board', $board->jsonSerialize());
+        $this->createModel($request, $board, KanbanBoardMapper::class, 'board');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Board', 'Board successfully created.', $board);
     }
 
+    /**
+     * Method to create board from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return KanbanBoard
+     *
+     * @since  1.0.0
+     */
     public function createKanbanBoardFromRquest(RequestAbstract $request) : KanbanBoard
     {
-        $mardkownParser = new Markdown();
-
         $board = new KanbanBoard();
         $board->setName((string) $request->getData('title'));
-        $board->setDescription((string) $request->getData('plain'));
-        $board->setOrder((int) $request->getData('order'));
-        $board->setStatus((int) $request->getData('status'));
+        $board->setDescription((string) ($request->getData('plain') ?? ''));
+        $board->setOrder((int) ($request->getData('order') ?? 1));
+        $board->setStatus((int) ($request->getData('status') ?? BoardStatus::ACTIVE));
+        $board->setCreatedBy($request->getHeader()->getAccount());
 
         return $board;
     }
 
+    /**
+     * Validate board create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
     private function validateKanbanBoardCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
-            || ($val['plain'] = empty($request->getData('plain')))
-            || ($val['order'] = empty($request->getData('order')))
             || ($val['status'] = (
                 $request->getData('status') !== null
                 && !CardStatus::isValidValue((int) $request->getData('status'))
@@ -138,6 +191,17 @@ final class ApiController extends Controller
         return [];
     }
 
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     public function apiKanbanColumnCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateKanbanColumnCreate($request))) {
@@ -147,72 +211,43 @@ final class ApiController extends Controller
         }
 
         $column = $this->createKanbanColumnFromRquest($request);
-        KanbanColumnMapper::create($column);
-        $response->set('column', $column->jsonSerialize());
+        $this->createModel($request, $column, KanbanColumnMapper::class, 'column');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Column', 'Column successfully created.', $column);
     }
 
+    /**
+     * Method to create column from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return KanbanColumn
+     *
+     * @since  1.0.0
+     */
     public function createKanbanColumnFromRquest(RequestAbstract $request) : KanbanColumn
     {
-        $mardkownParser = new Markdown();
-
         $column = new KanbanColumn();
         $column->setName((string) $request->getData('title'));
-        $column->setOrder((int) $request->getData('order'));
+        $column->setBoard((int) $request->getData('board'));
+        $column->setOrder((int) ($request->getData('order') ?? 1));
 
         return $column;
     }
 
+    /**
+     * Validate column create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
     private function validateKanbanColumnCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['title'] = empty($request->getData('title')))
-            || ($val['order'] = empty($request->getData('order')))
-        ) {
-            return $val;
-        }
-
-        return [];
-    }
-
-    public function apiKanbanLabelCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
-    {
-        $account = $this->app->accountManager->get($request->getHeader()->getAccount());
-
-        if (!$account->hasPermission(PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::BOARD)
-            && !$account->hasPermission(PermissionType::CREATE, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::LABEL)
-        ) {
-            $response->set('kanban_label_create', null);
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return;
-        }
-
-        if (!empty($val = $this->validateKanbanLabelCreate($request))) {
-            $response->set('kanban_label_create', new FormValidation($val));
-
-            return;
-        }
-
-        $label = $this->createKanbanLabelFromRquest($request);
-        KanbanLabelMapper::create($label);
-        $response->set('label', $label->jsonSerialize());
-    }
-
-    public function createKanbanLabelFromRquest(RequestAbstract $request) : KanbanLabel
-    {
-        $label = new KanbanLabel();
-        $label->setName($request->getData('title'));
-        $label->setBoard((int) $request->getData('board'));
-        $label->setcolor((int) $request->getData('color'));
-
-        return $label;
-    }
-
-    private function validateKanbanLabelCreate(RequestAbstract $request) : array
-    {
-        $val = [];
-        if (($val['title'] = empty($request->getData('title')))
-            || ($val['board'] = empty($request->getData('board')))
-            || ($val['color'] = empty($request->getData('color')))
+        if (($val['title'] = empty($request->getData('title'))
+            || ($val['board'] = empty($request->getData('board'))))
         ) {
             return $val;
         }
