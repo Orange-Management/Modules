@@ -17,7 +17,7 @@ use Modules\Accounting\Models\CostCenter;
 
 class CostCenterTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $cc = new CostCenter();
         self::assertEquals(0, $cc->getId());
@@ -25,7 +25,7 @@ class CostCenterTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $cc->getDescription());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $cc = new CostCenter();
 

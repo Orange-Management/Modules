@@ -20,7 +20,7 @@ use phpOMS\Utils\RnG\Text;
 class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $doc = new EditorDoc();
 
@@ -44,7 +44,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 0; $i < 100; ++$i) {
             $text = new Text();

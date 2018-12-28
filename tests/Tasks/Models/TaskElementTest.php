@@ -19,7 +19,7 @@ use Modules\Tasks\Models\TaskStatus;
 
 class TaskElementTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $task = new TaskElement();
 
@@ -35,7 +35,7 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(TaskPriority::NONE, $task->getPriority());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $task = new TaskElement();
 
@@ -67,7 +67,7 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidStatus()
+    public function testInvalidStatus() : void
     {
         $task = new TaskElement();
         $task->setStatus(9999);
@@ -76,7 +76,7 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidPriority()
+    public function testInvalidPriority() : void
     {
         $task = new TaskElement();
         $task->setPriority(9999);

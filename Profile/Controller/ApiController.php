@@ -59,7 +59,7 @@ final class ApiController extends Controller
 
     /**
      * @param Profile         $profile Profile to create in the database
-     * @param RequestAbstract $request  Request
+     * @param RequestAbstract $request Request
      *
      * @return void
      *

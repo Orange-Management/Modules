@@ -26,7 +26,7 @@ final class ReportMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    static protected $columns = [
+    protected static $columns = [
         'reporter_report_id'       => ['name' => 'reporter_report_id', 'type' => 'int', 'internal' => 'id'],
         'reporter_report_status'   => ['name' => 'reporter_report_status', 'type' => 'int', 'internal' => 'status'],
         'reporter_report_title'    => ['name' => 'reporter_report_title', 'type' => 'string', 'internal' => 'title'],
@@ -55,7 +55,7 @@ final class ReportMapper extends DataMapperAbstract
         ],
     ];
 
-    static protected $belongsTo = [
+    protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'reporter_report_creator',

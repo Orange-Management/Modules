@@ -18,7 +18,7 @@ use Modules\Media\Models\Media;
 
 class ItemTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $item = new Item();
 
@@ -33,7 +33,7 @@ class ItemTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $item->getCreatedAt());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $item = new Item();
 

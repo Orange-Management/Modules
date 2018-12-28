@@ -16,7 +16,7 @@ use Modules\Navigation\Views\NavigationView;
 
 class NavigationViewTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $view = new NavigationView();
 
@@ -25,7 +25,7 @@ class NavigationViewTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $view->getParent());
     }
 
-    public function testGetSet()
+    public function testGetSet() : void
     {
         $view = new NavigationView();
 

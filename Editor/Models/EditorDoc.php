@@ -110,7 +110,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setContent(string $content)
+    public function setContent(string $content) : void
     {
         $this->content = $content;
     }
@@ -122,7 +122,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setPlain(string $plain)
+    public function setPlain(string $plain) : void
     {
         $this->plain = $plain;
     }
@@ -172,7 +172,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($id)
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }

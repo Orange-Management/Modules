@@ -21,7 +21,7 @@ use Modules\Tasks\Models\TaskType;
 
 class TicketTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $ticket = new Ticket();
 
@@ -30,7 +30,7 @@ class TicketTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(TaskType::HIDDEN, $ticket->getTask()->getType());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $ticket = new Ticket();
 

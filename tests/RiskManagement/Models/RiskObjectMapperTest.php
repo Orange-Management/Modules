@@ -19,7 +19,7 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
 class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $obj = new RiskObject();
         $obj->setTitle('Name');

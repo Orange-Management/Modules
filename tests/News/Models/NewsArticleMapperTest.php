@@ -23,7 +23,7 @@ use phpOMS\Utils\RnG\Text;
 class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $text = new Text();
         $news = new NewsArticle();
@@ -56,7 +56,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         $text = new Text();
 

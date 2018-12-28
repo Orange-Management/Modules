@@ -141,7 +141,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setAbsolute(bool $absolute) /* void */
+    public function setAbsolute(bool $absolute) : void /* void */
     {
         $this->isAbsolute = $absolute;
     }
@@ -243,7 +243,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($createdBy)
+    public function setCreatedBy($createdBy) : void
     {
         $this->createdBy = $createdBy;
     }
@@ -255,7 +255,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setExtension(string $extension)
+    public function setExtension(string $extension) : void
     {
         $this->extension = $extension;
     }
@@ -267,7 +267,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setPath(string $path)
+    public function setPath(string $path) : void
     {
         $this->path = \str_replace('\\', '/', $path);
     }
@@ -279,7 +279,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -291,7 +291,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -303,7 +303,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $description)
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
@@ -315,7 +315,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setSize(int $size)
+    public function setSize(int $size) : void
     {
         $this->size = $size;
     }
@@ -327,7 +327,7 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setVersioned(bool $versioned)
+    public function setVersioned(bool $versioned) : void
     {
         $this->versioned = $versioned;
     }

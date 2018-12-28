@@ -17,7 +17,7 @@ use Modules\Admin\Models\Group;
 
 class GroupTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $group = new Group();
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $group->getCreatedAt()->format('Y-m-d'));
@@ -26,7 +26,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $group->getAccounts());
     }
 
-    public function testGetSet()
+    public function testGetSet() : void
     {
         $group = new Group();
 

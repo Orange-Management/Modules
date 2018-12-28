@@ -108,12 +108,12 @@ class Event
         return $this->start;
     }
 
-    public function setStart(\DateTime $start)
+    public function setStart(\DateTime $start) : void
     {
         $this->start = $start;
     }
 
-    public function setEnd(\DateTime $end)
+    public function setEnd(\DateTime $end) : void
     {
         $this->end = $end;
     }
@@ -148,7 +148,7 @@ class Event
         return $this->calendar;
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -158,7 +158,7 @@ class Event
         return $this->description;
     }
 
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -168,7 +168,7 @@ class Event
         return $this->name;
     }
 
-    public function addTask(Task $task)
+    public function addTask(Task $task) : void
     {
         if ($task->getId() !== 0) {
             $this->tasks[$task->getId()] = $task;
@@ -208,7 +208,7 @@ class Event
         return $this->id;
     }
 
-    public function setType(int $type)
+    public function setType(int $type) : void
     {
         if (!EventType::isValidValue($type)) {
             throw new InvalidEnumValue($type);
@@ -237,17 +237,17 @@ class Event
         return $this->earnings;
     }
 
-    public function setCosts(Money $costs)
+    public function setCosts(Money $costs) : void
     {
         $this->costs = $costs;
     }
 
-    public function setBudget(Money $budget)
+    public function setBudget(Money $budget) : void
     {
         $this->budget = $budget;
     }
 
-    public function setEarnings(Money $earnings)
+    public function setEarnings(Money $earnings) : void
     {
         $this->earnings = $earnings;
     }
@@ -277,7 +277,7 @@ class Event
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $createdBy)
+    public function setCreatedBy(int $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

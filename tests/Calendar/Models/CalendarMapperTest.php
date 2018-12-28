@@ -20,7 +20,7 @@ use Modules\Calendar\Models\Event;
 class CalendarMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $calendar = new Calendar();
 

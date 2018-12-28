@@ -22,7 +22,7 @@ use phpOMS\Utils\RnG\Text;
 class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $card = new KanbanCard();
 
@@ -52,7 +52,7 @@ class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($card->getRef(), $cardR->getRef());
     }
 
-    public function testTaskCard()
+    public function testTaskCard() : void
     {
         $card = new KanbanCard();
 
@@ -73,7 +73,7 @@ class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 10; ++$i) {
             $text = new Text();

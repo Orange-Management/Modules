@@ -156,7 +156,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($creator)
+    public function setCreatedBy($creator) : void
     {
         $this->createdBy = $creator;
 
@@ -391,7 +391,7 @@ class TaskElement implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setTask(int $task)
+    public function setTask(int $task) : void
     {
         $this->task = $task;
     }

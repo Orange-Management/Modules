@@ -59,7 +59,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
         ],
     ];
 
-    static protected $belongsTo = [
+    protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'kanban_board_created_by',

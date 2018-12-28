@@ -17,7 +17,7 @@ use Modules\Media\Models\Media;
 
 class MediaTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $media = new Media();
 
@@ -34,7 +34,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(false, $media->isVersioned());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $media = new Media();
 

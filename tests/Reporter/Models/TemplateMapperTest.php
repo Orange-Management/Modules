@@ -23,7 +23,7 @@ use Modules\Reporter\Models\TemplateMapper;
 class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $template = new Template();
 
@@ -106,7 +106,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($template->getExpected(), $templateR->getExpected());
     }
 
-    public function testNewest()
+    public function testNewest() : void
     {
         $newest = TemplateMapper::getNewest(1);
 

@@ -33,7 +33,7 @@ class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
     private static $departmentId = 0;
     private static $positionId   = 0;
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $employee = new Employee();
         $employee->setAccount(AccountMapper::get(1));
@@ -77,7 +77,7 @@ class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 100; ++$i) {
             $employee = new Employee();

@@ -18,7 +18,7 @@ use Modules\Organization\Models\Status;
 
 class PositionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $position = new Position();
 
@@ -30,7 +30,7 @@ class PositionTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\Organization\Models\NullDepartment', $position->getDepartment());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $position = new Position();
 

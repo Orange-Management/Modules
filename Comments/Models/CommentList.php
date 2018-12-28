@@ -42,7 +42,7 @@ class CommentList
         return $this->comments;
     }
 
-    public function addComment($comment)
+    public function addComment($comment) : void
     {
         $this->comments[] = $comment;
     }

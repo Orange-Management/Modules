@@ -24,7 +24,7 @@ use phpOMS\Utils\RnG\Text;
 class TaskMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $task = new Task();
 
@@ -103,7 +103,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(end($expectedMedia)->getName(), end($actualMedia)->getName());
     }
 
-    public function testNewest()
+    public function testNewest() : void
     {
         $newest = TaskMapper::getNewest(1);
 
@@ -113,7 +113,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testCreatedByMeForMe()
+    public function testCreatedByMeForMe() : void
     {
         $text = new Text();
 
@@ -152,7 +152,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testCreatedByMeForOther()
+    public function testCreatedByMeForOther() : void
     {
         $text = new Text();
 
@@ -189,7 +189,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testCreatedByOtherForMe()
+    public function testCreatedByOtherForMe() : void
     {
         $text = new Text();
 

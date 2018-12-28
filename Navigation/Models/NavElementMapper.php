@@ -33,7 +33,7 @@ final class NavElementMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    static protected $columns = [
+    protected static $columns = [
         'nav_id'                    => ['name' => 'nav_id', 'type' => 'int', 'internal' => 'id'],
         'nav_pid'                   => ['name' => 'nav_pid', 'type' => 'string', 'internal' => 'pid'],
         'nav_name'                  => ['name' => 'nav_name', 'type' => 'string', 'internal' => 'name'],

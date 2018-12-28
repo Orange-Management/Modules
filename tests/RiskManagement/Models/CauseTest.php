@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Cause;
 
 class CauseTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Cause();
 
@@ -31,7 +31,7 @@ class CauseTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $obj->getCategory());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Cause();
 

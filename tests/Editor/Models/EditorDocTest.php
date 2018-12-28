@@ -17,7 +17,7 @@ use Modules\Editor\Models\EditorDoc;
 
 class EditorDocTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $doc = new EditorDoc();
 
@@ -29,7 +29,7 @@ class EditorDocTest extends \PHPUnit\Framework\TestCase
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $doc->getCreatedAt()->format('Y-m-d'));
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $doc = new EditorDoc();
 

@@ -26,7 +26,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -42,7 +42,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module = ModuleFactory::getInstance('Media', $this->app);
     }
 
-    public function testCreateDbEntries()
+    public function testCreateDbEntries() : void
     {
         $status = [
             [

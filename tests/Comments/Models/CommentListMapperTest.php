@@ -20,7 +20,7 @@ use Modules\Comments\Models\CommentListMapper;
 class CommentListMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $list = new CommentList();
 

@@ -17,7 +17,7 @@ use Modules\Accounting\Models\CostObject;
 
 class CostObjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $cc = new CostObject();
         self::assertEquals(0, $cc->getId());
@@ -25,7 +25,7 @@ class CostObjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $cc->getDescription());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $cc = new CostObject();
 

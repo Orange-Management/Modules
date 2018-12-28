@@ -18,7 +18,7 @@ use Modules\Kanban\Models\KanbanBoard;
 
 class KanbanBoardTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $board = new KanbanBoard();
 
@@ -31,7 +31,7 @@ class KanbanBoardTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $board->getColumns());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $board = new KanbanBoard();
 

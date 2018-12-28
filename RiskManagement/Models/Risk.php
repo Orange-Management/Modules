@@ -78,7 +78,7 @@ class Risk
         return $this->causes;
     }
 
-    public function addSolution($solution) /* : solution */
+    public function addSolution($solution) : void /* : solution */
     {
         $this->solutions[] = $solution;
     }

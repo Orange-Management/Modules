@@ -44,7 +44,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -85,7 +85,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testApiSettingsGet()
+    public function testApiSettingsGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -97,7 +97,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('DE', $response->get('')['response']);
     }
 
-    public function testApiSettingsSet()
+    public function testApiSettingsSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -120,7 +120,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('DE', $response->get('')['response']);
     }
 
-    public function testApiGroupGet()
+    public function testApiGroupGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -134,7 +134,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiGroupSet()
+    public function testApiGroupSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -152,7 +152,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiGroupUpdate($request, $response);
     }
 
-    public function testApiGroupFind()
+    public function testApiGroupFind() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -165,7 +165,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('admin', $response->get('')[0]->getName());
     }
 
-    public function testApiGroupCreateDelete()
+    public function testApiGroupCreateDelete() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -187,7 +187,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiGroupCreateInvalid()
+    public function testApiGroupCreateInvalid() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -200,7 +200,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('group_create')::TYPE);
     }
 
-    public function testApiAccountGet()
+    public function testApiAccountGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -214,7 +214,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiAccountFind()
+    public function testApiAccountFind() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -227,7 +227,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('admin', $response->get('')[0]->getName1());
     }
 
-    public function testApiAccountCreate()
+    public function testApiAccountCreate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -251,7 +251,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiAccountCreateInvalid()
+    public function testApiAccountCreateInvalid() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -264,7 +264,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('account_create')::TYPE);
     }
 
-    public function testApiAccountUpdate()
+    public function testApiAccountUpdate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -280,7 +280,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiModuleStatusUpdate()
+    public function testApiModuleStatusUpdate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -305,7 +305,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('ok', $response->get('')['status']);
     }
 
-    public function testApiModuleStatusUpdateEmptyModule()
+    public function testApiModuleStatusUpdateEmptyModule() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -317,7 +317,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $response->get('module_stutus_update'));
     }
 
-    public function testApiModuleStatusUpdateInvalidStatus()
+    public function testApiModuleStatusUpdateInvalidStatus() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -330,7 +330,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('warning', $response->get('')['status']);
     }
 
-    public function testApiModuleStatusUpdateInvalidModule()
+    public function testApiModuleStatusUpdateInvalidModule() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -343,7 +343,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('warning', $response->get('')['status']);
     }
 
-    public function testApiAddGroupPermission()
+    public function testApiAddGroupPermission() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -357,7 +357,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiAddAccountPermission()
+    public function testApiAddAccountPermission() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -371,7 +371,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiAddGroupPermissionInvalidData()
+    public function testApiAddGroupPermissionInvalidData() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -383,7 +383,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
-    public function testApiAddGroupPermissionInvalidType()
+    public function testApiAddGroupPermissionInvalidType() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -396,7 +396,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
-    public function testApiAddAccountPermissionInvalidData()
+    public function testApiAddAccountPermissionInvalidData() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -408,7 +408,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
-    public function testApiAddAccountPermissionInvalidType()
+    public function testApiAddAccountPermissionInvalidType() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -421,7 +421,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
-    public function testApiAddGroupToAccount()
+    public function testApiAddGroupToAccount() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -434,7 +434,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('ok', $response->get('')['status']);
     }
 
-    public function testApiAddAccountToGroup()
+    public function testApiAddAccountToGroup() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -447,7 +447,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('ok', $response->get('')['status']);
     }
 
-    public function testApiReInit()
+    public function testApiReInit() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));

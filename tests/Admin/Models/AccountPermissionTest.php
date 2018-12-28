@@ -17,7 +17,7 @@ use Modules\Admin\Models\AccountPermission;
 
 class AccountPermissionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $account = new AccountPermission();
         self::assertEquals(0, $account->getAccount());

@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Department;
 
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Department();
 
@@ -27,7 +27,7 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $obj->getDeputy());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Department();
 

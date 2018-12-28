@@ -17,7 +17,7 @@ use Modules\SupplierManagement\Models\Supplier;
 
 class SupplierTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $supplier = new Supplier();
 
@@ -30,7 +30,7 @@ class SupplierTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $supplier->getCreatedAt());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $supplier = new Supplier();
 

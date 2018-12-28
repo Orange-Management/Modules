@@ -93,7 +93,7 @@ final class ApiController extends Controller
     {
         $data = empty($request->getData('settings')) ? $request->getLike('(settings_)(.*)') : \json_decode((string) $request->getData('settings'), true);
 
-        $this->updateModel($request, $data, $data, function() use($data) {
+        $this->updateModel($request, $data, $data, function() use($data) : void {
             $this->app->appSettings->set($data, true);
         }, 'settings');
 
@@ -372,7 +372,7 @@ final class ApiController extends Controller
         ) {
             $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(new \Modules\Profile\Models\Profile($account), $request);
 
-            $this->updateModel($request, $account, $account, function() use($account) {
+            $this->updateModel($request, $account, $account, function() use($account) : void {
                 $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
                 AccountMapper::update($account);
             }, 'account');

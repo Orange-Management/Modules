@@ -146,14 +146,14 @@ class Article
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function init($id)
+    public function init($id) : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
     public function __clone()
     {
@@ -210,7 +210,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function setName($name)
+    public function setName($name) : void
     {
         $this->name = $name;
     }
@@ -236,7 +236,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function setMatchcode($matchcode)
+    public function setMatchcode($matchcode) : void
     {
         $this->matchcode = $matchcode;
     }
@@ -262,7 +262,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function setDescription($desc)
+    public function setDescription($desc) : void
     {
         $this->description = $desc;
     }
@@ -288,7 +288,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function setCreated($created)
+    public function setCreated($created) : void
     {
         $this->created = $created;
     }
@@ -314,7 +314,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function setCreator($creator)
+    public function setCreator($creator) : void
     {
         $this->creator = $creator;
     }
@@ -329,7 +329,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function addPrice($price, $db = true)
+    public function addPrice($price, $db = true) : void
     {
         $id                = 0; /* insert and get id */
         $this->prices[$id] = $price;
@@ -345,7 +345,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function removePrice($id, $db = true)
+    public function removePrice($id, $db = true) : void
     {
         if (isset($this->prices[$id])) {
             unset($this->prices[$id]);
@@ -363,7 +363,7 @@ class Article
      *
      * @since  1.0.0
      */
-    public function editPrice($id, $price, $db = true)
+    public function editPrice($id, $price, $db = true) : void
     {
         if (isset($this->prices[$id])) {
             $this->prices[$id] = $price;
@@ -371,37 +371,37 @@ class Article
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function delete()
+    public function delete() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function create()
+    public function create() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function update()
+    public function update() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function serialize()
+    public function serialize() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function unserialize($data)
+    public function unserialize($data) : void
     {
     }
 }

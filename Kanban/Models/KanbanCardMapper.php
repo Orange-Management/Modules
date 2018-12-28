@@ -48,7 +48,7 @@ final class KanbanCardMapper extends DataMapperAbstract
         'kanban_card_created_by'  => ['name' => 'kanban_card_created_by', 'type' => 'int', 'internal' => 'createdBy'],
     ];
 
-    static protected $belongsTo = [
+    protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'kanban_card_created_by',

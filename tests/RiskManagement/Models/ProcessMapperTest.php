@@ -19,7 +19,7 @@ use Modules\RiskManagement\Models\ProcessMapper;
 class ProcessMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $obj = new Process();
         $obj->setTitle('Name');

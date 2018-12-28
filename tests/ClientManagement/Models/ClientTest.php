@@ -17,7 +17,7 @@ use Modules\ClientManagement\Models\Client;
 
 class ClientTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $client = new Client();
 
@@ -30,7 +30,7 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $client->getCreatedAt());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $client = new Client();
 

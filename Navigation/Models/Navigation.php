@@ -85,7 +85,7 @@ class Navigation
      *
      * @since  1.0.0
      */
-    private function load(array $hashes, Account $account, int $unit, string $app)
+    private function load(array $hashes, Account $account, int $unit, string $app) : void
     {
         if (empty($this->nav)) {
             $this->nav = [];

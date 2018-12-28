@@ -18,7 +18,7 @@ use Modules\Reporter\Models\ReporterStatus;
 
 class ReportTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $report = new Report();
 
@@ -32,7 +32,7 @@ class ReportTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $report->getSource());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $report = new Report();
 

@@ -17,7 +17,7 @@ use Modules\QA\Models\QACategory;
 
 class QACategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $category = new QACategory();
 
@@ -26,7 +26,7 @@ class QACategoryTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $category->getParent());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $category = new QACategory();
 

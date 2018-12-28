@@ -17,7 +17,7 @@ use Modules\Accounting\Models\Debitor;
 
 class DebitorTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $cc = new Debitor();
         self::assertEquals(0, $cc->getId());

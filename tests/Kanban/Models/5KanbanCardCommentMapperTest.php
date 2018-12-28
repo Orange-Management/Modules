@@ -20,7 +20,7 @@ use phpOMS\Utils\RnG\Text;
 class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $comment = new KanbanCardComment();
 
@@ -42,7 +42,7 @@ class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 10; ++$i) {
             $text    = new Text();

@@ -21,7 +21,7 @@ use Modules\Tasks\Models\TaskType;
 
 class TaskTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $task = new Task();
 
@@ -42,7 +42,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\Tasks\Models\NullTaskElement', $task->getTaskElement(1));
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $task = new Task();
 
@@ -110,7 +110,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidStatus()
+    public function testInvalidStatus() : void
     {
         $task = new Task();
         $task->setStatus(9999);
@@ -119,7 +119,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidPriority()
+    public function testInvalidPriority() : void
     {
         $task = new Task();
         $task->setPriority(9999);

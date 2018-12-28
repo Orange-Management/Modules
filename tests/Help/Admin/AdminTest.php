@@ -27,7 +27,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      * @group admin
      * @slowThreshold 5000
      */
-    public function testModuleIntegration()
+    public function testModuleIntegration() : void
     {
         $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
         $app->dbPool = $GLOBALS['dbpool'];
@@ -42,7 +42,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         self::assertTrue($moduleManager->isActive('Help'));
     }
 
-    public function testRequestLoads()
+    public function testRequestLoads() : void
     {
         $app             = new class extends ApplicationAbstract { protected $appName = 'Api'; };
         $app->dbPool     = $GLOBALS['dbpool'];

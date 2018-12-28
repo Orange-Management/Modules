@@ -17,13 +17,13 @@ use Modules\Admin\Models\Account;
 
 class AccountTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $account = new Account();
         self::assertEquals(0, $account->getLoginTries());
     }
 
-    public function testGetSet()
+    public function testGetSet() : void
     {
         $account = new Account();
 

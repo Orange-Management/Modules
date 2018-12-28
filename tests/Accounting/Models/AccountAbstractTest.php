@@ -17,12 +17,12 @@ use Modules\Accounting\Models\AccountAbstract;
 
 class AccountAbstractTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         $this->account = new class() extends AccountAbstract {};
     }
 
-    public function testDefault()
+    public function testDefault() : void
     {
         self::assertEquals(0, $this->account->getId());
         self::assertEquals(null, $this->account->getEntryById(1));

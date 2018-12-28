@@ -100,7 +100,7 @@ final class AccountMapper extends DataMapperAbstract
      */
     public static function getWithPermissions(int $id) : Account
     {
-        $account          = AccountMapper::get($id);
+        $account          = self::get($id);
         $groupPermissions = GroupPermissionMapper::getFor(\array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
         $account->addPermissions(\is_array($groupPermissions) ? $groupPermissions : [$groupPermissions]);
 

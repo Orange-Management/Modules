@@ -134,7 +134,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -156,7 +156,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
@@ -178,7 +178,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -200,7 +200,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $descriptionRaw)
+    public function setDescriptionRaw(string $descriptionRaw) : void
     {
         $this->descriptionRaw = $descriptionRaw;
     }
@@ -232,7 +232,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($creator)
+    public function setCreatedBy($creator) : void
     {
         $this->createdBy = $creator;
     }
@@ -254,7 +254,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setTemplate($template)
+    public function setTemplate($template) : void
     {
         $this->template = $template;
     }
@@ -266,7 +266,7 @@ class Report implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setSource($source)
+    public function setSource($source) : void
     {
         $this->source = $source;
     }

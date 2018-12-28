@@ -111,7 +111,7 @@ class Calendar
      *
      * @since  1.0.0
      */
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -225,7 +225,7 @@ class Calendar
      *
      * @since  1.0.0
      */
-    public function setDate(\DateTime $date)
+    public function setDate(\DateTime $date) : void
     {
         $this->date = $date;
     }

@@ -20,7 +20,7 @@ use phpOMS\Utils\RnG\Text;
 class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $board = new KanbanBoard();
 
@@ -44,7 +44,7 @@ class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 30; ++$i) {
             $text  = new Text();

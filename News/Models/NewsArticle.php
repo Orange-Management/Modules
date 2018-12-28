@@ -197,7 +197,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setPlain(string $plain)
+    public function setPlain(string $plain) : void
     {
         $this->plain = $plain;
     }

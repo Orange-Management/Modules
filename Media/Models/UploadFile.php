@@ -353,7 +353,7 @@ class UploadFile
      *
      * @since  1.0.0
      */
-    public function setAllowedTypes(array $allowedTypes)
+    public function setAllowedTypes(array $allowedTypes) : void
     {
         $this->allowedTypes = $allowedTypes;
     }

@@ -157,7 +157,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -179,7 +179,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -201,7 +201,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $description)
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
@@ -245,7 +245,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setCreatedBy($createdBy)
+    public function setCreatedBy($createdBy) : void
     {
         $this->createdBy = $createdBy;
     }
@@ -277,7 +277,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setExpected(array $expected)
+    public function setExpected(array $expected) : void
     {
         $this->expected = $expected;
     }
@@ -299,7 +299,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function addExpected(string $expected)
+    public function addExpected(string $expected) : void
     {
         $this->expected[] = $expected;
     }
@@ -311,7 +311,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -333,7 +333,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDatatype(int $datatype)
+    public function setDatatype(int $datatype) : void
     {
         $this->datatype = $datatype;
     }
@@ -355,7 +355,7 @@ class Template implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setStandalone(bool $isStandalone)
+    public function setStandalone(bool $isStandalone) : void
     {
         $this->isStandalone = $isStandalone;
     }

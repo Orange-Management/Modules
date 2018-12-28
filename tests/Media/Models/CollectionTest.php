@@ -17,7 +17,7 @@ use Modules\Media\Models\Collection;
 
 class CollectionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $media = new Collection();
 
@@ -33,7 +33,7 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $media->getSources());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $media = new Collection();
 

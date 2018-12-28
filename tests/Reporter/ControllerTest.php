@@ -37,7 +37,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -79,7 +79,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     /**
      * @group admin
      */
-    public function testCreateTemplate()
+    public function testCreateTemplate() : void
     {
         $media = ModuleFactory::getInstance('Media', $this->app);
 
@@ -151,7 +151,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     /**
      * @group admin
      */
-    public function testCreateReport()
+    public function testCreateReport() : void
     {
         $media = ModuleFactory::getInstance('Media', $this->app);
 

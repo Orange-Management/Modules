@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Project;
 
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Project();
 
@@ -27,7 +27,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $obj->getDeputy());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Project();
 

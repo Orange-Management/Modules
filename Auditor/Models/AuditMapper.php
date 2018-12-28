@@ -34,7 +34,7 @@ final class AuditMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    static protected $columns = [
+    protected static $columns = [
         'auditor_audit_id'         => ['name' => 'auditor_audit_id', 'type' => 'int', 'internal' => 'id'],
         'auditor_audit_created_by' => ['name' => 'auditor_audit_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'auditor_audit_created_at' => ['name' => 'auditor_audit_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
@@ -48,7 +48,7 @@ final class AuditMapper extends DataMapperAbstract
         'auditor_audit_new'        => ['name' => 'auditor_audit_new', 'type' => 'string', 'internal' => 'new'],
     ];
 
-    static protected $belongsTo = [
+    protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'auditor_audit_created_by',

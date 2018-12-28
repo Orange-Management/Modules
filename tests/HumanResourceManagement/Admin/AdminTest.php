@@ -23,7 +23,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      * @group admin
      * @slowThreshold 5000
      */
-    public function testModuleIntegration()
+    public function testModuleIntegration() : void
     {
         $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
         $app->dbPool = $GLOBALS['dbpool'];

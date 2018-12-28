@@ -21,7 +21,7 @@ use phpOMS\Utils\RnG\Text;
 class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $answer = new QAAnswer();
 
@@ -46,7 +46,7 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 30; ++$i) {
             $text   = new Text();

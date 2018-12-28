@@ -19,7 +19,7 @@ use Modules\Reporter\Models\TemplateDataType;
 
 class TemplateTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $template = new Template();
 
@@ -36,7 +36,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(TemplateDataType::OTHER, $template->getDatatype());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $template = new Template();
 

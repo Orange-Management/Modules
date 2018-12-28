@@ -18,7 +18,7 @@ use Modules\QA\Models\QAAnswerStatus;
 
 class QAAnswerTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $answer = new QAAnswer();
 
@@ -31,7 +31,7 @@ class QAAnswerTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $answer->getCreatedAt());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $answer = new QAAnswer();
 

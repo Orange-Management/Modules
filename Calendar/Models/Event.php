@@ -218,7 +218,7 @@ class Event
      *
      * @since  1.0.0
      */
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -238,7 +238,7 @@ class Event
      *
      * @since  1.0.0
      */
-    public function setDescription(string $desc)
+    public function setDescription(string $desc) : void
     {
         $this->description = $desc;
     }
@@ -268,7 +268,7 @@ class Event
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $createdBy)
+    public function setCreatedBy(int $createdBy) : void
     {
         $this->createdBy = $createdBy;
         $this->schedule->setCreatedBy($this->createdBy);
@@ -279,7 +279,7 @@ class Event
      *
      * @since  1.0.0
      */
-    public function setLocation(Location $location)
+    public function setLocation(Location $location) : void
     {
         $this->location = $location;
     }
@@ -329,7 +329,7 @@ class Event
      *
      * @since  1.0.0
      */
-    public function setCalendar(int $calendar)
+    public function setCalendar(int $calendar) : void
     {
         $this->calendar = $calendar;
     }

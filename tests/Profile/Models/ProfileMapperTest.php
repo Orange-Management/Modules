@@ -21,7 +21,7 @@ use Modules\Profile\Models\ProfileMapper;
 class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $media = new Media();
         $media->setCreatedBy(1);

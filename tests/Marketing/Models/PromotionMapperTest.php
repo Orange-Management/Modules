@@ -23,7 +23,7 @@ use phpOMS\Utils\RnG\Text;
 class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $promotion = new Promotion();
 
@@ -82,7 +82,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(end($expected)->getName(), end($actual)->getName());
     }
 
-    public function testNewest()
+    public function testNewest() : void
     {
         $newest = PromotionMapper::getNewest(1);
 
@@ -92,7 +92,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 100; ++$i) {
             $text = new Text();

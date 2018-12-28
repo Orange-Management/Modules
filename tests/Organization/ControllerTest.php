@@ -39,7 +39,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -79,7 +79,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testApiUnitGet()
+    public function testApiUnitGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -93,7 +93,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiUnitSet()
+    public function testApiUnitSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -108,7 +108,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('Orange-Management', $response->get('')['response']->getName());
     }
 
-    public function testApiUnitCreateDelete()
+    public function testApiUnitCreateDelete() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -130,7 +130,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiDepartmentGet()
+    public function testApiDepartmentGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -144,7 +144,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiDepartmentSet()
+    public function testApiDepartmentSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -159,7 +159,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('Production', $response->get('')['response']->getName());
     }
 
-    public function testApiDepartmentCreateDelete()
+    public function testApiDepartmentCreateDelete() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -182,7 +182,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiPositionGet()
+    public function testApiPositionGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -196,7 +196,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiPositionSet()
+    public function testApiPositionSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -211,7 +211,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('Test', $response->get('')['response']->getName());
     }
 
-    public function testApiPositionCreateDelete()
+    public function testApiPositionCreateDelete() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));

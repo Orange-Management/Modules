@@ -25,7 +25,7 @@ use phpOMS\Utils\RnG\Text;
 class EventMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $event = new Event();
 
@@ -89,7 +89,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(end($expected)->getName(), end($actual)->getName());
     }
 
-    public function testNewest()
+    public function testNewest() : void
     {
         $newest = EventMapper::getNewest(1);
 
@@ -99,7 +99,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 100; ++$i) {
             $text = new Text();

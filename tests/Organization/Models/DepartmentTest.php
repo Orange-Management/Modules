@@ -18,7 +18,7 @@ use Modules\Organization\Models\Status;
 
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $department = new Department();
 
@@ -30,7 +30,7 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(Status::INACTIVE, $department->getStatus());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $department = new Department();
 

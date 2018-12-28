@@ -18,7 +18,7 @@ use Modules\Knowledgebase\Models\WikiStatus;
 
 class WikiDocTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $doc = new WikiDoc();
 
@@ -33,7 +33,7 @@ class WikiDocTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $doc->getBadges());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $doc = new WikiDoc();
 

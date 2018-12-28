@@ -82,7 +82,7 @@ class Message
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name) : void
     {
         $this->name = $name;
     }
@@ -92,7 +92,7 @@ class Message
         return $this->created;
     }
 
-    public function setCreated($created)
+    public function setCreated($created) : void
     {
         $this->created = $created;
     }
@@ -102,43 +102,43 @@ class Message
         return $this->creator;
     }
 
-    public function setCreator($creator)
+    public function setCreator($creator) : void
     {
         $this->creator = $creator;
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function delete()
+    public function delete() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function create()
+    public function create() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function update()
+    public function update() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function serialize()
+    public function serialize() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function unserialize($data)
+    public function unserialize($data) : void
     {
     }
 
@@ -153,7 +153,7 @@ class Message
      *
      * @since  1.0.0
      */
-    public function init($id)
+    public function init($id) : void
     {
         // TODO: Implement init() method.
     }

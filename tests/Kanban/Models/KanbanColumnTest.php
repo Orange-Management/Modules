@@ -18,7 +18,7 @@ use Modules\Kanban\Models\KanbanColumn;
 
 class KanbanColumnTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $column = new KanbanColumn();
 
@@ -29,7 +29,7 @@ class KanbanColumnTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $column->getCards());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $column = new KanbanColumn();
 

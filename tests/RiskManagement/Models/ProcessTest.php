@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Process;
 
 class ProcessTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Process();
 
@@ -31,7 +31,7 @@ class ProcessTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $obj->getDeputy());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Process();
 

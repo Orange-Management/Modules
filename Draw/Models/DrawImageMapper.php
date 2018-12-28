@@ -34,7 +34,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    static protected $columns = [
+    protected static $columns = [
         'draw_image_id'    => ['name' => 'draw_image_id', 'type' => 'int', 'internal' => 'id'],
         'draw_image_media' => ['name' => 'draw_image_media', 'type' => 'int', 'internal' => 'media'],
     ];

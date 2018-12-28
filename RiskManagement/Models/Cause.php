@@ -94,7 +94,7 @@ class Cause
         return $this->title;
     }
 
-    public function setTitle(string $title)
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }

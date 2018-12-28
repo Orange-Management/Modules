@@ -18,7 +18,7 @@ use Modules\Organization\Models\Unit;
 
 class UnitTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $unit = new Unit();
 
@@ -29,7 +29,7 @@ class UnitTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(Status::INACTIVE, $unit->getStatus());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $unit = new Unit();
 

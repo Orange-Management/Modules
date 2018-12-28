@@ -56,7 +56,7 @@ final class TemplateMapper extends DataMapperAbstract
         ],
     ];
 
-    static protected $belongsTo = [
+    protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'reporter_template_creator',

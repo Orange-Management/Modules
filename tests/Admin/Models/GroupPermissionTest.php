@@ -17,7 +17,7 @@ use Modules\Admin\Models\GroupPermission;
 
 class GroupPermissionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $group = new GroupPermission();
         self::assertEquals(0, $group->getGroup());

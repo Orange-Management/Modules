@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Category;
 
 class CategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Category();
 
@@ -30,7 +30,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $obj->getDeputy());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Category();
 

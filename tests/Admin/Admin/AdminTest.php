@@ -22,7 +22,7 @@ use phpOMS\Utils\TestUtils;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    public function testModuleIntegration()
+    public function testModuleIntegration() : void
     {
         $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
         $app->dbPool = $GLOBALS['dbpool'];
@@ -36,7 +36,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         self::assertTrue($moduleManager->isActive('Admin'));
     }
 
-    public function testRequestLoads()
+    public function testRequestLoads() : void
     {
         $app             = new class extends ApplicationAbstract { protected $appName = 'Api'; };
         $app->dbPool     = $GLOBALS['dbpool'];

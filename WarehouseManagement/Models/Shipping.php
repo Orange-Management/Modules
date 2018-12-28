@@ -120,14 +120,14 @@ class Shipping
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function init($id)
+    public function init($id) : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
     public function __clone()
     {
@@ -166,7 +166,7 @@ class Shipping
      *
      * @since  1.0.0
      */
-    public function setOrder($order)
+    public function setOrder($order) : void
     {
         $this->order = $order;
     }
@@ -192,7 +192,7 @@ class Shipping
      *
      * @since  1.0.0
      */
-    public function setDelivered($delivered)
+    public function setDelivered($delivered) : void
     {
         $this->delivered = $delivered;
     }
@@ -218,7 +218,7 @@ class Shipping
      *
      * @since  1.0.0
      */
-    public function setTo($to)
+    public function setTo($to) : void
     {
         $this->to = $to;
     }
@@ -244,7 +244,7 @@ class Shipping
      *
      * @since  1.0.0
      */
-    public function setStatus($status)
+    public function setStatus($status) : void
     {
         $this->status = $status;
     }
@@ -282,43 +282,43 @@ class Shipping
      *
      * @since  1.0.0
      */
-    public function setSender($sender)
+    public function setSender($sender) : void
     {
         $this->sender = $sender;
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function delete()
+    public function delete() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function create()
+    public function create() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function update()
+    public function update() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function serialize()
+    public function serialize() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function unserialize($data)
+    public function unserialize($data) : void
     {
     }
 }

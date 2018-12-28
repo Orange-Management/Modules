@@ -121,7 +121,7 @@ class Client
         return $this->info;
     }
 
-    public function setInfo(string $info)  /* : void */
+    public function setInfo(string $info) : void  /* : void */
     {
         $this->info = $info;
     }

@@ -101,7 +101,7 @@ class Project
         $this->media[] = $media;
     }
 
-    public function addTask(Task $task)
+    public function addTask(Task $task) : void
     {
         if ($task->getId() !== 0) {
             $this->tasks[$task->getId()] = $task;
@@ -161,12 +161,12 @@ class Project
         return $this->start;
     }
 
-    public function setStart(\DateTime $start)
+    public function setStart(\DateTime $start) : void
     {
         $this->start = $start;
     }
 
-    public function setEnd(\DateTime $end)
+    public function setEnd(\DateTime $end) : void
     {
         $this->end = $end;
     }
@@ -186,7 +186,7 @@ class Project
         return $this->name;
     }
 
-    public function setName(string $name)
+    public function setName(string $name) : void
     {
         $this->name = $name;
         $this->calendar->setName($name);
@@ -197,7 +197,7 @@ class Project
         return $this->description;
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
@@ -217,17 +217,17 @@ class Project
         return $this->earnings;
     }
 
-    public function setCosts(Money $costs)
+    public function setCosts(Money $costs) : void
     {
         $this->costs = $costs;
     }
 
-    public function setBudget(Money $budget)
+    public function setBudget(Money $budget) : void
     {
         $this->budget = $budget;
     }
 
-    public function setEarnings(Money $earnings)
+    public function setEarnings(Money $earnings) : void
     {
         $this->earnings = $earnings;
     }
@@ -257,7 +257,7 @@ class Project
      *
      * @since  1.0.0
      */
-    public function setCreatedBy(int $createdBy)
+    public function setCreatedBy(int $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

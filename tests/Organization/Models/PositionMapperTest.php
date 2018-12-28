@@ -19,7 +19,7 @@ use Modules\Organization\Models\PositionMapper;
 class PositionMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $position = new Position();
         $position->setName('CEO');
@@ -38,7 +38,7 @@ class PositionMapperTest extends \PHPUnit\Framework\TestCase
      * @group         volume
      * @slowThreshold 15000
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         /* 4 */
         $position = new Position();

@@ -20,7 +20,7 @@ use phpOMS\Localization\Money;
 
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $project = new Project();
 
@@ -42,7 +42,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\Tasks\Models\Task', $project->getTask(0));
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $project = new Project();
 

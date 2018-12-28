@@ -34,7 +34,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -73,7 +73,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testCreateBoard()
+    public function testCreateBoard() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -88,7 +88,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testCreateColumn()
+    public function testCreateColumn() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -103,7 +103,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testCreateCard()
+    public function testCreateCard() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));

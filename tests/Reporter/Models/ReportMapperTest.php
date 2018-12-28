@@ -92,7 +92,7 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         return $template;
     }
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $report = new Report();
 

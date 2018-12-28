@@ -20,7 +20,7 @@ use phpOMS\Utils\RnG\Text;
 class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $category = new QACategory();
 
@@ -34,7 +34,7 @@ class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($category->getName(), $categoryR->getName());
     }
 
-    public function testChildCRUD()
+    public function testChildCRUD() : void
     {
         $category = new QACategory();
 
@@ -53,7 +53,7 @@ class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 30; ++$i) {
             $text     = new Text();

@@ -22,7 +22,7 @@ use Modules\Organization\Models\Unit;
 
 class EmployeeTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $employee = new Employee();
 
@@ -30,7 +30,7 @@ class EmployeeTest extends \PHPUnit\Framework\TestCase
         self::assertTrue($employee->isActive());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $employee   = new Employee();
         $account    = new Account();

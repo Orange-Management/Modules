@@ -88,14 +88,14 @@ class Warehouse
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function init($id)
+    public function init($id) : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
     public function __clone()
     {
@@ -134,7 +134,7 @@ class Warehouse
      *
      * @since  1.0.0
      */
-    public function setName($name)
+    public function setName($name) : void
     {
         $this->name = $name;
     }
@@ -160,7 +160,7 @@ class Warehouse
      *
      * @since  1.0.0
      */
-    public function setDescription($description)
+    public function setDescription($description) : void
     {
         $this->description = $description;
     }
@@ -186,43 +186,43 @@ class Warehouse
      *
      * @since  1.0.0
      */
-    public function setLocation($location)
+    public function setLocation($location) : void
     {
         $this->location = $location;
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function delete()
+    public function delete() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function create()
+    public function create() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function update()
+    public function update() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function serialize()
+    public function serialize() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function unserialize($data)
+    public function unserialize($data) : void
     {
     }
 }

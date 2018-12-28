@@ -52,7 +52,7 @@ class Comment
         return $this->id;
     }
 
-    public function setRef($ref)
+    public function setRef($ref) : void
     {
         $this->ref = $ref;
     }
@@ -62,7 +62,7 @@ class Comment
         return $this->ref;
     }
 
-    public function setList($list)
+    public function setList($list) : void
     {
         $this->list = $list;
     }
@@ -77,7 +77,7 @@ class Comment
         return $this->title;
     }
 
-    public function setTitle(string $title)
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
@@ -87,7 +87,7 @@ class Comment
         return $this->content;
     }
 
-    public function setContent(string $content)
+    public function setContent(string $content) : void
     {
         $this->content = $content;
     }
@@ -97,7 +97,7 @@ class Comment
         return $this->contentRaw;
     }
 
-    public function setContentRaw(string $contentRaw)
+    public function setContentRaw(string $contentRaw) : void
     {
         $this->contentRaw = $contentRaw;
     }
@@ -107,7 +107,7 @@ class Comment
         return $this->createdBy;
     }
 
-    public function setCreatedBy($createdBy)
+    public function setCreatedBy($createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

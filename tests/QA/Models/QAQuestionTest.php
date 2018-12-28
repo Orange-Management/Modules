@@ -17,7 +17,7 @@ use Modules\QA\Models\QAQuestionStatus;
 
 class QAQuestionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $question = new QAQuestion();
 
@@ -32,7 +32,7 @@ class QAQuestionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $question->getBadges());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $question = new QAQuestion();
 

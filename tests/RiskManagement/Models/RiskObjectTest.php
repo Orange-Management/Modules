@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\RiskObject;
 
 class RiskObjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new RiskObject();
 
@@ -28,7 +28,7 @@ class RiskObjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $obj->getRisk());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new RiskObject();
 

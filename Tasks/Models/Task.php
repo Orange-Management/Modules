@@ -388,7 +388,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setDescriptionRaw(string $description)
+    public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
@@ -614,7 +614,7 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setType(int $type = TaskType::SINGLE)
+    public function setType(int $type = TaskType::SINGLE) : void
     {
         $this->type = $type;
     }

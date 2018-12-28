@@ -22,7 +22,7 @@ use phpOMS\Utils\RnG\Name;
 class ClientMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $client = new Client();
 
@@ -64,7 +64,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 100; ++$i) {
             $client = new Client();

@@ -19,7 +19,7 @@ use Modules\Media\Models\MediaMapper;
 class MediaMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $media = new Media();
         $media->setCreatedBy(1);
@@ -46,7 +46,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($media->getName(), $mediaR->getName());
     }
 
-    public function testAbsolute()
+    public function testAbsolute() : void
     {
         $media = new Media();
         $media->setCreatedBy(1);
@@ -72,7 +72,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($media->getName(), $mediaR->getName());
     }
 
-    public function testDirectoryMapping()
+    public function testDirectoryMapping() : void
     {
         $media = new Media();
         $media->setCreatedBy(1);

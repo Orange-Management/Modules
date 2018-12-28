@@ -17,7 +17,7 @@ use Modules\Knowledgebase\Models\WikiCategory;
 
 class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $category = new WikiCategory();
 
@@ -26,7 +26,7 @@ class WikiCategoryTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(null, $category->getParent());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $category = new WikiCategory();
 

@@ -52,14 +52,14 @@ class Workflow implements WorkflowInterface
         return $this->state;
     }
 
-    public function runRequest($data)
+    public function runRequest($data) : void
     {
         // todo: create workflow
         // todo: create task
         // todo: set state
     }
 
-    public function runPending($data)
+    public function runPending($data) : void
     {
         // todo: approve?!
         // todo:

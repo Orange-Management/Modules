@@ -17,7 +17,7 @@ use Modules\Profile\Models\Profile;
 
 class ProfileTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $profile = new Profile();
 
@@ -26,7 +26,7 @@ class ProfileTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $profile->getBirthday());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $profile = new Profile();
 

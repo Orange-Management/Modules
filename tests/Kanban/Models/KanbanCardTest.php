@@ -19,7 +19,7 @@ use Modules\Kanban\Models\KanbanCard;
 
 class KanbanCardTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $card = new KanbanCard();
 
@@ -37,7 +37,7 @@ class KanbanCardTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $card->getMedia());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $card = new KanbanCard();
         $card->setStatus(CardStatus::ARCHIVED);

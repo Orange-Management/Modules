@@ -26,7 +26,7 @@ final class EditorDocMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    static protected $columns = [
+    protected static $columns = [
         'editor_doc_id'         => ['name' => 'editor_doc_id', 'type' => 'int', 'internal' => 'id'],
         'editor_doc_created_by' => ['name' => 'editor_doc_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'editor_doc_title'      => ['name' => 'editor_doc_title', 'type' => 'string', 'internal' => 'title'],
@@ -36,7 +36,7 @@ final class EditorDocMapper extends DataMapperAbstract
         'editor_doc_created_at' => ['name' => 'editor_doc_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
-    static protected $belongsTo = [
+    protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'editor_doc_created_by',

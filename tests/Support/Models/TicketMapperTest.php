@@ -24,7 +24,7 @@ use phpOMS\Utils\RnG\Text;
 class TicketMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $ticket = new Ticket();
 
@@ -67,7 +67,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(end($expected)->getDescription(), end($actual)->getDescription());
     }
 
-    public function testNewest()
+    public function testNewest() : void
     {
         $newest = TicketMapper::getNewest(1);
 
@@ -77,7 +77,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testCreatedByMeForMe()
+    public function testCreatedByMeForMe() : void
     {
         $text = new Text();
 
@@ -112,7 +112,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testCreatedByMeForOther()
+    public function testCreatedByMeForOther() : void
     {
         $text = new Text();
 
@@ -147,7 +147,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testCreatedByOtherForMe()
+    public function testCreatedByOtherForMe() : void
     {
         $text = new Text();
 

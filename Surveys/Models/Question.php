@@ -65,14 +65,14 @@ class Question
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function init($id)
+    public function init($id) : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
     public function __clone()
     {
@@ -88,7 +88,7 @@ class Question
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name) : void
     {
         $this->name = $name;
     }
@@ -98,43 +98,43 @@ class Question
         return $this->description;
     }
 
-    public function setDescription($desc)
+    public function setDescription($desc) : void
     {
         $this->description = $desc;
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function delete()
+    public function delete() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function create()
+    public function create() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function update()
+    public function update() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function serialize()
+    public function serialize() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function unserialize($data)
+    public function unserialize($data) : void
     {
     }
 }

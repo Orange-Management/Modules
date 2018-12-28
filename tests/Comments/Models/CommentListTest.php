@@ -18,14 +18,14 @@ use Modules\Comments\Models\CommentList;
 
 class CommentListTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $list = new CommentList();
         self::assertEquals(0, $list->getId());
         self::assertEquals([], $list->getComments());
     }
 
-    public function testGetSet()
+    public function testGetSet() : void
     {
         $list    = new CommentList();
         $comment = new Comment();

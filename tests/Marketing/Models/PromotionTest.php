@@ -19,7 +19,7 @@ use phpOMS\Localization\Money;
 
 class PromotionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $promotion = new Promotion();
 
@@ -39,7 +39,7 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\Tasks\Models\Task', $promotion->getTask(0));
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $promotion = new Promotion();
 

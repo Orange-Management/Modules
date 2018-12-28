@@ -34,7 +34,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -73,7 +73,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testCreateProfile()
+    public function testCreateProfile() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));

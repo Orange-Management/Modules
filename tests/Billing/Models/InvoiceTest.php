@@ -20,7 +20,7 @@ use phpOMS\Localization\ISO4217CharEnum;
 
 class InvoiceTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $invoice = new Invoice();
         self::assertEquals(0, $invoice->getId());
@@ -66,7 +66,7 @@ class InvoiceTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $invoice->getElements());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $invoice = new Invoice();
 

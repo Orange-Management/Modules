@@ -18,7 +18,7 @@ use phpOMS\Account\Account;
 
 class AuditTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $audit = new Audit(new Account(), null, null);
         self::assertEquals(0, $audit->getType());
@@ -32,7 +32,7 @@ class AuditTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $audit->getCreatedAt());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $audit = new Audit(
             new Account(),

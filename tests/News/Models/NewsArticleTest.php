@@ -20,7 +20,7 @@ use phpOMS\Localization\ISO639x1Enum;
 
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $news = new NewsArticle();
 
@@ -38,7 +38,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $news->getPlain());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $news = new NewsArticle();
 
@@ -89,7 +89,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidStatus()
+    public function testInvalidStatus() : void
     {
         $news = new NewsArticle();
         $news->setStatus(9999);
@@ -98,7 +98,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidType()
+    public function testInvalidType() : void
     {
         $news = new NewsArticle();
         $news->setType(9999);
@@ -107,7 +107,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
     /**
      * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
      */
-    public function testInvalidLanguage()
+    public function testInvalidLanguage() : void
     {
         $news = new NewsArticle();
         $news->setLanguage('9999');

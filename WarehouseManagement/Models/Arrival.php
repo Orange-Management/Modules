@@ -104,14 +104,14 @@ class Arrival
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function init($id)
+    public function init($id) : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
     public function __clone()
     {
@@ -168,7 +168,7 @@ class Arrival
      *
      * @since  1.0.0
      */
-    public function setDate($date)
+    public function setDate($date) : void
     {
         $this->date = $date;
     }
@@ -194,7 +194,7 @@ class Arrival
      *
      * @since  1.0.0
      */
-    public function setOrder($order)
+    public function setOrder($order) : void
     {
         $this->order = $order;
     }
@@ -220,7 +220,7 @@ class Arrival
      *
      * @since  1.0.0
      */
-    public function setFrom($from)
+    public function setFrom($from) : void
     {
         $this->from = $from;
     }
@@ -246,7 +246,7 @@ class Arrival
      *
      * @since  1.0.0
      */
-    public function setStatus($status)
+    public function setStatus($status) : void
     {
         $this->status = $status;
     }
@@ -284,43 +284,43 @@ class Arrival
      *
      * @since  1.0.0
      */
-    public function setAcceptor($acceptor)
+    public function setAcceptor($acceptor) : void
     {
         $this->acceptor = $acceptor;
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function delete()
+    public function delete() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function create()
+    public function create() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function update()
+    public function update() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function serialize()
+    public function serialize() : void
     {
     }
 
     /**
-     * {@inheritdoc}
+     * 
      */
-    public function unserialize($data)
+    public function unserialize($data) : void
     {
     }
 }

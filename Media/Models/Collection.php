@@ -56,7 +56,7 @@ class Collection extends Media implements \Iterator
      *
      * @since  1.0.0
      */
-    public function setSources(array $sources)
+    public function setSources(array $sources) : void
     {
         $this->sources = $sources;
     }
@@ -70,7 +70,7 @@ class Collection extends Media implements \Iterator
      *
      * @since  1.0.0
      */
-    public function addSource($source)
+    public function addSource($source) : void
     {
         $this->sources[] = $source;
     }
@@ -87,15 +87,15 @@ class Collection extends Media implements \Iterator
         return $this->sources;
     }
 
-    public function setExtension(string $extension)
+    public function setExtension(string $extension) : void
     {
     }
 
-    public function setVersioned(bool $versioned)
+    public function setVersioned(bool $versioned) : void
     {
     }
 
-    public function rewind()
+    public function rewind() : void
     {
         reset($this->sources);
     }
@@ -110,7 +110,7 @@ class Collection extends Media implements \Iterator
         return key($this->sources);
     }
 
-    public function next()
+    public function next() : void
     {
         next($this->sources);
     }

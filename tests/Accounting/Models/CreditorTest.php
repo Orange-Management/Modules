@@ -17,7 +17,7 @@ use Modules\Accounting\Models\Creditor;
 
 class CreditorTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $cc = new Creditor();
         self::assertEquals(0, $cc->getId());

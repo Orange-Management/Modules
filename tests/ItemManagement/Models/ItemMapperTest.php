@@ -19,7 +19,7 @@ use Modules\ItemManagement\Models\ItemMapper;
 class ItemMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $item = new Item();
 
@@ -41,7 +41,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 1000; ++$i) {
             $item = new Item();

@@ -48,7 +48,7 @@ class Department
         return $this->department ?? new NullOrgDepartment();
     }
 
-    public function setDepartment($department)
+    public function setDepartment($department) : void
     {
         $this->department = $department;
     }

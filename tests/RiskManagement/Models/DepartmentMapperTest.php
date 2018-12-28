@@ -19,7 +19,7 @@ use Modules\RiskManagement\Models\DepartmentMapper;
 class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $obj = new Department();
         $obj->setDepartment(1);

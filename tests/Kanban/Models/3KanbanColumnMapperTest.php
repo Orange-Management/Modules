@@ -20,7 +20,7 @@ use phpOMS\Utils\RnG\Text;
 class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $column = new KanbanColumn();
 
@@ -41,7 +41,7 @@ class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         for ($i = 1; $i < 4; ++$i) {
             $text   = new Text();

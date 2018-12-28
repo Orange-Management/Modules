@@ -54,7 +54,7 @@ class Process
         return $this->title;
     }
 
-    public function setTitle(string $title)
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
@@ -79,7 +79,7 @@ class Process
         return $this->unit;
     }
 
-    public function setUnit($unit)
+    public function setUnit($unit) : void
     {
         $this->unit = $unit;
     }
@@ -89,7 +89,7 @@ class Process
         return $this->department;
     }
 
-    public function setDepartment($department)
+    public function setDepartment($department) : void
     {
         $this->department = $department;
     }

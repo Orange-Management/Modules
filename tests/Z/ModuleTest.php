@@ -26,7 +26,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 {
     protected $app = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -41,7 +41,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     /**
      * @group final
      */
-    public function testMembers()
+    public function testMembers() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
         $allModules    = $moduleManager->getInstalledModules(false);

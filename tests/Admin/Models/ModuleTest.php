@@ -18,7 +18,7 @@ use phpOMS\Module\ModuleStatus;
 
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $module = new Module();
         self::assertEquals(0, $module->getId());
@@ -30,7 +30,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($module->jsonSerialize(), $module->toArray());
     }
 
-    public function testGetSet()
+    public function testGetSet() : void
     {
         $module = new Module();
 

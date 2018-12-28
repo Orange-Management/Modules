@@ -20,7 +20,7 @@ use Modules\RiskManagement\Models\Solution;
 
 class RiskTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Risk();
 
@@ -42,7 +42,7 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $obj->getMedia());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Risk();
 

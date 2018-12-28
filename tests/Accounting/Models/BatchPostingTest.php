@@ -17,7 +17,7 @@ use Modules\Accounting\Models\BatchPosting;
 
 class BatchPostingTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault() : void
     {
         $batch = new BatchPosting();
         self::assertEquals(0, $batch->count());
@@ -30,7 +30,7 @@ class BatchPostingTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $batch->getCreatedAt());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $batch = new BatchPosting();
 

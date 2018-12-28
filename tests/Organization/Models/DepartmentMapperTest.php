@@ -19,7 +19,7 @@ use Modules\Organization\Models\DepartmentMapper;
 class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCRUD()
+    public function testCRUD() : void
     {
         $department = new Department();
         $department->setName('Management');
@@ -41,7 +41,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
      * @group         volume
      * @slowThreshold 15000
      */
-    public function testVolume()
+    public function testVolume() : void
     {
         /* 2 */
         $department = new Department();

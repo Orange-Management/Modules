@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Solution;
 
 class SolutionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult()
+    public function testDefult() : void
     {
         $obj = new Solution();
 
@@ -30,7 +30,7 @@ class SolutionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $obj->getRisk());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new Solution();
 

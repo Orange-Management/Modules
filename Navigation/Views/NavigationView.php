@@ -75,7 +75,7 @@ class NavigationView extends View
      *
      * @since  1.0.0
      */
-    public function setNavId(int $navId)
+    public function setNavId(int $navId) : void
     {
         $this->navId = $navId;
     }
@@ -97,7 +97,7 @@ class NavigationView extends View
      *
      * @since  1.0.0
      */
-    public function setNav(array $nav)
+    public function setNav(array $nav) : void
     {
         $this->nav = $nav;
     }
@@ -119,7 +119,7 @@ class NavigationView extends View
      *
      * @since  1.0.0
      */
-    public function setParent(int $parent)
+    public function setParent(int $parent) : void
     {
         $this->parent = $parent;
     }

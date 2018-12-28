@@ -37,7 +37,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -76,7 +76,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testApiNewsCreate()
+    public function testApiNewsCreate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -95,7 +95,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiNewsGet()
+    public function testApiNewsGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -108,7 +108,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiNewsSet()
+    public function testApiNewsSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -124,7 +124,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('New Title', $response->get('')['response']->getTitle());
     }
 
-    public function testApiNewsDelete()
+    public function testApiNewsDelete() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));

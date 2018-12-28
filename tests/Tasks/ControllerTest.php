@@ -36,7 +36,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     protected $app    = null;
     protected $module = null;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->app = new class extends ApplicationAbstract
         {
@@ -75,7 +75,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    public function testCreateTask()
+    public function testCreateTask() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -91,7 +91,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiTaskGet()
+    public function testApiTaskGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -104,7 +104,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(1, $response->get('')['response']->getId());
     }
 
-    public function testApiTaskSet()
+    public function testApiTaskSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -120,7 +120,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('New Title', $response->get('')['response']->getTitle());
     }
 
-    public function testCreateTaskElement()
+    public function testCreateTaskElement() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -139,7 +139,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiTaskElementGet()
+    public function testApiTaskElementGet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -152,7 +152,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(1, $response->get('')['response']->getId());
     }
 
-    public function testApiTaskElementSet()
+    public function testApiTaskElementSet() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
