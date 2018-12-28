@@ -15,10 +15,7 @@ declare(strict_types=1);
 namespace Modules\Draw\Controller;
 
 use Modules\Draw\Models\DrawImageMapper;
-use Modules\Draw\Models\PermissionState;
-use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
-use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;

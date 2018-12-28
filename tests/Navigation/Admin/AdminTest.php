@@ -13,11 +13,11 @@
 
 namespace Modules\tests\Navigation\Admin;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Navigation\Models\Navigation;
 use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-use Modules\Admin\Models\AccountMapper;
 use phpOMS\Message\Http\Request;
+use phpOMS\Module\ModuleManager;
 use phpOMS\Uri\Http;
 
 class AdminTest extends \PHPUnit\Framework\TestCase

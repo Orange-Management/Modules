@@ -14,14 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\Navigation\Admin;
 
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\DatabaseType;
-use phpOMS\DataStorage\Database\RelationType;
-use phpOMS\Module\InfoManager;
-use phpOMS\Module\InstallerAbstract;
-use phpOMS\System\File\PathException;
 use Modules\Navigation\Models\NavElement;
 use Modules\Navigation\Models\NavElementMapper;
+use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\Module\InstallerAbstract;
+use phpOMS\System\File\PathException;
 
 /**
  * Installer class.

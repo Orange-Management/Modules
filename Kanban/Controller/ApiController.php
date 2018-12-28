@@ -24,15 +24,10 @@ use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\KanbanCardMapper;
 use Modules\Kanban\Models\KanbanColumn;
 use Modules\Kanban\Models\KanbanColumnMapper;
-use Modules\Kanban\Models\KanbanLabel;
-use Modules\Kanban\Models\KanbanLabelMapper;
-use Modules\Kanban\Models\PermissionState;
 
-use phpOMS\Account\PermissionType;
-use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Message\NotificationLevel;
 use phpOMS\Model\Message\FormValidation;
 
 /**
