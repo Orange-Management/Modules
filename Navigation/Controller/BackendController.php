@@ -106,19 +106,19 @@ final class BackendController extends Controller
     public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) : void
     {
         $languages = $this->app->moduleManager->getLanguageFiles($request);
+        $langCode  = $response->getHeader()->getL11n()->getLanguage();
 
         foreach ($languages as $path) {
-            if ($path[strlen($path) - 1] === '/') {
-                // Is not a navigation file
+            $path = __DIR__ . '/../../..' . $path . '.' . $langCode . '.lang.php';
+
+            if (!\file_exists($path)) {
                 continue;
             }
-
-            $path = __DIR__ . '/../../..' . $path . '.' . $response->getHeader()->getL11n()->getLanguage() . '.lang.php';
 
             /** @noinspection PhpIncludeInspection */
             $lang = include $path;
 
-            $this->app->l11nManager->loadLanguage($response->getHeader()->getL11n()->getLanguage(), 'Navigation', $lang);
+            $this->app->l11nManager->loadLanguage($langCode, 'Navigation', $lang);
         }
     }
 
