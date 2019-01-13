@@ -18,12 +18,12 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
         <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::CATEGORY] as $key => $parent) : ?>
         <li><input id="nav-<?= $this->printHtml($parent['nav_name']); ?>" type="checkbox">
             <ul>
-                <li>
+                <li><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>">
                     <?php if (isset($parent['nav_icon'])) : ?>
                         <span class="centerText"><i class="<?= $this->printHtml($parent['nav_icon']); ?>"></i></span>
                     <?php endif; ?>
-                    <?= $this->getHtml($parent['nav_name'], 'Navigation') ?><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>"><i class="fa fa-chevron-down min"></i>
-                    <i class="fa fa-chevron-up max"></i></label>
+                    <?= $this->getHtml($parent['nav_name'], 'Navigation') ?><i class="fa fa-chevron-left min"></i>
+                    <i class="fa fa-chevron-down max"></i></label>
                     <?php if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK])) :
                         foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
                     if ($link['nav_parent'] === $key) : ?>

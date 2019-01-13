@@ -1,4 +1,4 @@
-<table class="table red">
+<table class="table darkred">
     <caption><?= $this->getHtml('Tasks', 'Tasks') ?></caption>
     <thead>
         <td><?= $this->getHtml('Status', 'Tasks') ?>

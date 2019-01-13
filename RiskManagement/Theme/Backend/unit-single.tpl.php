@@ -13,7 +13,7 @@
 $unit = $this->getData('unit');
 echo $this->getData('nav')->render(); ?>
 
-<div class="tabular-2">
+<div class="tab tab-2">
     <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Unit'); ?></label>
@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Risks') ?></caption>
                             <thead>
                             <tr>
@@ -132,7 +132,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Departments') ?></caption>
                             <thead>
                             <tr>
@@ -160,7 +160,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Categories') ?></caption>
                             <thead>
                             <tr>
@@ -188,7 +188,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Projects') ?></caption>
                             <thead>
                             <tr>
@@ -216,7 +216,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Processes') ?></caption>
                             <thead>
                             <tr>
@@ -244,7 +244,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Causes') ?></caption>
                             <thead>
                             <tr>
@@ -274,7 +274,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Solutions') ?></caption>
                             <thead>
                             <tr>

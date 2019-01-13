@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <div class="box w-100">
-    <table class="table red">
+    <table class="table darkred">
         <caption><?= $this->getHtml('Entries'); ?></caption>
         <thead>
         <tr>
@@ -74,7 +74,7 @@ echo $this->getData('nav')->render(); ?>
 </div>
 
 <div class="box w-100">
-    <table class="table red">
+    <table class="table darkred">
         <caption><?= $this->getHtml('Entries'); ?></caption>
         <thead>
         <tr>

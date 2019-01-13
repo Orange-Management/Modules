@@ -20,10 +20,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <section class="box wf-100">
-            <header><h1><?= $this->printHtml($news->getTitle()); ?></h1></header>
-            <div class="inner">
-                <article><?= $news->getContent(); ?></article>
-            </div>
+            <article><?= $news->getContent(); ?></article>
         </section>
     </div>
 </div>

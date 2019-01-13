@@ -24,7 +24,7 @@ $footerView->setResults(1);
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
-    <table class="table red">
+    <table class="table darkred">
         <caption><?= $this->getHtml('Shipping') ?></caption>
         <thead>
         <tr>

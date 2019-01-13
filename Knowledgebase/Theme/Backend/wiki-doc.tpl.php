@@ -12,11 +12,9 @@ echo $this->getData('nav')->render();
     <div class="col-xs-12">
         <section class="box wf-100">
             <header><h1><?= $this->printHtml($doc->getTitle()); ?></h1></header>
-            <div class="inner">
-                <article>
-                    <?= $this->printHtml($doc->getDoc()); ?>
-                </article>
-            </div>
+            <article>
+                <?= $this->printHtml($doc->getDoc()); ?>
+            </article>
         </section>
     </div>
 </div>

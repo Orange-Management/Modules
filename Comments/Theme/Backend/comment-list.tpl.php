@@ -21,7 +21,7 @@ $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
 <div class="box">
-    <table class="table red">
+    <table class="table darkred">
         <caption><?= $this->getHtml('Documents') ?></caption>
         <thead>
         <tr>

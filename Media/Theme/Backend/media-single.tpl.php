@@ -49,7 +49,7 @@ echo $this->getData('nav')->render();
     <?php if ($this->isCollectionFunction($media, $this->request->getData('sub') ?? '')) : ?>
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table red">
+            <table class="table darkred">
                 <caption><?= $this->getHtml('Media') ?></caption>
                 <thead>
                 <tr>

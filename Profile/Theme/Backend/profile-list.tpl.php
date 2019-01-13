@@ -25,7 +25,7 @@ $accounts = $this->getData('accounts');
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table red">
+            <table class="table darkred">
                 <caption><?= $this->getHtml('Profiles') ?></caption>
                 <thead>
                 <tr>

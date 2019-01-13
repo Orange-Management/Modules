@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <div class="tabular">
+            <div class="tab tab-1">
                 <ul class="tab-links">
                     <li><label for="c-tab-1"><?= $this->getHtml('Start'); ?></label>
                     <li><label for="c-tab-2"><?= $this->getHtml('Layout'); ?></label>

@@ -15,7 +15,7 @@
  */
 echo $this->getData('nav')->render(); ?>
 
-<div class="tabular-2">
+<div class="tab tab-2">
     <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Master'); ?></label></li>
@@ -166,7 +166,7 @@ echo $this->getData('nav')->render(); ?>
             $footerView->setPage(1);
             ?>
             <div class="box w-100">
-                <table class="table red">
+                <table class="table darkred">
                     <caption><?= $this->getHtml('Logs'); ?></caption>
                     <thead>
                     <tr>

@@ -94,7 +94,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table id="groupTable" class="box table red">
+        <table id="groupTable" class="box table darkred">
             <caption><?= $this->getHtml('Groups') ?></caption>
             <thead>
                 <tr>
@@ -132,7 +132,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table class="box table red">
+        <table class="box table darkred">
             <caption><?= $this->getHtml('Permissions') ?></caption>
             <thead>
                 <tr>

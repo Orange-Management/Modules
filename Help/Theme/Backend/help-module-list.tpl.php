@@ -21,7 +21,7 @@ $modules = $this->app->moduleManager->getInstalledModules();
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table id="moduleList" class="table red">
+            <table id="moduleList" class="table darkred">
                 <caption><?= $this->getHtml('Modules') ?></caption>
                 <thead>
                 <tr>

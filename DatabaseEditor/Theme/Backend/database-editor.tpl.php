@@ -56,7 +56,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 </div>
 
-<div class="tabular-2">
+<div class="tab tab-2">
     <div class="box wf-100">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Query'); ?></label></li>
@@ -85,7 +85,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12">
-                    <table class="table red">
+                    <table class="table darkred">
                     <caption><?= $this->getHtml('QueryResult') ?> - <?= $this->getHtml('Limit1000') ?></caption>
                     <thead>
                     <tbody>

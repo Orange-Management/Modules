@@ -20,7 +20,7 @@ $accounts    = $group->getAccounts();
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="tabular-2">
+<div class="tab tab-2">
     <div class="box wf-100">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('General'); ?></label></li>
@@ -58,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table class="box table red wf-100">
+                    <table class="box table darkred wf-100">
                         <caption><?= $this->getHtml('Accounts') ?></caption>
                         <thead>
                             <tr>
@@ -93,7 +93,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table id="groupPermissions" class="box table red wf-100">
+                    <table id="groupPermissions" class="box table darkred wf-100">
                         <caption><?= $this->getHtml('Permissions') ?></caption>
                         <thead>
                             <tr>
@@ -187,7 +187,7 @@ echo $this->getData('nav')->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <table class="box table red wf-100">
+                    <table class="box table darkred wf-100">
                         <caption><?= $this->getHtml('AuditLog') ?></caption>
                         <thead>
                             <tr>

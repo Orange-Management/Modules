@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table id="departmentList" class="table red">
+            <table id="departmentList" class="table darkred">
                 <caption><?= $this->getHtml('Departments') ?></caption>
                 <thead>
                 <tr>

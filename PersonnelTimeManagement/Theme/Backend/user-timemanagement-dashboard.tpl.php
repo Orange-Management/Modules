@@ -17,7 +17,7 @@ echo $this->getData('nav')->render();
 ?>
 
 <div class="box w-100">
-    <table class="table red">
+    <table class="table darkred">
         <caption><?= $this->getHtml('Times') ?></caption>
         <thead>
         <tr>

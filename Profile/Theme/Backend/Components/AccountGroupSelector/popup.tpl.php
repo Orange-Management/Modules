@@ -3,7 +3,7 @@
         <header><h1><?= $this->getHtml('Account/Group', 'Admin') ?></h1></header>
 
         <div class="inner">
-        <div class="tabular-2">
+        <div class="tab tab-2">
             <div class="box wf-100">
                 <ul class="tab-links">
                     <li><label for="c-tab-1"><?= $this->getHtml('Account', 'Admin') ?></label>

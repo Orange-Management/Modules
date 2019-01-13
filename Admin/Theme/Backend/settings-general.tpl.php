@@ -31,7 +31,7 @@ $volumes      = \phpOMS\Utils\Converter\VolumeType::getConstants();
 $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
 ?>
 
-<div class="tabular-2">
+<div class="tab tab-2">
     <div class="box wf-100">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('General'); ?></label></li>

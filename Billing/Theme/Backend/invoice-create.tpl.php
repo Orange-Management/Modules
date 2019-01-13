@@ -16,7 +16,7 @@
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="tabular-2">
+<div class="tab tab-2">
     <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Invoice'); ?></label></li>
@@ -128,7 +128,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Invoice'); ?></caption>
                             <thead>
                             <tr>
@@ -241,7 +241,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table red">
+                        <table class="table darkred">
                             <caption><?= $this->getHtml('Logs'); ?></caption>
                             <thead>
                             <tr>

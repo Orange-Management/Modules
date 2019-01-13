@@ -17,7 +17,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
-    <div class="tabular-2">
+    <div class="tab tab-2">
         <ul class="tab-links">
             <li><label for="c-tab2-1"><?= $this->getHtml('Overview') ?></label>
             <li><label for="c-tab2-2"><?= $this->getHtml('Month') ?></label>
@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
                 <section class="box wf-100 floatLeft">
-                    <table class="table red">
+                    <table class="table darkred">
                         <caption><?= $this->getHtml('Overview'); ?></caption>
                         <thead>
                         <tr>
@@ -60,7 +60,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
 
                 <section class="box wf-100 floatLeft">
-                    <table class="table red">
+                    <table class="table darkred">
                         <caption><?= $this->getHtml('Misc'); ?></caption>
                         <thead>
                         <tr>
@@ -80,7 +80,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-2" name="tabular-2">
             <div class="tab tab-2">
                 <section class="box wf-100 floatLeft">
-                    <table class="table red">
+                    <table class="table darkred">
                         <caption><?= $this->getHtml('Month'); ?></caption>
                         <thead>
                         <tr>
@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-3" name="tabular-2">
             <div class="tab tab-3">
                 <section class="box wf-100 floatLeft">
-                    <table class="table red">
+                    <table class="table darkred">
                         <caption><?= $this->getHtml('Year'); ?></caption>
                         <thead>
                         <tr>

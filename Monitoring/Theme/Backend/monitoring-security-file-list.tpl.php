@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="box col-xs-12 wf-100">
-        <table class="table red">
+        <table class="table darkred">
             <caption><?= $this->getHtml('Files') ?></caption>
             <thead>
             <tr>

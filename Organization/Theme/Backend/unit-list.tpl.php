@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table id="unitList" class="table red">
+            <table id="unitList" class="table darkred">
                 <caption><?= $this->getHtml('Units') ?></caption>
                 <thead>
                 <tr>
