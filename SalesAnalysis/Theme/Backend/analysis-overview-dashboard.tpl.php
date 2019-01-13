@@ -17,7 +17,7 @@
 echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
-    <div class="tab tab-2">
+    <div class="tabview tab-2">
         <ul class="tab-links">
             <li><label for="c-tab2-1"><?= $this->getHtml('Overview') ?></label>
             <li><label for="c-tab2-2"><?= $this->getHtml('Month') ?></label>
@@ -78,7 +78,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
             </div>
             <input type="radio" id="c-tab2-2" name="tabular-2">
-            <div class="tab tab-2">
+            <div class="tab">
                 <section class="box wf-100 floatLeft">
                     <table class="table darkred">
                         <caption><?= $this->getHtml('Month'); ?></caption>
@@ -96,7 +96,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
             </div>
             <input type="radio" id="c-tab2-3" name="tabular-2">
-            <div class="tab tab-3">
+            <div class="tabview tab-3">
                 <section class="box wf-100 floatLeft">
                     <table class="table darkred">
                         <caption><?= $this->getHtml('Year'); ?></caption>
@@ -129,7 +129,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
             </div>
             <input type="radio" id="c-tab2-4" name="tabular-2">
-            <div class="tab tab-4">
+            <div class="tabview tab-4">
                 <section class="box w-33 floatLeft">
                     <header>
                         <h1><?= $this->getHtml('Customers') ?></h1>
@@ -153,7 +153,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
             </div>
             <input type="radio" id="c-tab2-5" name="tabular-2">
-            <div class="tab tab-5">
+            <div class="tabview tab-5">
                 <section class="box w-33 floatLeft">
                     <header>
                         <h1><?= $this->getHtml('Domestic/Export') ?></h1>

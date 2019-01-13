@@ -62,7 +62,7 @@ $footerView->setResults(1);
 </div>
 
 <div class="box w-100">
-    <div class="tab tab-2">
+    <div class="tabview tab-2">
         <ul class="tab-links">
             <li><label for="c-tab2-1"><?= $this->getHtml('List') ?></label></li>
             <li><label for="c-tab2-2"><?= $this->getHtml('Evaluation') ?></label></li>
@@ -108,7 +108,7 @@ $footerView->setResults(1);
                 </div>
             </div>
             <input type="radio" id="c-tab2-2" name="tabular-2">
-            <div class="tab tab-2">
+            <div class="tab">
                <div class="row">
                     <div class="col-xs-4">
                         <section class="wf-100">
@@ -173,7 +173,7 @@ $footerView->setResults(1);
                 </div>
             </div>
             <input type="radio" id="c-tab2-3" name="tabular-2">
-            <div class="tab tab-3">
+            <div class="tabview tab-3">
                 <div class="row">
                     <div class="col-xs-6">
                         <section class="wf-100">

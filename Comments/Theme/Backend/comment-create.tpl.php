@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <div class="box w-100">
-    <div class="tab tab-1">
+    <div class="tabview tab-1">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Start'); ?></label>
             <li><label for="c-tab-2"><?= $this->getHtml('Insert'); ?></label>
@@ -84,7 +84,7 @@ echo $this->getData('nav')->render(); ?>
 </div>
 
 <div class="box w-100">
-    <div class="tab tab-1">
+    <div class="tabview tab-1">
         <ul class="tab-links">
             <li><label for="c-tab2-1"><?= $this->getHtml('Text'); ?></label>
             <li><label for="c-tab2-2"><?= $this->getHtml('Preview'); ?></label>

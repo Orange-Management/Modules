@@ -18,7 +18,7 @@ $client = $this->getData('client');
  */
 echo $this->getData('nav')->render();
 ?>
-<div class="tab tab-2">
+<div class="tabview tab-2">
     <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Master'); ?></label></li>

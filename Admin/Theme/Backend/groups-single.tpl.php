@@ -20,7 +20,7 @@ $accounts    = $group->getAccounts();
 
 echo $this->getData('nav')->render(); ?>
 
-<div class="tab tab-2">
+<div class="tabview tab-2">
     <div class="box wf-100">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('General'); ?></label></li>
