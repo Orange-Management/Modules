@@ -19,19 +19,30 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table darkred">
+            <table class="table fixed darkred">
                 <caption><?= $this->getHtml('Audits') ?></caption>
+                <colgroup>
+                    <col style="width: 100px">
+                    <col style="width: 100px">
+                    <col style="width: 75px">
+                    <col style="width: 75px">
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 125px">
+                    <col style="width: 150px">
+                </colgroup>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', 0, 0); ?>
-                    <td class="wf-100"><?= $this->getHtml('Module') ?>
-                    <td class="wf-100"><?= $this->getHtml('Type') ?>
-                    <td class="wf-100"><?= $this->getHtml('Subtype') ?>
-                    <td class="wf-100"><?= $this->getHtml('Old') ?>
-                    <td class="wf-100"><?= $this->getHtml('New') ?>
-                    <td class="wf-100"><?= $this->getHtml('Content') ?>
-                    <td class="wf-100"><?= $this->getHtml('By') ?>
-                    <td class="wf-100"><?= $this->getHtml('Date') ?>
+                    <td ><?= $this->getHtml('Module') ?>
+                    <td ><?= $this->getHtml('Type') ?>
+                    <td ><?= $this->getHtml('Subtype') ?>
+                    <td ><?= $this->getHtml('Old') ?>
+                    <td ><?= $this->getHtml('New') ?>
+                    <td ><?= $this->getHtml('Content') ?>
+                    <td ><?= $this->getHtml('By') ?>
+                    <td ><?= $this->getHtml('Date') ?>
                 <tfoot>
                 <tr>
                     <td colspan="9">
@@ -47,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= $audit->getNew(); ?>
                         <td><?= $audit->getContent(); ?>
                         <td><?= $audit->getCreatedBy()->getName(); ?>
-                        <td><?= $audit->getCreatedAt()->format('Y-m-d H:i:s'); ?>
+                        <td><?= $audit->getCreatedAt()->format('Y-m-d H:i'); ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

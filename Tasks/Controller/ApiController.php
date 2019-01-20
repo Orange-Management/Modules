@@ -225,6 +225,7 @@ final class ApiController extends Controller
         $element = $this->createTaskElementFromRequest($request);
         $task    = TaskMapper::get($element->getTask());
         $task->setStatus($element->getStatus());
+        $task->setPriority($element->getPriority());
 
         $this->createModel($request, $element, TaskElementMapper::class, 'taskelement');
         $this->updateModel($request, $task, $task, TaskMapper::class, 'task');
