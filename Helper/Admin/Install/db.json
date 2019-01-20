@@ -1,0 +1,126 @@
+{
+    "helper_template": {
+        "name": "helper_template",
+        "fields": {
+            "helper_template_id": {
+                "name": "helper_template_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "helper_template_status": {
+                "name": "helper_template_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "helper_template_title": {
+                "name": "helper_template_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "helper_template_data": {
+                "name": "helper_template_data",
+                "type": "TINYINT",
+                "null": false
+            },
+            "helper_template_standalone": {
+                "name": "helper_template_standalone",
+                "type": "TINYINT",
+                "null": false
+            },
+            "helper_template_expected": {
+                "name": "helper_template_expected",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "helper_template_desc": {
+                "name": "helper_template_desc",
+                "type": "TEXT",
+                "null": false
+            },
+            "helper_template_desc_raw": {
+                "name": "helper_template_desc_raw",
+                "type": "TEXT",
+                "null": false
+            },
+            "helper_template_media": {
+                "name": "helper_template_media",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "helper_template_creator": {
+                "name": "helper_template_creator",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "helper_template_created": {
+                "name": "helper_template_created",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "helper_report": {
+        "name": "helper_report",
+        "fields": {
+            "helper_report_id": {
+                "name": "helper_report_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "helper_report_status": {
+                "name": "helper_report_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "helper_report_title": {
+                "name": "helper_report_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "helper_report_desc": {
+                "name": "helper_report_desc",
+                "type": "TEXT",
+                "null": false
+            },
+            "helper_report_desc_raw": {
+                "name": "helper_report_desc_raw",
+                "type": "TEXT",
+                "null": false
+            },
+            "helper_report_media": {
+                "name": "helper_report_media",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            },
+            "helper_report_template": {
+                "name": "helper_report_template",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "helper_template",
+                "foreignKey": "helper_template_id"
+            },
+            "helper_report_creator": {
+                "name": "helper_report_creator",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "helper_report_created": {
+                "name": "helper_report_created",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    }
+}

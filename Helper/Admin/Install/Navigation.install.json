@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1002701001,
+        "pid": "/backend",
+        "type": 2,
+        "subtype": 1,
+        "name": "Helper",
+        "uri": "/{/lang}/backend/helper/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 60,
+        "from": "Helper",
+        "permission": { "permission": 2, "type": null, "element": null },
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1002702001,
+                "pid": "/backend/helper",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "/{/lang}/backend/helper/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Helper",
+                "permission": { "permission": 2, "type": null, "element": null },
+                "parent": 1002701001,
+                "children": []
+            },
+            {
+                "id": 1002703001,
+                "pid": "/backend/helper",
+                "type": 3,
+                "subtype": 5,
+                "name": "CreateReport",
+                "uri": "/{/lang}/backend/helper/report/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 5,
+                "from": "Helper",
+                "permission": { "permission": 4, "type": null, "element": null },
+                "parent": 1002701001,
+                "children": []
+            },
+            {
+                "id": 1002704001,
+                "pid": "/backend/helper",
+                "type": 3,
+                "subtype": 5,
+                "name": "CreateTemplate",
+                "uri": "/{/lang}/backend/helper/template/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 10,
+                "from": "Helper",
+                "permission": { "permission": 4, "type": null, "element": null },
+                "parent": 1002701001,
+                "children": []
+            }
+        ]
+    }
+]

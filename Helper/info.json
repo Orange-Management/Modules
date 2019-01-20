@@ -1,0 +1,47 @@
+{
+    "name": {
+        "id": 1002700000,
+        "internal": "Helper",
+        "external": "Helper"
+    },
+    "category": "Tools",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The helper module supports creating static and dynamic reportings.",
+    "directory": "Helper",
+    "dependencies": {
+        "Admin": "1.0.0",
+        "Media": "1.0.0",
+        "Tools": "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+        {
+            "pid": [
+                "/backend/helper"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Helper",
+            "from": "Helper"
+        },
+        {
+            "pid": [
+                "/backend"
+            ],
+            "type": 5,
+            "from": "Helper",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
+    ]
+}

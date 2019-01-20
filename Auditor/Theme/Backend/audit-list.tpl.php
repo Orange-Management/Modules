@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Audits') ?></caption>
                 <colgroup>
                     <col style="width: 100px">
-                    <col style="width: 100px">
+                    <col style="width: 150px">
                     <col style="width: 75px">
                     <col style="width: 75px">
                     <col>
