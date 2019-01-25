@@ -50,7 +50,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
                 'extension' => 'png',
                 'filename' => 'logo.png',
                 'name' => 'logo.png',
-                'path' => 'Tests/PHPUnit/Modules/Media/Files/',
+                'path' => 'Modules/tests/Media/Files/',
                 'size' => 90210,
             ],
             [
@@ -58,7 +58,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
                 'extension' => 'png',
                 'filename' => 'logo.png',
                 'name' => 'logo.png',
-                'path' => 'Tests/PHPUnit/Modules/Media/Files/',
+                'path' => 'Modules/tests/Media/Files/',
                 'size' => 90210,
             ],
             [
@@ -66,7 +66,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
                 'extension' => 'png',
                 'filename' => 'logo2.png',
                 'name' => 'logo2.png',
-                'path' => 'Tests/PHPUnit/Modules/Media/Files/',
+                'path' => 'Modules/tests/Media/Files/',
                 'size' => 90210,
             ],
         ];
