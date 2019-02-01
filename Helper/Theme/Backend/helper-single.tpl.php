@@ -21,19 +21,19 @@ $template = $this->getData('template');
 $report   = $this->getData('report');
 
 /** @noinspection PhpIncludeInspection */
-$reportLanguage = include __DIR__ . '/../../../' . \ltrim($tcoll['lang']->getPath(), '/');
+$reportLanguage = include __DIR__ . '/../../../../' . \ltrim($tcoll['lang']->getPath(), '/');
 $lang = $reportLanguage[$cLang];
 
 echo $this->getData('nav')->render(); ?>
-<div class="row">
+<div class="row" style="height: calc(100% - 85px);">
     <div class="col-xs-12 col-md-9">
-        <div class="wf-100">
-            <?php /** @noinspection PhpIncludeInspection */
-            include  __DIR__ . '/../../../' . \ltrim($tcoll['template']->getPath(), '/'); ?>
+        <div class="wf-100" style="height: 100%;">
+            <iframe src="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe> 
         </div>
     </div>
 
     <div class="col-xs-12 col-md-3">
+        <?php if (count($reportLanguage) > 1) : ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Reports') ?></h1></header>
 
@@ -41,14 +41,16 @@ echo $this->getData('nav')->render(); ?>
                 <form action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/helper/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
+                        <?php if (count($reportLanguage) > 1) : ?>
                         <tr>
                             <td><label for="iLang"><?= $this->getHtml('Language'); ?></label>
                         <tr>
                             <td><select id="iLang" name="lang" data-action='[{"listener": "change", "action": [{"key": 1, "type": "redirect", "uri": "{%}&lang={#iLang}", "target": "self"}]}]'>
-                                    <?php foreach ($reportLanguage as $key => $langauge) : ?>
-                                    <option value="<?= $this->printHtml($key); ?>"<?= $this->printHtml($key === $cLang ? ' selected' : ''); ?>><?= $this->printHtml($langauge[':language'] ); ?>
+                                    <?php foreach ($reportLanguage as $key => $language) : ?>
+                                    <option value="<?= $this->printHtml($key); ?>"<?= $this->printHtml($key === $cLang ? ' selected' : ''); ?>><?= $this->printHtml($language[':language'] ); ?>
                                     <?php endforeach; ?>
                                 </select>
+                        <?php endif; ?>
                         <?php if (!$template->isStandalone()) : ?><tr>
                             <td><label for="iReport"><?= $this->getHtml('Report'); ?></label>
                         <tr>
@@ -59,7 +61,9 @@ echo $this->getData('nav')->render(); ?>
                 </form>
             </div>
         </section>
+        <?php endif; ?>
 
+        <?php if (isset($tcoll['excel']) || isset($tcoll['pdf']) || isset($tcoll['word']) || isset($tcoll['powerpoint']) || isset($tcoll['csv']) || isset($tcoll['json'])) : ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Export') ?></h1></header>
 
@@ -87,6 +91,7 @@ echo $this->getData('nav')->render(); ?>
                 </form>
             </div>
         </section>
+        <?php endif; ?>
 
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Info') ?></h1></header>

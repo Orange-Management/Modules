@@ -140,17 +140,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
-        $template  = TemplateMapper::get((int) $request->getData('id'));
-        $accountId = $request->getHeader()->getAccount();
-
-        if ($template->getCreatedBy()->getId() !== $accountId // todo: also check if report createdBy
-            && !$this->app->accountManager->get($accountId)->hasPermission(
-            PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::REPORT, $template->getId())
-        ) {
-            $view->setTemplate('/Web/Backend/Error/403_inline');
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
-            return $view;
-        }
+        $template = TemplateMapper::get((int) $request->getData('id'));
 
         $view->setTemplate('/Modules/Helper/Theme/Backend/helper-single');
 

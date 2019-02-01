@@ -39,4 +39,16 @@ return [
             ],
         ],
     ],
+    // todo: the order of find is bad but needed for now.
+    '^.*/api/media/find.*$' => [
+        [
+            'dest' => '\Modules\Media\Controller\ApiController:apiMediaFind',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::MEDIA,
+            ],
+        ],
+    ],
 ];

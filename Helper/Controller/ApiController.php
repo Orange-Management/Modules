@@ -25,6 +25,7 @@ use Modules\Helper\Models\TemplateDataType;
 use Modules\Helper\Models\TemplateMapper;
 
 use phpOMS\Account\PermissionType;
+use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
@@ -66,7 +67,7 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public function apiHelperSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiHelperExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         // todo: check permission here
 
@@ -80,6 +81,7 @@ final class ApiController extends Controller
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
         }
 
+        $view = $this->createView($template, $request, $response);
         switch ($request->getData('type')) {
             case 'pdf':
                 $response->getHeader()->set('Content-Type', MimeType::M_PDF, true);
@@ -90,7 +92,7 @@ final class ApiController extends Controller
             case 'xlsx':
                 $response->getHeader()->set(
                     'Content-disposition', 'attachment; filename="'
-                    . ((string) $request->getData('id')) . '.'
+                    . $template->getName() . '.'
                     . ((string) $request->getData('type'))
                     . '"'
                 , true);
@@ -102,7 +104,8 @@ final class ApiController extends Controller
                 $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
                 break;
             default:
-                // TODO handle bad request
+                $response->getHeader()->set('Content-Type', 'text/html; charset=utf-8');
+                $view->setTemplate('/' . \substr($view->getData('tcoll')['template']->getPath(), 0, -8));
         }
 
         if ($request->getData('download') !== null) {
@@ -110,25 +113,80 @@ final class ApiController extends Controller
             $response->getHeader()->set('Content-Transfer-Encoding', 'Binary', true);
             $response->getHeader()->set(
                 'Content-disposition', 'attachment; filename="'
-                . ((string) $request->getData('id')) . '.'
+                . $template->getName() . '.'
                 . ((string) $request->getData('type'))
                 . '"'
             , true);
         }
 
-        /** @var array $reportLanguage */
-        /** @noinspection PhpIncludeInspection */
-        include_once __DIR__ . '/Templates/' . $request->getData('id') . '/' . $request->getData('id') . '.lang.php';
+        $response->set('export', $view);
+    }
 
-        $exportView = new View($this->app, $request, $response);
-        $exportView->addData('lang', $reportLanguage[$this->app->accountManager->get($request->getHeader()->getAccount())->getL11n()->getLanguage()]);
-        $exportView->setTemplate(
-            '/Modules/Helper/Templates/'
-            . ((string) $request->getData('id')) . '/'
-            . ((string) $request->getData('id')) . '.'
-            . ((string) $request->getData('type'))
-        );
-        $response->set('export', $exportView->render());
+    private function createView(Template $template, RequestAbstract $request, ResponseAbstract $response) : View
+    {
+        $tcoll = [];
+        $files = $template->getSource()->getSources();
+
+        foreach ($files as $tMedia) {
+            $lowerPath = \strtolower($tMedia->getPath());
+
+            if (StringUtils::endsWith($lowerPath, '.lang.php')) {
+                $tcoll['lang'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, 'worker.php')) {
+                $tcoll['worker'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php') || StringUtils::endsWith($lowerPath, '.xls.php')) {
+                $tcoll['excel'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.docx.php') || StringUtils::endsWith($lowerPath, '.doc.php')) {
+                $tcoll['word'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.pptx.php') || StringUtils::endsWith($lowerPath, '.ppt.php')) {
+                $tcoll['powerpoint'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.pdf.php')) {
+                $tcoll['pdf'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.csv.php')) {
+                $tcoll['csv'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.json.php')) {
+                $tcoll['json'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.tpl.php')) {
+                $tcoll['template'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.css')) {
+                $tcoll['css'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.js')) {
+                $tcoll['js'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.sqlite') || StringUtils::endsWith($lowerPath, '.db')) {
+                $tcoll['db'][] = $tMedia;
+            } else {
+                // Do nothing; only the creator knows how to deal with this type of file :)
+            }
+        }
+
+        $view = new View($this->app, $request, $response);
+        if (!$template->isStandalone()) {
+            $report = ReportMapper::getNewest(1,
+                (new Builder($this->app->dbPool->get()))->where('helper_report.helper_report_template', '=', $template->getId())
+            );
+
+            $rcoll  = [];
+            $report = end($report);
+            $report = $report === false ? new NullReport() : $report;
+
+            if (!($report instanceof NullReport)) {
+                /** @var Media[] $files */
+                $files = $report->getSource()->getSources();
+
+                foreach ($files as $media) {
+                    $rcoll[$media->getName() . '.' . $media->getExtension()] = $media;
+                }
+            }
+
+            $view->addData('report', $report);
+            $view->addData('rcoll', $rcoll);
+        }
+
+        $view->addData('tcoll', $tcoll);
+        $view->addData('lang', $request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage());
+        $view->addData('template', $template);
+
+        return $view;
     }
 
     /**
