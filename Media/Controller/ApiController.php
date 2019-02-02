@@ -16,11 +16,12 @@ namespace Modules\Media\Controller;
 
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
-
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
+
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\System\MimeType;
 
 /**
  * Media class.

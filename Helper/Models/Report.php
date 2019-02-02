@@ -260,7 +260,7 @@ class Report implements \JsonSerializable
     }
 
     /**
-     * @param mixed $source Report source
+     * @param \Modules\Media\Models\Collection|int $source Report source
      *
      * @return void
      *
@@ -272,7 +272,7 @@ class Report implements \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return \Modules\Media\Models\Collection|int
      *
      * @since  1.0.0
      */

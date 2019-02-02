@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
     <div class="col-xs-12 col-md-9">
         <div class="wf-100" style="height: 100%;">
-            <iframe src="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe> 
+            <iframe src="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
         </div>
     </div>
 
