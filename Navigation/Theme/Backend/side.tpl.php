@@ -10,12 +10,16 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+use \Modules\Navigation\Models\LinkType;
+use \Modules\Navigation\Models\NavigationType;
 /**
  * @var \Modules\Navigation\Views\NavigationView $this
  */
-if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
+if (isset($this->nav[NavigationType::SIDE])) : ?>
     <ul id="nav-side" class="nav" role="navigation">
-        <?php foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::CATEGORY] as $key => $parent) : ?>
+        <?php
+        $uriPath = $this->request->getUri()->getPath();
+        foreach ($this->nav[NavigationType::SIDE][LinkType::CATEGORY] as $key => $parent) : ?>
         <li><input id="nav-<?= $this->printHtml($parent['nav_name']); ?>" type="checkbox">
             <ul>
                 <li><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>">
@@ -24,15 +28,23 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE])) : ?>
                     <?php endif; ?>
                     <?= $this->getHtml($parent['nav_name'], 'Navigation') ?><i class="fa fa-chevron-left min"></i>
                     <i class="fa fa-chevron-down max"></i></label>
-                    <?php if (isset($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK])) :
-                        foreach ($this->nav[\Modules\Navigation\Models\NavigationType::SIDE][\Modules\Navigation\Models\LinkType::LINK] as $key2 => $link) :
-                    if ($link['nav_parent'] === $key) : ?>
-                <li>
-                    <a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>"><?= $this->getHtml($link['nav_name'], 'Navigation') ?></a>
-                    <?php endif;
-                    endforeach; endif; ?>
+                    <?php if (isset($this->nav[NavigationType::SIDE][LinkType::LINK])) :
+                        foreach ($this->nav[NavigationType::SIDE][LinkType::LINK] as $key2 => $link) :
+                            if ($link['nav_parent'] === $key) :
+                                $uri = \phpOMS\Uri\UriFactory::build($link['nav_uri']);
+                                $parentUri = \explode('/', $uri);
+                                \array_pop($parentUri);
+                                $miniParent = \ltrim(\implode('/', $parentUri), '/') . '/';
+                                // todo: very simpleminded solution. doesn't work for root path /en/backend etc. e.g. dashboard
+                                // this also fails for urls which are not structured like a tree
+                            ?>
+                                <li<?= (count($parentUri) > 2 && \stripos($uriPath, $miniParent) !== false) ? ' class="active"' : '' ?>>
+                                    <a href="<?= $uri; ?>"><?= $this->getHtml($link['nav_name'], 'Navigation') ?></a>
+                            <?php endif;
+                        endforeach;
+                    endif; ?>
             </ul>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
     </ul>
 <?php
 endif;
