@@ -251,7 +251,7 @@ class Template implements \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */
@@ -373,17 +373,20 @@ class Template implements \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
-            'createdBy' => $this->createdBy,
-            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
-            'name' => $this->name,
+            'id'          => $this->id,
+            'createdBy'   => $this->createdBy,
+            'createdAt'   => $this->createdAt->format('Y-m-d H:i:s'),
+            'name'        => $this->name,
             'description' => $this->description,
-            'status' => $this->status,
-            'datatype' => $this->datatype,
-            'standalone' => $this->isStandalone,
+            'status'      => $this->status,
+            'datatype'    => $this->datatype,
+            'standalone'  => $this->isStandalone,
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return $this->toArray();

@@ -81,7 +81,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
             $media = new Media();
             $media->setCreatedBy(1);
             $media->setExtension($file['extension']);
-            $media->setPath(trim($file['path'], '/') . '/' . $file['filename']);
+            $media->setPath(\trim($file['path'], '/') . '/' . $file['filename']);
             $media->setName($file['name']);
             $media->setSize($file['size']);
 
@@ -110,6 +110,6 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = TemplateMapper::getNewest(1);
 
-        self::assertEquals(1, count($newest));
+        self::assertEquals(1, \count($newest));
     }
 }

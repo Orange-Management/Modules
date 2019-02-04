@@ -21,7 +21,7 @@ use \Modules\Tasks\Models\TaskStatus;
 $task      = $this->getData('task');
 $taskMedia = $task->getMedia();
 $elements  = $task->getTaskElements();
-$cElements = count($elements);
+$cElements = \count($elements);
 $forwarded = $task->getCreatedBy()->getId();
 $color     = $this->getStatus($task->getStatus());
 

@@ -48,6 +48,12 @@ final class KanbanCardMapper extends DataMapperAbstract
         'kanban_card_created_by'  => ['name' => 'kanban_card_created_by', 'type' => 'int', 'internal' => 'createdBy'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
@@ -59,6 +65,11 @@ final class KanbanCardMapper extends DataMapperAbstract
      * Has many relation.
      *
      * @var array<string, array<string, null|string>>
+     * @since 1.0.0
+     */    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static $hasMany = [

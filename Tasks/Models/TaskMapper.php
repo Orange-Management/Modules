@@ -59,6 +59,11 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
+     */    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
      */
     protected static $hasMany = [
         'taskElements' => [
@@ -81,6 +86,12 @@ final class TaskMapper extends DataMapperAbstract
         ],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,

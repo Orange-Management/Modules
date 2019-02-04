@@ -27,6 +27,9 @@ class Log implements \JsonSerializable
         return [];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return $this->toArray();

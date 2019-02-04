@@ -34,6 +34,12 @@ final class SolutionMapper extends DataMapperAbstract
         'riskmngmt_solution_risk'           => ['name' => 'riskmngmt_solution_risk', 'type' => 'int', 'internal' => 'risk'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'risk'  => [
             'mapper' => RiskMapper::class,

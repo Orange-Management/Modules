@@ -74,7 +74,7 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
         $promotion->addTask($task);
 
         self::assertEquals('Promo Task A', $promotion->getTask(0)->getTitle());
-        self::assertEquals(1, count($promotion->getTasks()));
+        self::assertEquals(1, \count($promotion->getTasks()));
         self::assertTrue($promotion->removeTask(0));
         self::assertEquals(0, $promotion->countTasks());
     }

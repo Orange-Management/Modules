@@ -48,6 +48,12 @@ final class NewsArticleMapper extends DataMapperAbstract
         'news_created_at' => ['name' => 'news_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,

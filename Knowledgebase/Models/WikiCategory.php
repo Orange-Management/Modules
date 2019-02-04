@@ -59,6 +59,9 @@ class WikiCategory implements \JsonSerializable
         $this->parent = $parent;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

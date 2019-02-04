@@ -72,6 +72,6 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         ];
 
         $ids = $this->module->createDbEntries($status, 1);
-        self::assertEquals(2, count($ids));
+        self::assertEquals(2, \count($ids));
     }
 }

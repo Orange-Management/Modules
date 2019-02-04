@@ -126,6 +126,9 @@ class KanbanBoard implements \JsonSerializable
         return false;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

@@ -36,6 +36,12 @@ final class ProcessMapper extends DataMapperAbstract
         'riskmngmt_process_deputy'         => ['name' => 'riskmngmt_process_deputy', 'type' => 'int', 'internal' => 'deputy'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'unit'       => [
             'mapper' => UnitMapper::class,

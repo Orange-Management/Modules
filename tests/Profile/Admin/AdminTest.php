@@ -64,7 +64,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         }
 
         self::assertTrue($found);
-        self::assertGreaterThan(0, count($moduleManager->getLanguageFiles($request)));
+        self::assertGreaterThan(0, \count($moduleManager->getLanguageFiles($request)));
         self::assertTrue(\in_array('Profile', $moduleManager->getRoutedModules($request)));
 
         $moduleManager->initRequestModules($request);

@@ -16,7 +16,7 @@
  */
 $task      = $this->getData('task');
 $elements  = $task->getTaskElements();
-$cElements = count($elements);
+$cElements = \count($elements);
 
 echo $this->getData('nav')->render(); ?>
 

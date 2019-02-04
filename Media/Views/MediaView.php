@@ -36,7 +36,7 @@ class MediaView extends View
     {
         if (is_file($media->getPath() . $sub)
             && StringUtils::startsWith(
-                \str_replace('\\', '/', realpath($media->getPath() . $sub)),
+                \str_replace('\\', '/', \realpath($media->getPath() . $sub)),
                 $media->getPath()
             )
         ) {
@@ -48,9 +48,9 @@ class MediaView extends View
 
     protected function dirPathFunction(Media $media, string $sub) : string
     {
-        if (is_dir($media->getPath() . $sub)
+        if (\is_dir($media->getPath() . $sub)
             && StringUtils::startsWith(
-                \str_replace('\\', '/', realpath($media->getPath() . $sub)),
+                \str_replace('\\', '/', \realpath($media->getPath() . $sub)),
                 $media->getPath()
             )
         ) {
@@ -63,8 +63,8 @@ class MediaView extends View
     protected function isCollectionFunction(Media $media, string $sub) : bool
     {
         return ($media->getExtension() === 'collection'
-                && !is_file($media->getPath() . $sub))
-            || (is_dir($media->getPath())
+                && !\is_file($media->getPath() . $sub))
+            || (\is_dir($media->getPath())
                 && ($sub === null || \is_dir($media->getPath() . $sub))
         );
     }

@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Media\Models
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -17,6 +17,14 @@ namespace Modules\Media\Models;
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Media mapper class.
+ *
+ * @package    Modules\Media\Models
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 class MediaMapper extends DataMapperAbstract
 {
 
@@ -41,6 +49,12 @@ class MediaMapper extends DataMapperAbstract
         'media_created_at'      => ['name' => 'media_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,

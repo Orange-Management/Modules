@@ -141,13 +141,13 @@ class Media implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function setAbsolute(bool $absolute) : void /* void */
+    public function setAbsolute(bool $absolute) : void
     {
         $this->isAbsolute = $absolute;
     }
 
     /**
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */
@@ -335,7 +335,7 @@ class Media implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    public function toArray()
+    public function toArray() : array
     {
         return [
             'id'          => $this->id,

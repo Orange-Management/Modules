@@ -28,7 +28,13 @@ use phpOMS\System\File\Local\Directory;
  */
 class UploadFile
 {
-    public const PATH_GENERATION_LIMIT = 1000;
+    /**
+     * Limit of iterations to find a possible random path for the file to upload to.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private const PATH_GENERATION_LIMIT = 1000;
 
     /**
      * Image interlaced.

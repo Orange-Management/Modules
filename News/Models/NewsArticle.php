@@ -297,7 +297,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */

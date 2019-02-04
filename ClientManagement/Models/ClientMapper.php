@@ -75,8 +75,12 @@ final class ClientMapper extends DataMapperAbstract
             'mapper' => ProfileMapper::class,
             'src'    => 'clientmgmt_client_account',
         ],
-    ];
-
+    ];    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $hasMany = [
         'files'           => [
             'mapper' => MediaMapper::class, /* mapper of the related object */

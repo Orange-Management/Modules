@@ -75,8 +75,12 @@ final class SupplierMapper extends DataMapperAbstract
             'mapper' => ProfileMapper::class,
             'src'    => 'suppliermgmt_supplier_account',
         ],
-    ];
-
+    ];    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $hasMany = [
         'files'           => [
             'mapper' => MediaMapper::class, /* mapper of the related object */

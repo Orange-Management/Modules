@@ -33,19 +33,21 @@ class Collection extends Media implements \Iterator
      */
     private $sources = [];
 
+    /**
+     * Extension name.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     protected $extension = 'collection';
 
-    protected $versioned = false;
-
     /**
-     * Constructor.
+     * Versioned.
      *
-     * @since  1.0.0
+     * @var bool
+     * @since 1.0.0
      */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    protected $versioned = false;
 
     /**
      * Set sources.
@@ -87,36 +89,57 @@ class Collection extends Media implements \Iterator
         return $this->sources;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setExtension(string $extension) : void
     {
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setVersioned(bool $versioned) : void
     {
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function rewind() : void
     {
-        reset($this->sources);
+        \reset($this->sources);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function current()
     {
-        return current($this->sources);
+        return \current($this->sources);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function key()
     {
-        return key($this->sources);
+        return \key($this->sources);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function next() : void
     {
-        next($this->sources);
+        \next($this->sources);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function valid()
     {
-        return current($this->sources) !== false;
+        return \current($this->sources) !== false;
     }
 }

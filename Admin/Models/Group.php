@@ -81,7 +81,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Get created by.
      *
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */

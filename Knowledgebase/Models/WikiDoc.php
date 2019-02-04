@@ -127,6 +127,9 @@ class WikiDoc implements \JsonSerializable
         $this->badges[] = $badge;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

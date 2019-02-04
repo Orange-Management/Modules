@@ -48,6 +48,12 @@ final class AuditMapper extends DataMapperAbstract
         'auditor_audit_new'        => ['name' => 'auditor_audit_new',        'type' => 'string',   'internal' => 'new'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,

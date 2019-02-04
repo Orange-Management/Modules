@@ -149,7 +149,7 @@ final class ApiController extends Controller
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
-            if (!is_null($created = self::createDbEntry($uFile, $account))) {
+            if (($created = self::createDbEntry($uFile, $account)) !== null) {
                 $mediaCreated[] = $created;
             }
         }

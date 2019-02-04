@@ -204,6 +204,6 @@ class BatchPosting implements \Countable
      */
     public function count() : int
     {
-        return count($this->postings);
+        return \count($this->postings);
     }
 }

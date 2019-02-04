@@ -59,6 +59,9 @@ class QACategory implements \JsonSerializable
         $this->parent = $parent;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

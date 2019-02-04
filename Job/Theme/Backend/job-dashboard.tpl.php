@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getStatus()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getLastRunTime()) ? $job->getLastRunTime()->format('Y-m-d H:i:s') : ''); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(!empty($job->getNextRunTime()) ? $job->getNextRunTime()->format('Y-m-d H:i:s') : ''); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml(trim($job->getId())); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml(\trim($job->getId())); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getRun()); ?></a>
                         <?php endforeach; if ($c == 0) : ?>
                 <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

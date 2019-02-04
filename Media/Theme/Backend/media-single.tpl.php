@@ -61,7 +61,7 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
                     <?php
-                        if (!is_dir($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($media->getPath(), '//'))
+                        if (!\is_dir($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($media->getPath(), '//'))
                             || $media->getPath() === ''
                         ) :
                             foreach ($media as $key => $value) :
@@ -78,12 +78,12 @@ echo $this->getData('nav')->render();
                     <?php endforeach; else : $path = $this->dirPathFunction($media, $this->request->getData('sub') ?? ''); ?>
                         <?php $list = \phpOMS\System\File\Local\Directory::list($path);
                             foreach ($list as $key => $value) :
-                                $url = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . substr($value, strlen($media->getPath())));
-                                $icon = $this->fileIconFunction(FileUtils::getExtensionType(!is_dir($value) ? File::extension($value) : 'collection'));
+                                $url = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . \substr($value, \strlen($media->getPath())));
+                                $icon = $this->fileIconFunction(FileUtils::getExtensionType(!\is_dir($value) ? File::extension($value) : 'collection'));
                         ?>
                         <tr data-href="<?= $url; ?>">
                             <td><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
-                            <td><a href="<?= $url; ?>"><?= substr($value, strlen($media->getPath())); ?></a>
+                            <td><a href="<?= $url; ?>"><?= \substr($value, \strlen($media->getPath())); ?></a>
                             <td><a href="<?= $url; ?>"><?= !\is_dir($value) ? File::extension($value) : 'collection'; ?></a>
                             <td><a href="<?= $url; ?>"><?= !\is_dir($value) ? File::size($value) : ''; ?></a>
                             <td><a href="<?= $url; ?>"><?= File::owner($value); ?></a>

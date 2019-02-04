@@ -161,6 +161,9 @@ class QAQuestion implements \JsonSerializable
         $this->answers[] = $answer;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

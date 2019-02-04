@@ -152,7 +152,7 @@ class InterfaceManager
             throw new PathException($this->path);
         }
 
-        $this->info = \json_decode(file_get_contents($this->path), true);
+        $this->info = \json_decode(\file_get_contents($this->path), true);
     }
 
     /**
@@ -184,8 +184,8 @@ class InterfaceManager
      */
     public function set(string $path, $data, string $delim = '/') : void
     {
-        if (!is_scalar($data) && !is_array($data) && !($data instanceof \JsonSerializable)) {
-            throw new \InvalidArgumentException('Type of $data "' . gettype($data) . '" is not supported.');
+        if (!\is_scalar($data) && !\is_array($data) && !($data instanceof \JsonSerializable)) {
+            throw new \InvalidArgumentException('Type of $data "' . \gettype($data) . '" is not supported.');
         }
 
         ArrayUtils::setArray($path, $this->info, $data, $delim, true);

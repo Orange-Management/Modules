@@ -32,6 +32,12 @@ final class RiskObjectMapper extends DataMapperAbstract
         'riskmngmt_risk_object_risk'           => ['name' => 'riskmngmt_risk_object_risk', 'type' => 'int', 'internal' => 'risk'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'unit' => [
             'mapper' => RiskMapper::class,

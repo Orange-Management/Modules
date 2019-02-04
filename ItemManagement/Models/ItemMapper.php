@@ -46,8 +46,12 @@ final class ItemMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'itemmgmt_item_id';
-
+    protected static $primaryField = 'itemmgmt_item_id';    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $hasMany = [
         'media' => [
             'mapper' => MediaMapper::class, /* mapper of the related object */

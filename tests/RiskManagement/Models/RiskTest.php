@@ -72,20 +72,20 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(1, $obj->getDeputy());
 
         $obj->addCause(new Cause());
-        self::assertEquals(1, count($obj->getCauses()));
+        self::assertEquals(1, \count($obj->getCauses()));
         self::assertInstanceOf('\Modules\RiskManagement\Models\Cause', $obj->getCauses()[0]);
 
         $obj->addSolution(new Solution());
-        self::assertEquals(1, count($obj->getSolutions()));
+        self::assertEquals(1, \count($obj->getSolutions()));
         self::assertInstanceOf('\Modules\RiskManagement\Models\Solution', $obj->getSolutions()[0]);
 
         $obj->addRiskObject(2);
-        self::assertEquals(1, count($obj->getRiskObjects()));
+        self::assertEquals(1, \count($obj->getRiskObjects()));
 
         $obj->addHistory(2);
-        self::assertEquals(1, count($obj->getHistory()));
+        self::assertEquals(1, \count($obj->getHistory()));
 
         $obj->addMedia(2);
-        self::assertEquals(1, count($obj->getMedia()));
+        self::assertEquals(1, \count($obj->getMedia()));
     }
 }

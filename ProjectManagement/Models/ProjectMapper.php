@@ -57,6 +57,11 @@ final class ProjectMapper extends DataMapperAbstract
      *
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
+     */    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
      */
     protected static $hasMany = [
         'tasks' => [

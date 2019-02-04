@@ -107,7 +107,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = TaskMapper::getNewest(1);
 
-        self::assertEquals(1, count($newest));
+        self::assertEquals(1, \count($newest));
     }
 
     /**

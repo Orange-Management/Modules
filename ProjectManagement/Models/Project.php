@@ -153,7 +153,7 @@ class Project
 
     public function countTasks() : int
     {
-        return count($this->tasks);
+        return \count($this->tasks);
     }
 
     public function getStart() : \DateTime

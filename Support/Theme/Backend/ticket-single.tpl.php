@@ -16,7 +16,7 @@
  */
 $ticket      = $this->getData('ticket');
 $elements  = $ticket->getTask()->getTaskElements();
-$cElements = count($elements);
+$cElements = \count($elements);
 
 if ($ticket->getTask()->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
 elseif ($ticket->getTask()->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }

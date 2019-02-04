@@ -16,7 +16,12 @@ namespace Modules\Media\Models;
 
 
 final class CollectionMapper extends MediaMapper
-{
+{    /**
+     * Has many relation.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $hasMany = [
         'sources' => [
             'mapper' => MediaMapper::class, /* mapper of the related object */

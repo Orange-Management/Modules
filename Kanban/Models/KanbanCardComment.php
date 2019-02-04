@@ -92,6 +92,9 @@ class KanbanCardComment implements \JsonSerializable
         $this->media[] = $media;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

@@ -45,17 +45,17 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
         $allModules    = $moduleManager->getInstalledModules(false);
-        $sampleInfo    = \json_decode(file_get_contents(__DIR__ . '/info.json'), true);
+        $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/info.json'), true);
         $totalRoutes   = include __DIR__ . '/../../../Web/Backend/Routes.php';
         $totalHooks    = include __DIR__ . '/../../../Web/Api/Hooks.php';
-        $infoTemplate  = \json_decode(file_get_contents(__DIR__ . '/../../../phpOMS/Module/infoLayout.json'), true);
+        $infoTemplate  = \json_decode(\file_get_contents(__DIR__ . '/../../../phpOMS/Module/infoLayout.json'), true);
 
         foreach ($allModules as $name => $module) {
             $module = $moduleManager->get($name);
 
             if (!($module instanceof NullModule)) {
                 self::assertEquals($name, $module::MODULE_NAME);
-                self::assertEquals(realpath(__DIR__ . '/../../../Modules/' . $module::MODULE_NAME), realpath($module::MODULE_PATH));
+                self::assertEquals(\realpath(__DIR__ . '/../../../Modules/' . $module::MODULE_NAME), \realpath($module::MODULE_PATH));
                 self::assertGreaterThanOrEqual(0, Version::compare($module::MODULE_VERSION, '1.0.0'));
 
                 // test if db entries match json files
@@ -74,17 +74,17 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                     );
                 }
 
-                if (file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
+                if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
                     $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
                     self::assertTrue($this->routesTest($moduleRoutes, $totalRoutes), 'Route assert failed for '. $name);
                 }
 
-                if (file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
+                if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
                     $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
                     self::assertTrue($this->hooksTest($moduleHooks, $totalHooks), 'Hook assert failed for '. $name);
                 }
 
-                $info = \json_decode(file_get_contents($module::MODULE_PATH . '/info.json'), true);
+                $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
                 self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. $name);
                 self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid template for ' . $name);
 
@@ -102,7 +102,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         $it     = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($links));
 
         foreach ($it as $link) {
-            if (is_array($link)
+            if (\is_array($link)
                 && !\in_array($link['id'], $result)
             ) {
                 return false;
@@ -152,19 +152,19 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     private function infoJsonTest(array $module, array $sample) : bool
     {
         try {
-            if (gettype($module['name']['id']) === gettype($sample['name']['id'])
-                && gettype($module['name']['internal']) === gettype($sample['name']['internal'])
-                && gettype($module['name']['external']) === gettype($sample['name']['external'])
-                && gettype($module['category']) === gettype($sample['category'])
-                && gettype($module['version']) === gettype($sample['version'])
-                && gettype($module['requirements']) === gettype($sample['requirements'])
-                && gettype($module['creator']) === gettype($sample['creator'])
-                && gettype($module['creator']['name']) === gettype($sample['creator']['name'])
-                && gettype($module['description']) === gettype($sample['description'])
-                && gettype($module['directory']) === gettype($sample['directory'])
-                && gettype($module['dependencies']) === gettype($sample['dependencies'])
-                && gettype($module['providing']) === gettype($sample['providing'])
-                && gettype($module['load']) === gettype($sample['load'])
+            if (\gettype($module['name']['id']) === \gettype($sample['name']['id'])
+                && \gettype($module['name']['internal']) === \gettype($sample['name']['internal'])
+                && \gettype($module['name']['external']) === \gettype($sample['name']['external'])
+                && \gettype($module['category']) === \gettype($sample['category'])
+                && \gettype($module['version']) === \gettype($sample['version'])
+                && \gettype($module['requirements']) === \gettype($sample['requirements'])
+                && \gettype($module['creator']) === \gettype($sample['creator'])
+                && \gettype($module['creator']['name']) === \gettype($sample['creator']['name'])
+                && \gettype($module['description']) === \gettype($sample['description'])
+                && \gettype($module['directory']) === \gettype($sample['directory'])
+                && \gettype($module['dependencies']) === \gettype($sample['dependencies'])
+                && \gettype($module['providing']) === \gettype($sample['providing'])
+                && \gettype($module['load']) === \gettype($sample['load'])
             ) {
                 return true;
             }

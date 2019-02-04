@@ -77,7 +77,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $project->addTask($task);
 
         self::assertEquals('A', $project->getTask(0)->getTitle());
-        self::assertEquals(1, count($project->getTasks()));
+        self::assertEquals(1, \count($project->getTasks()));
         self::assertTrue($project->removeTask(0));
         self::assertEquals(0, $project->countTasks());
 

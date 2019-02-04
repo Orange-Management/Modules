@@ -216,7 +216,7 @@ class Report implements \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */
@@ -293,6 +293,9 @@ class Report implements \JsonSerializable
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return $this->toArray();

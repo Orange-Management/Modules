@@ -238,6 +238,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
         return (string) \json_encode($this->toArray());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return $this->toArray();

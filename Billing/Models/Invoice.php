@@ -516,6 +516,9 @@ class Invoice implements \JsonSerializable
         $this->elements[] = $element;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : void
     {
 

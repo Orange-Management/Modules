@@ -79,7 +79,7 @@ class Supplier
 
     public function setReverseNumber($rev_no) : void
     {
-        if (!is_scalar($rev_no)) {
+        if (!\is_scalar($rev_no)) {
             throw new \Exception();
         }
 

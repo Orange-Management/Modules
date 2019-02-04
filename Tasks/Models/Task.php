@@ -317,7 +317,7 @@ class Task implements \JsonSerializable
     /**
      * Get created by
      *
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */

@@ -200,7 +200,7 @@ class Event
 
     public function countTasks() : int
     {
-        return count($this->tasks);
+        return \count($this->tasks);
     }
 
     public function getId() : int

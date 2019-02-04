@@ -86,7 +86,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = PromotionMapper::getNewest(1);
 
-        self::assertEquals(1, count($newest));
+        self::assertEquals(1, \count($newest));
     }
 
     /**

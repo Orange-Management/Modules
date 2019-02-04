@@ -138,7 +138,7 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return int|\phpOMS\Account\Account
      *
      * @since  1.0.0
      */

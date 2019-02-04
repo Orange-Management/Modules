@@ -60,6 +60,6 @@ class AdminTest extends \PHPUnit\Framework\TestCase
         $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
         $modules       = $moduleManager->getInstalledModules(false);
 
-        self::assertGreaterThan(0, count($nav));
+        self::assertGreaterThan(0, \count($nav));
     }
 }

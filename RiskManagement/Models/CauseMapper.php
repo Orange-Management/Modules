@@ -35,6 +35,12 @@ final class CauseMapper extends DataMapperAbstract
         'riskmngmt_cause_probability'    => ['name' => 'riskmngmt_cause_probability', 'type' => 'int', 'internal' => 'probability'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'risk'       => [
             'mapper' => RiskMapper::class,

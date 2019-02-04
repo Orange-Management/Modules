@@ -92,7 +92,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = ProjectMapper::getNewest(1);
 
-        self::assertEquals(1, count($newest));
+        self::assertEquals(1, \count($newest));
     }
 
     /**

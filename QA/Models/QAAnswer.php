@@ -103,6 +103,9 @@ class QAAnswer implements \JsonSerializable
         return $this->createdAt;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [];

@@ -36,6 +36,12 @@ final class EditorDocMapper extends DataMapperAbstract
         'editor_doc_created_at' => ['name' => 'editor_doc_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array<string, string>>
+     * @since 1.0.0
+     */
     protected static $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,

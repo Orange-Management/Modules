@@ -77,7 +77,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
         $media = new Media();
         $media->setCreatedBy(1);
         $media->setDescription('desc');
-        $media->setPath(realpath(__DIR__ . '/../../../../../'));
+        $media->setPath(\realpath(__DIR__ . '/../../../../../'));
         $media->setAbsolute(true);
         $media->setSize(11);
         $media->setExtension('collection');

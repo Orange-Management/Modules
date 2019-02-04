@@ -192,6 +192,9 @@ class KanbanCard implements \JsonSerializable
         $this->labels[] = $label;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize() : array
     {
         return [
