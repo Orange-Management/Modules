@@ -15,7 +15,9 @@ declare(strict_types=1);
 namespace Modules\Draw\Controller;
 
 use Modules\Draw\Models\DrawImageMapper;
+
 use phpOMS\Asset\AssetType;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;
@@ -44,7 +46,7 @@ final class BackendController extends Controller
      */
     public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /** @var Head $head */
+        /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Controller.js');
         $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/DrawType.js');
@@ -56,12 +58,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -76,12 +78,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -101,12 +103,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 

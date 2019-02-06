@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Utils\TaskSchedule\SchedulerAbstract;
@@ -35,12 +36,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewJobList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewJobList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Job/Theme/Backend/job-dashboard');
@@ -60,12 +61,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewJobCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewJobCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Job/Theme/Backend/job-create');
@@ -79,12 +80,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewJob(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewJob(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Job/Theme/Backend/job-single');

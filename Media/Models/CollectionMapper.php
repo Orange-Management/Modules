@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    TBD
+ * @package    Modules\Media
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -14,12 +14,20 @@ declare(strict_types=1);
 
 namespace Modules\Media\Models;
 
-
+/**
+ * Mapper class.
+ *
+ * @package    Modules\Media
+ * @license    OMS License 1.0
+ * @link       http://website.orange-management.de
+ * @since      1.0.0
+ */
 final class CollectionMapper extends MediaMapper
-{    /**
+{
+    /**
      * Has many relation.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static $hasMany = [

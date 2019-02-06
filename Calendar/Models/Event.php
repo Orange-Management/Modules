@@ -56,7 +56,7 @@ class Event
     /**
      * Created.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $createdAt = null;
@@ -178,19 +178,13 @@ class Event
     /**
      * @param Account $person Person to add
      *
-     * @return int Account id/position
+     * @return void
      *
      * @since  1.0.0
      */
-    public function addPerson(Account $person)
+    public function addPerson(Account $person) : void
     {
-        $this->people[] = $person;
-
-        \end($this->people);
-        $key = \key($this->people);
-        \reset($this->people);
-
-        return $key;
+        $this->people[$person->getId()] = $person;
     }
 
     /**

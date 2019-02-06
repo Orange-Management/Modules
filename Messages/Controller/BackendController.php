@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageInbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/dashboard');
@@ -59,7 +59,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageOutbox(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-out-view');
@@ -78,7 +78,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageTrash(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-trash-view');
@@ -97,7 +97,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageSpam(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-spam-view');
@@ -116,7 +116,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-view');
@@ -136,7 +136,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/mail-create');
@@ -155,7 +155,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMessageSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Messages/Theme/Backend/message-settings');

@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\News\Controller;
 
-
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\PermissionState;
 
 use phpOMS\Account\PermissionType;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -40,12 +40,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewNewsDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewNewsDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -62,12 +62,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/News/Theme/Backend/dashboard-news');
@@ -83,12 +83,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewNewsArticle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -97,7 +97,7 @@ final class BackendController extends Controller
 
         if ($article->getCreatedBy()->getId() !== $accountId
             && !$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::ARTICLE, $article->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::NEWS, $article->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
@@ -116,12 +116,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewNewsArchive(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewNewsArchive(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -139,12 +139,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 

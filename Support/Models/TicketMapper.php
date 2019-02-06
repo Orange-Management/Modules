@@ -17,7 +17,6 @@ namespace Modules\Support\Models;
 use Modules\Tasks\Models\TaskMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
-
 /**
  * Mapper class.
  *

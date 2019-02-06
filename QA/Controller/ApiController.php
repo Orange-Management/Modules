@@ -18,7 +18,6 @@ use Modules\QA\Models\QAQuestionMapper;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 
-
 /**
  * Task class.
  *

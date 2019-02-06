@@ -67,7 +67,7 @@ class Event
     /**
      * Created.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $createdAt = null;

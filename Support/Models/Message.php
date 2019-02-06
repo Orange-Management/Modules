@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Support;
+namespace Modules\Support\Models;
 
 /**
  * Issue class.
@@ -44,7 +44,7 @@ class Message
     /**
      * Created.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $created = null;

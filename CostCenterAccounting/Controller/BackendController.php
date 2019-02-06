@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-list');
@@ -58,7 +58,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-create');
@@ -77,7 +77,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-profile');

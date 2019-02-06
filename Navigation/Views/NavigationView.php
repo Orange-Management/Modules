@@ -91,7 +91,7 @@ class NavigationView extends View
     }
 
     /**
-     * @param mixed $nav
+     * @param array $nav
      *
      * @return void
      *

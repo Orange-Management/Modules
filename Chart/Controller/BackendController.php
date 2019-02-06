@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Chart\Controller;
 
 use phpOMS\Asset\AssetType;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Html\Head;
@@ -43,7 +44,7 @@ final class BackendController extends Controller
      */
     public function setUpChartEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /** @var Head $head */
+        /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart.css');
         $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart_line.css');
@@ -58,12 +59,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChartCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChartCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create');
@@ -77,12 +78,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChartCreateLine(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChartCreateLine(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create-line');
@@ -96,12 +97,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChartCreateArea(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChartCreateArea(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create-area');
@@ -115,12 +116,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChartList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChartList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-list');

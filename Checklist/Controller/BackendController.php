@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChecklistList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChecklistList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-list');
@@ -58,7 +58,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChecklistTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChecklistTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-list');
@@ -77,7 +77,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewChecklistTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewChecklistTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-create');

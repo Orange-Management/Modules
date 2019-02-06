@@ -182,8 +182,6 @@ final class ApiController extends Controller
                 $tcoll['js'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.sqlite') || StringUtils::endsWith($lowerPath, '.db')) {
                 $tcoll['db'][] = $tMedia;
-            } else {
-                // Do nothing; only the creator knows how to deal with this type of file :)
             }
         }
 

@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    Modules\Media
+ * @package    Modules\Workflow
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -12,16 +12,16 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Media;
+namespace Modules\Workflow\Templates\Permission;
 
 use Modules\Workflow\Models\WorkflowInterface;
 use Modules\Workflow\Templates\Permission\States;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 
 /**
- * Media class.
+ * Workflow class.
  *
- * @package    Modules\Media
+ * @package    Modules\Workflow
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

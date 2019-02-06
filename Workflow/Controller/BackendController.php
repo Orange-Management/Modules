@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Workflow\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -33,12 +34,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewWorkflowTemplates(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewWorkflowTemplates(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/workflow-template-list');
@@ -52,12 +53,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewWorkflowTemplate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewWorkflowTemplate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/task-single');
@@ -71,12 +72,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewWorkflowSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewWorkflowSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/task-create');
@@ -90,12 +91,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewWorkflowTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewWorkflowTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/workflow-template-create');
@@ -109,12 +110,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewWorkflowDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewWorkflowDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Workflow/Theme/Backend/workflow-dashboard');

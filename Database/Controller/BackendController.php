@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Database\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -33,12 +34,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDatabaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-list');
@@ -52,12 +53,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDatabaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-generator');
@@ -71,12 +72,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseResult(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDatabaseResult(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Database/Theme/Backend/database-query-result');

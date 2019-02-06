@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-list');
@@ -59,7 +59,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-create');
@@ -78,7 +78,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-profile');
@@ -97,7 +97,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/entries-list');
@@ -116,7 +116,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/analyze-dashboard');

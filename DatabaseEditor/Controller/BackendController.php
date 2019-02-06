@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\DatabaseEditor\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -33,12 +34,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewDatabaseEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-editor');

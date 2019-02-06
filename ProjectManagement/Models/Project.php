@@ -55,7 +55,7 @@ class Project
     /**
      * Created at.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $createdAt = null;

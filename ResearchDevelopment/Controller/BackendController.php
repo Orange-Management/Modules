@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ResearchDevelopment/Theme/Backend/rnd-list');
@@ -59,7 +59,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewProjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ResearchDevelopment/Theme/Backend/rnd-create');

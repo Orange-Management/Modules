@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewContractDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewContractDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ContractLifecycleManagement/Theme/Backend/contract-dashboard');

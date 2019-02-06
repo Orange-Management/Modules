@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\SalesAnalysis\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -33,12 +34,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewBackendDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewBackendDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/SalesAnalysis/Theme/Backend/analysis-dashboard');
@@ -52,12 +53,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewBackendOverviewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewBackendOverviewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/SalesAnalysis/Theme/Backend/analysis-overview-dashboard');

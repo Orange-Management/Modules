@@ -23,6 +23,7 @@ use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Admin\Models\NullAccountPermission;
 use Modules\Admin\Models\NullGroupPermission;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -53,11 +54,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewSettingsGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view     = new View($this->app, $request, $response);
         $settings = $this->app->appSettings->get([
@@ -88,11 +89,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -108,11 +109,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -131,11 +132,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -166,11 +167,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -187,11 +188,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -209,11 +210,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -247,11 +248,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -271,11 +272,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -291,11 +292,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      */
-    public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 

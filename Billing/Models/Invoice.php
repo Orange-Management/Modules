@@ -138,10 +138,11 @@ class Invoice implements \JsonSerializable
     private $trackings = [];
 
     private $elements = [];
+
     /**
      * Reference to other invoice (delivery note/credit note etc).
      *
-     * @var \DateTime
+     * @var int
      * @since 1.0.0
      */
     private $reference = 0;

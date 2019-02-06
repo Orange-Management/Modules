@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Surveys;
+namespace Modules\Surveys\Models;
 
 /**
  * Survey class.

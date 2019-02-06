@@ -68,7 +68,7 @@ class InterfaceManager
     /**
      * Get id
      *
-     * @return string
+     * @return int
      *
      * @since  1.0.0
      */
@@ -116,7 +116,7 @@ class InterfaceManager
     /**
      * Provides import interface
      *
-     * @return string
+     * @return bool
      *
      * @since  1.0.0
      */
@@ -128,7 +128,7 @@ class InterfaceManager
     /**
      * Provides export interface
      *
-     * @return string
+     * @return bool
      *
      * @since  1.0.0
      */
@@ -152,7 +152,8 @@ class InterfaceManager
             throw new PathException($this->path);
         }
 
-        $this->info = \json_decode(\file_get_contents($this->path), true);
+        $content    = \file_get_contents($this->path);
+        $this->info = \json_decode($content !== false ? $content : '[]', true);
     }
 
     /**

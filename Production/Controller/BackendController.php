@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewProductionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProductionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Production/Theme/Backend/production-list');
@@ -58,7 +58,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewProductionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProductionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Production/Theme/Backend/production-create');
@@ -77,7 +77,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewProductionProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProductionProcessList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Production/Theme/Backend/process-list');
@@ -96,7 +96,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewProductionProcessCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProductionProcessCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Production/Theme/Backend/process-create');

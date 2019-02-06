@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\ItemManagement\Controller;
 
 use Modules\ItemManagement\Models\ItemMapper;
+
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -40,7 +41,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewItemManagementSalesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/sales-item-list');
@@ -62,7 +63,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewItemManagementPurchaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/purchase-item-list');
@@ -81,7 +82,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewItemManagementWarehousingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/stock-list');
@@ -100,7 +101,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewItemManagementSalesCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
@@ -119,7 +120,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewItemManagementPurchaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');
@@ -138,7 +139,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewItemManagementWarehousingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ItemManagement/Theme/Backend/item-create');

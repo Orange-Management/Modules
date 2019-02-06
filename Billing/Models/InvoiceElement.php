@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Billing\Models;
 
+use phpOMS\Localization\Money;
+
 /**
  * Invoice class.
  *

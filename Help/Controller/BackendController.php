@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Help\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Utils\Parser\Markdown\Markdown;
@@ -34,12 +35,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewHelp(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHelp(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Help/Theme/Backend/help');
@@ -52,12 +53,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewHelpGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHelpGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $path = $this->getHelpGeneralPath($request);
@@ -105,12 +106,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewHelpModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHelpModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module-list');
@@ -123,12 +124,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewHelpModule(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHelpModule(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $active = $this->app->moduleManager->getActiveModules();
 
@@ -182,12 +183,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewHelpDeveloper(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHelpDeveloper(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $path = $this->getHelpDeveloperPath($request);

@@ -20,7 +20,6 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 
-
 /**
  * Exchange controller class.
  *
@@ -57,7 +56,7 @@ final class ApiController extends Controller
         }
 
         $response->set($request->getUri()->__toString(), [
-            'status' => status,
+            'status' => $status,
             'title' => 'Exchange',
             'message' => $message
         ]);

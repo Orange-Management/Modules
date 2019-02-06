@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewSurveysList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-list');
@@ -59,7 +59,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewSurveysCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
@@ -78,7 +78,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewSurveysProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-profile');

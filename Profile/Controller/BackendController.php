@@ -18,6 +18,7 @@ use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
 
 use phpOMS\Asset\AssetType;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -54,11 +55,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      */
-    public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -73,11 +74,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      */
-    public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProfileSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -121,11 +122,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      */
-    public function viewProfileAdminSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProfileAdminSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/modules-settings');
@@ -139,11 +140,11 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      */
-    public function viewProfileAdminCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewProfileAdminCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Profile/Theme/Backend/modules-create');

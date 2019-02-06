@@ -16,9 +16,9 @@ namespace Modules\Exchange\Controller;
 
 use Modules\Exchange\Models\InterfaceManagerMapper;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-
 use phpOMS\Views\View;
 
 /**
@@ -32,7 +32,7 @@ use phpOMS\Views\View;
 final class BackendController extends Controller
 {
 
-    public function viewExchangeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewExchangeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-dashboard');
@@ -48,12 +48,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewExchangeExportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewExchangeExportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-export-list');
@@ -80,12 +80,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewExchangeImportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewExchangeImportList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-import-list');
@@ -112,12 +112,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewExchangeExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewExchangeExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-export');
@@ -133,12 +133,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewExchangeImport(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewExchangeImport(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Exchange/Theme/Backend/exchange-import');

@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewBillingInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewBillingInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/invoice-list');
@@ -59,7 +59,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewBillingInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewBillingInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/invoice-create');
@@ -78,7 +78,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewBillingPurchaInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewBillingPurchaInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Billing/Theme/Backend/purchase-invoice-list');

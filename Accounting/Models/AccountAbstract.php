@@ -36,7 +36,7 @@ abstract class AccountAbstract
     /**
      * Type.
      *
-     * @var AccountType
+     * @var int
      * @since 1.0.0
      */
     protected $type = AccountType::IMPERSONAL;

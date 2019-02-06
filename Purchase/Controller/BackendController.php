@@ -40,7 +40,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewPurchaseInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewPurchaseInvoiceList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Purchase/Theme/Backend/invoice-list');
@@ -59,7 +59,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewPurchaseInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewPurchaseInvoiceCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Purchase/Theme/Backend/invoice-create');
@@ -78,7 +78,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewPurchaseArticleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewPurchaseArticleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Purchase/Theme/Backend/article-list');
@@ -97,7 +97,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewPurchaseArticleCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewPurchaseArticleCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Purchase/Theme/Backend/article-create');
@@ -116,7 +116,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewPurchaseArticleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewPurchaseArticleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Purchase/Theme/Backend/article-profile');
@@ -135,7 +135,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewPurchaseOrderRecommendation(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewPurchaseOrderRecommendation(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Purchase/Theme/Backend/article-order-recommendation');

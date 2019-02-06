@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Controller;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -40,12 +41,12 @@ final class ConsoleController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable Serializable web view
+     * @return RenderableInterface Response can be rendered
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 

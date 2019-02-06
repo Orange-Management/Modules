@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    Interfaces\GSD\Models
+ * @package    Modules\Exchange\Interfaces\GSD\Model
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -12,13 +12,12 @@
  */
 declare(strict_types=1);
 
-namespace Interfaces\GSD\Models;
-
+namespace Modules\Exchange\Interfaces\GSD\Model;
 
 /**
  * Cost object class.
  *
- * @package    Interfaces\GSD\Models
+ * @package    Modules\Exchange\Interfaces\GSD\Model
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

@@ -15,9 +15,10 @@ declare(strict_types=1);
 namespace Modules\Auditor\Controller;
 
 use Modules\Auditor\Models\AuditMapper;
+
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-
 use phpOMS\Views\View;
 
 /**
@@ -35,12 +36,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAuditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAuditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/audit-list');
@@ -57,12 +58,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAuditorSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAuditorSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/audit-single');
@@ -79,12 +80,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAuditorModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAuditorModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/module-list');
@@ -101,12 +102,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAuditorModuleSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAuditorModuleSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/module-single');
@@ -123,12 +124,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAuditorAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAuditorAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/account-list');
@@ -145,12 +146,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAuditorAccountSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAuditorAccountSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/account-single');

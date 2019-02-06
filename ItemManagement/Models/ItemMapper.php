@@ -49,7 +49,7 @@ final class ItemMapper extends DataMapperAbstract
     protected static $primaryField = 'itemmgmt_item_id';    /**
      * Has many relation.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static $hasMany = [

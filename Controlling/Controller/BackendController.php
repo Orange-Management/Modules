@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Controlling\Controller;
 
-
 /**
  * Controlling controller class.
  *

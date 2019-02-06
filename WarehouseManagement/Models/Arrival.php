@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Warehousing\Models;
+namespace Modules\WarehouseManagement\Models;
 
 /**
  * Warehouse class.
@@ -60,7 +60,7 @@ class Arrival
     /**
      * Date of arrival.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $date = null;
@@ -150,7 +150,7 @@ class Arrival
     /**
      * Get date of when the consignment arrived.
      *
-     * @return \Datetime Date of arrival
+     * @return \DateTime Date of arrival
      *
      * @since  1.0.0
      */
@@ -162,7 +162,7 @@ class Arrival
     /**
      * Set date of when the consignment arrived.
      *
-     * @param \Datetime $date Date of arrival
+     * @param \DateTime $date Date of arrival
      *
      * @return void
      *

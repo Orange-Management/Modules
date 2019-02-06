@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewCostObjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewCostObjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-list');
@@ -58,7 +58,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewCostObjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewCostObjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-create');
@@ -77,7 +77,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewCostObjectProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewCostObjectProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-profile');

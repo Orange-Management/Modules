@@ -25,6 +25,7 @@ use Modules\Helper\Models\TemplateMapper;
 
 use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
@@ -57,12 +58,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -80,12 +81,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -104,12 +105,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
 
@@ -128,14 +129,14 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @throws \Exception
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewHelperReport(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewHelperReport(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
@@ -171,15 +172,13 @@ final class BackendController extends Controller
             } elseif (StringUtils::endsWith($lowerPath, '.css')) {
                 $tcoll['css'] = $tMedia;
 
-                /** @var Head $head */
+                /** @var \phpOMS\Model\Html\Head $head */
                 $head = $response->get('Content')->getData('head');
                 $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . $tMedia->getPath());
             } elseif (StringUtils::endsWith($lowerPath, '.js')) {
                 $tcoll['js'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.sqlite') || StringUtils::endsWith($lowerPath, '.db')) {
                 $tcoll['db'][] = $tMedia;
-            } else {
-                // Do nothing; only the creator knows how to deal with this type of file :)
             }
         }
 

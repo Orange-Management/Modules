@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Warehousing\Models;
+namespace Modules\WarehouseManagement\Models;
 
 /**
  * Warehouse class.
@@ -60,7 +60,7 @@ class Shipping
     /**
      * Date of arrival.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $delivered = null;
@@ -174,7 +174,7 @@ class Shipping
     /**
      * Get delivered.
      *
-     * @return \Datetime
+     * @return \DateTime
      *
      * @since  1.0.0
      */
@@ -186,7 +186,7 @@ class Shipping
     /**
      * Set delivered.
      *
-     * @param \Datetime $delivered Date of delivery
+     * @param \DateTime $delivered Date of delivery
      *
      * @return void
      *

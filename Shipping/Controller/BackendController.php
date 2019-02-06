@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewShippingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewShippingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Shipping/Theme/Backend/shipping-list');
@@ -58,7 +58,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewShippingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewShippingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Shipping/Theme/Backend/shipping-create');

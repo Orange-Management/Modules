@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\ClientManagement\Controller;
 
 use Modules\ClientManagement\Models\ClientMapper;
+
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -40,7 +41,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewClientManagementClientList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewClientManagementClientList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-list');
@@ -62,7 +63,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewClientManagementClientCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewClientManagementClientCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-create');
@@ -81,7 +82,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewClientManagementClientProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewClientManagementClientProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/ClientManagement/Theme/Backend/clients-profile');

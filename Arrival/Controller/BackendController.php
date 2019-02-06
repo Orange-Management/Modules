@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewArrivalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewArrivalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Arrival/Theme/Backend/arrival-list');
@@ -58,7 +58,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewArrivalCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewArrivalCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Arrival/Theme/Backend/arrival-create');

@@ -19,8 +19,6 @@ include __DIR__ . '/template-functions.php';
 
 /**
  * @var \phpOMS\Views\View $this
- */
-/**
  * @var $media \Modules\Media\Models\Media
  */
 $media = $this->getData('media');

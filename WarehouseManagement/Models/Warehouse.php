@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Warehousing\Models;
+namespace Modules\WarehouseManagement\Models;
 
 /**
  * Warehouse class.

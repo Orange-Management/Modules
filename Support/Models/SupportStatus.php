@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Support;
+namespace Modules\Support\Models;
 
 use phpOMS\Stdlib\Base\Enum;
 

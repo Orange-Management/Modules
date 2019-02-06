@@ -39,7 +39,7 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewAssetManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewAssetManagementList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/AssetManagement/Theme/Backend/asset-list');

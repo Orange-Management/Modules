@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Sales\Controller;
 
-
 /**
  * Sales class.
  *

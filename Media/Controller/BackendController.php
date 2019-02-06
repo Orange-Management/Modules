@@ -20,9 +20,9 @@ use Modules\Media\Models\MediaMapper;
 use Modules\Media\Views\MediaView;
 
 use phpOMS\Asset\AssetType;
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Html\Head;
 use phpOMS\Views\View;
 
 /**
@@ -96,7 +96,7 @@ final class BackendController extends Controller
      */
     public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /** @var Head $head */
+        /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::JSLATE, '/Modules/Media/Models/Upload.js');
         $head->addAsset(AssetType::JSLATE, '/Modules/Media/Controller.js');
@@ -107,12 +107,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMediaList(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMediaList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
@@ -129,12 +129,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new MediaView($this->app, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-single');
@@ -155,12 +155,12 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return \Serializable
+     * @return RenderableInterface
      *
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
+    public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-create');

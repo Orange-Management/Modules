@@ -10,7 +10,7 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */ /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
-namespace Modules\Warehousing\Models;
+namespace Modules\WarehouseManagement\Models;
 
 /**
  * Article class.
@@ -112,7 +112,7 @@ class Article
     /**
      * Created.
      *
-     * @var \Datetime
+     * @var \DateTime
      * @since 1.0.0
      */
     private $created = null;
@@ -270,7 +270,7 @@ class Article
     /**
      * Get created.
      *
-     * @return \Datetime
+     * @return \DateTime
      *
      * @since  1.0.0
      */
@@ -282,7 +282,7 @@ class Article
     /**
      * Set created.
      *
-     * @param \Datetime $created Date of when the article got created
+     * @param \DateTime $created Date of when the article got created
      *
      * @return void
      *

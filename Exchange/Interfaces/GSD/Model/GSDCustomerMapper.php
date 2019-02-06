@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    Interfaces\GSD\Models
+ * @package    Modules\Exchange\Interfaces\GSD\Model
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -12,14 +12,14 @@
  */
 declare(strict_types=1);
 
-namespace Interfaces\GSD\Models;
+namespace Modules\Exchange\Interfaces\GSD\Model;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
  * Mapper class.
  *
- * @package    Interfaces\GSD\Models
+ * @package    Modules\Exchange\Interfaces\GSD\Model
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
@@ -41,7 +41,7 @@ final class GSDCustomerMapper extends DataMapperAbstract
 
     protected static $ownsOne = [
         'mainAddress' => [
-            'mapper' => GSDAddress::class,
+            'mapper' => GSDAddressMapper::class,
             'src'    => 'AddressId',
         ],
     ];
