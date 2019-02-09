@@ -24,13 +24,4 @@ namespace Modules\Accounting\Models;
  */
 abstract class Posting extends PostingAbstract
 {
-
-    /**
-     * Constructor.
-     *
-     * @since  1.0.0
-     */
-    public function __construct()
-    {
-    }
 }

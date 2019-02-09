@@ -186,7 +186,7 @@ final class BackendController extends Controller
         $accountId = $request->getHeader()->getAccount();
 
         if (!$this->app->accountManager->get($accountId)->hasPermission(
-                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::DOC, $category->getId())
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::WIKI, $category->getId())
         ) {
             $view->setTemplate('/Web/Backend/Error/403_inline');
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

@@ -31,7 +31,7 @@ class Survey
      * @var int
      * @since 1.0.0
      */
-    private $id = '';
+    private $id = 0;
 
     /**
      * Name.
@@ -66,10 +66,6 @@ class Survey
     private $creator = null;
 
     private static $instances = [];
-
-    public function __construct($id)
-    {
-    }
 
     public function getInstance($id)
     {

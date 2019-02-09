@@ -31,7 +31,7 @@ class Arrival
      * @var int
      * @since 1.0.0
      */
-    private $id = '';
+    private $id = 0;
 
     /**
      * Order.

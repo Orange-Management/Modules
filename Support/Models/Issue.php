@@ -66,10 +66,6 @@ class Issue
 
     private static $instances = [];
 
-    public function __construct($id)
-    {
-    }
-
     public function getInstance($id)
     {
         if (!isset(self::$instances[$id])) {

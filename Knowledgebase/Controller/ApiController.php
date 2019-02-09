@@ -18,10 +18,11 @@ use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiDocMapper;
-
 use Modules\Knowledgebase\Models\WikiStatus;
+
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Utils\Parser\Markdown\Markdown;
 
 /**
  * Task class.

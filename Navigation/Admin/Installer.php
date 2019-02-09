@@ -85,7 +85,7 @@ class Installer extends InstallerAbstract
         $navElement = new NavElement();
 
         $navElement->id                = (int) ($data['id'] ?? 0);
-        $navElement->pid               = (string) (\sha1(\str_replace('/', '', $data['pid'] ?? '')));
+        $navElement->pid               = \sha1(\str_replace('/', '', $data['pid'] ?? ''));
         $navElement->name              = (string) ($data['name'] ?? '');
         $navElement->type              = (int) ($data['type'] ?? 1);
         $navElement->subtype           = (int) ($data['subtype'] ?? 2);

@@ -50,6 +50,7 @@ final class WikiDocMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
+    /*
     protected static $hasMany = [
         'badges' => [
             'mapper' => BadgeMapper::class,
@@ -57,7 +58,7 @@ final class WikiDocMapper extends DataMapperAbstract
             'src'    => 'wiki_article_badge_badge',
             'dst'    => 'wiki_article_badge_article',
         ],
-    ];
+    ];*/
 
     /**
      * Has owns one relation.

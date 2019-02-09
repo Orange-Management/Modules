@@ -27,7 +27,7 @@ class EventTemplate extends Event
     /**
      * Type.
      *
-     * @var EventType
+     * @var int
      * @since 1.0.0
      */
     private $type = EventType::TEMPLATE;

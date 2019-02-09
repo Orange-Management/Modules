@@ -31,7 +31,7 @@ class Question
      * @var int
      * @since 1.0.0
      */
-    private $id = '';
+    private $id = 0;
 
     /**
      * Name.
@@ -50,10 +50,6 @@ class Question
     private $description = '';
 
     private static $instances = [];
-
-    public function __construct($id)
-    {
-    }
 
     public function getInstance($id)
     {
