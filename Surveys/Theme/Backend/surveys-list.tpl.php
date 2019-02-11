@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="4">
                 <tbody>
-                <?php $count = 0; foreach ([] as $key => $value) : $count++; ?>
+                <?php $count = 0; foreach ([] as $key => $value) : ++$count; ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                     <?php $count = 0;
                         foreach ($media as $key => $value) :
-                            $count++;
+                            ++$count;
                             $url  = \phpOMS\Uri\UriFactory::build('{/lang}/backend/media/single?{?}&id=' . $value->getId());
                             $icon = $fileIconFunction(\phpOMS\System\File\FileUtils::getExtensionType($value->getExtension()));
                         ?>

@@ -13,7 +13,7 @@
                                 <input autocomplete="off" class="input" id="mediaInput" name="mediaFile" type="text"
                                     data-emptyAfter="true"
                                     data-autocomplete="false"
-                                    data-src="http://127.0.0.1/en/api/media/find?search={#mediaInput}">
+                                    data-src="{/lang}/api/media/find?search={#mediaInput}">
                                 <div id="iMediaInput-dropdown" class="dropdown" data-active="true">
                                     <table id="a1" class="table darkred">
                                         <thead>

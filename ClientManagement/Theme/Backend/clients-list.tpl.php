@@ -77,7 +77,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="8">
                 <tbody>
-                <?php $count = 0; foreach ($clients as $key => $value) : $count++;
+                <?php $count = 0; foreach ($clients as $key => $value) : ++$count;
                  $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/sales/client/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getNumber()); ?></a>

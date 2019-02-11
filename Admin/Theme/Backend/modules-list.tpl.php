@@ -36,7 +36,7 @@ $installed = $this->app->moduleManager->getInstalledModules();
                 <tr>
                     <td colspan="4">
                         <tbody>
-                        <?php $count = 0; foreach ($modules as $key => $module) : $count++;
+                        <?php $count = 0; foreach ($modules as $key => $module) : ++$count;
                         $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/admin/module/settings?{?}&id=' . $module['name']['internal']);
                             if (isset($active[$module['name']['internal']])) { $status = ModuleStatus::ACTIVE; }
                             elseif (isset($installed[$module['name']['internal']])) { $status = ModuleStatus::INACTIVE; }

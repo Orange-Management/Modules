@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
         <tfoot>
         <tr><td colspan="5"><?= $this->printHtml(\phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['usage'])); ?> / <?= $this->printHtml(\phpOMS\Utils\Converter\File::kilobyteSizeToString($quota['limit'])); ?>
         <tbody>
-            <?php $count = 0; foreach ($unseen as $key => $value) : $count++;
+            <?php $count = 0; foreach ($unseen as $key => $value) : ++$count;
             $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/messages/mail/single?{?}&id=' . $value->uid); ?>
             <tr>
                 <td><span class="check"><input type="checkbox"></span>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><a href="<?= $url; ?>"<?= $this->printHtml($value->seen == 0 ? ' class="unseen"' : ''); ?>><?= $this->printHtml((new \DateTime($value->date))->format('Y-m-d H:i:s')); ?></a>
             <?php endforeach; ?>
 
-                    <?php foreach ($seen as $key => $value) : $count++;
+                    <?php foreach ($seen as $key => $value) : ++$count;
                     $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/messages/mail/single?{?}&id=' . $value->uid); ?>
             <tr>
                 <td><span class="check"><input type="checkbox"></span>

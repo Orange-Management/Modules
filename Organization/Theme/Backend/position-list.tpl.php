@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                         <tfoot>
                 <tr><td colspan="3">
                         <tbody>
-                        <?php $count = 0; foreach ($listElements as $key => $value) : $count++;
+                        <?php $count = 0; foreach ($listElements as $key => $value) : ++$count;
                         $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/organization/position/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>

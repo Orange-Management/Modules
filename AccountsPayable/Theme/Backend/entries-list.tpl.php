@@ -64,7 +64,7 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->getHtml('Created') ?>
         <tbody>
         <?php $count = 0;
-        foreach ([] as $key => $value) : $count++; ?>
+        foreach ([] as $key => $value) : ++$count; ?>
         <?php endforeach; ?>
         <?php if ($count === 0) : ?>
         <tr>
@@ -91,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
             <td><?= $this->getHtml('Created') ?>
         <tbody>
         <?php $count = 0;
-        foreach ([] as $key => $value) : $count++; ?>
+        foreach ([] as $key => $value) : ++$count; ?>
         <?php endforeach; ?>
         <?php if ($count === 0) : ?>
         <tr>

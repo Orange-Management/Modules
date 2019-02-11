@@ -16,6 +16,8 @@ namespace Modules\Media\Controller;
 
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
 
@@ -73,8 +75,9 @@ final class ApiController extends Controller
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: handle logging
+        // todo: this is really messy because i don't use formdata object. media first get's uploaded but nothing is done with the form data
         $uploads = $this->uploadFiles(
+            $request->getData('name') ?? '',
             $request->getFiles(),
             $request->getHeader()->getAccount(),
             (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files')
@@ -107,6 +110,7 @@ final class ApiController extends Controller
     }
 
     /**
+     * @param string $name     Name
      * @param array  $files    Files
      * @param int    $account  Uploader
      * @param string $basePath Base path
@@ -115,7 +119,7 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public function uploadFiles(array $files, int $account, string $basePath = 'Modules/Media/Files') : array
+    public function uploadFiles(string $name, array $files, int $account, string $basePath = 'Modules/Media/Files') : array
     {
         $mediaCreated = [];
 
@@ -123,8 +127,8 @@ final class ApiController extends Controller
             $upload = new UploadFile();
             $upload->setOutputDir(self::createMediaPath($basePath));
 
-            $status       = $upload->upload($files);
-            $mediaCreated = self::createDbEntries($status, $account);
+            $status       = $upload->upload($files, $name);
+            $mediaCreated = self::createDbEntries($name, $status, $account);
         }
 
         return $mediaCreated;
@@ -144,7 +148,7 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public static function createDbEntries(array $status, int $account) : array
+    public static function createDbEntries(string $name, array $status, int $account) : array
     {
         $mediaCreated = [];
 
@@ -178,7 +182,7 @@ final class ApiController extends Controller
 
     private static function normalizeDbPath(string $path) : string
     {
-        $realpath = \realpath(__DIR__ . '/../../');
+        $realpath = \realpath(__DIR__ . '/../../../');
 
         if ($realpath === false) {
             throw new \Exception();

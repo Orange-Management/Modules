@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="3">
                 <tbody>
-                <?php $count = 0; foreach ($images as $key => $value) : $count++;
+                <?php $count = 0; foreach ($images as $key => $value) : ++$count;
                 $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/draw/single?{?}&id=' . $value->getId()); ?>
                     <tr>
                         <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getMedia()->getName()); ?></a>

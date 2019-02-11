@@ -88,6 +88,7 @@ class UploadFile
      * Upload file to server.
      *
      * @param array  $files    File data ($_FILE)
+     * @param string $name     File name
      * @param string $encoding Encoding used for uploaded file. Empty string will not convert file content.
      *
      * @return array
@@ -96,7 +97,7 @@ class UploadFile
      *
      * @since  1.0.0
      */
-    public function upload(array $files, string $encoding = 'UTF-8') : array
+    public function upload(array $files, string $name = '', string $encoding = 'UTF-8') : array
     {
         $result = [];
 
@@ -141,7 +142,7 @@ class UploadFile
             }
 
             $split                     = \explode('.', $f['name']);
-            $result[$key]['name']      = $split[0];
+            $result[$key]['name']      = \count($files) === 1 && !empty($name) ? $name : $split[0];
             $extension                 = \count($split) > 1 ? $split[\count($split) - 1] : '';
             $result[$key]['extension'] = $extension;
 

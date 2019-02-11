@@ -26,7 +26,7 @@ $newsList = $this->getData('news');
                 <td><?= $this->getHtml('Type', 'News') ?>
                 <td class="wf-100"><?= $this->getHtml('Title', 'News') ?>
             <tbody>
-            <?php $count = 0; foreach ($newsList as $key => $news) : $count++;
+            <?php $count = 0; foreach ($newsList as $key => $news) : ++$count;
             $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/news/article?{?}&id=' . $news->getId());
             $color = 'darkred';
             if ($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }

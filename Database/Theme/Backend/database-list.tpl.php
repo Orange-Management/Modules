@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="3">
                         <tbody>
-                        <?php $count = 0; foreach ($queries as $key => $value) : $count++;
+                        <?php $count = 0; foreach ($queries as $key => $value) : ++$count;
                         $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/database/template/single?{?}&id=' . $value->getId()); ?>
                         <tr>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>

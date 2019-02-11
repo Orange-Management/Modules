@@ -36,7 +36,8 @@ echo $this->getData('nav')->render();
                         <tr><td><?= $this->getHtml('Size') ?><td class="wf-100"><?= $this->printHtml($media->getSize()); ?>
                         <tr><td><?= $this->getHtml('Created') ?><td><?= $this->printHtml($media->getCreatedAt()->format('Y-m-d')); ?>
                         <tr><td><?= $this->getHtml('Creator') ?><td><?= $this->printHtml($media->getCreatedBy()->getName1()); ?>
-                        <tr><td><?= $this->getHtml('Description') ?><td><?= $this->printHtml($media->getDescription()); ?>
+                        <tr><td colspan="2"><?= $this->getHtml('Description') ?>
+                        <tr><td colspan="2"><?= $media->getDescription(); ?>
                 </table>
             </div>
         </section>
@@ -59,7 +60,7 @@ echo $this->getData('nav')->render();
                     <td><?= $this->getHtml('Created') ?>
                 <tbody>
                     <?php
-                        if (!\is_dir($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($media->getPath(), '//'))
+                        if (!\is_dir($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($media->getPath(), '//'))
                             || $media->getPath() === ''
                         ) :
                             foreach ($media as $key => $value) :
@@ -104,12 +105,12 @@ echo $this->getData('nav')->render();
                 <?php else : ?>
                     <button class="floatRight">Edit</button>
 
-                    <?php if (!\file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($path, '/'))) : ?>
+                    <?php if (!\file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/'))) : ?>
                         <div class="centerText"><i class="fa fa-question fa-5x"></i></div>
                     <?php else : ?>
                     <pre>
                     <?php
-                    $output = $this->lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../' . \ltrim($path, '/'));
+                    $output = $this->lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/'));
                     foreach ($output as $line) : ?><span><?= $this->printHtml($line); ?></span><?php endforeach; ?>
                     </pre>
                     <?php endif; ?>

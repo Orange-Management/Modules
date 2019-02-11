@@ -10,7 +10,7 @@
             <td><?= $this->getHtml('Created', 'Media') ?>
         <tfoot>
         <tbody>
-            <?php $count = 0; foreach ($this->media as $key => $value) : $count++;
+            <?php $count = 0; foreach ($this->media as $key => $value) : ++$count;
                 $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/media/single?{?}&id=' . $value->getId());
 
                 $icon = '';

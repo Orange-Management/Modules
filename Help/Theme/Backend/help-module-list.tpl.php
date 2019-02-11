@@ -35,9 +35,9 @@ $modules = $this->app->moduleManager->getInstalledModules();
                             continue;
                         }
 
-                        $count++;
+                        ++$count;
                         $url = \phpOMS\Uri\UriFactory::build(
-                            '/{/lang}/backend/help/module/single?id={$module}',
+                            '{/lang}/backend/help/module/single?id={$module}',
                             ['$module' => $module['name']['internal']]
                         ); ?>
                 <tr data-href="<?= $url; ?>">

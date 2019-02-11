@@ -133,7 +133,7 @@ final class ApiController extends Controller
                 break;
             default:
                 $response->getHeader()->set('Content-Type', 'text/html; charset=utf-8');
-                $view->setTemplate('/' . \substr($view->getData('tcoll')['template']->getPath(), 0, -8));
+                $view->setTemplate('/Modules/' . \substr($view->getData('tcoll')['template']->getPath(), 0, -8));
         }
     }
 

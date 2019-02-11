@@ -21,8 +21,8 @@ $template = $this->getData('template');
 $report   = $this->getData('report');
 
 /** @noinspection PhpIncludeInspection */
-$reportLanguage = include __DIR__ . '/../../../../' . \ltrim($tcoll['lang']->getPath(), '/');
-$lang = $reportLanguage[$cLang];
+$reportLanguage = isset($tcoll['lang']) ? include __DIR__ . '/../../../../' . \ltrim($tcoll['lang']->getPath(), '/') : [];
+$lang = $reportLanguage[$cLang] ?? [];
 
 echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
@@ -86,7 +86,7 @@ echo $this->getData('nav')->render(); ?>
                                 </select>
                         <tr>
                             <td><input type="button" value="<?= $this->getHtml('Export'); ?>"
-                                    data-ropen="/{#lang}/api/helper/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
+                                    data-ropen="{#lang}/api/helper/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
                     </table>
                 </form>
             </div>

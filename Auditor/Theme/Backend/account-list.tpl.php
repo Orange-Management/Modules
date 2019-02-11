@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="3">
                 <tbody>
-                <?php $count = 0; foreach ($audits as $key => $audit) : $count++;
+                <?php $count = 0; foreach ($audits as $key => $audit) : ++$count;
                 $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/admin/audit/single?{?}&id=' . $audit->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td>
