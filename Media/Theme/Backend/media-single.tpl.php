@@ -63,7 +63,7 @@ echo $this->getData('nav')->render();
                             || $media->getPath() === ''
                         ) :
                             foreach ($media as $key => $value) :
-                                $url  = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $value->getId());
+                                $url  = UriFactory::build('{/lang}/backend/media/single?{?}&id=' . $value->getId());
                                 $icon = $fileIconFunction(FileUtils::getExtensionType($value->getExtension()));
                         ?>
                         <tr data-href="<?= $url; ?>">
@@ -76,7 +76,7 @@ echo $this->getData('nav')->render();
                     <?php endforeach; else : $path = $this->dirPathFunction($media, $this->request->getData('sub') ?? ''); ?>
                         <?php $list = \phpOMS\System\File\Local\Directory::list($path);
                             foreach ($list as $key => $value) :
-                                $url = UriFactory::build('/{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . \substr($value, \strlen($media->getPath())));
+                                $url = UriFactory::build('{/lang}/backend/media/single?{?}&id=' . $media->getId() . '&sub=' . \substr($value, \strlen($media->getPath())));
                                 $icon = $this->fileIconFunction(FileUtils::getExtensionType(!\is_dir($value) ? File::extension($value) : 'collection'));
                         ?>
                         <tr data-href="<?= $url; ?>">

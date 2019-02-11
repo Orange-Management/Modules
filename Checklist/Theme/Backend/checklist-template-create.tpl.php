@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('General') ?></h1></header>
             <div class="inner">
-                <form id="fChecklist" method="put" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/checklist/template?{?}&csrf={$CSRF}'); ?>">
+                <form id="fChecklist" method="put" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/checklist/template?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label><td>
                         <tr><td><input type="text" id="iName" name="name" required><td>

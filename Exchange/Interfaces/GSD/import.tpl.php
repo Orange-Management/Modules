@@ -4,7 +4,7 @@
             <header><h1><?= $this->getHtml('Import') ?> - GSD</h1></header>
 
             <div class="inner">
-                <form id="fImport" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/exchange/import/profile?{?}&exchange=GSD&csrf={$CSRF}'); ?>">
+                <form id="fImport" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/exchange/import/profile?{?}&exchange=GSD&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
                         <tr><td><label for="iHost"><?= $this->getHtml('Host') ?></label>

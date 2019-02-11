@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Group'); ?></h1></header>
                         <div class="inner">
-                            <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group'); ?>" method="post">
+                            <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group'); ?>" method="post">
                                 <table class="layout wf-100" style="table-layout: fixed">
                                     <tbody>
                                     <tr><td><label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
                             <?php $c = 0; foreach ($accounts as $key => $value) : $c++; ?>
                             <tr>
                                 <td><a href="#"><i class="fa fa-times"></i></a>
-                                <td><a href="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
+                                <td><a href="<?= \phpOMS\Uri\UriFactory::build('{/lang}/backend/admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
                             <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
@@ -78,7 +78,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Accounts'); ?></h1></header>
                         <div class="inner">
-                            <form id="iAddAccountToGroup" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group/account'); ?>" method="put">
+                            <form id="iAddAccountToGroup" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group/account'); ?>" method="put">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iGParentName"><?= $this->getHtml('Name'); ?></label>
@@ -134,7 +134,7 @@ echo $this->getData('nav')->render(); ?>
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
                         <div class="inner">
-                            <form id="fGroupAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/group/permission'); ?>" method="put">
+                            <form id="fGroupAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group/permission'); ?>" method="put">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>

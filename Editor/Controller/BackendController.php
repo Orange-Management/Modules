@@ -48,8 +48,8 @@ final class BackendController extends Controller
     public function setUpEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Editor/Models/Editor.js');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Editor/Controller.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Editor/Models/Editor.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Editor/Controller.js');
     }
 
     /**

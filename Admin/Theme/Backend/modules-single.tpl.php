@@ -54,21 +54,21 @@ if ($nav !== null) {
                     <tr>
                         <td colspan="2">
                             <?php if (isset($active[$id])) : ?>
-                                <form id="fModuleDeactivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                <form id="fModuleDeactivate" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
                                     <button id="fModuleDeactivateButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::DEACTIVATE ?>"><?= $this->getHtml('Deactivate'); ?></button>
                                 </form>
                             <?php elseif (isset($installed[$id])) : ?>
-                                <form id="fModuleUninstall" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                <form id="fModuleUninstall" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
                                     <button id="fModuleUninstallButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::UNINSTALL ?>"><?= $this->getHtml('Uninstall'); ?></button>
                                 </form>
-                                <form id="fModuleActivate" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                <form id="fModuleActivate" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
                                     <button id="fModuleActivateButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::ACTIVATE ?>"><?= $this->getHtml('Activate'); ?></button>
                                 </form>
                             <?php elseif (isset($modules[$id])) : ?>
-                                <form id="fModuleInstall" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                <form id="fModuleInstall" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
                                     <button id="fModuleInstallButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::INSTALL ?>"><?= $this->getHtml('Install'); ?></button>
                                 </form>
-                                <form id="fModuleDelete" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
+                                <form id="fModuleDelete" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/module/status?module=' . $id); ?>" method="POST">
                                     <button id="fModuleDeleteButton" name="status" type="submit" value="<?= ModuleStatusUpdateType::DELETE ?>"><?= $this->getHtml('Delete'); ?></button>
                                 </form>
                             <?php endif; ?>

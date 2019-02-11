@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "CreditManagement",
-        "uri": "/{/lang}/backend/cmanagement/dashboard?{?}",
+        "uri": "{/lang}/backend/cmanagement/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 110,

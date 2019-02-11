@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                     <td colspan="3">
                 <tbody>
                 <?php $count = 0; foreach ($docs as $key => $value) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/editor/single?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                         <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>

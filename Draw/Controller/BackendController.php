@@ -48,9 +48,9 @@ final class BackendController extends Controller
     {
         /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Controller.js');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/DrawType.js');
-        $head->addAsset(AssetType::JSLATE, '/Modules/Draw/Models/Editor.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Controller.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/DrawType.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/Editor.js');
     }
 
     /**

@@ -28,7 +28,7 @@ echo $this->getData('nav')->render();
                     <td class="wf-100"><?= $this->getHtml('Title') ?>
                 <tbody>
                 <?php $count = 0; foreach ($interfaces as $key => $value) : $count++;
-                $url = \phpOMS\Uri\UriFactory::build('/{/lang}/backend/admin/exchange/export/profile?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/admin/exchange/export/profile?{?}&id=' . $value->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                 <?php endforeach; ?>

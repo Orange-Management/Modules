@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Unit') ?></h1></header>
             <div class="inner">
-                <form id="fUnitCreate" method="put" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/organization/unit'); ?>">
+                <form id="fUnitCreate" method="put" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/organization/unit'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>

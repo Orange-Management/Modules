@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Report'); ?></h1></header>
             <div class="inner">
-                <form id="helper-report-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/helper/report/report'); ?>" method="post">
+                <form id="helper-report-create" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/helper/report/report'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>

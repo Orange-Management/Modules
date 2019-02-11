@@ -50,8 +50,8 @@ final class BackendController extends Controller
         $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart_line.css');
         $head->addAsset(AssetType::CSS, '/cssOMS/chart/chart_area.css');
         $head->addAsset(AssetType::JS, '/jsOMS/Chart/Chart.js');
-        $head->addAsset(AssetType::JSLATE, '/jsOMS/Chart/LineChart.js');
-        $head->addAsset(AssetType::JSLATE, '/jsOMS/Chart/ColumnChart.js');
+        $head->addAsset(AssetType::JSLATE, 'jsOMS/Chart/LineChart.js');
+        $head->addAsset(AssetType::JSLATE, 'jsOMS/Chart/ColumnChart.js');
     }
 
     /**

@@ -20,7 +20,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <section class="box wf-100">
             <div class="inner">
-                <form id="fEditor" method="PUT" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/editor?{?}&csrf={$CSRF}'); ?>">
+                <form id="fEditor" method="PUT" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/editor?{?}&csrf={$CSRF}'); ?>">
                     <div class="ipt-wrap">
                         <div class="ipt-first"><input name="title" type="text" class="wf-100"></div>
                         <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Save') ?>"></div>

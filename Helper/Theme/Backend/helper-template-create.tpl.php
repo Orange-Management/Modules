@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Template'); ?></h1></header>
             <div class="inner">
-                <form id="helper-template-create" action="<?= \phpOMS\Uri\UriFactory::build('/{/lang}/api/helper/report/template'); ?>" method="post">
+                <form id="helper-template-create" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/helper/report/template'); ?>" method="post">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
                         <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>
