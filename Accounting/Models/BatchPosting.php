@@ -202,7 +202,7 @@ class BatchPosting implements \Countable
     /**
      * {@inheritdoc}
      */
-    public function \count() : int
+    public function count() : int
     {
         return \count($this->postings);
     }
