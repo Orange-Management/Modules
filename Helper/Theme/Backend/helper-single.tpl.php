@@ -26,12 +26,12 @@ $lang = $reportLanguage[$cLang] ?? [];
 
 echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
-    <div class="col-xs-12 col-md-9">
-        <div class="wf-100" style="height: 100%;">
+    <div class="col-xs-12">
+        <div class="box wf-100" style="height: 100%;">
             <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
         </div>
     </div>
-
+<!--
     <div class="col-xs-12 col-md-3">
         <?php if (count($reportLanguage) > 1) : ?>
         <section class="box wf-100">
@@ -99,7 +99,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                    <?php if (!$template->isStandalone()) : ?>
+                    <?php if (!$template->isStandalone() && !($report instanceof \Modules\Helper\Models\NullReport)) : ?>
                     <tr>
                         <th colspan="2"><?= $this->getHtml('Report') ?>
                     <tr>
@@ -126,5 +126,5 @@ echo $this->getData('nav')->render(); ?>
                 </table>
             </div>
         </section>
-    </div>
+    </div>-->
 </div>

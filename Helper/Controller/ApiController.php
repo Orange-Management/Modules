@@ -86,6 +86,7 @@ final class ApiController extends Controller
 
         $view = $this->createView($template, $request, $response);
         $this->setHelperResponseHeader($view, $template->getName(), $request, $response);
+        $view->setData('path', __DIR__ . '/../../../');
 
         if ($request->getData('download') !== null) {
             $response->getHeader()->setDownloadable($template->getName(), (string) $request->getData('type'));
@@ -133,7 +134,8 @@ final class ApiController extends Controller
                 break;
             default:
                 $response->getHeader()->set('Content-Type', 'text/html; charset=utf-8');
-                $view->setTemplate('/Modules/' . \substr($view->getData('tcoll')['template']->getPath(), 0, -8));
+                // todo: use html template here instead which uses the tcoll/template!!!
+                $view->setTemplate(\substr($view->getData('tcoll')['template']->getPath(), 0, -8));
         }
     }
 
@@ -159,29 +161,29 @@ final class ApiController extends Controller
             $lowerPath = \strtolower($tMedia->getPath());
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
-                $tcoll['lang'] = $tMedia;
-            } elseif (StringUtils::endsWith($lowerPath, 'worker.php')) {
-                $tcoll['worker'] = $tMedia;
+                $tcoll['lang'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php') || StringUtils::endsWith($lowerPath, '.xls.php')) {
-                $tcoll['excel'] = $tMedia;
+                $tcoll['excel'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.docx.php') || StringUtils::endsWith($lowerPath, '.doc.php')) {
-                $tcoll['word'] = $tMedia;
+                $tcoll['word'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.pptx.php') || StringUtils::endsWith($lowerPath, '.ppt.php')) {
-                $tcoll['powerpoint'] = $tMedia;
+                $tcoll['powerpoint'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.pdf.php')) {
-                $tcoll['pdf'] = $tMedia;
+                $tcoll['pdf'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.csv.php')) {
-                $tcoll['csv'] = $tMedia;
+                $tcoll['csv'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.json.php')) {
-                $tcoll['json'] = $tMedia;
+                $tcoll['json'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.tpl.php')) {
                 $tcoll['template'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.css')) {
-                $tcoll['css'] = $tMedia;
+                $tcoll['css'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.js')) {
-                $tcoll['js'] = $tMedia;
+                $tcoll['js'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.sqlite') || StringUtils::endsWith($lowerPath, '.db')) {
-                $tcoll['db'][] = $tMedia;
+                $tcoll['db'][$tMedia->getName()] = $tMedia;
+            } else {
+                $tcoll['other'][$tMedia->getName()] = $tMedia;
             }
         }
 
@@ -298,7 +300,8 @@ final class ApiController extends Controller
             $helperTemplate->setSource($collectionId);
         }
 
-        $helperTemplate->setStandalone((bool) $request->getData('standalone') ?? false);
+        // todo: check if this is working. might not work correctly either because name is different or because type is invalid
+        $helperTemplate->setStandalone((bool) ($request->getData('standalone') ?? false));
         $helperTemplate->setExpected(!empty($expected) ? \json_decode($expected, true) : []);
         $helperTemplate->setCreatedBy($request->getHeader()->getAccount());
         $helperTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
