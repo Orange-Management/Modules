@@ -54,7 +54,7 @@ use phpOMS\Validation\Network\Email;
 final class ApiController extends Controller
 {
     /**
-     * Api method for getting settings
+     * Api method to get settings
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -101,7 +101,7 @@ final class ApiController extends Controller
     }
 
     /**
-     * Api method for getting a group
+     * Api method to get a group
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -134,9 +134,10 @@ final class ApiController extends Controller
      */
     public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $group = $this->updateGroupFromRequest($request);
-        $this->updateModel($request, $group, $group, GroupMapper::class, 'group');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully updated', $group);
+        $old = clone GroupMapper::get((int) $request->getData('id'));
+        $new = $this->updateGroupFromRequest($request);
+        $this->updateModel($request, $old, $new, GroupMapper::class, 'group');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully updated', $new);
     }
 
     /**
@@ -438,9 +439,10 @@ final class ApiController extends Controller
      */
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $account = $this->updateAccountFromRequest($request, true);
-        $this->updateModel($request, $account, $account, AccountMapper::class, 'account');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully updated', $account);
+        $old = clone AccountMapper::get((int) $request->getData('id'));
+        $new = $this->updateAccountFromRequest($request);
+        $this->updateModel($request, $old, $new, AccountMapper::class, 'account');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully updated', $new);
     }
 
     /**

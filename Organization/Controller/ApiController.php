@@ -103,9 +103,10 @@ final class ApiController extends Controller
      */
     public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $unit = $this->updateUnitFromRequest($request);
-        $this->updateModel($request, $unit, $unit, UnitMapper::class, 'unit');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully updated.', $unit);
+        $old = clone UnitMapper::get((int) $request->getData('id'));
+        $new = $this->updateUnitFromRequest($request);
+        $this->updateModel($request, $old, $new, UnitMapper::class, 'unit');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully updated.', $new);
     }
 
     /**
@@ -282,9 +283,10 @@ final class ApiController extends Controller
      */
     public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $position = $this->updatePositionFromRequest($request);
-        $this->updateModel($request, $position, $position, PositionMapper::class, 'position');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully updated.', $position);
+        $old = clone PositionMapper::get((int) $request->getData('id'));
+        $new = $this->updatePositionFromRequest($request);
+        $this->updateModel($request, $old, $new, PositionMapper::class, 'position');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully updated.', $new);
     }
 
     /**
@@ -426,9 +428,10 @@ final class ApiController extends Controller
      */
     public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $department = $this->updateDepartmentFromRequest($request);
-        $this->updateModel($request, $department, $department, DepartmentMapper::class, 'department');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully updated.', $department);
+        $old = clone DepartmentMapper::get((int) $request->getData('id'));
+        $new = $this->updateDepartmentFromRequest($request);
+        $this->updateModel($request, $old, $new, DepartmentMapper::class, 'department');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully updated.', $new);
     }
 
     /**

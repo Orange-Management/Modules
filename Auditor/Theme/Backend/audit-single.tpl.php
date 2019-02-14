@@ -15,5 +15,17 @@
  */
 
 echo $this->getData('nav')->render();
-var_dump(\phpOMS\Utils\StringUtils::diffline($this->getData('audit')->getOld() ?? '', $this->getData('audit')->getNew() ?? ''));
 ?>
+
+<div class="row">
+    <div class="col-xs-12">
+        <section class="box wf-100">
+            <article>
+                <?= \phpOMS\Utils\StringUtils::createDiffMarkup(
+                    \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getOld() ?? ''),
+                    \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getNew() ?? '')
+                ); ?>
+            </article>
+        </section>
+    </div>
+</div>

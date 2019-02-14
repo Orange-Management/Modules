@@ -152,9 +152,10 @@ final class ApiController extends Controller
      */
     public function apiTaskSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $task = $this->updateTaskFromRequest($request);
-        $this->updateModel($request, $task, $task, TaskMapper::class, 'task');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully updated.', $task);
+        $old = clone TaskMapper::get((int) $request->getData('id'));
+        $new = $this->updateTaskFromRequest($request);
+        $this->updateModel($request, $old, $new, TaskMapper::class, 'task');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully updated.', $new);
     }
 
     /**
@@ -290,11 +291,12 @@ final class ApiController extends Controller
      */
     public function apiTaskElementSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $element = $this->updateTaskElementFromRequest($request);
-        $this->updateModel($request, $element, $element, TaskElementMapper::class, 'taskelement');
+        $old = clone TaskElementMapper::get((int) $request->getData('id'));
+        $new = $this->updateTaskElementFromRequest($request);
+        $this->updateModel($request, $old, $new, TaskElementMapper::class, 'taskelement');
         // todo: update task if elment status change had effect on task status!!!
         //$this->updateModel($request, $task, $task, TaskMapper::class, 'task');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully updated.', $element);
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully updated.', $new);
     }
 
     /**

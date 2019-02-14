@@ -85,9 +85,10 @@ final class ApiController extends Controller
      */
     public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $news = $this->updateNewsFromRequest($request);
-        $this->updateModel($request, $news, $news, NewsArticleMapper::class, 'news');
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully updated', $news);
+        $old = clone NewsArticleMapper::get((int) $request->getData('id'));
+        $new = $this->updateNewsFromRequest($request);
+        $this->updateModel($request, $old, $new, NewsArticleMapper::class, 'news');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully updated', $new);
     }
 
     /**
@@ -166,7 +167,7 @@ final class ApiController extends Controller
     }
 
     /**
-     * Api method for getting a news article
+     * Api method to get a news article
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response

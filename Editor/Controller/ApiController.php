@@ -34,6 +34,15 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 final class ApiController extends Controller
 {
 
+    /**
+     * Validate document create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since  1.0.0
+     */
     private function validateEditorCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -47,6 +56,8 @@ final class ApiController extends Controller
     }
 
     /**
+     * Api method to create document
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -88,5 +99,84 @@ final class ApiController extends Controller
         $doc->setCreatedBy($request->getHeader()->getAccount());
 
         return $doc;
+    }
+
+    /**
+     * Api method to create document
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiEditorUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $old = clone EditorDocMapper::get((int) $request->getData('id'));
+        $new = $this->updateEditorFromRequest($request);
+        $this->updateModel($request, $old, $new, EditorDocMapper::class, 'doc');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully updated', $new);
+    }
+
+    /**
+     * Method to update document from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return EditorDoc
+     *
+     * @since  1.0.0
+     */
+    private function updateEditorFromRequest(RequestAbstract $request) : EditorDoc
+    {
+        $doc = EditorDocMapper::get((int) $request->getData('id'));
+        $doc->setTitle((string) ($request->getData('title') ?? $doc->getTitle()));
+        $doc->setPlain((string) ($request->getData('plain') ?? $doc->getPlain()));
+        $doc->setContent(Markdown::parse((string) ($request->getData('plain') ?? $doc->getPlain())));
+
+        return $doc;
+    }
+
+    /**
+     * Api method to get a document
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiEditorGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $doc = EditorDocMapper::get((int) $request->getData('id'));
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully returned', $doc);
+    }
+
+    /**
+     * Api method to delete document
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiEditorDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $doc = EditorDocMapper::get((int) $request->getData('id'));
+        $this->deleteModel($request, $doc, EditorDocMapper::class, 'doc');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully deleted', $doc);
     }
 }
