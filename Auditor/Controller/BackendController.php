@@ -69,8 +69,8 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Auditor/Theme/Backend/audit-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
-        $list = AuditMapper::get(50);
-        $view->setData('audits', $list);
+        $audit = AuditMapper::get((int) $request->getData('id'));
+        $view->setData('audit', $audit);
 
         return $view;
     }

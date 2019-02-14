@@ -15,3 +15,5 @@
  */
 
 echo $this->getData('nav')->render();
+var_dump(\phpOMS\Utils\StringUtils::diffline($this->getData('audit')->getOld() ?? '', $this->getData('audit')->getNew() ?? ''));
+?>
