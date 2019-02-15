@@ -128,7 +128,7 @@ final class ApiController extends Controller
             $upload->setOutputDir(self::createMediaPath($basePath));
 
             $status       = $upload->upload($files, $name);
-            $mediaCreated = self::createDbEntries($name, $status, $account);
+            $mediaCreated = self::createDbEntries($status, $account);
         }
 
         return $mediaCreated;
@@ -148,7 +148,7 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public static function createDbEntries(string $name, array $status, int $account) : array
+    public static function createDbEntries(array $status, int $account) : array
     {
         $mediaCreated = [];
 
