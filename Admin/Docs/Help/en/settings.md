@@ -8,7 +8,7 @@ In the admin module under `General` the global settings can be set.
 
 In the security section it's possible to define and modify the global security settings. These settings will be used for every user.
 
-![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/general/settings_security.png)
+![General Settings](Modules/Admin/Docs/Help/img/general/settings_security.png)
 
 #### Password Regex
 
@@ -80,13 +80,13 @@ In the logging section the logging settings can be defined. These settings don't
 
 **Recommended:** `active and default path`
 
-![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/general/settings_logging.png)
+![General Settings](Modules/Admin/Docs/Help/img/general/settings_logging.png)
 
 ## Localization
 
 In the localization tab it's possible to define the default localization settings. Be aware that users may have localization settings different from the default settings. These localization settings are only important to provide a fallback if the user localization settings are not working.
 
-![Localization Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/general/settings_localization.png)
+![Localization Settings](Modules/Admin/Docs/Help/img/general/settings_localization.png)
 
 ### Defaults
 

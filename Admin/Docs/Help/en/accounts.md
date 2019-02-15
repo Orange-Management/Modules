@@ -4,7 +4,7 @@ In `Accounts` you can create, delete and modify the accounts. Accounts are neces
 
 ## General
 
-![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/accounts/accounts_general.png)
+![General Settings](Modules/Admin/Docs/Help/img/accounts/accounts_general.png)
 
 ### ID
 
@@ -50,7 +50,7 @@ The required password structure is defined in the general settings.
 
 ## Permissions
 
-![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/accounts/accounts_permissions.png)
+![General Settings](Modules/Admin/Docs/Help/img/accounts/accounts_permissions.png)
 
 Permissions have the following components which can be combined to either address a wide e.g. range of units, applications or modules or in order to address a very specific combination of those.
 
@@ -104,7 +104,7 @@ This allows a user to change permissions. Usually a user should also have (C, R,
 
 ## Groups
 
-![General Settings]({/base}{/rootPath}/Modules/Admin/Docs/Help/img/accounts/accounts_groups.png)
+![General Settings](Modules/Admin/Docs/Help/img/accounts/accounts_groups.png)
 
 In the groups section you can see all groups that this account is assigned to  and you can also add or remove the account to other groups. If you would like to add the account to the same groups as a different account just select the account whos groups you would like to copy and the account will be added to the same groups (one time only, there will be **no relation** between the two accounts. 
 
