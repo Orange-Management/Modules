@@ -105,8 +105,10 @@
                 break;
         }
 
+        const cursorPosition = endPosition === startPosition ? endPosition + 2 : endPosition;
+
         textarea.focus();
-        textarea.setSelectionRange(endPosition, endPosition);
+        textarea.setSelectionRange(cursorPosition, cursorPosition);
     };
 
     jsOMS.Modules.Models.Editor.Editor.prototype.getSelectedText = function()
