@@ -67,23 +67,23 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                                     <tbody>
                                         <tr><td>
                                             <label for="iPassword"><?= $this->getHtml('PasswordRegex'); ?></label>
-                                            <i class="fa fa-info-circle tooltip"><i><?= $this->getHtml('i:PasswordRegex') ?></i></i>
+                                            <i class="fa fa-info-circle tooltip"><i data-tooltip="<?= $this->getHtml('i:PasswordRegex') ?>"></i></i>
                                         <tr><td><input id="iPassword" name="settings_1000000001" type="text" value="<?= $this->printHtml($settings[1000000001]); ?>" placeholder="&#xf023; ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&;:\(\)\[\]=\{\}\+\-])[A-Za-z\d$@$!%*?&;:\(\)\[\]=\{\}\+\-]{8,}">
                                         <tr><td>
                                             <label for="iLoginRetries"><?= $this->getHtml('LoginRetries'); ?></label>
-                                            <i class="fa fa-info-circle tooltip"><i><?= $this->getHtml('i:LoginRetries') ?></i></i>
+                                            <i class="fa fa-info-circle tooltip"><i data-tooltip="<?= $this->getHtml('i:LoginRetries') ?>"></i></i>
                                         <tr><td><input id="iLoginRetries" name="settings_1000000005" type="number" value="<?= $this->printHtml($settings[1000000005]); ?>" min="-1">
                                         <tr><td>
                                             <label for="iTimeoutPeriod"><?= $this->getHtml('TimeoutPeriod'); ?></label>
-                                            <i class="fa fa-info-circle tooltip"><i><?= $this->getHtml('i:TimeoutPeriod') ?></i></i>
+                                            <i class="fa fa-info-circle tooltip"><i data-tooltip="<?= $this->getHtml('i:TimeoutPeriod') ?>"></i></i>
                                         <tr><td><input id="iTimeoutPeriod" name="settings_1000000002" type="number" value="<?= $this->printHtml($settings[1000000002]); ?>">
                                         <tr><td>
                                             <label for="iPasswordChangeInterval"><?= $this->getHtml('PasswordChangeInterval'); ?></label>
-                                            <i class="fa fa-info-circle tooltip"><i><?= $this->getHtml('i:PasswordChangeInterval') ?></i></i>
+                                            <i class="fa fa-info-circle tooltip"><i data-tooltip="<?= $this->getHtml('i:PasswordChangeInterval') ?>"></i></i>
                                         <tr><td><input id="iPasswordChangeInterval" name="settings_1000000003" type="number" value="<?= $this->printHtml($settings[1000000003]); ?>">
                                         <tr><td>
                                             <label for="iPasswordHistory"><?= $this->getHtml('PasswordHistory'); ?></label>
-                                            <i class="fa fa-info-circle tooltip"><i><?= $this->getHtml('i:PasswordHistory') ?></i></i>
+                                            <i class="fa fa-info-circle tooltip"><i data-tooltip="<?= $this->getHtml('i:PasswordHistory') ?>"></i></i>
                                         <tr><td><input id="iPasswordHistory" name="settings_1000000004" type="number" value="<?= $this->printHtml($settings[1000000004]); ?>">
                                         <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                                 </table>
