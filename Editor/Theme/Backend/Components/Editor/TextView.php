@@ -30,9 +30,11 @@ use phpOMS\Views\View;
  */
 class TextView extends View
 {
-    private $id   = '';
-    private $name = '';
-    private $form = '';
+    private $id      = '';
+    private $name    = '';
+    private $form    = '';
+    private $plain   = '';
+    private $preview = '';
 
     /**
      * {@inheritdoc}
@@ -58,14 +60,26 @@ class TextView extends View
         return $this->form;
     }
 
+    public function getPreview() : string
+    {
+        return $this->preview;
+    }
+
+    public function getPlain() : string
+    {
+        return $this->plain;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function render(...$data) : string
     {
-        $this->id   = $data[0] ?? '';
-        $this->name = $data[1] ?? '';
-        $this->form = $data[2] ?? '';
+        $this->id      = $data[0] ?? '';
+        $this->name    = $data[1] ?? '';
+        $this->form    = $data[2] ?? '';
+        $this->plain   = $data[3] ?? '';
+        $this->preview = $data[4] ?? '';
 
         return parent::render();
     }

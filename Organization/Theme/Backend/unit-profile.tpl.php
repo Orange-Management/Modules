@@ -12,8 +12,8 @@
  */
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Organization\Models\Unit $unit;
  */
-
 $unit = $this->getData('unit');
 
 echo $this->getData('nav')->render(); ?>
@@ -35,7 +35,13 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml(\Modules\Organization\Models\Status::INACTIVE); ?>"<?= \Modules\Organization\Models\Status::INACTIVE === $unit->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('Inactive') ?>
                                 </select>
                         <tr><td><?= $this->getData('editor')->render('unit-editor'); ?>
-                        <tr><td><?= $this->getData('editor')->getData('text')->render('unit-editor', 'description', 'iUnit'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render(
+                            'unit-editor',
+                            'description',
+                            'iUnit',
+                            $unit->getDescriptionRaw(),
+                            $unit->getDescription()
+                        ); ?>
                         <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>

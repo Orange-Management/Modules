@@ -12,8 +12,8 @@
  */
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Organization\Models\Position;
  */
-
 $position = $this->getData('position');
 
 echo $this->getData('nav')->render(); ?>
@@ -37,7 +37,13 @@ echo $this->getData('nav')->render(); ?>
                                     <option><?= $this->getHtml('Inactive') ?>
                                 </select>
                         <tr><td><?= $this->getData('editor')->render('position-editor'); ?>
-                        <tr><td><?= $this->getData('editor')->getData('text')->render('position-editor', 'description', 'iPosition'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render(
+                            'position-editor',
+                            'description',
+                            'iPosition',
+                            $position->getDescriptionRaw(),
+                            $position->getDescription()
+                        ); ?>
                         <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>

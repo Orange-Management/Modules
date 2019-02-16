@@ -12,8 +12,8 @@
  */
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Mouldes\Organization\Models $department;
  */
-
 $department = $this->getData('department');
 
 echo $this->getData('nav')->render(); ?>
@@ -37,7 +37,13 @@ echo $this->getData('nav')->render(); ?>
                                     <option><?= $this->getHtml('Inactive') ?>
                                 </select>
                         <tr><td><?= $this->getData('editor')->render('department-editor'); ?>
-                        <tr><td><?= $this->getData('editor')->getData('text')->render('department-editor', 'description', 'iDepartment'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render(
+                            'department-editor',
+                            'description',
+                            'iDepartment',
+                            $department->getDescriptionRaw(),
+                            $department->getDescription()
+                        ); ?>
                         <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
                     </table>
                 </form>

@@ -49,7 +49,13 @@ echo $this->getData('nav')->render(); ?>
                                     <?php endforeach; ?>
                                         </select>
                                     <tr><td><?= $this->getData('editor')->render('group-editor'); ?>
-                                    <tr><td><?= $this->getData('editor')->getData('text')->render('group-editor', 'description', 'fGroupEdit'); ?>
+                                    <tr><td><?= $this->getData('editor')->getData('text')->render(
+                                        'group-editor',
+                                        'description',
+                                        'fGroupEdit',
+                                        $group->getDescriptionRaw(),
+                                        $group->getDescription()
+                                    ); ?>
                                     <tr><td><input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                                 </table>
                             </form>

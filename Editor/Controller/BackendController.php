@@ -128,6 +128,9 @@ final class BackendController extends Controller
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
         $view->addData('doc', $doc);
 
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $view->addData('editor', $editor);
+
         return $view;
     }
 }
