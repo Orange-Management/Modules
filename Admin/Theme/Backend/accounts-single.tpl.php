@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
-                        <tr><td><input id="iId" name="id" type="text" value="<?= $this->printHtml($account->getId()); ?>" disabled>
+                        <tr><td><input id="iId" name="iaccount-idlist" type="text" value="<?= $this->printHtml($account->getId()); ?>" disabled>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                         <tr><td><select id="iType" name="type">
                                     <option value="<?= $this->printHtml(AccountType::USER); ?>"<?= $this->printHtml($account->getType() === AccountType::USER ? ' selected' : ''); ?>><?= $this->getHtml('Person'); ?>
@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td>
                             <span class="input">
                                 <button type="button"><i class="fa fa-user"></i></button>
-                                <input id="iUsername" name="name" type="text" value="<?= $this->printHtml($account->getName()); ?>" disabled>
+                                <input id="iUsername" name="name" type="text" value="<?= $this->printHtml($account->getName()); ?>">
                             </span>
                         <tr><td><label for="iName1"><?= $this->getHtml('Name1'); ?></label>
                         <tr><td>
@@ -86,7 +86,17 @@ echo $this->getData('nav')->render(); ?>
                                 </div>
                                 <div class="ipt-second"> or <button><?= $this->getHtml('Reset'); ?></button></div>
                         </div>
-                        <tr><td><input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                        <tr><td>
+                            <input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                            <button id="account-profile-create" data-action='[
+                                {
+                                    "key": 1, "listener": "click", "action": [
+                                        {"key": 1, "type": "event.prevent"},
+                                        {"key": 2, "type": "dom.getvalue", "base": "", "selector": "#iId"},
+                                        {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/profile", "method": "PUT", "request_type": "json"}
+                                    ]
+                                }
+                            ]'><?= $this->getHtml('CreateProfile'); ?></button>
                     </table>
                 </form>
             </div>

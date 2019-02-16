@@ -31,6 +31,7 @@ return [
         'Component'          => 'Component',
         'Country'            => 'Country',
         'Create'             => 'Create',
+        'CreateProfile'      => 'Create Profile',
         'Created'            => 'Created',
         'CreatedBy'          => 'Created By',
         'Currency'           => 'Currency',

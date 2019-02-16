@@ -366,14 +366,31 @@ final class ApiController extends Controller
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully created', $account);
     }
 
+    /**
+     * Create profile for account
+     *
+     * @param Account         $account Account to create profile for
+     * @param RequestAbstract $request Request
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
     private function createProfileForAccount(Account $account, RequestAbstract $request) : void
     {
         if (((string) ($request->getData('password') ?? '')) !== ''
             && ((string) ($request->getData('login') ?? '')) !== ''
         ) {
-            $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(new \Modules\Profile\Models\Profile($account), $request);
+            $old = clone $account;
 
-            $this->updateModel($request, $account, $account, function() use($account) : void {
+            $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(
+                new \Modules\Profile\Models\Profile($account),
+                $request
+            );
+
+            $this->updateModel($request, $old, $account, function() use($account) : void {
                 $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
                 AccountMapper::update($account);
             }, 'account');
@@ -442,6 +459,11 @@ final class ApiController extends Controller
         $old = clone AccountMapper::get((int) $request->getData('id'));
         $new = $this->updateAccountFromRequest($request);
         $this->updateModel($request, $old, $new, AccountMapper::class, 'account');
+
+        if (\Modules\Profile\Models\ProfileMapper::getFor($new->getId(), 'account') instanceof \Modules\Profile\Models\NullProfile) {
+            $this->createProfileForAccount($new, $request);
+        }
+
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully updated', $new);
     }
 
