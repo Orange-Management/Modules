@@ -164,7 +164,7 @@
             {
                 try {
                     const response = JSON.parse(xhr.response);
-                    
+
                     if (!self.success[formId]) {
                         self.responseManager.run(null, response);
                     } else {
