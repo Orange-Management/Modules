@@ -11,7 +11,6 @@
  * @link       http://website.orange-management.de
  */
 return ['DatabaseEditor' => [
-    'Connect'      => 'Connect',
     'CSV'          => 'CSV',
     'DatabaseType' => 'Database Type',
     'Database'     => 'Database',
@@ -21,8 +20,11 @@ return ['DatabaseEditor' => [
     'Host'         => 'Host',
     'JSON'         => 'JSON',
     'Limit1000'    => 'Limit 1000',
+    'Login'        => 'Login',
     'NoResults'    => 'No Results',
     'Port'         => 'Port',
+    'Password'     => 'Password',
+    'Test'         => 'Test',
     'Query'        => 'Query',
     'QueryResult'  => 'Query Result',
 ]];

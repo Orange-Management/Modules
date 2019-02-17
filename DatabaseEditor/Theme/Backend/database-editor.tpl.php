@@ -20,7 +20,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/editor?{?}&csrf={$CSRF}'); ?>">
+                <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/dbeditor/editor?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
                         <tr><td><label for="iDatabaseType"><?= $this->getHtml('DatabaseType') ?></label>
@@ -36,7 +36,11 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input min="0" max="65536" type="number" id="iPort" name="port">
                         <tr><td><label for="iDatabase"><?= $this->getHtml('Database') ?></label>
                         <tr><td><input type="text" id="iDatabase" name="database">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Connect'); ?>">
+                        <tr><td><label for="iLogin"><?= $this->getHtml('Login') ?></label>
+                        <tr><td><input type="text" id="iLogin" name="login">
+                        <tr><td><label for="iPassword"><?= $this->getHtml('Password') ?></label>
+                        <tr><td><input type="text" id="iPassword" name="password">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Test'); ?>">
                     </table>
                 </form>
             </div>
@@ -48,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="layout wf-100" style="table-layout: fixed">
                     <tbody>
-                    <tr><td><textarea style="height: 200px" form="fDatabaseConnection"></textarea>
+                    <tr><td><textarea style="height: 350px" form="fDatabaseConnection"></textarea>
                     <tr><td><input form="fDatabaseConnection" type="submit" value="<?= $this->getHtml('Execute'); ?>">
                 </table>
             </div>
@@ -57,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
 </div>
 
 <div class="tabview tab-2">
-    <div class="box wf-100">
+    <div class="box wf-100 col-xs-12">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Query'); ?></label></li>
             <li><label for="c-tab-2"><?= $this->getHtml('Database'); ?></label></li>
@@ -86,7 +90,7 @@ echo $this->getData('nav')->render(); ?>
 
                 <div class="col-xs-12">
                     <table class="table darkred">
-                    <caption><?= $this->getHtml('QueryResult') ?> - <?= $this->getHtml('Limit1000') ?></caption>
+                    <caption><?= $this->getHtml('QueryResult') ?> - <?= $this->getHtml('Limit1000') ?><i class="fa fa-download floatRight download btn"></i></caption>
                     <thead>
                     <tbody>
                         <tr><td><?= $this->getHtml('NoResults') ?>
