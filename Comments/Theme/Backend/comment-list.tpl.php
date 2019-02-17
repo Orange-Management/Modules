@@ -22,7 +22,7 @@ $footerView->setPage(1);
 echo $this->getData('nav')->render(); ?>
 <div class="box">
     <table class="table darkred">
-        <caption><?= $this->getHtml('Documents') ?></caption>
+        <caption><?= $this->getHtml('Documents') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>
             <td class="wf-100"><?= $this->getHtml('Name') ?>

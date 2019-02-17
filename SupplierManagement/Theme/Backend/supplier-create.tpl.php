@@ -167,7 +167,7 @@ echo $this->getData('nav')->render(); ?>
             ?>
             <div class="box w-100">
                 <table class="table darkred">
-                    <caption><?= $this->getHtml('Logs'); ?></caption>
+                    <caption><?= $this->getHtml('Logs'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                     <thead>
                     <tr>
                         <td>IP

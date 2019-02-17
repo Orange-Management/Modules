@@ -20,7 +20,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table fixed darkred">
-                <caption><?= $this->getHtml('Audits') ?></caption>
+                <caption><?= $this->getHtml('Audits') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <colgroup>
                     <col style="width: 100px">
                     <col style="width: 150px">

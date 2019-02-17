@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table id="newsArchiveList" class="table darkred">
-                <caption><?= $this->getHtml('Archive'); ?></caption>
+                <caption><?= $this->getHtml('Archive'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('Type') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>

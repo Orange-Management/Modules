@@ -1,5 +1,5 @@
 <table class="table darkred">
-    <caption><?= $this->getHtml('Tasks', 'Tasks') ?></caption>
+    <caption><?= $this->getHtml('Tasks', 'Tasks') ?><i class="fa fa-download floatRight download btn"></i></caption>
     <thead>
         <td><?= $this->getHtml('Status', 'Tasks') ?>
         <td><?= $this->getHtml('Due/Priority', 'Tasks') ?>

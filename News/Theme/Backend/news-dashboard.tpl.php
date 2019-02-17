@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table id="newsList" class="table darkred">
-                <caption><?= $this->getHtml('News'); ?></caption>
+                <caption><?= $this->getHtml('News'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td>

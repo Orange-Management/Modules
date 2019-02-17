@@ -1,6 +1,6 @@
 <div class="box wf-100">
     <table class="table blue">
-        <caption><?= $this->getHtml('Media', 'Media') ?></caption>
+        <caption><?= $this->getHtml('Media', 'Media') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
             <td>
             <td class="wf-100"><?= $this->getHtml('Name', 'Media') ?>

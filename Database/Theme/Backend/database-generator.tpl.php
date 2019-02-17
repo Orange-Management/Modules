@@ -99,7 +99,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table darkred">
-                <caption><?= $this->getHtml('Result') ?></caption>
+                <caption><?= $this->getHtml('Result') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tbody>
                 <tr><td colspan="1" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="tab">
                 <section class="box wf-100 floatLeft">
                     <table class="table darkred">
-                        <caption><?= $this->getHtml('Overview'); ?></caption>
+                        <caption><?= $this->getHtml('Overview'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
                             <td><?= $this->getHtml('Type') ?>
@@ -61,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
 
                 <section class="box wf-100 floatLeft">
                     <table class="table darkred">
-                        <caption><?= $this->getHtml('Misc'); ?></caption>
+                        <caption><?= $this->getHtml('Misc'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
                             <td><?= $this->getHtml('Type') ?>
@@ -81,7 +81,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="tab">
                 <section class="box wf-100 floatLeft">
                     <table class="table darkred">
-                        <caption><?= $this->getHtml('Month'); ?></caption>
+                        <caption><?= $this->getHtml('Month'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
                             <td><?= $this->getHtml('Day') ?>
@@ -99,7 +99,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="tabview tab-3">
                 <section class="box wf-100 floatLeft">
                     <table class="table darkred">
-                        <caption><?= $this->getHtml('Year'); ?></caption>
+                        <caption><?= $this->getHtml('Year'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
                             <td><?= $this->getHtml('Year') ?>

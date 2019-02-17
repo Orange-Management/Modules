@@ -24,7 +24,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
             <table id="taskList" class="table darkred">
-                <caption><?= $this->getHtml('Tasks') ?></caption>
+                <caption><?= $this->getHtml('Tasks') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                     <td><?= $this->getHtml('Status') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td><?= $this->getHtml('Due/Priority') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>

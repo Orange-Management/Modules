@@ -75,7 +75,7 @@ $footerView->setResults(1);
                     <div class="col-xs-12">
                         <section class="wf-100">
                             <table class="table darkred">
-                                <caption><?= $this->getHtml('Entries'); ?></caption>
+                                <caption><?= $this->getHtml('Entries'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                                 <thead>
                                 <tr>
                                     <td><?= $this->getHtml('EntryDate') ?>
@@ -113,7 +113,7 @@ $footerView->setResults(1);
                     <div class="col-xs-4">
                         <section class="wf-100">
                             <table class="table darkred">
-                                <caption><?= $this->getHtml('Accounts'); ?></caption>
+                                <caption><?= $this->getHtml('Accounts'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                                 <thead>
                                 <tr>
                                     <td><?= $this->getHtml('Account') ?>
@@ -133,7 +133,7 @@ $footerView->setResults(1);
                     <div class="col-xs-4">
                         <section class="wf-100">
                             <table class="table green">
-                                <caption><?= $this->getHtml('CostCenter'); ?></caption>
+                                <caption><?= $this->getHtml('CostCenter'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                                 <thead>
                                 <tr>
                                     <td><?= $this->getHtml('CostCenter') ?>
@@ -153,7 +153,7 @@ $footerView->setResults(1);
                     <div class="col-xs-4">
                         <section class="wf-100">
                             <table class="table blue">
-                                <caption><?= $this->getHtml('CostObject'); ?></caption>
+                                <caption><?= $this->getHtml('CostObject'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                                 <thead>
                                 <tr>
                                     <td><?= $this->getHtml('Account') ?>

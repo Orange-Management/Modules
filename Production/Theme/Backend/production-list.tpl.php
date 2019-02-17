@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="table darkred">
-                <caption><?= $this->getHtml('Productions') ?></caption>
+                <caption><?= $this->getHtml('Productions') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('Status') ?>

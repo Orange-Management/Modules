@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table darkred">
-        <caption><?= $this->getHtml('Entries'); ?></caption>
+        <caption><?= $this->getHtml('Entries'); ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>
             <td><?= $this->getHtml('EntryDate') ?>
@@ -75,7 +75,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="box w-100">
     <table class="table darkred">
-        <caption><?= $this->getHtml('Entries'); ?></caption>
+        <caption><?= $this->getHtml('Entries'); ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>
             <td><?= $this->getHtml('EntryDate') ?>

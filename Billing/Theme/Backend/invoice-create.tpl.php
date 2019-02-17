@@ -129,7 +129,7 @@ echo $this->getData('nav')->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="table darkred">
-                            <caption><?= $this->getHtml('Invoice'); ?></caption>
+                            <caption><?= $this->getHtml('Invoice'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td>
@@ -242,7 +242,7 @@ echo $this->getData('nav')->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="table darkred">
-                            <caption><?= $this->getHtml('Logs'); ?></caption>
+                            <caption><?= $this->getHtml('Logs'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td>IP
