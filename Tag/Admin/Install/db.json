@@ -1,0 +1,24 @@
+{
+    "tag": {
+        "name": "tag",
+        "fields": {
+            "tag_id": {
+                "name": "tag_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "tag_title": {
+                "name": "tag_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "tag_color": {
+                "name": "tag_color",
+                "type": "VARCHAR(8)",
+                "null": false
+            }
+        }
+    }
+}
