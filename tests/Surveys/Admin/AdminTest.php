@@ -13,28 +13,10 @@
 
 namespace Modules\tests\Surveys\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Surveys';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Surveys');
-
-        self::assertTrue($moduleManager->deactivate('Surveys'));
-        self::assertFalse($moduleManager->isActive('Surveys'));
-
-        self::assertTrue($moduleManager->activate('Surveys'));
-        self::assertTrue($moduleManager->isActive('Surveys'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

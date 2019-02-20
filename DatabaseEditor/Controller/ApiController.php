@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Admin\Controller;
+namespace Modules\DatabaseEditor\Controller;
 
 use Model\Settings;
 

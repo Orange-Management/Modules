@@ -13,70 +13,10 @@
 
 namespace Modules\tests\Media\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Message\Http\Request;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
-use phpOMS\Utils\TestUtils;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    protected $dbPool = null;
+    protected const MODULE_NAME = 'Media';
+    protected const URI_LOAD = 'http://127.0.0.1/en/backend/media';
 
-    protected function setUp() : void
-    {
-        $this->dbPool = new DatabasePool();
-        /** @var array $CONFIG */
-        $this->dbPool->create('core', $GLOBALS['CONFIG']['db']['core']['masters']['admin']);
-    }
-
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Media');
-
-        self::assertTrue($moduleManager->deactivate('Media'));
-        self::assertFalse($moduleManager->isActive('Media'));
-
-        self::assertTrue($moduleManager->activate('Media'));
-        self::assertTrue($moduleManager->isActive('Media'));
-    }
-
-    public function testRequestLoads() : void
-    {
-        $app             = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool     = $GLOBALS['dbpool'];
-        $app->dispatcher = new Dispatcher($app);
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-
-        $request = new Request(new Http('http://127.0.0.1/en/backend/media'));
-        $request->createRequestHashs(1);
-
-        $loaded = $moduleManager->getUriLoad($request);
-
-        $found = false;
-        foreach ($loaded[4] as $module) {
-            if ($module['module_load_file'] === 'Media') {
-                $found = true;
-                break;
-            }
-        }
-
-        self::assertTrue($found);
-        self::assertGreaterThan(0, \count($moduleManager->getLanguageFiles($request)));
-        self::assertTrue(\in_array('Media', $moduleManager->getRoutedModules($request)));
-
-        $moduleManager->initRequestModules($request);
-        self::assertTrue(isset(TestUtils::getMember($moduleManager, 'running')['Media']));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

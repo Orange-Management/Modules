@@ -85,4 +85,21 @@ final class ApiController extends Controller
 
         return false;
     }
+
+    /**
+     * Api method to export data
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiExchangeExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+    }
 }

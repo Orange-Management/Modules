@@ -13,28 +13,10 @@
 
 namespace Modules\tests\Chat\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Chat';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Chat');
-
-        self::assertTrue($moduleManager->deactivate('Chat'));
-        self::assertFalse($moduleManager->isActive('Chat'));
-
-        self::assertTrue($moduleManager->activate('Chat'));
-        self::assertTrue($moduleManager->isActive('Chat'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

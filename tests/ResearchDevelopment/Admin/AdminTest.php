@@ -13,28 +13,10 @@
 
 namespace Modules\tests\ResearchDevelopment\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'ResearchDevelopment';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('ResearchDevelopment');
-
-        self::assertTrue($moduleManager->deactivate('ResearchDevelopment'));
-        self::assertFalse($moduleManager->isActive('ResearchDevelopment'));
-
-        self::assertTrue($moduleManager->activate('ResearchDevelopment'));
-        self::assertTrue($moduleManager->isActive('ResearchDevelopment'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

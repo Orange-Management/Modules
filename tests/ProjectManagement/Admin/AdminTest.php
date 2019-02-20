@@ -13,28 +13,10 @@
 
 namespace Modules\tests\ProjectManagement\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'ProjectManagement';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('ProjectManagement');
-
-        self::assertTrue($moduleManager->deactivate('ProjectManagement'));
-        self::assertFalse($moduleManager->isActive('ProjectManagement'));
-
-        self::assertTrue($moduleManager->activate('ProjectManagement'));
-        self::assertTrue($moduleManager->isActive('ProjectManagement'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

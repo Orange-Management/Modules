@@ -13,28 +13,10 @@
 
 namespace Modules\tests\Purchase\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Purchase';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Purchase');
-
-        self::assertTrue($moduleManager->deactivate('Purchase'));
-        self::assertFalse($moduleManager->isActive('Purchase'));
-
-        self::assertTrue($moduleManager->activate('Purchase'));
-        self::assertTrue($moduleManager->isActive('Purchase'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

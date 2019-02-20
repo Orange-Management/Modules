@@ -13,28 +13,11 @@
 
 namespace Modules\tests\Monitoring\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Monitoring';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Monitoring');
-
-        self::assertTrue($moduleManager->deactivate('Monitoring'));
-        self::assertFalse($moduleManager->isActive('Monitoring'));
-
-        self::assertTrue($moduleManager->activate('Monitoring'));
-        self::assertTrue($moduleManager->isActive('Monitoring'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }
+

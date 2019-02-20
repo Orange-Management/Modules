@@ -13,61 +13,10 @@
 
 namespace Modules\tests\Editor\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Message\Http\Request;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
-use phpOMS\Utils\TestUtils;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Editor';
+    protected const URI_LOAD = 'http://127.0.0.1/en/backend/editor';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Editor');
-
-        self::assertTrue($moduleManager->deactivate('Editor'));
-        self::assertFalse($moduleManager->isActive('Editor'));
-
-        self::assertTrue($moduleManager->activate('Editor'));
-        self::assertTrue($moduleManager->isActive('Editor'));
-    }
-
-    public function testRequestLoads() : void
-    {
-        $app             = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool     = $GLOBALS['dbpool'];
-        $app->dispatcher = new Dispatcher($app);
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-
-        $request = new Request(new Http('http://127.0.0.1/en/backend/editor'));
-        $request->createRequestHashs(1);
-
-        $loaded = $moduleManager->getUriLoad($request);
-
-        $found = false;
-        foreach ($loaded[4] as $module) {
-            if ($module['module_load_file'] === 'Editor') {
-                $found = true;
-                break;
-            }
-        }
-
-        self::assertTrue($found);
-        self::assertGreaterThan(0, \count($moduleManager->getLanguageFiles($request)));
-        self::assertTrue(\in_array('Editor', $moduleManager->getRoutedModules($request)));
-
-        $moduleManager->initRequestModules($request);
-        self::assertTrue(isset(TestUtils::getMember($moduleManager, 'running')['Editor']));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

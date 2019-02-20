@@ -22,52 +22,8 @@ use phpOMS\Utils\TestUtils;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Auditor';
+    protected const URI_LOAD = 'http://127.0.0.1/en/backend/admin/audit';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Auditor');
-
-        self::assertTrue($moduleManager->deactivate('Auditor'));
-        self::assertFalse($moduleManager->isActive('Auditor'));
-
-        self::assertTrue($moduleManager->activate('Auditor'));
-        self::assertTrue($moduleManager->isActive('Auditor'));
-    }
-
-    public function testRequestLoads() : void
-    {
-        $app             = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool     = $GLOBALS['dbpool'];
-        $app->dispatcher = new Dispatcher($app);
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-
-        $request = new Request(new Http('http://127.0.0.1/en/backend/admin/audit'));
-        $request->createRequestHashs(1);
-
-        $loaded = $moduleManager->getUriLoad($request);
-
-        $found = false;
-        foreach ($loaded[4] as $module) {
-            if ($module['module_load_file'] === 'Auditor') {
-                $found = true;
-                break;
-            }
-        }
-
-        self::assertTrue($found);
-        self::assertGreaterThan(0, \count($moduleManager->getLanguageFiles($request)));
-        self::assertTrue(\in_array('Auditor', $moduleManager->getRoutedModules($request)));
-
-        $moduleManager->initRequestModules($request);
-        self::assertTrue(isset(TestUtils::getMember($moduleManager, 'running')['Auditor']));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

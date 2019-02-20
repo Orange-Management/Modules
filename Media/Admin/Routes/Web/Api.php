@@ -6,17 +6,6 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/media/collection.*$' => [
-        [
-            'dest' => '\Modules\Media\Controller\ApiController:apiCollectionCreate',
-            'verb' => RouteVerb::SET,
-            'permission' => [
-                'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::CREATE,
-                'state' => PermissionState::COLLECTION,
-            ],
-        ],
-    ],
     '^.*/api/media$' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpload',

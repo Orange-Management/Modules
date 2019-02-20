@@ -13,28 +13,10 @@
 
 namespace Modules\tests\CostObjectAccounting\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'CostObjectAccounting';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('CostObjectAccounting');
-
-        self::assertTrue($moduleManager->deactivate('CostObjectAccounting'));
-        self::assertFalse($moduleManager->isActive('CostObjectAccounting'));
-
-        self::assertTrue($moduleManager->activate('CostObjectAccounting'));
-        self::assertTrue($moduleManager->isActive('CostObjectAccounting'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

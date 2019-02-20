@@ -13,28 +13,10 @@
 
 namespace Modules\tests\ItemManagement\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'ItemManagement';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('ItemManagement');
-
-        self::assertTrue($moduleManager->deactivate('ItemManagement'));
-        self::assertFalse($moduleManager->isActive('ItemManagement'));
-
-        self::assertTrue($moduleManager->activate('ItemManagement'));
-        self::assertTrue($moduleManager->isActive('ItemManagement'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

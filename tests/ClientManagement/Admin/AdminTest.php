@@ -13,28 +13,10 @@
 
 namespace Modules\tests\ClientManagement\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'ClientManagement';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('ClientManagement');
-
-        self::assertTrue($moduleManager->deactivate('ClientManagement'));
-        self::assertFalse($moduleManager->isActive('ClientManagement'));
-
-        self::assertTrue($moduleManager->activate('ClientManagement'));
-        self::assertTrue($moduleManager->isActive('ClientManagement'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

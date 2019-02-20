@@ -13,28 +13,11 @@
 
 namespace Modules\tests\Database\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Database';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Database');
-
-        self::assertTrue($moduleManager->deactivate('Database'));
-        self::assertFalse($moduleManager->isActive('Database'));
-
-        self::assertTrue($moduleManager->activate('Database'));
-        self::assertTrue($moduleManager->isActive('Database'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }
+

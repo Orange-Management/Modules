@@ -13,55 +13,10 @@
 
 namespace Modules\tests\Admin\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Message\Http\Request;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
-use phpOMS\Utils\TestUtils;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
+    protected const MODULE_NAME = 'Admin';
+    protected const URI_LOAD = 'http://127.0.0.1/en/backend/admin';
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-
-        self::assertTrue($moduleManager->deactivate('Admin'));
-        self::assertFalse($moduleManager->isActive('Admin'));
-
-        self::assertTrue($moduleManager->activate('Admin'));
-        self::assertTrue($moduleManager->isActive('Admin'));
-    }
-
-    public function testRequestLoads() : void
-    {
-        $app             = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool     = $GLOBALS['dbpool'];
-        $app->dispatcher = new Dispatcher($app);
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-
-        $request = new Request(new Http('http://127.0.0.1/en/backend/admin'));
-        $request->createRequestHashs(1);
-
-        $loaded = $moduleManager->getUriLoad($request);
-
-        $found = false;
-        foreach ($loaded[4] as $module) {
-            if ($module['module_load_file'] === 'Admin') {
-                $found = true;
-                break;
-            }
-        }
-
-        self::assertTrue($found);
-        self::assertGreaterThan(0, \count($moduleManager->getLanguageFiles($request)));
-        self::assertTrue(\in_array('Admin', $moduleManager->getRoutedModules($request)));
-
-        $moduleManager->initRequestModules($request);
-        self::assertTrue(isset(TestUtils::getMember($moduleManager, 'running')['Admin']));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

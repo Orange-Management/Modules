@@ -13,28 +13,10 @@
 
 namespace Modules\tests\MyPrivate\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'MyPrivate';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('MyPrivate');
-
-        self::assertTrue($moduleManager->deactivate('MyPrivate'));
-        self::assertFalse($moduleManager->isActive('MyPrivate'));
-
-        self::assertTrue($moduleManager->activate('MyPrivate'));
-        self::assertTrue($moduleManager->isActive('MyPrivate'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

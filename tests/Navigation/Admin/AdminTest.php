@@ -22,25 +22,10 @@ use phpOMS\Uri\Http;
 
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Navigation';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Navigation');
-
-        self::assertTrue($moduleManager->deactivate('Navigation'));
-        self::assertFalse($moduleManager->isActive('Navigation'));
-
-        self::assertTrue($moduleManager->activate('Navigation'));
-        self::assertTrue($moduleManager->isActive('Navigation'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 
     /**
      * Test if navigation model works correct
@@ -49,15 +34,12 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      */
     public function testNavigationElements() : void
     {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Backend'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
         $request = new Request(new Http('http://127.0.0.1/en/backend'));
         $request->createRequestHashs(1);
 
         $account       = AccountMapper::getWithPermissions(1);
         $nav           = Navigation::getInstance($request, $account, $GLOBALS['dbpool'], 1, 'Backend')->getNav();
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../../../Modules');
         $modules       = $moduleManager->getInstalledModules(false);
 
         self::assertGreaterThan(0, \count($nav));

@@ -13,28 +13,10 @@
 
 namespace Modules\tests\CreditManagement\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'CreditManagement';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('CreditManagement');
-
-        self::assertTrue($moduleManager->deactivate('CreditManagement'));
-        self::assertFalse($moduleManager->isActive('CreditManagement'));
-
-        self::assertTrue($moduleManager->activate('CreditManagement'));
-        self::assertTrue($moduleManager->isActive('CreditManagement'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

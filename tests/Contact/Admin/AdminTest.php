@@ -13,28 +13,10 @@
 
 namespace Modules\tests\Contact\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'Contact';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('Contact');
-
-        self::assertTrue($moduleManager->deactivate('Contact'));
-        self::assertFalse($moduleManager->isActive('Contact'));
-
-        self::assertTrue($moduleManager->activate('Contact'));
-        self::assertTrue($moduleManager->isActive('Contact'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

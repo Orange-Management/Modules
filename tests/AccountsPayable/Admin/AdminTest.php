@@ -13,28 +13,11 @@
 
 namespace Modules\tests\AccountsPayable\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
+    protected const MODULE_NAME = 'AccountsPayable';
+    protected const URI_LOAD = '';
 
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('AccountsPayable');
-
-        self::assertTrue($moduleManager->deactivate('AccountsPayable'));
-        self::assertFalse($moduleManager->isActive('AccountsPayable'));
-
-        self::assertTrue($moduleManager->activate('AccountsPayable'));
-        self::assertTrue($moduleManager->isActive('AccountsPayable'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }

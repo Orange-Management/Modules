@@ -13,28 +13,10 @@
 
 namespace Modules\tests\SupplierManagement\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Module\ModuleManager;
-
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
+    protected const MODULE_NAME = 'SupplierManagement';
+    protected const URI_LOAD = '';
 
-    /**
-     * @group admin
-     * @slowThreshold 5000
-     */
-    public function testModuleIntegration() : void
-    {
-        $app         = new class extends ApplicationAbstract { protected $appName = 'Api'; };
-        $app->dbPool = $GLOBALS['dbpool'];
-
-        $moduleManager = new ModuleManager($app, __DIR__ . '/../../../../Modules');
-        $moduleManager->install('SupplierManagement');
-
-        self::assertTrue($moduleManager->deactivate('SupplierManagement'));
-        self::assertFalse($moduleManager->isActive('SupplierManagement'));
-
-        self::assertTrue($moduleManager->activate('SupplierManagement'));
-        self::assertTrue($moduleManager->isActive('SupplierManagement'));
-    }
+    use \Modules\tests\ModuleTestTrait;
 }
