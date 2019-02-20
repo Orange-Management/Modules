@@ -93,7 +93,8 @@ echo $this->getData('nav')->render(); ?>
                                     "key": 1, "listener": "click", "action": [
                                         {"key": 1, "type": "event.prevent"},
                                         {"key": 2, "type": "dom.getvalue", "base": "", "selector": "#iId"},
-                                        {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/profile", "method": "PUT", "request_type": "json"}
+                                        {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/profile", "method": "PUT", "request_type": "json"},
+                                        {"key": 4, "type": "message.log"}
                                     ]
                                 }
                             ]'><?= $this->getHtml('CreateProfile'); ?></button>

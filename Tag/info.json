@@ -1,0 +1,28 @@
+{
+    "name": {
+        "id": 1007500000,
+        "internal": "Tag",
+        "external": "Tag"
+    },
+    "category": "Content",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "Tag module.",
+    "directory": "News",
+    "dependencies": {
+        "Admin": "1.0.0",
+        "Home": "1.0.0"
+    },
+    "providing": {
+        "Navigation": "*"
+    },
+    "load": [
+    ]
+}

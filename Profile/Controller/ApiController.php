@@ -47,29 +47,40 @@ final class ApiController extends Controller
     {
         $profiles = $this->createProfilesFromRequest($request);
         $created  = [];
+        $status   = true;
 
         foreach ($profiles as $profile) {
-            $this->apiProfileCreateDbEntry($profile, $request);
+            $status = $status && $this->apiProfileCreateDbEntry($profile, $request);
 
             $created[] = $profile;
         }
 
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Profil', 'Profil successfully created.', $created);
+        $this->fillJsonResponse(
+            $request, $response,
+            $status ? NotificationLevel::OK : NotificationLevel::WARNING,
+            'Profil',
+            $status ? 'Profil successfully created.' : 'Profile already existing.',
+            $created
+        );
     }
 
     /**
      * @param Profile         $profile Profile to create in the database
      * @param RequestAbstract $request Request
      *
-     * @return void
+     * @return bool
      *
      * @since  1.0.0
      */
-    public function apiProfileCreateDbEntry(Profile $profile, RequestAbstract $request) : void
+    public function apiProfileCreateDbEntry(Profile $profile, RequestAbstract $request) : bool
     {
-        if ($profile->getId() === 0) {
-            $this->createModel($request, $profile, ProfileMapper::class, 'profile');
+        if ($profile->getId() !== 0) {
+            return false;
         }
+
+        $this->createModel($request, $profile, ProfileMapper::class, 'profile');
+
+        return true;
     }
 
     /**
