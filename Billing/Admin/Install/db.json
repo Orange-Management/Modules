@@ -216,7 +216,7 @@
                 "null": false
             },
             "billing_invoice_ship_text": {
-                "name": "billing_invoice_ship_type_text",
+                "name": "billing_invoice_ship_text",
                 "type": "VARCHAR(255)",
                 "default": null,
                 "null": true

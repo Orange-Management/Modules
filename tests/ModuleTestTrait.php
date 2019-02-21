@@ -57,18 +57,9 @@ trait ModuleTestTrait
         self::assertTrue($moduleManager->isActive(self::MODULE_NAME));
     }
 
-    /**
-     * @group final
-     */
     public function testMembers() : void
     {
-        $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $sampleInfo         = \json_decode(\file_get_contents(__DIR__ . '/info.json'), true);
-        $totalBackendRoutes = \file_exists(__DIR__ . '/../../Web/Backend/Routes.php' ) ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
-        $totalApiRoutes     = \file_exists(__DIR__ . '/../../Web/Api/Routes.php' ) ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
-        $totalBackendHooks  = \file_exists(__DIR__ . '/../../Web/Backend/Hooks.php' ) ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
-        $totalApiHooks      = \file_exists(__DIR__ . '/../../Web/Api/Hooks.php' ) ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
-        $infoTemplate       = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/Module/infoLayout.json'), true);
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
@@ -76,7 +67,187 @@ trait ModuleTestTrait
             self::assertEquals(self::MODULE_NAME, $module::MODULE_NAME);
             self::assertEquals(\realpath(__DIR__ . '/../../Modules/' . $module::MODULE_NAME), \realpath($module::MODULE_PATH));
             self::assertGreaterThanOrEqual(0, Version::compare($module::MODULE_VERSION, '1.0.0'));
+        }
+    }
 
+    public function testValidMapper()
+    {
+        $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*.Mapper.php');
+
+        foreach ($mappers as $mapper) {
+            $class   = $this->getMapperFromPath($mapper);
+            $columns = TestUtils::getMember(new $class(), 'columns');
+
+            foreach ($columns as $cName => $column) {
+                self::assertTrue(\in_array($column['type'], ['int', 'string', 'DateTime', 'bool', 'float']), 'Mapper "' . $class . '" column "' . $cName . '" has invalid type');
+                self::assertEquals($cName, $column['name'] ?? false);
+            }
+        }
+    }
+
+    private function getMapperFromPath(string $mapper) : string
+    {
+        $name  = \substr($mapper, \strlen(__DIR__ . '/../../Modules/' . $module::MODULE_NAME . '/Models/'), -4);
+
+        return '\\Modules\\' . $module::MODULE_NAME . '\\Models\\' . $name;
+    }
+
+    public function testMapperAgainstModel()
+    {
+        $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*.Mapper.php');
+
+        foreach ($mappers as $mapper) {
+            $class   = $this->getMapperFromPath($mapper);
+            $columns = TestUtils::getMember(new $class(), 'columns');
+
+            foreach ($columns as $cName => $column) {
+                self::assertTrue(\property_exists(\substr($class, -6), $column['internal']), 'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member');
+            }
+        }
+    }
+
+    public function testValidDbSchema()
+    {
+        $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
+
+        if (\file_exists($schemaPath)) {
+            $db = \json_decode(\file_get_contents($schemaPath), true);
+
+            foreach ($db as $name => $table) {
+                self::assertEquals($name, $table['name'] ?? false);
+
+                foreach ($table['fields'] as $cName => $column) {
+                    self::assertEquals($cName, $column['name'] ?? false);
+                    self::assertTrue(
+                        \stripos($column['type'] ?? '', 'TINYINT') === 0
+                        || \stripos($column['type'] ?? '', 'SMALLINT') === 0
+                        || \stripos($column['type'] ?? '', 'INT') === 0
+                        || \stripos($column['type'] ?? '', 'BIGINT') === 0
+                        || \stripos($column['type'] ?? '', 'VARCHAR') === 0
+                        || \stripos($column['type'] ?? '', 'TEXT') === 0
+                        || \stripos($column['type'] ?? '', 'DATETIME') === 0,
+                        'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" has missing/invalid type'
+                    );
+                }
+            }
+        }
+    }
+
+    public function testDbSchemaAgainstDb()
+    {
+        self::markTestIncomplete();
+    }
+
+    public function testMapperAgainstDbSchema()
+    {
+        $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
+        $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*.Mapper.php');
+
+        if (\file_exists($schemaPath)) {
+            $db = \json_decode(\file_get_contents($schemaPath), true);
+
+            foreach ($mappers as $mapper) {
+                $class = $this->getMapperFromPath($mapper);
+
+                $columns = TestUtils::getMember(new $class(), 'columns');
+
+                foreach ($columns as $cName => $column) {
+                    self::assertTrue(isset($schemaPath[$cName]), 'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema');
+                }
+            }
+        }
+    }
+
+    public function testFormValidation()
+    {
+        self::markTestIncomplete();
+    }
+
+    public function testJson()
+    {
+        $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $sampleInfo         = \json_decode(\file_get_contents(__DIR__ . '/info.json'), true);
+        $infoTemplate       = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/Module/infoLayout.json'), true);
+
+        $module = $moduleManager->get(self::MODULE_NAME);
+
+        if (!($module instanceof NullModule)) {
+            // validate info.json
+            $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
+            self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. self::MODULE_NAME);
+            self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid template for ' . self::MODULE_NAME);
+        }
+    }
+
+    public function testDependency()
+    {
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+
+        $module = $moduleManager->get(self::MODULE_NAME);
+
+        if (!($module instanceof NullModule)) {
+            // validate dependency installation
+            $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
+            self::assertTrue($this->dependencyTest($info, $moduleManager->getInstalledModules(false)));
+        }
+    }
+
+    public function testRoutes()
+    {
+        $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $totalBackendRoutes = \file_exists(__DIR__ . '/../../Web/Backend/Routes.php' ) ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
+        $totalApiRoutes     = \file_exists(__DIR__ . '/../../Web/Api/Routes.php' ) ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
+
+        $module = $moduleManager->get(self::MODULE_NAME);
+
+        if (!($module instanceof NullModule)) {
+            // test routes
+            if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
+                $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
+                self::assertEquals(1, $this->routesTest($moduleRoutes, $totalBackendRoutes), 'Backend route assert failed for '. self::MODULE_NAME);
+            }
+
+            // test routes
+            if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Api.php')) {
+                $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Api.php';
+                self::assertEquals(1, $this->routesTest($moduleRoutes, $totalApiRoutes), 'Api route assert failed for '. self::MODULE_NAME);
+            }
+        }
+    }
+
+    public function testHooks()
+    {
+        $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+        $totalBackendHooks  = \file_exists(__DIR__ . '/../../Web/Backend/Hooks.php' ) ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
+        $totalApiHooks      = \file_exists(__DIR__ . '/../../Web/Api/Hooks.php' ) ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
+
+        $module = $moduleManager->get(self::MODULE_NAME);
+
+        if (!($module instanceof NullModule)) {
+            // test hooks
+            if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
+                $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
+                self::assertEquals(1, $this->hooksTest($moduleHooks, $totalBackendHooks), 'Backend hook assert failed for '. self::MODULE_NAME);
+            }
+
+            // test hooks
+            if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Api.php')) {
+                $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Api.php';
+                self::assertEquals(1, $this->hooksTest($moduleHooks, $totalApiHooks), 'Api hook assert failed for '. self::MODULE_NAME);
+            }
+        }
+    }
+
+    /**
+     * @group final
+     */
+    public function testNavigation()
+    {
+        $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
+
+        $module = $moduleManager->get(self::MODULE_NAME);
+
+        if (!($module instanceof NullModule)) {
             // test if navigation db entries match json files
             if (!($moduleManager->get('Navigation') instanceof NullModule)
                 && \file_exists($module::MODULE_PATH . '/Admin/Install/Navigation.install.json')
@@ -92,44 +263,6 @@ trait ModuleTestTrait
                     )
                 );
             }
-
-            // test routes
-            if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Backend.php')) {
-                $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Backend.php';
-                self::assertEquals(1, $this->routesTest($moduleRoutes, $totalBackendRoutes), 'Backend route assert failed for '. self::MODULE_NAME);
-            }
-
-            // test routes
-            if (\file_exists($module::MODULE_PATH . '/Admin/Routes/Web/Api.php')) {
-                $moduleRoutes = include $module::MODULE_PATH . '/Admin/Routes/Web/Api.php';
-                self::assertEquals(1, $this->routesTest($moduleRoutes, $totalApiRoutes), 'Api route assert failed for '. self::MODULE_NAME);
-            }
-
-            // test hooks
-            if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php')) {
-                $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Backend.php';
-                self::assertEquals(1, $this->hooksTest($moduleHooks, $totalBackendHooks), 'Backend hook assert failed for '. self::MODULE_NAME);
-            }
-
-            // test hooks
-            if (\file_exists($module::MODULE_PATH . '/Admin/Hooks/Web/Api.php')) {
-                $moduleHooks = include $module::MODULE_PATH . '/Admin/Hooks/Web/Api.php';
-                self::assertEquals(1, $this->hooksTest($moduleHooks, $totalApiHooks), 'Api hook assert failed for '. self::MODULE_NAME);
-            }
-
-            // validate info.json
-            $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
-            self::assertTrue($this->infoJsonTest($info, $sampleInfo), 'Info assert failed for '. self::MODULE_NAME);
-            self::assertTrue(Json::validateTemplate($infoTemplate, $info), 'Invalid template for ' . self::MODULE_NAME);
-
-            // validate dependency installation
-            self::assertTrue($this->dependencyTest($info, $moduleManager->getInstalledModules(false)));
-
-            // todo: validate db.json schema
-
-            // todo: validate mapper/model definition
-
-            // todo: validate form validation
         }
     }
 
