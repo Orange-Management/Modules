@@ -36,28 +36,25 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Group'); ?></h1></header>
                         <div class="inner">
                             <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group'); ?>" method="post">
-                                <table class="layout wf-100" style="table-layout: fixed">
-                                    <tbody>
-                                    <tr><td><label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
-                                    <tr><td><input id="iGid" name="id" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
-                                    <tr><td><label for="iGname"><?= $this->getHtml('Name'); ?></label>
-                                    <tr><td><input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
-                                    <tr><td><label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
-                                    <tr><td><select id="iGstatus" name="status">
-                                        <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach ($status as $stat) : ?>
-                                        <option value="<?= $stat; ?>"<?= $stat === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('GroupStatus' . $stat); ?>
-                                    <?php endforeach; ?>
-                                        </select>
-                                    <tr><td><?= $this->getData('editor')->render('group-editor'); ?>
-                                    <tr><td><?= $this->getData('editor')->getData('text')->render(
-                                        'group-editor',
-                                        'description',
-                                        'fGroupEdit',
-                                        $group->getDescriptionRaw(),
-                                        $group->getDescription()
-                                    ); ?>
-                                    <tr><td><input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
-                                </table>
+                                <label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
+                                <input id="iGid" name="id" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
+                                <label for="iGname"><?= $this->getHtml('Name'); ?></label>
+                                <input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
+                                <label for="iGstatus"><?= $this->getHtml('Status'); ?></label>
+                                <select id="iGstatus" name="status">
+                                    <?php $status = \phpOMS\Account\GroupStatus::getConstants(); foreach ($status as $stat) : ?>
+                                    <option value="<?= $stat; ?>"<?= $stat === $group->getStatus() ? ' selected' : ''; ?>><?= $this->getHtml('GroupStatus' . $stat); ?>
+                                <?php endforeach; ?>
+                                    </select>
+                                <?= $this->getData('editor')->render('group-editor'); ?>
+                                <?= $this->getData('editor')->getData('text')->render(
+                                    'group-editor',
+                                    'description',
+                                    'fGroupEdit',
+                                    $group->getDescriptionRaw(),
+                                    $group->getDescription()
+                                ); ?>
+                                <input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
                             </form>
                         </div>
                     </section>
@@ -85,14 +82,9 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Accounts'); ?></h1></header>
                         <div class="inner">
                             <form id="iAddAccountToGroup" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group/account'); ?>" method="put">
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td><label for="iAccount"><?= $this->getHtml('Name'); ?></label>
-                                    <tr><td><?= $this->getData('accGrpSelector')->render('iAccount', 'iaccount-idlist', true); ?>
-                                    <tr><td>
-                                        <input name="group" type="hidden" value="<?= $this->printHtml($group->getId()); ?>">
-                                        <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
-                                </table>
+                                <label for="iAccount"><?= $this->getHtml('Name'); ?></label>
+                                <?= $this->getData('accGrpSelector')->render('iAccount', 'group', true); ?>
+                                <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
                             </form>
                         </div>
                     </section>
