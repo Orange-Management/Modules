@@ -15,7 +15,7 @@
                                     data-autocomplete="false"
                                     data-src="{/lang}/api/media/find?search={#mediaInput}">
                                 <div id="iMediaInput-dropdown" class="dropdown" data-active="true">
-                                    <table id="a1" class="table darkred">
+                                    <table id="iMediaInput-table" class="table darkred">
                                         <thead>
                                             <tr>
                                                 <td>ID<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>

@@ -29,9 +29,9 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
-                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', true); ?>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', 'forward', true); ?>
                         <tr><td><label for="iObserver"><?= $this->getHtml('CC') ?></label>
-                        <tr><td><?= $this->getData('accGrpSelector')->render('iCC', false); ?>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iCC', 'cc', false); ?>
                         <tr><td><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td>
                             <select id="iPriority" name="priority">

@@ -87,8 +87,8 @@ echo $this->getData('nav')->render(); ?>
                             <form id="iAddAccountToGroup" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group/account'); ?>" method="put">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><label for="iGParentName"><?= $this->getHtml('Name'); ?></label>
-                                    <tr><td><?= $this->getData('accGrpSelector')->render('iAccount', true); ?>
+                                    <tr><td><label for="iAccount"><?= $this->getHtml('Name'); ?></label>
+                                    <tr><td><?= $this->getData('accGrpSelector')->render('iAccount', 'iaccount-idlist', true); ?>
                                     <tr><td>
                                         <input name="group" type="hidden" value="<?= $this->printHtml($group->getId()); ?>">
                                         <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">

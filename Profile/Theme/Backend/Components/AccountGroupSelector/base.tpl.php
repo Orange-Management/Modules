@@ -12,38 +12,40 @@
                     ]
                 }
             ]' formaction=""><i class="fa fa-book"></i></button>
-            <input type="text" list="<?= $this->printHtml($this->getId()); ?>-datalist" id="<?= $this->printHtml($this->getId()); ?>" name="receiver" placeholder="&#xf007; Guest" data-action='[
-                {
-                    "key": 1, "listener": "keyup", "action": [
-                        {"key": 1, "type": "validate.keypress", "pressed": "!13!37!38!39!40"},
-                        {"key": 2, "type": "utils.timer", "id": "<?= $this->printHtml($this->getId()); ?>", "delay": 500, "resets": true},
-                        {"key": 3, "type": "dom.datalist.clear", "id": "<?= $this->printHtml($this->getId()); ?>-datalist"},
-                        {"key": 4, "type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#<?= $this->printHtml($this->getId()); ?>}", "method": "GET", "request_type": "json"},
-                        {"key": 5, "type": "dom.datalist.append", "id": "<?= $this->printHtml($this->getId()); ?>-datalist", "value": "id", "text": "name"}
-                    ]
-                },
-                {
-                    "key": 2, "listener": "keydown", "action" : [
-                        {"key": 1, "type": "validate.keypress", "pressed": "13|9"},
-                        {"key": 2, "type": "message.request", "uri": "{/base}/{/lang}/api/admin/find/account?search={#<?= $this->printHtml($this->getId()); ?>}", "method": "GET", "request_type": "json"},
-                        {"key": 3, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "value": "{0/id}", "data": ""},
-                        {"key": 4, "type": "dom.setvalue", "overwrite": false, "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist", "value": "<span id=\"<?= $this->printHtml($this->getId()); ?>-taglist-{0/id}\" class=\"tag red\" data-id=\"{0/id}\"><i class=\"fa fa-times\"></i> {0/name/0}, {0/name/1}</span>", "data": ""},
-                        {"key": 5, "type": "dom.setvalue", "overwrite": true, "selector": "#<?= $this->printHtml($this->getId()); ?>", "value": "", "data": ""}
-                    ]
-                }
-            ]'>
-            <datalist id="<?= $this->printHtml($this->getId()); ?>-datalist"></datalist>
-            <input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-idlist"<?= $this->isRequired() ? ' required' : ''; ?>>
+            <div class="advancedInput wf-100" id="<?= $this->printHtml($this->getId()); ?>">
+                <input autocomplete="off" class="input" type="text" id="i<?= $this->printHtml($this->getId()); ?>" placeholder="&#xf007; Guest"
+                    data-emptyAfter="true"
+                    data-autocomplete="false"
+                    data-src="{/lang}/api/admin/find/account?search={#i<?= $this->printHtml($this->getId()); ?>}">
+                <div id="<?= $this->printHtml($this->getId()); ?>-dropdown" class="dropdown" data-active="true">
+                    <table class="table darkred">
+                        <thead>
+                            <tr>
+                                <td>ID<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td>Name<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td>Email<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                        <tbody>
+                            <template id="<?= $this->printHtml($this->getId()); ?>-rowElement" class="rowTemplate">
+                                <tr tabindex="-1">
+                                    <td data-tpl-text="/id" data-tpl-value="/id" data-value=""></td>
+                                    <td data-tpl-text="/name/0" data-tpl-value="/name/0" data-value=""></td>
+                                    <td data-tpl-text="/email" data-tpl-value="/email" data-value=""></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </span>
     </div>
     <div class="ipt-second"><button><?= $this->getHtml('Select', 0, 0); ?></button></div>
 </div>
-<div class="box taglist" id="<?= $this->printHtml($this->getId()); ?>-taglist" data-action='[
-    {
-        "key": 1, "listener": "click", "selector": "#<?= $this->printHtml($this->getId()); ?>-taglist span fa", "action": [
-            {"key": 1, "type": "dom.getvalue", "base": "self"},
-            {"key": 2, "type": "dom.removevalue", "selector": "#<?= $this->printHtml($this->getId()); ?>-idlist", "data": ""},
-            {"key": 3, "type": "dom.remove", "base": "self"}
-        ]
-    }
-]'></div>
+<div class="box" id="<?= $this->printHtml($this->getId()); ?>-tags" data-limit="0" data-active="true">
+    <template id="<?= $this->printHtml($this->getId()); ?>-tagTemplate">
+        <span class="tag red" data-tpl-value="/id" data-value="" data-uuid="" data-name="<?= $this->printHtml($this->getName()); ?>">
+            <i class="fa fa-times"></i>
+            <span data-tpl-text="/id" data-tpl-value="/id" data-value=""></span>
+            <span data-tpl-text="/name/0" data-tpl-value="/name/0" data-value=""></span>
+        </span>
+    </template>
+</div>

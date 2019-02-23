@@ -31,6 +31,7 @@ use phpOMS\Views\View;
 class BaseView extends View
 {
     private $id         = '';
+    private $name       = '';
     private $isRequired = false;
 
     /**
@@ -50,6 +51,11 @@ class BaseView extends View
         return $this->id;
     }
 
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
     public function isRequired() : bool
     {
         return $this->isRequired;
@@ -61,7 +67,8 @@ class BaseView extends View
     public function render(...$data) : string
     {
         $this->id         = $data[0];
-        $this->isRequired = $data[1] ?? false;
+        $this->name       = $data[1];
+        $this->isRequired = $data[2] ?? false;
         $this->getData('popup')->setId($this->id);
         return parent::render();
     }
