@@ -157,7 +157,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml(TaskStatus::DONE); ?>"<?= $task->getStatus() === TaskStatus::DONE ? 'selected' : ''?>>Done
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
-                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', true); ?>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', 'forward', true); ?>
                         <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
                         <tr><td><div class="ipt-wrap">
                                 <div class="ipt-first"><input type="text" id="iMedia" placeholder="&#xf15b; File"></div>
