@@ -30,7 +30,7 @@ final class ClientMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'clientmgmt_client_id'         => ['name' => 'clientmgmt_client_id', 'type' => 'int', 'internal' => 'id'],
-        'clientmgmt_client_no'         => ['name' => 'clientmgmt_client_no', 'type' => 'int', 'internal' => 'number'],
+        'clientmgmt_client_no'         => ['name' => 'clientmgmt_client_no', 'type' => 'string', 'internal' => 'number'],
         'clientmgmt_client_no_reverse' => ['name' => 'clientmgmt_client_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
         'clientmgmt_client_status'     => ['name' => 'clientmgmt_client_status', 'type' => 'int', 'internal' => 'status'],
         'clientmgmt_client_type'       => ['name' => 'clientmgmt_client_type', 'type' => 'int', 'internal' => 'type'],

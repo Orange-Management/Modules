@@ -32,7 +32,7 @@ class Cause
 
     private $descriptionRaw = '';
 
-    private $probability = 0.0;
+    private $probability = 0;
 
     private $department = null;
 
@@ -69,12 +69,12 @@ class Cause
         $this->category = $category;
     }
 
-    public function getProbability() : float
+    public function getProbability() : int
     {
         return $this->probability;
     }
 
-    public function setProbability(float $probability) : void
+    public function setProbability(int $probability) : void
     {
         $this->probability = $probability;
     }

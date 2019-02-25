@@ -31,13 +31,13 @@ final class ProfileMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string|array>>
      * @since 1.0.0
      */
     protected static $columns = [
         'profile_account_id'       => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
-        'profile_account_image'    => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image'],
-        'profile_account_birthday' => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday'],
+        'profile_account_image'    => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image', 'annotations' => ['gdpr' => true]],
+        'profile_account_birthday' => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday', 'annotations' => ['gdpr' => true]],
         'profile_account_account'  => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
     ];
 

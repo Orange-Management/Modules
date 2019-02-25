@@ -29,9 +29,9 @@ class Supplier
 {
     private $id = 0;
 
-    private $number = 0;
+    private $number = '';
 
-    private $numberReverse = 0;
+    private $numberReverse = '';
 
     private $status = 0;
 
@@ -51,7 +51,7 @@ class Supplier
 
     private $address = [];
 
-    public function __construct(int $id = 0)
+    public function __construct()
     {
         $this->createdAt = new \DateTime('now');
         $this->profile   = new Profile();
@@ -62,12 +62,12 @@ class Supplier
         return $this->id;
     }
 
-    public function getNumber() : int
+    public function getNumber() : string
     {
         return $this->number;
     }
 
-    public function setNumber(int $number) : void
+    public function setNumber(string $number) : void
     {
         $this->number = $number;
     }

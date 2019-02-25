@@ -36,7 +36,7 @@ final class CommentMapper extends DataMapperAbstract
     protected static $columns = [
         'comments_comment_id'          => ['name' => 'comments_comment_id', 'type' => 'int', 'internal' => 'id'],
         'comments_comment_title'       => ['name' => 'comments_comment_title', 'type' => 'string', 'internal' => 'title'],
-        'comments_comment_status'      => ['name' => 'comments_comment_status', 'type' => 'string', 'internal' => 'status'],
+        'comments_comment_status'      => ['name' => 'comments_comment_status', 'type' => 'int', 'internal' => 'status'],
         'comments_comment_content'     => ['name' => 'comments_comment_content', 'type' => 'string', 'internal' => 'content'],
         'comments_comment_content_raw' => ['name' => 'comments_comment_content_raw', 'type' => 'string', 'internal' => 'contentRaw'],
         'comments_comment_list'        => ['name' => 'comments_comment_list', 'type' => 'int', 'internal' => 'list'],

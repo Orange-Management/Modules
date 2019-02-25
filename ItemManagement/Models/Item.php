@@ -28,7 +28,7 @@ class Item
 {
     private $id = 0;
 
-    private $number = 0;
+    private $number = '';
 
     private $articleGroup = 0;
 
@@ -71,12 +71,12 @@ class Item
         return $this->createdAt;
     }
 
-    public function getNumber() : int
+    public function getNumber() : string
     {
         return $this->number;
     }
 
-    public function setNumber(int $number) : void
+    public function setNumber(string $number) : void
     {
         $this->number = $number;
     }

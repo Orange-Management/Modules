@@ -27,7 +27,7 @@ final class ItemMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'itemmgmt_item_id'           => ['name' => 'itemmgmt_item_id', 'type' => 'int', 'internal' => 'id'],
-        'itemmgmt_item_no'           => ['name' => 'itemmgmt_item_no', 'type' => 'int', 'internal' => 'number'],
+        'itemmgmt_item_no'           => ['name' => 'itemmgmt_item_no', 'type' => 'string', 'internal' => 'number'],
         'itemmgmt_item_segment'      => ['name' => 'itemmgmt_item_segment', 'type' => 'int', 'internal' => 'segment'],
         'itemmgmt_item_info'         => ['name' => 'itemmgmt_item_info', 'type' => 'string', 'internal' => 'info'],
     ];

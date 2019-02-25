@@ -21,7 +21,7 @@ class SupplierTest extends \PHPUnit\Framework\TestCase
     {
         $supplier = new Supplier();
 
-        self::assertEquals(0, $supplier->getNumber());
+        self::assertEquals('', $supplier->getNumber());
         self::assertEmpty($supplier->getReverseNumber());
         self::assertEquals(0, $supplier->getStatus());
         self::assertEquals(0, $supplier->getType());
@@ -34,8 +34,8 @@ class SupplierTest extends \PHPUnit\Framework\TestCase
     {
         $supplier = new Supplier();
 
-        $supplier->setNumber(1);
-        self::assertEquals(1, $supplier->getNumber());
+        $supplier->setNumber('1');
+        self::assertEquals('1', $supplier->getNumber());
 
         $supplier->setReverseNumber('asdf');
         self::assertEquals('asdf', $supplier->getReverseNumber());

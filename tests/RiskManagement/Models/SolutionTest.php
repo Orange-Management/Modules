@@ -25,7 +25,7 @@ class SolutionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->getTitle());
         self::assertEquals('', $obj->getDescription());
         self::assertEquals('', $obj->getDescriptionRaw());
-        self::assertEquals(0.0, $obj->getProbability());
+        self::assertEquals(0, $obj->getProbability());
         self::assertEquals(0, $obj->getCause());
         self::assertEquals(0, $obj->getRisk());
     }

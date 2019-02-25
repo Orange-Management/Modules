@@ -21,7 +21,7 @@ class ClientTest extends \PHPUnit\Framework\TestCase
     {
         $client = new Client();
 
-        self::assertEquals(0, $client->getNumber());
+        self::assertEquals('', $client->getNumber());
         self::assertEmpty($client->getReverseNumber());
         self::assertEquals(0, $client->getStatus());
         self::assertEquals(0, $client->getType());
@@ -34,8 +34,8 @@ class ClientTest extends \PHPUnit\Framework\TestCase
     {
         $client = new Client();
 
-        $client->setNumber(1);
-        self::assertEquals(1, $client->getNumber());
+        $client->setNumber('1');
+        self::assertEquals('1', $client->getNumber());
 
         $client->setReverseNumber('asdf');
         self::assertEquals('asdf', $client->getReverseNumber());

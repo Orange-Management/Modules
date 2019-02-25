@@ -32,7 +32,7 @@ class Solution
 
     private $descriptionRaw = '';
 
-    private $probability = 0.0;
+    private $probability = 0;
 
     private $cause = null;
 
@@ -67,12 +67,12 @@ class Solution
         return $this->cause;
     }
 
-    public function getProbability() : float
+    public function getProbability() : int
     {
         return $this->probability;
     }
 
-    public function setProbability(float $probability) : void
+    public function setProbability(int $probability) : void
     {
         $this->probability = $probability;
     }

@@ -30,7 +30,7 @@ final class SupplierMapper extends DataMapperAbstract
      */
     protected static $columns = [
         'suppliermgmt_supplier_id'         => ['name' => 'suppliermgmt_supplier_id', 'type' => 'int', 'internal' => 'id'],
-        'suppliermgmt_supplier_no'         => ['name' => 'suppliermgmt_supplier_no', 'type' => 'int', 'internal' => 'number'],
+        'suppliermgmt_supplier_no'         => ['name' => 'suppliermgmt_supplier_no', 'type' => 'string', 'internal' => 'number'],
         'suppliermgmt_supplier_no_reverse' => ['name' => 'suppliermgmt_supplier_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
         'suppliermgmt_supplier_status'     => ['name' => 'suppliermgmt_supplier_status', 'type' => 'int', 'internal' => 'status'],
         'suppliermgmt_supplier_type'       => ['name' => 'suppliermgmt_supplier_type', 'type' => 'int', 'internal' => 'type'],
