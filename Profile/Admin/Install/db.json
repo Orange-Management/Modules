@@ -15,13 +15,19 @@
                 "default": null,
                 "null": true,
                 "foreignTable": "media",
-                "foreignKey": "media_id"
+                "foreignKey": "media_id",
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_account_birthday": {
                 "name": "profile_account_birthday",
                 "type": "DATETIME",
                 "default": null,
-                "null": true
+                "null": true,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_account_account": {
                 "name": "profile_account_account",
@@ -78,32 +84,50 @@
             "profile_contact_name1": {
                 "name": "profile_contact_name1",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_name2": {
                 "name": "profile_contact_name2",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_name3": {
                 "name": "profile_contact_name3",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_company": {
                 "name": "profile_contact_company",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_company_job": {
                 "name": "profile_contact_company_job",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_address": {
                 "name": "profile_contact_address",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_website": {
                 "name": "profile_contact_website",
@@ -114,7 +138,10 @@
                 "name": "profile_contact_birthday",
                 "type": "DATETIME",
                 "default": null,
-                "null": true
+                "null": true,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_contact_description": {
                 "name": "profile_contact_description",
@@ -218,27 +245,42 @@
             "profile_address_address": {
                 "name": "profile_address_address",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_address_street": {
                 "name": "profile_address_street",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_address_city": {
                 "name": "profile_address_city",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_address_zip": {
                 "name": "profile_address_zip",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_address_country": {
                 "name": "profile_address_country",
                 "type": "VARCHAR(255)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "profile_address_account": {
                 "name": "profile_address_account",

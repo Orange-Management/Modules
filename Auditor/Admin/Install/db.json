@@ -17,7 +17,7 @@
             },
             "auditor_audit_ref": {
                 "name": "auditor_audit_ref",
-                "type": "INT",
+                "type": "VARCHAR(255)",
                 "default": null,
                 "null": true
             },

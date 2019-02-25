@@ -355,17 +355,26 @@
             "account_name1": {
                 "name": "account_name1",
                 "type": "VARCHAR(50)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "account_name2": {
                 "name": "account_name2",
                 "type": "VARCHAR(50)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "account_name3": {
                 "name": "account_name3",
                 "type": "VARCHAR(50)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "account_password": {
                 "name": "account_password",
@@ -382,7 +391,10 @@
             "account_email": {
                 "name": "account_email",
                 "type": "VARCHAR(70)",
-                "null": false
+                "null": false,
+                "annotations": {
+                    "gdpr": true
+                }
             },
             "account_tries": {
                 "name": "account_tries",
