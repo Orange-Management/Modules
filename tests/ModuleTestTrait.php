@@ -113,7 +113,13 @@ trait ModuleTestTrait
             $properties      = $classReflection->getDefaultProperties();
 
             foreach ($columns as $cName => $column) {
+                $isArray = false;
                 // testing existence of member variable in model
+                if (\stripos($column['internal'], '/') !== false) {
+                    $column['internal'] = \explode('/', $column['internal'])[0];
+                    $isArray = true;
+                }
+
                 self::assertTrue(
                     \array_key_exists($column['internal'], $properties),
                     'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member'
@@ -125,7 +131,7 @@ trait ModuleTestTrait
                     $property === null /* todo: change in the future. not every column value is alowed to be null. a flag needs to be implemented in the mapper column definitions e.g. null = true */
                     || (\is_string($property) && $column['type'] === 'string')
                     || (\is_int($property) && $column['type'] === 'int')
-                    || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable'))
+                    || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable' || $isArray))
                     || (\is_bool($property) && $column['type'] === 'bool')
                     || (\is_float($property) && $column['type'] === 'float')
                     || ($property instanceof \DateTime && $column['type'] === 'DateTime'),

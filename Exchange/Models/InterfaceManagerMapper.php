@@ -52,14 +52,6 @@ final class InterfaceManagerMapper extends DataMapperAbstract
     protected static $table = 'exchange';
 
     /**
-     * Created at.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    protected static $createdAt = 'exchange_created_at';
-
-    /**
      * Primary field name.
      *
      * @var string

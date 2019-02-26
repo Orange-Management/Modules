@@ -37,7 +37,7 @@
             "exchange_version": {
                 "name": "exchange_version",
                 "type": "VARCHAR(50)",
-                "null": null
+                "null": false
             }
         }
     }

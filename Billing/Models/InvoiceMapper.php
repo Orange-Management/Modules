@@ -26,4 +26,19 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class InvoiceMapper extends DataMapperAbstract
 {
+    /**
+     * Primary field name.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static $primaryField = 'billing_invoice_id';
+
+    /**
+     * Primary table.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static $table = 'billing_invoice';
 }
