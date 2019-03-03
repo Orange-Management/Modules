@@ -15,12 +15,14 @@ namespace Modules\tests;
 
 use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Message\Http\Request;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Module\NullModule;
 use phpOMS\Router\Router;
 use phpOMS\Uri\Http;
+use phpOMS\Utils\ArrayUtils;
 use phpOMS\Utils\TestUtils;
 use phpOMS\Validation\Base\Json;
 use phpOMS\Version\Version;
@@ -189,7 +191,29 @@ trait ModuleTestTrait
 
     public function testDbSchemaAgainstDb()
     {
-        self::markTestIncomplete();
+        $builder = new SchemaBuilder($this->app->dbPool->get());
+        $tables  = $builder->prefix($this->app->dbPool->get()->prefix)->selectTables()->execute()->fetchAll(\PDO::FETCH_COLUMN);
+
+
+        $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
+
+        if (\file_exists($schemaPath)) {
+            $db = \json_decode(\file_get_contents($schemaPath), true);
+
+            foreach ($db as $name => $table) {
+                self::assertContains($this->app->dbPool->get()->prefix . $name, $tables);
+
+                $field  = new SchemaBuilder($this->app->dbPool->get());
+                $fields = $field->prefix($this->app->dbPool->get()->prefix)->selectFields($name)->execute()->fetchAll();
+
+                foreach ($table['fields'] as $cName => $column) {
+                    self::assertTrue(
+                        ArrayUtils::inArrayRecursive($cName, $fields),
+                        'Couldn\'t find "' . $cName . '" in "' . $name . '"'
+                    );
+                }
+            }
+        }
     }
 
     public function testMapperAgainstDbSchema()
@@ -246,11 +270,6 @@ trait ModuleTestTrait
                 );
             }
         }
-    }
-
-    public function testFormValidation()
-    {
-        self::markTestIncomplete();
     }
 
     public function testJson()
