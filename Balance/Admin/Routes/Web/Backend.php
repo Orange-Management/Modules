@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/controlling/balance/dashboard.*$' => [
+    '^.*/controlling/balance/dashboard.*$' => [
         [
             'dest' => '\Modules\Balance\Controller\BackendController:viewBalanceDashboard',
             'verb' => RouteVerb::GET,

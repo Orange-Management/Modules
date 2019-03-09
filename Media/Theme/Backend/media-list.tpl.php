@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                     <?php $count = 0;
                         foreach ($media as $key => $value) :
                             ++$count;
-                            $url  = \phpOMS\Uri\UriFactory::build('{/lang}/backend/media/single?{?}&id=' . $value->getId());
+                            $url  = \phpOMS\Uri\UriFactory::build('{/prefix}media/single?{?}&id=' . $value->getId());
                             $icon = $fileIconFunction(\phpOMS\System\File\FileUtils::getExtensionType($value->getExtension()));
                         ?>
                     <tr data-href="<?= $url; ?>">

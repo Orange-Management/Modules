@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/chart/create($|\?.*)' => [
+    '^.*/chart/create($|\?.*)' => [
         [
             'dest' => '\Modules\Chart\Controller\BackendController:viewChartCreate',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/chart/create/line.*$' => [
+    '^.*/chart/create/line.*$' => [
         [
             'dest' => '\Modules\Chart\Controller\BackendController:setUpChartEditor',
             'verb' => RouteVerb::GET,
@@ -37,7 +37,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/chart/list.*$' => [
+    '^.*/chart/list.*$' => [
         [
             'dest' => '\Modules\Chart\Controller\BackendController:viewChartList',
             'verb' => RouteVerb::GET,

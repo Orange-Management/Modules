@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "AreaManager",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "/backend/sales/areamanager"
+                "/sales/areamanager"
             ],
             "type": 4,
             "for": "Content",

@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/workflow/template/list.*$' => [
+    '^.*/workflow/template/list.*$' => [
         [
             'dest' => '\Modules\Workflow\Controller\BackendController:viewWorkflowTemplates',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/workflow/template/single.*$' => [
+    '^.*/workflow/template/single.*$' => [
         [
             'dest' => '\Modules\Workflow\Controller\BackendController:viewWorkflowTemplate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/workflow/template/create.*$' => [
+    '^.*/workflow/template/create.*$' => [
         [
             'dest' => '\Modules\Workflow\Controller\BackendController:viewWorkflowTemplateCreate',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/workflow/dashboard.*$' => [
+    '^.*/workflow/dashboard.*$' => [
         [
             'dest' => '\Modules\Workflow\Controller\BackendController:viewWorkflowDashboard',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/workflow/single.*$' => [
+    '^.*/workflow/single.*$' => [
         [
             'dest' => '\Modules\Workflow\Controller\BackendController:viewWorkflowSingle',
             'verb' => RouteVerb::GET,

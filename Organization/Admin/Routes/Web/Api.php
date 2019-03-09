@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/organization/position.*$' => [
+    '^.*/organization/position.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\ApiController:apiPositionCreate',
             'verb' => RouteVerb::PUT,
@@ -44,7 +44,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/organization/department.*$' => [
+    '^.*/organization/department.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\ApiController:apiDepartmentCreate',
             'verb' => RouteVerb::PUT,
@@ -82,7 +82,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/organization/unit.*$' => [
+    '^.*/organization/unit.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\ApiController:apiUnitCreate',
             'verb' => RouteVerb::PUT,
@@ -121,7 +121,7 @@ return [
         ],
     ],
 
-    '^.*/api/organization/find/unit.*$' => [
+    '^.*/organization/find/unit.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\ApiController:apiUnitFind',
             'verb' => RouteVerb::GET,
@@ -132,7 +132,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/organization/find/department.*$' => [
+    '^.*/organization/find/department.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\ApiController:apiDepartmentFind',
             'verb' => RouteVerb::GET,
@@ -143,7 +143,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/organization/find/position.*$' => [
+    '^.*/organization/find/position.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\ApiController:apiPositionFind',
             'verb' => RouteVerb::GET,

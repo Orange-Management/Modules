@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/projectmanagement/list.*$' => [
+    '^.*/projectmanagement/list.*$' => [
         [
             'dest' => '\Modules\ProjectManagement\Controller\BackendController:viewProjectManagementList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/projectmanagement/create.*$' => [
+    '^.*/projectmanagement/create.*$' => [
         [
             'dest' => '\Modules\ProjectManagement\Controller\BackendController:viewProjectManagementCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/projectmanagement/profile.*$' => [
+    '^.*/projectmanagement/profile.*$' => [
         [
             'dest' => '\Modules\ProjectManagement\Controller\BackendController:viewProjectManagementProfile',
             'verb' => RouteVerb::GET,

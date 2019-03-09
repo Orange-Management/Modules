@@ -23,7 +23,7 @@
     "load": [
         {
             "pid": [
-                "/backend/admin"
+                "/admin"
             ],
             "type": 4,
             "for": "Content",
@@ -32,7 +32,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Admin",
@@ -41,7 +41,7 @@
         },
         {
             "pid": [
-                "/backend/admin"
+                "/admin"
             ],
             "type": 5,
             "for": "Content",

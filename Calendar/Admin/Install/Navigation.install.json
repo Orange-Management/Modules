@@ -1,11 +1,11 @@
 [
     {
         "id": 1000901001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 1,
         "subtype": 1,
         "name": "Calendar",
-        "uri": "{/lang}/backend/calendar/dashboard?{?}",
+        "uri": "{/prefix}calendar/dashboard?{?}",
         "target": "self",
         "icon": "fa fa-calendar",
         "order": 10,
@@ -16,11 +16,11 @@
     },
     {
         "id": 1000901002,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "Calendar",
-        "uri": "{/lang}/backend/calendar/dashboard?{?}",
+        "uri": "{/prefix}calendar/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 30,

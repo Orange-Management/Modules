@@ -1,11 +1,11 @@
 [
     {
         "id": 1002001001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "AreaManager",
-        "uri": "{/lang}/backend/sales/areamanager/list?{?}",
+        "uri": "{/prefix}sales/areamanager/list?{?}",
         "target": "self",
         "icon": null,
         "order": 1,
@@ -16,11 +16,11 @@
     },
     {
         "id": 1002011001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "AreaManager",
-        "uri": "{/lang}/backend/sales/areamanager/list?{?}",
+        "uri": "{/prefix}sales/areamanager/list?{?}",
         "target": "self",
         "icon": null,
         "order": 1,

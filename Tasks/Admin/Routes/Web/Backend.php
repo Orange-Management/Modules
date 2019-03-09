@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/task/dashboard.*$' => [
+    '^.*/task/dashboard.*$' => [
         [
             'dest' => '\Modules\Tasks\Controller\BackendController:viewTaskDashboard',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/task/single.*$' => [
+    '^.*/task/single.*$' => [
         [
             'dest' => '\Modules\Tasks\Controller\BackendController:viewTaskView',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/task/create.*$' => [
+    '^.*/task/create.*$' => [
         [
             'dest' => '\Modules\Tasks\Controller\BackendController:viewTaskCreate',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/task/analysis.*$' => [
+    '^.*/task/analysis.*$' => [
         [
             'dest' => '\Modules\Tasks\Controller\BackendController:viewTaskAnalysis',
             'verb' => RouteVerb::GET,

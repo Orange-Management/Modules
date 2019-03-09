@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/profile.*$' => [
+    '^.*/profile.*$' => [
         [
             'dest' => '\Modules\Profile\Controller\ApiController:apiProfileCreate',
             'verb' => RouteVerb::PUT,

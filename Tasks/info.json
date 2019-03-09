@@ -28,7 +28,7 @@
     "load": [
         {
             "pid": [
-                "/backend/task"
+                "/task"
             ],
             "type": 4,
             "for": 0,
@@ -37,7 +37,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 4,
             "from": "Tasks",
@@ -46,7 +46,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Tasks",

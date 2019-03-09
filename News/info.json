@@ -26,7 +26,7 @@
     "load": [
         {
             "pid": [
-                "/backend/news"
+                "/news"
             ],
             "type": 4,
             "for": 0,
@@ -35,7 +35,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "News",

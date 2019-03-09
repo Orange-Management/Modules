@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "/backend/controlling/kpi"
+                "/controlling/kpi"
             ],
             "type": 4,
             "for": 0,
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "KPI",

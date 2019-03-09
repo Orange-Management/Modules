@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Risk') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><?= $this->getHtml('Name') ?><td><?= $this->printHtml($risk->getName()); ?>
@@ -96,7 +96,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('RiskStatus') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iRiskConsequence"><?= $this->getHtml('RiskConsequence') ?></label>
@@ -151,7 +151,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('RiskObjects') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iRiskObjectName"><?= $this->getHtml('Name') ?></label>
@@ -192,7 +192,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('RiskObjectStatus') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iRiskObjectNameValue"><?= $this->getHtml('RiskObject') ?></label>
@@ -237,7 +237,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Solution') ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iSolutionName"><?= $this->getHtml('Name') ?></label>

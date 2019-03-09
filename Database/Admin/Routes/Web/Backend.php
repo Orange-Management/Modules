@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/database/list.*$' => [
+    '^.*/database/list.*$' => [
         [
             'dest' => '\Modules\Database\Controller\BackendController:viewDatabaseList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/database/create.*$' => [
+    '^.*/database/create.*$' => [
         [
             'dest' => '\Modules\Database\Controller\BackendController:viewDatabaseCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/database/result.*$' => [
+    '^.*/database/result.*$' => [
         [
             'dest' => '\Modules\Database\Controller\BackendController:viewDatabaseResult',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/database/template.*$' => [
+    '^.*/database/template.*$' => [
         [
             'dest' => '\Modules\Database\Controller\BackendController:viewDatabaseTemplate',
             'verb' => RouteVerb::GET,

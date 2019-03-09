@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/kanban.*$' => [
+    '^.*/kanban.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller\BackendController:setupStyles',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/kanban/dashboard.*$' => [
+    '^.*/kanban/dashboard.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanDashboard',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/kanban/archive.*$' => [
+    '^.*/kanban/archive.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanArchive',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/kanban/board.*$' => [
+    '^.*/kanban/board.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanBoard',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/kanban/card.*$' => [
+    '^.*/kanban/card.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanCard',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/kanban/create.*$' => [
+    '^.*/kanban/create.*$' => [
         [
             'dest' => '\Modules\Kanban\Controller\BackendController:viewKanbanBoardCreate',
             'verb' => RouteVerb::GET,

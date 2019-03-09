@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/draw/create.*$' => [
+    '^.*/draw/create.*$' => [
         [
             'dest' => '\Modules\Draw\Controller\BackendController:setUpDrawEditor',
             'verb' => RouteVerb::GET,
@@ -26,7 +26,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/draw/list.*$' => [
+    '^.*/draw/list.*$' => [
         [
             'dest' => '\Modules\Draw\Controller\BackendController:viewDrawList',
             'verb' => RouteVerb::GET,
@@ -37,7 +37,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/draw/single.*$' => [
+    '^.*/draw/single.*$' => [
         [
             'dest' => '\Modules\Draw\Controller\BackendController:setUpDrawEditor',
             'verb' => RouteVerb::GET,

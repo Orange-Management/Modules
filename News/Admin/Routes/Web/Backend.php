@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/news/dashboard.*$' => [
+    '^.*/news/dashboard.*$' => [
         [
             'dest' => '\Modules\News\Controller\BackendController:viewNewsDashboard',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/news/article.*$' => [
+    '^.*/news/article.*$' => [
         [
             'dest' => '\Modules\News\Controller\BackendController:viewNewsArticle',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/news/archive.*$' => [
+    '^.*/news/archive.*$' => [
         [
             'dest' => '\Modules\News\Controller\BackendController:viewNewsArchive',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/news/create.*$' => [
+    '^.*/news/create.*$' => [
         [
             'dest' => '\Modules\Editor\Controller\BackendController:setUpEditorEditor',
             'verb' => RouteVerb::GET,

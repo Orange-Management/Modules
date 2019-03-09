@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Position') ?></h1></header>
             <div class="inner">
-                <form id="fPositionCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/rootPath}{/lang}/api/organization/position'); ?>">
+                <form id="fPositionCreate" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}{/rootPath}{/lang}/api/organization/position'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>

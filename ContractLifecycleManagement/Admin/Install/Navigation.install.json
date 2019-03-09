@@ -1,11 +1,11 @@
 [
     {
         "id": 1007301001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "CLM",
-        "uri": "{/lang}/backend/controlling/clm/dashboard?{?}",
+        "uri": "{/prefix}controlling/clm/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 1,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1007302001,
-                "pid": "/backend/controlling/clm",
+                "pid": "/controlling/clm",
                 "type": 3,
                 "subtype": 1,
                 "name": "Dashboard",
-                "uri": "{/lang}/backend/controlling/clm/dashboard?{?}",
+                "uri": "{/prefix}controlling/clm/dashboard?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,

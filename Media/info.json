@@ -26,7 +26,7 @@
     "load": [
         {
             "pid": [
-                "/backend/media"
+                "/media"
             ],
             "type": 4,
             "for": "Content",
@@ -35,7 +35,7 @@
         },
         {
             "pid": [
-                "/backend/admin"
+                "/admin"
             ],
             "type": 4,
             "for": "Admin",
@@ -44,7 +44,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Media",

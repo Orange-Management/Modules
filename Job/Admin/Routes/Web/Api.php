@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/admin/job.*$' => [
+    '^.*/admin/job.*$' => [
         [
             'dest' => '\Modules\Job\Controller\ApiController:apiJobCreate',
             'verb' => RouteVerb::SET,

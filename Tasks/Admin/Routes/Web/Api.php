@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/task(\?.*|$)' => [
+    '^.*/task(\?.*|$)' => [
         [
             'dest' => '\Modules\Tasks\Controller\ApiController:apiTaskCreate',
             'verb' => RouteVerb::PUT,
@@ -35,7 +35,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/task/element.*$' => [
+    '^.*/task/element.*$' => [
         [
             'dest' => '\Modules\Tasks\Controller\ApiController:apiTaskElementCreate',
             'verb' => RouteVerb::PUT,

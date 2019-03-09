@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/organization/unit/list.*$' => [
+    '^.*/organization/unit/list.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewUnitList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/unit/profile.*$' => [
+    '^.*/organization/unit/profile.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewUnitProfile',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/unit/create.*$' => [
+    '^.*/organization/unit/create.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewUnitCreate',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/department/list.*$' => [
+    '^.*/organization/department/list.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewDepartmentList',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/department/profile.*$' => [
+    '^.*/organization/department/profile.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewDepartmentProfile',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/department/create.*$' => [
+    '^.*/organization/department/create.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewDepartmentCreate',
             'verb' => RouteVerb::GET,
@@ -72,7 +72,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/position/list.*$' => [
+    '^.*/organization/position/list.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewPositionList',
             'verb' => RouteVerb::GET,
@@ -83,7 +83,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/position/profile.*$' => [
+    '^.*/organization/position/profile.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewPositionProfile',
             'verb' => RouteVerb::GET,
@@ -94,7 +94,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/organization/position/create.*$' => [
+    '^.*/organization/position/create.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewPositionCreate',
             'verb' => RouteVerb::GET,

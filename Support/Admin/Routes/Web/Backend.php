@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/support/list.*$' => [
+    '^.*/support/list.*$' => [
         [
             'dest' => '\Modules\Support\Controller\BackendController:viewSupportList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/support/single.*$' => [
+    '^.*/support/single.*$' => [
         [
             'dest' => '\Modules\Support\Controller\BackendController:viewSupportTicket',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/support/create.*$' => [
+    '^.*/support/create.*$' => [
         [
             'dest' => '\Modules\Support\Controller\BackendController:viewSupportCreate',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/support/analysis.*$' => [
+    '^.*/support/analysis.*$' => [
         [
             'dest' => '\Modules\Support\Controller\BackendController:viewSupportAnalysis',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/support/settings.*$' => [
+    '^.*/support/settings.*$' => [
         [
             'dest' => '\Modules\Support\Controller\BackendController:viewSupportSettings',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/private/support/dashboard.*$' => [
+    '^.*/private/support/dashboard.*$' => [
         [
             'dest' => '\Modules\Support\Controller\BackendController:viewPrivateSupportDashboard',
             'verb' => RouteVerb::GET,

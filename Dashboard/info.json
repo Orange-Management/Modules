@@ -26,7 +26,7 @@
     "load": [
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 4,
             "for": "Content",
@@ -35,7 +35,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Dashboard",

@@ -1,11 +1,11 @@
 [
     {
         "id": 1005301001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "Editor",
-        "uri": "{/lang}/backend/editor/list?{?}",
+        "uri": "{/prefix}editor/list?{?}",
         "target": "self",
         "icon": null,
         "order": 75,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1005302001,
-                "pid": "/backend/editor",
+                "pid": "/editor",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/editor/list?{?}",
+                "uri": "{/prefix}editor/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1005302101,
-                "pid": "/backend/editor",
+                "pid": "/editor",
                 "type": 3,
                 "subtype": 5,
                 "name": "Create",
-                "uri": "{/lang}/backend/editor/create?{?}",
+                "uri": "{/prefix}editor/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 15,

@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
                 <tbody>
                 <?php $c = 0; foreach ($tasks as $key => $task) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/task/single?{?}&id=' . $task->getId());
+                $url = \phpOMS\Uri\UriFactory::build('{/prefix}task/single?{?}&id=' . $task->getId());
                 $color = 'darkred';
                 if ($task->getStatus() === TaskStatus::DONE) { $color = 'green'; }
                 elseif ($task->getStatus() === TaskStatus::OPEN) { $color = 'darkblue'; }
@@ -65,7 +65,7 @@ echo $this->getData('nav')->render(); ?>
             <section class="box wf-100">
                 <header><h1><?= $this->getHtml('Settings') ?></h1></header>
                 <div class="inner">
-                    <form id="iTaskInterval" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/backend/task/dashboard?{?}') ?>" method="post">
+                    <form id="iTaskInterval" action="<?= \phpOMS\Uri\UriFactory::build('{/api}task/dashboard?{?}') ?>" method="post">
                         <table class="layout wf-100">
                             <tr><td><label for="iIntervarl"><?= $this->getHtml('Interval') ?></label>
                             <tr><td><select id="iIntervarl" name="interval">

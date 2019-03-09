@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/admin/exchange/import/list.*$' => [
+    '^.*/admin/exchange/import/list.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeImportList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/exchange/export/list.*$' => [
+    '^.*/admin/exchange/export/list.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeExportList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/exchange/import/profile.*$' => [
+    '^.*/admin/exchange/import/profile.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeImport',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/exchange/export/profile.*$' => [
+    '^.*/admin/exchange/export/profile.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeExport',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/exchange/dashboard.*$' => [
+    '^.*/admin/exchange/dashboard.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\BackendController:viewExchangeDashboard',
             'verb' => RouteVerb::GET,

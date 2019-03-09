@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/controlling/kpi/dashboard.*$' => [
+    '^.*/controlling/kpi/dashboard.*$' => [
         [
             'dest' => '\Modules\KPI\Controller\BackendController:viewKPIDashboard',
             'verb' => RouteVerb::GET,

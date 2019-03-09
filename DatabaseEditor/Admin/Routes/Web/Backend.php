@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/dbeditor/editor.*$' => [
+    '^.*/dbeditor/editor.*$' => [
         [
             'dest' => '\Modules\DatabaseEditor\Controller\BackendController:viewDatabaseEditorEditor',
             'verb' => RouteVerb::GET,

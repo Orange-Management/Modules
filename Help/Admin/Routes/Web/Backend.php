@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/help/general(\?.*)?$' => [
+    '^.*/help/general(\?.*)?$' => [
         [
             'dest' => '\Modules\Help\Controller\BackendController:viewHelpGeneral',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/help/module/list(\?.*)?$' => [
+    '^.*/help/module/list(\?.*)?$' => [
         [
             'dest' => '\Modules\Help\Controller\BackendController:viewHelpModuleList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/help/module/single(\?.*)?$' => [
+    '^.*/help/module/single(\?.*)?$' => [
         [
             'dest' => '\Modules\Help\Controller\BackendController:viewHelpModule',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/help/developer(\?.*)?$' => [
+    '^.*/help/developer(\?.*)?$' => [
         [
             'dest' => '\Modules\Help\Controller\BackendController:viewHelpDeveloper',
             'verb' => RouteVerb::GET,

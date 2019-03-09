@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/marketing/promotion/list.*$' => [
+    '^.*/marketing/promotion/list.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller\BackendController:viewMarketingPromotionList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/marketing/promotion/create.*$' => [
+    '^.*/marketing/promotion/create.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller\BackendController:viewMarketingPromotionCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/marketing/promotion/profile.*$' => [
+    '^.*/marketing/promotion/profile.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller\BackendController:viewMarketingPromotionProfile',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/marketing/event/list.*$' => [
+    '^.*/marketing/event/list.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller\BackendController:viewMarketingEventList',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/marketing/event/create.*$' => [
+    '^.*/marketing/event/create.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller\BackendController:viewMarketingEventCreate',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/marketing/event/profile.*$' => [
+    '^.*/marketing/event/profile.*$' => [
         [
             'dest' => '\Modules\Marketing\Controller\BackendController:viewMarketingEventProfile',
             'verb' => RouteVerb::GET,

@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/checklist/list.*$' => [
+    '^.*/checklist/list.*$' => [
         [
             'dest' => '\Modules\Checklist\Controller\BackendController:viewChecklistList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/checklist/template/list.*$' => [
+    '^.*/checklist/template/list.*$' => [
         [
             'dest' => '\Modules\Checklist\Controller\BackendController:viewChecklistTemplateList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/checklist/template/create.*$' => [
+    '^.*/checklist/template/create.*$' => [
         [
             'dest' => '\Modules\Checklist\Controller\BackendController:viewChecklistTemplateCreate',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/checklist/template/view.*$' => [
+    '^.*/checklist/template/view.*$' => [
         [
             'dest' => '\Modules\Checklist\Controller\BackendController:viewChecklistTemplateView',
             'verb' => RouteVerb::GET,

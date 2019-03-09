@@ -13,7 +13,7 @@ echo $this->getData('nav')->render();
                 <?= $this->printHtml($question->getQuestion()); ?>
             </div>
             <div class="inner">
-                <img alt="<?= $this->getHtml('AccountImage', 0, 0); ?>" data-lazyload="<?= UriFactory::build('' . $question->getCreatedBy()->getImage()->getPath()); ?>">
+                <img alt="<?= $this->getHtml('AccountImage', 0, 0); ?>" data-lazyload="<?= UriFactory::build('{/prefix}' . $question->getCreatedBy()->getImage()->getPath()); ?>">
             </div>
         </section>
     </div>

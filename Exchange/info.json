@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Exchange",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "/backend/admin/exchange"
+                "/admin/exchange"
             ],
             "type": 4,
             "for": "Content",

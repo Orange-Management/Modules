@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Department') ?></h1></header>
             <div class="inner">
-                <form id="iDepartment" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/organization/department?{?}') ?>" method="POST">
+                <form id="iDepartment" action="<?= \phpOMS\Uri\UriFactory::build('{/api}organization/department?{?}') ?>" method="POST">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= $this->printHtml($department->getName()); ?>">

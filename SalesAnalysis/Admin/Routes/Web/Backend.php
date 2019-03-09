@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/sales/analysis/dashboard.*$' => [
+    '^.*/sales/analysis/dashboard.*$' => [
         [
             'dest' => '\Modules\SalesAnalysis\Controller\BackendController:viewBackendDashboard',
             'verb' => RouteVerb::GET,
@@ -18,7 +18,7 @@ return [
         ],
     ],
 
-    '^.*/backend/sales/analysis/overview/dashboard.*$' => [
+    '^.*/sales/analysis/overview/dashboard.*$' => [
         [
             'dest' => '\Modules\SalesAnalysis\Controller\BackendController:viewBackendOverviewDashboard',
             'verb' => RouteVerb::GET,

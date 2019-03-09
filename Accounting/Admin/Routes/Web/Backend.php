@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/accounting/personal/entries.*$' => [
+    '^.*/accounting/personal/entries.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewPersonalEntries',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/impersonal/entries.*$' => [
+    '^.*/accounting/impersonal/entries.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewImpersonalEntries',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/entries.*$' => [
+    '^.*/accounting/entries.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewEntries',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/impersonal/journal/list.*$' => [
+    '^.*/accounting/impersonal/journal/list.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewJournalList',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/stack/list.*$' => [
+    '^.*/accounting/stack/list.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewStackList',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/stack/entries.*$' => [
+    '^.*/accounting/stack/entries.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewStackEntries',
             'verb' => RouteVerb::GET,
@@ -72,7 +72,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/stack/archive/list.*$' => [
+    '^.*/accounting/stack/archive/list.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewStackArchiveList',
             'verb' => RouteVerb::GET,
@@ -83,7 +83,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/stack/create.*$' => [
+    '^.*/accounting/stack/create.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewStackCreate',
             'verb' => RouteVerb::GET,
@@ -94,7 +94,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/stack/predefined/list.*$' => [
+    '^.*/accounting/stack/predefined/list.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewStackPredefinedList',
             'verb' => RouteVerb::GET,
@@ -105,7 +105,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/gl/list.*$' => [
+    '^.*/accounting/gl/list.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewGLList',
             'verb' => RouteVerb::GET,
@@ -116,7 +116,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/gl/create.*$' => [
+    '^.*/accounting/gl/create.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewGLCreate',
             'verb' => RouteVerb::GET,
@@ -127,7 +127,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/gl/profile.*$' => [
+    '^.*/accounting/gl/profile.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewGLProfile',
             'verb' => RouteVerb::GET,
@@ -138,7 +138,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/accounting/dun/print.*$' => [
+    '^.*/accounting/dun/print.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewCostCenterProfile',
             'verb' => RouteVerb::GET,
@@ -149,7 +149,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/accounting/statement/print.*$' => [
+    '^.*/accounting/statement/print.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewCostCenterProfile',
             'verb' => RouteVerb::GET,
@@ -160,7 +160,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/accounting/balances/print.*$' => [
+    '^.*/accounting/balances/print.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewCostCenterProfile',
             'verb' => RouteVerb::GET,
@@ -171,7 +171,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/accounting/accountform/print.*$' => [
+    '^.*/accounting/accountform/print.*$' => [
         [
             'dest' => '\Modules\Accounting\Controller\BackendController:viewCostCenterProfile',
             'verb' => RouteVerb::GET,

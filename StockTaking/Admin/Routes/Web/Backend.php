@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/warehouse/stocktaking/list.*$' => [
+    '^.*/warehouse/stocktaking/list.*$' => [
         [
             'dest' => '\Modules\StockTaking\Controller\BackendController:viewStockTakingList',
             'verb' => RouteVerb::GET,

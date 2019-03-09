@@ -1,11 +1,11 @@
 [
     {
         "id": 1006701001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "StockTaking",
-        "uri": "{/lang}/backend/warehouse/stocktaking/list?{?}",
+        "uri": "{/prefix}warehouse/stocktaking/list?{?}",
         "target": "self",
         "icon": null,
         "order": 10,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1006702101,
-                "pid": "/backend/warehouse/stock",
+                "pid": "/warehouse/stock",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/warehouse/stocktaking/list?{?}",
+                "uri": "{/prefix}warehouse/stocktaking/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,

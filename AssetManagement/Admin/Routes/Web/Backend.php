@@ -7,7 +7,7 @@ use phpOMS\Router\RouteVerb;
 
 
 return [
-    '^.*/backend/accounting/asset/list.*$' => [
+    '^.*/accounting/asset/list.*$' => [
         [
             'dest' => '\Modules\AssetManagement\Controller\BackendController:viewAssetManagementList',
             'verb' => RouteVerb::GET,

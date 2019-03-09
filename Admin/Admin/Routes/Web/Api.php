@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/admin/settings.*$' => [
+    '^.*/admin/settings.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiSettingsSet',
             'verb' => RouteVerb::SET,
@@ -27,7 +27,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/group$' => [
+    '^.*/admin/group$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiGroupCreate',
             'verb' => RouteVerb::PUT,
@@ -67,7 +67,7 @@ return [
     ],
 
     // todo: the order of find and account is bad but needed for now. otherwise the admin/account.* also matches and we match two routes = bad
-    '^.*/api/admin/find/account.*$' => [
+    '^.*/admin/find/account.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAccountFind',
             'verb' => RouteVerb::GET,
@@ -78,7 +78,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/admin/find/group.*$' => [
+    '^.*/admin/find/group.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiGroupFind',
             'verb' => RouteVerb::GET,
@@ -90,7 +90,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/account$' => [
+    '^.*/admin/account$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAccountCreate',
             'verb' => RouteVerb::PUT,
@@ -129,7 +129,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/module/status.*$' => [
+    '^.*/admin/module/status.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiModuleStatusUpdate',
             'verb' => RouteVerb::SET,
@@ -141,7 +141,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/group/account.*$' => [
+    '^.*/admin/group/account.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAddAccountToGroup',
             'verb' => RouteVerb::PUT,
@@ -152,7 +152,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/admin/account/group.*$' => [
+    '^.*/admin/account/group.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAddGroupToAccount',
             'verb' => RouteVerb::PUT,
@@ -164,7 +164,7 @@ return [
         ],
     ],
 
-    '^.*/api/admin/group/permission.*$' => [
+    '^.*/admin/group/permission.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAddGroupPermission',
             'verb' => RouteVerb::PUT,
@@ -175,7 +175,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/admin/account/permission.*$' => [
+    '^.*/admin/account/permission.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAddAccountPermission',
             'verb' => RouteVerb::PUT,
@@ -186,7 +186,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/admin/module/reinit.*$' => [
+    '^.*/admin/module/reinit.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiReInit',
             'verb' => RouteVerb::GET,

@@ -20,7 +20,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/dbeditor/editor?{?}&csrf={$CSRF}'); ?>">
+                <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/api}dbeditor/editor?{?}&csrf={$CSRF}'); ?>">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
                         <tr><td><label for="iDatabaseType"><?= $this->getHtml('DatabaseType') ?></label>

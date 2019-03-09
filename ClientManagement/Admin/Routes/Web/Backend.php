@@ -7,7 +7,7 @@ use phpOMS\Router\RouteVerb;
 
 
 return [
-    '^.*/backend/sales/client/list.*$' => [
+    '^.*/sales/client/list.*$' => [
         [
             'dest' => '\Modules\ClientManagement\Controller\BackendController:viewClientManagementClientList',
             'verb' => RouteVerb::GET,
@@ -18,7 +18,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/sales/client/create.*$' => [
+    '^.*/sales/client/create.*$' => [
         [
             'dest' => '\Modules\ClientManagement\Controller\BackendController:viewClientManagementClientCreate',
             'verb' => RouteVerb::GET,
@@ -29,7 +29,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/sales/client/profile.*$' => [
+    '^.*/sales/client/profile.*$' => [
         [
             'dest' => '\Modules\ClientManagement\Controller\BackendController:viewClientManagementClientProfile',
             'verb' => RouteVerb::GET,
@@ -40,7 +40,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/sales/client/analysis.*$' => [
+    '^.*/sales/client/analysis.*$' => [
         [
             'dest' => '\Modules\ClientManagement\Controller\BackendController:viewClientManagementClientAnalysis',
             'verb' => RouteVerb::GET,

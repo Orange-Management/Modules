@@ -491,7 +491,7 @@ trait ModuleTestTrait
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
 
         $request = new Request(new Http(self::URI_LOAD));
-        $request->createRequestHashs(1);
+        $request->createRequestHashs(2);
 
         $loaded = $moduleManager->getUriLoad($request);
 

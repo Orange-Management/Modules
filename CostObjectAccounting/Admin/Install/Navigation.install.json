@@ -1,11 +1,11 @@
 [
     {
         "id": 1004401001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "CostObjects",
-        "uri": "{/lang}/backend/accounting/costobject/list?{?}",
+        "uri": "{/prefix}accounting/costobject/list?{?}",
         "target": "self",
         "icon": null,
         "order": 5,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004401101,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/accounting/costobject/list?{?}",
+                "uri": "{/prefix}accounting/costobject/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1004401201,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/lang}/backend/accounting/costobject/create?{?}",
+                "uri": "{/prefix}accounting/costobject/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 10,

@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "AccountsReceivable",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "/backend/accounting/receivable"
+                "/accounting/receivable"
             ],
             "type": 4,
             "for": "Content",

@@ -1,11 +1,11 @@
 [
     {
         "id": 1001001001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "BusinessExpenses",
-        "uri": "?{?}",
+        "uri": "{/prefix}?{?}",
         "target": "self",
         "icon": null,
         "order": 40,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1001002001,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 2,
                 "subtype": 1,
                 "name": "List",
-                "uri": "?{?}",
+                "uri": "{/prefix}?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 40,

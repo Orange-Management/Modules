@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/rnd/list.*$' => [
+    '^.*/rnd/list.*$' => [
         [
             'dest' => '\Modules\ResearchDevelopment\Controller\BackendController:viewProjectList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/rnd/create.*$' => [
+    '^.*/rnd/create.*$' => [
         [
             'dest' => '\Modules\ResearchDevelopment\Controller\BackendController:viewProjectCreate',
             'verb' => RouteVerb::GET,

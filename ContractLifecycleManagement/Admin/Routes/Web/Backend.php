@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/controlling/clm/dashboard.*$' => [
+    '^.*/controlling/clm/dashboard.*$' => [
         [
             'dest' => '\Modules\ContractLifecycleManagement\Controller\BackendController:viewContractDashboard',
             'verb' => RouteVerb::GET,

@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
     <div class="col-xs-12">
         <div class="box wf-100" style="height: 100%;">
-            <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
+            <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/prefix}helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
         </div>
     </div>
 <!--
@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getHtml('Reports') ?></h1></header>
 
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/helper/template'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <?php if (count($reportLanguage) > 1) : ?>
@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
             <header><h1><?= $this->getHtml('Export') ?></h1></header>
 
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/helper/template'); ?>" method="post">
+                <form action="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr>

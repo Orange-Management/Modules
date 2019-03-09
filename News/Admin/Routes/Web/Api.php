@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/news.*$' => [
+    '^.*/news.*$' => [
         [
             'dest' => '\Modules\News\Controller\ApiController:apiNewsCreate',
             'verb' => RouteVerb::PUT,

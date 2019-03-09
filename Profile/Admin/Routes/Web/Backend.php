@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/profile.*$' => [
+    '^.*/profile.*$' => [
         [
             'dest' => '\Modules\Profile\Controller\BackendController:setupProfileStyles',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/profile/list.*$' => [
+    '^.*/profile/list.*$' => [
         [
             'dest' => '\Modules\Profile\Controller\BackendController:viewProfileList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/profile/single.*$' => [
+    '^.*/profile/single.*$' => [
         [
             'dest' => '\Modules\Profile\Controller\BackendController:viewProfileSingle',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/module/settings/profile/settings.*$' => [
+    '^.*/admin/module/settings/profile/settings.*$' => [
         [
             'dest' => '\Modules\Profile\Controller\BackendController:viewProfileAdminSettings',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/module/settings/profile/create.*$' => [
+    '^.*/admin/module/settings/profile/create.*$' => [
         [
             'dest' => '\Modules\Profile\Controller\BackendController:viewProfileAdminCreate',
             'verb' => RouteVerb::GET,

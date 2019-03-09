@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="5">
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/checklist/single?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('{/prefix}checklist/single?{?}&id=' . $value->getId()); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>

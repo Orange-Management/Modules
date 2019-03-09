@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/purchase/supplier/list.*$' => [
+    '^.*/purchase/supplier/list.*$' => [
         [
             'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/supplier/create.*$' => [
+    '^.*/purchase/supplier/create.*$' => [
         [
             'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/supplier/profile.*$' => [
+    '^.*/purchase/supplier/profile.*$' => [
         [
             'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierProfile',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/supplier/analysis.*$' => [
+    '^.*/purchase/supplier/analysis.*$' => [
         [
             'dest' => '\Modules\SupplierManagement\Controller\BackendController:viewSupplierManagementSupplierAnalysis',
             'verb' => RouteVerb::GET,

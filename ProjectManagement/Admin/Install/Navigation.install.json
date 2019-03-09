@@ -1,11 +1,11 @@
 [
     {
         "id": 1001701001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "ProjectManagement",
-        "uri": "{/lang}/backend/projectmanagement/list?{?}",
+        "uri": "{/prefix}projectmanagement/list?{?}",
         "target": "self",
         "icon": null,
         "order": 60,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1001702001,
-                "pid": "/backend/projectmanagement",
+                "pid": "/projectmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/projectmanagement/list?{?}",
+                "uri": "{/prefix}projectmanagement/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1001703001,
-                "pid": "/backend/projectmanagement",
+                "pid": "/projectmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/lang}/backend/projectmanagement/create?{?}",
+                "uri": "{/prefix}projectmanagement/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,

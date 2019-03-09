@@ -27,7 +27,7 @@
     "load": [
         {
             "pid": [
-                "/backend/helper"
+                "/helper"
             ],
             "type": 4,
             "for": "Content",
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Helper",

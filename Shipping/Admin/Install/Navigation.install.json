@@ -1,11 +1,11 @@
 [
     {
         "id": 1004001001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "Shipping",
-        "uri": "{/lang}/backend/warehouse/shipping/list?{?}",
+        "uri": "{/prefix}warehouse/shipping/list?{?}",
         "target": "self",
         "icon": null,
         "order": 10,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004002101,
-                "pid": "/backend/warehouse/shipping",
+                "pid": "/warehouse/shipping",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/warehouse/shipping/list?{?}",
+                "uri": "{/prefix}warehouse/shipping/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -31,11 +31,11 @@
             },
             {
                 "id": 1004002201,
-                "pid": "/backend/warehouse/shipping",
+                "pid": "/warehouse/shipping",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/lang}/backend/warehouse/shipping/create?{?}",
+                "uri": "{/prefix}warehouse/shipping/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 10,

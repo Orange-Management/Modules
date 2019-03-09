@@ -1,11 +1,11 @@
 [
     {
         "id": 1004601001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "Budgeting",
-        "uri": "{/lang}/backend/controlling/budget/dashboard?{?}",
+        "uri": "{/prefix}controlling/budget/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 1,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004602001,
-                "pid": "/backend/controlling/budget",
+                "pid": "/controlling/budget",
                 "type": 3,
                 "subtype": 1,
                 "name": "Dashboard",
-                "uri": "{/lang}/backend/controlling/budget/dashboard?{?}",
+                "uri": "{/prefix}controlling/budget/dashboard?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,

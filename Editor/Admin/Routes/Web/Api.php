@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/editor.*$' => [
+    '^.*/editor.*$' => [
         [
             'dest' => '\Modules\Editor\Controller\ApiController:apiEditorCreate',
             'verb' => RouteVerb::PUT,

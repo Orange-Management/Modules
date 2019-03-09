@@ -1,11 +1,11 @@
 [
     {
         "id": 1004201001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "EventManagement",
-        "uri": "{/lang}/backend/eventmanagement/list?{?}",
+        "uri": "{/prefix}eventmanagement/list?{?}",
         "target": "self",
         "icon": null,
         "order": 65,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004202001,
-                "pid": "/backend/eventmanagement",
+                "pid": "/eventmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/eventmanagement/list?{?}",
+                "uri": "{/prefix}eventmanagement/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1004203001,
-                "pid": "/backend/eventmanagement",
+                "pid": "/eventmanagement",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/lang}/backend/eventmanagement/create?{?}",
+                "uri": "{/prefix}eventmanagement/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,

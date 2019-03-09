@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/media$' => [
+    '^.*/media$' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpload',
             'verb' => RouteVerb::SET,
@@ -22,7 +22,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/media/create.*$' => [
+    '^.*/media/create.*$' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaCreate',
             'verb' => RouteVerb::SET,
@@ -34,7 +34,7 @@ return [
         ],
     ],
     // todo: the order of find is bad but needed for now.
-    '^.*/api/media/find.*$' => [
+    '^.*/media/find.*$' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaFind',
             'verb' => RouteVerb::GET,

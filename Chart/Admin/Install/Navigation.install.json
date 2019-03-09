@@ -1,11 +1,11 @@
 [
     {
         "id": 1004101001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "Charts",
-        "uri": "{/lang}/backend/chart/list?{?}",
+        "uri": "{/prefix}chart/list?{?}",
         "target": "self",
         "icon": null,
         "order": 80,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004102001,
-                "pid": "/backend/chart",
+                "pid": "/chart",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/chart/list?{?}",
+                "uri": "{/prefix}chart/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1004102101,
-                "pid": "/backend/chart",
+                "pid": "/chart",
                 "type": 3,
                 "subtype": 5,
                 "name": "Create",
-                "uri": "{/lang}/backend/chart/create?{?}",
+                "uri": "{/prefix}chart/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 15,

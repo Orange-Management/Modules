@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="6">
                 <tbody>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/lang}/backend/admin/group/settings?{?}&id=' . $value->getId()); ?>
+                $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/group/settings?{?}&id=' . $value->getId()); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
@@ -60,7 +60,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/lang}/backend/riskmanagement/risk/create'); ?>"><?= $this->getHtml('NewRisk') ?></a>
+                <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}riskmanagement/risk/create'); ?>"><?= $this->getHtml('NewRisk') ?></a>
             </div>
         </section>
 

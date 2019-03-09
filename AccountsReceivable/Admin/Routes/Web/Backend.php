@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/accounting/receivable/list.*$' => [
+    '^.*/accounting/receivable/list.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/create.*$' => [
+    '^.*/accounting/receivable/create.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/profile.*$' => [
+    '^.*/accounting/receivable/profile.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorProfile',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/outstanding.*$' => [
+    '^.*/accounting/receivable/outstanding.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorOutstanding',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/age.*$' => [
+    '^.*/accounting/receivable/age.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorAge',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/receivable.*$' => [
+    '^.*/accounting/receivable/receivable.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorPayable',
             'verb' => RouteVerb::GET,
@@ -72,7 +72,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/dun/list.*$' => [
+    '^.*/accounting/receivable/dun/list.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorDunList',
             'verb' => RouteVerb::GET,
@@ -83,7 +83,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/dso/list.*$' => [
+    '^.*/accounting/receivable/dso/list.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewDebitorDsoList',
             'verb' => RouteVerb::GET,
@@ -94,7 +94,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/journal/list.*$' => [
+    '^.*/accounting/receivable/journal/list.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewJournalList',
             'verb' => RouteVerb::GET,
@@ -105,7 +105,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/entries.*$' => [
+    '^.*/accounting/receivable/entries.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewEntriesList',
             'verb' => RouteVerb::GET,
@@ -116,7 +116,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/receivable/analyze.*$' => [
+    '^.*/accounting/receivable/analyze.*$' => [
         [
             'dest' => '\Modules\AccountsReceivable\Controller\BackendController:viewAnalyzeDashboard',
             'verb' => RouteVerb::GET,

@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Group'); ?></h1></header>
             <div class="inner">
-                <form id="fGroupCreate" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/group'); ?>" method="put">
+                <form id="fGroupCreate" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/group'); ?>" method="put">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tbody>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status'); ?></label>

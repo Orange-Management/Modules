@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/survey/list.*$' => [
+    '^.*/survey/list.*$' => [
         [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/survey/create.*$' => [
+    '^.*/survey/create.*$' => [
         [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/survey/profile.*$' => [
+    '^.*/survey/profile.*$' => [
         [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysProfile',
             'verb' => RouteVerb::GET,

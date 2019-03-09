@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/sales/invoice/create.*$' => [
+    '^.*/sales/invoice/create.*$' => [
         [
             'dest' => '\Modules\Billing\Controller\BackendController:viewBillingInvoiceCreate',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/sales/invoice/list.*$' => [
+    '^.*/sales/invoice/list.*$' => [
         [
             'dest' => '\Modules\Billing\Controller\BackendController:viewBillingInvoiceList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/invoice/create.*$' => [
+    '^.*/purchase/invoice/create.*$' => [
         [
             'dest' => '\Modules\Billing\Controller\BackendController:viewBillingPurchaseInvoiceCreate',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/invoice/list.*$' => [
+    '^.*/purchase/invoice/list.*$' => [
         [
             'dest' => '\Modules\Billing\Controller\BackendController:viewBillingPurchaInvoiceList',
             'verb' => RouteVerb::GET,

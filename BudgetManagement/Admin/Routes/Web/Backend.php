@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/controlling/budget/dashboard.*$' => [
+    '^.*/controlling/budget/dashboard.*$' => [
         [
             'dest' => '\Modules\BudgetManagement\Controller\BackendController:viewBudgetingDashboard',
             'verb' => RouteVerb::GET,

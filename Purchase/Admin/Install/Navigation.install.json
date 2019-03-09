@@ -1,7 +1,7 @@
 [
     {
         "id": 1002101001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 0,
         "name": "Purchase",
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1002106001,
-                "pid": "/backend/purchase",
+                "pid": "/purchase",
                 "type": 2,
                 "subtype": 1,
                 "name": "Analysis",
-                "uri": "{/lang}/backend/purchase/analysis?{?}",
+                "uri": "{/prefix}purchase/analysis?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 15,

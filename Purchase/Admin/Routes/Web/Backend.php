@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/purchase/invoice/create.*$' => [
+    '^.*/purchase/invoice/create.*$' => [
         [
             'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseInvoiceCreate',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/invoice/list.*$' => [
+    '^.*/purchase/invoice/list.*$' => [
         [
             'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseInvoiceList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/article/list.*$' => [
+    '^.*/purchase/article/list.*$' => [
         [
             'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseArticleList',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/article/recommend.*$' => [
+    '^.*/purchase/article/recommend.*$' => [
         [
             'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseOrderRecommendation',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/article/create.*$' => [
+    '^.*/purchase/article/create.*$' => [
         [
             'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseArticleCreate',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/article/profile.*$' => [
+    '^.*/purchase/article/profile.*$' => [
         [
             'dest' => '\Modules\Purchase\Controller\BackendController:viewPurchaseArticleProfile',
             'verb' => RouteVerb::GET,

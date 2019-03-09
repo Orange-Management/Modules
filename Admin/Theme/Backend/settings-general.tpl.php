@@ -46,7 +46,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Settings'); ?></h1></header>
                         <div class="inner">
-                            <form id="iGeneralSettings" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/settings/general'); ?>" method="post">
+                            <form id="iGeneralSettings" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/settings/general'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td><label for="iOname"><?= $this->getHtml('OrganizationName'); ?></label>
@@ -62,7 +62,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Security'); ?></h1></header>
                         <div class="inner">
-                            <form id="iSecuritySettings" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/settings/general'); ?>" method="post">
+                            <form id="iSecuritySettings" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/settings/general'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td>
@@ -96,7 +96,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Logging'); ?></h1></header>
                         <div class="inner">
-                            <form id="iLoggingSettings" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/settings/general'); ?>" method="post">
+                            <form id="iLoggingSettings" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/settings/general'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td>
@@ -121,7 +121,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Localization'); ?></h1></header>
                         <div class="inner">
-                            <form id="fLocalization" name="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('{/lang}/api/admin/settings/localization'); ?>" method="post">
+                            <form id="fLocalization" name="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/settings/localization'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iDefaultLocalizations"><?= $this->getHtml('Defaults'); ?></label>

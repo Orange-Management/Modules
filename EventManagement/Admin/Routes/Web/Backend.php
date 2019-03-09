@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/eventmanagement/list.*$' => [
+    '^.*/eventmanagement/list.*$' => [
         [
             'dest' => '\Modules\EventManagement\Controller\BackendController:viewEventManagementList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/eventmanagement/create.*$' => [
+    '^.*/eventmanagement/create.*$' => [
         [
             'dest' => '\Modules\EventManagement\Controller\BackendController:viewEventManagementCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/eventmanagement/profile.*$' => [
+    '^.*/eventmanagement/profile.*$' => [
         [
             'dest' => '\Modules\EventManagement\Controller\BackendController:viewEventManagementProfile',
             'verb' => RouteVerb::GET,

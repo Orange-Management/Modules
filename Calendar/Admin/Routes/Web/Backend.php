@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/calendar/dashboard.*$' => [
+    '^.*/calendar/dashboard.*$' => [
         [
             'dest' => '\Modules\Calendar\Controller\BackendController:viewCalendarDashboard',
             'verb' => RouteVerb::GET,

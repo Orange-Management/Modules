@@ -1,11 +1,11 @@
 [
     {
         "id": 1003102001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "Clients",
-        "uri": "{/lang}/backend/sales/client/list?{?}",
+        "uri": "{/prefix}sales/client/list?{?}",
         "target": "self",
         "icon": null,
         "order": 1,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1003102101,
-                "pid": "/backend/sales/client",
+                "pid": "/sales/client",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/sales/client/list?{?}",
+                "uri": "{/prefix}sales/client/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1003102201,
-                "pid": "/backend/sales/client",
+                "pid": "/sales/client",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/lang}/backend/sales/client/create?{?}",
+                "uri": "{/prefix}sales/client/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,

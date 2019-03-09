@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/helper/template/create.*$' => [
+    '^.*/helper/template/create.*$' => [
         [
             'dest' => '\Modules\Media\Controller\BackendController::setUpFileUploader',
             'verb' => RouteVerb::GET,
@@ -26,7 +26,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/helper/report/create.*$' => [
+    '^.*/helper/report/create.*$' => [
         [
             'dest' => '\Modules\Media\Controller\BackendController::setUpFileUploader',
             'verb' => RouteVerb::GET,
@@ -46,7 +46,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/helper/list.*$' => [
+    '^.*/helper/list.*$' => [
         [
             'dest' => '\Modules\Helper\Controller\BackendController:viewTemplateList',
             'verb' => RouteVerb::GET,
@@ -57,7 +57,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/helper/report/view.*$' => [
+    '^.*/helper/report/view.*$' => [
         [
             'dest' => '\Modules\Helper\Controller\BackendController:viewHelperReport',
             'verb' => RouteVerb::GET,

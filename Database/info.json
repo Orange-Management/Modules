@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "/backend/database"
+                "/database"
             ],
             "type": 4,
             "for": "Content",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Database",

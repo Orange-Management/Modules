@@ -91,7 +91,7 @@ final class ApiController extends Controller
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $data = empty($request->getData('settings')) ? $request->getLike('(settings_)(.*)') : \json_decode((string) $request->getData('settings'), true);
+        $data = empty($request->getData('settings')) ? $request->getLike('(settings_)(.*)') : $request->getDataJson('settings');
 
         $this->updateModel($request, $data, $data, function() use($data) : void {
             $this->app->appSettings->set($data, true);

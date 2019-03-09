@@ -1,11 +1,11 @@
 [
     {
         "id": 1004501001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 1,
         "name": "CostCenters",
-        "uri": "{/lang}/backend/accounting/costcenter/list?{?}",
+        "uri": "{/prefix}accounting/costcenter/list?{?}",
         "target": "self",
         "icon": null,
         "order": 5,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004501101,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/lang}/backend/accounting/costcenter/list?{?}",
+                "uri": "{/prefix}accounting/costcenter/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1004503201,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 3,
                 "subtype": 1,
                 "name": "Create",
-                "uri": "{/lang}/backend/accounting/costcenter/create?{?}",
+                "uri": "{/prefix}accounting/costcenter/create?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 10,

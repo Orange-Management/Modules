@@ -1,7 +1,7 @@
 [
     {
         "id": 1006801001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 0,
         "name": "Help",
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1006802001,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 2,
                 "subtype": 1,
                 "name": "General",
-                "uri": "{/lang}/backend/help/general?{?}",
+                "uri": "{/prefix}help/general?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -30,11 +30,11 @@
             },
             {
                 "id": 1006803001,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 2,
                 "subtype": 1,
                 "name": "Modules",
-                "uri": "{/lang}/backend/help/module/list?{?}",
+                "uri": "{/prefix}help/module/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 10,
@@ -45,11 +45,11 @@
             },
             {
                 "id": 1006804001,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 2,
                 "subtype": 1,
                 "name": "Developer",
-                "uri": "{/lang}/backend/help/developer?{?}",
+                "uri": "{/prefix}help/developer?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 15,

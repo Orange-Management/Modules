@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/api/admin/exchange/import/profile.*$' => [
+    '^.*/admin/exchange/import/profile.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\ApiController:apiExchangeImport',
             'verb' => RouteVerb::SET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/admin/exchange/export/profile.*$' => [
+    '^.*/admin/exchange/export/profile.*$' => [
         [
             'dest' => '\Modules\Exchange\Controller\ApiController:apiExchangeExport',
             'verb' => RouteVerb::SET,

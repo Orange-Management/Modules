@@ -25,7 +25,7 @@
     "load": [
         {
             "pid": [
-                "/backend/admin/audit"
+                "/admin/audit"
             ],
             "type": 4,
             "for": "Content",
@@ -34,7 +34,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Auditor",

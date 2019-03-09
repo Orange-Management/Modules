@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/wiki.*$' => [
+    '^.*/wiki.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:setUpBackend',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/dashboard.*$' => [
+    '^.*/wiki/dashboard.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseDashboard',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/category/list.*$' => [
+    '^.*/wiki/category/list.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseCategoryList',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/category/single.*$' => [
+    '^.*/wiki/category/single.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseCategory',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/category/create.*$' => [
+    '^.*/wiki/category/create.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseCategoryCreate',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/doc/single.*$' => [
+    '^.*/wiki/doc/single.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseDoc',
             'verb' => RouteVerb::GET,
@@ -72,7 +72,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/doc/create.*$' => [
+    '^.*/wiki/doc/create.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseDocCreate',
             'verb' => RouteVerb::GET,
@@ -83,7 +83,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/wiki/doc/list.*$' => [
+    '^.*/wiki/doc/list.*$' => [
         [
             'dest' => '\Modules\Knowledgebase\Controller\BackendController:viewKnowledgebaseDocList',
             'verb' => RouteVerb::GET,

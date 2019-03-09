@@ -1,11 +1,11 @@
 [
     {
         "id": 1004301001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 0,
         "name": "Production",
-        "uri": "{/lang}/backend/production/dashboard?{?}",
+        "uri": "{/prefix}production/dashboard?{?}",
         "target": "self",
         "icon": "fa fa-fire",
         "order": 70,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1004303001,
-                "pid": "/backend",
+                "pid": "/",
                 "type": 2,
                 "subtype": 1,
                 "name": "Production",
-                "uri": "{/lang}/backend/production/list?{?}",
+                "uri": "{/prefix}production/list?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 5,
@@ -29,11 +29,11 @@
                 "children": [
                     {
                         "id": 1004303101,
-                        "pid": "/backend/production",
+                        "pid": "/production",
                         "type": 3,
                         "subtype": 1,
                         "name": "List",
-                        "uri": "{/lang}/backend/production/list?{?}",
+                        "uri": "{/prefix}production/list?{?}",
                         "target": "self",
                         "icon": null,
                         "order": 5,
@@ -44,11 +44,11 @@
                     },
                     {
                         "id": 1004303201,
-                        "pid": "/backend/production",
+                        "pid": "/production",
                         "type": 3,
                         "subtype": 1,
                         "name": "Create",
-                        "uri": "{/lang}/backend/production/create?{?}",
+                        "uri": "{/prefix}production/create?{?}",
                         "target": "self",
                         "icon": null,
                         "order": 10,

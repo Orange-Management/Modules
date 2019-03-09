@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/accounting/costcenter/list.*$' => [
+    '^.*/accounting/costcenter/list.*$' => [
         [
             'dest' => '\Modules\CostCenterAccounting\Controller\BackendController:viewCostCenterList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/costcenter/create.*$' => [
+    '^.*/accounting/costcenter/create.*$' => [
         [
             'dest' => '\Modules\CostCenterAccounting\Controller\BackendController:viewCostCenterCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/accounting/costcenter/profile.*$' => [
+    '^.*/accounting/costcenter/profile.*$' => [
         [
             'dest' => '\Modules\CostCenterAccounting\Controller\BackendController:viewCostCenterProfile',
             'verb' => RouteVerb::GET,

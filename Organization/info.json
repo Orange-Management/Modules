@@ -26,7 +26,7 @@
     "load": [
         {
             "pid": [
-                "/backend/organization"
+                "/organization"
             ],
             "type": 4,
             "for": "Organization",
@@ -35,7 +35,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Organization",

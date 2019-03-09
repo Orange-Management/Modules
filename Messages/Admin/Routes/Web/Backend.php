@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/messages/dashboard.*$' => [
+    '^.*/messages/dashboard.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageInbox',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/messages/outbox.*$' => [
+    '^.*/messages/outbox.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageOutbox',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/messages/trash.*$' => [
+    '^.*/messages/trash.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageTrash',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/messages/spam.*$' => [
+    '^.*/messages/spam.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageSpam',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/messages/settings.*$' => [
+    '^.*/messages/settings.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageSettings',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/messages/mail/create.*$' => [
+    '^.*/messages/mail/create.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageCreate',
             'verb' => RouteVerb::GET,
@@ -72,7 +72,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/messages/mail/single.*$' => [
+    '^.*/messages/mail/single.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageView',
             'verb' => RouteVerb::GET,
@@ -83,7 +83,7 @@ return [
             ],
         ],
     ],
-    '^.*/api/messages/mail/single.*$' => [
+    '^.*/messages/mail/single.*$' => [
         [
             'dest' => '\Modules\Messages\Controller\BackendController:viewMessageView',
             'verb' => RouteVerb::GET,

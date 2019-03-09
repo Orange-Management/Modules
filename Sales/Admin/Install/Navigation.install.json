@@ -1,7 +1,7 @@
 [
     {
         "id": 1001601001,
-        "pid": "/backend",
+        "pid": "/",
         "type": 2,
         "subtype": 0,
         "name": "Sales",

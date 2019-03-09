@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/editor/create.*$' => [
+    '^.*/editor/create.*$' => [
         [
             'dest' => '\Modules\Editor\Controller\BackendController:setUpEditorEditor',
             'verb' => RouteVerb::GET,
@@ -26,7 +26,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/editor/list.*$' => [
+    '^.*/editor/list.*$' => [
         [
             'dest' => '\Modules\Editor\Controller\BackendController:viewEditorList',
             'verb' => RouteVerb::GET,
@@ -37,7 +37,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/editor/single.*$' => [
+    '^.*/editor/single.*$' => [
         [
             'dest' => '\Modules\Editor\Controller\BackendController:viewEditorSingle',
             'verb' => RouteVerb::GET,

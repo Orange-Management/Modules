@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/production/list.*$' => [
+    '^.*/production/list.*$' => [
         [
             'dest' => '\Modules\Production\Controller\BackendController:viewProductionList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/production/create.*$' => [
+    '^.*/production/create.*$' => [
         [
             'dest' => '\Modules\Production\Controller\BackendController:viewProductionCreate',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/production/process/list.*$' => [
+    '^.*/production/process/list.*$' => [
         [
             'dest' => '\Modules\Production\Controller\BackendController:viewProductionProcessList',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/production/process/create.*$' => [
+    '^.*/production/process/create.*$' => [
         [
             'dest' => '\Modules\Production\Controller\BackendController:viewProductionProcessCreate',
             'verb' => RouteVerb::GET,

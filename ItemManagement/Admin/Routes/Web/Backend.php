@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/sales/item/list.*$' => [
+    '^.*/sales/item/list.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementSalesList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/item/list.*$' => [
+    '^.*/purchase/item/list.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementPurchaseList',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/warehouse/stock/list.*$' => [
+    '^.*/warehouse/stock/list.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementWarehousingList',
             'verb' => RouteVerb::GET,
@@ -39,7 +39,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/sales/item/create.*$' => [
+    '^.*/sales/item/create.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementSalesCreate',
             'verb' => RouteVerb::GET,
@@ -50,7 +50,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/purchase/item/create.*$' => [
+    '^.*/purchase/item/create.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementPurchaseCreate',
             'verb' => RouteVerb::GET,
@@ -61,7 +61,7 @@ return [
             ],
         ],
     ],
-    '.*/backend/warehouse/stock/create.*$' => [
+    '.*/warehouse/stock/create.*$' => [
         [
             'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementWarehousingCreate',
             'verb' => RouteVerb::GET,

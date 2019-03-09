@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/hr/timerecording/dashboard.*$' => [
+    '^.*/hr/timerecording/dashboard.*$' => [
         [
             'dest' => '\Modules\HumanResourceTimeRecording\Controller\BackendController:viewDashboard',
             'verb' => RouteVerb::GET,

@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/backend/admin/job/list.*$' => [
+    '^.*/admin/job/list.*$' => [
         [
             'dest' => '\Modules\Job\Controller\BackendController:viewJobList',
             'verb' => RouteVerb::GET,
@@ -17,7 +17,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/job/single.*$' => [
+    '^.*/admin/job/single.*$' => [
         [
             'dest' => '\Modules\Job\Controller\BackendController:viewJob',
             'verb' => RouteVerb::GET,
@@ -28,7 +28,7 @@ return [
             ],
         ],
     ],
-    '^.*/backend/admin/job/create.*$' => [
+    '^.*/admin/job/create.*$' => [
         [
             'dest' => '\Modules\Job\Controller\BackendController:viewJobCreate',
             'verb' => RouteVerb::GET,

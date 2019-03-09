@@ -27,7 +27,7 @@
     "load": [
         {
             "pid": [
-                "/backend/wiki"
+                "/wiki"
             ],
             "type": 4,
             "for": 0,
@@ -36,7 +36,7 @@
         },
         {
             "pid": [
-                "/backend"
+                "/"
             ],
             "type": 5,
             "from": "Knowledgebase",
