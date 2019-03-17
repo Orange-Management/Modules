@@ -86,29 +86,26 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(\json_encode($arr), $news->__toString());
     }
 
-    /**
-     * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
-     */
     public function testInvalidStatus() : void
     {
+        self::expectedException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
+
         $news = new NewsArticle();
         $news->setStatus(9999);
     }
 
-    /**
-     * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
-     */
     public function testInvalidType() : void
     {
+        self::expectedException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
+
         $news = new NewsArticle();
         $news->setType(9999);
     }
 
-    /**
-     * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
-     */
     public function testInvalidLanguage() : void
     {
+        self::expectedException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
+
         $news = new NewsArticle();
         $news->setLanguage('9999');
     }

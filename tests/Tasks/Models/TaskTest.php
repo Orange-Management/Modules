@@ -107,20 +107,18 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($arr, $task->jsonSerialize());
     }
 
-    /**
-     * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
-     */
     public function testInvalidStatus() : void
     {
+        self::expectedException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
+
         $task = new Task();
         $task->setStatus(9999);
     }
 
-    /**
-     * @expectedException \phpOMS\Stdlib\Base\Exception\InvalidEnumValue
-     */
     public function testInvalidPriority() : void
     {
+        self::expectedException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
+
         $task = new Task();
         $task->setPriority(9999);
     }

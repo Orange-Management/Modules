@@ -462,7 +462,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $routes2 = include __DIR__ . '/../../../Web/Api/Routes.php';
         $hooks2  = include __DIR__ . '/../../../Web/Api/Hooks.php';
 
-        self::assertEquals($routes, $routes2, '', 0.0, 10, true);
-        self::assertEquals($hooks, $hooks2, '', 0.0, 10, true);
+        self::assertEqualsWithDelta($routes, $routes2, 0.0, 10, true);
+        self::assertEqualsWithDelta($hooks, $hooks2, 0.0, 10, true);
     }
 }
