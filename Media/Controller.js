@@ -48,8 +48,8 @@
                         const fileFields = document.querySelectorAll(
                                 '#' + e.id + ' input[type=file], '
                                 + 'input[form=' + e.id + '][type=file]'
-                            ),
-                            uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
+                            );
+                        const uploader   = new jsOMS.Modules.Models.Media.Upload(self.app.responseManager);
 
                         uploader.setSuccess(e.id, function (type, response)
                         {

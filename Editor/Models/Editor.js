@@ -31,8 +31,8 @@
     {
         let textarea = this.editor.getElementsByTagName('textarea')[0];
 
-        const startPosition = textarea.selectionStart,
-            endPosition = textarea.selectionEnd;
+        const startPosition = textarea.selectionStart;
+        const endPosition   = textarea.selectionEnd;
 
         switch (e.dataset['editorButton']) {
             case 'undo':

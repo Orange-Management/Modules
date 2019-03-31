@@ -731,8 +731,9 @@ final class ApiController extends Controller
      */
     public function apiReInit(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $p = __DIR__ . '/../../../Web/*';
+        $p           = __DIR__ . '/../../../Web/*';
         $directories = \glob(__DIR__ . '/../../../Web/*' , \GLOB_ONLYDIR);
+
         foreach ($directories as $directory) {
             if (\file_exists($path = $directory . '/Routes.php')) {
                 \file_put_contents($path, '<?php return [];');

@@ -92,7 +92,7 @@ class Report implements \JsonSerializable
     /**
      * Report source.
      *
-     * @var int
+     * @var int|\Modules\Media\Models\Collection
      * @since 1.0.0
      */
     private $source = 0;
@@ -281,15 +281,20 @@ class Report implements \JsonSerializable
         return $this->source;
     }
 
+    /**
+     * @return array
+     *
+     * @since  1.0.0
+     */
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
-            'createdBy' => $this->createdBy,
-            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
-            'name' => $this->title,
+            'id'          => $this->id,
+            'createdBy'   => $this->createdBy,
+            'createdAt'   => $this->createdAt->format('Y-m-d H:i:s'),
+            'name'        => $this->title,
             'description' => $this->description,
-            'status' => $this->status,
+            'status'      => $this->status,
         ];
     }
 

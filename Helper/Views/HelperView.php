@@ -27,5 +27,5 @@ use phpOMS\Views\View;
 class HelperView extends View
 {
     protected $dataSets = [];
-    protected $dataSet = null;
+    protected $dataSet  = null;
 }

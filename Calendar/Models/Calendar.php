@@ -70,7 +70,7 @@ class Calendar
     /**
      * Events.
      *
-     * @var \Modules\Calendar\Models\Event[]
+     * @var array<int, \Modules\Calendar\Models\Event>
      * @since 1.0.0
      */
     private $events = [];

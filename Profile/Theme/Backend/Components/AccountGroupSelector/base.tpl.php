@@ -16,7 +16,7 @@
                 <input autocomplete="off" class="input" type="text" id="i<?= $this->printHtml($this->getId()); ?>" placeholder="&#xf007; Guest"
                     data-emptyAfter="true"
                     data-autocomplete="false"
-                    data-src="{/lang}/api/admin/find/account?search={#i<?= $this->printHtml($this->getId()); ?>}">
+                    data-src="api/admin/find/account?search={#i<?= $this->printHtml($this->getId()); ?>}">
                 <div id="<?= $this->printHtml($this->getId()); ?>-dropdown" class="dropdown" data-active="true">
                     <table class="table darkred">
                         <thead>

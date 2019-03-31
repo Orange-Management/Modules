@@ -91,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table id="groupPermissions" class="box table darkred wf-100">
+                    <table id="groupPermissions" class="box table darkred wf-100" data-table-form="fGroupAddPermission">
                         <caption><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                             <tr>
@@ -106,6 +106,26 @@ echo $this->getData('nav')->render(); ?>
                                 <td><?= $this->getHtml('Comp'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td class="wf-100"><?= $this->getHtml('Perm'); ?>
                         <tbody>
+                            <template>
+                                <tr>
+                                    <td><a href="#"><i class="fa fa-times"></i></a>
+                                    <td><a href="#"><i class="fa fa-cogs"></i></a>
+                                    <td></td>
+                                    <td data-tpl-text="/unit" data-tpl-value="/unit" data-value=""></td>
+                                    <td data-tpl-text="/app" data-tpl-value="/app" data-value=""></td>
+                                    <td data-tpl-text="/module" data-tpl-value="/module" data-value=""></td>
+                                    <td data-tpl-text="/type" data-tpl-value="/type" data-value=""></td>
+                                    <td data-tpl-text="/ele" data-tpl-value="/ele" data-value=""></td>
+                                    <td data-tpl-text="/comp" data-tpl-value="/comp" data-value=""></td>
+                                    <td>
+                                        <span data-tpl-text="/perm/c" data-tpl-value="/perm/c" data-value=""><span>
+                                        <span data-tpl-text="/perm/r" data-tpl-value="/perm/r" data-value=""><span>
+                                        <span data-tpl-text="/perm/u" data-tpl-value="/perm/u" data-value=""><span>
+                                        <span data-tpl-text="/perm/d" data-tpl-value="/perm/d" data-value=""><span>
+                                        <span data-tpl-text="/perm/p" data-tpl-value="/perm/p" data-value=""><span>
+                                    </td>
+                                </tr>
+                            </template>
                             <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
                             <tr>
                                 <td><a href="#"><i class="fa fa-times"></i></a>
@@ -136,37 +156,37 @@ echo $this->getData('nav')->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>
-                                    <tr><td><input id="iPermissionUnit" name="permissionunit" type="text">
+                                    <tr><td><input id="iPermissionUnit" name="permissionunit" type="text" data-tpl-text="/unit" data-tpl-value="/unit">
                                     <tr><td><label for="iPermissionApp"><?= $this->getHtml('App'); ?></label>
-                                    <tr><td><input id="iPermissionApp" name="permissionapp" type="text">
+                                    <tr><td><input id="iPermissionApp" name="permissionapp" type="text" data-tpl-text="/app" data-tpl-value="/app">
                                     <tr><td><label for="iPermissionModule"><?= $this->getHtml('Module'); ?></label>
-                                    <tr><td><input id="iPermissionModule" name="permissionmodule" type="text">
+                                    <tr><td><input id="iPermissionModule" name="permissionmodule" type="text" data-tpl-text="/module" data-tpl-value="/module">
                                     <tr><td><label for="iPermissionType"><?= $this->getHtml('Type'); ?></label>
-                                    <tr><td><input id="iPermissionType" name="permissiontype" type="text">
+                                    <tr><td><input id="iPermissionType" name="permissiontype" type="text" data-tpl-text="/type" data-tpl-value="/type">
                                     <tr><td><label for="iPermissionElement"><?= $this->getHtml('Element'); ?></label>
-                                    <tr><td><input id="iPermissionElement" name="permissionelement" type="text">
+                                    <tr><td><input id="iPermissionElement" name="permissionelement" type="text" data-tpl-text="/ele" data-tpl-value="/ele">
                                     <tr><td><label for="iPermissionComponent"><?= $this->getHtml('Component'); ?></label>
-                                    <tr><td><input id="iPermissionComponent" name="permissioncomponent" type="text">
+                                    <tr><td><input id="iPermissionComponent" name="permissioncomponent" type="text" data-tpl-text="/comp" data-tpl-value="/comp">
                                     <tr><td><label><?= $this->getHtml('Permission'); ?></label>
                                     <tr><td>
                                         <span class="checkbox">
-                                            <input id="iPermissionCreate" name="permissioncreate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::CREATE ?>">
+                                            <input id="iPermissionCreate" name="permissioncreate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::CREATE ?>" data-tpl-text="/perm/c" data-tpl-value="/perm/c">
                                             <label for="iPermissionCreate"><?= $this->getHtml('Create') ?></label>
                                         </span>
                                         <span class="checkbox">
-                                            <input id="iPermissionRead" name="permissionread" type="checkbox" value="<?= \phpOMS\Account\PermissionType::READ ?>">
+                                            <input id="iPermissionRead" name="permissionread" type="checkbox" value="<?= \phpOMS\Account\PermissionType::READ ?>" data-tpl-text="/perm/r" data-tpl-value="/perm/r">
                                             <label for="iPermissionRead"><?= $this->getHtml('Read') ?></label>
                                         </span>
                                         <span class="checkbox">
-                                            <input id="iPermissionUpdate" name="permissionupdate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::MODIFY ?>">
+                                            <input id="iPermissionUpdate" name="permissionupdate" type="checkbox" value="<?= \phpOMS\Account\PermissionType::MODIFY ?>" data-tpl-text="/perm/u" data-tpl-value="/perm/u">
                                             <label for="iPermissionUpdate"><?= $this->getHtml('Update') ?></label>
                                         </span>
                                         <span class="checkbox">
-                                            <input id="iPermissionDelete" name="permissiondelete" type="checkbox" value="<?= \phpOMS\Account\PermissionType::DELETE ?>">
+                                            <input id="iPermissionDelete" name="permissiondelete" type="checkbox" value="<?= \phpOMS\Account\PermissionType::DELETE ?>" data-tpl-text="/perm/d" data-tpl-value="/perm/d">
                                             <label for="iPermissionDelete"><?= $this->getHtml('Delete') ?></label>
                                         </span>
                                         <span class="checkbox">
-                                            <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= \phpOMS\Account\PermissionType::PERMISSION ?>">
+                                            <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= \phpOMS\Account\PermissionType::PERMISSION ?>" data-tpl-text="/perm/p" data-tpl-value="/perm/p">
                                             <label for="iPermissionPermission"><?= $this->getHtml('Permission') ?></label>
                                         </span>
                                     <tr><td>

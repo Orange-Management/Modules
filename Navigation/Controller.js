@@ -11,7 +11,7 @@
     "use strict";
 
     /** @namespace jsOMS.Modules.Navigation.Models */
-    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Navigation');
+    //jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Navigation');
 
     /**
      * Constructor
