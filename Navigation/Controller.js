@@ -1,3 +1,5 @@
+import { Navigation } from './Models/Navigation.js';
+
 /**
  * Navigation controller.
  *
@@ -64,7 +66,7 @@
             const extend = e.querySelectorAll('li label'),
                 self = this;
 
-            this.navigation[e.id] = new jsOMS.Modules.Navigation.Models.Navigation(this.rawNavData[e.id]);
+            this.navigation[e.id] = new Navigation(this.rawNavData[e.id]);
 
             // On load
             const open = this.navigation[e.id].getOpen();
