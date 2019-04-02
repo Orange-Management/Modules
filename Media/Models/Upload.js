@@ -6,178 +6,171 @@
  * @version    1.0.0
  * @since      1.0.0
  */
-(function (jsOMS)
-{
-    "use strict";
+export class Upload {
+    /**
+     * @constructor
+     *
+     * @param {Object} responseManager Response manager
+     *
+     * @since 1.0.0
+     */
+    constructor (responseManager)
+    {
+        this.responseManager = responseManager;
+        this.success         = [];
 
-    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Media');
+        this.uri          = '';
+        this.allowedTypes = [];
+        this.maxFileSize  = 0;
+        this.files        = [];
+    };
 
-    jsOMS.Modules.Models.Media.Upload = class {
-        /**
-         * @constructor
-         *
-         * @param {Object} responseManager Response manager
-         *
-         * @since 1.0.0
-         */
-        constructor (responseManager)
+    /**
+     * Set max allowed file size.
+     *
+     * @param {int} size Max file size
+     *
+     * @return {void}
+     *
+     * @since  1.0.0
+     */
+    setMaxFileSize (size)
+    {
+        this.maxFileSize = size;
+    };
+
+    /**
+     * Get max allowed file size.
+     *
+     * @return {int} Max file size
+     *
+     * @since  1.0.0
+     */
+    getMaxFileSize ()
+    {
+        return this.maxFileSize;
+    };
+
+    /**
+     * Set success callback.
+     *
+     * @param {string}   id       Form id
+     * @param {function} callback Function callback on success
+     *
+     * @return {void}
+     *
+     * @since  1.0.0
+     */
+    setSuccess (id, callback)
+    {
+        this.success[id] = callback;
+    };
+
+    /**
+     * Set upload uri.
+     *
+     * @param {string} uri Upload destination
+     *
+     * @return {void}
+     *
+     * @since  1.0.0
+     */
+    setUri (uri)
+    {
+        this.uri = uri;
+    };
+
+    /**
+     * Set allowed upload file types.
+     *
+     * @param {array} allowed Allowed upload file types
+     *
+     * @return {void}
+     *
+     * @since  1.0.0
+     */
+    setAllowedTypes (allowed)
+    {
+        this.allowedTypes = allowed;
+    };
+
+    /**
+     * Add allowed upload file type
+     *
+     * @param {string} allowed Allowed upload file type
+     *
+     * @return {void}
+     *
+     * @since  1.0.0
+     */
+    addAllowedType (allowed)
+    {
+        this.allowedTypes.push(allowed);
+    };
+
+    /**
+     * Add file to upload
+     *
+     * @param {string} file File to upload
+     *
+     * @return {void}
+     *
+     * @since  1.0.0
+     */
+    addFile (file)
+    {
+        this.files.push(file);
+    };
+
+    /**
+     * Get count of file to upload
+     *
+     * @return {int}
+     *
+     * @since  1.0.0
+     */
+    count ()
+    {
+        return this.files.length;
+    };
+
+    // todo: maybe do file upload together with data upload in FormData.
+    // let the module forward the files to the media module?!
+    upload (formId)
+    {
+        // TODO: validate file type + file size
+
+        const request = new Request(),
+            formData  = new FormData(),
+            self      = this;
+
+        this.files.forEach(function (element, index)
         {
-            this.responseManager = responseManager;
-            this.success         = [];
+            formData.append('file' + index, element);
+        });
 
-            this.uri          = '';
-            this.allowedTypes = [];
-            this.maxFileSize  = 0;
-            this.files        = [];
-        };
-
-        /**
-         * Set max allowed file size.
-         *
-         * @param {int} size Max file size
-         *
-         * @return {void}
-         *
-         * @since  1.0.0
-         */
-        setMaxFileSize (size)
+        request.setData(formData);
+        request.setType(RequestType.FILE);
+        request.setUri(this.uri);
+        request.setMethod(RequestMethod.POST);
+        request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
+        request.setSuccess(function (xhr)
         {
-            this.maxFileSize = size;
-        };
+            try {
+                const response = JSON.parse(xhr.response);
 
-        /**
-         * Get max allowed file size.
-         *
-         * @return {int} Max file size
-         *
-         * @since  1.0.0
-         */
-        getMaxFileSize ()
-        {
-            return this.maxFileSize;
-        };
-
-        /**
-         * Set success callback.
-         *
-         * @param {string}   id       Form id
-         * @param {function} callback Function callback on success
-         *
-         * @return {void}
-         *
-         * @since  1.0.0
-         */
-        setSuccess (id, callback)
-        {
-            this.success[id] = callback;
-        };
-
-        /**
-         * Set upload uri.
-         *
-         * @param {string} uri Upload destination
-         *
-         * @return {void}
-         *
-         * @since  1.0.0
-         */
-        setUri (uri)
-        {
-            this.uri = uri;
-        };
-
-        /**
-         * Set allowed upload file types.
-         *
-         * @param {array} allowed Allowed upload file types
-         *
-         * @return {void}
-         *
-         * @since  1.0.0
-         */
-        setAllowedTypes (allowed)
-        {
-            this.allowedTypes = allowed;
-        };
-
-        /**
-         * Add allowed upload file type
-         *
-         * @param {string} allowed Allowed upload file type
-         *
-         * @return {void}
-         *
-         * @since  1.0.0
-         */
-        addAllowedType (allowed)
-        {
-            this.allowedTypes.push(allowed);
-        };
-
-        /**
-         * Add file to upload
-         *
-         * @param {string} file File to upload
-         *
-         * @return {void}
-         *
-         * @since  1.0.0
-         */
-        addFile (file)
-        {
-            this.files.push(file);
-        };
-
-        /**
-         * Get count of file to upload
-         *
-         * @return {int}
-         *
-         * @since  1.0.0
-         */
-        count ()
-        {
-            return this.files.length;
-        };
-
-        // todo: maybe do file upload together with data upload in FormData.
-        // let the module forward the files to the media module?!
-        upload (formId)
-        {
-            // TODO: validate file type + file size
-
-            const request = new jsOMS.Message.Request.Request(),
-                formData  = new FormData(),
-                self      = this;
-
-            this.files.forEach(function (element, index)
-            {
-                formData.append('file' + index, element);
-            });
-
-            request.setData(formData);
-            request.setType(jsOMS.Message.Request.RequestType.FILE);
-            request.setUri(this.uri);
-            request.setMethod(jsOMS.Message.Request.RequestMethod.POST);
-            request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
-            request.setSuccess(function (xhr)
-            {
-                try {
-                    const response = JSON.parse(xhr.response);
-
-                    if (!self.success[formId]) {
-                        self.responseManager.run(null, response);
-                    } else {
-                        self.success[formId](null, response);
-                    }
-                } catch (e) {
-                    console.log(e);
-                    jsOMS.Log.Logger.instance.error(e);
-                    jsOMS.Log.Logger.instance.error('Invalid media upload response: ' + xhr.response);
+                if (!self.success[formId]) {
+                    self.responseManager.run(null, response);
+                } else {
+                    self.success[formId](null, response);
                 }
-            });
+            } catch (e) {
+                console.log(e);
+                Logger.instance.error(e);
+                Logger.instance.error('Invalid media upload response: ' + xhr.response);
+            }
+        });
 
-            request.send();
-        };
-    }
-}(window.jsOMS = window.jsOMS || {}));
+        request.send();
+    };
+};

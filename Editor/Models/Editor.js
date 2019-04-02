@@ -1,16 +1,11 @@
-(function (jsOMS)
-{
-    "use strict";
-
-    jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Models.Editor');
-
-    jsOMS.Modules.Models.Editor.Editor = function (id)
+export class Editor {
+    constructor (id)
     {
         this.id     = id;
         this.editor = document.getElementById(id);
     };
 
-    jsOMS.Modules.Models.Editor.Editor.prototype.bind = function()
+    bind ()
     {
         const editorButtons = document.querySelectorAll('#' + this.id + '-tools .editor-button'),
             editorTitle     = this.editor.getElementsByClassName('editor-title')[0],
@@ -27,7 +22,7 @@
         }
     };
 
-    jsOMS.Modules.Models.Editor.Editor.prototype.toolsButton = function (e, event)
+    toolsButton (e, event)
     {
         let textarea = this.editor.getElementsByTagName('textarea')[0];
 
@@ -111,7 +106,7 @@
         textarea.setSelectionRange(cursorPosition, cursorPosition);
     };
 
-    jsOMS.Modules.Models.Editor.Editor.prototype.getSelectedText = function()
+    getSelectedText ()
     {
         let text              = '';
         const activeEl        = document.activeElement;
@@ -128,4 +123,4 @@
 
         return text;
     };
-}(window.jsOMS = window.jsOMS || {}));
+};

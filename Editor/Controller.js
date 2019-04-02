@@ -1,16 +1,17 @@
-(function (jsOMS)
-{
-    "use strict";
+import { Autoloader } from '../../jsOMS/Autoloader.js';
+import { Application } from '../../Web/Backend/js/backend.js';
+import { Editor } from './Models/Editor.js';
 
-    jsOMS.Autoloader.defineNamespace('jsOMS.Modules');
+Autoloader.defineNamespace('jsOMS.Modules');
 
-    jsOMS.Modules.Editor = function(app)
+jsOMS.Modules.Editor = class {
+    constructor(app)
     {
         this.app     = app;
         this.editors = {};
     };
 
-    jsOMS.Modules.Editor.prototype.bind = function(id)
+    bind (id)
     {
         const e    = typeof id === 'undefined' ? document.getElementsByClassName('m-editor') : [id],
             length = e.length;
@@ -20,7 +21,7 @@
         }
     };
 
-    jsOMS.Modules.Editor.prototype.bindElement = function(id)
+    bindElement (id)
     {
         if(typeof id === 'undefined' || !id) {
             // todo: do logging
@@ -28,14 +29,9 @@
             return;
         }
 
-        this.editors[id] = new jsOMS.Modules.Models.Editor.Editor(id);
+        this.editors[id] = new Editor(id);
         this.editors[id].bind();
     };
-}(window.jsOMS = window.jsOMS || {}));
+};
 
-jsOMS.ready(function ()
-{
-    "use strict";
-
-    window.omsApp.moduleManager.get('Editor').bind();
-});
+window.omsApp.moduleManager.get('Editor').bind();
