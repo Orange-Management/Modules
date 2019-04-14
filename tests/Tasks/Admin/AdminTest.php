@@ -20,6 +20,8 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 
+use Modules\Tasks\Models\TaskMapper;
+
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'Tasks';

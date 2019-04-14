@@ -96,7 +96,6 @@ final class BackendController extends Controller
     public function viewEmptyCommand(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Console/empty-command');
 
         return $view;
@@ -116,7 +115,6 @@ final class BackendController extends Controller
     public function viewAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
         $view->setData('list:elements', AccountMapper::getNewest(50, null, RelationType::NONE));
@@ -139,7 +137,6 @@ final class BackendController extends Controller
     public function viewAccountSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
         $view->addData('account', AccountMapper::get((int) $request->getData('id'), RelationType::ALL, null, 2));
@@ -174,7 +171,6 @@ final class BackendController extends Controller
     public function viewAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
 
@@ -195,7 +191,6 @@ final class BackendController extends Controller
     public function viewGroupList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
         $view->setData('list:elements', GroupMapper::getAll(RelationType::NONE));
@@ -217,7 +212,6 @@ final class BackendController extends Controller
     public function viewGroupSettings(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
         $view->addData('group', GroupMapper::get((int) $request->getData('id'), RelationType::ALL, null, 2));
@@ -255,7 +249,6 @@ final class BackendController extends Controller
     public function viewGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
 
@@ -279,7 +272,6 @@ final class BackendController extends Controller
     public function viewModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-list');
 
         return $view;
@@ -299,7 +291,6 @@ final class BackendController extends Controller
     public function viewModuleProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-single');
 
         $id = $request->getData('id') ?? '';

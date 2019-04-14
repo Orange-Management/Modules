@@ -31,7 +31,6 @@ use phpOMS\Event\EventManager;
 
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Module\ModuleFactory;
 use phpOMS\Module\ModuleManager;
 
 use phpOMS\Router\Router;
@@ -80,7 +79,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->accountManager->add($account);
         $this->app->router = new Router();
 
-        $this->module = ModuleFactory::getInstance('Admin', $this->app);
+        $this->module = $this->app->moduleManager->get('Admin');
 
         TestUtils::setMember($this->module, 'app', $this->app);
     }
@@ -464,5 +463,19 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEqualsWithDelta($routes, $routes2, 0.0, 10, true);
         self::assertEqualsWithDelta($hooks, $hooks2, 0.0, 10, true);
+    }
+
+    public function testApiAccountGroupFind() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('search', 'admin');
+
+        $this->module->apiAccountGroupFind($request, $response);
+        self::assertEquals(2, \count($response->get('')));
+        self::assertEquals('admin', $response->get('')[0]['name'][0] ?? '');
+        self::assertEquals('admin', $response->get('')[1]['name'][0] ?? '');
     }
 }

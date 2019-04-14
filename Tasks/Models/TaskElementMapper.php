@@ -36,15 +36,14 @@ final class TaskElementMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'task_element_id'         => ['name' => 'task_element_id', 'type' => 'int', 'internal' => 'id'],
-        'task_element_desc'       => ['name' => 'task_element_desc', 'type' => 'string', 'internal' => 'description'],
-        'task_element_desc_raw'   => ['name' => 'task_element_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'task_element_status'     => ['name' => 'task_element_status', 'type' => 'int', 'internal' => 'status'],
-        'task_element_priority'   => ['name' => 'task_element_priority', 'type' => 'int', 'internal' => 'priority'],
-        'task_element_due'        => ['name' => 'task_element_due', 'type' => 'DateTime', 'internal' => 'due'],
-        'task_element_forwarded'  => ['name' => 'task_element_forwarded', 'type' => 'int', 'internal' => 'forwarded'],
-        'task_element_task'       => ['name' => 'task_element_task', 'type' => 'int', 'internal' => 'task'],
-        'task_element_created_by' => ['name' => 'task_element_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'task_element_id'         => ['name' => 'task_element_id',         'type' => 'int',      'internal' => 'id'],
+        'task_element_desc'       => ['name' => 'task_element_desc',       'type' => 'string',   'internal' => 'description'],
+        'task_element_desc_raw'   => ['name' => 'task_element_desc_raw',   'type' => 'string',   'internal' => 'descriptionRaw'],
+        'task_element_status'     => ['name' => 'task_element_status',     'type' => 'int',      'internal' => 'status'],
+        'task_element_priority'   => ['name' => 'task_element_priority',   'type' => 'int',      'internal' => 'priority'],
+        'task_element_due'        => ['name' => 'task_element_due',        'type' => 'DateTime', 'internal' => 'due'],
+        'task_element_task'       => ['name' => 'task_element_task',       'type' => 'int',      'internal' => 'task'],
+        'task_element_created_by' => ['name' => 'task_element_created_by', 'type' => 'int',      'internal' => 'createdBy'],
         'task_element_created_at' => ['name' => 'task_element_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
@@ -61,6 +60,18 @@ final class TaskElementMapper extends DataMapperAbstract
             'dst'    => 'task_element_media_src',
             'src'    => 'task_element_media_dst',
         ],
+        'accRelation'          => [
+            'mapper' => AccountRelationMapper::class,
+            'table'  => 'task_account',
+            'dst'    => 'task_account_task_element',
+            'src'    => null,
+        ],
+        'grpRelation'          => [
+            'mapper' => GroupRelationMapper::class,
+            'table'  => 'task_group',
+            'dst'    => 'task_group_task_element',
+            'src'    => null,
+        ],
     ];
 
     /**
@@ -73,11 +84,7 @@ final class TaskElementMapper extends DataMapperAbstract
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'task_element_created_by',
-        ],
-        'forwarded' => [
-            'mapper' => AccountMapper::class,
-            'src'    => 'task_element_forwarded',
-        ],
+        ]
     ];
 
     /**

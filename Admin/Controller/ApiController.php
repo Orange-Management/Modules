@@ -316,6 +316,47 @@ final class ApiController extends Controller
     }
 
     /**
+     * Api method to find accounts and or groups
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiAccountGroupFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $accounts = \array_values(AccountMapper::find((string) ($request->getData('search') ?? '')));
+        $groups   = \array_values(GroupMapper::find((string) ($request->getData('search') ?? '')));
+        $data     = [];
+
+        foreach ($accounts as $account) {
+            $temp                = $account->jsonSerialize();
+            $temp['type_prefix'] = 'a';
+            $temp['type_name']   = 'Account';
+
+            $data[] = $temp;
+        }
+
+        foreach ($groups as $group) {
+            $temp                = $group->jsonSerialize();
+            $temp['name']        = [$temp['name']];
+            $temp['email']       = '---';
+            $temp['type_prefix'] = 'g';
+            $temp['type_name']   = 'Group';
+
+            $data[] = $temp;
+        }
+
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set($request->getUri()->__toString(), $data);
+    }
+
+    /**
      * Method to validate account creation from request
      *
      * @param RequestAbstract $request Request

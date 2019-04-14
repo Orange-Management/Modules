@@ -20,9 +20,16 @@ use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskStatus;
 use phpOMS\Utils\RnG\Text;
+use phpOMS\DataStorage\Database\RelationType;
 
 class TaskMapperTest extends \PHPUnit\Framework\TestCase
 {
+
+    public function testDefault() : void
+    {
+        self::assertEquals([], TaskMapper::getOpen(999));
+        self::assertEquals(0, TaskMapper::countUnread(999));
+    }
 
     public function testCRUD() : void
     {
@@ -59,6 +66,10 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         $taskElement2->setDescription('Desc2');
         $taskElement2->setCreatedBy(1);
         $taskElement2->setStatus($task->getStatus());
+        $taskElement2->addAccountTo(1);
+        $taskElement2->addAccountCC(1);
+        $taskElement2->addGroupTo(1);
+        $taskElement2->addGroupCC(1);
         $task->addElement($taskElement2);
 
         $media = new Media();
@@ -87,7 +98,6 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($task->getDone()->format('Y-m-d'), $taskR->getDone()->format('Y-m-d'));
         self::assertEquals($task->getDue()->format('Y-m-d'), $taskR->getDue()->format('Y-m-d'));
         self::assertGreaterThan(0, TaskMapper::countUnread(1));
-        self::assertGreaterThan(0, \count(TaskMapper::getRelatedToAccount(1)));
 
         $expected = $task->getMedia();
         $actual   = $taskR->getMedia();
@@ -101,6 +111,14 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(end($expected)->getDescription(), end($actual)->getDescription());
         self::assertEquals(end($expectedMedia)->getName(), end($actualMedia)->getName());
+
+        self::assertTrue(end($actual)->isToAccount(1));
+        self::assertTrue(end($actual)->isToGroup(1));
+        self::assertTrue(end($actual)->isCCAccount(1));
+        self::assertTrue(end($actual)->isCCGroup(1));
+
+        self::assertEquals(2, \count(end($actual)->getTo()));
+        self::assertEquals(2, \count(end($actual)->getCC()));
     }
 
     public function testNewest() : void

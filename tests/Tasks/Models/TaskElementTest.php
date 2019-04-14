@@ -30,7 +30,8 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(TaskStatus::OPEN, $task->getStatus());
         self::assertEquals('', $task->getDescription());
         self::assertEquals('', $task->getDescriptionRaw());
-        self::assertEquals(0, $task->getForwarded());
+        self::assertEquals([], $task->getTo());
+        self::assertEquals([], $task->getCC());
         self::assertEquals(0, $task->getTask());
         self::assertEquals(TaskPriority::NONE, $task->getPriority());
     }
@@ -60,8 +61,26 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         $task->setTask(2);
         self::assertEquals(2, $task->getTask());
 
-        $task->setForwarded(3);
-        self::assertEquals(3, $task->getForwarded());
+        $task->addTo(3);
+        $task->addTo(3); // test duplicate
+        self::assertTrue($task->isToAccount(3));
+
+        $task->addGroupTo(4);
+        $task->addGroupTo(4); // test duplicate
+        self::assertTrue($task->isToGroup(4));
+
+        $task->addCC(5);
+        $task->addCC(5); // test duplicate
+        self::assertTrue($task->isCCAccount(5));
+
+        $task->addGroupCC(6);
+        $task->addGroupCC(6); // test duplicate
+        self::assertTrue($task->isCCGroup(6));
+
+        self::assertFalse($task->isToAccount(7));
+        self::assertFalse($task->isCCAccount(8));
+        self::assertFalse($task->isToGroup(9));
+        self::assertFalse($task->isCCGroup(10));
     }
 
     public function testInvalidStatus() : void

@@ -508,6 +508,6 @@ trait ModuleTestTrait
         self::assertTrue(\in_array(self::MODULE_NAME, $moduleManager->getRoutedModules($request)));
 
         $moduleManager->initRequestModules($request);
-        self::assertTrue(isset(TestUtils::getMember($moduleManager, 'running')[self::MODULE_NAME]));
+        self::assertTrue($moduleManager->isRunning(self::MODULE_NAME));
     }
 }

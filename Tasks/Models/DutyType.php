@@ -14,15 +14,18 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Models;
 
+use phpOMS\Stdlib\Base\Enum;
+
 /**
- * Null model
+ * Task forward type enum.
  *
  * @package    Modules\Tasks
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class NullTask extends Task
+abstract class DutyType extends Enum
 {
-
+    public const TO = 1;
+    public const CC = 2;
 }

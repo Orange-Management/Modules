@@ -22,7 +22,7 @@ namespace Modules\Tasks\Models;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-class NullTaskElement extends TaskElement
+final class NullTaskElement extends TaskElement
 {
 
 }

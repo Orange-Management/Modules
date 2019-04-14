@@ -39,6 +39,11 @@
                 "type": "TINYINT",
                 "null": false
             },
+            "task_editable": {
+                "name": "task_editable",
+                "type": "TINYINT",
+                "null": false
+            },
             "task_priority": {
                 "name": "task_priority",
                 "type": "TINYINT",
@@ -110,42 +115,6 @@
             }
         }
     },
-    "task_account": {
-        "name": "task_account",
-        "fields": {
-            "task_account_id": {
-                "name": "task_account_id",
-                "type": "INT",
-                "null": false,
-                "primary": true,
-                "autoincrement": true
-            },
-            "task_account_task": {
-                "name": "task_account_task",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "task",
-                "foreignKey": "task_id"
-            },
-            "task_account_account": {
-                "name": "task_account_account",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "account",
-                "foreignKey": "account_id"
-            },
-            "task_account_seen": {
-                "name": "task_account_seen",
-                "type": "TINYINT",
-                "null": false
-            },
-            "task_account_type": {
-                "name": "task_account_type",
-                "type": "TINYINT",
-                "null": false
-            }
-        }
-    },
     "task_element": {
         "name": "task_element",
         "fields": {
@@ -195,17 +164,79 @@
                 "type": "DATETIME",
                 "null": false
             },
-            "task_element_forwarded": {
-                "name": "task_element_forwarded",
-                "type": "INT",
-                "default": null,
-                "null": true,
-                "foreignTable": "account",
-                "foreignKey": "account_id"
-            },
             "task_element_created_at": {
                 "name": "task_element_created_at",
                 "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "task_account": {
+        "name": "task_account",
+        "fields": {
+            "task_account_id": {
+                "name": "task_account_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "task_account_task_element": {
+                "name": "task_account_task_element",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "task_element",
+                "foreignKey": "task_element_id"
+            },
+            "task_account_account": {
+                "name": "task_account_account",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "task_account_seen": {
+                "name": "task_account_seen",
+                "type": "TINYINT",
+                "default": 0,
+                "null": false
+            },
+            "task_account_duty": {
+                "name": "task_account_duty",
+                "type": "TINYINT",
+                "null": false
+            }
+        }
+    },
+    "task_group": {
+        "name": "task_group",
+        "fields": {
+            "task_group_id": {
+                "name": "task_group_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "task_group_task_element": {
+                "name": "task_group_task_element",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "task_element",
+                "foreignKey": "task_element_id"
+            },
+            "task_group_group": {
+                "name": "task_group_group",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "task_group_duty": {
+                "name": "task_group_duty",
+                "type": "TINYINT",
                 "null": false
             }
         }

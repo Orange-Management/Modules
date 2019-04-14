@@ -13,6 +13,8 @@
 
 use \Modules\Tasks\Models\TaskPriority;
 use \Modules\Tasks\Models\TaskStatus;
+use \Modules\Admin\Models\Account;
+use \Modules\Admin\Models\Group;
 
 /**
  * @var \phpOMS\Views\View         $this
@@ -22,7 +24,6 @@ $task      = $this->getData('task');
 $taskMedia = $task->getMedia();
 $elements  = $task->getTaskElements();
 $cElements = \count($elements);
-$forwarded = $task->getCreatedBy()->getId();
 $color     = $this->getStatus($task->getStatus());
 
 echo $this->getData('nav')->render(); ?>
@@ -86,13 +87,20 @@ echo $this->getData('nav')->render(); ?>
         <?php $c = 0;
         foreach ($elements as $key => $element) : $c++;
             $color = $this->getStatus($element->getStatus()); ?>
-            <?php if ($c > 1 && $element->getForwarded() !== 0 && $forwarded->getId() !== $element->getCreatedBy()->getId()) : ?>
+            <?php $tos = $element->getTo(); if ($c > 1 && \count($tos) > 1) : ?>
                 <section class="box wf-100">
                     <div class="inner">
-                        Forwarded <?= $this->printHtml($element->getForwarded()->getName1()); ?>
+                        Forwarded
+                        <?php foreach ($toes as $to) : ?>
+                            <?php if ($to instanceof Account) : ?>
+                                <?= $this->printHtml($to->getRelation()->getName1()); ?>
+                            <?php elseif ($to instanceof Group) : ?>
+                                <?= $this->printHtml($to->getRelation()->getName()); ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </section>
-            <?php endif; $forwarded = $element->getForwarded(); ?>
+            <?php endif; ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
                     <div class="vCenterTable wf-100"><?= $this->printHtml($element->getCreatedBy()->getName1()); ?> <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>

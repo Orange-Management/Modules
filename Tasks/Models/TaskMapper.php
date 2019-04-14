@@ -38,19 +38,20 @@ final class TaskMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'task_id'         => ['name' => 'task_id', 'type' => 'int', 'internal' => 'id'],
-        'task_title'      => ['name' => 'task_title', 'type' => 'string', 'internal' => 'title'],
-        'task_desc'       => ['name' => 'task_desc', 'type' => 'string', 'internal' => 'description'],
-        'task_desc_raw'   => ['name' => 'task_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'task_type'       => ['name' => 'task_type', 'type' => 'int', 'internal' => 'type'],
-        'task_status'     => ['name' => 'task_status', 'type' => 'int', 'internal' => 'status'],
-        'task_closable'   => ['name' => 'task_closable', 'type' => 'bool', 'internal' => 'isClosable'],
-        'task_priority'   => ['name' => 'task_priority', 'type' => 'int', 'internal' => 'priority'],
-        'task_due'        => ['name' => 'task_due', 'type' => 'DateTime', 'internal' => 'due'],
-        'task_done'       => ['name' => 'task_done', 'type' => 'DateTime', 'internal' => 'done'],
-        'task_schedule'   => ['name' => 'task_schedule', 'type' => 'int', 'internal' => 'schedule'],
-        'task_start'      => ['name' => 'task_start', 'type' => 'DateTime', 'internal' => 'start'],
-        'task_created_by' => ['name' => 'task_created_by', 'type' => 'int', 'internal' => 'createdBy'],
+        'task_id'         => ['name' => 'task_id',         'type' => 'int',      'internal' => 'id'],
+        'task_title'      => ['name' => 'task_title',      'type' => 'string',   'internal' => 'title'],
+        'task_desc'       => ['name' => 'task_desc',       'type' => 'string',   'internal' => 'description'],
+        'task_desc_raw'   => ['name' => 'task_desc_raw',   'type' => 'string',   'internal' => 'descriptionRaw'],
+        'task_type'       => ['name' => 'task_type',       'type' => 'int',      'internal' => 'type'],
+        'task_status'     => ['name' => 'task_status',     'type' => 'int',      'internal' => 'status'],
+        'task_closable'   => ['name' => 'task_closable',   'type' => 'bool',     'internal' => 'isClosable'],
+        'task_editable'   => ['name' => 'task_editable',   'type' => 'bool',     'internal' => 'isEditable'],
+        'task_priority'   => ['name' => 'task_priority',   'type' => 'int',      'internal' => 'priority'],
+        'task_due'        => ['name' => 'task_due',        'type' => 'DateTime', 'internal' => 'due'],
+        'task_done'       => ['name' => 'task_done',       'type' => 'DateTime', 'internal' => 'done'],
+        'task_schedule'   => ['name' => 'task_schedule',   'type' => 'int',      'internal' => 'schedule'],
+        'task_start'      => ['name' => 'task_start',      'type' => 'DateTime', 'internal' => 'start'],
+        'task_created_by' => ['name' => 'task_created_by', 'type' => 'int',      'internal' => 'createdBy'],
         'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
@@ -72,12 +73,6 @@ final class TaskMapper extends DataMapperAbstract
             'table'  => 'task_media',
             'dst'    => 'task_media_src',
             'src'    => 'task_media_dst',
-        ],
-        'acc'          => [
-            'mapper' => AccountMapper::class,
-            'table'  => 'task_account',
-            'dst'    => 'task_account_account',
-            'src'    => 'task_account_task',
         ],
     ];
 
@@ -150,41 +145,6 @@ final class TaskMapper extends DataMapperAbstract
     }
 
     /**
-     * Get tasks related to user
-     *
-     * @param int $user  User
-     * @param int $limit Result limit
-     *
-     * @return array
-     *
-     * @since  1.0.0
-     */
-    public static function getRelatedToAccount(int $user, int $limit = 25) : array
-    {
-        $query = self::getQuery();
-
-        $whereClause1 = new Builder(self::$db);
-        $whereClause1->prefix(self::$db->getPrefix())
-            ->select(TaskElementMapper::getTable() . '.task_element_task')
-            ->distinct()
-            ->from(TaskElementMapper::getTable())
-            ->where(TaskElementMapper::getTable() . '.task_element_created_by', '=', $user)
-            ->orWhere(TaskElementMapper::getTable() . '.task_element_forwarded', '=', $user);
-
-        $whereClause2 = new Builder(self::$db);
-        $whereClause2->prefix(self::$db->getPrefix())
-            ->select(self::$table . '.' . self::$primaryField)
-            ->from(self::$table)
-            ->where(self::$table . '.task_created_by', '=', $user);
-
-        $query->where(self::$table . '.' . self::$primaryField, 'in', $whereClause1)
-            ->orWhere(self::$table. '.' . self::$primaryField, 'in', $whereClause2)
-            ->limit($limit);
-
-        return self::getAllByQuery($query);
-    }
-
-    /**
      * Count unread task
      *
      * @param int $user User
@@ -202,7 +162,7 @@ final class TaskMapper extends DataMapperAbstract
                 ->count()
                 ->from(self::$table)
                 ->where(self::$table . '.task_created_by', '=', $user)
-                ->where(self::$table . '.task_status', '=', TaskStatus::OPEN, 'and');
+                ->andWhere(self::$table . '.task_status', '=', TaskStatus::OPEN);
 
             $sth = self::$db->con->prepare($query->toSql());
             $sth->execute();

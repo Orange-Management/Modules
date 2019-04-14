@@ -13,6 +13,7 @@
 
 namespace Modules\tests\Helper;
 
+use Model\CoreSettings;
 use Modules\Admin\Models\AccountPermission;
 use Modules\Media\Models\UploadStatus;
 use Modules\Helper\Models\TemplateDataType;
@@ -25,8 +26,8 @@ use phpOMS\Event\EventManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Module\ModuleFactory;
 use phpOMS\Router\Router;
+use phpOMS\Module\ModuleManager;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 
@@ -48,6 +49,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->orgId          = 1;
         $this->app->appName        = 'Backend';
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
+        $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
         $this->app->dispatcher     = new Dispatcher($this->app);
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->eventManager->importFromFile(__DIR__ . '/../../../Web/Api/Hooks.php');
@@ -71,7 +74,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->accountManager->add($account);
         $this->app->router = new Router();
 
-        $this->module = ModuleFactory::getInstance('Helper', $this->app);
+        $this->module = $this->app->moduleManager->get('Helper');
 
         TestUtils::setMember($this->module, 'app', $this->app);
     }
@@ -81,7 +84,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateTemplate() : void
     {
-        $media = ModuleFactory::getInstance('Media', $this->app);
+        $media = $this->app->moduleManager->get('Media', $this->app);
 
         $status = [
             [
@@ -153,7 +156,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateReport() : void
     {
-        $media = ModuleFactory::getInstance('Media', $this->app);
+        $media = $this->app->moduleManager->get('Media', $this->app);
 
         $status = [
             [

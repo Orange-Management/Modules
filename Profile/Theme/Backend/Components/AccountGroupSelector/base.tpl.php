@@ -16,17 +16,19 @@
                 <input autocomplete="off" class="input" type="text" id="i<?= $this->printHtml($this->getId()); ?>" placeholder="&#xf007; Guest"
                     data-emptyAfter="true"
                     data-autocomplete="false"
-                    data-src="api/admin/find/account?search={#i<?= $this->printHtml($this->getId()); ?>}">
+                    data-src="api/admin/find/accgrp?search={#i<?= $this->printHtml($this->getId()); ?>}">
                 <div id="<?= $this->printHtml($this->getId()); ?>-dropdown" class="dropdown" data-active="true">
                     <table class="table darkred">
                         <thead>
                             <tr>
+                                <td>Type<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td>ID<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td>Name<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td>Email<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                         <tbody>
                             <template id="<?= $this->printHtml($this->getId()); ?>-rowElement" class="rowTemplate">
                                 <tr tabindex="-1">
+                                    <td data-tpl-text="/type_name" data-tpl-value="/type_prefix" data-value="">
                                     <td data-tpl-text="/id" data-tpl-value="/id" data-value=""></td>
                                     <td data-tpl-text="/name/0" data-tpl-value="/name/0" data-value=""></td>
                                     <td data-tpl-text="/email" data-tpl-value="/email" data-value=""></td>
@@ -44,7 +46,8 @@
     <template id="<?= $this->printHtml($this->getId()); ?>-tagTemplate">
         <span class="tag red" data-tpl-value="/id" data-value="" data-uuid="" data-name="<?= $this->printHtml($this->getName()); ?>">
             <i class="fa fa-times"></i>
-            <span data-tpl-text="/id" data-tpl-value="/id" data-value=""></span>
+            <span style="display: none;" data-name="type_prefix" data-tpl-value="/type_prefix" data-value=""></span>
+            <span data-tpl-text="/id" data-name="id" data-tpl-value="/id" data-value=""></span>
             <span data-tpl-text="/name/0" data-tpl-value="/name/0" data-value=""></span>
         </span>
     </template>

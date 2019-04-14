@@ -28,7 +28,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
 
 /**
- * Task class.
+ * Backend controller for the tasks module.
  *
  * @package    Modules\Tasks
  * @license    OMS License 1.0
@@ -42,7 +42,7 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return RenderableInterface Returns a renderable object
      *
      * @since  1.0.0
      * @codeCoverageIgnore
@@ -67,7 +67,7 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return RenderableInterface Returns a renderable object
      *
      * @since  1.0.0
      * @codeCoverageIgnore
@@ -93,7 +93,7 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return RenderableInterface Returns a renderable object
      *
      * @since  1.0.0
      * @codeCoverageIgnore
@@ -106,8 +106,8 @@ final class BackendController extends Controller
         $accountId = $request->getHeader()->getAccount();
 
         if (!($task->getCreatedBy()->getId() === $accountId
-            || $task->isCc($accountId)
-            || $task->isForwarded($accountId))
+            || $task->isCCAccount($accountId)
+            || $task->isToAccount($accountId))
             && !$this->app->accountManager->get($accountId)->hasPermission(
                 PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::TASK, $task->getId())
         ) {
@@ -134,7 +134,7 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return RenderableInterface Returns a renderable object
      *
      * @since  1.0.0
      * @codeCoverageIgnore
@@ -160,7 +160,7 @@ final class BackendController extends Controller
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
-     * @return RenderableInterface
+     * @return RenderableInterface Returns a renderable object
      *
      * @since  1.0.0
      * @codeCoverageIgnore
@@ -179,7 +179,7 @@ final class BackendController extends Controller
      *
      * @param int $account Account id
      *
-     * @return int
+     * @return int Returns the amount of unread tasks
      *
      * @since  1.0.0
      */

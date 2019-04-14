@@ -16,6 +16,9 @@ namespace Modules\Tasks\Models;
 
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\Group;
+
 /**
  * Task class.
  *
@@ -100,20 +103,28 @@ class TaskElement implements \JsonSerializable
     protected $priority = TaskPriority::NONE;
 
     /**
-     * Forwarded to.
-     *
-     * @var int
-     * @since 1.0.0
-     */
-    private $forwarded = 0;
-
-    /**
      * Media.
      *
      * @var array
      * @since 1.0.0
      */
     private $media = [];
+
+    /**
+     * Accounts who received this task element.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected $accRelation = [];
+
+    /**
+     * Groups who received this task element.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    protected $grpRelation = [];
 
     /**
      * Constructor.
@@ -125,6 +136,18 @@ class TaskElement implements \JsonSerializable
         $this->due = new \DateTime('now');
         $this->due->modify('+1 day');
         $this->createdAt = new \DateTime('now');
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
     }
 
     /**
@@ -160,8 +183,8 @@ class TaskElement implements \JsonSerializable
     {
         $this->createdBy = $creator;
 
-        if ($this->forwarded === 0) {
-            $this->setForwarded($this->createdBy);
+        if (empty($this->acc)) {
+            $this->addTo($this->createdBy);
         }
     }
 
@@ -301,41 +324,283 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * Get forwarded
+     * Get to
      *
-     * @return mixed
+     * @return array<RelationAbstract>
      *
      * @since  1.0.0
      */
-    public function getForwarded()
+    public function getTo() : array
     {
-        return $this->forwarded;
+        $to = [];
+
+        foreach ($this->accRelation as $acc) {
+            if ($acc->getDuty() === DutyType::TO) {
+                $to[] = $acc;
+            }
+        }
+
+        foreach ($this->grpRelation as $grp) {
+            if ($grp->getDuty() === DutyType::TO) {
+                $to[] = $grp;
+            }
+        }
+
+        return $to;
     }
 
     /**
-     * Set forwarded
+     * Check if user is in to
      *
-     * @param mixed $forwarded Forward to
+     * @param int $id User id
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isToAccount(int $id) : bool
+    {
+        foreach ($this->accRelation as $acc) {
+            if (($acc->getDuty() === DutyType::TO
+                    && ($acc->getRelation() instanceof AccountRelation) && $acc->getRelation()->getId() === $id)
+                || ($acc->getDuty() === DutyType::TO
+                    && $acc->getRelation() === $id)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if group is in to
+     *
+     * @param int $id Group id
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isToGroup(int $id) : bool
+    {
+        foreach ($this->grpRelation as $grp) {
+            if (($grp->getDuty() === DutyType::TO
+                    && ($grp->getRelation() instanceof GroupRelation) && $grp->getRelation()->getId() === $id)
+                || ($grp->getDuty() === DutyType::TO
+                    && $grp->getRelation() === $id)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if user is in cc
+     *
+     * @param int $id User id
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isCCAccount(int $id) : bool
+    {
+        foreach ($this->accRelation as $acc) {
+            if (($acc->getDuty() === DutyType::CC
+                    && ($acc->getRelation() instanceof AccountRelation) && $acc->getRelation()->getId() === $id)
+                || ($acc->getDuty() === DutyType::CC
+                    && $acc->getRelation() === $id)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if group is in cc
+     *
+     * @param int $id Group id
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isCCGroup(int $id) : bool
+    {
+        foreach ($this->grpRelation as $grp) {
+            if (($grp->getDuty() === DutyType::CC
+                    && ($grp->getRelation() instanceof GroupRelation) && $grp->getRelation()->getId() === $id)
+                || ($grp->getDuty() === DutyType::CC
+                    && $grp->getRelation() === $id)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Add to
+     *
+     * @param mixed $to To
      *
      * @return void
      *
      * @since  1.0.0
      */
-    public function setForwarded($forwarded) : void
+    public function addTo($to) : void
     {
-        $this->forwarded = $forwarded;
+        if ($to instanceof Group) {
+            $this->addGroupTo($to);
+        } elseif(($to instanceof Account) || \is_int($to)) {
+            $this->addAccountTo($to);
+        }
     }
 
     /**
-     * Get id
+     * Add group as to
      *
-     * @return int
+     * @param int|Group $group Group
+     *
+     * @return void
      *
      * @since  1.0.0
      */
-    public function getId() : int
+    public function addGroupTo($group) : void
     {
-        return $this->id;
+        $groupId = \is_int($group) ? $group : $group->getId();
+
+        foreach ($this->grpRelation as $grp) {
+            $grpId = !\is_int($grp->getRelation()) ? $grp->getRelation()->getId() : $grp->getRelation();
+
+            if ($grpId === $groupId && $grp->getDuty() === DutyType::TO) {
+                return;
+            }
+        }
+
+        $this->grpRelation[] = new GroupRelation($group, DutyType::TO);
+    }
+
+    /**
+     * Add account as to
+     *
+     * @param int|Account $account Account
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function addAccountTo($account) : void
+    {
+        $accountId = \is_int($account) ? $account : $account->getId();
+
+        foreach ($this->accRelation as $acc) {
+            $accId = !\is_int($acc->getRelation()) ? $acc->getRelation()->getId() : $acc->getRelation();
+
+            if ($accId === $accountId && $acc->getDuty() === DutyType::TO) {
+                return;
+            }
+        }
+
+        $this->accRelation[] = new AccountRelation($account, DutyType::TO);
+    }
+
+    /**
+     * Get cc
+     *
+     * @return array<RelationAbstract>
+     *
+     * @since  1.0.0
+     */
+    public function getCC() : array
+    {
+        $cc = [];
+
+        foreach ($this->accRelation as $acc) {
+            if ($acc->getDuty() === DutyType::CC) {
+                $cc[] = $acc;
+            }
+        }
+
+        foreach ($this->grpRelation as $grp) {
+            if ($grp->getDuty() === DutyType::CC) {
+                $cc[] = $grp;
+            }
+        }
+
+        return $cc;
+    }
+
+    /**
+     * Add cc
+     *
+     * @param mixed $cc CC
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function addCC($cc) : void
+    {
+        if ($cc instanceof Group) {
+            $this->addGroupCC($cc);
+        } elseif(($cc instanceof Account) || \is_int($cc)) {
+            $this->addAccountCC($cc);
+        }
+    }
+
+    /**
+     * Add group as cc
+     *
+     * @param int|Group $group Group
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function addGroupCC($group) : void
+    {
+        $groupId = \is_int($group) ? $group : $group->getId();
+
+        foreach ($this->grpRelation as $grp) {
+            $grpId = !\is_int($grp->getRelation()) ? $grp->getRelation()->getId() : $grp->getRelation();
+
+            if ($grpId === $groupId && $grp->getDuty() === DutyType::CC) {
+                return;
+            }
+        }
+
+        $this->grpRelation[] = new GroupRelation($group, DutyType::CC);
+    }
+
+    /**
+     * Add account as cc
+     *
+     * @param int|Account $account Account
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function addAccountCC($account) : void
+    {
+        $accountId = \is_int($account) ? $account : $account->getId();
+
+        foreach ($this->accRelation as $acc) {
+            $accId = !\is_int($acc->getRelation()) ? $acc->getRelation()->getId() : $acc->getRelation();
+
+            if ($accId === $accountId && $acc->getDuty() === DutyType::CC) {
+                return;
+            }
+        }
+
+        $this->accRelation[] = new AccountRelation($account, DutyType::CC);
     }
 
     /**
@@ -402,14 +667,15 @@ class TaskElement implements \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
-            'task' => $this->task,
-            'createdBy' => $this->createdBy,
-            'createdAt' => $this->createdAt,
+            'id'          => $this->id,
+            'task'        => $this->task,
+            'createdBy'   => $this->createdBy,
+            'createdAt'   => $this->createdAt,
             'description' => $this->description,
-            'status' => $this->status,
-            'forward' => $this->forwarded,
-            'due' => isset($this->due) ? $this->due->format('Y-m-d H:i:s') : null,
+            'status'      => $this->status,
+            'to'          => $this->getTo(),
+            'cc'          => $this->getCC(),
+            'due'         => isset($this->due) ? $this->due->format('Y-m-d H:i:s') : null,
         ];
     }
 

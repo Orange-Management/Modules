@@ -89,6 +89,17 @@ return [
             ],
         ],
     ],
+    '^.*/admin/find/accgrp.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiAccountGroupFind',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::ACCOUNT,
+            ],
+        ],
+    ],
 
     '^.*/admin/account$' => [
         [

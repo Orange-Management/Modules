@@ -101,6 +101,14 @@ class Task implements \JsonSerializable
     protected $isClosable = true;
 
     /**
+     * Task can be edited by user.
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    protected $isEditable = true;
+
+    /**
      * Start.
      *
      * @var \DateTime
@@ -156,8 +164,6 @@ class Task implements \JsonSerializable
      */
     protected $media = [];
 
-    protected $acc = [];
-
     /**
      * Constructor.
      *
@@ -166,10 +172,22 @@ class Task implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->schedule  = new Schedule();
         $this->start     = new \DateTime('now');
         $this->due       = new \DateTime('now');
         $this->due->modify('+1 day');
-        $this->schedule = new Schedule();
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
     }
 
     /**
@@ -198,6 +216,34 @@ class Task implements \JsonSerializable
     public function isClosable() : bool
     {
         return $this->isClosable;
+    }
+
+    /**
+     * Set editable
+     *
+     * Setting it to false will only allow other modules to close this task
+     *
+     * @param bool $editable Is editable
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setEditable(bool $editable) : void
+    {
+        $this->isEditable = $editable;
+    }
+
+    /**
+     * Is editable
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isEditable() : bool
+    {
+        return $this->isEditable;
     }
 
     /**
@@ -247,7 +293,7 @@ class Task implements \JsonSerializable
     }
 
     /**
-     * Check if user is cc
+     * Check if user is in to
      *
      * @param int $id User id
      *
@@ -255,13 +301,39 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function isCc(int $id) : bool
+    public function isToAccount(int $id) : bool
     {
+        foreach ($this->taskElements as $element) {
+            if ($element->isToAccount($id)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
     /**
-     * check if user is forwarded
+     * Check if group is in to
+     *
+     * @param int $id Group id
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isToGroup(int $id) : bool
+    {
+        foreach ($this->taskElements as $element) {
+            if ($element->isToGroup($id)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if user is in cc
      *
      * @param int $id User id
      *
@@ -269,10 +341,30 @@ class Task implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public function isForwarded(int $id) : bool
+    public function isCCAccount(int $id) : bool
     {
         foreach ($this->taskElements as $element) {
-            if ($element->getForwarded()->getId() === $id) {
+            if ($element->isCCAccount($id)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if group is in cc
+     *
+     * @param int $id Group id
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function isCCGroup(int $id) : bool
+    {
+        foreach ($this->taskElements as $element) {
+            if ($element->isCCGroup($id)) {
                 return true;
             }
         }
@@ -443,18 +535,6 @@ class Task implements \JsonSerializable
     public function setDue(\DateTime $due) : void
     {
         $this->due = $due;
-    }
-
-    /**
-     * Get id
-     *
-     * @return int
-     *
-     * @since  1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
     }
 
     /**
@@ -637,16 +717,17 @@ class Task implements \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
-            'createdBy' => $this->createdBy,
-            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
-            'title' => $this->title,
+            'id'          => $this->id,
+            'createdBy'   => $this->createdBy,
+            'createdAt'   => $this->createdAt->format('Y-m-d H:i:s'),
+            'title'       => $this->title,
             'description' => $this->description,
-            'status' => $this->status,
-            'type' => $this->type,
-            'priority' => $this->priority,
-            'due' => $this->due->format('Y-m-d H:i:s'),
-            'done' => (!isset($this->done) ? null : $this->done->format('Y-m-d H:i:s')),
+            'status'      => $this->status,
+            'type'        => $this->type,
+            'priority'    => $this->priority,
+            'due'         => $this->due->format('Y-m-d H:i:s'),
+            'done'        => (!isset($this->done) ? null : $this->done->format('Y-m-d H:i:s')),
+            'elements'    => $this->taskElements,
         ];
     }
 

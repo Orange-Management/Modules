@@ -29,7 +29,7 @@ use phpOMS\Model\Message\FormValidation;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 
 /**
- * Task class.
+ * Api controller for the tasks module.
  *
  * @package    Modules\Tasks
  * @license    OMS License 1.0
@@ -43,7 +43,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return array<string, bool>
+     * @return array<string, bool> Returns the validation array of the request
      *
      * @since  1.0.0
      */
@@ -61,6 +61,8 @@ final class ApiController extends Controller
     }
 
     /**
+     * Api method to create a task
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -74,7 +76,7 @@ final class ApiController extends Controller
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateTaskCreate($request))) {
-            $response->set('task_create', new FormValidation($val));
+            $response->set($request->getUri()->__toString(), new FormValidation($val));
 
             return;
         }
@@ -89,7 +91,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return Task
+     * @return Task Returns the created task from the request
      *
      * @since  1.0.0
      */
@@ -106,7 +108,7 @@ final class ApiController extends Controller
         $task->setPriority((int) $request->getData('priority'));
 
         $element = new TaskElement();
-        $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
+        $element->addTo((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
         $element->setCreatedBy($task->getCreatedBy());
         $element->setDue($task->getDue());
         $element->setPriority($task->getPriority());
@@ -162,7 +164,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return Task
+     * @return Task Returns the updated task from the request
      *
      * @since  1.0.0
      */
@@ -185,7 +187,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return array<string, bool>
+     * @return array<string, bool> Returns the validation array of the request
      *
      * @since  1.0.0
      */
@@ -193,9 +195,9 @@ final class ApiController extends Controller
     {
         $val = [];
         if (($val['status'] = !TaskStatus::isValidValue((int) $request->getData('status')))
-            || ($val['due'] = !((bool) strtotime((string) $request->getData('due'))))
-            || ($val['task'] = !(is_numeric($request->getData('task'))))
-            || ($val['forward'] = !(is_numeric(empty($request->getData('forward')) ? $request->getHeader()->getAccount() : $request->getData('forward'))))
+            || ($val['due'] = !((bool) \strtotime((string) $request->getData('due'))))
+            || ($val['task'] = !(\is_numeric($request->getData('task'))))
+            || ($val['forward'] = !(\is_numeric(empty($request->getData('forward')) ? $request->getHeader()->getAccount() : $request->getData('forward'))))
         ) { // todo: validate correct task
             return $val;
         }
@@ -204,6 +206,8 @@ final class ApiController extends Controller
     }
 
     /**
+     * Api method to create a task element
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -237,14 +241,13 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return TaskElement
+     * @return TaskElement Returns the task created from the request
      *
      * @since  1.0.0
      */
     private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = new TaskElement();
-        $element->setForwarded((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
         $element->setCreatedBy($request->getHeader()->getAccount());
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $element->setPriority((int) $request->getData('priority'));
@@ -252,6 +255,24 @@ final class ApiController extends Controller
         $element->setTask((int) ($request->getData('task')));
         $element->setDescription(Markdown::parse((string) ($request->getData('plain') ?? '')));
         $element->setDescriptionRaw((string) ($request->getData('plain') ?? ''));
+
+        $tos = $request->getData('to') ?? $request->getHeader()->getAccount();
+        if (!\is_array($tos)) {
+            $tos = [$tos];
+        }
+
+        $ccs = $request->getData('cc') ?? [];
+        if (!\is_array($ccs)) {
+            $ccs = [$ccs];
+        }
+
+        foreach ($tos as $to) {
+            $element->addTo($to);
+        }
+
+        foreach ($ccs as $cc) {
+            $element->addCC($cc);
+        }
 
         return $element;
     }
@@ -293,7 +314,7 @@ final class ApiController extends Controller
         $old = clone TaskElementMapper::get((int) $request->getData('id'));
         $new = $this->updateTaskElementFromRequest($request);
         $this->updateModel($request, $old, $new, TaskElementMapper::class, 'taskelement');
-        // todo: update task if elment status change had effect on task status!!!
+        // todo: update task if element status change had effect on task status!!!
         //$this->updateModel($request, $task, $task, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully updated.', $new);
     }
@@ -303,18 +324,35 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract $request Request
      *
-     * @return TaskElement
+     * @return TaskElement Returns the updated task element from the request
      *
      * @since  1.0.0
      */
     private function updateTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = TaskElementMapper::get((int) ($request->getData('id')));
-        $element->setForwarded((int) ($request->getData('forward') ?? !\is_int($forwarded = $element->getForwarded()) ? $forwarded->getId() : $forwarded));
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? $element->getDue()->format('Y-m-d H:i:s'))));
         $element->setStatus((int) ($request->getData('status') ?? $element->getStatus()));
         $element->setDescription(Markdown::parse((string) ($request->getData('description') ?? $element->getDescriptionRaw())));
         $element->setDescriptionRaw((string) ($request->getData('description') ?? $element->getDescriptionRaw()));
+
+        $tos = $request->getData('to') ?? $request->getHeader()->getAccount();
+        if (!\is_array($tos)) {
+            $tos = [$tos];
+        }
+
+        $ccs = $request->getData('cc') ?? [];
+        if (!\is_array($ccs)) {
+            $ccs = [$ccs];
+        }
+
+        foreach ($tos as $to) {
+            $element->addTo($to);
+        }
+
+        foreach ($ccs as $cc) {
+            $element->addCC($cc);
+        }
 
         return $element;
     }
