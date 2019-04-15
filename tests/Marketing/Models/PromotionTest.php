@@ -19,7 +19,7 @@ use phpOMS\Localization\Money;
 
 class PromotionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $promotion = new Promotion();
 

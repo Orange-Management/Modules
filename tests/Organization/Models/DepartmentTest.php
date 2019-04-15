@@ -18,7 +18,7 @@ use Modules\Organization\Models\Status;
 
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $department = new Department();
 

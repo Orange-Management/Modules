@@ -18,7 +18,7 @@ use Modules\QA\Models\QAAnswerStatus;
 
 class QAAnswerTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $answer = new QAAnswer();
 

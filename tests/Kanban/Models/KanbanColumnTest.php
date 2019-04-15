@@ -18,7 +18,7 @@ use Modules\Kanban\Models\KanbanColumn;
 
 class KanbanColumnTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $column = new KanbanColumn();
 

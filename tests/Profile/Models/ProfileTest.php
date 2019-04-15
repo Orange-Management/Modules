@@ -17,7 +17,7 @@ use Modules\Profile\Models\Profile;
 
 class ProfileTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $profile = new Profile();
 

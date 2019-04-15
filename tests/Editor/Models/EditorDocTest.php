@@ -17,7 +17,7 @@ use Modules\Editor\Models\EditorDoc;
 
 class EditorDocTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $doc = new EditorDoc();
 

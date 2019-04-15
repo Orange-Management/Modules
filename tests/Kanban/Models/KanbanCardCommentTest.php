@@ -17,7 +17,7 @@ use Modules\Kanban\Models\KanbanCardComment;
 
 class KanbanCardCommentTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $comment = new KanbanCardComment();
 

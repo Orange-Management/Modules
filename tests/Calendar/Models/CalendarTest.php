@@ -18,7 +18,7 @@ use Modules\Calendar\Models\Event;
 
 class CalendarTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $calendar = new Calendar();
 

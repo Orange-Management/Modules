@@ -17,7 +17,7 @@ use Modules\Knowledgebase\Models\WikiCategory;
 
 class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $category = new WikiCategory();
 

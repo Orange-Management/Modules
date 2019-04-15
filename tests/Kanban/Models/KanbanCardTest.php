@@ -19,7 +19,7 @@ use Modules\Kanban\Models\KanbanCard;
 
 class KanbanCardTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $card = new KanbanCard();
 

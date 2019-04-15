@@ -18,7 +18,7 @@ use Modules\Comments\Models\CommentList;
 
 class CommentListTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $list = new CommentList();
         self::assertEquals(0, $list->getId());

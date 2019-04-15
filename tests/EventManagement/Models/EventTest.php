@@ -21,7 +21,7 @@ use phpOMS\Localization\Money;
 
 class EventTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $event = new Event();
 

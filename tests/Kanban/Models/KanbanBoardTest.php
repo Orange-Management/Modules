@@ -18,7 +18,7 @@ use Modules\Kanban\Models\KanbanBoard;
 
 class KanbanBoardTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $board = new KanbanBoard();
 

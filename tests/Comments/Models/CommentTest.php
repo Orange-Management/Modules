@@ -17,7 +17,7 @@ use Modules\Comments\Models\Comment;
 
 class CommentTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $comment = new Comment();
         self::assertEquals(0, $comment->getId());

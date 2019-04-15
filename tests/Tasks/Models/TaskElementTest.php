@@ -19,7 +19,7 @@ use Modules\Tasks\Models\TaskStatus;
 
 class TaskElementTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $task = new TaskElement();
 

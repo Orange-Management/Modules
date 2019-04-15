@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Solution;
 
 class SolutionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $obj = new Solution();
 

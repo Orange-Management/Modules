@@ -21,7 +21,7 @@ use Modules\Tasks\Models\TaskType;
 
 class TicketTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $ticket = new Ticket();
 

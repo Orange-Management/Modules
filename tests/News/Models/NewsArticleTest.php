@@ -20,7 +20,7 @@ use phpOMS\Localization\ISO639x1Enum;
 
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $news = new NewsArticle();
 

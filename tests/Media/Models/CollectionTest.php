@@ -17,7 +17,7 @@ use Modules\Media\Models\Collection;
 
 class CollectionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $media = new Collection();
 

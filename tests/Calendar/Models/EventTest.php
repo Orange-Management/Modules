@@ -18,7 +18,7 @@ use phpOMS\Account\Account;
 
 class EventTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $event = new Event();
 

@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Category;
 
 class CategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $obj = new Category();
 

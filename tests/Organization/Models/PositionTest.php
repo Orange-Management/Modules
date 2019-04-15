@@ -18,7 +18,7 @@ use Modules\Organization\Models\Status;
 
 class PositionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $position = new Position();
 

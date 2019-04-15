@@ -17,7 +17,7 @@ use Modules\SupplierManagement\Models\Supplier;
 
 class SupplierTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $supplier = new Supplier();
 

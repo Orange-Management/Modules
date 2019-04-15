@@ -18,7 +18,7 @@ use Modules\Helper\Models\HelperStatus;
 
 class ReportTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $report = new Report();
 

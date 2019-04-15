@@ -18,7 +18,7 @@ use Modules\Knowledgebase\Models\WikiStatus;
 
 class WikiDocTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $doc = new WikiDoc();
 

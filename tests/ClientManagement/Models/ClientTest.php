@@ -17,7 +17,7 @@ use Modules\ClientManagement\Models\Client;
 
 class ClientTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $client = new Client();
 

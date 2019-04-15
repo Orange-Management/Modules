@@ -17,7 +17,7 @@ use Modules\Media\Models\Media;
 
 class MediaTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $media = new Media();
 

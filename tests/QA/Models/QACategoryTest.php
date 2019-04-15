@@ -17,7 +17,7 @@ use Modules\QA\Models\QACategory;
 
 class QACategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $category = new QACategory();
 

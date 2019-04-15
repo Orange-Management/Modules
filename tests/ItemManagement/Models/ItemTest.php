@@ -18,7 +18,7 @@ use Modules\Media\Models\Media;
 
 class ItemTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $item = new Item();
 

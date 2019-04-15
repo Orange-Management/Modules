@@ -17,7 +17,7 @@ use Modules\QA\Models\QAQuestionStatus;
 
 class QAQuestionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $question = new QAQuestion();
 

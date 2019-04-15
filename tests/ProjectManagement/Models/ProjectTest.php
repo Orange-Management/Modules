@@ -20,7 +20,7 @@ use phpOMS\Localization\Money;
 
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $project = new Project();
 

@@ -17,7 +17,7 @@ use Modules\RiskManagement\Models\Project;
 
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $obj = new Project();
 

@@ -19,7 +19,7 @@ use Modules\Helper\Models\TemplateDataType;
 
 class TemplateTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $template = new Template();
 

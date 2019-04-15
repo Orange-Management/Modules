@@ -22,7 +22,7 @@ use Modules\Organization\Models\Unit;
 
 class EmployeeTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $employee = new Employee();
 

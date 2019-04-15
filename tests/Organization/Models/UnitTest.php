@@ -18,7 +18,7 @@ use Modules\Organization\Models\Unit;
 
 class UnitTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefult() : void
+    public function testDefault() : void
     {
         $unit = new Unit();
 
