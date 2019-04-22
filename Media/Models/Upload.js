@@ -1,3 +1,8 @@
+import { Request } from '../../../jsOMS/Message/Request/Request.js';
+import { RequestType } from '../../../jsOMS/Message/Request/RequestType.js';
+import { RequestMethod } from '../../../jsOMS/Message/Request/RequestMethod.js';
+import { Logger } from '../../../jsOMS/Log/Logger.js';
+
 /**
  * Media uploader.
  *
@@ -157,6 +162,7 @@ export class Upload {
         request.setSuccess(function (xhr)
         {
             try {
+                console.log(xhr.response);
                 const response = JSON.parse(xhr.response);
 
                 if (!self.success[formId]) {

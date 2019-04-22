@@ -180,11 +180,13 @@ class UploadFile
             }
 
             if ($this->isInterlaced && \in_array($extension, FileUtils::IMAGE_EXTENSION)) {
-                $this->interlace($extension, $dest);
+                // todo: interlacing somehow messes up some images (tested with logo.png from assets)
+                //$this->interlace($extension, $dest);
             }
 
             if ($encoding !== '') {
-                FileUtils::changeFileEncoding($dest, $encoding);
+                // changing encoding bugs out image files
+                //FileUtils::changeFileEncoding($dest, $encoding);
             }
 
             $result[$key]['path'] = \realpath($this->outputDir);
@@ -255,7 +257,7 @@ class UploadFile
             return;
         }
 
-        \imageinterlace($img, (int) $this->isInterlaced);
+        \imageinterlace($img, $this->isInterlaced ? 1 : 0);
 
         if ($extension === 'png') {
             \imagepng($img, $path);

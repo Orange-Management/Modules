@@ -1,6 +1,9 @@
 import { Autoloader } from '../../jsOMS/Autoloader.js';
 import { Application } from '../../Web/Backend/js/backend.js';
 import { Upload } from './Models/Upload.js';
+import { NotificationMessage } from '../../jsOMS/Message/Notification/NotificationMessage.js';
+import { NotificationLevel } from '../../jsOMS/Message/Notification/NotificationLevel.js';
+import { NotificationType } from '../../jsOMS/Message/Notification/NotificationType.js';
 
 Autoloader.defineNamespace('jsOMS.Modules');
 
@@ -53,11 +56,18 @@ jsOMS.Modules.Media = class {
 
                     uploader.setSuccess(e.id, function (type, response)
                     {
-                        document.querySelector('input[form=' + e.id + '][type=file]+input[form=' + e.id + '][type=hidden]').value = JSON.stringify(response);
+                        self.app.notifyManager.send(
+                            new NotificationMessage(response[0].status, response[0].title, response[0].message), NotificationType.APP_NOTIFICATION
+                        );
+
+                        document.querySelector(
+                            '#' + e.id + ' input[type=file]+input[type=hidden], '
+                            + 'input[form=' + e.id + '][type=file]+input[type=hidden]'
+                        ).value = response[0].response;
                         self.app.eventManager.trigger(form.id, requestId);
                     });
 
-                    uploader.setUri('{/base}/{/lang}/api/media');
+                    uploader.setUri('api/media');
 
                     const length   = fileFields.length;
                     let fileLength = 0;

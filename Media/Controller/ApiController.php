@@ -20,6 +20,7 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
+use phpOMS\Message\NotificationLevel;
 
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -88,25 +89,7 @@ final class ApiController extends Controller
             $ids[] = $file->getId();
         }
 
-        $this->fillJsonRawResponse($request, $response, $ids);
-    }
-
-    /**
-     * Shows api content.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return void
-     *
-     * @api
-     *
-     * @since  1.0.0
-     */
-    public function apiMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
-    {
-        // todo: change database entry for files if has write permission
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Media', 'Media successfully created.', $ids);
     }
 
     /**

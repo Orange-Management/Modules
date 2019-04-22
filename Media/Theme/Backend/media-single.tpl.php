@@ -99,7 +99,7 @@ echo $this->getData('nav')->render();
                 $path = $this->filePathFunction($media, $this->request->getData('sub') ?? '');
 
                 if ($this->isImageFunction($media, $path)) : ?>
-                    <div class="h-overflow">
+                    <div class="h-overflow centerText">
                         <img src="<?= $media->isAbsolute() ? $this->printHtml($path) : $this->printHtml($this->request->getUri()->getBase() . $path); ?>">
                     </div>
                 <?php else : ?>

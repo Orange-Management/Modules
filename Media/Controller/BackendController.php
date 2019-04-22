@@ -98,8 +98,7 @@ final class BackendController extends Controller
     {
         /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
-        $head->addAsset(AssetType::JSLATE, 'Modules/Media/Models/Upload.js');
-        $head->addAsset(AssetType::JSLATE, 'Modules/Media/Controller.js');
+        $head->addAsset(AssetType::JSLATE, 'Modules/Media/Controller.js', ['type' => 'module']);
     }
 
     /**
