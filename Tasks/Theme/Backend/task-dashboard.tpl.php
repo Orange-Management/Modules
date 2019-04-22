@@ -21,7 +21,7 @@ $tasks = $this->getData('tasks');
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
-    <div class="col-xs-12 col-md-9">
+    <div class="col-xs-12">
         <div class="box wf-100">
             <table id="taskList" class="table darkred">
                 <caption><?= $this->getHtml('Tasks') ?><i class="fa fa-download floatRight download btn"></i></caption>
@@ -59,39 +59,5 @@ echo $this->getData('nav')->render(); ?>
                 <?php endif; ?>
             </table>
         </div>
-    </div>
-
-    <div class="col-xs-12 col-md-3">
-            <section class="box wf-100">
-                <header><h1><?= $this->getHtml('Settings') ?></h1></header>
-                <div class="inner">
-                    <form id="iTaskInterval" action="<?= \phpOMS\Uri\UriFactory::build('{/api}task/dashboard?{?}') ?>" method="post">
-                        <table class="layout wf-100">
-                            <tr><td><label for="iIntervarl"><?= $this->getHtml('Interval') ?></label>
-                            <tr><td><select id="iIntervarl" name="interval">
-                                        <option><?= $this->getHtml('All') ?>
-                                        <option><?= $this->getHtml('Day') ?>
-                                        <option><?= $this->getHtml('Week') ?>
-                                        <option selected><?= $this->getHtml('Month') ?>
-                                        <option><?= $this->getHtml('Year') ?>
-                                    </select>
-                        </table>
-                    </form>
-                </div>
-            </section>
-
-            <section class="box wf-100">
-                <header><h1><?= $this->getHtml('Settings') ?></h1></header>
-                <div class="inner">
-                    <table class="list">
-                        <tr><th><?= $this->getHtml('Received') ?><td>0
-                        <tr><th><?= $this->getHtml('Created') ?><td>0
-                        <tr><th><?= $this->getHtml('Forwarded') ?><td>0
-                        <tr><th><?= $this->getHtml('AverageAmount') ?><td>0
-                        <tr><th><?= $this->getHtml('AverageProcessTime') ?><td>0
-                        <tr><th><?= $this->getHtml('InTime') ?><td>0
-                    </table>
-                </div>
-            </section>
     </div>
 </div>

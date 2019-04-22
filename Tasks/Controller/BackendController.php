@@ -54,8 +54,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
 
-        $open  = TaskMapper::getOpen($request->getHeader()->getAccount());
-        $tasks = TaskMapper::getNewest(25);
+        $tasks = TaskMapper::getAny($request->getHeader()->getAccount());
 
         $view->addData('tasks', $tasks);
 

@@ -101,7 +101,7 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'task_created_at';
+    protected static $createdAt = 'task_element_created_at';
 
     /**
      * Primary field name.

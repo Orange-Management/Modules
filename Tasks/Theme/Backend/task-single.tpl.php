@@ -29,7 +29,7 @@ $color     = $this->getStatus($task->getStatus());
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-6 col-xs-12">
         <section class="box wf-100">
             <div class="inner">
                 <div class="floatRight">
@@ -136,7 +136,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php endif; ?>
             </section>
         <?php endforeach; ?>
+    </div>
 
+    <div class="col-md-6 col-xs-12">
         <section class="box wf-100">
             <div class="inner">
                 <form id="taskElementCreate" method="PUT" action="<?= \phpOMS\Uri\UriFactory::build('{/api}task/element?{?}&csrf={$CSRF}'); ?>">

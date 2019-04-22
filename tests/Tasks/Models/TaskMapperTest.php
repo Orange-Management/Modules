@@ -27,7 +27,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     public function testDefault() : void
     {
-        self::assertEquals([], TaskMapper::getOpen(999));
+        self::assertEquals([], TaskMapper::getOpenCreatedBy(999));
         self::assertEquals(0, TaskMapper::countUnread(999));
     }
 
