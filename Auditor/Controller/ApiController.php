@@ -59,7 +59,7 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $newString = StringUtils::stringify($new);
+        $newString = StringUtils::stringify($new, \JSON_PRETTY_PRINT);
         $audit     = new Audit($account, null, $newString, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
@@ -94,8 +94,8 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $oldString = StringUtils::stringify($old);
-        $newString = StringUtils::stringify($new);
+        $oldString = StringUtils::stringify($old, \JSON_PRETTY_PRINT);
+        $newString = StringUtils::stringify($new, \JSON_PRETTY_PRINT);
         $audit     = new Audit($account, $oldString, $newString, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
@@ -130,7 +130,7 @@ final class ApiController extends Controller
         string $content = null
     ) : void
     {
-        $oldString = StringUtils::stringify($old);
+        $oldString = StringUtils::stringify($old, \JSON_PRETTY_PRINT);
         $audit     = new Audit($account, $oldString, null, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);

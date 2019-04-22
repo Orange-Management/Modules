@@ -21,10 +21,12 @@ echo $this->getData('nav')->render();
     <div class="col-xs-12">
         <section class="box wf-100">
             <article>
-                <?= \phpOMS\Utils\StringUtils::createDiffMarkup(
-                    \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getOld() ?? ''),
-                    \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getNew() ?? '')
-                ); ?>
+                <pre><?= \phpOMS\Utils\StringUtils::createDiffMarkup(
+                        \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getOld() ?? ''),
+                        \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getNew() ?? ''),
+                        "\n"
+                    ); ?>
+                </pre>
             </article>
         </section>
     </div>
