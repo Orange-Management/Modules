@@ -6,10 +6,10 @@
     <div class="tab-content">
         <input type="radio" id="<?= $this->printHtml($this->getId()); ?>-c-tab-1" name="tabular-1" checked>
         <div class="tab">
-            <textarea 
-                style="height: 300px" 
-                placeholder="&#xf040;" 
-                name="<?= $this->printHtml($this->getName()); ?>" 
+            <textarea
+                style="height: 300px"
+                placeholder="&#xf040;"
+                name="<?= $this->printHtml($this->getName()); ?>"
                 form="<?= $this->printHtml($this->getForm()); ?>">
                 <?= $this->printHtml($this->getPlain()); ?>
             </textarea><input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-parsed">
