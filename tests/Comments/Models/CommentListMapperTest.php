@@ -38,6 +38,6 @@ class CommentListMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $listR->getId());
 
         $actual = $listR->getComments();
-        self::assertEquals($comment->getTitle(), reset($actual)->getTitle());
+        self::assertEquals($comment->getTitle(), \reset($actual)->getTitle());
     }
 }

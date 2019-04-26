@@ -54,10 +54,10 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
             $text = new Text();
             $doc  = new WikiDoc();
 
-            $doc->setName($text->generateText(mt_rand(1, 3)));
-            $doc->setDoc($text->generateText(mt_rand(100, 500)));
+            $doc->setName($text->generateText(\mt_rand(1, 3)));
+            $doc->setDoc($text->generateText(\mt_rand(100, 500)));
             $doc->setStatus(WikiStatus::ACTIVE);
-            $doc->setCategory(mt_rand(1, 9));
+            $doc->setCategory(\mt_rand(1, 9));
             $doc->setCreatedBy(1);
             $doc->setLanguage('en');
 

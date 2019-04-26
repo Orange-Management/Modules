@@ -149,9 +149,9 @@ class Calendar
     {
         $this->events[] = $event;
 
-        end($this->events);
+        \end($this->events);
         $key = \key($this->events);
-        reset($this->events);
+        \reset($this->events);
 
         return $key;
     }

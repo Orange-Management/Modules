@@ -19,9 +19,9 @@ $templates = $this->getData('reports');
 $footerView = new \phpOMS\Views\PaginationView($this->app, $this->request, $this->response);
 $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
 
-$footerView->setPages(count($templates) / 25);
+$footerView->setPages(\count($templates) / 25);
 $footerView->setPage(1);
-$footerView->setResults(count($templates));
+$footerView->setResults(\count($templates));
 
 echo $this->getData('nav')->render(); ?>
 
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td colspan="4">
                 <tbody>
-                <?php if (count($templates) == 0) : ?>
+                <?php if (\count($templates) == 0) : ?>
                 <tr class="empty">
                     <td colspan="4"><?= $this->getHtml('Empty', 0, 0); ?>
                         <?php endif; ?>

@@ -149,7 +149,7 @@ final class BackendController extends Controller
         $files = $template->getSource()->getSources();
 
         foreach ($files as $tMedia) {
-            $lowerPath = strtolower($tMedia->getPath());
+            $lowerPath = \strtolower($tMedia->getPath());
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
                 $tcoll['lang'] = $tMedia;
@@ -192,7 +192,7 @@ final class BackendController extends Controller
             );
 
             $rcoll  = [];
-            $report = end($report);
+            $report = \end($report);
             $report = $report === false ? new NullReport() : $report;
 
             if (!($report instanceof NullReport)) {

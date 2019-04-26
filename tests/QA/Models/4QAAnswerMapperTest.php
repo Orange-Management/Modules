@@ -52,7 +52,7 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
             $text   = new Text();
             $answer = new QAAnswer();
 
-            $answer->setAnswer($text->generateText(mt_rand(100, 500)));
+            $answer->setAnswer($text->generateText(\mt_rand(100, 500)));
             $answer->setCreatedBy(1);
             $answer->setStatus(QAAnswerStatus::ACTIVE);
             $answer->setQuestion(1);

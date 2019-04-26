@@ -53,6 +53,6 @@ class CalendarMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $calendar->getEvents();
         $actual   = $calendarR->getEvents();
 
-        self::assertEquals(end($expected)->getDescription(), end($actual)->getDescription());
+        self::assertEquals(\end($expected)->getDescription(), \end($actual)->getDescription());
     }
 }

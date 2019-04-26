@@ -135,7 +135,7 @@ final class ApiController extends Controller
             default:
                 $response->getHeader()->set('Content-Type', 'text/html; charset=utf-8');
                 // todo: use html template here instead which uses the tcoll/template!!!
-                $view->setTemplate(\substr($view->getData('tcoll')['template']->getPath(), 0, -8));
+                $view->setTemplate('/' . \substr($view->getData('tcoll')['template']->getPath(), 0, -8));
         }
     }
 
@@ -161,12 +161,19 @@ final class ApiController extends Controller
             $lowerPath = \strtolower($tMedia->getPath());
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
-                $tcoll['lang'][$tMedia->getName()] = $tMedia;
-            } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php') || StringUtils::endsWith($lowerPath, '.xls.php')) {
+                $language                 = \explode('.', $lowerPath)[0];
+                $tcoll['lang'][$language] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php')
+                || StringUtils::endsWith($lowerPath, '.xls.php')
+            ) {
                 $tcoll['excel'][$tMedia->getName()] = $tMedia;
-            } elseif (StringUtils::endsWith($lowerPath, '.docx.php') || StringUtils::endsWith($lowerPath, '.doc.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.docx.php')
+                || StringUtils::endsWith($lowerPath, '.doc.php')
+            ) {
                 $tcoll['word'][$tMedia->getName()] = $tMedia;
-            } elseif (StringUtils::endsWith($lowerPath, '.pptx.php') || StringUtils::endsWith($lowerPath, '.ppt.php')) {
+            } elseif (StringUtils::endsWith($lowerPath, '.pptx.php')
+                || StringUtils::endsWith($lowerPath, '.ppt.php')
+            ) {
                 $tcoll['powerpoint'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.pdf.php')) {
                 $tcoll['pdf'][$tMedia->getName()] = $tMedia;
@@ -194,7 +201,7 @@ final class ApiController extends Controller
             );
 
             $rcoll  = [];
-            $report = end($report);
+            $report = \end($report);
             $report = $report === false ? new NullReport() : $report;
 
             if (!($report instanceof NullReport)) {

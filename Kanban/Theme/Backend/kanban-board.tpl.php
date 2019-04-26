@@ -14,7 +14,7 @@ $columns = $board->getColumns();
                 <div class="inner">
                     <?= $this->printHtml($card->getDescription()); ?>
                     <?php foreach ($labels as $label) : ?>
-                    <span class="tag" style="background: #<?= $this->printHtml(dechex($label->getColor())); ?>"><?= $this->printHtml($label->getName()); ?></span>
+                    <span class="tag" style="background: #<?= $this->printHtml(\dechex($label->getColor())); ?>"><?= $this->printHtml($label->getName()); ?></span>
                     <?php endforeach; ?>
                 </div>
             </section>

@@ -50,8 +50,8 @@ class KanbanBoardMapperTest extends \PHPUnit\Framework\TestCase
             $text  = new Text();
             $board = new KanbanBoard();
 
-            $board->setName($text->generateText(mt_rand(3, 7)));
-            $board->setDescription($text->generateText(mt_rand(20, 70)));
+            $board->setName($text->generateText(\mt_rand(3, 7)));
+            $board->setDescription($text->generateText(\mt_rand(20, 70)));
             $board->setCreatedBy(1);
 
             $id = KanbanBoardMapper::create($board);

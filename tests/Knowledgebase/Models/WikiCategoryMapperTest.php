@@ -59,7 +59,7 @@ class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
             $text     = new Text();
             $category = new WikiCategory();
 
-            $category->setName($text->generateText(mt_rand(1, 3)));
+            $category->setName($text->generateText(\mt_rand(1, 3)));
 
             $id = WikiCategoryMapper::create($category);
         }

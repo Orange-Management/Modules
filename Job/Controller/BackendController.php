@@ -95,7 +95,7 @@ final class BackendController extends Controller
         $scheduler = SchedulerFactory::create();
         $job       = $scheduler->getAllByName('Adobe', false);
 
-        $view->addData('job', end($job));
+        $view->addData('job', \end($job));
 
         return $view;
     }

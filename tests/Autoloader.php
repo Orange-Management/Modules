@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests;
 
-spl_autoload_register('\Modules\tests\Autoloader::defaultAutoloader');
+\spl_autoload_register('\Modules\tests\Autoloader::defaultAutoloader');
 
 /**
  * Autoloader class.

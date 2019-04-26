@@ -79,7 +79,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $promotion->getMedia();
         $actual   = $promotionR->getMedia();
 
-        self::assertEquals(end($expected)->getName(), end($actual)->getName());
+        self::assertEquals(\end($expected)->getName(), \end($actual)->getName());
     }
 
     public function testNewest() : void
@@ -99,8 +99,8 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 
             $promotion = new Promotion();
 
-            $promotion->setName($text->generateText(mt_rand(3, 7)));
-            $promotion->setDescription($text->generateText(mt_rand(20, 100)));
+            $promotion->setName($text->generateText(\mt_rand(3, 7)));
+            $promotion->setDescription($text->generateText(\mt_rand(20, 100)));
             $promotion->setCreatedBy(1);
             $promotion->setStart(new \DateTime('2000-05-05'));
             $promotion->setEnd(new \DateTime('2005-05-05'));

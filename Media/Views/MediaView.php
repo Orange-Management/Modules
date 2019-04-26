@@ -34,7 +34,7 @@ class MediaView extends View
 {
     protected function filePathFunction(Media $media, string $sub) : string
     {
-        if (is_file($media->getPath() . $sub)
+        if (\is_file($media->getPath() . $sub)
             && StringUtils::startsWith(
                 \str_replace('\\', '/', \realpath($media->getPath() . $sub)),
                 $media->getPath()
@@ -74,7 +74,7 @@ class MediaView extends View
         $output = \file_get_contents($path);
         $output = \str_replace(["\r\n", "\r"], "\n", $output);
 
-        return explode("\n", $output);
+        return \explode("\n", $output);
     }
 
     protected function isImageFunction(Media $media, string $path) : bool

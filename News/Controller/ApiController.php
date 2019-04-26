@@ -53,7 +53,7 @@ final class ApiController extends Controller
             || ($val['plain'] = empty($request->getData('plain')))
             || ($val['lang'] = (
                 $request->getData('lang') !== null
-                && !ISO639x1Enum::isValidValue(strtolower((string) $request->getData('lang')))
+                && !ISO639x1Enum::isValidValue(\strtolower((string) $request->getData('lang')))
             ))
             || ($val['type'] = (
                 $request->getData('type') === null
@@ -107,7 +107,7 @@ final class ApiController extends Controller
         $newsArticle->setTitle((string) ($request->getData('title') ?? $newsArticle->getTitle()));
         $newsArticle->setPlain($request->getData('plain') ?? $newsArticle->getPlain());
         $newsArticle->setContent(Markdown::parse((string) ($request->getData('plain') ?? $newsArticle->getPlain())));
-        $newsArticle->setLanguage(strtolower((string) ($request->getData('lang') ?? $newsArticle->getLanguage())));
+        $newsArticle->setLanguage(\strtolower((string) ($request->getData('lang') ?? $newsArticle->getLanguage())));
         $newsArticle->setType((int) ($request->getData('type') ?? $newsArticle->getType()));
         $newsArticle->setStatus((int) ($request->getData('status') ?? $newsArticle->getStatus()));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? $newsArticle->isFeatured()));
@@ -158,7 +158,7 @@ final class ApiController extends Controller
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
         $newsArticle->setPlain($request->getData('plain') ?? '');
         $newsArticle->setContent(Markdown::parse((string) ($request->getData('plain') ?? '')));
-        $newsArticle->setLanguage(strtolower((string) ($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
+        $newsArticle->setLanguage(\strtolower((string) ($request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage())));
         $newsArticle->setType((int) ($request->getData('type') ?? 1));
         $newsArticle->setStatus((int) ($request->getData('status') ?? 1));
         $newsArticle->setFeatured((bool) ($request->getData('featured') ?? true));

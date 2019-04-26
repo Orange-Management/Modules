@@ -135,7 +135,7 @@ class UploadFile
             }
 
             // TODO: do I need pecl fileinfo?
-            if (!empty($this->allowedTypes) && ($ext = array_search($f['type'], $this->allowedTypes, true)) === false) {
+            if (!empty($this->allowedTypes) && ($ext = \array_search($f['type'], $this->allowedTypes, true)) === false) {
                 $result[$key]['status'] = UploadStatus::WRONG_EXTENSION;
 
                 return $result;
@@ -282,7 +282,7 @@ class UploadFile
     private function findOutputDir(array $files) : string
     {
         do {
-            $rndPath = \str_pad(\dechex(rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+            $rndPath = \str_pad(\dechex(\rand(0, 65535)), 4, '0', STR_PAD_LEFT);
         } while (\file_exists($this->outputDir . '/' . $rndPath));
 
         return $this->outputDir . '/' . $rndPath;

@@ -86,7 +86,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $event->getMedia();
         $actual   = $eventR->getMedia();
 
-        self::assertEquals(end($expected)->getName(), end($actual)->getName());
+        self::assertEquals(\end($expected)->getName(), \end($actual)->getName());
     }
 
     public function testNewest() : void
@@ -107,13 +107,13 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
             $event = new Event();
 
             $event->setType(EventType::SEMINAR);
-            $event->setName($text->generateText(mt_rand(3, 7)));
-            $event->setDescription($text->generateText(mt_rand(20, 100)));
+            $event->setName($text->generateText(\mt_rand(3, 7)));
+            $event->setDescription($text->generateText(\mt_rand(20, 100)));
             $event->setCreatedBy(1);
             $event->setStart(new \DateTime('2000-05-05'));
             $event->setEnd(new \DateTime('2005-05-05'));
-            $event->setProgress(mt_rand(0, 100));
-            $event->setProgressType(mt_rand(0, 4));
+            $event->setProgress(\mt_rand(0, 100));
+            $event->setProgressType(\mt_rand(0, 4));
 
             $money = new Money();
             $money->setString('1.23');

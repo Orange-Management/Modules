@@ -59,7 +59,7 @@ class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
             $text     = new Text();
             $category = new QACategory();
 
-            $category->setName($text->generateText(mt_rand(1, 3)));
+            $category->setName($text->generateText(\mt_rand(1, 3)));
 
             $id = QACategoryMapper::create($category);
         }

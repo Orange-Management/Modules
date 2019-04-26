@@ -52,7 +52,7 @@ final class ApiController extends Controller
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
-            || ($val['due'] = !((bool) strtotime((string) $request->getData('due'))))
+            || ($val['due'] = !((bool) \strtotime((string) $request->getData('due'))))
         ) {
             return $val;
         }

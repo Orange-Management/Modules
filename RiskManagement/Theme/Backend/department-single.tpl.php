@@ -114,9 +114,9 @@ echo $this->getData('nav')->render(); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getCauses())); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getSolutions())); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml(count($value->getRiskObjects())); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getCauses())); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getSolutions())); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getRiskObjects())); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
                                     <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>

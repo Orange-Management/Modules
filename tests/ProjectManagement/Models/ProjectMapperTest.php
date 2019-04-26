@@ -85,7 +85,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         $expected = $project->getMedia();
         $actual   = $projectR->getMedia();
 
-        self::assertEquals(end($expected)->getName(), end($actual)->getName());
+        self::assertEquals(\end($expected)->getName(), \end($actual)->getName());
     }
 
     public function testNewest() : void
@@ -105,13 +105,13 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
             $project = new Project();
 
-            $project->setName($text->generateText(mt_rand(3, 7)));
-            $project->setDescription($text->generateText(mt_rand(20, 100)));
+            $project->setName($text->generateText(\mt_rand(3, 7)));
+            $project->setDescription($text->generateText(\mt_rand(20, 100)));
             $project->setCreatedBy(1);
             $project->setStart(new \DateTime('2000-05-05'));
             $project->setEnd(new \DateTime('2005-05-05'));
-            $project->setProgress(mt_rand(0, 100));
-            $project->setProgressType(mt_rand(0, 4));
+            $project->setProgress(\mt_rand(0, 100));
+            $project->setProgressType(\mt_rand(0, 4));
 
             $money = new Money();
             $money->setString('1.23');

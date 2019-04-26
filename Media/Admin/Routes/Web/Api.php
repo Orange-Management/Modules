@@ -22,17 +22,6 @@ return [
             ],
         ],
     ],
-    '^.*/media/create.*$' => [
-        [
-            'dest' => '\Modules\Media\Controller\ApiController:apiMediaCreate',
-            'verb' => RouteVerb::SET,
-            'permission' => [
-                'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::CREATE,
-                'state' => PermissionState::MEDIA,
-            ],
-        ],
-    ],
     // todo: the order of find is bad but needed for now.
     '^.*/media/find.*$' => [
         [

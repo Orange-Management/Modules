@@ -47,7 +47,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
             $item = new Item();
 
             $item->setNumber($i + 1);
-            $item->setSegment(mt_rand(1, 9));
+            $item->setSegment(\mt_rand(1, 9));
             $item->setInfo('info text');
 
             $id = ItemMapper::create($item);

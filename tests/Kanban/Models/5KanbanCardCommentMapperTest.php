@@ -48,7 +48,7 @@ class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase
             $text    = new Text();
             $comment = new KanbanCardComment();
 
-            $comment->setDescription($text->generateText(mt_rand(20, 100)));
+            $comment->setDescription($text->generateText(\mt_rand(20, 100)));
             $comment->setCard(1);
             $comment->setCreatedBy(1);
 

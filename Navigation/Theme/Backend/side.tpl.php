@@ -38,7 +38,7 @@ if (isset($this->nav[NavigationType::SIDE])) : ?>
                                 // todo: very simpleminded solution. doesn't work for root path /en/backend etc. e.g. dashboard
                                 // this also fails for urls which are not structured like a tree
                             ?>
-                                <li<?= (count($parentUri) > 2 && \stripos($uriPath, $miniParent) !== false) ? ' class="active"' : '' ?>>
+                                <li<?= (\count($parentUri) > 2 && \stripos($uriPath, $miniParent) !== false) ? ' class="active"' : '' ?>>
                                     <a href="<?= $uri; ?>"><?= $this->getHtml($link['nav_name'], 'Navigation') ?></a>
                             <?php endif;
                         endforeach;

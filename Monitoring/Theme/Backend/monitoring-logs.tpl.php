@@ -13,7 +13,7 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-$logs = array_reverse($this->app->logger->get(25), true);
+$logs = \array_reverse($this->app->logger->get(25), true);
 
 echo $this->getData('nav')->render(); ?>
 

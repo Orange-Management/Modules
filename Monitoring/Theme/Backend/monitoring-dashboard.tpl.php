@@ -22,11 +22,11 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list wf-100">
                     <tbody>
-                        <tr><td><?= $this->getHtml('OS'); ?><td><?= $this->printHtml(php_uname('s')); ?>
-                        <tr><td><?= $this->getHtml('Version'); ?><td><?= $this->printHtml(php_uname('v')); ?>
-                        <tr><td><?= $this->getHtml('Release'); ?><td><?= $this->printHtml(php_uname('r')); ?>
-                        <tr><td><?= $this->getHtml('RAMUsage'); ?><td><?= $this->printHtml(memory_get_usage(true)/(1024*1024)); ?> MB
-                        <tr><td><?= $this->getHtml('MemoryLimit'); ?><td><?= $this->printHtml(ini_get('memory_limit')); ?>
+                        <tr><td><?= $this->getHtml('OS'); ?><td><?= $this->printHtml(\php_uname('s')); ?>
+                        <tr><td><?= $this->getHtml('Version'); ?><td><?= $this->printHtml(\php_uname('v')); ?>
+                        <tr><td><?= $this->getHtml('Release'); ?><td><?= $this->printHtml(\php_uname('r')); ?>
+                        <tr><td><?= $this->getHtml('RAMUsage'); ?><td><?= $this->printHtml(\memory_get_usage(true)/(1024*1024)); ?> MB
+                        <tr><td><?= $this->getHtml('MemoryLimit'); ?><td><?= $this->printHtml(\ini_get('memory_limit')); ?>
                         <tr><td><?= $this->getHtml('SystemRAM'); ?><td><?= $this->printHtml(\phpOMS\System\SystemUtils::getRAM()/(1024)); ?> MB
                         <tr><td><?= $this->getHtml('CPUUsage'); ?><td><?= $this->printHtml(\phpOMS\System\SystemUtils::getCpuUsage()); ?>%
                 </table>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr><td><?= $this->getHtml('Notices'); ?><td><?= $this->printHtml($logs['notice'] ?? 0); ?>
                     <tr><td><?= $this->getHtml('Info'); ?><td><?= $this->printHtml($logs['info'] ?? 0); ?>
                     <tr><td><?= $this->getHtml('Debug'); ?><td><?= $this->printHtml($logs['debug'] ?? 0); ?>
-                    <tr><td><?= $this->getHtml('Total'); ?><td><?= $this->printHtml(array_sum($logs)); ?>
+                    <tr><td><?= $this->getHtml('Total'); ?><td><?= $this->printHtml(\array_sum($logs)); ?>
                 </table>
             </div>
         </section>

@@ -157,7 +157,7 @@ echo $this->getData('nav')->render(); ?>
                                 <option value="<?= $this->printHtml(TaskPriority::VHIGH); ?>"<?= $task->getPriority() === TaskPriority::VHIGH ? 'selected' : ''?>><?= $this->getHtml('P5') ?>
                             </select>
                         <tr><td><label for="iDue"><?= $this->getHtml('Due') ?></label>
-                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s')); ?>">
+                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? \end($elements)->getDue()->format('Y-m-d\TH:i:s') : $task->getDue()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select id="iStatus" name="status">
                                     <option value="<?= $this->printHtml(TaskStatus::OPEN); ?>"<?= $task->getStatus() === TaskStatus::OPEN ? 'selected' : ''?>>Open

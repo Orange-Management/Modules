@@ -64,7 +64,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
         $expected = $ticket->getTask()->getTaskElements();
         $actual   = $ticketR->getTask()->getTaskElements();
-        self::assertEquals(end($expected)->getDescription(), end($actual)->getDescription());
+        self::assertEquals(\end($expected)->getDescription(), \end($actual)->getDescription());
     }
 
     public function testNewest() : void
@@ -88,15 +88,15 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $ticket->getTask()->setCreatedBy(1);
             $ticket->getTask()->getSchedule()->setCreatedBy(1);
-            $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
+            $ticket->getTask()->setTitle($text->generateText(\mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
-            $ticket->getTask()->setDescription($text->generateText(mt_rand(10, 30)));
+            $ticket->getTask()->setDescription($text->generateText(\mt_rand(10, 30)));
             $ticket->getTask()->setDone(new \DateTime('2000-05-06'));
             $ticket->getTask()->setDue(new \DateTime('2000-05-05'));
 
             $taskElement1 = new TaskElement();
-            $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
+            $taskElement1->setDescription($text->generateText(\mt_rand(3, 20)));
             $taskElement1->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement1);
 
@@ -123,20 +123,20 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $ticket->getTask()->setCreatedBy(1);
             $ticket->getTask()->getSchedule()->setCreatedBy(1);
-            $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
+            $ticket->getTask()->setTitle($text->generateText(\mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
-            $ticket->getTask()->setDescription($text->generateText(mt_rand(10, 30)));
+            $ticket->getTask()->setDescription($text->generateText(\mt_rand(10, 30)));
             $ticket->getTask()->setDone(new \DateTime('2000-05-06'));
             $ticket->getTask()->setDue(new \DateTime('2000-05-05'));
 
             $taskElement1 = new TaskElement();
-            $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
+            $taskElement1->setDescription($text->generateText(\mt_rand(3, 20)));
             $taskElement1->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
-            $taskElement2->setDescription($text->generateText(mt_rand(3, 20)));
+            $taskElement2->setDescription($text->generateText(\mt_rand(3, 20)));
             $taskElement2->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement2);
 
@@ -158,20 +158,20 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $ticket->getTask()->setCreatedBy(1);
             $ticket->getTask()->getSchedule()->setCreatedBy(1);
-            $ticket->getTask()->setTitle($text->generateText(mt_rand(1, 5)));
+            $ticket->getTask()->setTitle($text->generateText(\mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
-            $ticket->getTask()->setDescription($text->generateText(mt_rand(10, 30)));
+            $ticket->getTask()->setDescription($text->generateText(\mt_rand(10, 30)));
             $ticket->getTask()->setDone(new \DateTime('2000-05-06'));
             $ticket->getTask()->setDue(new \DateTime('2000-05-05'));
 
             $taskElement1 = new TaskElement();
-            $taskElement1->setDescription($text->generateText(mt_rand(3, 20)));
+            $taskElement1->setDescription($text->generateText(\mt_rand(3, 20)));
             $taskElement1->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
-            $taskElement2->setDescription($text->generateText(mt_rand(3, 20)));
+            $taskElement2->setDescription($text->generateText(\mt_rand(3, 20)));
             $taskElement2->setCreatedBy(1);
             $ticket->getTask()->addElement($taskElement2);
 

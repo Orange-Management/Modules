@@ -79,12 +79,12 @@ class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
             $text = new Text();
             $card = new KanbanCard();
 
-            $card->setName($text->generateText(mt_rand(3, 7)));
-            $card->setDescription($text->generateText(mt_rand(20, 100)));
+            $card->setName($text->generateText(\mt_rand(3, 7)));
+            $card->setDescription($text->generateText(\mt_rand(20, 100)));
             $card->setStatus(CardStatus::ACTIVE);
             $card->setType(CardType::TEXT);
-            $card->setOrder(mt_rand(1, 10));
-            $card->setColumn(mt_rand(1, 4));
+            $card->setOrder(\mt_rand(1, 10));
+            $card->setColumn(\mt_rand(1, 4));
             $card->setCreatedBy(1);
             $card->addLabel(2);
             $card->addLabel(3);

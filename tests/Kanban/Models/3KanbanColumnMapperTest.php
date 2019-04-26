@@ -47,7 +47,7 @@ class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
             $text   = new Text();
             $column = new KanbanColumn();
 
-            $column->setName($text->generateText(mt_rand(3, 7)));
+            $column->setName($text->generateText(\mt_rand(3, 7)));
             $column->setBoard(1);
             $column->setOrder($i + 1);
 

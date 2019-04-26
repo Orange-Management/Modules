@@ -54,10 +54,10 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
             $text     = new Text();
             $question = new QAQuestion();
 
-            $question->setName($text->generateText(mt_rand(1, 3)));
-            $question->setQuestion($text->generateText(mt_rand(100, 500)));
+            $question->setName($text->generateText(\mt_rand(1, 3)));
+            $question->setQuestion($text->generateText(\mt_rand(100, 500)));
             $question->setStatus(QAQuestionStatus::ACTIVE);
-            $question->setCategory(mt_rand(1, 9));
+            $question->setCategory(\mt_rand(1, 9));
             $question->setCreatedBy(1);
             $question->setLanguage('en');
 

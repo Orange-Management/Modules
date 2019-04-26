@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
                         <tr><td><textarea id="iMessage" name="description"></textarea>
                         <tr><td><label for="iDue"><?= $this->getHtml('Due') ?></label>
-                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? end($elements)->getDue()->format('Y-m-d\TH:i:s') : $ticket->getTask()->getDue()->format('Y-m-d\TH:i:s')); ?>">
+                        <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml(!empty($elements) ? \end($elements)->getDue()->format('Y-m-d\TH:i:s') : $ticket->getTask()->getDue()->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td><select id="iStatus" name="status">
                                     <option value="<?= $this->printHtml(\Modules\Tasks\Models\TaskStatus::OPEN); ?>" selected>Open
