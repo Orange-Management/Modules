@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Utils\RnG\Name;
 
+/**
+ * @internal
+ */
 class ClientMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -33,7 +36,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
         $client->getProfile()->getAccount()->setStatus(AccountStatus::ACTIVE);
         $client->getProfile()->getAccount()->setType(AccountType::USER);
 
-        $client->setNumber(1);
+        $client->setNumber('1');
         $client->setReverseNumber('asdf');
         $client->setStatus(2);
         $client->setType(3);
@@ -53,7 +56,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($client->getProfile()->getAccount()->getType(), $clientR->getProfile()->getAccount()->getType());
         self::assertEquals($client->getProfile()->getAccount()->getEmail(), $clientR->getProfile()->getAccount()->getEmail());
 
-        self::assertEquals(1, $client->getNumber());
+        self::assertEquals('1', $client->getNumber());
         self::assertEquals('asdf', $client->getReverseNumber());
         self::assertEquals(2, $client->getStatus());
         self::assertEquals(3, $client->getType());
@@ -74,7 +77,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
             $client->getProfile()->getAccount()->setStatus(AccountStatus::ACTIVE);
             $client->getProfile()->getAccount()->setType(AccountType::USER);
 
-            $client->setNumber($i + 1);
+            $client->setNumber((string) ($i + 1));
             $client->setStatus(2);
             $client->setType(3);
 

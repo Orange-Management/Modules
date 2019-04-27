@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,13 +13,9 @@
 
 namespace Modules\tests\Auditor\Admin;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Message\Http\Request;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
-use phpOMS\Utils\TestUtils;
-
+/**
+ * @internal
+ */
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'Auditor';

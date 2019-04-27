@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $boards = $this->getData('boards');
 
 echo $this->getData('nav')->render(); ?>

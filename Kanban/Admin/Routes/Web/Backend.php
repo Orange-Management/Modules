@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Kanban\Controller\BackendController;
 use Modules\Kanban\Models\PermissionState;

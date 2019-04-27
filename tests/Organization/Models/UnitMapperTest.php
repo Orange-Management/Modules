@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Organization\Models;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 
+/**
+ * @internal
+ */
 class UnitMapperTest extends \PHPUnit\Framework\TestCase
 {
 

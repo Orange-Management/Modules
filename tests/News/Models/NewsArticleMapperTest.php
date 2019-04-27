@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -20,6 +20,9 @@ use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 {
 

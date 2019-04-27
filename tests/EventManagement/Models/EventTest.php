@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use Modules\EventManagement\Models\ProgressType;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
+/**
+ * @internal
+ */
 class EventTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -68,7 +71,7 @@ class EventTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $event->countTasks());
 
         $event->addTask($task);
-        self::assertEquals(1, \count($event->getTasks()));
+        self::assertCount(1, $event->getTasks());
 
         $event->setProgress(10);
         self::assertEquals(10, $event->getProgress());

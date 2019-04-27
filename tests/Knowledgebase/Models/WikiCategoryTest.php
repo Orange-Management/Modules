@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiCategory;
 
+/**
+ * @internal
+ */
 class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -23,7 +26,7 @@ class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(0, $category->getId());
         self::assertEquals('', $category->getName());
-        self::assertEquals(null, $category->getParent());
+        self::assertNull($category->getParent());
     }
 
     public function testSetGet() : void

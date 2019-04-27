@@ -16,9 +16,7 @@ namespace Modules\DatabaseEditor\Controller;
 
 use Model\Settings;
 
-use phpOMS\DataStorage\Database\Connection\ConnectionFCacheactory;
 use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;

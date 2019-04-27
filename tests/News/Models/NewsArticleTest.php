@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
 
+/**
+ * @internal
+ */
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

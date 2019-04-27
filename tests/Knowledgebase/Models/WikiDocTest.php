@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Knowledgebase\Models;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiStatus;
 
+/**
+ * @internal
+ */
 class WikiDocTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

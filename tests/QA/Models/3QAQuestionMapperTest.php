@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\QA\Models\QAQuestionMapper;
 use Modules\QA\Models\QAQuestionStatus;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
 {
 

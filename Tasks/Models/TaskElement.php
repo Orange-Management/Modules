@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Models;
 
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
-
 use Modules\Admin\Models\Account;
+
 use Modules\Admin\Models\Group;
+use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Task class.

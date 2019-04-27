@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\Balance;
 
+/**
+ * @internal
+ */
 class BalanceTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

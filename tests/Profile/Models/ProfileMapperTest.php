@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\Media\Models\Media;
 use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
 
+/**
+ * @internal
+ */
 class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 {
 

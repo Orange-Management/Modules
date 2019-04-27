@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\ClientManagement\Controller\BackendController;
 use Modules\ClientManagement\Models\PermissionState;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
-
 
 return [
     '^.*/sales/client/list.*$' => [

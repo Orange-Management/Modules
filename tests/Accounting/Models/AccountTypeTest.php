@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,11 +15,14 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\AccountType;
 
+/**
+ * @internal
+ */
 class AccountTypeTest extends \PHPUnit\Framework\TestCase
 {
     public function testEnums() : void
     {
-        self::assertEquals(4, \count(AccountType::getConstants()));
+        self::assertCount(4, AccountType::getConstants());
         self::assertEquals(AccountType::getConstants(), \array_unique(AccountType::getConstants()));
 
         self::assertEquals(0, AccountType::IMPERSONAL);

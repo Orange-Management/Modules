@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -11,4 +11,3 @@
  * @link       http://website.orange-management.de
  */
 echo $this->getData('nav')->render();
-

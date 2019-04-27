@@ -84,7 +84,7 @@ final class TaskElementMapper extends DataMapperAbstract
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'task_element_created_by',
-        ]
+        ],
     ];
 
     /**

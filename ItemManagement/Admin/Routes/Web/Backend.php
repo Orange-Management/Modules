@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\ItemManagement\Controller\BackendController;
 use Modules\ItemManagement\Models\PermissionState;

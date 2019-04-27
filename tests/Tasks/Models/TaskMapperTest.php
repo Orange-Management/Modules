@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -20,8 +20,10 @@ use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskStatus;
 use phpOMS\Utils\RnG\Text;
-use phpOMS\DataStorage\Database\RelationType;
 
+/**
+ * @internal
+ */
 class TaskMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -117,15 +119,15 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertTrue(\end($actual)->isCCAccount(1));
         self::assertTrue(\end($actual)->isCCGroup(1));
 
-        self::assertEquals(2, \count(\end($actual)->getTo()));
-        self::assertEquals(2, \count(\end($actual)->getCC()));
+        self::assertCount(2, \end($actual)->getTo());
+        self::assertCount(2, \end($actual)->getCC());
     }
 
     public function testNewest() : void
     {
         $newest = TaskMapper::getNewest(1);
 
-        self::assertEquals(1, \count($newest));
+        self::assertCount(1, $newest);
     }
 
     /**

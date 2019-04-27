@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Calendar\Models\Calendar;
 use Modules\Calendar\Models\CalendarMapper;
 use Modules\Calendar\Models\Event;
 
+/**
+ * @internal
+ */
 class CalendarMapperTest extends \PHPUnit\Framework\TestCase
 {
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Collection;
 
+/**
+ * @internal
+ */
 class CollectionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -29,7 +32,7 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $media->getName());
         self::assertEquals('', $media->getDescription());
         self::assertEquals(0, $media->getSize());
-        self::assertEquals(false, $media->isVersioned());
+        self::assertFalse($media->isVersioned());
         self::assertEquals([], $media->getSources());
     }
 
@@ -56,7 +59,7 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(11, $media->getSize());
 
         $media->setVersioned(true);
-        self::assertEquals(false, $media->isVersioned());
+        self::assertFalse($media->isVersioned());
 
         $media->setSources([1, 2, 3]);
         self::assertEquals([1, 2, 3], $media->getSources());

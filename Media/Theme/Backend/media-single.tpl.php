@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,7 +19,7 @@ include __DIR__ . '/template-functions.php';
 
 /**
  * @var \phpOMS\Views\View $this
- * @var $media \Modules\Media\Models\Media
+ * @var $media             \Modules\Media\Models\Media
  */
 $media = $this->getData('media');
 echo $this->getData('nav')->render();

@@ -14,18 +14,16 @@ declare(strict_types=1);
 
 namespace Modules\Helper\Controller;
 
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\CollectionMapper;
-use Modules\Media\Models\NullCollection;
-use Modules\Media\Models\MediaMapper;
-use Modules\Helper\Models\PermissionState;
 use Modules\Helper\Models\NullReport;
+use Modules\Helper\Models\PermissionState;
 use Modules\Helper\Models\Report;
 use Modules\Helper\Models\ReportMapper;
-use Modules\Helper\Models\NullTemplate;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
 use Modules\Helper\Models\TemplateMapper;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
+use Modules\Media\Models\NullCollection;
 
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\Query\Builder;
@@ -34,8 +32,6 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\System\MimeType;
-use phpOMS\Utils\IO\Csv\CsvDatabaseMapper;
-use phpOMS\Utils\IO\Excel\ExcelDatabaseMapper;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;

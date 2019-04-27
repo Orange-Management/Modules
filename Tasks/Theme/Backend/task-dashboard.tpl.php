@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,7 +13,7 @@
 
  use Modules\Tasks\Models\TaskStatus;
 
-/**
+ /**
  * @var \phpOMS\Views\View           $this
  * @var \Modules\Tasks\Models\Task[] $tasks
  */

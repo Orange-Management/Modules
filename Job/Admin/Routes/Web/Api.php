@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Job\Controller\ApiController;
 use Modules\Job\Models\PermissionState;

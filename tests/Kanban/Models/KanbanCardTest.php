@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Kanban\Models\CardStatus;
 use Modules\Kanban\Models\CardType;
 use Modules\Kanban\Models\KanbanCard;
 
+/**
+ * @internal
+ */
 class KanbanCardTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

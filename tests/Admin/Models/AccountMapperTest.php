@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Auth\LoginReturnType;
 
+/**
+ * @internal
+ */
 class AccountMapperTest extends \PHPUnit\Framework\TestCase
 {
 

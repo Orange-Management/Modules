@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                 elseif ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::OPEN) { $color = 'darkblue'; }
                 elseif ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::WORKING) { $color = 'purple'; }
                 elseif ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::CANCELED) { $color = 'red'; }
-                elseif ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::SUSPENDED) { $color = 'yellow'; } ;?>
+                elseif ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::SUSPENDED) { $color = 'yellow'; } ?>
                 <tr>
                     <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $workflow->getStatus()) ?></span></a>
                     <td data-label="<?= $this->getHtml('Next') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getDue()->format('Y-m-d H:i')); ?></a>

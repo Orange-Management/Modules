@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Kanban\Models\KanbanCardComment;
 use Modules\Kanban\Models\KanbanCardCommentMapper;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class KanbanCardCommentMapperTest extends \PHPUnit\Framework\TestCase
 {
 

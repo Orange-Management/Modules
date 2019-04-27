@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\KanbanCardMapper;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
 {
 

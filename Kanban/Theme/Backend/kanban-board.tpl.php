@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $board = $this->getData('board');
 $columns = $board->getColumns();
 // todo: column width should be % but with min-width and on small screens full width

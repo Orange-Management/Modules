@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Media\Models;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 
+/**
+ * @internal
+ */
 class MediaMapperTest extends \PHPUnit\Framework\TestCase
 {
 

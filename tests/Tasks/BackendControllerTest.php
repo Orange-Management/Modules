@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,21 +17,19 @@ require_once __DIR__ . '/../Autoloader.php';
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountPermission;
-use Modules\Tasks\Models\TaskPriority;
-use Modules\Tasks\Models\TaskStatus;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
-use phpOMS\Router\Router;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
+use phpOMS\Router\Router;
 use phpOMS\Utils\TestUtils;
 
+/**
+ * @internal
+ */
 class BackendControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;
@@ -39,7 +37,7 @@ class BackendControllerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Backend';
         };

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -28,13 +28,16 @@ use phpOMS\Event\EventManager;
 use phpOMS\Message\Http\Request;
 
 use phpOMS\Message\Http\Response;
-use phpOMS\Router\Router;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Router\Router;
 
 use phpOMS\Uri\Http;
 
 use phpOMS\Utils\TestUtils;
 
+/**
+ * @internal
+ */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;
@@ -42,7 +45,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Api';
         };

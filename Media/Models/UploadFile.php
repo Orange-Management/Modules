@@ -101,7 +101,7 @@ class UploadFile
     {
         $result = [];
 
-        if (\count($files) === \count($files, COUNT_RECURSIVE)) {
+        if (\count($files) === \count($files, \COUNT_RECURSIVE)) {
             $files = [$files];
         }
 
@@ -120,7 +120,7 @@ class UploadFile
                 $result[$key]['status'] = UploadStatus::WRONG_PARAMETERS;
 
                 return $result;
-            } elseif ($f['error'] !== UPLOAD_ERR_OK) {
+            } elseif ($f['error'] !== \UPLOAD_ERR_OK) {
                 $result[$key]['status'] = $this->getUploadError($f['error']);
 
                 return $result;
@@ -223,7 +223,7 @@ class UploadFile
             $sha     .= '.' . $extension;
             $fileName = $sha;
             $rnd      = \mt_rand();
-            $limit++;
+            ++$limit;
         } while (\file_exists($path . '/' . $fileName) && $limit < self::PATH_GENERATION_LIMIT);
 
         if ($limit >= self::PATH_GENERATION_LIMIT) {
@@ -282,7 +282,7 @@ class UploadFile
     private function findOutputDir(array $files) : string
     {
         do {
-            $rndPath = \str_pad(\dechex(\rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+            $rndPath = \str_pad(\dechex(\mt_rand(0, 65535)), 4, '0', \STR_PAD_LEFT);
         } while (\file_exists($this->outputDir . '/' . $rndPath));
 
         return $this->outputDir . '/' . $rndPath;
@@ -300,11 +300,11 @@ class UploadFile
     private function getUploadError($error) : int
     {
         switch ($error) {
-            case UPLOAD_ERR_NO_FILE:
+            case \UPLOAD_ERR_NO_FILE:
                 // TODO: no file sent
                 return UploadStatus::NOTHING_UPLOADED;
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
+            case \UPLOAD_ERR_INI_SIZE:
+            case \UPLOAD_ERR_FORM_SIZE:
                 return UploadStatus::UPLOAD_SIZE;
             default:
                 return UploadStatus::UNKNOWN_ERROR;

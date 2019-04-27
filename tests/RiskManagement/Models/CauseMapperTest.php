@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use Modules\RiskManagement\Models\CauseMapper;
 use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\Risk;
 
+/**
+ * @internal
+ */
 class CauseMapperTest extends \PHPUnit\Framework\TestCase
 {
 

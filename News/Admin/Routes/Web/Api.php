@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\News\Controller\ApiController;
 use Modules\News\Models\PermissionState;

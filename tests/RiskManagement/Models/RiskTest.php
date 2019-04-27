@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\Solution;
 
+/**
+ * @internal
+ */
 class RiskTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -29,12 +32,12 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->getDescription());
         self::assertEquals('', $obj->getDescriptionRaw());
         self::assertEquals(1, $obj->getUnit());
-        self::assertEquals(null, $obj->getDepartment());
-        self::assertEquals(null, $obj->getCategory());
-        self::assertEquals(null, $obj->getProcess());
-        self::assertEquals(null, $obj->getProject());
-        self::assertEquals(null, $obj->getResponsible());
-        self::assertEquals(null, $obj->getDeputy());
+        self::assertNull($obj->getDepartment());
+        self::assertNull($obj->getCategory());
+        self::assertNull($obj->getProcess());
+        self::assertNull($obj->getProject());
+        self::assertNull($obj->getResponsible());
+        self::assertNull($obj->getDeputy());
         self::assertEquals([], $obj->getHistory());
         self::assertEquals([], $obj->getCauses());
         self::assertEquals([], $obj->getSolutions());
@@ -72,20 +75,20 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(1, $obj->getDeputy());
 
         $obj->addCause(new Cause());
-        self::assertEquals(1, \count($obj->getCauses()));
+        self::assertCount(1, $obj->getCauses());
         self::assertInstanceOf('\Modules\RiskManagement\Models\Cause', $obj->getCauses()[0]);
 
         $obj->addSolution(new Solution());
-        self::assertEquals(1, \count($obj->getSolutions()));
+        self::assertCount(1, $obj->getSolutions());
         self::assertInstanceOf('\Modules\RiskManagement\Models\Solution', $obj->getSolutions()[0]);
 
         $obj->addRiskObject(2);
-        self::assertEquals(1, \count($obj->getRiskObjects()));
+        self::assertCount(1, $obj->getRiskObjects());
 
         $obj->addHistory(2);
-        self::assertEquals(1, \count($obj->getHistory()));
+        self::assertCount(1, $obj->getHistory());
 
         $obj->addMedia(2);
-        self::assertEquals(1, \count($obj->getMedia()));
+        self::assertCount(1, $obj->getMedia());
     }
 }

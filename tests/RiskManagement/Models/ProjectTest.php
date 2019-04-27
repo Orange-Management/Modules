@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Project;
 
+/**
+ * @internal
+ */
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -23,8 +26,8 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(0, $obj->getId());
         self::assertEquals(0, $obj->getProject());
-        self::assertEquals(null, $obj->getResponsible());
-        self::assertEquals(null, $obj->getDeputy());
+        self::assertNull($obj->getResponsible());
+        self::assertNull($obj->getDeputy());
     }
 
     public function testSetGet() : void

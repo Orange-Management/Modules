@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Media\Controller\ApiController;
 use Modules\Media\Models\PermissionState;
@@ -18,7 +18,7 @@ return [
             'data' => [
                 'field_name' => [
                     'type' => 'string', 'default' => 'Hello', 'validation' => '[\\w]*', 'required' => false,'annotation' => [],
-                ]
+                ],
             ],
         ],
     ],

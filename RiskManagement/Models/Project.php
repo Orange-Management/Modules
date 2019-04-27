@@ -46,7 +46,7 @@ class Project
         return $this->project;
     }
 
-    public function setProject(string $project) : void
+    public function setProject($project) : void
     {
         $this->project = $project;
     }

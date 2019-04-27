@@ -58,7 +58,7 @@ final class ApiController extends Controller
         $response->set($request->getUri()->__toString(), [
             'status' => $status,
             'title' => 'Exchange',
-            'message' => $message
+            'message' => $message,
         ]);
     }
 

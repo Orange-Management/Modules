@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Checklist\Controller\BackendController;
 use Modules\Checklist\Models\PermissionState;

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Admin\Models;
 use Modules\Admin\Models\Module;
 use phpOMS\Module\ModuleStatus;
 
+/**
+ * @internal
+ */
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

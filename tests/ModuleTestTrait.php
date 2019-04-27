@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -23,7 +23,6 @@ use phpOMS\Module\NullModule;
 use phpOMS\Router\Router;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\ArrayUtils;
-use phpOMS\Utils\TestUtils;
 use phpOMS\Validation\Base\Json;
 use phpOMS\Version\Version;
 
@@ -33,7 +32,7 @@ trait ModuleTestTrait
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Api';
         };
@@ -71,7 +70,7 @@ trait ModuleTestTrait
         }
     }
 
-    public function testValidMapper()
+    public function testValidMapper() : void
     {
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
 
@@ -94,7 +93,7 @@ trait ModuleTestTrait
         return '\\Modules\\' . self::MODULE_NAME . '\\Models\\' . $name;
     }
 
-    public function testMapperAgainstModel()
+    public function testMapperAgainstModel() : void
     {
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
 
@@ -122,8 +121,8 @@ trait ModuleTestTrait
                     $isArray = true;
                 }
 
-                self::assertTrue(
-                    \array_key_exists($column['internal'], $properties),
+                self::assertArrayHasKey(
+                    $column['internal'], $properties,
                     'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member'
                 );
 
@@ -150,15 +149,14 @@ trait ModuleTestTrait
                 );
 
                 $property = $properties[$pName];
-                self::assertTrue(
-                    \is_array($property),
+                self::assertIsArray($property,
                     'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition'
                 );
             }
         }
     }
 
-    public function testValidDbSchema()
+    public function testValidDbSchema() : void
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
@@ -189,7 +187,7 @@ trait ModuleTestTrait
         }
     }
 
-    public function testDbSchemaAgainstDb()
+    public function testDbSchemaAgainstDb() : void
     {
         $builder = new SchemaBuilder($this->app->dbPool->get());
         $tables  = $builder->prefix($this->app->dbPool->get()->prefix)->selectTables()->execute()->fetchAll(\PDO::FETCH_COLUMN);
@@ -216,7 +214,7 @@ trait ModuleTestTrait
         }
     }
 
-    public function testMapperAgainstDbSchema()
+    public function testMapperAgainstDbSchema() : void
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
         $mappers    = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
@@ -245,7 +243,7 @@ trait ModuleTestTrait
                     self::assertTrue(
                         ($column['type'] === 'string'
                             && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0 ))
+                                || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
                         || ($column['type'] === 'int'
                             && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
                                 || \stripos($db[$table]['fields'][$cName]['type'], 'SMALLINT') === 0
@@ -253,7 +251,7 @@ trait ModuleTestTrait
                                 || \stripos($db[$table]['fields'][$cName]['type'], 'BIGINT') === 0))
                         || ($column['type'] === 'Json'
                             && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
-                                || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0 ))
+                                || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
                         || ($column['type'] === 'Serializable')
                         || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
                         || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
@@ -272,7 +270,7 @@ trait ModuleTestTrait
         }
     }
 
-    public function testJson()
+    public function testJson() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $sampleInfo    = \json_decode(\file_get_contents(__DIR__ . '/info.json'), true);
@@ -288,7 +286,7 @@ trait ModuleTestTrait
         }
     }
 
-    public function testDependency()
+    public function testDependency() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $module        = $moduleManager->get(self::MODULE_NAME);
@@ -300,11 +298,11 @@ trait ModuleTestTrait
         }
     }
 
-    public function testRoutes()
+    public function testRoutes() : void
     {
         $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $totalBackendRoutes = \file_exists(__DIR__ . '/../../Web/Backend/Routes.php' ) ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
-        $totalApiRoutes     = \file_exists(__DIR__ . '/../../Web/Api/Routes.php' ) ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
+        $totalBackendRoutes = \file_exists(__DIR__ . '/../../Web/Backend/Routes.php') ? include __DIR__ . '/../../Web/Backend/Routes.php' : [];
+        $totalApiRoutes     = \file_exists(__DIR__ . '/../../Web/Api/Routes.php') ? include __DIR__ . '/../../Web/Api/Routes.php' : [];
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
@@ -323,11 +321,11 @@ trait ModuleTestTrait
         }
     }
 
-    public function testHooks()
+    public function testHooks() : void
     {
         $moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules');
-        $totalBackendHooks = \file_exists(__DIR__ . '/../../Web/Backend/Hooks.php' ) ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
-        $totalApiHooks     = \file_exists(__DIR__ . '/../../Web/Api/Hooks.php' ) ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
+        $totalBackendHooks = \file_exists(__DIR__ . '/../../Web/Backend/Hooks.php') ? include __DIR__ . '/../../Web/Backend/Hooks.php' : [];
+        $totalApiHooks     = \file_exists(__DIR__ . '/../../Web/Api/Hooks.php') ? include __DIR__ . '/../../Web/Api/Hooks.php' : [];
 
         $module = $moduleManager->get(self::MODULE_NAME);
 
@@ -349,7 +347,7 @@ trait ModuleTestTrait
     /**
      * @group final
      */
-    public function testNavigation()
+    public function testNavigation() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
         $module        = $moduleManager->get(self::MODULE_NAME);

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Auditor\Models;
 use Modules\Auditor\Models\Audit;
 use phpOMS\Account\Account;
 
+/**
+ * @internal
+ */
 class AuditTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -23,11 +26,11 @@ class AuditTest extends \PHPUnit\Framework\TestCase
         $audit = new Audit(new Account(), null, null);
         self::assertEquals(0, $audit->getType());
         self::assertEquals(0, $audit->getSubType());
-        self::assertEquals(null, $audit->getModule());
-        self::assertEquals(null, $audit->getRef());
-        self::assertEquals(null, $audit->getContent());
-        self::assertEquals(null, $audit->getOld());
-        self::assertEquals(null, $audit->getNew());
+        self::assertNull($audit->getModule());
+        self::assertNull($audit->getRef());
+        self::assertNull($audit->getContent());
+        self::assertNull($audit->getOld());
+        self::assertNull($audit->getNew());
         self::assertEquals(0, $audit->getCreatedBy()->getId());
         self::assertInstanceOf('\DateTime', $audit->getCreatedAt());
     }
@@ -38,7 +41,7 @@ class AuditTest extends \PHPUnit\Framework\TestCase
             new Account(),
             'old', 'new',
             1, 2,
-            3,
+            '3',
             'test',
             'content'
         );

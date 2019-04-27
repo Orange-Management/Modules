@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\RiskManagement\Models;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\CategoryMapper;
 
+/**
+ * @internal
+ */
 class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
 

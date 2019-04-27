@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $categories = $this->getData('categories');
 echo $this->getData('nav')->render(); ?>
 

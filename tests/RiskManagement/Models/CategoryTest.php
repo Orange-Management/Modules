@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Category;
 
+/**
+ * @internal
+ */
 class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -25,9 +28,9 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->getTitle());
         self::assertEquals('', $obj->getDescription());
         self::assertEquals('', $obj->getDescriptionRaw());
-        self::assertEquals(null, $obj->getParent());
-        self::assertEquals(null, $obj->getResponsible());
-        self::assertEquals(null, $obj->getDeputy());
+        self::assertNull($obj->getParent());
+        self::assertNull($obj->getResponsible());
+        self::assertNull($obj->getDeputy());
     }
 
     public function testSetGet() : void

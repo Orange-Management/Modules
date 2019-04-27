@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Draw\Controller\ApiController;
 use Modules\Draw\Models\PermissionState;

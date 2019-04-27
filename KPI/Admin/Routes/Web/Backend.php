@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\KPI\Controller\BackendController;
 use Modules\KPI\Models\PermissionState;

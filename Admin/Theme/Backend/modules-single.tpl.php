@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -31,7 +31,7 @@ if ($nav !== null) {
 <div class="row">
     <div class="col-xs-12 col-md-4">
         <section class="box wf-100">
-            <header><h1><?= $this->printHtml($modules[$id]['name']['external'] ); ?></h1></header>
+            <header><h1><?= $this->printHtml($modules[$id]['name']['external']); ?></h1></header>
 
             <div class="inner">
                 <table class="list wf-100">
@@ -41,16 +41,16 @@ if ($nav !== null) {
                         <td><?= $this->printHtml($modules[$id]['name']['external']); ?>
                     <tr>
                         <td><?= $this->getHtml('Version'); ?>
-                        <td><?= $this->printHtml($modules[$id]['version'] ); ?>
+                        <td><?= $this->printHtml($modules[$id]['version']); ?>
                     <tr>
                         <td><?= $this->getHtml('CreatedBy'); ?>
-                        <td><?= $this->printHtml($modules[$id]['creator']['name'] ); ?>
+                        <td><?= $this->printHtml($modules[$id]['creator']['name']); ?>
                     <tr>
                         <td><?= $this->getHtml('Website'); ?>
-                        <td><?= $this->printHtml($modules[$id]['creator']['website'] ); ?>
+                        <td><?= $this->printHtml($modules[$id]['creator']['website']); ?>
                     <tr>
                         <td><?= $this->getHtml('Description'); ?>
-                        <td><?= $this->printHtml($modules[$id]['description'] ); ?>
+                        <td><?= $this->printHtml($modules[$id]['description']); ?>
                     <tr>
                         <td colspan="2">
                             <?php if (isset($active[$id])) : ?>

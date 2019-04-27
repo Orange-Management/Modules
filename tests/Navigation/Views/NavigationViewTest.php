@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -14,6 +14,9 @@ namespace Modules\tests\Navigation\Views;
 
 use Modules\Navigation\Views\NavigationView;
 
+/**
+ * @internal
+ */
 class NavigationViewTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

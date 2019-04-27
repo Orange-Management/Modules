@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Comments\Models;
 use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentList;
 
+/**
+ * @internal
+ */
 class CommentListTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

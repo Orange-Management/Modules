@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,7 +13,7 @@
 
  use \phpOMS\Account\AccountStatus;
 
-/**
+ /**
  * @var \phpOMS\Views\View $this
  */
 echo $this->getData('nav')->render(); ?>

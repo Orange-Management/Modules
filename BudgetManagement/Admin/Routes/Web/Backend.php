@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\BudgetManagement\Controller\BackendController;
 use Modules\BudgetManagement\Models\PermissionState;

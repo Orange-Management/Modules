@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,4 +16,3 @@
  */
 $tasks = $this->getData('tasks');
 echo $this->getData('nav')->render();
-

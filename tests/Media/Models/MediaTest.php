@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\Media\Models;
 
 use Modules\Media\Models\Media;
 
+/**
+ * @internal
+ */
 class MediaTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -31,7 +34,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $media->getDescription());
         self::assertEquals('', $media->getDescriptionRaw());
         self::assertEquals(0, $media->getSize());
-        self::assertEquals(false, $media->isVersioned());
+        self::assertFalse($media->isVersioned());
     }
 
     public function testSetGet() : void
@@ -63,6 +66,6 @@ class MediaTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(11, $media->getSize());
 
         $media->setVersioned(true);
-        self::assertEquals(true, $media->isVersioned());
+        self::assertTrue($media->isVersioned());
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,9 +13,12 @@
 
 namespace Modules\tests\Helper\Models;
 
-use Modules\Helper\Models\Report;
 use Modules\Helper\Models\HelperStatus;
+use Modules\Helper\Models\Report;
 
+/**
+ * @internal
+ */
 class ReportTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

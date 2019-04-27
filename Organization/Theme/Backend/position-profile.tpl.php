@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -11,7 +11,7 @@
  * @link       http://website.orange-management.de
  */
 /**
- * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Views\View                     $this
  * @var \Modules\Organization\Models\Position;
  */
 $position = $this->getData('position');

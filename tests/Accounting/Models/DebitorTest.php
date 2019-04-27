@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,12 +15,15 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\Debitor;
 
+/**
+ * @internal
+ */
 class DebitorTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
     {
         $cc = new Debitor();
         self::assertEquals(0, $cc->getId());
-        self::assertEquals(null, $cc->getAccount());
+        self::assertNull($cc->getAccount());
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @var \phpOMS\Views\View $this
  */

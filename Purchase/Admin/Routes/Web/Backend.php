@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Purchase\Controller\BackendController;
 use Modules\Purchase\Models\PermissionState;

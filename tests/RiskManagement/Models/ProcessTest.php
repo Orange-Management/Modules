@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Process;
 
+/**
+ * @internal
+ */
 class ProcessTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -25,10 +28,10 @@ class ProcessTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->getTitle());
         self::assertEquals('', $obj->getDescription());
         self::assertEquals('', $obj->getDescriptionRaw());
-        self::assertEquals(null, $obj->getDepartment());
+        self::assertNull($obj->getDepartment());
         self::assertEquals(1, $obj->getUnit());
-        self::assertEquals(null, $obj->getResponsible());
-        self::assertEquals(null, $obj->getDeputy());
+        self::assertNull($obj->getResponsible());
+        self::assertNull($obj->getDeputy());
     }
 
     public function testSetGet() : void

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,6 +13,9 @@
 
 namespace Modules\tests\Surveys\Admin;
 
+/**
+ * @internal
+ */
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'Surveys';

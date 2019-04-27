@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\CommentListMapper;
 
+/**
+ * @internal
+ */
 class CommentListMapperTest extends \PHPUnit\Framework\TestCase
 {
 

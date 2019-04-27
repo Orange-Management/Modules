@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\AccountsReceivable\Controller\BackendController;
 use Modules\AccountsReceivable\Models\PermissionState;

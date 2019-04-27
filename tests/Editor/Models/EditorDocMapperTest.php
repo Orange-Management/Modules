@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Editor\Models\EditorDoc;
 use Modules\Editor\Models\EditorDocMapper;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 {
 

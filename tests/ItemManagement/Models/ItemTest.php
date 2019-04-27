@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\ItemManagement\Models;
 use Modules\ItemManagement\Models\Item;
 use Modules\Media\Models\Media;
 
+/**
+ * @internal
+ */
 class ItemTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -23,7 +26,7 @@ class ItemTest extends \PHPUnit\Framework\TestCase
         $item = new Item();
 
         self::assertEquals(0, $item->getId());
-        self::assertEmpty(0, $item->getNumber());
+        self::assertEmpty('', $item->getNumber());
         self::assertEquals(0, $item->getArticleGroup());
         self::assertEquals(0, $item->getProductGroup());
         self::assertEquals(0, $item->getSegment());
@@ -37,8 +40,8 @@ class ItemTest extends \PHPUnit\Framework\TestCase
     {
         $item = new Item();
 
-        $item->setNumber(1);
-        self::assertEquals(1, $item->getNumber());
+        $item->setNumber('1');
+        self::assertEquals('1', $item->getNumber());
 
         $item->setArticleGroup(2);
         self::assertEquals(2, $item->getArticleGroup());

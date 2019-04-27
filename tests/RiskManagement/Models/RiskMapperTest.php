@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -23,6 +23,9 @@ use Modules\RiskManagement\Models\RiskMapper;
 use Modules\RiskManagement\Models\RiskObject;
 use Modules\RiskManagement\Models\Solution;
 
+/**
+ * @internal
+ */
 class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {
 

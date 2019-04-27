@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $question = $this->getData('question');
 $answers = $question->getAnswers();
 

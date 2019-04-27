@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,8 +15,8 @@ namespace Modules\tests\Helper;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountPermission;
-use Modules\Media\Models\UploadStatus;
 use Modules\Helper\Models\TemplateDataType;
+use Modules\Media\Models\UploadStatus;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -26,13 +26,16 @@ use phpOMS\Event\EventManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Router\Router;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Router\Router;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 
 require_once __DIR__ . '/../Autoloader.php';
 
+/**
+ * @internal
+ */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;
@@ -40,7 +43,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Api';
         };

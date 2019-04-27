@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskStatus;
 
+/**
+ * @internal
+ */
 class TaskElementTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

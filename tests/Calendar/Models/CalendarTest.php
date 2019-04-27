@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Calendar\Models;
 use Modules\Calendar\Models\Calendar;
 use Modules\Calendar\Models\Event;
 
+/**
+ * @internal
+ */
 class CalendarTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

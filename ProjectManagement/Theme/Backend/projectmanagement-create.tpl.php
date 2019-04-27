@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -26,11 +26,11 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><textarea id="iDescription" name="description"></textarea><td>
                         <tr><td colspan="3"><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td colspan="2"><select id="iStatus" name="status">
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::ACTIVE ); ?>"><?= $this->getHtml('Active') ?>
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::INACTIVE ); ?>"><?= $this->getHtml('Inactive') ?>
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::FINISHED ); ?>"><?= $this->getHtml('Finished') ?>
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::CANCELED ); ?>"><?= $this->getHtml('Canceled') ?>
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::HOLD ); ?>"><?= $this->getHtml('Hold') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::ACTIVE); ?>"><?= $this->getHtml('Active') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::INACTIVE); ?>"><?= $this->getHtml('Inactive') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::FINISHED); ?>"><?= $this->getHtml('Finished') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::CANCELED); ?>"><?= $this->getHtml('Canceled') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectStatus::HOLD); ?>"><?= $this->getHtml('Hold') ?>
                                 </select><td>
                         <tr><td colspan="3"><label for="iFiles"><?= $this->getHtml('Files') ?></label>
                         <tr><td colspan="2"><input type="file" id="iFiles" name="file" multiple><td>
@@ -38,8 +38,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="datetime-local" id="iDue" name="due"><td><input type="datetime-local" id="iDue" name="due"><td>
                         <tr><td><label for="iResponsibility"><?= $this->getHtml('Responsibility') ?></label><td><label for="iUser"><?= $this->getHtml('UserGroup') ?></label><td>
                         <tr><td><select id="iStatus" name="status">
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER ); ?>"><?= $this->getHtml('Manager') ?>
-                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectResponsibility::OTHER ); ?>"><?= $this->getHtml('Other') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER); ?>"><?= $this->getHtml('Manager') ?>
+                                    <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectResponsibility::OTHER); ?>"><?= $this->getHtml('Other') ?>
                                 </select>
                             <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
                         <tr><td colspan="3"><label for="iBudget"><?= $this->getHtml('Budget') ?></label>

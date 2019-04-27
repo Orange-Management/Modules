@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Helper\Controller\ApiController;
 use Modules\Helper\Models\PermissionState;

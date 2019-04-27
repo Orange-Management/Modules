@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Kanban\Models;
 use Modules\Kanban\Models\BoardStatus;
 use Modules\Kanban\Models\KanbanBoard;
 
+/**
+ * @internal
+ */
 class KanbanBoardTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

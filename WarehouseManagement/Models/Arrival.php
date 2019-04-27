@@ -103,16 +103,12 @@ class Arrival
         $this->id = $id;
     }
 
-    /**
-     * 
-     */
+
     public function init($id) : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function __clone()
     {
     }
@@ -289,37 +285,27 @@ class Arrival
         $this->acceptor = $acceptor;
     }
 
-    /**
-     * 
-     */
+
     public function delete() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function create() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function update() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function serialize() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function unserialize($data) : void
     {
     }

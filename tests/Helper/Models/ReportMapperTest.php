@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,14 +13,17 @@
 
 namespace Modules\tests\Helper\Models;
 
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\Media;
-use Modules\Helper\Models\Report;
 use Modules\Helper\Models\HelperStatus;
+use Modules\Helper\Models\Report;
 use Modules\Helper\Models\ReportMapper;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\Media;
 
+/**
+ * @internal
+ */
 class ReportMapperTest extends \PHPUnit\Framework\TestCase
 {
     private function createTemplate()
@@ -73,7 +76,7 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
                 'name' => 'Worker',
                 'path' => '/Demo/Modules/Helper/EventCourse',
                 'size' => 1,
-            ]
+            ],
         ];
 
         foreach ($templateFiles as $file) {

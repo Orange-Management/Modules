@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -20,6 +20,9 @@ use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\Unit;
 
+/**
+ * @internal
+ */
 class EmployeeTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

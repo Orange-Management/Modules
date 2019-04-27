@@ -97,10 +97,10 @@ abstract class RelationAbstract implements \JsonSerializable
      *
      * @since  1.0.0
      */
-    public abstract function getRelation();
+    abstract public function getRelation();
 
     /**
      * {@inheritdoc}
      */
-    public abstract function jsonSerialize();
+    abstract public function jsonSerialize();
 }

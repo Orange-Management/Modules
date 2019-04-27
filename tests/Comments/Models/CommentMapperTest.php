@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Comments\Models;
 use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentMapper;
 
+/**
+ * @internal
+ */
 class CommentMapperTest extends \PHPUnit\Framework\TestCase
 {
 

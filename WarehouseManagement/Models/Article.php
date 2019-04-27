@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -145,16 +145,12 @@ class Article
         $this->id = $id;
     }
 
-    /**
-     * 
-     */
+
     public function init($id) : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function __clone()
     {
     }
@@ -370,37 +366,27 @@ class Article
         }
     }
 
-    /**
-     * 
-     */
+
     public function delete() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function create() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function update() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function serialize() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function unserialize($data) : void
     {
     }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\RiskManagement\Models;
 use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\ProcessMapper;
 
+/**
+ * @internal
+ */
 class ProcessMapperTest extends \PHPUnit\Framework\TestCase
 {
 

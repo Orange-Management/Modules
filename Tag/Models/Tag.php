@@ -15,8 +15,6 @@ declare(strict_types=1);
 namespace Modules\Tag\Models;
 
 use phpOMS\Contract\ArrayableInterface;
-use phpOMS\Localization\ISO639x1Enum;
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Tag article class.

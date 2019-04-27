@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -19,6 +19,9 @@ use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Utils\RnG\Name;
 
+/**
+ * @internal
+ */
 class SupplierMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -33,7 +36,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
         $supplier->getProfile()->getAccount()->setStatus(AccountStatus::ACTIVE);
         $supplier->getProfile()->getAccount()->setType(AccountType::USER);
 
-        $supplier->setNumber(1);
+        $supplier->setNumber('1');
         $supplier->setReverseNumber('asdf');
         $supplier->setStatus(2);
         $supplier->setType(3);
@@ -53,7 +56,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($supplier->getProfile()->getAccount()->getType(), $supplierR->getProfile()->getAccount()->getType());
         self::assertEquals($supplier->getProfile()->getAccount()->getEmail(), $supplierR->getProfile()->getAccount()->getEmail());
 
-        self::assertEquals(1, $supplier->getNumber());
+        self::assertEquals('1', $supplier->getNumber());
         self::assertEquals('asdf', $supplier->getReverseNumber());
         self::assertEquals(2, $supplier->getStatus());
         self::assertEquals(3, $supplier->getType());
@@ -74,7 +77,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
             $supplier->getProfile()->getAccount()->setStatus(AccountStatus::ACTIVE);
             $supplier->getProfile()->getAccount()->setType(AccountType::USER);
 
-            $supplier->setNumber($i + 1);
+            $supplier->setNumber((string) ($i + 1));
             $supplier->setStatus(2);
             $supplier->setType(3);
 

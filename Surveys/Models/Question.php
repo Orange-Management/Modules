@@ -60,16 +60,12 @@ class Question
         return self::$instances[$id];
     }
 
-    /**
-     * 
-     */
+
     public function init($id) : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function __clone()
     {
     }
@@ -99,37 +95,27 @@ class Question
         $this->description = $desc;
     }
 
-    /**
-     * 
-     */
+
     public function delete() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function create() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function update() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function serialize() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function unserialize($data) : void
     {
     }

@@ -71,7 +71,7 @@ final class ApiController extends Controller
         $response->set(
             $request->getUri()->__toString(),
             [
-                'response' => $this->app->appSettings->get((int) $request->getData('id'))
+                'response' => $this->app->appSettings->get((int) $request->getData('id')),
             ]
         );
     }
@@ -559,7 +559,7 @@ final class ApiController extends Controller
                 'status' => 'warning',
                 'title' => 'Module',
                 'message' => 'Invalid module or status',
-                'response' => []
+                'response' => [],
             ]);
 
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);

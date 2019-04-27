@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\RiskManagement\Models;
 
 use Modules\RiskManagement\Models\Cause;
 
+/**
+ * @internal
+ */
 class CauseTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -26,9 +29,9 @@ class CauseTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->getDescription());
         self::assertEquals('', $obj->getDescriptionRaw());
         self::assertEquals(0, $obj->getProbability());
-        self::assertEquals(null, $obj->getDepartment());
-        self::assertEquals(null, $obj->getRisk());
-        self::assertEquals(null, $obj->getCategory());
+        self::assertNull($obj->getDepartment());
+        self::assertNull($obj->getRisk());
+        self::assertNull($obj->getCategory());
     }
 
     public function testSetGet() : void

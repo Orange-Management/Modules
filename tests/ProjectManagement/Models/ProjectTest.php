@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\ProjectManagement\Models\Project;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
+/**
+ * @internal
+ */
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -77,7 +80,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $project->addTask($task);
 
         self::assertEquals('A', $project->getTask(0)->getTitle());
-        self::assertEquals(1, \count($project->getTasks()));
+        self::assertCount(1, $project->getTasks());
         self::assertTrue($project->removeTask(0));
         self::assertEquals(0, $project->countTasks());
 

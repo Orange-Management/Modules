@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -12,6 +12,7 @@
  */
 use \Modules\Navigation\Models\LinkType;
 use \Modules\Navigation\Models\NavigationType;
+
 /**
  * @var \Modules\Navigation\Views\NavigationView $this
  */

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -38,6 +38,9 @@ use phpOMS\Uri\Http;
 
 use phpOMS\Utils\TestUtils;
 
+/**
+ * @internal
+ */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;
@@ -45,7 +48,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Api';
         };
@@ -160,7 +163,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('search', 'admin');
 
         $this->module->apiGroupFind($request, $response);
-        self::assertEquals(1, \count($response->get('')));
+        self::assertCount(1, $response->get(''));
         self::assertEquals('admin', $response->get('')[0]->getName());
     }
 
@@ -222,7 +225,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('search', 'admin');
 
         $this->module->apiAccountFind($request, $response);
-        self::assertEquals(1, \count($response->get('')));
+        self::assertCount(1, $response->get(''));
         self::assertEquals('admin', $response->get('')[0]->getName1());
     }
 
@@ -313,7 +316,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->setData('status', ModuleStatusUpdateType::INSTALL);
         $this->module->apiModuleStatusUpdate($request, $response);
-        self::assertEquals(null, $response->get('module_stutus_update'));
+        self::assertNull($response->get('module_stutus_update'));
     }
 
     public function testApiModuleStatusUpdateInvalidStatus() : void
@@ -461,8 +464,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $routes2 = include __DIR__ . '/../../../Web/Api/Routes.php';
         $hooks2  = include __DIR__ . '/../../../Web/Api/Hooks.php';
 
-        self::assertEqualsWithDelta($routes, $routes2, 0.0, 10, true);
-        self::assertEqualsWithDelta($hooks, $hooks2, 0.0, 10, true);
+        self::assertEquals($routes, $routes2);
+        self::assertEquals($hooks, $hooks2);
     }
 
     public function testApiAccountGroupFind() : void
@@ -474,7 +477,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('search', 'admin');
 
         $this->module->apiAccountGroupFind($request, $response);
-        self::assertEquals(2, \count($response->get('')));
+        self::assertCount(2, $response->get(''));
         self::assertEquals('admin', $response->get('')[0]['name'][0] ?? '');
         self::assertEquals('admin', $response->get('')[1]['name'][0] ?? '');
     }

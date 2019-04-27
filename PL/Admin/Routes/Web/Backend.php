@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\PL\Controller\BackendController;
 use Modules\PL\Models\PermissionState;

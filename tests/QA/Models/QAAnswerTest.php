@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\QA\Models;
 use Modules\QA\Models\QAAnswer;
 use Modules\QA\Models\QAAnswerStatus;
 
+/**
+ * @internal
+ */
 class QAAnswerTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -25,7 +28,7 @@ class QAAnswerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $answer->getId());
         self::assertEquals('', $answer->getAnswer());
         self::assertEquals(0, $answer->getQuestion());
-        self::assertEquals(false, $answer->isAccepted());
+        self::assertFalse($answer->isAccepted());
         self::assertEquals(QAAnswerStatus::ACTIVE, $answer->getStatus());
         self::assertEquals(0, $answer->getCreatedBy());
         self::assertInstanceOf('\DateTime', $answer->getCreatedAt());
@@ -45,6 +48,6 @@ class QAAnswerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(QAAnswerStatus::ACTIVE, $answer->getStatus());
         self::assertEquals(1, $answer->getCreatedBy());
         self::assertEquals(3, $answer->getQuestion());
-        self::assertEquals(true, $answer->isAccepted());
+        self::assertTrue($answer->isAccepted());
     }
 }

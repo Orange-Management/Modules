@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -22,6 +22,9 @@ use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class EventMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -93,7 +96,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = EventMapper::getNewest(1);
 
-        self::assertEquals(1, \count($newest));
+        self::assertCount(1, $newest);
     }
 
     /**

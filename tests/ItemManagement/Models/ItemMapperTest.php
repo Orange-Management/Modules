@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\ItemManagement\Models;
 use Modules\ItemManagement\Models\Item;
 use Modules\ItemManagement\Models\ItemMapper;
 
+/**
+ * @internal
+ */
 class ItemMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -23,7 +26,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
     {
         $item = new Item();
 
-        $item->setNumber(1);
+        $item->setNumber('1');
         $item->setSegment(4);
         $item->setSuccessor(5);
         $item->setInfo('info text');
@@ -46,7 +49,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
         for ($i = 1; $i < 1000; ++$i) {
             $item = new Item();
 
-            $item->setNumber($i + 1);
+            $item->setNumber((string) ($i + 1));
             $item->setSegment(\mt_rand(1, 9));
             $item->setInfo('info text');
 

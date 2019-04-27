@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,13 +13,16 @@
 
 namespace Modules\tests\Helper\Models;
 
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\Media;
 use Modules\Helper\Models\HelperStatus;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
 use Modules\Helper\Models\TemplateMapper;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\Media;
 
+/**
+ * @internal
+ */
 class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -74,7 +77,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
                 'name' => 'Worker',
                 'path' => '/Demo/Modules/Helper/EventCourse',
                 'size' => 1,
-            ]
+            ],
         ];
 
         foreach ($templateFiles as $file) {
@@ -110,6 +113,6 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = TemplateMapper::getNewest(1);
 
-        self::assertEquals(1, \count($newest));
+        self::assertCount(1, $newest);
     }
 }

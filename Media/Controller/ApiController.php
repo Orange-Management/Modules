@@ -16,8 +16,6 @@ namespace Modules\Media\Controller;
 
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
 use phpOMS\Message\NotificationLevel;
@@ -128,7 +126,7 @@ final class ApiController extends Controller
      */
     public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
     {
-        $rndPath = \str_pad(\dechex(\mt_rand(0, 65535)), 4, '0', STR_PAD_LEFT);
+        $rndPath = \str_pad(\dechex(\mt_rand(0, 65535)), 4, '0', \STR_PAD_LEFT);
         return $basePath . '/' . $rndPath[0] . $rndPath[1] . '/' . $rndPath[2] . $rndPath[3];
     }
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -16,6 +16,9 @@ namespace Modules\tests\Organization\Models;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\Status;
 
+/**
+ * @internal
+ */
 class PositionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

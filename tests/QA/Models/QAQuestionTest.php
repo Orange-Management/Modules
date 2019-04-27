@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\QA\Models;
 use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionStatus;
 
+/**
+ * @internal
+ */
 class QAQuestionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

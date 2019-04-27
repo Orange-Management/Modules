@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -13,9 +13,12 @@
 
 namespace Modules\tests\Tasks\Models;
 
-use Modules\Tasks\Models\GroupRelation;
 use Modules\Tasks\Models\DutyType;
+use Modules\Tasks\Models\GroupRelation;
 
+/**
+ * @internal
+ */
 class GroupRelationTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -26,7 +29,7 @@ class GroupRelationTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(DutyType::TO, $obj->getDuty());
     }
 
-    public function testSetGet()
+    public function testSetGet() : void
     {
         $obj = new GroupRelation(1, DutyType::CC);
         self::assertEquals(1, $obj->getRelation());

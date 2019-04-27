@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -21,6 +21,9 @@ use Modules\Tasks\Models\TaskStatus;
 use Modules\Tasks\Models\TaskType;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class TicketMapperTest extends \PHPUnit\Framework\TestCase
 {
 
@@ -71,7 +74,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
     {
         $newest = TicketMapper::getNewest(1);
 
-        self::assertEquals(1, \count($newest));
+        self::assertCount(1, $newest);
     }
 
     /**

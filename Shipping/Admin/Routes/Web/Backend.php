@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Shipping\Controller\BackendController;
 use Modules\Shipping\Models\PermissionState;

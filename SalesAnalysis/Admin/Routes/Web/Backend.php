@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\SalesAnalysis\Controller\BackendController;
 use Modules\SalesAnalysis\Models\PermissionState;

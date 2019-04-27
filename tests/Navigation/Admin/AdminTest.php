@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,11 +15,13 @@ namespace Modules\tests\Navigation\Admin;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Navigation\Models\Navigation;
-use phpOMS\ApplicationAbstract;
 use phpOMS\Message\Http\Request;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Uri\Http;
 
+/**
+ * @internal
+ */
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'Navigation';

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -27,11 +27,14 @@ use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Router\Router;
 use phpOMS\Module\ModuleManager;
+use phpOMS\Router\Router;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 
+/**
+ * @internal
+ */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;
@@ -39,7 +42,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Api';
         };
@@ -85,7 +88,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Title');
         $request->setData('plain', 'Controller Test Description');
-        $request->setData('due', (new \DateTime)->format('Y-m-d H:i:s'));
+        $request->setData('due', (new \DateTime())->format('Y-m-d H:i:s'));
 
         $this->module->apiTaskCreate($request, $response);
 
@@ -128,7 +131,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
-        $request->setData('due', (new \DateTime)->format('Y-m-d H:i:s'));
+        $request->setData('due', (new \DateTime())->format('Y-m-d H:i:s'));
         $request->setData('priority', TaskPriority::HIGH);
         $request->setData('status', TaskStatus::DONE);
         $request->setData('task', 1);
@@ -175,7 +178,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('plain', 'Controller Test Description');
-        $request->setData('due', (new \DateTime)->format('Y-m-d H:i:s'));
+        $request->setData('due', (new \DateTime())->format('Y-m-d H:i:s'));
 
         $this->module->apiTaskCreate($request, $response);
 
@@ -188,7 +191,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
-        $request->setData('due', (new \DateTime)->format('Y-m-d H:i:s'));
+        $request->setData('due', (new \DateTime())->format('Y-m-d H:i:s'));
         $request->setData('priority', TaskPriority::HIGH);
         $request->setData('status', TaskStatus::DONE);
         $request->setData('plain', 'Controller Test');

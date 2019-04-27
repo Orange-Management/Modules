@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Kanban\Models\KanbanColumn;
 use Modules\Kanban\Models\KanbanColumnMapper;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class KanbanColumnMapperTest extends \PHPUnit\Framework\TestCase
 {
 

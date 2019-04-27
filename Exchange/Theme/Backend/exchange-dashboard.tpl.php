@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -14,4 +14,4 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-echo $this->getData('nav')->render(); ?>
+echo $this->getData('nav')->render();

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Helper\Models\HelperStatus;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
 
+/**
+ * @internal
+ */
 class TemplateTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

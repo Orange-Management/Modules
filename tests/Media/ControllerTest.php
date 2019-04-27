@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -14,23 +14,19 @@
 namespace Modules\tests\Media;
 
 use Model\CoreSettings;
-use Modules\Admin\Models\AccountPermission;
 use Modules\Media\Models\UploadStatus;
-use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
-use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
-use phpOMS\Router\Router;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
-use phpOMS\Utils\TestUtils;
+use phpOMS\Router\Router;
 
 require_once __DIR__ . '/../Autoloader.php';
 
+/**
+ * @internal
+ */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected $app    = null;
@@ -38,7 +34,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp() : void
     {
-        $this->app = new class extends ApplicationAbstract
+        $this->app = new class() extends ApplicationAbstract
         {
             protected $appName = 'Api';
         };
@@ -88,6 +84,6 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         ];
 
         $ids = $this->module->createDbEntries($status, 1);
-        self::assertEquals(2, \count($ids));
+        self::assertCount(2, $ids);
     }
 }

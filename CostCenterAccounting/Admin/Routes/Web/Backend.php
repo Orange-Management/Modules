@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\CostCenterAccounting\Controller\BackendController;
 use Modules\CostCenterAccounting\Models\PermissionState;

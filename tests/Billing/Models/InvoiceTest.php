@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\Billing\Models\InvoiceStatus;
 use Modules\Billing\Models\InvoiceType;
 use phpOMS\Localization\ISO4217CharEnum;
 
+/**
+ * @internal
+ */
 class InvoiceTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -28,7 +31,7 @@ class InvoiceTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(InvoiceType::BILL, $invoice->getType());
         self::assertEquals(InvoiceStatus::DRAFT, $invoice->getStatus());
         self::assertInstanceOf('\DateTime', $invoice->getCreatedAt());
-        self::assertEquals(null, $invoice->getSend());
+        self::assertNull($invoice->getSend());
         self::assertEquals(0, $invoice->getCreatedBy());
         self::assertEquals(ISO4217CharEnum::_EUR, $invoice->getCurrency());
 

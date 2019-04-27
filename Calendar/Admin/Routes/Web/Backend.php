@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Calendar\Controller\BackendController;
 use Modules\Calendar\Models\PermissionState;

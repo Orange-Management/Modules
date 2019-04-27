@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -11,10 +11,10 @@
  * @link       http://website.orange-management.de
  */
 
-use \Modules\Tasks\Models\TaskPriority;
-use \Modules\Tasks\Models\TaskStatus;
 use \Modules\Admin\Models\Account;
 use \Modules\Admin\Models\Group;
+use \Modules\Tasks\Models\TaskPriority;
+use \Modules\Tasks\Models\TaskStatus;
 
 /**
  * @var \phpOMS\Views\View         $this

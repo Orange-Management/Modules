@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -17,6 +17,9 @@ use Modules\Marketing\Models\Promotion;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
 
+/**
+ * @internal
+ */
 class PromotionTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void
@@ -74,7 +77,7 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
         $promotion->addTask($task);
 
         self::assertEquals('Promo Task A', $promotion->getTask(0)->getTitle());
-        self::assertEquals(1, \count($promotion->getTasks()));
+        self::assertCount(1, $promotion->getTasks());
         self::assertTrue($promotion->removeTask(0));
         self::assertEquals(0, $promotion->countTasks());
     }

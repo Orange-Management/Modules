@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -18,6 +18,9 @@ use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
 use phpOMS\Utils\RnG\Text;
 
+/**
+ * @internal
+ */
 class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
 {
 

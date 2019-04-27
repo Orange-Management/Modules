@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -27,6 +27,9 @@ use phpOMS\Account\AccountType;
 
 use phpOMS\Utils\RnG\Name;
 
+/**
+ * @internal
+ */
 class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
 {
     private static $unitId       = 0;

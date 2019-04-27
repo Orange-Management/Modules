@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,9 +15,12 @@ namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\AccountAbstract;
 
+/**
+ * @internal
+ */
 class AccountAbstractTest extends \PHPUnit\Framework\TestCase
 {
-    public function setUp() : void
+    protected function setUp() : void
     {
         $this->account = new class() extends AccountAbstract {};
     }
@@ -25,7 +28,7 @@ class AccountAbstractTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->account->getId());
-        self::assertEquals(null, $this->account->getEntryById(1));
+        self::assertNull($this->account->getEntryById(1));
         self::assertEquals([], $this->account->getEntriesByDate(
             new \DateTime('now'),
             new \DateTime('now')

@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Workflow\Templates\Permission;
 
 use Modules\Workflow\Models\WorkflowInterface;
-use Modules\Workflow\Templates\Permission\States;
 use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 
 /**

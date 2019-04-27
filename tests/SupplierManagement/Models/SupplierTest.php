@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Orange Management
  *
@@ -15,6 +15,9 @@ namespace Modules\tests\SupplierManagement\Models;
 
 use Modules\SupplierManagement\Models\Supplier;
 
+/**
+ * @internal
+ */
 class SupplierTest extends \PHPUnit\Framework\TestCase
 {
     public function testDefault() : void

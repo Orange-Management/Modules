@@ -85,37 +85,27 @@ class Section
         $this->description = $desc;
     }
 
-    /**
-     * 
-     */
+
     public function delete() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function create() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function update() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function serialize() : void
     {
     }
 
-    /**
-     * 
-     */
+
     public function unserialize($data) : void
     {
     }

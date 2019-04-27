@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\AccountsPayable\Controller\BackendController;
 use Modules\AccountsPayable\Models\PermissionState;
