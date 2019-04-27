@@ -31,15 +31,23 @@ use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
+use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\RequestMethod;
+use phpOMS\Message\Http\Rest;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Uri\Http;
 use phpOMS\Model\Message\FormValidation;
+use phpOMS\System\File\Local\Directory;
+use phpOMS\System\File\Local\File;
+use phpOMS\System\File\ContentPutMode;
 use phpOMS\System\MimeType;
 use phpOMS\Utils\Parser\Markdown\Markdown;
-
+use phpOMS\Utils\StringUtils;
 use phpOMS\Validation\Network\Email;
+use phpOMS\Version\Version;
 
 /**
  * Admin controller class.
@@ -797,5 +805,202 @@ final class ApiController extends Controller
         foreach ($installedModules as $name => $module) {
             $this->app->moduleManager->reInit($name);
         }
+    }
+
+    /**
+     * This update logic below is only temp. And will be replaced once the package management is implemented (not part of this application but part of the service provided by the organization website)
+     */
+    /**
+     * Api check for updates
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiCheckForUpdates(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
+        $request = new Request(new Http('https://api.github.com/repos/Orange-Management/Updates/contents'));
+        $request->setMethod(RequestMethod::GET);
+
+        $updateFiles     = Rest::request($request);
+        $updateFilesJson = \json_decode($updateFiles, true);
+
+        /** @var array<string, array<string, array>> */
+        $toUpdate = [];
+
+        foreach ($updateFilesJson as $file) {
+            $name = \explode('_', $file['name']);
+            $path = '';
+
+            if (\file_exists(__DIR__ . '/../../../' . $name[0])) {
+                $path = __DIR__ . '/../../../' . $name[0];
+            } elseif (\file_exists(__DIR__ . '/../../' . $name[0])) {
+                $path = __DIR__ . '/../../' . $name[0];
+            }
+
+            if ($path === '') {
+                return;
+            }
+
+            $currentVersion = '';
+            $remoteVersion  = \substr($file[1], 0, -5);
+
+            if (Version::compare($currentVersion, $remoteVersion) < 0) {
+                $toUpdate[$name][$remoteVersion] = $file;
+
+                \uksort($toUpdate[$name], [Version::class, 'compare']);
+            }
+        }
+
+        $this->apiUpdate($toUpdate);
+    }
+
+    /**
+     * Api update file
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiUpdateFile(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $this->apiUpdate([[
+            'name'         => 'temp.json',
+            'download_url' => 'https://raw.githubusercontent.com/Orange-Management/' . ($request->getData('url') ?? ''),
+        ]]);
+    }
+
+    private function apiUpdate(array $toUpdate) : void
+    {
+        // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
+
+        foreach ($toUpdate as $update) {
+            $dest = __DIR__ . '/../Updates/' . \explode('.', $update['name'])[0];
+            \mkdir($dest);
+            $this->downloadUpdate($update['download_url'], $dest . '/' . $update['name']);
+            $this->runUpdate($dest . '/' . $update['name']);
+            $this->cleanupUpdate(__DIR__ . '/../Updates/' . $dest);
+        }
+    }
+
+    private function downloadUpdate(string $url, string $dest) : void
+    {
+        // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
+        $request = new Request(new Http($url));
+        $request->setMethod(RequestMethod::GET);
+
+        $updateFile = Rest::request($request);
+        File::put($dest, $updateFile);
+    }
+
+    private function runUpdate(string $updateFile) : void
+    {
+        $package    = \json_decode(\file_get_contents($updateFile), true);
+        $updatePath = \dirname($updateFile);
+        $subPath    = $package['type'] === 'Modules/' ? $package['name'] : '';
+
+        foreach ($package['add'] as $src => $dest) {
+            $src  = StringUtils::startsWith($src, 'http') ? $src : $updatePath . '/' . $subPath . $src;
+            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
+
+            $this->updateAdd($src, $dest);
+        }
+
+        foreach ($package['remove'] as $src => $dest) {
+            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
+
+            $this->updateRemove($dest);
+        }
+
+        foreach ($package['replace'] as $src => $dest) {
+            $src  = StringUtils::startsWith($src, 'http') ? $src : $updatePath . '/' . $subPath . $src;
+            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
+
+            $this->updateReplace($src, $dest);
+        }
+
+        foreach ($package['move'] as $src => $dest) {
+            $src  = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $src;
+            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
+
+            $this->updateMove($src, $dest);
+        }
+
+        foreach ($package['run'] as $dest) {
+            $dest = $updatePath . '/' . $dest;
+
+            $this->updateRun($dest);
+        }
+
+        foreach ($package['cmd'] as $cmd) {
+            $this->updateCmd($cmd);
+        }
+    }
+
+    private function updateAdd(string $src, string $dest) : void
+    {
+        if (StringUtils::startsWith($src, 'http')) {
+            $request = new Request(new Http($src));
+            $request->setMethod(RequestMethod::GET);
+
+            $content = Rest::request($request);
+            File::put($dest, $content, ContentPutMode::CREATE);
+        } else {
+            if (\is_dir($src)) {
+                Directory::copy($src, $dest);
+            } else {
+                File::copy($src, $dest);
+            }
+        }
+    }
+
+    private function updateRemove(string $dest) : void
+    {
+        if (\is_dir($dest)) {
+            Directory::delete($dest);
+        } else {
+            File::delete($dest);
+        }
+    }
+
+    private function updateReplace(string $src, string $dest) : void
+    {
+        $this->updateRemove($dest);
+        $this->updateAdd($src, $dest);
+    }
+
+    private function updateMove(string $src, string $dest) : void
+    {
+        $this->updateAdd($src, $dest);
+        $this->updateRemove($src);
+    }
+
+    private function updateRun(string $dest) : void
+    {
+
+    }
+
+    private function updateCmd(string $cmd) : void
+    {
+
+    }
+
+    private function cleanupUpdate(string $path) : void
+    {
+        // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
+        Directory::delete($path);
     }
 }

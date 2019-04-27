@@ -32,4 +32,5 @@ abstract class PermissionState extends Enum
     public const MODULE   = 4;
     public const LOG      = 5;
     public const ROUTE    = 6;
+    public const APP      = 7;
 }

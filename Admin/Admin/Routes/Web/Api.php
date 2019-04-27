@@ -208,4 +208,38 @@ return [
             ],
         ],
     ],
+
+    '^.*/admin/update/url.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiUpdateFile',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::APP,
+            ],
+        ],
+    ],
+    '^.*/admin/update/check.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiCheckForUpdates',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::APP,
+            ],
+        ],
+    ],
+    '^.*/admin/update/component.*$' => [
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiCheckForUpdates',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::APP,
+            ],
+        ],
+    ],
 ];
