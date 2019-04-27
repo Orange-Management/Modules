@@ -117,6 +117,15 @@ final class ApiController extends Controller
         return $mediaCreated;
     }
 
+    /**
+     * Create a random file path to store media files
+     *
+     * @param string $basePath Base path for file storage
+     *
+     * @return string Random path to store media files
+     *
+     * @since  1.0.0
+     */
     public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
     {
         $rndPath = \str_pad(\dechex(\mt_rand(0, 65535)), 4, '0', STR_PAD_LEFT);
