@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iDescription"><?= $this->getHtml('Description') ?></label>
                         <tr><td><?= $this->getData('editor')->render('department-editor'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('department-editor', 'description', 'fDepartmentCreate'); ?>
-                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

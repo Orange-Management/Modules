@@ -30,10 +30,10 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iPermission"><?= $this->getHtml('Permissions') ?></label><td>
                         <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button>
                                     <input type="text" id="iPermission" name="permission"></span>
-                            <td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                            <td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                         <tr><td><label for="iFiles"><?= $this->getHtml('Files') ?></label><td>
                         <tr><td><input id="iFiles" name="files" type="file" multiple><td>
-                        <tr><td><input type="submit" name="createChecklist" value="<?= $this->getHtml('Create', 0, 0); ?>"><td>
+                        <tr><td><input type="submit" name="createChecklist" value="<?= $this->getHtml('Create', '0', '0'); ?>"><td>
                     </table>
                 </form>
             </div>
@@ -54,10 +54,10 @@ echo $this->getData('nav')->render(); ?>
                     <tr><td><label for="iEPermission"><?= $this->getHtml('Permissions') ?></label><td>
                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button>
                                 <input type="text" id="iEPermission" name="ePermission"></span>
-                        <td><button data-action=""><?= $this->getHtml('Add', 0, 0); ?></button>
+                        <td><button data-action=""><?= $this->getHtml('Add', '0', '0'); ?></button>
                     <tr><td><label for="iEFiles"><?= $this->getHtml('Files') ?></label><td>
                     <tr><td><input id="iEFiles" name="eFiles" type="file" multiple><td>
-                    <tr><td><input type="submit" name="createChecklistElement" value="<?= $this->getHtml('Add', 0, 0); ?>" data-action=""><td>
+                    <tr><td><input type="submit" name="createChecklistElement" value="<?= $this->getHtml('Add', '0', '0'); ?>" data-action=""><td>
                 </table>
             </div>
         </section>

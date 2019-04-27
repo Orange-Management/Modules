@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml($key); ?>"><?= $this->printHtml($value->getName()); ?>
                                         <?php endforeach; ?>
                                 </select>
-                        <tr><td><input type="submit" id="iReportCreateButton" name="reportCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" id="iReportCreateButton" name="reportCreateButton" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

@@ -33,7 +33,7 @@ echo $this->getData('nav')->render();
                         <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                    <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                    <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

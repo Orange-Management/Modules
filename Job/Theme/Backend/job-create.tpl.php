@@ -32,7 +32,7 @@ $system = \phpOMS\System\OperatingSystem::getSystem();
                         <tr><td><textarea id="iCmd" name="command"></textarea>
                         <tr><td><label for="iType"><?= $this->getHtml('Type') ?></label>
                         <tr><td><input type="text" id="iType" name="type" value="<?= $this->printHtml($system === \phpOMS\System\SystemType::WIN ? 'Schtasks' : ($system === \phpOMS\System\SystemType::LINUX ? 'Cron' : 'Launchd')); ?>" disabled>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

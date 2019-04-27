@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                         <header><h1><?= $this->getHtml('Group'); ?></h1></header>
                         <div class="inner">
                             <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/group'); ?>" method="post">
-                                <label for="iGid"><?= $this->getHtml('ID', 0, 0); ?></label>
+                                <label for="iGid"><?= $this->getHtml('ID', '0', '0'); ?></label>
                                 <input id="iGid" name="id" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
                                 <label for="iGname"><?= $this->getHtml('Name'); ?></label>
                                 <input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" value="<?= $this->printHtml($group->getName()); ?>">
@@ -54,7 +54,7 @@ echo $this->getData('nav')->render(); ?>
                                     $group->getDescriptionRaw(),
                                     $group->getDescription()
                                 ); ?>
-                                <input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                                <input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                             </form>
                         </div>
                     </section>
@@ -65,7 +65,7 @@ echo $this->getData('nav')->render(); ?>
                         <caption><?= $this->getHtml('Accounts') ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td class="wf-100"><?= $this->getHtml('Name'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                         <tbody>
                             <?php $c = 0; foreach ($accounts as $key => $value) : $c++; ?>
@@ -74,7 +74,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
-                            <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                            <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                     </table>
 
@@ -84,7 +84,7 @@ echo $this->getData('nav')->render(); ?>
                             <form id="iAddAccountToGroup" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/group/account'); ?>" method="put">
                                 <label for="iAccount"><?= $this->getHtml('Name'); ?></label>
                                 <?= $this->getData('accGrpSelector')->render('iAccount', 'group', true); ?>
-                                <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                                <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                             </form>
                         </div>
                     </section>
@@ -97,7 +97,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr>
                                 <td>
                                 <td>
-                                <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td><?= $this->getHtml('Unit'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td><?= $this->getHtml('App'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td><?= $this->getHtml('Module'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
@@ -145,7 +145,7 @@ echo $this->getData('nav')->render(); ?>
                                     <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
-                            <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                            <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                     </table>
 
@@ -192,7 +192,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td>
                                         <input type="hidden" name="permissionref" value="<?= $this->printHtml($group->getId()); ?>">
                                         <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::GROUP ?>">
-                                        <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                                        <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -209,7 +209,7 @@ echo $this->getData('nav')->render(); ?>
                         <caption><?= $this->getHtml('AuditLog') ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100">Name
                         <tbody>
                             <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
@@ -219,7 +219,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
-                            <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                            <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                     </table>
                 </div>

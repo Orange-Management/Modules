@@ -23,7 +23,7 @@ echo $this->getData('nav')->render(); ?>
                 <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('{/api}draw?{?}&csrf={$CSRF}'); ?>" method="POST">
                     <div class="ipt-wrap">
                         <div class="ipt-first"><input type="text" id="iTitle" name="title" class="wf-100"></div>
-                        <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"></div>
+                        <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>"></div>
                     </div>
                 </form>
             </div>
@@ -91,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option>
                                 </select>
                         <tr><td colspan="2"><label><?= $this->getHtml('GroupUser'); ?></label>
-                        <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                        <tr><td><input id="iPermission" name="group" type="text" placeholder="&#xf084;"><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                     </table>
                 </form>
             </div>

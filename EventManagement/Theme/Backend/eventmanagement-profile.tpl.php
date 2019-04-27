@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><input type="text" id="iProgress" name="progress" value="<?= $event->getProgress(); ?>"<?= $event->getProgressType() !== \Modules\EventManagement\Models\ProgressType::MANUAL ? ' disabled' : ''; ?>>
                         <tr><td><label for="iBudget"><?= $this->getHtml('Budget') ?></label><td><label for="iActual"><?= $this->getHtml('Actual') ?></label>
                         <tr><td><input type="text" id="iBudget" name="budget" placeholder=""><td><input type="text" id="iActual" name="actual">
-                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

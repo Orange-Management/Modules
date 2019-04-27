@@ -24,7 +24,7 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100">
                         <tr><td><label for="iFiles"><?= $this->getHtml('Files') ?></label>
                         <tr><td><input type="file" id="iFiles" name="files" multiple><input name="media" type="hidden">
-                        <tr><td><input type="submit" id="iMediaCreate" name="mediaCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" id="iMediaCreate" name="mediaCreateButton" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

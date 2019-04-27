@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getHtml('Arrivals') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>
-            <td><?= $this->getHtml('ID', 0, 0); ?>
+            <td><?= $this->getHtml('ID', '0', '0'); ?>
             <td><?= $this->getHtml('AccountID') ?>
             <td class="wf-100"><?= $this->getHtml('Company') ?>
             <td><?= $this->getHtml('Creator') ?>
@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
         <tr><td colspan="4">
         <tbody>
         <?php if (0 == 0) : ?>
-        <tr class="empty"><td colspan="5"><?= $this->getHtml('Empty', 0, 0); ?>
+        <tr class="empty"><td colspan="5"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
                 <?php foreach ([] as $key => $template) :
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}helper/report/view?{?}&id=' . $template->getId()); ?>

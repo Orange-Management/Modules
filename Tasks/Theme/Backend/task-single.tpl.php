@@ -178,7 +178,7 @@ echo $this->getData('nav')->render(); ?>
                             <input type="file" id="iUpload" name="fileUpload" form="fTask">
                             <input form="fTask" type="hidden" name="type">
                         <tr><td>
-                            <input type="submit" id="iTaskElementCreateButton" name="taskElementCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                            <input type="submit" id="iTaskElementCreateButton" name="taskElementCreateButton" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                             <input type="hidden" name="task" value="<?= $this->printHtml($this->request->getData('id')); ?>"><input type="hidden" name="type" value="1">
                     </table>
                 </form>

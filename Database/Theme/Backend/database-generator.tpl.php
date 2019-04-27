@@ -102,7 +102,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Result') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tbody>
-                <tr><td colspan="1" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="1" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
             </table>
         </div>
     </div>

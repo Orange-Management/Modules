@@ -17,13 +17,13 @@ echo $this->getData('nav')->render(); ?>
     <div class="inner">
         <form>
             <table class="layout wf-100">
-                <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
+                <tr><td><label for="iId"><?= $this->getHtml('ID', '0', '0'); ?></label>
                 <tr><td><input type="text" id="iId" name="id">
                 <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                 <tr><td><input type="text" id="iName" name="name">
                 <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
                 <tr><td><input type="text" id="iParent" name="parent">
-                <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
             </table>
         </form>
     </div>

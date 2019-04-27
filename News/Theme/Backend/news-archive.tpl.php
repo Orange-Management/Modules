@@ -51,7 +51,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($news->getPublish()->format('Y-m-d')); ?></a>
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>
-                <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

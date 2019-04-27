@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Checklists') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td><?= $this->getHtml('Status') ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Creator') ?>
@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php $c = 0; foreach ([] as $key => $value) : $c++;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}checklist/single?{?}&id=' . $value->getId()); ?>
                 <tr>
-                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent()); ?></a>
                     <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getUnit()); ?></a>
@@ -49,7 +49,7 @@ echo $this->getData('nav')->render(); ?>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                 <tr>
-                    <td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                    <td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

@@ -14,7 +14,7 @@ echo $this->getData('nav')->render();
                         <tbody>
                         <tr><td><label for="iAccount"><?= $this->getHtml('Account') ?></label>
                         <tr><td><?= $this->getData('accGrpSelector')->render('iAccount', true); ?>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

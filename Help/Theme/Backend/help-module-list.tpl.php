@@ -44,7 +44,7 @@ $modules = $this->app->moduleManager->getInstalledModules();
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
                     <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                    <tr><td class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                    <tr><td class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

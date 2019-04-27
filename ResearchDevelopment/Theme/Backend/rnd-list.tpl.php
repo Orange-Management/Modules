@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Projects') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td><?= $this->getHtml('Status') ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Creator') ?>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
                 <tr>
-                    <td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                    <td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

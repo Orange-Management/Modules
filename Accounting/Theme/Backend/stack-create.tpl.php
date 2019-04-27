@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                             <option value=""><?= $this->getHtml('Incoming') ?>
                             <option value=""><?= $this->getHtml('Outgoing') ?>
                         </select>
-                <tr><td><input name="submit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                <tr><td><input name="submit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
             </table>
         </form>
     </div>

@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                                     </select>
                         <tr><td><?= $this->getData('editor')->render('unit-editor'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('unit-editor', 'description', 'fUnitCreate'); ?>
-                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

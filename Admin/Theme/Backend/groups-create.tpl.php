@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iGname" name="name" type="text" placeholder="&#xf0c0; Guest" required>
                         <tr><td><?= $this->getData('editor')->render('group-editor'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('group-editor', 'description', 'fGroupCreate'); ?>
-                        <tr><td><input type="submit" id="iCreate" name="create" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" id="iCreate" name="create" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

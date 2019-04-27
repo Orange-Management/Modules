@@ -92,7 +92,7 @@ echo $this->getData('nav')->render(); ?>
                             <button type="button" formaction=""><i class="fa fa-book"></i></button>
                             <input type="text" id="permission"><input type="hidden" form="docForm" name="permission">
                         </span>
-                    <tr><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                    <tr><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                 </table>
             </div>
         </section>
@@ -105,7 +105,7 @@ echo $this->getData('nav')->render(); ?>
                             <button type="button" formaction=""><i class="fa fa-book"></i></button>
                             <input  type="text" id="groups"><input type="hidden" form="docForm" name="groups">
                         </span>
-                    <tr><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                    <tr><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                 </table>
             </div>
         </section>

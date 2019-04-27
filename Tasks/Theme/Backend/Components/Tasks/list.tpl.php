@@ -25,6 +25,6 @@
                 </a>
             <td><a href="<?= $url; ?>"><?= $this->printHtml($task->getTitle()); ?></a>
     <?php endforeach; if ($c == 0) : ?>
-    <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+    <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
     <?php endif; ?>
 </table>

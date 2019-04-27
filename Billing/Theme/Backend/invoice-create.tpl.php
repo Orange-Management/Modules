@@ -63,7 +63,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><select id="iTermsOfDelivery" name="termsofdelivery">
                                                 <option>
                                             </select>
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -200,7 +200,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><input type="datetime-local" id="iDue" name="due">
                                     <tr><td><label for="iCashBack2"><?= $this->getHtml('Cashback'); ?> 2</label>
                                     <tr><td><input type="number" id="iCashBack2" name="cashback2">
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -246,7 +246,7 @@ echo $this->getData('nav')->render(); ?>
                             <thead>
                             <tr>
                                 <td>IP
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td><?= $this->getHtml('Name') ?>
                                 <td class="wf-100"><?= $this->getHtml('Log') ?>
                                 <td><?= $this->getHtml('Date') ?>

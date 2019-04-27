@@ -80,7 +80,7 @@ foreach ($elements as $key => $element) : $c++;
                         </select>
                 <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
                 <tr><td><input type="text" id="iReceiver" placeholder="&#xf007; Guest">
-                <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="type" value="1">
+                <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>"><input type="hidden" name="type" value="1">
             </table>
         </form>
     </div>

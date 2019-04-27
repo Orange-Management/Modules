@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="list w-100">
                     <tr>
-                        <td><?= $this->getHtml('ID', 0, 0); ?>
+                        <td><?= $this->getHtml('ID', '0', '0'); ?>
                         <td><i class="fa fa-anchor"></i>
                         <td class="wf-100"><?= $this->printHtml((int) $this->request->getData('id') ?? 0); ?>
                     <tr>

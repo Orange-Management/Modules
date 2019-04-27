@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                 <div class="inner">
                     <form>
                         <table class="layout wf-100">
-                            <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
+                            <tr><td><label for="iId"><?= $this->getHtml('ID', '0', '0'); ?></label>
                             <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="number" id="iId" min="1" name="id" required></span>
                             <tr><td><label for="iName1"><?= $this->getHtml('Name1') ?></label>
                             <tr><td><input type="text" id="iName1" name="name1" placeholder="&#xf040;" required>
@@ -43,7 +43,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input type="text" id="iName2" name="name2" placeholder="&#xf040;">
                             <tr><td><label for="iName3"><?= $this->getHtml('Name3') ?></label>
                             <tr><td><input type="text" id="iName3" name="name3" placeholder="&#xf040;">
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                         </table>
                     </form>
                 </div>
@@ -74,7 +74,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input type="text" id="iCInfo" name="cinfo">
                             <tr><td><label for="iCData"><?= $this->getHtml('Contact') ?></label>
                             <tr><td><input type="text" id="iCData" name="cdata">
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                         </table>
                     </form>
                 </div>
@@ -102,7 +102,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><label for="iAInfo"><?= $this->getHtml('Info') ?></label>
                             <tr><td><input type="text" id="iAInfo" name="ainfo">
                             <tr><td><span class="check"><input type="checkbox" id="iDefault" name="default" checked><label for="iDefault"><?= $this->getHtml('IsDefault') ?></label></span>
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                         </table>
                     </form>
                 </div>
@@ -130,7 +130,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option>
                                     </select>
                             <tr><td><span class="check"><input type="checkbox" id="iFreightage" name="freightage"><label for="iFreightage"><?= $this->getHtml('Freightage'); ?></label></span>
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                         </table>
                     </form>
                 </div>
@@ -148,7 +148,7 @@ echo $this->getData('nav')->render(); ?>
                                         <option><?= $this->getHtml('Wire') ?>
                                         <option><?= $this->getHtml('Creditcard') ?>
                                     </select>
-                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                         </table>
                     </form>
                 </div>
@@ -171,7 +171,7 @@ echo $this->getData('nav')->render(); ?>
                     <thead>
                     <tr>
                         <td>IP
-                        <td><?= $this->getHtml('ID', 0, 0); ?>
+                        <td><?= $this->getHtml('ID', '0', '0'); ?>
                         <td><?= $this->getHtml('Name') ?>
                         <td class="wf-100"><?= $this->getHtml('Log') ?>
                         <td><?= $this->getHtml('Date') ?>

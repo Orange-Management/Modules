@@ -102,7 +102,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
                         <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
                         <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>"><input type="hidden" name="task" value="<?= $this->printHtml($this->request->getData('id')); ?>"><input type="hidden" name="type" value="1">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>"><input type="hidden" name="task" value="<?= $this->printHtml($this->request->getData('id')); ?>"><input type="hidden" name="type" value="1">
                     </table>
                 </form>
             </div>

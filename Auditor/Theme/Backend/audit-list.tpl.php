@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                 </colgroup>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td ><?= $this->getHtml('Module') ?>
                     <td ><?= $this->getHtml('Type') ?>
                     <td ><?= $this->getHtml('Subtype') ?>
@@ -61,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= $audit->getCreatedAt()->format('Y-m-d H:i'); ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

@@ -99,7 +99,7 @@ echo $this->getData('nav')->render(); ?>
 
     $formPermissionAdd = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
     $formPermissionAdd->setTemplate('/Web/Templates/Forms/FormFull');
-    $formPermissionAdd->setSubmit('submit1', $this->getHtml('Add', 0, 0));
+    $formPermissionAdd->setSubmit('submit1', $this->getHtml('Add', '0', '0'));
     $formPermissionAdd->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
     $formPermissionAdd->setMethod(\phpOMS\Message\Http\RequestMethod::POST);
 

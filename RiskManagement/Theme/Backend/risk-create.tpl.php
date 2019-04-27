@@ -50,7 +50,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="project" id="iProject"></span>
                                     <tr><td><label for="iReview"><?= $this->getHtml('Review') ?></label>
                                     <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -89,7 +89,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                 </table>
                             </form>
                         </div>
@@ -126,7 +126,7 @@ echo $this->getData('nav')->render(); ?>
                                             </select>
                                     <tr><td><label for="iRiskStatusDescription"><?= $this->getHtml('Description') ?></label>
                                     <tr><td><textarea id="iRiskStatusDescription" name="riskstatusdescription"></textarea>
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -167,7 +167,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><input type="text" id="iRiskObjectName" name="riskobjectname" placeholder="&#xf040; <?= $this->getHtml('Name') ?>">
                                     <tr><td><label for="iRiskObjectDescription"><?= $this->getHtml('Description') ?></label>
                                     <tr><td><textarea id="iRiskObjectDescription" name="riskobjectdescription"></textarea>
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -212,7 +212,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><input type="text" id="iRiskObjecValue" name="riskobjectvalue">
                                     <tr><td><label for="iRiskObjecValueDescription"><?= $this->getHtml('Description') ?></label>
                                     <tr><td><textarea id="iRiskObjecValueDescription" name="riskobjectvaluedescription"></textarea>
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -274,7 +274,7 @@ echo $this->getData('nav')->render(); ?>
                                             </select>
                                     <tr><td><label for="iSolutionDescription"><?= $this->getHtml('Description') ?></label>
                                     <tr><td><textarea id="iSolutionDescription" name="solutionDescription"></textarea>
-                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                                    <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>

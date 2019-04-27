@@ -31,7 +31,7 @@ echo $this->getData('nav')->render(); ?>
                 <form id="account-edit" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/account'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
-                        <tr><td><label for="iId"><?= $this->getHtml('ID', 0, 0); ?></label>
+                        <tr><td><label for="iId"><?= $this->getHtml('ID', '0', '0'); ?></label>
                         <tr><td><input id="iId" name="iaccount-idlist" type="text" value="<?= $this->printHtml($account->getId()); ?>" disabled>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
                         <tr><td><select id="iType" name="type">
@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
                                 <div class="ipt-second"> or <button><?= $this->getHtml('Reset'); ?></button></div>
                         </div>
                         <tr><td>
-                            <input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', 0, 0); ?>">
+                            <input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                             <button id="account-profile-create" data-action='[
                                 {
                                     "key": 1, "listener": "click", "action": [
@@ -110,7 +110,7 @@ echo $this->getData('nav')->render(); ?>
             <thead>
                 <tr>
                     <td>
-                    <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
             <tbody>
                 <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : $c++;
@@ -121,7 +121,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
         </table>
 
@@ -135,7 +135,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><?= $this->getData('grpSelector')->render('iGroup', true); ?>
                         <tr><td>
                             <input name="account" type="hidden" value="<?= $this->printHtml($account->getId()); ?>">
-                            <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                     </table>
                 </form>
             </div>
@@ -149,7 +149,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td>
                     <td>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td><?= $this->getHtml('Unit'); ?>
                     <td><?= $this->getHtml('App'); ?>
                     <td><?= $this->getHtml('Module'); ?>
@@ -177,7 +177,7 @@ echo $this->getData('nav')->render(); ?>
                         <?= (PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
-                <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
         </table>
 
@@ -224,7 +224,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td>
                             <input type="hidden" name="permissionref" value="<?= $this->printHtml($account->getId()); ?>">
                             <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::ACCOUNT ?>">
-                            <input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                            <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

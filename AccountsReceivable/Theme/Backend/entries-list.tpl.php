@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
         <?php endforeach; ?>
         <?php if ($count === 0) : ?>
         <tr>
-            <td colspan="13" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+            <td colspan="13" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
     </table>
 </div>
@@ -95,7 +95,7 @@ echo $this->getData('nav')->render(); ?>
         <?php endforeach; ?>
         <?php if ($count === 0) : ?>
         <tr>
-            <td colspan="13" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+            <td colspan="13" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
     </table>
 </div>

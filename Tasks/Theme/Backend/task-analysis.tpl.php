@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="datetime-local" id="iFrom" name="from" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
                         <tr><td><label for="iTo"><?= $this->getHtml('To') ?></label>
                         <tr><td><input type="datetime-local" id="iTo" name="to" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Submit', 0, 0); ?>">
+                        <tr><td><input type="submit" value="<?= $this->getHtml('Submit', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

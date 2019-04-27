@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                         <td><a href="<?= $url; ?>"><?= $this->printHtml($ticket->getTask()->getCreatedBy()->getName1()); ?></a>
                         <td><a href="<?= $url; ?>"><?= $this->printHtml($ticket->getTask()->getCreatedAt()->format('Y-m-d H:i')); ?></a>
                 <?php endforeach; if ($c == 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

@@ -28,7 +28,7 @@ $installed = $this->app->moduleManager->getInstalledModules();
                 <caption><?= $this->getHtml('Modules') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                     <td><?= $this->getHtml('Version') ?>
                     <td><?= $this->getHtml('Status') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
@@ -43,7 +43,7 @@ $installed = $this->app->moduleManager->getInstalledModules();
                             else { $status = ModuleStatus::AVAILABLE; }
                         ?>
                 <tr data-href="<?= $url; ?>">
-                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['id']); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['id']); ?></a>
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
                     <td data-label="<?= $this->getHtml('Version') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['version']); ?></a>
                     <td data-label="<?= $this->getHtml('Status') ?>">
@@ -66,7 +66,7 @@ $installed = $this->app->moduleManager->getInstalledModules();
                             <?php endforeach; ?>
                         </span>
                 <?php if ($count === 0) : ?>
-                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

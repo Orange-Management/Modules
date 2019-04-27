@@ -39,7 +39,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(\trim($job->getId())); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getRun()); ?></a>
                         <?php endforeach; if ($c == 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

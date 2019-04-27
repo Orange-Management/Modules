@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
         <caption><?= $this->getHtml('Shipping') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>
-            <td><?= $this->getHtml('ID', 0, 0); ?>
+            <td><?= $this->getHtml('ID', '0', '0'); ?>
             <td><?= $this->getHtml('Reference') ?>
             <td><?= $this->getHtml('Status') ?>
             <td><?= $this->getHtml('Service') ?>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
         <tr>
-            <td colspan=7" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+            <td colspan=7" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
     </table>
 </div>

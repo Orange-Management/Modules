@@ -40,8 +40,8 @@ echo $this->getData('nav')->render(); ?>
                             <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectResponsibility::MANAGER); ?>"><?= $this->getHtml('Manager') ?>
                             <option value="<?= $this->printHtml(\Modules\ProjectManagement\Models\ProjectResponsibility::OTHER); ?>"><?= $this->getHtml('Other') ?>
                         </select>
-                    <td><input type="text" id="iUser" name="user" placeholder=""><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
-                <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                    <td><input type="text" id="iUser" name="user" placeholder=""><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
             </table>
         </form>
     </div>

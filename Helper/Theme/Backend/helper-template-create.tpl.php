@@ -38,9 +38,9 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td>
                             <div class="ipt-wrap">
                                 <div class="ipt-first"><input id="iExpected" type="text" placeholder="&#xf15b; file.csv"><input name="expected" type="hidden"></div>
-                                <div class="ipt-second"><button><?= $this->getHtml('Add', 0, 0); ?></button></div>
+                                <div class="ipt-second"><button><?= $this->getHtml('Add', '0', '0'); ?></button></div>
                             </div>
-                        <tr><td><input type="submit" id="iReportTemplateCreateButton" name="reportTemplateCreateButton" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td><input type="submit" id="iReportTemplateCreateButton" name="reportTemplateCreateButton" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

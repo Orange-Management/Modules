@@ -84,7 +84,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                 </table>
                             </form>
                         </div>
@@ -101,7 +101,7 @@ echo $this->getData('nav')->render(); ?>
                             <caption><?= $this->getHtml('Risks') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title') ?>
                                 <td><?= $this->getHtml('Causes') ?>
                                 <td><?= $this->getHtml('Solutions') ?>
@@ -119,7 +119,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getRiskObjects())); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
-                                    <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                                    <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                             <?php endif; ?>
                         </table>
                     </div>
@@ -135,7 +135,7 @@ echo $this->getData('nav')->render(); ?>
                             <caption><?= $this->getHtml('Categories') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title') ?>
                                     <tfoot>
                             <tr><td colspan="3">
@@ -147,7 +147,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                             <?php endif; ?>
                         </table>
                     </div>
@@ -163,7 +163,7 @@ echo $this->getData('nav')->render(); ?>
                             <caption><?= $this->getHtml('Projects') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title') ?>
                                     <tfoot>
                             <tr><td colspan="3">
@@ -175,7 +175,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                             <?php endif; ?>
                         </table>
                     </div>
@@ -191,7 +191,7 @@ echo $this->getData('nav')->render(); ?>
                             <caption><?= $this->getHtml('Processes') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title') ?>
                                     <tfoot>
                             <tr><td colspan="3">
@@ -203,7 +203,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                             <?php endif; ?>
                         </table>
                     </div>
@@ -219,7 +219,7 @@ echo $this->getData('nav')->render(); ?>
                             <caption><?= $this->getHtml('Causes') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title') ?>
                                 <td><?= $this->getHtml('Risk') ?>
                                     <tfoot>
@@ -233,7 +233,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                             <?php endif; ?>
                         </table>
                     </div>
@@ -249,7 +249,7 @@ echo $this->getData('nav')->render(); ?>
                             <caption><?= $this->getHtml('Solutions') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
-                                <td><?= $this->getHtml('ID', 0, 0); ?>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title') ?>
                                 <td><?= $this->getHtml('Risk') ?>
                                 <td><?= $this->getHtml('Cause') ?>
@@ -265,7 +265,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCause()->getTitle()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
-                                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                             <?php endif; ?>
                         </table>
                     </div>

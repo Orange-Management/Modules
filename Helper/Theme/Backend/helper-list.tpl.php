@@ -32,7 +32,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Reports') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Creator') ?>
                     <td><?= $this->getHtml('Updated') ?>
@@ -42,12 +42,12 @@ echo $this->getData('nav')->render(); ?>
                 <tbody>
                 <?php if (\count($templates) == 0) : ?>
                 <tr class="empty">
-                    <td colspan="4"><?= $this->getHtml('Empty', 0, 0); ?>
+                    <td colspan="4"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
                         <?php foreach ($templates as $key => $template) :
                         $url = \phpOMS\Uri\UriFactory::build('{/prefix}helper/report/view?{?}&id=' . $template->getId()); ?>
                 <tr data-href="<?= $url; ?>">
-                    <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getId()); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getName()); ?></a>
                     <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedBy()->getName1()); ?></a>
                     <td data-label="<?= $this->getHtml('Updated') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($template->getCreatedAt()->format('Y-m-d')); ?></a>

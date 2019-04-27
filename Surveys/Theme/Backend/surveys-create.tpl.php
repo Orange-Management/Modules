@@ -30,8 +30,8 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><select id="iResponsibility" name="responsibility">
                                 <option value=""><?= $this->getHtml('Questionee'); ?>
                                 <option value=""><?= $this->getHtml('Manager'); ?>
-                            </select><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iPerm" name="permission"></span><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
-                        <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                            </select><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iPerm" name="permission"></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                        <tr><td colspan="3"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>
@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><select id="iSType" name="stype">
                                     <option>
                                 </select>
-                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                     </table>
                 </form>
             </div>
@@ -75,7 +75,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><select id="iQSection" name="iqsection">
                                                     <option>
                                             </select>
-                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', 0, 0); ?>">
+                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

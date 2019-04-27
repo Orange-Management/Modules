@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach ([] as $key => $value) : ++$count; ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

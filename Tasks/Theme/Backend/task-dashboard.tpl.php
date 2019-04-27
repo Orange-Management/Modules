@@ -55,7 +55,7 @@ echo $this->getData('nav')->render(); ?>
                         <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedBy()->getName1()); ?></a>
                         <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedAt()->format('Y-m-d H:i')); ?></a>
                 <?php endforeach; if ($c == 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

@@ -29,7 +29,7 @@ $accounts = $this->getData('accounts');
                 <caption><?= $this->getHtml('Profiles') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Activity') ?>
                 <tfoot>
@@ -39,12 +39,12 @@ $accounts = $this->getData('accounts');
                 <?php $count = 0; foreach ($accounts as $key => $account) : ++$count;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}profile/single?{?}&id=' . $account->getAccount()->getId()); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td data-label="<?= $this->getHtml('ID', 0, 0) ?>"><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getId()); ?></a>
+                        <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getId()); ?></a>
                         <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getName3() . ' ' . $account->getAccount()->getName2() . ' ' . $account->getAccount()->getName1()); ?></a>
                         <td  data-label="<?= $this->getHtml('Activity') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($account->getAccount()->getLastActive()->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

@@ -168,7 +168,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input type="text" id="iName">
                             <tr><td><label for="iName">Y</label>
                             <tr><td><input type="text" id="iName">
-                            <tr><td><button><?= $this->getHtml('Add', 0, 0); ?></button>
+                            <tr><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                         </table>
                     </form>
                 </div>

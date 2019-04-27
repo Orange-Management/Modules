@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="2"><input type="text" id="iBudget" name="budget" placeholder="">
                         <tr><td colspan="2"><label for="iBudget"><?= $this->getHtml('Limit') ?></label>
                         <tr><td colspan="2"><input type="text">
-                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', 0, 0); ?>">
+                        <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

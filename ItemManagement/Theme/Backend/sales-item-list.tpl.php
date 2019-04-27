@@ -27,7 +27,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Items'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Price') ?>
                     <td><?= $this->getHtml('Available') ?>
@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

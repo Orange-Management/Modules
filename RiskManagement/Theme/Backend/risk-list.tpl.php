@@ -20,7 +20,7 @@ echo $this->getData('nav')->render(); ?>
                 <caption><?= $this->getHtml('Risks') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('ID', 0, 0); ?>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Title') ?>
                     <td><?= $this->getHtml('Causes') ?>
                     <td><?= $this->getHtml('Solutions') ?>
@@ -38,7 +38,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getRiskObjects())); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
-                        <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', 0, 0); ?>
+                        <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                 <?php endif; ?>
             </table>
         </div>
