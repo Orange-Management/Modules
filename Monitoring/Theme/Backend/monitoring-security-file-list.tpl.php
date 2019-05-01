@@ -39,7 +39,16 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $file; ?>
                 <td><?= \phpOMS\Security\PhpCode::hasUnicode($source); ?>
                 <td><?= \phpOMS\Security\PhpCode::hasDeprecatedFunction($source); ?>
-                <td><?= \phpOMS\Security\PhpCode::validateFileIntegrity($file, \md5(Rest::request(new Request(new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php'))))); ?>
+                <td><?= \phpOMS\Security\PhpCode::validateFileIntegrity(
+                        $file,
+                        \md5(
+                            Rest::request(
+                                new Request(
+                                    new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php')
+                                )
+                            )->getBody()
+                        )
+                    ); ?>
                     <?php endforeach; ?>
         </table>
     </div>

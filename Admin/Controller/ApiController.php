@@ -828,9 +828,9 @@ final class ApiController extends Controller
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
         $request = new Request(new Http('https://api.github.com/repos/Orange-Management/Updates/contents'));
         $request->setMethod(RequestMethod::GET);
+        $request->getHeader()->set('User-Agent', 'spl1nes');
 
-        $updateFiles     = Rest::request($request);
-        $updateFilesJson = \json_decode($updateFiles, true);
+        $updateFilesJson = Rest::request($request)->getJson();
 
         /** @var array<string, array<string, array>> */
         $toUpdate = [];
@@ -902,7 +902,7 @@ final class ApiController extends Controller
         $request = new Request(new Http($url));
         $request->setMethod(RequestMethod::GET);
 
-        $updateFile = Rest::request($request);
+        $updateFile = Rest::request($request)->getBody();
         File::put($dest, $updateFile);
     }
 
@@ -956,7 +956,7 @@ final class ApiController extends Controller
             $request = new Request(new Http($src));
             $request->setMethod(RequestMethod::GET);
 
-            $content = Rest::request($request);
+            $content = Rest::request($request)->getBody();
             File::put($dest, $content, ContentPutMode::CREATE);
         } else {
             if (\is_dir($src)) {

@@ -65,7 +65,7 @@ echo $this->getData('nav')->render(); ?>
                                         new Request(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/' . $file)
                                         )
-                                    )
+                                    )->getBody()
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
                         <?php
@@ -84,7 +84,7 @@ echo $this->getData('nav')->render(); ?>
                                         new Request(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/Model/develop/' . $file)
                                         )
-                                    )
+                                    )->getBody()
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
                         <?php
@@ -103,7 +103,7 @@ echo $this->getData('nav')->render(); ?>
                                         new Request(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/Modules/develop/' . $file)
                                         )
-                                    )
+                                    )->getBody()
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
                         <?php endforeach; ?>
             </table>
