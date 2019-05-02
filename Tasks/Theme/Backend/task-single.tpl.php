@@ -30,8 +30,22 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-md-6 col-xs-12">
-        <section class="box wf-100">
+        <section id="task" class="box wf-100"
+            data-ui-content=".inner"
+            data-ui-element="#task header, #task #task-content"
+            data-tag="form"
+        >
             <div class="inner">
+                <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove thes. maybe check if add functionality is available. --></template>
+                <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove thes. maybe check if add functionality is available. --></template>
+                <template>
+                    <header><h1><input type="text" data-tpl-text="/title" data-tpl-value="/title" data-value=""></h1></header>
+                </template>
+                <template>
+                    <div id="task-content" class="inner"><textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea></div>
+                </template>
+
+                <span id="task-status-badge" class="floatRight nobreak tag <?= $color; ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span>
                 <div class="floatRight">
                     <?php if ($task->getPriority() === TaskPriority::NONE) : ?>
                         Due: <?= $this->printHtml($task->getDue()->format('Y/m/d H:i')); ?>
@@ -41,9 +55,9 @@ echo $this->getData('nav')->render(); ?>
                 </div>
                 <div>Created <?= $this->printHtml($task->getCreatedAt()->format('Y/m/d H:i')); ?></div>
             </div>
-            <header><h1><?= $this->printHtml($task->getTitle()); ?></h1></header>
-            <div class="inner">
-                <?= $task->getDescription(); ?>
+            <header><h1 data-tpl-text="/title" data-tpl-value="/title" data-value=""><?= $this->printHtml($task->getTitle()); ?></h1></header>
+            <div id="task-content" class="inner">
+                <div data-tpl-text="/content" data-tpl-value="/content" data-value=""><?= $task->getDescription(); ?></div>
             </div>
 
             <?php if (!empty($taskMedia)) : ?>
@@ -56,30 +70,12 @@ echo $this->getData('nav')->render(); ?>
 
             <div class="inner" style="background: #efefef; border-top: 1px solid #dfdfdf;">
                 <div class="pAlignTable">
-                    <div class="vCenterTable wf-100">By <?= $this->printHtml($task->getCreatedBy()->getName1()); ?></div>
-                    <span id="task-status-badge" class="vCenterTable nobreak tag <?= $color; ?>" data-action='[
-                        {
-                            "key": 1, "listener": "click", "action": [
-                                {"key": 1, "type": "dom.hide", "id": "task-status-badge"},
-                                {"key": 2, "type": "dom.show", "id": "task-status"}
-                            ]
-                        }
-                    ]'><?= $this->getHtml('S' . $task->getStatus()) ?></span>
-                    <select id="task-status" class="vh" data-action='[
-                        {
-                            "key": 1, "listener": "change", "action": [
-                                {"key": 1, "type": "dom.hide", "id": "task-status"},
-                                {"key": 2, "type": "dom.show", "id": "task-status-badge"}
-                            ]
-                        }
-                    ]'>
-                        <option><?= $this->getHtml('S' . 1) ?>
-                        <option><?= $this->getHtml('S' . 2) ?>
-                        <option><?= $this->getHtml('S' . 3) ?>
-                        <option><?= $this->getHtml('S' . 4) ?>
-                        <option><?= $this->getHtml('S' . 5) ?>
-                        <option><?= $this->getHtml('S' . 6) ?>
-                    </select>
+                    <div class="vCenterTable wf-100">
+                        By <?= $this->printHtml($task->getCreatedBy()->getName1()); ?>
+                    </div>
+                    <div class="vCenterTable">
+                        <button class="update">Edit</button>
+                    </div>
                 </div>
             </div>
         </section>
