@@ -74,6 +74,8 @@ echo $this->getData('nav')->render(); ?>
                         By <?= $this->printHtml($task->getCreatedBy()->getName1()); ?>
                     </div>
                     <div class="vCenterTable">
+                        <button class="save hidden">Save</button>
+                        <button class="cancel hidden">Cancel</button>
                         <button class="update">Edit</button>
                     </div>
                 </div>

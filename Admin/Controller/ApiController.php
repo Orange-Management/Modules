@@ -830,7 +830,7 @@ final class ApiController extends Controller
         $request->setMethod(RequestMethod::GET);
         $request->getHeader()->set('User-Agent', 'spl1nes');
 
-        $updateFilesJson = Rest::request($request)->getJson();
+        $updateFilesJson = Rest::request($request)->getJsonData();
 
         /** @var array<string, array<string, array>> */
         $toUpdate = [];
