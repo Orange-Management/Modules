@@ -166,7 +166,7 @@ echo $this->getData('nav')->render(); ?>
             $footerView->setPage(1);
             ?>
             <div class="box w-100">
-                <table class="table darkred">
+                <table class="default">
                     <caption><?= $this->getHtml('Logs'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                     <thead>
                     <tr>

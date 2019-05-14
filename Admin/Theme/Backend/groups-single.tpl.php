@@ -61,7 +61,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table class="box table darkred wf-100">
+                    <table class="box table default wf-100">
                         <caption><?= $this->getHtml('Accounts') ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                             <tr>
@@ -91,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table id="groupPermissions" class="box table darkred wf-100" data-table-form="fGroupAddPermission">
+                    <table id="groupPermissions" class="box table default wf-100" data-table-form="fGroupAddPermission">
                         <caption><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                             <tr>
@@ -205,7 +205,7 @@ echo $this->getData('nav')->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <table class="box table darkred wf-100">
+                    <table class="box table default wf-100">
                         <caption><?= $this->getHtml('AuditLog') ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                             <tr>

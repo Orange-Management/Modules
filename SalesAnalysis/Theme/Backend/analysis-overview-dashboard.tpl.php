@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-1" name="tabular-2" checked>
             <div class="tab">
                 <section class="box wf-100 floatLeft">
-                    <table class="table darkred">
+                    <table class="default">
                         <caption><?= $this->getHtml('Overview'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
@@ -60,7 +60,7 @@ echo $this->getData('nav')->render(); ?>
                 </section>
 
                 <section class="box wf-100 floatLeft">
-                    <table class="table darkred">
+                    <table class="default">
                         <caption><?= $this->getHtml('Misc'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
@@ -80,7 +80,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-2" name="tabular-2">
             <div class="tab">
                 <section class="box wf-100 floatLeft">
-                    <table class="table darkred">
+                    <table class="default">
                         <caption><?= $this->getHtml('Month'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>
@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
             <input type="radio" id="c-tab2-3" name="tabular-2">
             <div class="tabview tab-3">
                 <section class="box wf-100 floatLeft">
-                    <table class="table darkred">
+                    <table class="default">
                         <caption><?= $this->getHtml('Year'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                         <thead>
                         <tr>

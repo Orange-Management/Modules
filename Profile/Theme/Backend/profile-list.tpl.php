@@ -25,7 +25,7 @@ $accounts = $this->getData('accounts');
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table id="profileList" class="table darkred">
+            <table id="profileList" class="default">
                 <caption><?= $this->getHtml('Profiles') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>

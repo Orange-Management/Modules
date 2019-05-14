@@ -22,8 +22,8 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
-            <table id="taskList" class="table darkred">
+        <div class="box wf-100 x-overflow">
+            <table id="taskList" class="default">
                 <caption><?= $this->getHtml('Tasks') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                     <td><?= $this->getHtml('Status') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>

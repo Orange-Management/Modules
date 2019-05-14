@@ -101,7 +101,7 @@ jsOMS.Modules.Navigation = class {
         });
 
         // Bind show/hide
-        e.nextElementSibling.addEventListener('change', function () {
+        e.addEventListener('change', function () {
             self.navigation[e.id].setVisible(this.checked);
             localStorage.setItem(Navigation.MODULE_NAME, JSON.stringify(self.navigation));
         });

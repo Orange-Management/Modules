@@ -364,7 +364,7 @@ echo $this->getData('nav')->render(); ?>
                             <tr><td><input id="iPName" name="pname" type="text" placeholder="">
                             <tr><td><label for="iPName"><?= $this->getHtml('Leadtime'); ?></label>
                             <tr><td><input id="iPName" name="pname" type="number" min="0" step="1" placeholder="">
-                            <tr><td><input type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                            <tr><td><input type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                         </table>
                     </form>
                 </div>
@@ -591,7 +591,7 @@ echo $this->getData('nav')->render(); ?>
             $footerView->setPage(1);
             ?>
             <div class="box w-100">
-                <table class="table darkred">
+                <table class="default">
                     <caption><?= $this->getHtml('Logs'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                     <thead>
                     <tr>

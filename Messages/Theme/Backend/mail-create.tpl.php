@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td><td><input type="text" placeholder="&#xf040; <?= $this->getHtml('Subject') ?>" name="subject">
                 <tr><td><td><input type="file" name="files" multiple>
                 <tr><td><td><div class="textarea" contenteditable="true" style="height: 400px;"></div><textarea placeholder="&#xf040;" style="display: none" name="mail"></textarea>
-                <tr><td><td><input type="submit" value="<?= $this->getHtml('Send', 0) ?>"> <input type="submit" value="<?= $this->getHtml('Save', 0) ?>">
+                <tr><td><td><input type="submit" value="<?= $this->getHtml('Send', '0', '0') ?>"> <input type="submit" value="<?= $this->getHtml('Save', '0', '0') ?>">
             </table>
         </form>
     </div>

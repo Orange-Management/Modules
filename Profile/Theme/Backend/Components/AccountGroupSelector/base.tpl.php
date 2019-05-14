@@ -18,7 +18,7 @@
                     data-autocomplete="false"
                     data-src="api/admin/find/accgrp?search={#i<?= $this->printHtml($this->getId()); ?>}">
                 <div id="<?= $this->printHtml($this->getId()); ?>-dropdown" class="dropdown" data-active="true">
-                    <table class="table darkred">
+                    <table class="default">
                         <thead>
                             <tr>
                                 <td>Type<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>

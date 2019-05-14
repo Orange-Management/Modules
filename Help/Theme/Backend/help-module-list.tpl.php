@@ -21,7 +21,7 @@ $modules = $this->app->moduleManager->getInstalledModules();
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table id="moduleList" class="table darkred">
+            <table id="moduleList" class="default">
                 <caption><?= $this->getHtml('Modules') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>

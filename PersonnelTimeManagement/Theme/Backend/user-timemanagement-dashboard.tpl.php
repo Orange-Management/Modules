@@ -17,7 +17,7 @@ echo $this->getData('nav')->render();
 ?>
 
 <div class="box w-100">
-    <table class="table darkred">
+    <table class="default">
         <caption><?= $this->getHtml('Times') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>

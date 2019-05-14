@@ -10,14 +10,16 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+
+use Modules\Navigation\Models\NavigationType;
+
 /**
  * @var \Modules\Navigation\Views\NavigationView $this
  */
-if (isset($this->nav[\Modules\Navigation\Models\NavigationType::TOP])): ?>
+if (isset($this->nav[NavigationType::TOP])): ?>
     <ul id="t-nav" role="navigation">
-
         <?php $unread = $this->getData('unread');
-        foreach ($this->nav[\Modules\Navigation\Models\NavigationType::TOP] as $key => $parent) :
+        foreach ($this->nav[NavigationType::TOP] as $key => $parent) :
         foreach ($parent as $link) : ?>
         <li><a href="<?= \phpOMS\Uri\UriFactory::build($link['nav_uri']); ?>">
 
@@ -25,9 +27,8 @@ if (isset($this->nav[\Modules\Navigation\Models\NavigationType::TOP])): ?>
                     <i class="<?= $this->printHtml($link['nav_icon']); ?> infoIcon"><?php if (isset($unread[$link['nav_from']]) && $unread[$link['nav_from']] > 0) : ?><span class="badge"><?= $this->printHtml($unread[$link['nav_from']]); ?></span><?php endif; ?></i>
                 <?php endif; ?>
 
-                <?= $this->getHtml($link['nav_name'], 'Navigation') ?></a>
+                <span class="link"><?= $this->getHtml($link['nav_name'], 'Navigation') ?><span></a>
             <?php endforeach;
             endforeach; ?>
-
     </ul>
 <?php endif;

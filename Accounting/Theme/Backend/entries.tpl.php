@@ -74,7 +74,7 @@ $footerView->setResults(1);
                 <div class="row">
                     <div class="col-xs-12">
                         <section class="wf-100">
-                            <table class="table darkred">
+                            <table class="default">
                                 <caption><?= $this->getHtml('Entries'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                                 <thead>
                                 <tr>
@@ -112,7 +112,7 @@ $footerView->setResults(1);
                <div class="row">
                     <div class="col-xs-4">
                         <section class="wf-100">
-                            <table class="table darkred">
+                            <table class="default">
                                 <caption><?= $this->getHtml('Accounts'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                                 <thead>
                                 <tr>

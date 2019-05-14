@@ -51,7 +51,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                                     <tbody>
                                         <tr><td><label for="iOname"><?= $this->getHtml('OrganizationName'); ?></label>
                                         <tr><td><input id="iOname" name="settings_1000000009" type="text" value="<?= $this->printHtml($settings[1000000009]); ?>" placeholder="&#xf12e; Money Bin" required>
-                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -85,7 +85,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                                             <label for="iPasswordHistory"><?= $this->getHtml('PasswordHistory'); ?></label>
                                             <i class="fa fa-info-circle tooltip"><i data-tooltip="<?= $this->getHtml('i:PasswordHistory') ?>"></i></i>
                                         <tr><td><input id="iPasswordHistory" name="settings_1000000004" type="number" value="<?= $this->printHtml($settings[1000000004]); ?>">
-                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -106,7 +106,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                                             </span>
                                         <tr><td><label for="iLogPath"><?= $this->getHtml('LogPath'); ?></label>
                                         <tr><td><input id="iLogPath" name="settings_1000000007" type="text" value="<?= $this->printHtml($settings[1000000007]); ?>" placeholder="&#xf023; asdf">
-                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                        <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>
@@ -164,7 +164,7 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml($temperature === $settings[1000000022] ? ' selected' : ''); ?>><?= $this->printHtml($temperature); ?>
                                                 <?php endforeach; ?>
                                             </select>
-                                    <tr><td colspan="2"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                    <tr><td colspan="2"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>

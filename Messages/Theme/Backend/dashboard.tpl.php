@@ -26,7 +26,7 @@ echo $this->getData('nav')->render(); ?>
 </section>
 
 <div class="box w-100">
-    <table class="table darkred">
+    <table class="default">
         <caption><?= $this->getHtml('Messages') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
         <tr>

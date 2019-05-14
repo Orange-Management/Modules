@@ -48,7 +48,7 @@ echo $this->getData('nav')->render();
     <?php if ($this->isCollectionFunction($media, $this->request->getData('sub') ?? '')) : ?>
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table darkred">
+            <table class="default">
                 <caption><?= $this->getHtml('Media') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>

@@ -18,7 +18,7 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <table id="groupList" class="box table darkred">
+        <table id="groupList" class="box table default">
             <caption><?= $this->getHtml('Groups') ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
                 <tr>

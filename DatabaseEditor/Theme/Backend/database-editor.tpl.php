@@ -89,7 +89,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
 
                 <div class="col-xs-12">
-                    <table class="table darkred">
+                    <table class="default">
                     <caption><?= $this->getHtml('QueryResult') ?> - <?= $this->getHtml('Limit1000') ?><i class="fa fa-download floatRight download btn"></i></caption>
                     <thead>
                     <tbody>

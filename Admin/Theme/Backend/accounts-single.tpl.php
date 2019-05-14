@@ -105,7 +105,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table id="groupTable" class="box table darkred">
+        <table id="groupTable" class="box table default">
             <caption><?= $this->getHtml('Groups') ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
                 <tr>
@@ -143,7 +143,7 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table class="box table darkred">
+        <table class="box table default">
             <caption><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
                 <tr>

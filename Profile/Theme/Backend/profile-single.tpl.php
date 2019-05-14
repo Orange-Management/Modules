@@ -171,7 +171,7 @@ echo $this->getData('nav')->render();
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml($temperature === $settings[1000000022] ? ' selected' : ''); ?>><?= $this->printHtml($temperature); ?>
                                                 <?php endforeach; ?>
                                             </select>
-                                    <tr><td colspan="2"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', 0); ?>">
+                                    <tr><td colspan="2"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
                             </form>
                         </div>

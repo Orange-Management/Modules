@@ -1,4 +1,4 @@
-<table class="table darkred">
+<table class="default">
     <caption><?= $this->getHtml('Tasks', 'Tasks') ?><i class="fa fa-download floatRight download btn"></i></caption>
     <thead>
         <td><?= $this->getHtml('Status', 'Tasks') ?>

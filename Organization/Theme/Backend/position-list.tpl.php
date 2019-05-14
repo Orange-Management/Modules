@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table id="positionList" class="table darkred">
+            <table id="positionList" class="default">
                 <caption><?= $this->getHtml('Positions') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>

@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Risks') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
@@ -132,7 +132,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Departments') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
@@ -160,7 +160,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Categories') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
@@ -188,7 +188,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Projects') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
@@ -216,7 +216,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Processes') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
@@ -244,7 +244,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Causes') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
@@ -274,7 +274,7 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="table darkred">
+                        <table class="default">
                             <caption><?= $this->getHtml('Solutions') ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
