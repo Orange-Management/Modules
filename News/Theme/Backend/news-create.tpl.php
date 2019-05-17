@@ -53,7 +53,7 @@ echo $this->getData('nav')->render(); ?>
                                 <input type="datetime-local" name="publish" id="iPublish" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
                         <tr>
                             <td>
-                                <input type="submit" name="deleteButton" id="iDeleteButton" value="<?= $this->getHtml('Delete', 0); ?>">
+                                <input type="submit" name="deleteButton" id="iDeleteButton" value="<?= $this->getHtml('Delete', '0', '0'); ?>">
                             <td class="rightText">
                                 <input type="submit" name="saveButton" id="iSaveButton" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 <input type="submit" name="publishButton" id="iPublishButton" value="<?= $this->getHtml('Publish'); ?>">

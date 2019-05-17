@@ -12,6 +12,7 @@
  */
 
  use Modules\Tasks\Models\TaskStatus;
+ use Modules\Tasks\Models\TaskPriority;
 
  /**
  * @var \phpOMS\Views\View           $this
@@ -33,29 +34,33 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Created') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                 <tfoot>
                 <tbody>
-                <?php $c = 0; foreach ($tasks as $key => $task) : $c++;
-                $url = \phpOMS\Uri\UriFactory::build('{/prefix}task/single?{?}&id=' . $task->getId());
-                $color = 'darkred';
-                if ($task->getStatus() === TaskStatus::DONE) { $color = 'green'; }
-                elseif ($task->getStatus() === TaskStatus::OPEN) { $color = 'darkblue'; }
-                elseif ($task->getStatus() === TaskStatus::WORKING) { $color = 'purple'; }
-                elseif ($task->getStatus() === TaskStatus::CANCELED) { $color = 'red'; }
-                elseif ($task->getStatus() === TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
+                <?php
+                    $c = 0; foreach ($tasks as $key => $task) : $c++;
+                    $url = \phpOMS\Uri\UriFactory::build('{/prefix}task/single?{?}&id=' . $task->getId());
+                ?>
                     <tr data-href="<?= $url; ?>">
-                        <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $task->getStatus()) ?></span></a>
+                        <td data-label="<?= $this->getHtml('Status') ?>">
+                            <a href="<?= $url; ?>">
+                                <span class="tag <?= $this->printHtml('task-status-' . $task->getStatus()); ?>">
+                                    <?= $this->getHtml('S' . $task->getStatus()) ?>
+                                </span>
+                            </a>
                         <td data-label="<?= $this->getHtml('Due/Priority') ?>">
                             <a href="<?= $url; ?>">
-                            <?php if ($task->getPriority() === \Modules\Tasks\Models\TaskPriority::NONE) : ?>
+                            <?php if ($task->getPriority() === TaskPriority::NONE) : ?>
                                 <?= $this->printHtml($task->getDue()->format('Y-m-d H:i')); ?>
                             <?php else : ?>
                                 <?= $this->getHtml('P' . $task->getPriority()); ?>
                             <?php endif; ?>
                             </a>
-                        <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getTitle()); ?></a>
-                        <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedBy()->getName1()); ?></a>
-                        <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedAt()->format('Y-m-d H:i')); ?></a>
+                        <td data-label="<?= $this->getHtml('Title') ?>">
+                            <a href="<?= $url; ?>"><?= $this->printHtml($task->getTitle()); ?></a>
+                        <td data-label="<?= $this->getHtml('Creator') ?>">
+                            <a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedBy()->getName1()); ?></a>
+                        <td data-label="<?= $this->getHtml('Created') ?>">
+                            <a href="<?= $url; ?>"><?= $this->printHtml($task->getCreatedAt()->format('Y-m-d H:i')); ?></a>
                 <?php endforeach; if ($c == 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                    <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

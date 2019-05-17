@@ -20,6 +20,7 @@ use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Views\TaskView;
 
 use phpOMS\Account\PermissionType;
+use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Message\Http\RequestStatusCode;
@@ -50,6 +51,10 @@ final class BackendController extends Controller
     public function viewTaskDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
+
+        /** @var \phpOMS\Model\Html\Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, '/Modules/Tasks/Theme/Backend/css/styles.css');
 
         $view->setTemplate('/Modules/Tasks/Theme/Backend/task-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001101001, $request, $response));
@@ -100,6 +105,10 @@ final class BackendController extends Controller
     public function viewTaskView(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new TaskView($this->app, $request, $response);
+
+        /** @var \phpOMS\Model\Html\Head $head */
+        $head = $response->get('Content')->getData('head');
+        $head->addAsset(AssetType::CSS, '/Modules/Tasks/Theme/Backend/css/styles.css');
 
         $task      = TaskMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();

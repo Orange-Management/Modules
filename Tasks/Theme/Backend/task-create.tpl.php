@@ -35,12 +35,12 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td>
                             <select id="iPriority" name="priority">
-                                <option value="<?= $this->printHtml(TaskPriority::NONE); ?>" selected><?= $this->getHtml('P0') ?>
-                                <option value="<?= $this->printHtml(TaskPriority::VLOW); ?>"><?= $this->getHtml('P1') ?>
-                                <option value="<?= $this->printHtml(TaskPriority::LOW); ?>"><?= $this->getHtml('P2') ?>
-                                <option value="<?= $this->printHtml(TaskPriority::MEDIUM); ?>"><?= $this->getHtml('P3') ?>
-                                <option value="<?= $this->printHtml(TaskPriority::HIGH); ?>"><?= $this->getHtml('P4') ?>
-                                <option value="<?= $this->printHtml(TaskPriority::VHIGH); ?>"><?= $this->getHtml('P5') ?>
+                                <option value="<?= TaskPriority::NONE; ?>" selected><?= $this->getHtml('P0') ?>
+                                <option value="<?= TaskPriority::VLOW; ?>"><?= $this->getHtml('P1') ?>
+                                <option value="<?= TaskPriority::LOW; ?>"><?= $this->getHtml('P2') ?>
+                                <option value="<?= TaskPriority::MEDIUM; ?>"><?= $this->getHtml('P3') ?>
+                                <option value="<?= TaskPriority::HIGH; ?>"><?= $this->getHtml('P4') ?>
+                                <option value="<?= TaskPriority::VHIGH; ?>"><?= $this->getHtml('P5') ?>
                             </select>
                         <tr><td><label for="iDue"><?= $this->getHtml('Due') ?></label>
                         <tr><td><input type="datetime-local" id="iDue" name="due" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">

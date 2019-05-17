@@ -1,0 +1,27 @@
+.tag.task-status-1,
+.tag.task-status-2,
+.tag.task-status-3,
+.tag.task-status-4,
+.tag.task-status-5 {
+    color: #000;
+}
+
+.tag.task-status-1 {
+    background: rgb(255, 104, 104);
+}
+
+.tag.task-status-2 {
+    background: rgb(113, 197, 245);
+}
+
+.tag.task-status-3 {
+    background: rgb(255, 241, 114);
+}
+
+.tag.task-status-4 {
+    background: rgb(235, 151, 252);
+}
+
+.tag.task-status-5 {
+    background: rgb(79, 236, 118);
+}

@@ -40,8 +40,8 @@ echo $this->getData('nav')->render(); ?>
             </div>
             <div class="inner">
                 <div class="pAlignTable">
-                    <div class="vCenterTable wf-100">Created <?= $this->printHtml($ticket->getTask()->getCreatedBy()->getName1()); ?></div>
-                    <span class="vCenterTable nobreak tag"><?= $this->getHtml('S' . $ticket->getTask()->getStatus()) ?></span>
+                    <div class="vC wf-100">Created <?= $this->printHtml($ticket->getTask()->getCreatedBy()->getName1()); ?></div>
+                    <span class="vC nobreak tag"><?= $this->getHtml('S' . $ticket->getTask()->getStatus()) ?></span>
                 </div>
             </div>
         </section>
@@ -55,8 +55,8 @@ echo $this->getData('nav')->render(); ?>
             elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
-                    <div class="vCenterTable wf-100"><?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
-                    <span class="vCenterTable tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $element->getStatus()) ?></span>
+                    <div class="vC wf-100"><?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
+                    <span class="vC tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $element->getStatus()) ?></span>
                 </div>
 
             <?php if ($element->getDescription() !== '') : ?>
@@ -69,13 +69,13 @@ echo $this->getData('nav')->render(); ?>
 
                 <div class="inner pAlignTable">
                 <?php if ($element->getForwarded() !== 0) : ?>
-                    <div class="vCenterTable wf-100">Forwarded <?= $this->printHtml($element->getForwarded()->getName1()); ?></div>
+                    <div class="vC wf-100">Forwarded <?= $this->printHtml($element->getForwarded()->getName1()); ?></div>
                 <?php endif; ?>
                 <?php if ($element->getStatus() !== \Modules\Tasks\Models\TaskStatus::CANCELED ||
                     $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::DONE ||
                     $element->getStatus() !== \Modules\Tasks\Models\TaskStatus::SUSPENDED || $c != $cElements
                 ) : ?>
-                    <div class="vCenterTable nobreak">Due <?= $this->printHtml($element->getDue()->format('Y-m-d H:i')); ?></div>
+                    <div class="vC nobreak">Due <?= $this->printHtml($element->getDue()->format('Y-m-d H:i')); ?></div>
                 <?php endif; ?>
             </section>
         <?php endforeach; ?>

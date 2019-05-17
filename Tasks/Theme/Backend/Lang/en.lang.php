@@ -16,6 +16,7 @@ return ['Tasks' => [
     'AverageProcessTime' => 'Avg. Process Time',
     'AverageAmount'      => 'Average Amount',
     'BCC'                => 'BCC',
+    'By'                 => 'By',
     'CC'                 => 'CC',
     'Created'            => 'Created',
     'Creator'            => 'Creator',

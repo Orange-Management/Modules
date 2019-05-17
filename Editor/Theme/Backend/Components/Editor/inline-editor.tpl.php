@@ -10,7 +10,9 @@
                 style="height: 300px"
                 placeholder="&#xf040;"
                 name="<?= $this->printHtml($this->getName()); ?>"
-                form="<?= $this->printHtml($this->getForm()); ?>">
+                form="<?= $this->printHtml($this->getForm()); ?>"
+                data-tpl-text="<?= $this->printHtml($this->getTplText()); ?>"
+                data-tpl-value="<?= $this->printHtml($this->getTplValue()); ?>">
                 <?= $this->printHtml($this->getPlain()); ?>
             </textarea><input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-parsed">
         </div>
