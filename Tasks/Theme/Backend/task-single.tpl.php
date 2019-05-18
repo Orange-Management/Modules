@@ -116,7 +116,7 @@ echo $this->getData('nav')->render(); ?>
                     <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                 </div>
             </template>
-            <?php $c = 0;
+            <?php $c = 0; $previous = null;
             foreach ($elements as $key => $element) : $c++;
                 if ($element->getDescription() !== '') :
             ?>
@@ -154,9 +154,14 @@ echo $this->getData('nav')->render(); ?>
                         || $c != $cElements
                     ) : ?>
                         <div class="vC wf-100 nobreak">
-                            <?php if ($element->getPriority() === TaskPriority::NONE) : ?>
+                            <?php
+                                if ($element->getPriority() === TaskPriority::NONE
+                                    && ($previous !== null
+                                        && $previous->getDue()->format('Y/m/d H:i') !== $element->getDue()->format('Y/m/d H:i')
+                                    )
+                                ) : ?>
                                 <?= $this->getHtml('Due') ?>: <?= $this->printHtml($element->getDue()->format('Y/m/d H:i')); ?>
-                            <?php else : ?>
+                            <?php elseif ($previous !== null && $previous->getPriority() !== $element->getPriority()) : ?>
                                 <?= $this->getHtml('Priority') ?>: <?= $this->getHtml('P' . $element->getPriority()) ?>
                             <?php endif; ?>
                         </div>
@@ -185,7 +190,7 @@ echo $this->getData('nav')->render(); ?>
                             <?php endforeach; ?>
                         </div>
                     </section>
-                <?php endif; ?>
+                <?php endif; $previous = $element; ?>
             <?php endforeach; ?>
         </div>
     </div>
