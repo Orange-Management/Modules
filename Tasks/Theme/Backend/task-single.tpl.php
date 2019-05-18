@@ -119,7 +119,7 @@ echo $this->getData('nav')->render(); ?>
                     <div class="vC wf-100">
                         <?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?>
                     </div>
-                    <span class="vC tag task-status-<?= $this->printHtml($task->getStatus()); ?>">
+                    <span class="vC tag task-status-<?= $this->printHtml($element->getStatus()); ?>">
                         <?= $this->getHtml('S' . $element->getStatus()) ?>
                     </span>
                 </div>
