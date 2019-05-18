@@ -15,6 +15,8 @@ use \Modules\Admin\Models\Account;
 use \Modules\Admin\Models\Group;
 use \Modules\Tasks\Models\TaskPriority;
 use \Modules\Tasks\Models\TaskStatus;
+use \Modules\Tasks\Models\AccountRelation;
+use \Modules\Tasks\Models\GroupRelation;
 
 /**
  * @var \phpOMS\Views\View         $this
@@ -99,21 +101,9 @@ echo $this->getData('nav')->render(); ?>
         </section>
 
         <?php $c = 0;
-        foreach ($elements as $key => $element) : $c++; ?>
-            <?php $tos = $element->getTo(); if ($c > 1 && \count($tos) > 1) : ?>
-                <section class="box wf-100">
-                    <div class="inner">
-                        <?= $this->getHtml('Forwarded') ?>
-                        <?php foreach ($tos as $to) : ?>
-                            <?php if ($to instanceof Account) : ?>
-                                <?= $this->printHtml($to->getRelation()->getName1()); ?>
-                            <?php elseif ($to instanceof Group) : ?>
-                                <?= $this->printHtml($to->getRelation()->getName()); ?>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                </section>
-            <?php endif; ?>
+        foreach ($elements as $key => $element) : $c++;
+            if ($element->getDescription() !== '') :
+        ?>
             <section class="box wf-100">
                 <div class="inner pAlignTable">
                     <div class="vC wf-100">
@@ -153,6 +143,24 @@ echo $this->getData('nav')->render(); ?>
                     </div>
                 <?php endif; ?>
             </section>
+            <?php endif; ?>
+
+            <?php
+                $tos = $element->getTo();
+                if ($c > 1 && \count($tos) > 0) : ?>
+                <section class="box wf-100">
+                    <div class="inner">
+                        <?= $this->getHtml('ForwardedTo') ?>
+                        <?php foreach ($tos as $to) : ?>
+                            <?php if ($to instanceof AccountRelation) : ?>
+                                <?= $this->printHtml($to->getRelation()->getName1()); ?>
+                            <?php elseif ($to instanceof GroupRelation) : ?>
+                                <?= $this->printHtml($to->getRelation()->getName()); ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 
@@ -187,7 +195,7 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= TaskStatus::DONE; ?>"<?= $task->getStatus() === TaskStatus::DONE ? ' selected' : ''?>><?= $this->getHtml('S5') ?>
                                 </select>
                         <tr><td><label for="iReceiver"><?= $this->getHtml('To') ?></label>
-                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', 'forward', true); ?>
+                        <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', 'to', true); ?>
                         <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
                         <tr><td><div class="ipt-wrap">
                                 <div class="ipt-first"><input type="text" id="iMedia" placeholder="&#xf15b; File"></div>

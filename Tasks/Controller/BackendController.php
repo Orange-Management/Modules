@@ -110,7 +110,7 @@ final class BackendController extends Controller
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Tasks/Theme/Backend/css/styles.css');
 
-        $task      = TaskMapper::get((int) $request->getData('id'));
+        $task      = TaskMapper::get((int) $request->getData('id'), RelationType::ALL, null, 5);
         $accountId = $request->getHeader()->getAccount();
 
         if (!($task->getCreatedBy()->getId() === $accountId

@@ -182,10 +182,6 @@ class TaskElement implements \JsonSerializable
     public function setCreatedBy($creator) : void
     {
         $this->createdBy = $creator;
-
-        if (empty($this->acc)) {
-            $this->addTo($this->createdBy);
-        }
     }
 
     /**
@@ -458,7 +454,7 @@ class TaskElement implements \JsonSerializable
     {
         if ($to instanceof Group) {
             $this->addGroupTo($to);
-        } elseif(($to instanceof Account) || \is_int($to)) {
+        } elseif (($to instanceof Account) || \is_int($to)) {
             $this->addAccountTo($to);
         }
     }
@@ -550,7 +546,7 @@ class TaskElement implements \JsonSerializable
     {
         if ($cc instanceof Group) {
             $this->addGroupCC($cc);
-        } elseif(($cc instanceof Account) || \is_int($cc)) {
+        } elseif (($cc instanceof Account) || \is_int($cc)) {
             $this->addAccountCC($cc);
         }
     }

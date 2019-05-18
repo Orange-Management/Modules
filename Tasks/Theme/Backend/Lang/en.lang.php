@@ -26,6 +26,7 @@ return ['Tasks' => [
     'Due/Priority'       => 'Due/Priority',
     'Forward'            => 'Forward',
     'Forwarded'          => 'Forwarded',
+    'ForwardedTo'        => 'Forwarded to',
     'From'               => 'From',
     'Group'              => 'Group',
     'History'            => 'History',

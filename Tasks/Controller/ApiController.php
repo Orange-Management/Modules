@@ -267,11 +267,11 @@ final class ApiController extends Controller
         }
 
         foreach ($tos as $to) {
-            $element->addTo($to);
+            $element->addTo((int) $to);
         }
 
         foreach ($ccs as $cc) {
-            $element->addCC($cc);
+            $element->addCC((int) $cc);
         }
 
         return $element;
