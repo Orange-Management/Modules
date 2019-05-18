@@ -62,14 +62,7 @@ echo $this->getData('nav')->render(); ?>
                 <span id="task-status-badge" class="floatRight nobreak tag task-status-<?= $this->printHtml($task->getStatus()); ?>">
                     <?= $this->getHtml('S' . $task->getStatus()) ?>
                 </span>
-                <div class="floatRight">
-                    <?php if ($task->getPriority() === TaskPriority::NONE) : ?>
-                        <?= $this->getHtml('Due') ?>: <?= $this->printHtml($task->getDue()->format('Y/m/d H:i')); ?>
-                    <?php else : ?>
-                        <?= $this->getHtml('Priority') ?>: <?= $this->getHtml('P' . $task->getPriority()) ?>
-                    <?php endif; ?>
-                </div>
-                <div><?= $this->getHtml('Created') ?> - <?= $this->printHtml($task->getCreatedAt()->format('Y/m/d H:i')); ?></div>
+                <div><?= $this->printHtml($task->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($task->getCreatedAt()->format('Y/m/d H:i')); ?></div>
             </div>
             <header>
                 <h1 data-tpl-text="/title" data-tpl-value="/title" data-value=""><?= $this->printHtml($task->getTitle()); ?></h1>
@@ -89,7 +82,11 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner" style="background: #efefef; border-top: 1px solid #dfdfdf;">
                 <div class="pAlignTable">
                     <div class="vC wf-100">
-                        <?= $this->getHtml('By') ?> <?= $this->printHtml($task->getCreatedBy()->getName1()); ?>
+                        <?php if ($task->getPriority() === TaskPriority::NONE) : ?>
+                            <?= $this->getHtml('Due') ?>: <?= $this->printHtml($task->getDue()->format('Y/m/d H:i')); ?>
+                        <?php else : ?>
+                            <?= $this->getHtml('Priority') ?>: <?= $this->getHtml('P' . $task->getPriority()) ?>
+                        <?php endif; ?>
                     </div>
                     <div class="vC">
                         <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
@@ -100,16 +97,14 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </section>
 
-        <div id="elements"
-            data-ui-content="#elements"
-            data-ui-element="#elements .taskelement-content"
-            data-tag="form">
+        <div id="elements">
             <!-- todo: this doesn't work because single taskelements cannot be identified somehow we need to work with ids of elements, implement a counter for the current element or implement a nearest() function instead of the this.closest() -->
             <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
             <template>
                 <div class="inner taskelement-content">
                     <!-- todo: handle different value/markdown paths how??? no idea -->
                     <!-- todo: bind js after adding template -->
+                    <!-- todo: adding this multiple times doesn't work because the id and tab names collide, this needs to be adjusted dynamically in js!!! how? no idea yet. -->
                     <?= $this->getData('editor')->render('task-edit'); ?>
                     <?= $this->getData('editor')->getData('text')->render(
                             'task-edit',
@@ -125,7 +120,10 @@ echo $this->getData('nav')->render(); ?>
             foreach ($elements as $key => $element) : $c++;
                 if ($element->getDescription() !== '') :
             ?>
-                <section class="box wf-100 taskelement">
+                <section id="taskelmenet-<?= $c; ?>" class="box wf-100 taskelement"
+                    data-ui-content="#elements"
+                    data-ui-element=".taskelement .taskelement-content"
+                    data-tag="form">
                     <div class="inner pAlignTable">
                         <div class="vC wf-100">
                             <?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?>
