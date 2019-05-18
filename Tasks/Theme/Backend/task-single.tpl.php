@@ -34,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-md-6 col-xs-12">
         <section id="task" class="box wf-100"
             data-ui-content=".inner"
-            data-ui-element="#task header, #task #task-content"
+            data-ui-element="#task header, #task .task-content"
             data-tag="form"
         >
             <div class="inner">
@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                     <header><h1><input type="text" data-tpl-text="/title" data-tpl-value="/title" data-value=""></h1></header>
                 </template>
                 <template>
-                    <div id="task-content" class="inner">
+                    <div class="inner task-content">
                         <!-- todo: handle different value/markdown paths how??? no idea -->
                         <!-- todo: bind js after adding template -->
                         <?= $this->getData('editor')->render('task-edit'); ?>
@@ -74,7 +74,7 @@ echo $this->getData('nav')->render(); ?>
             <header>
                 <h1 data-tpl-text="/title" data-tpl-value="/title" data-value=""><?= $this->printHtml($task->getTitle()); ?></h1>
             </header>
-            <div id="task-content" class="inner">
+            <div class="inner task-content">
                 <div data-tpl-text="/content" data-tpl-value="/content" data-value=""><?= $task->getDescription(); ?></div>
             </div>
 
@@ -100,68 +100,96 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </section>
 
-        <?php $c = 0;
-        foreach ($elements as $key => $element) : $c++;
-            if ($element->getDescription() !== '') :
-        ?>
-            <section class="box wf-100">
-                <div class="inner pAlignTable">
-                    <div class="vC wf-100">
-                        <?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?>
-                    </div>
-                    <span class="vC tag task-status-<?= $this->printHtml($element->getStatus()); ?>">
-                        <?= $this->getHtml('S' . $element->getStatus()) ?>
-                    </span>
+        <div id="elements"
+            data-ui-content="#elements"
+            data-ui-element="#elements .taskelement-content"
+            data-tag="form">
+            <!-- todo: this doesn't work because single taskelements cannot be identified somehow we need to work with ids of elements, implement a counter for the current element or implement a nearest() function instead of the this.closest() -->
+            <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
+            <template>
+                <div class="inner taskelement-content">
+                    <!-- todo: handle different value/markdown paths how??? no idea -->
+                    <!-- todo: bind js after adding template -->
+                    <?= $this->getData('editor')->render('task-edit'); ?>
+                    <?= $this->getData('editor')->getData('text')->render(
+                            'task-edit',
+                            'plain',
+                            'taskElementEdit',
+                            '', '',
+                            '/content', '/content'
+                        ); ?>
+                    <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                 </div>
-
-                <?php if ($element->getDescription() !== '') : ?>
-                    <div class="inner">
-                        <?= $element->getDescription(); ?>
+            </template>
+            <?php $c = 0;
+            foreach ($elements as $key => $element) : $c++;
+                if ($element->getDescription() !== '') :
+            ?>
+                <section class="box wf-100 taskelement">
+                    <div class="inner pAlignTable">
+                        <div class="vC wf-100">
+                            <?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?>
+                        </div>
+                        <span class="vC tag task-status-<?= $this->printHtml($element->getStatus()); ?>">
+                            <?= $this->getHtml('S' . $element->getStatus()) ?>
+                        </span>
                     </div>
-                <?php endif; ?>
 
-                <?php $elementMedia = $element->getMedia(); if (!empty($elementMedia)) : ?>
-                <div class="inner">
-                    <?php foreach ($elementMedia as $media) : ?>
-                        <span><?= $media->getName(); ?></span>
-                    <?php endforeach; ?>
-                </div>
-                <?php endif; ?>
+                    <?php if ($element->getDescription() !== '') : ?>
+                        <div class="inner taskelement-content">
+                            <div data-tpl-text="/content" data-tpl-value="/content" data-value=""><?= $element->getDescription(); ?></div>
+                        </div>
+                    <?php endif; ?>
 
-                <div class="inner pAlignTable" style="background: #efefef; border-top: 1px solid #dfdfdf;">
-                <?php if ($element->getStatus() !== TaskStatus::CANCELED
-                    || $element->getStatus() !== TaskStatus::DONE
-                    || $element->getStatus() !== TaskStatus::SUSPENDED
-                    || $c != $cElements
-                ) : ?>
-                    <div class="vC nobreak">
-                        <?php if ($element->getPriority() === TaskPriority::NONE) : ?>
-                            <?= $this->getHtml('Due') ?>: <?= $this->printHtml($element->getDue()->format('Y/m/d H:i')); ?>
-                        <?php else : ?>
-                            <?= $this->getHtml('Priority') ?>: <?= $this->getHtml('P' . $element->getPriority()) ?>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-            </section>
-            <?php endif; ?>
-
-            <?php
-                $tos = $element->getTo();
-                if ($c > 1 && \count($tos) > 0) : ?>
-                <section class="box wf-100">
+                    <?php $elementMedia = $element->getMedia(); if (!empty($elementMedia)) : ?>
                     <div class="inner">
-                        <?= $this->getHtml('ForwardedTo') ?>
-                        <?php foreach ($tos as $to) : ?>
-                            <?php if ($to instanceof AccountRelation) : ?>
-                                <?= $this->printHtml($to->getRelation()->getName1()); ?>
-                            <?php elseif ($to instanceof GroupRelation) : ?>
-                                <?= $this->printHtml($to->getRelation()->getName()); ?>
-                            <?php endif; ?>
+                        <?php foreach ($elementMedia as $media) : ?>
+                            <span><?= $media->getName(); ?></span>
                         <?php endforeach; ?>
                     </div>
+                    <?php endif; ?>
+
+                    <div class="inner pAlignTable" style="background: #efefef; border-top: 1px solid #dfdfdf;">
+                    <?php if ($element->getStatus() !== TaskStatus::CANCELED
+                        || $element->getStatus() !== TaskStatus::DONE
+                        || $element->getStatus() !== TaskStatus::SUSPENDED
+                        || $c != $cElements
+                    ) : ?>
+                        <div class="vC wf-100 nobreak">
+                            <?php if ($element->getPriority() === TaskPriority::NONE) : ?>
+                                <?= $this->getHtml('Due') ?>: <?= $this->printHtml($element->getDue()->format('Y/m/d H:i')); ?>
+                            <?php else : ?>
+                                <?= $this->getHtml('Priority') ?>: <?= $this->getHtml('P' . $element->getPriority()) ?>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="vC">
+                        <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
+                        <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
+                        <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
+                    </div>
                 </section>
-            <?php endif; ?>
-        <?php endforeach; ?>
+                <?php endif; ?>
+
+                <?php
+                    $tos = $element->getTo();
+                    if ($c > 1 && \count($tos) > 0) : ?>
+                    <section class="box wf-100">
+                        <div class="inner">
+                            <?= $this->getHtml('ForwardedTo') ?>
+                            <?php foreach ($tos as $to) : ?>
+                                <?php if ($to instanceof AccountRelation) : ?>
+                                    <?= $this->printHtml($to->getRelation()->getName1()); ?>
+                                <?php elseif ($to instanceof GroupRelation) : ?>
+                                    <?= $this->printHtml($to->getRelation()->getName()); ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <div class="col-md-6 col-xs-12">
