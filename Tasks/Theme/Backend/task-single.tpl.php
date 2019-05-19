@@ -42,7 +42,7 @@ echo $this->getData('nav')->render(); ?>
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
                 <template>
-                    <header><h1><input type="text" data-tpl-text="/title" data-tpl-value="/title" data-value=""></h1></header>
+                    <header><h1><input type="text" data-tpl-text="/title" data-tpl-value="/title" data-value="" name="title"></h1></header>
                 </template>
                 <template>
                     <div class="inner task-content">
@@ -90,11 +90,14 @@ echo $this->getData('nav')->render(); ?>
                             <?= $this->getHtml('Priority') ?>: <?= $this->getHtml('P' . $task->getPriority()) ?>
                         <?php endif; ?>
                     </div>
-                    <div class="vC">
-                        <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
-                        <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
-                        <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
-                    </div>
+
+                    <?php if ($this->request->getHeader()->getAccount() === $task->getCreatedBy()->getId()) : ?>
+                        <div class="vC">
+                            <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
+                            <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
+                            <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -171,12 +174,14 @@ echo $this->getData('nav')->render(); ?>
                         </div>
                     <?php endif; ?>
 
-                    <div class="vC">
-                        <input type="hidden" value="<?= $element->getId(); ?>" name="id">
-                        <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
-                        <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
-                        <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
-                    </div>
+                    <?php if ($this->request->getHeader()->getAccount() === $element->getCreatedBy()->getId()) : ?>
+                        <div class="vC">
+                            <input type="hidden" value="<?= $element->getId(); ?>" name="id">
+                            <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
+                            <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
+                            <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
+                        </div>
+                    <?php endif; ?>
                 </section>
                 <?php endif; ?>
 
