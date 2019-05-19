@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                                 <td class="wf-100"><?= $this->getHtml('Name'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
                         <tbody>
-                            <?php $c = 0; foreach ($accounts as $key => $value) : $c++; ?>
+                            <?php $c = 0; foreach ($accounts as $key => $value) : ++$c; ?>
                             <tr>
                                 <td><a href="#"><i class="fa fa-times"></i></a>
                                 <td><a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
@@ -126,7 +126,7 @@ echo $this->getData('nav')->render(); ?>
                                     </td>
                                 </tr>
                             </template>
-                            <?php $c = 0; foreach ($permissions as $key => $value) : $c++; $permission = $value->getPermission(); ?>
+                            <?php $c = 0; foreach ($permissions as $key => $value) : ++$c; $permission = $value->getPermission(); ?>
                             <tr>
                                 <td><a href="#"><i class="fa fa-times"></i></a>
                                 <td><a href="#"><i class="fa fa-cogs"></i></a>
@@ -212,7 +212,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100">Name
                         <tbody>
-                            <?php $c = 0; foreach ([] as $key => $value) : $c++; ?>
+                            <?php $c = 0; foreach ([] as $key => $value) : ++$c; ?>
                             <tr>
                                 <td><a href="#"><i class="fa fa-times"></i></a>
                                 <td>

@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $this->getHtml('Run') ?>
                 <tfoot>
                 <tbody>
-                <?php $c = 0; foreach ($jobs as $key => $job) : $c++;
+                <?php $c = 0; foreach ($jobs as $key => $job) : ++$c;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/job/single?{?}&id=' . $job->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($job->getStatus()); ?></a>

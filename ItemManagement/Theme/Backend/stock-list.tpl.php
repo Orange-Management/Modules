@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
                 <tr><td colspan="8">
                 <tbody>
-                <?php $c = 0; foreach ([] as $key => $value) : $c++;
+                <?php $c = 0; foreach ([] as $key => $value) : ++$c;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}business/department/profile?{?}&id=' . $value->getId()); ?>
                 <tr>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>

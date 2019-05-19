@@ -122,7 +122,7 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </template>
             <?php $c = 0; $previous = null;
-            foreach ($elements as $key => $element) : $c++;
+            foreach ($elements as $key => $element) : ++$c;
                 if ($element->getDescription() !== '') :
             ?>
                 <section id="taskelmenet-<?= $c; ?>" class="box wf-100 taskelement"

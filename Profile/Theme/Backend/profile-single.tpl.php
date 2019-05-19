@@ -10,6 +10,9 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+use phpOMS\Uri\UriFactory;
+use Modules\Media\Models\NullMedia;
+use Modules\Media\Models\Media;
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -46,10 +49,23 @@ echo $this->getData('nav')->render();
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
-                        <header><h1><span itemprop="familyName"><?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?></span>, <span itemprop="givenName"><?= $this->printHtml($account->getAccount()->getName1()); ?></span></h1></header>
+                        <header>
+                            <h1>
+                                <span itemprop="familyName">
+                                    <?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?>
+                                </span>,
+                                <span itemprop="givenName">
+                                    <?= $this->printHtml($account->getAccount()->getName1()); ?>
+                                </span>
+                            </h1>
+                        </header>
                         <div class="inner">
                             <!-- @formatter:off -->
-                                <span class="rf"><img class="m-profile rf" alt="<?= $this->getHtml('ProfileImage'); ?>" data-lazyload="<?= $account->getImage() instanceof \Modules\Media\Models\NullMedia ? \phpOMS\Uri\UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') : \phpOMS\Uri\UriFactory::build('{/prefix}' . $account->getImage()->getPath()); ?>">
+                                <span class="rf">
+                                    <img class="m-profile rf"
+                                        alt="<?= $this->getHtml('ProfileImage'); ?>"
+                                        data-lazyload="<?= $account->getImage() instanceof NullMedia ? UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') : UriFactory::build('{/prefix}' . $account->getImage()->getPath()); ?>"
+                                    >
                                 </span>
                                     <table class="list" style="table-layout: fixed">
                                         <tr>
@@ -105,7 +121,7 @@ echo $this->getData('nav')->render();
                         <header><h1><?= $this->getHtml('Visibility') ?></h1></header>
                         <div class="inner">
                             <p>Define which users and user groups can see your profile</p>
-                            <?= $this->getData('accGrpSelector')->render('iVisibility', true); ?>
+                            <?= $this->getData('accGrpSelector')->render('iVisibility', 'visibility', true); ?>
                         </div>
                     </section>
                 </div>
@@ -128,7 +144,7 @@ echo $this->getData('nav')->render();
                     <section class="box wf-100">
                         <header><h1><?= $this->getHtml('Localization'); ?></h1></header>
                         <div class="inner">
-                            <form id="fLocalization" name="fLocalization" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/settings/localization'); ?>" method="post">
+                            <form id="fLocalization" name="fLocalization" action="<?= UriFactory::build('{/api}admin/settings/localization'); ?>" method="post">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iDefaultLocalizations"><?= $this->getHtml('Defaults'); ?></label>

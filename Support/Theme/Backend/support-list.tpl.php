@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Created') ?>
                 <tfoot>
                 <tbody>
-                <?php $c = 0; foreach ($tickets as $key => $ticket) : $c++;
+                <?php $c = 0; foreach ($tickets as $key => $ticket) : ++$c;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}support/single?{?}&id=' . $ticket->getId());
                 $color = 'darkred';
                 if ($ticket->getTask()->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }

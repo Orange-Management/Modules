@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
             <tfoot>
                 <tr><td colspan="5">
             <tbody>
-                <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
+                <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : ++$c;
                     $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/group/settings?{?}&id=' . $value->getId());
                     $color = 'darkred';
                         if ($value->getStatus() === \phpOMS\Account\GroupStatus::ACTIVE) { $color = 'green'; }

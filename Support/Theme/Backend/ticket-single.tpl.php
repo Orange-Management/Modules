@@ -47,7 +47,7 @@ echo $this->getData('nav')->render(); ?>
         </section>
 
         <?php $c = 0;
-        foreach ($elements as $key => $element) : $c++;
+        foreach ($elements as $key => $element) : ++$c;
             if ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }
             elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::OPEN) { $color = 'darkblue'; }
             elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::WORKING) { $color = 'purple'; }

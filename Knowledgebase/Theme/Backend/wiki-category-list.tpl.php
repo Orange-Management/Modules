@@ -31,7 +31,7 @@ echo $this->getData('nav')->render();
                         <tfoot>
                 <tr><td colspan="2">
                         <tbody>
-                        <?php $c = 0; foreach ($categories as $key => $value) : $c++;
+                        <?php $c = 0; foreach ($categories as $key => $value) : ++$c;
                         $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>

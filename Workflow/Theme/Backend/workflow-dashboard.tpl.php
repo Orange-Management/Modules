@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
                 <td><?= $this->getHtml('Created') ?>
                 <tfoot>
                 <tbody>
-                <?php $c = 0; foreach ($workflows as $key => $workflow) : $c++;
+                <?php $c = 0; foreach ($workflows as $key => $workflow) : ++$c;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}task/single?{?}&id=' . $workflow->getId());
                 $color = 'darkred';
                 if ($workflow->getStatus() === \Modules\Workflow\Models\WorkflowStatus::DONE) { $color = 'green'; }

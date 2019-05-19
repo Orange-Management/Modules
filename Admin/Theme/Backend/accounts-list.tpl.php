@@ -33,7 +33,7 @@ echo $this->getData('nav')->render(); ?>
                         <tfoot>
                 <tr><td colspan="5">
                         <tbody>
-                        <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : $c++;
+                        <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : ++$c;
                         $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId());
                         $color = 'darkred';
                         if ($value->getStatus() === AccountStatus::ACTIVE) { $color = 'green'; }

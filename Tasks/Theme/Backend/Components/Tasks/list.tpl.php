@@ -6,7 +6,7 @@
         <td class="full"><?= $this->getHtml('Title', 'Tasks') ?>
     <tfoot>
     <tbody>
-    <?php $c = 0; foreach ($this->tasks as $key => $task) : $c++;
+    <?php $c = 0; foreach ($this->tasks as $key => $task) : ++$c;
     $url = \phpOMS\Uri\UriFactory::build('{/prefix}task/single?{?}&id=' . $task->getId());
     $color = 'darkred';
     if ($task->getStatus() === \Modules\Tasks\Models\TaskStatus::DONE) { $color = 'green'; }

@@ -35,7 +35,7 @@ echo $this->getData('nav')->render(); ?>
                 <tfoot>
                 <tbody>
                 <?php
-                    $c = 0; foreach ($tasks as $key => $task) : $c++;
+                    $c = 0; foreach ($tasks as $key => $task) : ++$c;
                     $url = \phpOMS\Uri\UriFactory::build('{/prefix}task/single?{?}&id=' . $task->getId());
                 ?>
                     <tr data-href="<?= $url; ?>">

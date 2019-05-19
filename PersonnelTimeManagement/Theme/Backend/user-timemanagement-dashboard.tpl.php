@@ -27,7 +27,7 @@ echo $this->getData('nav')->render();
         <tfoot>
         <tr><td colspan="4">
         <tbody>
-        <?php $c = 0; foreach ($employees as $key => $value) : $c++;
+        <?php $c = 0; foreach ($employees as $key => $value) : ++$c;
             $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/group/settings?{?}&id=' . $value->getId()); ?>
             <tr>
                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
