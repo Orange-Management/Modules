@@ -172,8 +172,8 @@ final class ApiController extends Controller
     {
         $task = TaskMapper::get((int) ($request->getData('id')));
         $task->setTitle((string) ($request->getData('title') ?? $task->getTitle()));
-        $task->setDescription(Markdown::parse((string) ($request->getData('description') ?? $task->getDescriptionRaw())));
-        $task->setDescriptionRaw((string) ($request->getData('description') ?? $task->getDescriptionRaw()));
+        $task->setDescription(Markdown::parse((string) ($request->getData('plain') ?? $task->getDescriptionRaw())));
+        $task->setDescriptionRaw((string) ($request->getData('plain') ?? $task->getDescriptionRaw()));
         $task->setDue(new \DateTime((string) ($request->getData('due') ?? $task->getDue()->format('Y-m-d H:i:s'))));
         $task->setStatus((int) ($request->getData('status') ?? $task->getStatus()));
         $task->setType((int) ($request->getData('type') ?? $task->getType()));
@@ -333,8 +333,8 @@ final class ApiController extends Controller
         $element = TaskElementMapper::get((int) ($request->getData('id')));
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? $element->getDue()->format('Y-m-d H:i:s'))));
         $element->setStatus((int) ($request->getData('status') ?? $element->getStatus()));
-        $element->setDescription(Markdown::parse((string) ($request->getData('description') ?? $element->getDescriptionRaw())));
-        $element->setDescriptionRaw((string) ($request->getData('description') ?? $element->getDescriptionRaw()));
+        $element->setDescription(Markdown::parse((string) ($request->getData('plain') ?? $element->getDescriptionRaw())));
+        $element->setDescriptionRaw((string) ($request->getData('plain') ?? $element->getDescriptionRaw()));
 
         $tos = $request->getData('to') ?? $request->getHeader()->getAccount();
         if (!\is_array($tos)) {

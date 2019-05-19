@@ -36,7 +36,8 @@ echo $this->getData('nav')->render(); ?>
             data-ui-content=".inner"
             data-ui-element="#task header, #task .task-content"
             data-tag="form"
-        >
+            data-method="POST"
+            data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}task?{?}&csrf={$CSRF}'); ?>">
             <div class="inner">
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
@@ -47,6 +48,7 @@ echo $this->getData('nav')->render(); ?>
                     <div class="inner task-content">
                         <!-- todo: handle different value/markdown paths how??? no idea -->
                         <!-- todo: bind js after adding template -->
+                        <!-- todo: adding this multiple times doesn't work because the id and tab names collide, this needs to be adjusted dynamically in js!!! how? no idea yet. -->
                         <?= $this->getData('editor')->render('task-edit'); ?>
                         <?= $this->getData('editor')->getData('text')->render(
                             'task-edit',
@@ -123,7 +125,9 @@ echo $this->getData('nav')->render(); ?>
                 <section id="taskelmenet-<?= $c; ?>" class="box wf-100 taskelement"
                     data-ui-content="#elements"
                     data-ui-element=".taskelement .taskelement-content"
-                    data-tag="form">
+                    data-tag="form"
+                    data-method="POST"
+                    data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}task/element?{?}&csrf={$CSRF}'); ?>">
                     <div class="inner pAlignTable">
                         <div class="vC wf-100">
                             <?= $this->printHtml($element->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?>
@@ -168,6 +172,7 @@ echo $this->getData('nav')->render(); ?>
                     <?php endif; ?>
 
                     <div class="vC">
+                        <input type="hidden" value="<?= $element->getId(); ?>" name="id">
                         <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
                         <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
                         <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>

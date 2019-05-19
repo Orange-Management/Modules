@@ -19,7 +19,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
-            <table class="table fixed darkred">
+            <table class="default fixed">
                 <caption><?= $this->getHtml('Audits') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <colgroup>
                     <col style="width: 100px">
