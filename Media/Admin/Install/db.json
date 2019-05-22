@@ -42,6 +42,11 @@
                 "type": "VARCHAR(255)",
                 "null": false
             },
+            "media_virtual": {
+                "name": "media_virtual",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
             "media_absolute": {
                 "name": "media_absolute",
                 "type": "TINYINT",

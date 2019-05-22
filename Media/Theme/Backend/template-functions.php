@@ -22,7 +22,7 @@ $fileIconFunction = function (int $extensionType) : string
         return 'file-image-o';
     } elseif ($extensionType === ExtensionType::SPREADSHEET) {
         return 'file-excel-o';
-    } elseif ($extensionType === 'collection') {
+    } elseif ($extensionType === ExtensionType::DIRECTORY) {
         return 'folder-open-o';
     }
 

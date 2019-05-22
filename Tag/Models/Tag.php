@@ -49,7 +49,75 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $color = '000000';
+    private $color = '00000000';
+
+    /**
+     * Creator.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected $createdBy = 0;
+
+    /**
+     * Tag type.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private $type = TagType::SINGLE;
+
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since  1.0.0
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set created by
+     *
+     * @param mixed $id Created by
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setCreatedBy($id) : void
+    {
+        $this->createdBy = $id;
+    }
+
+    /**
+     * Get type.
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
+    public function getType() : int
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set type.
+     *
+     * @param int $type Tag type
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setType(int $type = TagType::SINGLE) : void
+    {
+        $this->type = $type;
+    }
 
     /**
      * Get color

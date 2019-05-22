@@ -82,6 +82,14 @@ class Media implements \JsonSerializable
     protected $path = '';
 
     /**
+     * Virtual path.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected $virtualPath = '/';
+
+    /**
      * Is path absolute?
      *
      * @var bool
@@ -186,6 +194,16 @@ class Media implements \JsonSerializable
         return $this->path;
     }
 
+     /**
+     * @return string
+     *
+     * @since  1.0.0
+     */
+    public function getVirtualPath() : string
+    {
+        return $this->virtualPath;
+    }
+
     /**
      * @return string
      *
@@ -270,6 +288,18 @@ class Media implements \JsonSerializable
     public function setPath(string $path) : void
     {
         $this->path = \str_replace('\\', '/', $path);
+    }
+
+    /**
+     * @param string $path $filepath
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     */
+    public function setVirtualPath(string $path) : void
+    {
+        $this->virtualPath = \str_replace('\\', '/', $path);
     }
 
     /**

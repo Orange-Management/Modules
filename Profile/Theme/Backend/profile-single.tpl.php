@@ -48,13 +48,15 @@ echo $this->getData('nav')->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <section itemscope itemtype="http://schema.org/Person" class="box wf-100">
+                    <section itemscope itemtype="http://schema.org/Person" itemtype="http://schema.org/Organization" class="box wf-100">
                         <header>
                             <h1>
-                                <span itemprop="familyName">
-                                    <?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?>
-                                </span>,
-                                <span itemprop="givenName">
+                                <?php if (!empty($account->getAccount()->getName3()) || !empty($account->getAccount()->getName2())) : ?>
+                                    <span itemprop="familyName" itemprop="legalName">
+                                        <?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?>
+                                    </span>,
+                                <?php endif; ?>
+                                <span itemprop="givenName" itemprop="legalName">
                                     <?= $this->printHtml($account->getAccount()->getName1()); ?>
                                 </span>
                             </h1>
@@ -64,6 +66,7 @@ echo $this->getData('nav')->render();
                                 <span class="rf">
                                     <img class="m-profile rf"
                                         alt="<?= $this->getHtml('ProfileImage'); ?>"
+                                        itemprop="logo"
                                         data-lazyload="<?= $account->getImage() instanceof NullMedia ? UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') : UriFactory::build('{/prefix}' . $account->getImage()->getPath()); ?>"
                                     >
                                 </span>
@@ -73,7 +76,7 @@ echo $this->getData('nav')->render();
                                             <td itemprop="jobTitle">Sailor
                                         <tr>
                                             <th><?= $this->getHtml('Birthday') ?>
-                                            <td itemprop="birthDate">06.09.1934
+                                            <td itemprop="birthDate" itemprop="foundingDate">06.09.1934
                                         <tr>
                                             <th><?= $this->getHtml('Ranks') ?>
                                             <td itemprop="memberOf">Gosling

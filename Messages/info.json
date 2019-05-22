@@ -17,7 +17,8 @@
     "description": "Messages module.",
     "directory": "Messages",
     "dependencies": {
-        "Admin": "1.0.0"
+        "Admin": "1.0.0",
+        "Tag": "1.0.0"
     },
     "providing": {
         "Navigation": "*"

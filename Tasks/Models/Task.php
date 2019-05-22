@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace Modules\Tasks\Models;
 
 use Modules\Calendar\Models\Schedule;
+use Modules\Tag\Models\Tag;
+use Modules\Tag\Models\NullTag;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
@@ -141,6 +143,14 @@ class Task implements \JsonSerializable
     protected $taskElements = [];
 
     /**
+     * Task elements.
+     *
+     * @var Tag[]
+     * @since 1.0.0
+     */
+    protected $tags = [];
+
+    /**
      * Schedule
      *
      * @var Schedule
@@ -262,6 +272,26 @@ class Task implements \JsonSerializable
         \end($this->taskElements);
         $key = (int) \key($this->taskElements);
         \reset($this->taskElements);
+
+        return $key;
+    }
+
+    /**
+     * Adding new tag.
+     *
+     * @param Tag $tag Tag
+     *
+     * @return int
+     *
+     * @since  1.0.0
+     */
+    public function addTag(Tag $tag) : int
+    {
+        $this->tags[] = $tag;
+
+        \end($this->tags);
+        $key = (int) \key($this->tags);
+        \reset($this->tags);
 
         return $key;
     }
@@ -648,6 +678,52 @@ class Task implements \JsonSerializable
     }
 
     /**
+     * Remove Tag from list.
+     *
+     * @param int $id Tag
+     *
+     * @return bool
+     *
+     * @since  1.0.0
+     */
+    public function removeTag($id) : bool
+    {
+        if (isset($this->tags[$id])) {
+            unset($this->tags[$id]);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Get task elements.
+     *
+     * @return Tag[]
+     *
+     * @since  1.0.0
+     */
+    public function getTags() : array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Get task elements.
+     *
+     * @param int $id Element id
+     *
+     * @return Tag
+     *
+     * @since  1.0.0
+     */
+    public function getTag(int $id) : Tag
+    {
+        return $this->tags[$id] ?? new NullTag();
+    }
+
+    /**
      * Get task elements.
      *
      * @return TaskElement[]
@@ -728,6 +804,7 @@ class Task implements \JsonSerializable
             'due'         => $this->due->format('Y-m-d H:i:s'),
             'done'        => (!isset($this->done) ? null : $this->done->format('Y-m-d H:i:s')),
             'elements'    => $this->taskElements,
+            'tags'        => $this->tags,
         ];
     }
 

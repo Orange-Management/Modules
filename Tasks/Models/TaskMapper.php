@@ -74,6 +74,12 @@ final class TaskMapper extends DataMapperAbstract
             'dst'    => 'task_media_src',
             'src'    => 'task_media_dst',
         ],
+        'tags'        => [
+            'mapper' => MediaMapper::class,
+            'table'  => 'task_tag',
+            'dst'    => 'task_tag_src',
+            'src'    => 'task_tag_dst',
+        ],
     ];
 
     /**

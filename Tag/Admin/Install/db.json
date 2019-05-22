@@ -18,6 +18,18 @@
                 "name": "tag_color",
                 "type": "VARCHAR(8)",
                 "null": false
+            },
+            "tag_type": {
+                "name": "tag_type",
+                "type": "TINYINT(1)",
+                "null": false
+            },
+            "tag_created_by": {
+                "name": "tag_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
             }
         }
     }
