@@ -22,7 +22,7 @@ return [
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::MODIFY,
-                'state' => PermissionState::Tag,
+                'state' => PermissionState::TAG,
             ],
         ],
         [
