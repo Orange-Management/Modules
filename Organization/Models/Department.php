@@ -83,6 +83,18 @@ class Department implements ArrayableInterface, \JsonSerializable
     protected $descriptionRaw = '';
 
     /**
+     * Constructor
+     *
+     * @param string $name Department name
+     *
+     * @since  1.0.0
+     */
+    public function __construct(string $name = '')
+    {
+        $this->setName($name);
+    }
+
+    /**
      * Get id
      *
      * @return int

@@ -71,7 +71,7 @@ final class BackendController extends Controller
      */
     public function getView(RequestAbstract $request, ResponseAbstract $response) : NavigationView
     {
-        $navObj = \Modules\Navigation\Models\Navigation::getInstance(
+        $navObj = Navigation::getInstance(
             $request,
             $this->app->accountManager->get($request->getHeader()->getAccount()),
             $this->app->dbPool,

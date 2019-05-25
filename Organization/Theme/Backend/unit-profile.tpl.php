@@ -42,7 +42,9 @@ echo $this->getData('nav')->render(); ?>
                             $unit->getDescriptionRaw(),
                             $unit->getDescription()
                         ); ?>
-                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
+                        <tr><td>
+                            <input id="iUnitId" name="id" type="hidden" value="<?= (int) $unit->getId(); ?>">
+                            <input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                     </table>
                 </form>
             </div>

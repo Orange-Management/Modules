@@ -10,6 +10,7 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
+use Modules\Organization\Models\UnitMapper;
 
 /**
  * @var \phpOMS\Views\View $this
@@ -50,7 +51,11 @@ $temperatures = \phpOMS\Utils\Converter\TemperatureType::getConstants();
                                 <table class="layout wf-100">
                                     <tbody>
                                         <tr><td><label for="iOname"><?= $this->getHtml('OrganizationName'); ?></label>
-                                        <tr><td><input id="iOname" name="settings_1000000009" type="text" value="<?= $this->printHtml($settings[1000000009]); ?>" placeholder="&#xf12e; Money Bin" required>
+                                        <tr><td>
+                                            <select id="iOname" name="settings_1000000009">
+                                                <?php $unit = UnitMapper::get((int) $settings[1000000009]); ?>
+                                                    <option value="<?= $this->printHtml($unit->getId()); ?>"><?= $this->printHtml($unit->getName()); ?>
+                                            </select>
                                         <tr><td><input id="iSubmitGeneral" name="submitGeneral" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
                             </form>

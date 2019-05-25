@@ -17,7 +17,6 @@
     "description": "Address module.",
     "directory": "Address",
     "dependencies": {
-        "PaymentInformation": "*"
     },
     "providing": {
     },

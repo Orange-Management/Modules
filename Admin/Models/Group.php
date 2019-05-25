@@ -59,11 +59,14 @@ class Group extends \phpOMS\Account\Group
     /**
      * Constructor
      *
+     * @param string $name Group name
+     *
      * @since  1.0.0
      */
-    public function __construct()
+    public function __construct(string $name = '')
     {
         $this->createdAt = new \DateTime();
+        $this->setName($name);
     }
 
     /**

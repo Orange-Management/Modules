@@ -17,7 +17,6 @@
     "description": "Contact module.",
     "directory": "Contact",
     "dependencies": {
-        "PaymentInformation": "*"
     },
     "providing": {
     },

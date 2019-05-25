@@ -163,7 +163,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', 1);
-        $request->setData('description', 'This is a changed description');
+        $request->setData('plain', 'This is a changed description');
 
         $this->module->apiTaskElementSet($request, $response);
         $this->module->apiTaskElementGet($request, $response);

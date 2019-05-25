@@ -15,7 +15,7 @@
         "website": "www.spl1nes.com"
     },
     "description": "Tag module.",
-    "directory": "News",
+    "directory": "Tag",
     "dependencies": {
         "Admin": "1.0.0",
         "Home": "1.0.0"
