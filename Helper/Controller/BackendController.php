@@ -167,10 +167,6 @@ final class BackendController extends Controller
                 $tcoll['template'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.css')) {
                 $tcoll['css'] = $tMedia;
-
-                /** @var \phpOMS\Model\Html\Head $head */
-                $head = $response->get('Content')->getData('head');
-                $head->addAsset(AssetType::CSS, $request->getUri()->getBase() . $tMedia->getPath());
             } elseif (StringUtils::endsWith($lowerPath, '.js')) {
                 $tcoll['js'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.sqlite') || StringUtils::endsWith($lowerPath, '.db')) {
