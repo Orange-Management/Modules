@@ -250,24 +250,13 @@ final class ApiController extends Controller
      */
     private function createMediaCollectionFromRequest(RequestAbstract $request) : Collection
     {
-        if ($request->getData('media-list') === null) {
+        if (empty($request->getData('media-list'))) {
             return new NullCollection();
         }
 
-        $files = $request->getData('media-list');
-        if (\is_array($files)) {
-            if (\stripos($files[0] ?? '', '[') === 0) {
-                $files = \array_merge($files, \json_decode($files[0], true));
-                unset($files[0]);
-            } elseif ($files[0] === '') {
-                unset($files[0]);
-            }
-        } elseif (\is_string($files)) {
-            $files = \json_decode($files, true);
-        }
-
-        if (!\is_array($files)) {
-            $files = [$files];
+        $files = $request->getDataList('media-list');
+        foreach ($files as &$file) {
+            $file = (int) $file;
         }
 
         // TODO: make sure this user has permissions for provided files
