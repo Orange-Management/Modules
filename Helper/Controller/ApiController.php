@@ -266,6 +266,10 @@ final class ApiController extends Controller
             $files = \json_decode($files, true);
         }
 
+        if (!\is_array($files)) {
+            $files = [$files];
+        }
+
         // TODO: make sure this user has permissions for provided files
 
         /* Create collection */
