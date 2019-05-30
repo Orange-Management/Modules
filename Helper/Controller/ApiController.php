@@ -268,6 +268,7 @@ final class ApiController extends Controller
         $mediaCollection->setDescriptionRaw((string) ($request->getData('description') ?? ''));
         $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
         $mediaCollection->setSources($files);
+        $mediaCollection->setVirtualPath('/Modules/Helper');
 
         CollectionMapper::create($mediaCollection);
 

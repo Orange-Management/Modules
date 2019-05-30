@@ -117,7 +117,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
-        $media = MediaMapper::getNewest(25);
+        $media = MediaMapper::getByVirtualPath('/');
         $view->addData('media', $media);
 
         return $view;
@@ -139,9 +139,18 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Media/Theme/Backend/media-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
-        $media = MediaMapper::get($request->getData('id'));
+        $media = MediaMapper::get((int) $request->getData('id'));
         if ($media->getExtension() === 'collection') {
-            $media = CollectionMapper::get($media->getId());
+            //$media = CollectionMapper::get($media->getId());
+            $media = MediaMapper::getByVirtualPath(
+                $media->getVirtualPath() . ($media->getVirtualPath() !== '/' ? '/' : '') . $media->getName()
+            );
+
+            $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
+
+            // todo: currently the $media list only contains elements from the path but it should also include all
+            // the collection elements which might be the same but maybe some are not in the same virtualPath!!!
+            // the *unique* merge should be done through the ids!
         }
 
         $view->addData('media', $media);

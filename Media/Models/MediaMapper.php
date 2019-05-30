@@ -86,4 +86,33 @@ class MediaMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $primaryField = 'media_id';
+
+    /**
+     * Get media based on virtual path.
+     *
+     * The virtual path is equivalent to the directory path on a file system.
+     *
+     * A media model also has a file path, this however doesn't have to be the same as the virtual path
+     * and in fact most of the time it is different. This is because the location on a hard drive or web
+     * drive should not have any impact on the media file/media structure in the application.
+     *
+     * As a result media files are structured by virutal path in the app, by file path on the file system
+     * and by Collections which can have sub-collections as well. Collections allow to reference files
+     * in a different virtual path and are therfore similar to "symlinks", except that they don't reference
+     * a file but create a new virtual media model which groups other media models together in a new virtual
+     * path if so desired without deleting or moving the orginal media files.
+     *
+     * @param string $virtualPath Virtual path
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
+    public static function getByVirtualPath(string $virtualPath = '/') : array
+    {
+        $query = self::getQuery();
+        $query->where(self::$table . '.media_virtual', '=', $virtualPath);
+
+        return self::getAllByQuery($query);
+    }
 }

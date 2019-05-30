@@ -22,7 +22,8 @@
         "Tools": "1.0.0"
     },
     "providing": {
-        "Navigation": "*"
+        "Navigation": "*",
+        "Media": "*"
     },
     "load": [
         {

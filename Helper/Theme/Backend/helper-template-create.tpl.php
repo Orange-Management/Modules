@@ -48,6 +48,6 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <?= $this->getData('media-upload')->render('helper-template-create'); ?>
+        <?= $this->getData('media-upload')->render('helper-template-create', '/Modules/Helper'); ?>
     </div>
 </div>

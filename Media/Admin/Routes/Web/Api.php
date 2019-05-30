@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/media$' => [
+    '^.*/media(\?+.*|$)' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpload',
             'verb' => RouteVerb::SET,

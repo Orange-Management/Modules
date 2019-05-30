@@ -79,7 +79,8 @@ final class ApiController extends Controller
             $request->getData('name') ?? '',
             $request->getFiles(),
             $request->getHeader()->getAccount(),
-            (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files')
+            (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files'),
+            (string) ($request->getData('virtualPath') ?? '/')
         );
 
         $ids = [];
@@ -100,7 +101,13 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public function uploadFiles(string $name, array $files, int $account, string $basePath = 'Modules/Media/Files') : array
+    public function uploadFiles(
+        string $name,
+        array $files,
+        int $account,
+        string $basePath = 'Modules/Media/Files',
+        string $virtualPath = '/'
+    ) : array
     {
         $mediaCreated = [];
 
@@ -109,7 +116,7 @@ final class ApiController extends Controller
             $upload->setOutputDir(self::createMediaPath($basePath));
 
             $status       = $upload->upload($files, $name);
-            $mediaCreated = self::createDbEntries($status, $account);
+            $mediaCreated = self::createDbEntries($status, $account, $virtualPath);
         }
 
         return $mediaCreated;
@@ -138,12 +145,12 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public static function createDbEntries(array $status, int $account) : array
+    public static function createDbEntries(array $status, int $account, string $virtualPath = '/') : array
     {
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
-            if (($created = self::createDbEntry($uFile, $account)) !== null) {
+            if (($created = self::createDbEntry($uFile, $account, $virtualPath)) !== null) {
                 $mediaCreated[] = $created;
             }
         }
@@ -151,7 +158,7 @@ final class ApiController extends Controller
         return $mediaCreated;
     }
 
-    public static function createDbEntry(array $status, int $account) : ?Media
+    public static function createDbEntry(array $status, int $account, string $virtualPath = '/') : ?Media
     {
         $media = null;
 
@@ -163,6 +170,7 @@ final class ApiController extends Controller
             $media->setSize($status['size']);
             $media->setCreatedBy($account);
             $media->setExtension($status['extension']);
+            $media->setVirtualPath($virtualPath);
 
             MediaMapper::create($media);
         }

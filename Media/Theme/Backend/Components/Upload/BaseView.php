@@ -32,6 +32,8 @@ class BaseView extends View
 {
     protected $form = '';
 
+    protected $virtualPath = '';
+
     /**
      * {@inheritdoc}
      */
@@ -46,7 +48,8 @@ class BaseView extends View
      */
     public function render(...$data) : string
     {
-        $this->form = $data[0];
+        $this->form        = $data[0];
+        $this->virtualPath = $data[1] ?? '/';
         return parent::render();
     }
 }
