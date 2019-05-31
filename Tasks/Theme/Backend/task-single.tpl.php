@@ -187,13 +187,15 @@ echo $this->getData('nav')->render(); ?>
 
                 <?php
                     $tos = $element->getTo();
-                    if ($c > 1 && \count($tos) > 0) : ?>
+                    if (\count($tos) > 1
+                        || $tos[0]->getRelation()->getId() !== $task->getCreatedBy()->getId()
+                    ) : ?>
                     <section class="box wf-100">
                         <div class="inner">
                             <?= $this->getHtml('ForwardedTo') ?>
                             <?php foreach ($tos as $to) : ?>
                                 <?php if ($to instanceof AccountRelation) : ?>
-                                    <?= $this->printHtml($to->getRelation()->getName1()); ?>
+                                    <a href="<?= phpOMS\Uri\UriFactory::build('{/prefix}profile/single?{?}&id=' . $to->getRelation()->getId()) ?>"><?= $this->printHtml($to->getRelation()->getName1()); ?></a>
                                 <?php elseif ($to instanceof GroupRelation) : ?>
                                     <?= $this->printHtml($to->getRelation()->getName()); ?>
                                 <?php endif; ?>

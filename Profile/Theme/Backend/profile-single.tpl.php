@@ -53,8 +53,7 @@ echo $this->getData('nav')->render();
                             <h1>
                                 <?php if (!empty($account->getAccount()->getName3()) || !empty($account->getAccount()->getName2())) : ?>
                                     <span itemprop="familyName" itemprop="legalName">
-                                        <?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?>
-                                    </span>,
+                                        <?= $this->printHtml(empty($account->getAccount()->getName3()) ? $account->getAccount()->getName2() : $account->getAccount()->getName3()); ?></span>,
                                 <?php endif; ?>
                                 <span itemprop="givenName" itemprop="legalName">
                                     <?= $this->printHtml($account->getAccount()->getName1()); ?>
