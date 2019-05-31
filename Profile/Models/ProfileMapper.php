@@ -35,10 +35,10 @@ final class ProfileMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static $columns = [
-        'profile_account_id'       => ['name' => 'profile_account_id', 'type' => 'int', 'internal' => 'id'],
-        'profile_account_image'    => ['name' => 'profile_account_image', 'type' => 'int', 'internal' => 'image', 'annotations' => ['gdpr' => true]],
+        'profile_account_id'       => ['name' => 'profile_account_id',       'type' => 'int',      'internal' => 'id'],
+        'profile_account_image'    => ['name' => 'profile_account_image',    'type' => 'int',      'internal' => 'image',    'annotations' => ['gdpr' => true]],
         'profile_account_birthday' => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday', 'annotations' => ['gdpr' => true]],
-        'profile_account_account'  => ['name' => 'profile_account_account', 'type' => 'int', 'internal' => 'account'],
+        'profile_account_account'  => ['name' => 'profile_account_account',  'type' => 'int',      'internal' => 'account'],
     ];
 
     /**

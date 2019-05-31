@@ -297,6 +297,7 @@ final class TaskMapper extends DataMapperAbstract
             ->innerJoin(AccountRelationMapper::getTable())
                 ->on(TaskElementMapper::getTable() . '.task_element_id', '=', AccountRelationMapper::getTable() . '.task_account_task_element')
             ->where(AccountRelationMapper::getTable() . '.task_account_account', '=', $user)
+            ->orWhere(self::getTable() . '.task_created_by', '=', $user)
             ->orderBy(TaskElementMapper::getTable() . '.' . TaskElementMapper::getCreatedAt(), 'DESC');
 
         return self::getAllByQuery($query);
