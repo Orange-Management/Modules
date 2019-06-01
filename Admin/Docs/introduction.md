@@ -4,7 +4,7 @@ The **Admin** module is one of the essential core modules that is always require
 
 ## Target Group
 
-The target group for this module is everyone, since every application must have this module. However mainly administrators should have access permissions to this module since core application settings can be changed. 
+The target group for this module is everyone, since every application must have this module. However mainly administrators should have access permissions to this module since core application settings can be changed.
 
 # Setup
 
@@ -45,7 +45,7 @@ Accounts can have the following types:
 * Person
 * Organization
 
-This allows organizations to have an account and also normal users. It's also possible to assign an account to an organization which allows for permission management in one organization. 
+This allows organizations to have an account and also normal users. It's also possible to assign an account to an organization which allows for permission management in one organization.
 
 The use case for this could be one customer account for a company and user accounts assigned to the company which each have different permissions within the company. The purchase department of a company e.g. could be able to see their orders while only the financial department of that company is allowed to see the accounts payable of their company.
 
@@ -68,7 +68,7 @@ Groups have a numeric ID larger 0. Every module has its own permission/group ran
 
 ## Module Management
 
-The module management allows to install, update, delete and configure modules. The configuration of every module can be different depending on the functionality of the module. 
+The module management allows to install, update, delete and configure modules. The configuration of every module can be different depending on the functionality of the module.
 
 Modules can be installed either manually by uploading the module directly to the `Modules/` directory or via online installation. The online installation requires the php module `curl`.
 
