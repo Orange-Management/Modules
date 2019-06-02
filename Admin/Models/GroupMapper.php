@@ -85,4 +85,23 @@ final class GroupMapper extends DataMapperAbstract
             'src'    => 'account_group_account',
         ],
     ];
+
+    /**
+     * Get groups which reference a certain module
+     *
+     * @param string $module Module
+     *
+     * @return array
+     *
+     * @since  1.0.0
+     */
+    public static function getPermissionForModule(string $module) : array
+    {
+        $query = self::getQuery();
+        $query->innerJoin(GroupPermissionMapper::getTable())
+            ->on(self::$table . '.group_id', '=', GroupPermissionMapper::getTable() . '.group_permission_group')
+            ->where(GroupPermissionMapper::getTable() . '.group_permission_module', '=', $module);
+
+        return self::getAllByQuery($query);
+    }
 }

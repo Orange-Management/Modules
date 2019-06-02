@@ -100,22 +100,25 @@ if ($nav !== null) {
     </div>
 
     <div class="col-xs-12 col-md-4">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Groups'); ?></h1></header>
-
-            <div class="inner">
-
-            </div>
-        </section>
-    </div>
-
-    <div class="col-xs-12 col-md-4">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
-
-            <div class="inner">
-
-            </div>
-        </section>
+        <table id="iModuleGroupList" class="box table default wf-100">
+            <caption><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></caption>
+            <thead>
+                <tr>
+                    <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td>Type<i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                    <td class="wf-100"><?= $this->getHtml('Name'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+            <tbody>
+                <?php $c = 0; $groupPermissions = $this->getData('groupPermissions');
+                foreach ($groupPermissions as $key => $value) : ++$c;
+                $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/group/settings?{?}&id=' . $value->getId()); ?>
+                <tr data-href="<?= $url; ?>">
+                    <td><a href="<?= $url; ?>"><i class="fa fa-times"></i></a>
+                    <td><a href="<?= $url; ?>">Group</a>
+                    <td><a href="<?= $url; ?>"><?= $value->getName(); ?></a>
+                <?php endforeach; ?>
+                <?php if ($c === 0) : ?>
+                <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                <?php endif; ?>
+        </table>
     </div>
 </div>

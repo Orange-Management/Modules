@@ -311,6 +311,9 @@ final class BackendController extends Controller
             ));
         }
 
+        $groupPermission = GroupMapper::getPermissionForModule($id);
+        $view->setData('groupPermissions', $groupPermission);
+
         return $view;
     }
 }
