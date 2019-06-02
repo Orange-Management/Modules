@@ -46,9 +46,9 @@ final class BackendController extends Controller
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
         $view->addData('panels', [
-            $this->app->moduleManager->get('News')->viewDashboard($request, $response, $data),
-            $this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data),
-            $this->app->moduleManager->get('Calendar')->viewDashboard($request, $response, $data),
+            //$this->app->moduleManager->get('News')->viewDashboard($request, $response, $data),
+            //$this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data),
+            //$this->app->moduleManager->get('Calendar')->viewDashboard($request, $response, $data),
         ]);
 
         return $view;
