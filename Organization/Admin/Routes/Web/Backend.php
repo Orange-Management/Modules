@@ -6,6 +6,17 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
+    '^.*/organization/organigram.*$' => [
+        [
+            'dest' => '\Modules\Organization\Controller\BackendController:viewOrganigram',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::ORGANIGRAM,
+            ],
+        ],
+    ],
     '^.*/organization/unit/list.*$' => [
         [
             'dest' => '\Modules\Organization\Controller\BackendController:viewUnitList',

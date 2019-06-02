@@ -10,10 +10,10 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-return ['Navigation' => [
-    'Departments'  => 'Departments',
-    'Organigram'   => 'Organigram',
-    'Organization' => 'Organization',
-    'Positions'    => 'Positions',
-    'Units'        => 'Units',
-]];
+/**
+ * @var \phpOMS\Views\View $this
+ */
+
+?>
+<div class="row">asdf
+</div>

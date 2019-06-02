@@ -49,7 +49,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $view->addData('list:elements', UnitMapper::getAll());
 
@@ -71,15 +71,33 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-profile');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
         $view->addData('unit-selector', $selectorView);
-
         $view->addData('unit', UnitMapper::get((int) $request->getData('id')));
 
         $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
         $view->addData('editor', $editor);
+
+        return $view;
+    }
+
+    /**
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since  1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewOrganigram(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+
+        $view->setTemplate('/Modules/Organization/Theme/Backend/organigram');
 
         return $view;
     }
@@ -99,7 +117,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004702001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
         $view->addData('unit-selector', $selectorView);
@@ -125,7 +143,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         $view->addData('list:elements', DepartmentMapper::getAll());
 
@@ -147,7 +165,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-profile');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
         $view->addData('department-selector', $selectorView);
@@ -178,7 +196,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/department-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\DepartmentTagSelector\DepartmentTagSelectorView($this->app, $request, $response);
         $view->addData('department-selector', $selectorView);
@@ -207,7 +225,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004705001, $request, $response));
 
         $view->addData('list:elements', PositionMapper::getAll());
 
@@ -229,7 +247,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-profile');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004705001, $request, $response));
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\PositionTagSelector\PositionTagSelectorView($this->app, $request, $response);
         $view->addData('position-selector', $selectorView);
@@ -260,7 +278,7 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/position-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004704001, $request, $response));
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004705001, $request, $response));
 
         $selectorView = new \Modules\Organization\Theme\Backend\Components\PositionTagSelector\PositionTagSelectorView($this->app, $request, $response);
         $view->addData('position-selector', $selectorView);
