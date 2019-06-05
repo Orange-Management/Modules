@@ -22,7 +22,7 @@ use phpOMS\System\MimeType;
 use phpOMS\Message\NotificationLevel;
 
 /**
- * Api controller for the tasks module.
+ * Api controller
  *
  * @package    Modules\Search
  * @license    OMS License 1.0
