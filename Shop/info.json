@@ -1,0 +1,38 @@
+{
+    "name": {
+        "id": 1007700000,
+        "internal": "Shop",
+        "external": "Shop"
+    },
+    "category": "General",
+    "version": "1.0.0",
+    "requirements": {
+        "phpOMS": "1.0.0",
+        "phpOMS-db": "1.0.0"
+    },
+    "creator": {
+        "name": "Orange Management",
+        "website": "www.spl1nes.com"
+    },
+    "description": "The search module.",
+    "directory": "Shop",
+    "dependencies": {
+        "Admin": "1.0.0"
+    },
+    "providing": {
+    },
+    "load": [
+        {
+            "pid": [
+                "/"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "Shop",
+            "from": "Admin"
+        }
+    ],
+    "lang": false,
+    "js": true,
+    "css": false
+}
