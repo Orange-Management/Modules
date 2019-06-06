@@ -832,7 +832,7 @@ final class ApiController extends Controller
 
         $updateFilesJson = Rest::request($request)->getJsonData();
 
-        /** @var array<string, array<string, array>> */
+        /** @var array<string, array<string, mixed>> */
         $toUpdate = [];
 
         foreach ($updateFilesJson as $file) {
@@ -853,9 +853,9 @@ final class ApiController extends Controller
             $remoteVersion  = \substr($file[1], 0, -5);
 
             if (Version::compare($currentVersion, $remoteVersion) < 0) {
-                $toUpdate[$name][$remoteVersion] = $file;
+                $toUpdate[$name[0]][$remoteVersion] = $file;
 
-                \uksort($toUpdate[$name], [Version::class, 'compare']);
+                \uksort($toUpdate[$name[0]], [Version::class, 'compare']);
             }
         }
 
@@ -908,7 +908,12 @@ final class ApiController extends Controller
 
     private function runUpdate(string $updateFile) : void
     {
-        $package    = \json_decode(\file_get_contents($updateFile), true);
+        $updateContent = \file_get_contents($updateFile);
+        if ($updateContent === false) {
+            return;
+        }
+
+        $package    = \json_decode($updateContent, true);
         $updatePath = \dirname($updateFile);
         $subPath    = $package['type'] === 'Modules/' ? $package['name'] : '';
 

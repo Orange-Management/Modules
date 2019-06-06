@@ -144,7 +144,7 @@ class Template implements \JsonSerializable
     public function getNewestReport() : Report
     {
         if (!empty($this->reports)) {
-            return \end($this->reports());
+            return \end($this->reports);
         }
 
         return new NullReport();
@@ -283,7 +283,7 @@ class Template implements \JsonSerializable
     }
 
     /**
-     * @return \array
+     * @return array
      *
      * @since  1.0.0
      */
