@@ -4,7 +4,7 @@
  *
  * PHP Version 7.2
  *
- * @package    Modules\Shop\Admin\Install
+ * @package    Modules\CMS\Admin\Install
  * @copyright  Dennis Eichhorn
  * @license    OMS License 1.0
  * @version    1.0.0
@@ -12,14 +12,14 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Shop\Admin\Install;
+namespace Modules\CMS\Admin\Install;
 
 use phpOMS\DataStorage\Database\DatabasePool;
 
 /**
  * Navigation class.
  *
- * @package    Modules\Shop\Admin\Install
+ * @package    Modules\CMS\Admin\Install
  * @license    OMS License 1.0
  * @link       http://website.orange-management.de
  * @since      1.0.0

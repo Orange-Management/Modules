@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1007701001,
+        "pid": "/",
+        "type": 2,
+        "subtype": 0,
+        "name": "Shop",
+        "uri": null,
+        "target": "self",
+        "icon": "fa fa-wrench",
+        "order": 15,
+        "from": "Shop",
+        "permission": {
+            "permission": 2,
+            "type": null,
+            "element": null
+        },
+        "parent": 0,
+        "children": []
+    }
+]
