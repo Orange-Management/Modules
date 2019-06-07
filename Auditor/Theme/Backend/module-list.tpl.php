@@ -14,6 +14,8 @@
  * @var \phpOMS\Views\View $this
  */
 
+$modules = $this->getData('modules');
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -25,18 +27,18 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
-                    <td class="wf-100"><?= $this->getHtml('Date') ?>
                 <tfoot>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="2">
                 <tbody>
-                <?php $count = 0; foreach ($audits as $key => $audit) : ++$count;
-                $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/audit/single?{?}&id=' . $audit->getId()); ?>
+                <?php $count = 0; foreach ($modules as $key => $module) : ++$count;
+                $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/audit/single?{?}&id=' . $module['name']['id']); ?>
                     <tr data-href="<?= $url; ?>">
-                        <td>
+                        <td><?= $this->printHtml($module['name']['id']); ?>
+                        <td><?= $this->printHtml($module['name']['external']); ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

@@ -14,9 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Auditor\Controller;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Auditor\Models\AuditMapper;
 
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -91,8 +93,8 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Auditor/Theme/Backend/module-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
-        $list = AuditMapper::getNewest(50);
-        $view->setData('audits', $list);
+        $list = $this->app->moduleManager->getAllModules();
+        $view->setData('modules', $list);
 
         return $view;
     }
@@ -135,8 +137,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Auditor/Theme/Backend/account-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
-        $list = AuditMapper::getNewest(50);
-        $view->setData('audits', $list);
+        $view->setData('accounts', AccountMapper::getNewest(50, null, RelationType::NONE));
 
         return $view;
     }
