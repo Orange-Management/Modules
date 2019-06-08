@@ -15,8 +15,11 @@ declare(strict_types=1);
 namespace Modules\Organization\Controller;
 
 use Modules\Organization\Models\DepartmentMapper;
+use Modules\Organization\Models\Department;
 use Modules\Organization\Models\PositionMapper;
+use Modules\Organization\Models\Position;
 use Modules\Organization\Models\UnitMapper;
+use Modules\Organization\Models\Unit;
 
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
@@ -99,7 +102,51 @@ final class BackendController extends Controller
 
         $view->setTemplate('/Modules/Organization/Theme/Backend/organigram');
 
+        $units    = UnitMapper::getAll();
+        $unitTree = $this->createOrgTree($units);
+        $view->setData('unitTree', $unitTree);
+
+        $departments = DepartmentMapper::getAll();
+        $depTree     = $this->createOrgTree($departments);
+        $view->setData('departmentTree', $depTree);
+
+        $positions = PositionMapper::getAll();
+        $posTree   = $this->createOrgTree($positions);
+        $view->setData('positionTree', $posTree);
+
         return $view;
+    }
+
+    private function createOrgTree($components) : array
+    {
+        $tree = [];
+        foreach ($components as $component) {
+            $ref = null;
+            if ($component instanceof Department) {
+                $ref = $component->getUnit()->getId();
+            } elseif ($component instanceof Position) {
+                $ref = $component->getDepartment()->getId();
+            }
+
+            if (!isset($tree[$ref][$component->getId()])) {
+                $tree[$ref][$component->getId()] = ['obj' => null, 'children' => [], 'index' => 0];
+            }
+
+            $tree[$ref][$component->getId()]['obj'] = $component;
+
+            $parent = $component->getParent()->getId();
+            if (!($component instanceof Position) // parent could be in different department then ignore
+                || $component->getParent()->getDepartment()->getId() === $component->getDepartment()->getId()
+            ) {
+                if (!isset($tree[$ref][$parent])) {
+                    $tree[$ref][$parent] = ['obj' => null, 'children' => [], 'index' => 0];
+                }
+
+                $tree[$ref][$parent]['children'][] = &$tree[$ref][$component->getId()];
+            }
+        }
+
+        return $tree;
     }
 
     /**
