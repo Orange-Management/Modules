@@ -61,7 +61,7 @@ $unitRoot = $unitTree[null][0]['children'];
                                                     }
 
                                                     ?>
-                                                    <?php $c = 0; $toClosePos = 0; while (!empty($posEle)) { $toClosePos = 0; ?>
+                                                    <?php $c = 0; $toClosePos = 0; while (!empty($posEle)) {  ?>
                                                         <li><ul>
                                                             <li><?= $posEle['obj']->getName(); ?>
                                                             <li><ul>
@@ -71,7 +71,7 @@ $unitRoot = $unitTree[null][0]['children'];
                                                             $parentPos = $posEle['obj'];
 
                                                             do {
-                                                                ++$toClosePos;
+
                                                                 $parentPos   = $parentPos->getParent();
                                                                 $parentPosId = $parentPos->getId();
                                                             } while ($parentPosId !== \array_keys($posTree[$depId])[0]
@@ -83,7 +83,7 @@ $unitRoot = $unitTree[null][0]['children'];
 
                                                         $posEle = [];
                                                     } // if no more children go back to parrent?>
-                                                    <?= \str_repeat('</ul>', $toClosePos); ?>
+                                                    <?= \str_repeat('</ul>', $toClosePos*2); ?>
                                                 <?php
                                                     if (isset($posTree[$depId][$parentPosId ?? 0])) {
                                                     $posEle = $posTree[$depId][$parentPosId]['children'][$posTree[$depId][$parentPosId]['index'] + $c + 1] ?? [];
@@ -93,7 +93,7 @@ $unitRoot = $unitTree[null][0]['children'];
                                             <?php endforeach; ?>
                                         </ul>
 
-                                        <div class="row">
+                                        <div class="row" class="childdepartment">
                                 <?php
                                     // find the closest parent who has un-rendered children
                                     $toCloseDep = 0;
