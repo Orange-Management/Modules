@@ -94,7 +94,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiUnitGet($request, $response);
 
-        self::assertEquals('Orange Management', $response->get('')['response']->getName());
+        self::assertEquals('Orange-Management', $response->get('')['response']->getName());
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
@@ -105,12 +105,12 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
-        $request->setData('name', 'Orange-Management');
+        $request->setData('name', 'OMS');
 
         $this->module->apiUnitSet($request, $response);
         $this->module->apiUnitGet($request, $response);
 
-        self::assertEquals('Orange-Management', $response->get('')['response']->getName());
+        self::assertEquals('OMS', $response->get('')['response']->getName());
     }
 
     public function testApiUnitCreateDelete() : void

@@ -111,15 +111,6 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('id', '1000000019');
         $this->module->apiSettingsGet($request, $response);
         self::assertEquals('US', $response->get('')['response']);
-
-        $request2 = new Request(new Http(''));
-        $request2->getHeader()->setAccount(1);
-        $request2->setData('settings_1000000019', 'DE');
-        $this->module->apiSettingsSet($request2, $response);
-
-        $request2->setData('id', '1000000019');
-        $this->module->apiSettingsGet($request2, $response);
-        self::assertEquals('DE', $response->get('')['response']);
     }
 
     public function testApiGroupGet() : void

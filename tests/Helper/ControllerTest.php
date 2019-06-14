@@ -144,7 +144,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('name', 'Test template');
         $request->setData('description', 'Template description');
         $request->setData('datatype', TemplateDataType::OTHER);
-        $request->setData('media-list', \json_encode($ids));
+        $request->setData('media-list', \implode(',', $ids));
         $request->getHeader()->setAccount(1);
 
         $response = new Response(new Localization());
@@ -214,7 +214,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $request = new Request(new Http(''));
         $request->setData('name', 'Test report');
         $request->setData('template', 1);
-        $request->setData('media-list', \json_encode($ids));
+        $request->setData('media-list', \implode(',', $ids));
         $request->getHeader()->setAccount(1);
 
         $response = new Response(new Localization());
