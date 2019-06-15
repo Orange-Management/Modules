@@ -1,0 +1,195 @@
+{
+  "id": "3043757f-163e-49bd-ab5b-b7eb855956f4",
+  "version": "2.0",
+  "name": "Tasks",
+  "url": "http://127.0.0.1",
+  "tests": [{
+    "id": "40f10400-f840-463e-8112-a9464e20239b",
+    "name": "Create Task",
+    "commands": [{
+      "id": "069531fb-c35a-4de0-a830-3180c8910f7a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51c7fc32-f3c0-49d7-b613-3a2d8c5c97aa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1218x855",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55379c1d-b200-4460-953d-a735e5a5bf16",
+      "comment": "",
+      "command": "click",
+      "target": "css=#t-nav a[href=\"task/dashboard\"]",
+      "targets": [
+        ["css=li:nth-child(4) .link", "css:finder"],
+        ["xpath=//ul[@id='t-nav']/li[4]/a/span", "xpath:idRelative"],
+        ["xpath=//li[4]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Tasks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76d882d5-e4af-48fa-9152-41780a63594c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Create",
+      "targets": [
+        ["linkText=Create", "linkText"],
+        ["css=.nav-top > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Create')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'task/create')]", "xpath:href"],
+        ["xpath=//div/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Create')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "73a875a4-a72f-4654-a217-fe2ca4b781a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=iiReceiver",
+      "targets": [
+        ["id=iiReceiver", "id"],
+        ["css=#iiReceiver", "css:finder"],
+        ["xpath=//input[@id='iiReceiver']", "xpath:attributes"],
+        ["xpath=//div[@id='iReceiver']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3909e97f-9cd3-4d3a-9e8f-cbfdd3f367f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=iiReceiver",
+      "targets": [
+        ["id=iiReceiver", "id"],
+        ["css=#iiReceiver", "css:finder"],
+        ["xpath=//input[@id='iiReceiver']", "xpath:attributes"],
+        ["xpath=//div[@id='iReceiver']/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "c6380adf-878a-41ba-a177-d46c252ac820",
+      "comment": "",
+      "command": "click",
+      "target": "css=tbody > tr:nth-child(1) > td:nth-child(3)",
+      "targets": [
+        ["css=tbody > tr:nth-child(1) > td:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='iReceiver-dropdown']/table/tbody/tr/td[3]", "xpath:idRelative"],
+        ["xpath=//tbody/tr/td[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "92956ab4-b9e3-4e71-9422-eedde614a809",
+      "comment": "",
+      "command": "click",
+      "target": "id=iTitle",
+      "targets": [
+        ["id=iTitle", "id"],
+        ["name=title", "name"],
+        ["css=#iTitle", "css:finder"],
+        ["xpath=//input[@id='iTitle']", "xpath:attributes"],
+        ["xpath=//form[@id='fTask']/table/tbody/tr[10]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[10]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8576812f-223a-42c5-86c2-20e59322fcc6",
+      "comment": "",
+      "command": "type",
+      "target": "id=iTitle",
+      "targets": [
+        ["id=iTitle", "id"],
+        ["name=title", "name"],
+        ["css=#iTitle", "css:finder"],
+        ["xpath=//input[@id='iTitle']", "xpath:attributes"],
+        ["xpath=//form[@id='fTask']/table/tbody/tr[10]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[10]/td/input", "xpath:position"]
+      ],
+      "value": "Selenium Task"
+    }, {
+      "id": "fa370c1c-9c4d-4d8c-a443-bd67350d2d61",
+      "comment": "",
+      "command": "click",
+      "target": "name=plain",
+      "targets": [
+        ["name=plain", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='plain']", "xpath:attributes"],
+        ["xpath=//div[@id='task-editor']/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e6d7a03-c619-41bf-a9db-281fdcfc34f7",
+      "comment": "",
+      "command": "type",
+      "target": "name=plain",
+      "targets": [
+        ["name=plain", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='plain']", "xpath:attributes"],
+        ["xpath=//div[@id='task-editor']/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": " This is a Selenium Task"
+    }, {
+      "id": "48330cc9-770c-4767-bfaa-e5b31302899e",
+      "comment": "",
+      "command": "click",
+      "target": "id=iCreateSubmit",
+      "targets": [
+        ["css=tr:nth-child(14) input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Create']", "xpath:attributes"],
+        ["xpath=//form[@id='fTask']/table/tbody/tr[14]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[14]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0438a34f-26fd-4f27-8f40-89340422c887",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List",
+      "targets": [
+        ["linkText=List", "linkText"],
+        ["css=.nav-top > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'List')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'task/dashboard')])[2]", "xpath:href"],
+        ["xpath=//div/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6a56bed-7447-4e63-abf4-365361b942ee",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Selenium Task",
+      "targets": [
+        ["linkText=2019-06-15 13:29", "linkText"],
+        ["css=tr:nth-child(1) > td:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'2019-06-15 13:29')]", "xpath:link"],
+        ["xpath=//table[@id='taskList']/tbody/tr/td[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'task/single?id=40')])[2]", "xpath:href"],
+        ["xpath=//td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2019-06-15 13:29')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "b6e138a0-7972-48bc-8b42-589aa6617b9e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["40f10400-f840-463e-8112-a9464e20239b"]
+  }],
+  "urls": ["http://127.0.0.1/"],
+  "plugins": []
+}

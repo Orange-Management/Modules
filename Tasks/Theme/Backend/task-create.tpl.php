@@ -50,7 +50,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><?= $this->getData('editor')->render('task-editor'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor', 'plain', 'fTask'); ?>
                         <tr><td>
-                            <input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                            <input id="iCreateSubmit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                             <input type="hidden" name="type" value="<?= $this->printHtml(TaskType::SINGLE); ?>">
                     </table>
                 </form>
