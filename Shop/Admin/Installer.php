@@ -17,9 +17,6 @@ namespace Modules\Shop\Admin;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
-use phpOMS\System\File\PathException;
-use phpOMS\System\File\PermissionException;
-use phpOMS\Utils\Parser\Php\ArrayParser;
 use phpOMS\System\File\Local\Directory;
 
 /**

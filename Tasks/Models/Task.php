@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\Tasks\Models;
 
 use Modules\Calendar\Models\Schedule;
-use Modules\Tag\Models\Tag;
 use Modules\Tag\Models\NullTag;
+use Modules\Tag\Models\Tag;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**

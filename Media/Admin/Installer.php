@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\Media\Admin;
 
-use phpOMS\Module\InstallerAbstract;
-
-use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\System\File\PathException;
 use Modules\Media\Models\Collection;
+
 use Modules\Media\Models\CollectionMapper;
+use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\Module\InstallerAbstract;
+use phpOMS\System\File\PathException;
 
 /**
  * Installer class.

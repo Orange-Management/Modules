@@ -15,11 +15,11 @@ declare(strict_types=1);
 namespace Modules\Search\Controller;
 
 use phpOMS\ApplicationAbstract;
-use phpOMS\Router\Router;
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Router\Router;
 use phpOMS\System\MimeType;
-use phpOMS\Message\NotificationLevel;
 
 /**
  * Api controller

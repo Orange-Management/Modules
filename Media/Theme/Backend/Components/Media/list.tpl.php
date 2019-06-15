@@ -1,7 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 use phpOMS\System\File\ExtensionType;
 use phpOMS\System\File\FileUtils;
-use phpOMS\Uri\UriFactory;
+
 ?>
 <div class="box wf-100">
     <table class="default">

@@ -21,12 +21,10 @@ use Modules\Helper\Models\TemplateMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Theme\Backend\Components\Upload\BaseView;
 
-use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Html\Head;
 use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
 

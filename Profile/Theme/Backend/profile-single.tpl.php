@@ -10,9 +10,9 @@
  * @version    1.0.0
  * @link       http://website.orange-management.de
  */
-use phpOMS\Uri\UriFactory;
 use Modules\Media\Models\NullMedia;
-use Modules\Media\Models\Media;
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View $this
  */

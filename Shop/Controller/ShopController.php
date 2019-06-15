@@ -14,13 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\Shop\Controller;
 
-use phpOMS\ApplicationAbstract;
-use phpOMS\Router\Router;
-use phpOMS\Message\RequestAbstract;
-use phpOMS\Message\ResponseAbstract;
-use phpOMS\System\MimeType;
-use phpOMS\Message\NotificationLevel;
-
 /**
  * Shop controller.
  *

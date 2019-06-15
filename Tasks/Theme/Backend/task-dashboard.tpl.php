@@ -11,7 +11,6 @@
  * @link       http://website.orange-management.de
  */
 
- use Modules\Tasks\Models\TaskStatus;
  use Modules\Tasks\Models\TaskPriority;
 
  /**
