@@ -1,16 +1,18 @@
+import { Markdown } from '../../../jsOMS/Utils/Parser/Markdown.js';
+
 export class Editor {
     constructor (id)
     {
-        this.id     = id;
-        this.editor = document.getElementById(id);
+        this.id       = id;
+        this.editor   = document.getElementById(id);
+        this.markdown = new Markdown.Converter({extensions: [], sanitize: true});
     };
 
     bind ()
     {
         const editorButtons = document.querySelectorAll('#' + this.id + '-tools .editor-button'),
-            editorTitle     = this.editor.getElementsByClassName('editor-title')[0],
-            editorContent   = this.editor.getElementsByClassName('editor-content')[0],
-            editorPreview   = this.editor.getElementsByClassName('editor-preview')[0],
+            editorContent   = this.editor.getElementsByTagName('textarea')[0],
+            editorPreview   = this.editor.getElementsByTagName('article')[0],
             length          = editorButtons.length,
             self            = this;
 
@@ -20,6 +22,10 @@ export class Editor {
                 self.toolsButton(this, event);
             });
         }
+
+        editorContent.addEventListener('change', function() {
+            editorPreview.innerHTML = self.markdown.makeHtml(editorContent.value);
+        })
     };
 
     toolsButton (e, event)

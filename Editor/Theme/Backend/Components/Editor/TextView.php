@@ -47,39 +47,39 @@ class TextView extends View
         $this->setTemplate('/Modules/Editor/Theme/Backend/Components/Editor/inline-editor');
     }
 
-    public function getId() : string
+    public function renderId() : string
     {
-        return $this->id;
+        return $this->printHtml($this->id);
     }
 
-    public function getName() : string
+    public function renderName() : string
     {
-        return $this->name;
+        return $this->printHtml($this->name);
     }
 
-    public function getForm() : string
+    public function renderForm() : string
     {
-        return $this->form;
+        return $this->printHtml($this->form);
     }
 
-    public function getPreview() : string
+    public function renderPreview() : string
     {
         return $this->preview;
     }
 
-    public function getPlain() : string
+    public function renderPlain() : string
     {
-        return $this->plain;
+        return $this->printHtml($this->plain);
     }
 
-    public function getTplText() : string
+    public function renderTplText() : string
     {
-        return $this->tplText;
+        return $this->printHtml($this->tplText);
     }
 
-    public function getTplValue() : string
+    public function renderTplValue() : string
     {
-        return $this->tplValue;
+        return $this->printHtml($this->tplValue);
     }
 
     /**

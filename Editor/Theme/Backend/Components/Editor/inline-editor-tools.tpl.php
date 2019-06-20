@@ -1,5 +1,5 @@
 <!-- todo: here is a bug! Somehow this causes the main flex to not work properly (example tasks and click edit and make windows smaller to see the nav side bar freak out) somehow the overflow-x is messing something up. -->
-<div id="<?= $this->printHtml($this->getId()); ?>" class="slider click">
+<div id="<?= $this->renderId(); ?>" class="slider click">
     <ul class="h-list">
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-undo"></i>
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-repeat"></i>

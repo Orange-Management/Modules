@@ -53,7 +53,7 @@ echo $this->getData('nav')->render(); ?>
                             'plain',
                             'taskElementEdit',
                             '', '',
-                            '/content', '/content'
+                            '/content', '{%}'
                         ); ?>
                         <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                     </div>
@@ -68,7 +68,7 @@ echo $this->getData('nav')->render(); ?>
                 <h1 data-tpl-text="/title" data-tpl-value="/title" data-value=""><?= $this->printHtml($task->getTitle()); ?></h1>
             </header>
             <div class="inner task-content">
-                <div data-tpl-text="/content" data-tpl-value="/content" data-value=""><?= $task->getDescription(); ?></div>
+                <article data-tpl-text="/content" data-tpl-value="{%}" data-value=""><?= $task->getDescription(); ?></article>
             </div>
 
             <?php if (!empty($taskMedia)) : ?>
@@ -114,7 +114,7 @@ echo $this->getData('nav')->render(); ?>
                             'plain',
                             'taskElementEdit',
                             '', '',
-                            '/content', '/content'
+                            '/content', '{%}'
                         ); ?>
                     <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                 </div>
@@ -140,7 +140,7 @@ echo $this->getData('nav')->render(); ?>
 
                     <?php if ($element->getDescription() !== '') : ?>
                         <div class="inner taskelement-content">
-                            <div data-tpl-text="/content" data-tpl-value="/content" data-value=""><?= $element->getDescription(); ?></div>
+                            <article data-tpl-text="/content" data-tpl-value="{%}" data-value=""><?= $element->getDescription(); ?></article>
                         </div>
                     <?php endif; ?>
 

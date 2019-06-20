@@ -47,9 +47,9 @@ class BaseView extends View
         $this->addData('text', $view);
     }
 
-    public function getId() : string
+    public function renderId() : string
     {
-        return $this->id;
+        return $this->printHtml($this->id);
     }
 
     /**

@@ -1,26 +1,26 @@
-<div id="<?= $this->printHtml($this->getId()); ?>" class="tabview tab-2 m-editor">
+<div id="<?= $this->renderId(); ?>" class="tabview tab-2 m-editor">
     <ul class="tab-links">
-        <li><label for="<?= $this->printHtml($this->getId()); ?>-c-tab-1"><?= $this->getHtml('Text', 'Editor'); ?></label>
-        <li><label for="<?= $this->printHtml($this->getId()); ?>-c-tab-2"><?= $this->getHtml('Preview', 'Editor'); ?></label>
+        <li><label for="<?= $this->renderId(); ?>-c-tab-1"><?= $this->getHtml('Text', 'Editor'); ?></label>
+        <li><label for="<?= $this->renderId(); ?>-c-tab-2"><?= $this->getHtml('Preview', 'Editor'); ?></label>
     </ul>
     <div class="tab-content">
-        <input type="radio" id="<?= $this->printHtml($this->getId()); ?>-c-tab-1" name="tabular-1" checked>
+        <input type="radio" id="<?= $this->renderId(); ?>-c-tab-1" name="tabular-1" checked>
         <div class="tab">
             <textarea
                 style="height: 300px"
                 placeholder="&#xf040;"
-                name="<?= $this->printHtml($this->getName()); ?>"
-                form="<?= $this->printHtml($this->getForm()); ?>"
-                data-tpl-text="<?= $this->printHtml($this->getTplText()); ?>"
-                data-tpl-value="<?= $this->printHtml($this->getTplValue()); ?>">
-                <?= $this->printHtml($this->getPlain()); ?>
-            </textarea><input type="hidden" id="<?= $this->printHtml($this->getId()); ?>-parsed">
+                name="<?= $this->renderName(); ?>"
+                form="<?= $this->renderForm(); ?>"
+                data-tpl-text="<?= $this->renderTplText(); ?>"
+                data-tpl-value="<?= $this->renderTplValue(); ?>">
+                <?= $this->renderPlain(); ?>
+            </textarea><input type="hidden" id="<?= $this->renderId(); ?>-parsed">
         </div>
 
-        <input type="radio" id="<?= $this->printHtml($this->getId()); ?>-c-tab-2" name="tabular-1">
+        <input type="radio" id="<?= $this->renderId(); ?>-c-tab-2" name="tabular-1">
         <div class="tab">
             <section class="box wf-100">
-                <article><?= $this->getPreview(); ?></article>
+                <article data-tpl-text="<?= $this->renderTplText(); ?>" data-tpl-value="<?= $this->renderTplValue(); ?>"><?= $this->renderPreview(); ?></article>
             </section>
         </div>
     </div>
