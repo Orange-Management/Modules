@@ -142,7 +142,7 @@ class InterfaceManager
      *
      * @return void
      *
-     * @throws PathException this exception is thrown in case the info file path doesn't exist
+     * @throws PathException This exception is thrown in case the info file path doesn't exist
      *
      * @since  1.0.0
      */
@@ -160,6 +160,8 @@ class InterfaceManager
      * Update info file
      *
      * @return void
+     *
+     * @throws PathException This exception is thrown in case the info file path doesn't exist
      *
      * @since  1.0.0
      */
@@ -180,6 +182,8 @@ class InterfaceManager
      * @param string $delim Delimiter of path
      *
      * @return void
+     *
+     * @throws \InvalidArgumentException This exception is thrown if the data is not scalar, array or jsonSerializable
      *
      * @since  1.0.0
      */

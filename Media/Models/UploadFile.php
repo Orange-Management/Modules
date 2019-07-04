@@ -204,7 +204,7 @@ class UploadFile
      *
      * @return string
      *
-     * @throws \Exception
+     * @throws \Exception This exception is thrown if the file couldn't be created
      *
      * @since  1.0.0
      */
