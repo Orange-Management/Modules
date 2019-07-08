@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-return [
+<?php return [
     '^:help .*$' => [
         0 => [
             'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
@@ -45,6 +44,33 @@ return [
             ],
         ],
         5 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        6 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        7 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        8 => [
             'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
             'verb' => 16,
             'permission' => [
@@ -107,6 +133,33 @@ return [
                 'state' => 2,
             ],
         ],
+        6 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        7 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        8 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
     ],
     '^:help :dev .*$' => [
         0 => [
@@ -161,6 +214,33 @@ return [
                 'state' => 3,
             ],
         ],
+        6 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 3,
+            ],
+        ],
+        7 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 3,
+            ],
+        ],
+        8 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 3,
+            ],
+        ],
     ],
     '^:help :module .*$' => [
         0 => [
@@ -207,6 +287,33 @@ return [
             ],
         ],
         5 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        6 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        7 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        8 => [
             'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
             'verb' => 16,
             'permission' => [

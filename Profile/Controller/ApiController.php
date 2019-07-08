@@ -78,7 +78,7 @@ final class ApiController extends Controller
             return false;
         }
 
-        $this->createModel($request, $profile, ProfileMapper::class, 'profile');
+        $this->createModel($request->getHeader()->getAccount(), $profile, ProfileMapper::class, 'profile');
 
         return true;
     }

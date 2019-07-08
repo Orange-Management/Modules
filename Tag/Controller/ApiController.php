@@ -113,7 +113,7 @@ final class ApiController extends Controller
         }
 
         $tag = $this->createTagFromRequest($request);
-        $this->createModel($request, $tag, TagMapper::class, 'tag');
+        $this->createModel($request->getHeader()->getAccount(), $tag, TagMapper::class, 'tag');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Tag', 'Tag successfully created', $tag);
     }
 

@@ -77,7 +77,7 @@ final class ApiController extends Controller
         }
 
         $doc = $this->createDocFromRequest($request);
-        $this->createModel($request, $doc, EditorDocMapper::class, 'doc');
+        $this->createModel($request->getHeader()->getAccount(), $doc, EditorDocMapper::class, 'doc');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully created', $doc);
     }
 

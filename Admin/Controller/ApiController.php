@@ -212,7 +212,7 @@ final class ApiController extends Controller
         }
 
         $group = $this->createGroupFromRequest($request);
-        $this->createModel($request, $group, GroupMapper::class, 'group');
+        $this->createModel($request->getHeader()->getAccount(), $group, GroupMapper::class, 'group');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully created', $group);
     }
 
@@ -411,7 +411,7 @@ final class ApiController extends Controller
         }
 
         $account = $this->createAccountFromRequest($request);
-        $this->createModel($request, $account, AccountMapper::class, 'account');
+        $this->createModel($request->getHeader()->getAccount(), $account, AccountMapper::class, 'account');
         $this->createProfileForAccount($account, $request);
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully created', $account);
     }
@@ -635,7 +635,7 @@ final class ApiController extends Controller
             return;
         }
 
-        $this->createModel($request, $permission, GroupPermissionMapper::class, 'group-permission');
+        $this->createModel($request->getHeader()->getAccount(), $permission, GroupPermissionMapper::class, 'group-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group permission successfully created', $permission);
     }
 
@@ -668,8 +668,25 @@ final class ApiController extends Controller
             return;
         }
 
-        $this->createModel($request, $permission, AccountPermissionMapper::class, 'account-permission');
+        $this->createModel($request->getHeader()->getAccount(), $permission, AccountPermissionMapper::class, 'account-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account permission successfully created', $permission);
+    }
+
+    /**
+     * Api method to add a permission to a account-model combination
+     *
+     * @param PermissionAbstract $permission Permission to create for account-model combination
+     * @param int                $account    Account creating this model
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function createAccountModelPermission(PermissionAbstract $permission, int $account) : void
+    {
+        $this->createModel($account, $permission, AccountPermissionMapper::class, 'account-permission');
     }
 
     /**

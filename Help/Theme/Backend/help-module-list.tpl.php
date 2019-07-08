@@ -30,19 +30,22 @@ $modules = $this->app->moduleManager->getInstalledModules();
                 <tr>
                     <td>
                 <tbody>
-                    <?php $count = 0; foreach ($modules as $key => $module) :
-                        if ((\realpath(__DIR__ . '/../../../' . $module['directory'] . '/Docs/Help/en/SUMMARY.md')) === false) {
-                            continue;
-                        }
+                <?php
+                $count = 0;
+                foreach ($modules as $key => $module) :
+                    if ((\realpath(__DIR__ . '/../../../' . $module['directory'] . '/Docs/Help/en/SUMMARY.md')) === false) {
+                        continue;
+                    }
 
-                        ++$count;
-                        $url = \phpOMS\Uri\UriFactory::build(
-                            '{/lang}/backend/help/module/single?id={$module}',
-                            ['$module' => $module['name']['internal']]
-                        ); ?>
-                <tr data-href="<?= $url; ?>">
-                    <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
-                    <?php endforeach; ?>
+                    ++$count;
+                    $url = \phpOMS\Uri\UriFactory::build(
+                        '{/lang}/backend/help/module/single?id={$module}',
+                        ['$module' => $module['name']['internal']]
+                    );
+                ?>
+                    <tr data-href="<?= $url; ?>">
+                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
+                <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                     <tr><td class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>

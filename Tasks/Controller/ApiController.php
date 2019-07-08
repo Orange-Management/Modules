@@ -82,7 +82,7 @@ final class ApiController extends Controller
         }
 
         $task = $this->createTaskFromRequest($request);
-        $this->createModel($request, $task, TaskMapper::class, 'task');
+        $this->createModel($request->getHeader()->getAccount(), $task, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully created.', $task);
     }
 
@@ -231,7 +231,7 @@ final class ApiController extends Controller
         $task->setStatus($element->getStatus());
         $task->setPriority($element->getPriority());
 
-        $this->createModel($request, $element, TaskElementMapper::class, 'taskelement');
+        $this->createModel($request->getHeader()->getAccount(), $element, TaskElementMapper::class, 'taskelement');
         $this->updateModel($request, $task, $task, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully created.', $element);
     }

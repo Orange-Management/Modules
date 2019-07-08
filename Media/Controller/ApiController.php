@@ -18,7 +18,9 @@ use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
+use Modules\Admin\Models\AccountPermission;
 use phpOMS\Message\NotificationLevel;
+use phpOMS\Account\PermissionType;
 
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -116,7 +118,7 @@ final class ApiController extends Controller
             $upload->setOutputDir(self::createMediaPath($basePath));
 
             $status       = $upload->upload($files, $name);
-            $mediaCreated = self::createDbEntries($status, $account, $virtualPath);
+            $mediaCreated = $this->createDbEntries($status, $account, $virtualPath);
         }
 
         return $mediaCreated;
@@ -145,13 +147,27 @@ final class ApiController extends Controller
      *
      * @since  1.0.0
      */
-    public static function createDbEntries(array $status, int $account, string $virtualPath = '/') : array
+    public function createDbEntries(array $status, int $account, string $virtualPath = '/') : array
     {
         $mediaCreated = [];
 
         foreach ($status as $uFile) {
             if (($created = self::createDbEntry($uFile, $account, $virtualPath)) !== null) {
                 $mediaCreated[] = $created;
+
+                $this->app->moduleManager->get('Admin')->createAccountModelPermission(
+                    new AccountPermission(
+                        $account,
+                        $this->app->orgId,
+                        $this->app->appName,
+                        self::MODULE_NAME,
+                        PermissionState::MEDIA,
+                        $created->getId(),
+                        null,
+                        PermissionType::READ | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION,
+                    ),
+                    $account
+                );
             }
         }
 

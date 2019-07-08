@@ -235,7 +235,21 @@ final class ApiController extends Controller
         $collection = $this->createMediaCollectionFromRequest($request);
         $template   = $this->createTemplateFromRequest($request, $collection->getId());
 
-        $this->createModel($request, $template, TemplateMapper::class, 'template');
+        $this->app->moduleManager->get('Admin')->createAccountModelPermission(
+            new AccountPermission(
+                $request->getHeader()->getAccount(),
+                $this->app->orgId,
+                $this->app->appName,
+                self::MODULE_NAME,
+                PermissionState::TEMPLATE,
+                $template->getId(),
+                null,
+                PermissionType::READ | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION,
+            ),
+            $request->getHeader()->getAccount()
+        );
+
+        $this->createModel($request->getHeader()->getAccount(), $template, TemplateMapper::class, 'template');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Template', 'Template successfully created', $template);
     }
 
@@ -323,7 +337,22 @@ final class ApiController extends Controller
         $collection = $this->createMediaCollectionFromRequest($request);
 
         $report = $this->createReportFromRequest($request, $response, $collection->getId());
-        $this->createModel($request, $report, ReportMapper::class, 'report');
+
+        $this->app->moduleManager->get('Admin')->createAccountModelPermission(
+            new AccountPermission(
+                $request->getHeader()->getAccount(),
+                $this->app->orgId,
+                $this->app->appName,
+                self::MODULE_NAME,
+                PermissionState::REPORT,
+                $report->getId(),
+                null,
+                PermissionType::READ | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION,
+            ),
+            $request->getHeader()->getAccount()
+        );
+
+        $this->createModel($request->getHeader()->getAccount(), $report, ReportMapper::class, 'report');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Report', 'Report successfully created', $report);
     }
 

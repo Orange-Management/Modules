@@ -137,7 +137,7 @@ final class ApiController extends Controller
         }
 
         $newsArticle = $this->createNewsArticleFromRequest($request);
-        $this->createModel($request, $newsArticle, NewsArticleMapper::class, 'news');
+        $this->createModel($request->getHeader()->getAccount(), $newsArticle, NewsArticleMapper::class, 'news');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'News', 'News successfully created', $newsArticle);
     }
 

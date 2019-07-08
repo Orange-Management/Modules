@@ -105,7 +105,7 @@ final class ApiController extends Controller
         $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
         $draw  = DrawImage::fromMedia($media);
 
-        $this->createModel($request, $draw, DrawImageMapper::class, 'draw');
+        $this->createModel($request->getHeader()->getAccount(), $draw, DrawImageMapper::class, 'draw');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Draw', 'Draw successfully created.', $draw);
     }
 

@@ -174,7 +174,7 @@ final class ApiController extends Controller
         }
 
         $unit = $this->createUnitFromRequest($request);
-        $this->createModel($request, $unit, UnitMapper::class, 'unit');
+        $this->createModel($request->getHeader()->getAccount(), $unit, UnitMapper::class, 'unit');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully created.', $unit);
     }
 
@@ -337,7 +337,7 @@ final class ApiController extends Controller
         }
 
         $position = $this->createPositionFromRequest($request);
-        $this->createModel($request, $position, PositionMapper::class, 'position');
+        $this->createModel($request->getHeader()->getAccount(), $position, PositionMapper::class, 'position');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully created.', $position);
     }
 
@@ -502,7 +502,7 @@ final class ApiController extends Controller
         }
 
         $department = $this->createDepartmentFromRequest($request);
-        $this->createModel($request, $department, DepartmentMapper::class, 'department');
+        $this->createModel($request->getHeader()->getAccount(), $department, DepartmentMapper::class, 'department');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully created.', $department);
     }
 
