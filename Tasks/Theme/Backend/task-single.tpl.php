@@ -100,9 +100,50 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </section>
 
-        <div id="elements">
+        <div id="elements"
+            data-ui-container="#elements"
+            data-ui-content="#elements"
+            data-ui-element=".taskelement"
+            data-tag="form"
+            data-ui-form="taskElementCreate">
             <!-- todo: this doesn't work because single taskelements cannot be identified somehow we need to work with ids of elements, implement a counter for the current element or implement a nearest() function instead of the this.closest() -->
-            <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
+            <template>
+                <section id="taskelmenet-0" class="box wf-100 taskelement"
+                    data-ui-content="#elements"
+                    data-ui-element=".taskelement .taskelement-content"
+                    data-tag="form"
+                    data-method="POST"
+                    data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}task/element?{?}&csrf={$CSRF}'); ?>">
+                    <div class="inner pAlignTable">
+                        <div class="vC wf-100">
+                            <!-- created by --> - <!-- created at -->
+                        </div>
+                        <span class="vC tag task-status-0">
+                            <!-- status-->
+                        </span>
+                    </div>
+
+                    <div class="inner taskelement-content">
+                        <article data-tpl-text="/content" data-tpl-value="{%}" data-value=""></article>
+                    </div>
+
+                    <div class="inner">
+                        <!-- media here -->
+                    </div>
+
+                    <div class="inner pAlignTable" style="background: #efefef; border-top: 1px solid #dfdfdf;">
+                        <div class="vC wf-100 nobreak">
+                            <!-- due / priority -->
+                        </div>
+
+                        <div class="vC">
+                            <input type="hidden" value="" name="id">
+                            <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
+                            <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
+                            <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
+                        </div>
+                </section>
+            </template>
             <template>
                 <div class="inner taskelement-content">
                     <!-- todo: handle different value/markdown paths how??? no idea -->
@@ -212,7 +253,13 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iMessage"><?= $this->getHtml('Message') ?></label>
                         <tr><td><?= $this->getData('editor')->render('task-editor'); ?>
-                        <tr><td><?= $this->getData('editor')->getData('text')->render('task-editor', 'plain', 'taskElementCreate'); ?>
+                        <tr><td><?= $this->getData('editor')->getData('text')->render(
+                            'task-editor',
+                            'plain',
+                            'taskElementCreate',
+                            '', '',
+                            '/content', '{%}'
+                            ); ?>
                         <tr><td><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td>
                             <select id="iPriority" name="priority">
