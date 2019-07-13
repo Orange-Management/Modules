@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-use Modules\HumanResourcetimeRecording\Controller\BackendController;
-use Modules\HumanResourcetimeRecording\Models\PermissionState;
+use Modules\HumanResourceTimeRecording\Controller\BackendController;
+use Modules\HumanResourceTimeRecording\Models\PermissionState;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
