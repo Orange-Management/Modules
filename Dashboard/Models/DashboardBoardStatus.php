@@ -17,16 +17,15 @@ namespace Modules\Dashboard\Models;
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Permision state enum.
+ * DashboardBoard status enum.
  *
  * @package    Modules\Dashboard
  * @license    OMS License 1.0
  * @link       https://orange-management.org
  * @since      1.0.0
  */
-abstract class PermissionState extends Enum
+abstract class DashboardBoardStatus extends Enum
 {
-    public const DASHBOARD = 1;
-    public const BOARD     = 2;
-    public const COMPONENT = 3;
+    public const ACTIVE   = 1;
+    public const INACTIVE = 2;
 }

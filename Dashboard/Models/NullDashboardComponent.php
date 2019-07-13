@@ -14,19 +14,15 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Models;
 
-use phpOMS\Stdlib\Base\Enum;
-
 /**
- * Permision state enum.
+ * Null model
  *
  * @package    Modules\Dashboard
  * @license    OMS License 1.0
  * @link       https://orange-management.org
  * @since      1.0.0
  */
-abstract class PermissionState extends Enum
+final class NullDashboardComponent extends DashboardComponent
 {
-    public const DASHBOARD = 1;
-    public const BOARD     = 2;
-    public const COMPONENT = 3;
+
 }

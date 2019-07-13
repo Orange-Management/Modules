@@ -14,6 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Admin;
 
+use Modules\Dashboard\Models\DashboardBoard;
+use Modules\Dashboard\Models\DashboardBoardMapper;
+use phpOMS\DataStorage\Database\DatabasePool;
+
+use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
 
 /**
@@ -26,4 +31,14 @@ use phpOMS\Module\InstallerAbstract;
  */
 class Installer extends InstallerAbstract
 {
+    /**
+     * {@inheritdoc}
+     */
+    public static function install(DatabasePool $dbPool, InfoManager $info) : void
+    {
+        parent::install($dbPool, $info);
+
+        $board = new DashboardBoard();
+        DashboardBoardMapper::create($board);
+    }
 }

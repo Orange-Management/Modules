@@ -14,8 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Controller;
 
+use Modules\Dashboard\Models\DashboardBoardMapper;
+use Modules\Dashboard\Models\NullDashboardBoard;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
+
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
 
@@ -45,11 +48,22 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $view->addData('panels', [
-            //$this->app->moduleManager->get('News')->viewDashboard($request, $response, $data),
-            //$this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data),
-            //$this->app->moduleManager->get('Calendar')->viewDashboard($request, $response, $data),
-        ]);
+        $board = DashboardBoardMapper::getFor($request->getHeader()->getAccount(), 'account');
+
+        if ($board instanceof NullDashboardBoard) {
+            $board = DashboardBoardMapper::get(1);
+        }
+
+        $panels          = [];
+        $boardComponents = $board->getComponents();
+
+        foreach ($boardComponents as $component) {
+            $panels[] = $this->app->moduleManager
+                ->get($component->getModule())
+                ->viewDashboard($request, $response, $data);
+        }
+
+        $view->addData('panels', $panels);
 
         return $view;
     }

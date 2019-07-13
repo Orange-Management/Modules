@@ -1,0 +1,65 @@
+{
+    "dashboard_board": {
+        "name": "dashboard_board",
+        "fields": {
+            "dashboard_board_id": {
+                "name": "dashboard_board_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "dashboard_board_title": {
+                "name": "dashboard_board_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "dashboard_board_status": {
+                "name": "dashboard_board_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "dashboard_board_account": {
+                "name": "dashboard_board_account",
+                "type": "INT",
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            }
+        }
+    },
+    "dashboard_component": {
+        "name": "dashboard_component",
+        "fields": {
+            "dashboard_component_id": {
+                "name": "dashboard_component_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "dashboard_component_order": {
+                "name": "dashboard_component_order",
+                "type": "INT",
+                "null": false
+            },
+            "dashboard_component_module": {
+                "name": "dashboard_component_module",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "dashboard_component_component": {
+                "name": "dashboard_component_component",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "dashboard_component_board": {
+                "name": "dashboard_component_board",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "dashboard_board",
+                "foreignKey": "dashboard_board_id"
+            }
+        }
+    }
+}
