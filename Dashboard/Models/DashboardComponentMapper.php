@@ -14,9 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Models;
 
-use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
  * Mapper class.
