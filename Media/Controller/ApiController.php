@@ -18,6 +18,7 @@ use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
+use Modules\Media\Models\PermissionState;
 use Modules\Admin\Models\AccountPermission;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Account\PermissionType;
@@ -164,7 +165,7 @@ final class ApiController extends Controller
                         PermissionState::MEDIA,
                         $created->getId(),
                         null,
-                        PermissionType::READ | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION,
+                        PermissionType::READ | PermissionType::MODIFY | PermissionType::DELETE | PermissionType::PERMISSION
                     ),
                     $account
                 );
