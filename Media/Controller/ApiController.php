@@ -14,14 +14,14 @@ declare(strict_types=1);
 
 namespace Modules\Media\Controller;
 
+use Modules\Admin\Models\AccountPermission;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
+use Modules\Media\Models\PermissionState;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
-use Modules\Media\Models\PermissionState;
-use Modules\Admin\Models\AccountPermission;
-use phpOMS\Message\NotificationLevel;
 use phpOMS\Account\PermissionType;
+use phpOMS\Message\NotificationLevel;
 
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
