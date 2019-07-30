@@ -51,17 +51,17 @@ echo $this->getData('nav')->render(); ?>
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/audit/single?{?}&id=' . $audit->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td><?= $audit->getId(); ?>
-                        <td><?= $audit->getModule(); ?>
+                        <td><?= $this->printHtml($audit->getModule()); ?>
                         <td><?= $audit->getType(); ?>
                         <td><?= $audit->getSubtype(); ?>
-                        <td><?= $audit->getOld(); ?>
-                        <td><?= $audit->getNew(); ?>
-                        <td><?= $audit->getContent(); ?>
-                        <td><?= $audit->getCreatedBy()->getName(); ?>
+                        <td><?= $this->printHtml($audit->getOld()); ?>
+                        <td><?= $this->printHtml($audit->getNew()); ?>
+                        <td><?= $this->printHtml($audit->getContent()); ?>
+                        <td><?= $this->printHtml($audit->getCreatedBy()->getName()); ?>
                         <td><?= $audit->getCreatedAt()->format('Y-m-d H:i'); ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                    <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
         </div>

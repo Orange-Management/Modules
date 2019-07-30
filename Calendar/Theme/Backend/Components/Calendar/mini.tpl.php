@@ -32,5 +32,5 @@
             </li>
         </ul>
         <?php endfor;?>
-            </section>
+    </section>
 </div>

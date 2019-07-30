@@ -69,6 +69,14 @@ class MediaView extends View
         );
     }
 
+    protected function getFileContent(string $path) : string
+    {
+        $output = \file_get_contents($path);
+        $output = \str_replace(["\r\n", "\r"], "\n", $output);
+
+        return $output;
+    }
+
     protected function lineContentFunction(string $path) : array
     {
         $output = \file_get_contents($path);
@@ -77,9 +85,18 @@ class MediaView extends View
         return \explode("\n", $output);
     }
 
-    protected function isImageFunction(Media $media, string $path) : bool
+    protected function isImageFile(Media $media, string $path) : bool
     {
         return FileUtils::getExtensionType($media->getExtension()) === ExtensionType::IMAGE
             || FileUtils::getExtensionType(File::extension($path)) === ExtensionType::IMAGE;
+    }
+
+    protected function isTextFile(Media $media, string $path) : bool
+    {
+        $mediaExtension = FileUtils::getExtensionType($media->getExtension());
+        $pathExtension  = FileUtils::getExtensionType(File::extension($path));
+
+        return $mediaExtension === ExtensionType::TEXT || $pathExtension === ExtensionType::TEXT
+            || $mediaExtension === ExtensionType::CODE || $pathExtension === ExtensionType::CODE;
     }
 }

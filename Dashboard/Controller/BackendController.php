@@ -18,8 +18,8 @@ use Modules\Dashboard\Models\DashboardBoardMapper;
 use Modules\Dashboard\Models\NullDashboardBoard;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
-
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Module\NullModule;
 use phpOMS\Views\View;
 
 /**
@@ -58,9 +58,16 @@ final class BackendController extends Controller
         $boardComponents = $board->getComponents();
 
         foreach ($boardComponents as $component) {
-            $panels[] = $this->app->moduleManager
-                ->get($component->getModule())
-                ->viewDashboard($request, $response, $data);
+            $module = $this->app->moduleManager->get($component->getModule());
+
+            // todo: check if this should be done with instanceof DashboardView -> instanceof DashboardView
+            if ($module instanceof NullModule
+                || !\method_exists($module, 'viewDashboard')
+            ) {
+                continue;
+            }
+
+            $panels[] = $module->viewDashboard($request, $response, $data);
         }
 
         $view->addData('panels', $panels);

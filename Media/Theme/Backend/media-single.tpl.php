@@ -93,26 +93,36 @@ echo $this->getData('nav')->render();
     </div>
     <?php else: ?>
     <div class="col-xs-12">
-        <section class="box wf-100">
+        <section id="mediaFile" class="box wf-100"
+            data-ui-content=".inner"
+            data-ui-element="#mediaFile .textContent"
+            data-tag="form"
+            data-method="POST"
+            data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}media?{?}&csrf={$CSRF}'); ?>">
             <div class="inner">
                 <?php
                 $path = $this->filePathFunction($media, $this->request->getData('sub') ?? '');
 
-                if ($this->isImageFunction($media, $path)) : ?>
+                if ($this->isImageFile($media, $path)) : ?>
                     <div class="h-overflow centerText">
                         <img src="<?= $media->isAbsolute() ? $this->printHtml($path) : $this->printHtml($this->request->getUri()->getBase() . $path); ?>">
                     </div>
-                <?php else : ?>
-                    <button class="floatRight">Edit</button>
+                <?php elseif ($this->isTextFile($media, $path)) : ?>
+                    <div class="vC">
+                        <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
+                        <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
+                        <button class="update"><?= $this->getHtml('Edit', '0', '0') ?></button>
+                    </div>
+                    <!-- if markdown show markdown editor, if image show image editor, if text file show textarea only on edit -->
 
                     <?php if (!\file_exists($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/'))) : ?>
                         <div class="centerText"><i class="fa fa-question fa-5x"></i></div>
                     <?php else : ?>
-                    <pre>
-                    <?php
-                    $output = $this->lineContentFunction($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/'));
-                    foreach ($output as $line) : ?><span><?= $this->printHtml($line); ?></span><?php endforeach; ?>
-                    </pre>
+                        <template></template><!-- todo: this is required because of selectorLength + i in Form.js = first element = add template, second element = edit element. Fix -->
+                        <template>
+                            <textarea class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content" name="content"></textarea>
+                        </template>
+                        <pre class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content"><?= $this->getFileContent($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/')); ?></pre>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>

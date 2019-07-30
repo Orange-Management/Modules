@@ -63,7 +63,7 @@ final class ApiController extends Controller
     }
 
     /**
-     * Shows api content.
+     * Api method to upload media file.
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
@@ -208,5 +208,53 @@ final class ApiController extends Controller
                 \rtrim($path, '/')
             )
         );
+    }
+
+    /**
+     * Api method to update media.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiMediaUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $old = clone MediaMapper::get((int) $request->getData('id'));
+        $new = $this->updateMediaFromRequest($request);
+        $this->updateModel($request, $old, $new, MediaMapper::class, 'media');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Media', 'Media successfully updated', $new);
+    }
+
+    /**
+     * Method to update media from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Media
+     *
+     * @since  1.0.0
+     */
+    private function updateMediaFromRequest(RequestAbstract $request) : Media
+    {
+        $media = MediaMapper::get((int) $request->getData('id'));
+        $media->setName((string) ($request->getData('name') ?? $media->getName()));
+        $media->setVirtualPath((string) ($request->getData('virtualpath') ?? $media->getVirtualPath()));
+
+        if ($request->getData('content') !== null) {
+            \file_put_contents(
+                $media->isAbsolute() ? $media->getPath() : __DIR__ . '/../../../../' . \ltrim($media->getPath(), '/'),
+                $request->getData('content')
+            );
+
+            $media->setSize(\strlen($request->getData('content')));
+        }
+
+        return $media;
     }
 }

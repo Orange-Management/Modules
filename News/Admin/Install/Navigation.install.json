@@ -69,7 +69,7 @@
                 "icon": null,
                 "order": 15,
                 "from": "News",
-                "permission": { "permission": 2, "type": null, "element": null },
+                "permission": { "permission": 4, "type": null, "element": null },
                 "parent": 1000701001,
                 "children": []
             }

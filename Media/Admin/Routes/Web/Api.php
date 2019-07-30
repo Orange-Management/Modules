@@ -9,7 +9,7 @@ return [
     '^.*/media(\?+.*|$)' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpload',
-            'verb' => RouteVerb::SET,
+            'verb' => RouteVerb::PUT,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
@@ -19,6 +19,15 @@ return [
                 'field_name' => [
                     'type' => 'string', 'default' => 'Hello', 'validation' => '[\\w]*', 'required' => false,'annotation' => [],
                 ],
+            ],
+        ],
+        [
+            'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpdate',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::MEDIA,
             ],
         ],
     ],

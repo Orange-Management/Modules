@@ -48,7 +48,7 @@ echo $this->getData('nav')->render(); ?>
                     <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
-                        <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
         </div>

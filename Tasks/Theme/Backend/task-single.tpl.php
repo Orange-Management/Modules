@@ -101,7 +101,6 @@ echo $this->getData('nav')->render(); ?>
         </section>
 
         <div id="elements"
-            data-ui-container="#elements"
             data-ui-content="#elements"
             data-ui-element=".taskelement"
             data-tag="form"

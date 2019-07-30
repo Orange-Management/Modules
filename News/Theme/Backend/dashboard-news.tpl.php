@@ -18,7 +18,7 @@ $newsList = $this->getData('news');
 ?>
 <div id="news-dashboard" class="col-xs-12 col-md-6" draggable="true">
     <div class="box wf-100">
-        <table class="table blue">
+        <table class="default">
             <caption><?= $this->getHtml('News', 'News'); ?><i class="fa fa-download floatRight download btn"></i></caption>
             <thead>
             <tr>

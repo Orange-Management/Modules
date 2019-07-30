@@ -1,7 +1,7 @@
-import { Request } from '../../../jsOMS/Message/Request/Request.js';
-import { RequestType } from '../../../jsOMS/Message/Request/RequestType.js';
-import { RequestMethod } from '../../../jsOMS/Message/Request/RequestMethod.js';
 import { Logger } from '../../../jsOMS/Log/Logger.js';
+import { Request } from '../../../jsOMS/Message/Request/Request.js';
+import { RequestMethod } from '../../../jsOMS/Message/Request/RequestMethod.js';
+import { RequestType } from '../../../jsOMS/Message/Request/RequestType.js';
 
 /**
  * Media uploader.
@@ -157,7 +157,7 @@ export class Upload {
         request.setData(formData);
         request.setType(RequestType.FILE);
         request.setUri(this.uri);
-        request.setMethod(RequestMethod.POST);
+        request.setMethod(RequestMethod.PUT);
         request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
         request.setSuccess(function (xhr)
         {
