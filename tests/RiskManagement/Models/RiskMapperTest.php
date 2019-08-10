@@ -36,7 +36,7 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->setName('Risk Test');
         $obj->setDescriptionRaw('Description');
         $obj->setUnit(1);
-        $obj->setDepartment(1);
+        $obj->setDepartment(2);
 
         $categoryObj = new Category();
         $obj->setCategory($categoryObj);

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Helper\Controller;
 
+use Modules\Admin\Models\AccountPermission;
 use Modules\Helper\Models\NullReport;
 use Modules\Helper\Models\PermissionState;
 use Modules\Helper\Models\Report;

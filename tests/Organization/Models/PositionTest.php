@@ -43,13 +43,13 @@ class PositionTest extends \PHPUnit\Framework\TestCase
         $position->setStatus(Status::ACTIVE);
         self::assertEquals(Status::ACTIVE, $position->getStatus());
 
-        $position->setDepartment(1);
-        self::assertEquals(1, $position->getDepartment());
+        $position->setDepartment(2);
+        self::assertEquals(2, $position->getDepartment());
 
         $position->setDescription('Description');
         self::assertEquals('Description', $position->getDescription());
 
-        $position->setParent(1);
-        self::assertEquals(1, $position->getParent());
+        $position->setParent(2);
+        self::assertEquals(2, $position->getParent());
     }
 }

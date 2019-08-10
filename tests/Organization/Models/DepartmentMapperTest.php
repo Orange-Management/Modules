@@ -46,11 +46,13 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume() : void
     {
+        $first = 2;
+
         /* 2 */
         $department = new Department();
         $department->setName('HR');
         $department->setDescription('Description');
-        $department->setParent(1);
+        $department->setParent($first);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -58,7 +60,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('QM');
         $department->setDescription('Description');
-        $department->setParent(1);
+        $department->setParent($first);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -66,7 +68,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('Sales');
         $department->setDescription('Description');
-        $department->setParent(1);
+        $department->setParent($first);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -74,7 +76,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('Shipping');
         $department->setDescription('Description');
-        $department->setParent(4);
+        $department->setParent($first + 3);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -82,7 +84,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('Purchase');
         $department->setDescription('Description');
-        $department->setParent(1);
+        $department->setParent($first);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -90,7 +92,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('Arrival');
         $department->setDescription('Description');
-        $department->setParent(6);
+        $department->setParent($first + 5);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -98,7 +100,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('Accounting');
         $department->setDescription('Description');
-        $department->setParent(1);
+        $department->setParent($first);
         $department->setUnit(1);
         DepartmentMapper::create($department);
 
@@ -106,7 +108,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
         $department = new Department();
         $department->setName('Production');
         $department->setDescription('Description');
-        $department->setParent(1);
+        $department->setParent($first);
         $department->setUnit(1);
         DepartmentMapper::create($department);
     }

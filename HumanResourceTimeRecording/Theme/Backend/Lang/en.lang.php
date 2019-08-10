@@ -10,9 +10,18 @@
  * @version    1.0.0
  * @link       https://orange-management.org
  */
-return ['Database' => [
-    'Created'  => 'Created',
-    'Creator'  => 'Creator',
-    'Database' => 'Database',
-    'Query'    => 'Query',
+return ['HumanResourceTimeRecording' => [
+    'End'    => 'End',
+    'Start'    => 'Start',
+    'Status'    => 'Status',
+    'Type'    => 'Type',
+    'CT0'    => 'Office',
+    'CT1'    => 'Remote',
+    'CT2'    => 'Home',
+    'CT3'    => 'Vacation',
+    'CT4'    => 'Sick',
+    'CS0'    => 'Start',
+    'CS1'    => 'Pause',
+    'CS2'    => 'On the move',
+    'CS3'    => 'End',
 ]];

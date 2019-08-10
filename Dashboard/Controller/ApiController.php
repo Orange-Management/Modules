@@ -165,4 +165,22 @@ final class ApiController extends Controller
 
         return $component;
     }
+
+    /**
+     * Api method to create a board
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since  1.0.0
+     */
+    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        return;
+    }
 }

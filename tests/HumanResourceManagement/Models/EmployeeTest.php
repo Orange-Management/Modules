@@ -30,27 +30,10 @@ class EmployeeTest extends \PHPUnit\Framework\TestCase
         $employee = new Employee();
 
         self::assertEquals(0, $employee->getId());
-        self::assertTrue($employee->isActive());
     }
 
     public function testSetGet() : void
     {
-        $employee   = new Employee();
-        $account    = new Account();
-        $unit       = new Unit();
-        $department = new Department();
-        $position   = new Position();
 
-        $employee->setAccount($account);
-        $employee->setUnit($unit);
-        $employee->setDepartment($department);
-        $employee->setPosition($position);
-        $employee->setActivity(false);
-
-        self::assertEquals($account->getId(), $employee->getAccount()->getId());
-        self::assertEquals($unit->getId(), $employee->getUnit()->getId());
-        self::assertEquals($department->getId(), $employee->getDepartment()->getId());
-        self::assertEquals($position->getId(), $employee->getPosition()->getId());
-        self::assertFalse($employee->isActive());
     }
 }

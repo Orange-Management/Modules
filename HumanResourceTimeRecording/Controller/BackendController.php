@@ -20,7 +20,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
 
 /**
- * Database controller class.
+ * TimeRecording controller class.
  *
  * @package    Modules\HumanResourceTimeRecording
  * @license    OMS License 1.0
@@ -40,48 +40,10 @@ final class BackendController extends Controller
      * @since  1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Database/Theme/Backend/database-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @codeCoverageIgnore
-     */
-    public function viewDatabaseCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Database/Theme/Backend/database-generator');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
-
-        return $view;
-    }
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since  1.0.0
-     * @codeCoverageIgnore
-     */
-    public function viewDatabaseResult(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Database/Theme/Backend/database-query-result');
+        $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
 
         return $view;

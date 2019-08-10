@@ -27,7 +27,7 @@ class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         $obj = new Process();
         $obj->setTitle('Name');
         $obj->setDescriptionRaw('Description');
-        $obj->setDepartment(1);
+        $obj->setDepartment(2);
         $obj->setResponsible(1);
         $obj->setDeputy(1);
         $obj->setUnit(1);

@@ -43,11 +43,13 @@ class PositionMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testVolume() : void
     {
+        $first = 2;
+
         /* 4 */
         $position = new Position();
         $position->setName('CFO');
         $position->setDescription('Description');
-        $position->setParent(1);
+        $position->setParent($first);
         $id = PositionMapper::create($position);
 
         /* 5 */
@@ -68,35 +70,35 @@ class PositionMapperTest extends \PHPUnit\Framework\TestCase
         $position = new Position();
         $position->setName('Sales Director');
         $position->setDescription('Description');
-        $position->setParent(1);
+        $position->setParent($first);
         PositionMapper::create($position);
 
         /* 8 */
         $position = new Position();
         $position->setName('Purchase Director');
         $position->setDescription('Description');
-        $position->setParent(1);
+        $position->setParent($first);
         PositionMapper::create($position);
 
         /* 9 */
         $position = new Position();
         $position->setName('Territory Manager');
         $position->setDescription('Description');
-        $position->setParent(5);
+        $position->setParent($first + 4);
         PositionMapper::create($position);
 
         /* 10 */
         $position = new Position();
         $position->setName('Territory Sales Assistant');
         $position->setDescription('Description');
-        $position->setParent(7);
+        $position->setParent($first + 6);
         PositionMapper::create($position);
 
         /* 11 */
         $position = new Position();
         $position->setName('Domestic Sales Manager');
         $position->setDescription('Description');
-        $position->setParent(5);
+        $position->setParent($first + 4);
         PositionMapper::create($position);
     }
 }

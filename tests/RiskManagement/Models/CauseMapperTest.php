@@ -33,7 +33,7 @@ class CauseMapperTest extends \PHPUnit\Framework\TestCase
         $obj->setProbability(1);
 
         $department = new Department();
-        $department->setDepartment(1);
+        $department->setDepartment(2);
         $obj->setDepartment($department);
 
         $category = new Category();

@@ -32,7 +32,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    protected $id = 0;
 
     /**
      * Name.

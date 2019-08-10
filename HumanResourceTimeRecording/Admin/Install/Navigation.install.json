@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "TimeRecording",
-        "uri": "{/prefix}hr/timerecording/dashboard?{?}",
+        "uri": "{/prefix}humanresource/timerecording/dashboard?{?}",
         "target": "self",
         "icon": null,
         "order": 70,
@@ -15,11 +15,11 @@
         "children": [
             {
                 "id": 1006302001,
-                "pid": "/hr/timerecording",
+                "pid": "/humanresource/timerecording",
                 "type": 3,
                 "subtype": 1,
                 "name": "List",
-                "uri": "{/prefix}hr/timerecording/dashboard?{?}",
+                "uri": "{/prefix}humanresource/timerecording/dashboard?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,
@@ -29,5 +29,20 @@
                 "children": []
             }
         ]
+    },
+    {
+        "id": 1006303001,
+        "pid": "/",
+        "type": 2,
+        "subtype": 1,
+        "name": "TimeRecording",
+        "uri": "{/prefix}humanresource/timerecording/dashboard?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 1,
+        "from": "HumanResourceTimeRecording",
+        "permission": { "permission": 2, "type": null, "element": null },
+        "parent": 1003401001,
+        "children": []
     }
 ]

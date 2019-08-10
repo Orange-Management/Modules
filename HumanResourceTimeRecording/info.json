@@ -20,12 +20,13 @@
         "Admin": "1.0.0"
     },
     "providing": {
-        "Navigation": "*"
+        "Navigation": "*",
+        "MyPrivate": "*"
     },
     "load": [
         {
             "pid": [
-                "/database"
+                "/humanresource/timerecording"
             ],
             "type": 4,
             "for": "Content",

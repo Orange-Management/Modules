@@ -135,36 +135,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiDepartmentGet() : void
-    {
-        $response = new Response();
-        $request  = new Request(new Http(''));
-
-        $request->getHeader()->setAccount(1);
-        $request->setData('id', '1');
-
-        $this->module->apiDepartmentGet($request, $response);
-
-        self::assertEquals('Marketing', $response->get('')['response']->getName());
-        self::assertGreaterThan(0, $response->get('')['response']->getId());
-    }
-
-    public function testApiDepartmentSet() : void
-    {
-        $response = new Response();
-        $request  = new Request(new Http(''));
-
-        $request->getHeader()->setAccount(1);
-        $request->setData('id', '1');
-        $request->setData('name', 'Production');
-
-        $this->module->apiDepartmentSet($request, $response);
-        $this->module->apiDepartmentGet($request, $response);
-
-        self::assertEquals('Production', $response->get('')['response']->getName());
-    }
-
-    public function testApiDepartmentCreateDelete() : void
+    protected static $departmentId = 0;
+    public function testApiDepartmentCreate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -180,43 +152,52 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('test', $response->get('')['response']->getName());
         self::assertGreaterThan(0, $response->get('')['response']->getId());
 
-        // test delete
-        $request->setData('id', $response->get('')['response']->getId());
+        self::$departmentId = $response->get('')['response']->getId();
+    }
+
+    public function testApiDepartmentGet() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', self::$departmentId);
+        
+        $this->module->apiDepartmentGet($request, $response);
+
+        self::assertEquals('test', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
+    }
+
+    public function testApiDepartmentSet() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', self::$departmentId);
+        $request->setData('name', 'Production');
+
+        $this->module->apiDepartmentSet($request, $response);
+        $this->module->apiDepartmentGet($request, $response);
+
+        self::assertEquals('Production', $response->get('')['response']->getName());
+    }
+
+    public function testApiDepartmentDelete() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', self::$departmentId);
         $this->module->apiDepartmentDelete($request, $response);
 
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
-    public function testApiPositionGet() : void
-    {
-        $response = new Response();
-        $request  = new Request(new Http(''));
-
-        $request->getHeader()->setAccount(1);
-        $request->setData('id', '1');
-
-        $this->module->apiPositionGet($request, $response);
-
-        self::assertEquals('Marketer', $response->get('')['response']->getName());
-        self::assertGreaterThan(0, $response->get('')['response']->getId());
-    }
-
-    public function testApiPositionSet() : void
-    {
-        $response = new Response();
-        $request  = new Request(new Http(''));
-
-        $request->getHeader()->setAccount(1);
-        $request->setData('id', '1');
-        $request->setData('name', 'Test');
-
-        $this->module->apiPositionSet($request, $response);
-        $this->module->apiPositionGet($request, $response);
-
-        self::assertEquals('Test', $response->get('')['response']->getName());
-    }
-
-    public function testApiPositionCreateDelete() : void
+    protected static $positionId = 0;
+    public function testApiPositionCreate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -230,9 +211,45 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals('test', $response->get('')['response']->getName());
         self::assertGreaterThan(0, $response->get('')['response']->getId());
+        self::$positionId = $response->get('')['response']->getId();
+    }
 
-        // test delete
-        $request->setData('id', $response->get('')['response']->getId());
+    public function testApiPositionGet() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', self::$positionId);
+
+        $this->module->apiPositionGet($request, $response);
+
+        self::assertEquals('test', $response->get('')['response']->getName());
+        self::assertGreaterThan(0, $response->get('')['response']->getId());
+    }
+
+    public function testApiPositionSet() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', self::$positionId);
+        $request->setData('name', 'Test');
+
+        $this->module->apiPositionSet($request, $response);
+        $this->module->apiPositionGet($request, $response);
+
+        self::assertEquals('Test', $response->get('')['response']->getName());
+    }
+
+    public function testApiPositionDelete() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        $request->setData('id', self::$positionId);
         $this->module->apiPositionDelete($request, $response);
 
         self::assertGreaterThan(0, $response->get('')['response']->getId());
