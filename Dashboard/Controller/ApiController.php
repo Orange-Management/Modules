@@ -181,6 +181,6 @@ final class ApiController extends Controller
      */
     public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        return;
+
     }
 }

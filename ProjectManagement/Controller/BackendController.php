@@ -93,7 +93,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/ProjectManagement/Theme/Backend/projectmanagement-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001701001, $request, $response));
 
-        $taskListView = new \Modules\Tasks\Theme\Backend\Components\Tasks\BaseView($this->app, $request, $response);
+        $taskListView = new \Modules\Tasks\Theme\Backend\Components\Tasks\ListView($this->app, $request, $response);
         $taskListView->setTemplate('/Modules/Tasks/Theme/Backend/Components/Tasks/list');
         $view->addData('tasklist', $taskListView);
 
