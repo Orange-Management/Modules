@@ -6,25 +6,28 @@ export class Editor {
         this.id       = id;
         this.editor   = document.getElementById(id);
         this.markdown = new Markdown.Converter({extensions: [], sanitize: true});
+        this.editorContent = null;
     };
 
     bind ()
     {
         const editorButtons = document.querySelectorAll('#' + this.id + '-tools .editor-button'),
-            editorContent   = this.editor.getElementsByTagName('textarea')[0],
             editorPreview   = this.editor.getElementsByTagName('article')[0],
             length          = editorButtons.length,
             self            = this;
 
-        for(let i = 0; i < length; ++i) {
+        this.editorContent = this.editor.getElementsByTagName('textarea')[0];
+
+        for (let i = 0; i < length; ++i) {
             editorButtons[i].addEventListener('click', function(event) {
                 // todo: identify button by class and then call function for this class.
                 self.toolsButton(this, event);
+                jsOMS.triggerEvent(self.editorContent, 'input');
             });
         }
 
-        editorContent.addEventListener('change', function() {
-            editorPreview.innerHTML = self.markdown.makeHtml(editorContent.value);
+        this.editorContent.addEventListener('input', function() {
+            editorPreview.innerHTML = self.markdown.makeHtml(self.editorContent.value);
         })
     };
 
