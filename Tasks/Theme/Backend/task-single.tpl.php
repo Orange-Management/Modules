@@ -226,7 +226,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php
                     $tos = $element->getTo();
                     if (\count($tos) > 1
-                        || $tos[0]->getRelation()->getId() !== $task->getCreatedBy()->getId()
+                        || (\count($tos) > 0 && $tos[0]->getRelation()->getId() !== $task->getCreatedBy()->getId())
                     ) : ?>
                     <section class="box wf-100">
                         <div class="inner">
