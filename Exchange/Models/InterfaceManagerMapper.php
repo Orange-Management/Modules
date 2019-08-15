@@ -33,7 +33,7 @@ final class InterfaceManagerMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'exchange_id'      => ['name' => 'exchange_id', 'type' => 'int', 'internal' => 'id'],
         'exchange_title'   => ['name' => 'exchange_title', 'type' => 'string', 'internal' => 'info/name'],
         'exchange_path'    => ['name' => 'exchange_path', 'type' => 'string', 'internal' => 'info/path'],
@@ -49,7 +49,7 @@ final class InterfaceManagerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'exchange';
+    protected static string $table = 'exchange';
 
     /**
      * Primary field name.
@@ -57,5 +57,5 @@ final class InterfaceManagerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'exchange_id';
+    protected static string $primaryField = 'exchange_id';
 }

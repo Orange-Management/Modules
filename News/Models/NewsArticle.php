@@ -88,7 +88,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Created.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $createdAt = null;
@@ -104,7 +104,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Publish.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $publish = null;

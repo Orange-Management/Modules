@@ -34,7 +34,7 @@ final class NewsArticleMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'news_id'         => ['name' => 'news_id', 'type' => 'int', 'internal' => 'id'],
         'news_created_by' => ['name' => 'news_created_by', 'type' => 'int', 'internal' => 'createdBy'],
         'news_publish'    => ['name' => 'news_publish', 'type' => 'DateTime', 'internal' => 'publish'],
@@ -54,7 +54,7 @@ final class NewsArticleMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'news_created_by',
@@ -67,7 +67,7 @@ final class NewsArticleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'news';
+    protected static string $table = 'news';
 
     /**
      * Primary field name.
@@ -75,7 +75,7 @@ final class NewsArticleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'news_id';
+    protected static string $primaryField = 'news_id';
 
     /**
      * Created at.
@@ -83,5 +83,5 @@ final class NewsArticleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'news_created_at';
+    protected static string $createdAt = 'news_created_at';
 }

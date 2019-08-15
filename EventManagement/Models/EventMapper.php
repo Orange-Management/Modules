@@ -35,7 +35,7 @@ final class EventMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'eventmanagement_event_id'            => ['name' => 'eventmanagement_event_id', 'type' => 'int', 'internal' => 'id'],
         'eventmanagement_event_name'          => ['name' => 'eventmanagement_event_name', 'type' => 'string', 'internal' => 'name'],
         'eventmanagement_event_description'   => ['name' => 'eventmanagement_event_description', 'type' => 'string', 'internal' => 'description'],
@@ -58,7 +58,7 @@ final class EventMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'tasks' => [
             'mapper' => TaskMapper::class,
             'table'  => 'eventmanagement_task_relation',
@@ -79,7 +79,7 @@ final class EventMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'calendar' => [
             'mapper' => \Modules\Calendar\Models\CalendarMapper::class,
             'src'    => 'eventmanagement_event_calendar',
@@ -92,7 +92,7 @@ final class EventMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'eventmanagement_event';
+    protected static string $table = 'eventmanagement_event';
 
     /**
      * Created at.
@@ -100,7 +100,7 @@ final class EventMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'eventmanagement_event_created_at';
+    protected static string $createdAt = 'eventmanagement_event_created_at';
 
     /**
      * Primary field name.
@@ -108,5 +108,5 @@ final class EventMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'eventmanagement_event_id';
+    protected static string $primaryField = 'eventmanagement_event_id';
 }

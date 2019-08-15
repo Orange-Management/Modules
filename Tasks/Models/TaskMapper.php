@@ -37,7 +37,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'task_id'         => ['name' => 'task_id',         'type' => 'int',      'internal' => 'id'],
         'task_title'      => ['name' => 'task_title',      'type' => 'string',   'internal' => 'title'],
         'task_desc'       => ['name' => 'task_desc',       'type' => 'string',   'internal' => 'description'],
@@ -61,7 +61,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'taskElements' => [
             'mapper' => TaskElementMapper::class,
             'table'  => 'task_element',
@@ -88,7 +88,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'task_created_by',
@@ -101,7 +101,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'schedule' => [
             'mapper' => ScheduleMapper::class,
             'src'    => 'task_schedule',
@@ -114,7 +114,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'task';
+    protected static string $table = 'task';
 
     /**
      * Created at.
@@ -122,7 +122,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'task_created_at';
+    protected static string $createdAt = 'task_created_at';
 
     /**
      * Primary field name.
@@ -130,7 +130,7 @@ final class TaskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'task_id';
+    protected static string $primaryField = 'task_id';
 
     /**
      * Get open tasks by createdBy

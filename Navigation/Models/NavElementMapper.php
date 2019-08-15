@@ -33,7 +33,7 @@ final class NavElementMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'nav_id'                    => ['name' => 'nav_id', 'type' => 'int', 'internal' => 'id'],
         'nav_pid'                   => ['name' => 'nav_pid', 'type' => 'string', 'internal' => 'pid'],
         'nav_name'                  => ['name' => 'nav_name', 'type' => 'string', 'internal' => 'name'],
@@ -56,7 +56,7 @@ final class NavElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'nav';
+    protected static string $table = 'nav';
 
     /**
      * Primary field name.
@@ -64,5 +64,5 @@ final class NavElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'nav_id';
+    protected static string $primaryField = 'nav_id';
 }

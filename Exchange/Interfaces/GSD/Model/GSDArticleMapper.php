@@ -32,7 +32,7 @@ final class GSDArticleMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'row_id'               => ['name' => 'row_id', 'type' => 'int', 'internal' => 'id'],
         'row_create_time'      => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'row_create_user'      => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
@@ -48,7 +48,7 @@ final class GSDArticleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'Artikel';
+    protected static string $table = 'Artikel';
 
     /**
      * Created at.
@@ -56,7 +56,7 @@ final class GSDArticleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'row_create_time';
+    protected static string $createdAt = 'row_create_time';
 
     /**
      * Primary field name.
@@ -64,5 +64,5 @@ final class GSDArticleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'row_id';
+    protected static string $primaryField = 'row_id';
 }

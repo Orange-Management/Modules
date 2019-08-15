@@ -24,7 +24,7 @@ final class CauseMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_cause_id'             => ['name' => 'riskmngmt_cause_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_cause_name'           => ['name' => 'riskmngmt_cause_name', 'type' => 'string', 'internal' => 'title'],
         'riskmngmt_cause_description'    => ['name' => 'riskmngmt_cause_description', 'type' => 'string', 'internal' => 'description'],
@@ -41,7 +41,7 @@ final class CauseMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'risk'       => [
             'mapper' => RiskMapper::class,
             'dest'   => 'riskmngmt_cause_risk',
@@ -62,7 +62,7 @@ final class CauseMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_cause';
+    protected static string $table = 'riskmngmt_cause';
 
     /**
      * Primary field name.
@@ -70,5 +70,5 @@ final class CauseMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_cause_id';
+    protected static string $primaryField = 'riskmngmt_cause_id';
 }

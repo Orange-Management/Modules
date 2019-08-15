@@ -33,7 +33,7 @@ final class ModuleMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'module_id'     => ['name' => 'module_id', 'type' => 'string', 'internal' => 'id'],
         'module_active' => ['name' => 'module_active', 'type' => 'int', 'internal' => 'status'],
     ];
@@ -44,7 +44,7 @@ final class ModuleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'module';
+    protected static string $table = 'module';
 
     /**
      * Primary field name.
@@ -52,5 +52,5 @@ final class ModuleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'module_id';
+    protected static string $primaryField = 'module_id';
 }

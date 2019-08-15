@@ -34,7 +34,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'draw_image_id'    => ['name' => 'draw_image_id', 'type' => 'int', 'internal' => 'id'],
         'draw_image_media' => ['name' => 'draw_image_media', 'type' => 'int', 'internal' => 'media'],
     ];
@@ -45,7 +45,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'media' => [
             'mapper' => MediaMapper::class,
             'src'    => 'draw_image_media',
@@ -58,7 +58,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'draw_image';
+    protected static string $table = 'draw_image';
 
     /**
      * Primary field name.
@@ -66,5 +66,5 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'draw_image_id';
+    protected static string $primaryField = 'draw_image_id';
 }

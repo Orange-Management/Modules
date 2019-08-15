@@ -60,7 +60,7 @@ class Arrival
     /**
      * Date of arrival.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $date = null;

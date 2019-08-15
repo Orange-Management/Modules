@@ -33,7 +33,7 @@ final class PositionMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'organization_position_id'             => ['name' => 'organization_position_id', 'type' => 'int', 'internal' => 'id'],
         'organization_position_name'           => ['name' => 'organization_position_name', 'type' => 'string', 'internal' => 'name'],
         'organization_position_description'    => ['name' => 'organization_position_description', 'type' => 'string', 'internal' => 'description'],
@@ -49,7 +49,7 @@ final class PositionMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'parent'     => [
             'mapper' => self::class,
             'dest'   => 'organization_position_parent',
@@ -66,7 +66,7 @@ final class PositionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'organization_position';
+    protected static string $table = 'organization_position';
 
     /**
      * Primary field name.
@@ -74,5 +74,5 @@ final class PositionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'organization_position_id';
+    protected static string $primaryField = 'organization_position_id';
 }

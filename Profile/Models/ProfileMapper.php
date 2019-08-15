@@ -34,7 +34,7 @@ final class ProfileMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string|array>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'profile_account_id'       => ['name' => 'profile_account_id',       'type' => 'int',      'internal' => 'id'],
         'profile_account_image'    => ['name' => 'profile_account_image',    'type' => 'int',      'internal' => 'image',    'annotations' => ['gdpr' => true]],
         'profile_account_birthday' => ['name' => 'profile_account_birthday', 'type' => 'DateTime', 'internal' => 'birthday', 'annotations' => ['gdpr' => true]],
@@ -47,7 +47,7 @@ final class ProfileMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'account'  => [
             'mapper' => AccountMapper::class,
             'src'    => 'profile_account_account',
@@ -64,7 +64,7 @@ final class ProfileMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'location' => [
             'mapper' => AddressMapper::class,
             'table'  => 'profile_address',
@@ -79,7 +79,7 @@ final class ProfileMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile_account';
+    protected static string $table = 'profile_account';
 
     /**
      * Primary field name.
@@ -87,5 +87,5 @@ final class ProfileMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_account_id';
+    protected static string $primaryField = 'profile_account_id';
 }

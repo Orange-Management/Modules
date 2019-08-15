@@ -33,7 +33,7 @@ final class AccountPermissionMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'account_permission_id'         => ['name' => 'account_permission_id', 'type' => 'int', 'internal' => 'id'],
         'account_permission_account'    => ['name' => 'account_permission_account', 'type' => 'int', 'internal' => 'account'],
         'account_permission_unit'       => ['name' => 'account_permission_unit', 'type' => 'int', 'internal' => 'unit'],
@@ -52,7 +52,7 @@ final class AccountPermissionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'account_permission';
+    protected static string $table = 'account_permission';
 
     /**
      * Primary field name.
@@ -60,5 +60,5 @@ final class AccountPermissionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'account_permission_id';
+    protected static string $primaryField = 'account_permission_id';
 }

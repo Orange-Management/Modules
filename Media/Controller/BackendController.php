@@ -74,7 +74,7 @@ final class BackendController extends Controller
      * @var string[]
      * @since 1.0.0
      */
-    protected static $providing = [];
+    protected static array $providing = [];
 
     /**
      * Dependencies.
@@ -82,7 +82,7 @@ final class BackendController extends Controller
      * @var string[]
      * @since 1.0.0
      */
-    protected static $dependencies = [];
+    protected static array $dependencies = [];
 
     /**
      * @param RequestAbstract  $request  Request

@@ -33,7 +33,7 @@ final class TagMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'tag_id'         => ['name' => 'tag_id',         'type' => 'int',    'internal' => 'id'],
         'tag_title'      => ['name' => 'tag_title',      'type' => 'string', 'internal' => 'title'],
         'tag_color'      => ['name' => 'tag_color',      'type' => 'string', 'internal' => 'color'],
@@ -48,7 +48,7 @@ final class TagMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'tag_created_by',
@@ -61,7 +61,7 @@ final class TagMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'tag';
+    protected static string $table = 'tag';
 
     /**
      * Primary field name.
@@ -69,5 +69,5 @@ final class TagMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'tag_id';
+    protected static string $primaryField = 'tag_id';
 }

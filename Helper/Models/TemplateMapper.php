@@ -27,7 +27,7 @@ final class TemplateMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'helper_template_id'         => ['name' => 'helper_template_id', 'type' => 'int', 'internal' => 'id'],
         'helper_template_status'     => ['name' => 'helper_template_status', 'type' => 'int', 'internal' => 'status'],
         'helper_template_title'      => ['name' => 'helper_template_title', 'type' => 'string', 'internal' => 'name'],
@@ -49,7 +49,7 @@ final class TemplateMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'source' => [
             'mapper' => CollectionMapper::class,
             'src'    => 'helper_template_media',
@@ -62,7 +62,7 @@ final class TemplateMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'helper_template_creator',
@@ -75,7 +75,7 @@ final class TemplateMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'reports' => [
             'mapper' => ReportMapper::class,
             'table'  => 'helper_report',
@@ -90,7 +90,7 @@ final class TemplateMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'helper_template';
+    protected static string $table = 'helper_template';
 
     /**
      * Created at.
@@ -98,7 +98,7 @@ final class TemplateMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'helper_template_created';
+    protected static string $createdAt = 'helper_template_created';
 
     /**
      * Primary field name.
@@ -106,5 +106,5 @@ final class TemplateMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'helper_template_id';
+    protected static string $primaryField = 'helper_template_id';
 }

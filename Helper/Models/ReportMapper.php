@@ -26,7 +26,7 @@ final class ReportMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'helper_report_id'       => ['name' => 'helper_report_id', 'type' => 'int', 'internal' => 'id'],
         'helper_report_status'   => ['name' => 'helper_report_status', 'type' => 'int', 'internal' => 'status'],
         'helper_report_title'    => ['name' => 'helper_report_title', 'type' => 'string', 'internal' => 'title'],
@@ -44,7 +44,7 @@ final class ReportMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'source'   => [
             'mapper' => \Modules\Media\Models\CollectionMapper::class,
             'src'    => 'helper_report_media',
@@ -61,7 +61,7 @@ final class ReportMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'helper_report_creator',
@@ -74,7 +74,7 @@ final class ReportMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'helper_report';
+    protected static string $table = 'helper_report';
 
     /**
      * Primary field name.
@@ -82,7 +82,7 @@ final class ReportMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'helper_report_id';
+    protected static string $primaryField = 'helper_report_id';
 
     /**
      * Created at.
@@ -90,5 +90,5 @@ final class ReportMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'helper_report_created';
+    protected static string $createdAt = 'helper_report_created';
 }

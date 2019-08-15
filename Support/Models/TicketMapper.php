@@ -34,7 +34,7 @@ final class TicketMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'support_ticket_id'   => ['name' => 'support_ticket_id', 'type' => 'int', 'internal' => 'id'],
         'support_ticket_task' => ['name' => 'support_ticket_task', 'type' => 'int', 'internal' => 'task'],
     ];
@@ -45,7 +45,7 @@ final class TicketMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'task' => [
             'mapper' => TaskMapper::class,
             'src'    => 'support_ticket_task',
@@ -58,7 +58,7 @@ final class TicketMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'support_ticket';
+    protected static string $table = 'support_ticket';
 
     /**
      * Primary field name.
@@ -66,5 +66,5 @@ final class TicketMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'support_ticket_id';
+    protected static string $primaryField = 'support_ticket_id';
 }

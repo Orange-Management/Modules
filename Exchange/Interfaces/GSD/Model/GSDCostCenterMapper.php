@@ -33,7 +33,7 @@ final class GSDCostCenterMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'ROW_ID'          => ['name' => 'ROW_ID', 'type' => 'int', 'internal' => 'id'],
         'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'row_create_user' => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
@@ -47,7 +47,7 @@ final class GSDCostCenterMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'FiKostenstellen';
+    protected static string $table = 'FiKostenstellen';
 
     /**
      * Created at.
@@ -55,7 +55,7 @@ final class GSDCostCenterMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'row_create_time';
+    protected static string $createdAt = 'row_create_time';
 
     /**
      * Primary field name.
@@ -63,5 +63,5 @@ final class GSDCostCenterMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'ROW_ID';
+    protected static string $primaryField = 'ROW_ID';
 }

@@ -54,7 +54,7 @@ class Calendar
     /**
      * Created at.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $createdAt = null;
@@ -62,7 +62,7 @@ class Calendar
     /**
      * Current date of the calendar.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $date = null;

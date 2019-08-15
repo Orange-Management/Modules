@@ -33,7 +33,7 @@ final class WikiDocMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'wiki_article_id'         => ['name' => 'wiki_article_id', 'type' => 'int', 'internal' => 'id'],
         'wiki_article_title'      => ['name' => 'wiki_article_title', 'type' => 'string', 'internal' => 'name'],
         'wiki_article_language'   => ['name' => 'wiki_article_language', 'type' => 'string', 'internal' => 'language'],
@@ -51,7 +51,7 @@ final class WikiDocMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     /*
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'badges' => [
             'mapper' => BadgeMapper::class,
             'table'  => 'wiki_article_badge',
@@ -66,7 +66,7 @@ final class WikiDocMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'category' => [
             'mapper' => WikiCategoryMapper::class,
             'dst'    => 'wiki_article_category',
@@ -79,7 +79,7 @@ final class WikiDocMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'wiki_article';
+    protected static string $table = 'wiki_article';
 
     /**
      * Created at.
@@ -87,7 +87,7 @@ final class WikiDocMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'wiki_article_created_at';
+    protected static string $createdAt = 'wiki_article_created_at';
 
     /**
      * Primary field name.
@@ -95,5 +95,5 @@ final class WikiDocMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'wiki_article_id';
+    protected static string $primaryField = 'wiki_article_id';
 }

@@ -24,7 +24,7 @@ final class SolutionMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_solution_id'             => ['name' => 'riskmngmt_solution_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_solution_name'           => ['name' => 'riskmngmt_solution_name', 'type' => 'string', 'internal' => 'title'],
         'riskmngmt_solution_description'    => ['name' => 'riskmngmt_solution_description', 'type' => 'string', 'internal' => 'description'],
@@ -40,7 +40,7 @@ final class SolutionMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'risk'  => [
             'mapper' => RiskMapper::class,
             'dest'   => 'riskmngmt_solution_risk',
@@ -57,7 +57,7 @@ final class SolutionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_solution';
+    protected static string $table = 'riskmngmt_solution';
 
     /**
      * Primary field name.
@@ -65,5 +65,5 @@ final class SolutionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_solution_id';
+    protected static string $primaryField = 'riskmngmt_solution_id';
 }

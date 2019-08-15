@@ -44,7 +44,7 @@ final class GSDCostCenter implements \JsonSerializable
     /**
      * Created.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $createdAt = null;

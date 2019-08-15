@@ -32,7 +32,7 @@ final class InvoiceMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'billing_invoice_id';
+    protected static string $primaryField = 'billing_invoice_id';
 
     /**
      * Primary table.
@@ -40,5 +40,5 @@ final class InvoiceMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'billing_invoice';
+    protected static string $table = 'billing_invoice';
 }

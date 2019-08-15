@@ -73,7 +73,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Created.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $createdAt = null;
@@ -89,7 +89,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Due.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $due = null;

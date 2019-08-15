@@ -33,7 +33,7 @@ final class CommentMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'comments_comment_id'          => ['name' => 'comments_comment_id', 'type' => 'int', 'internal' => 'id'],
         'comments_comment_title'       => ['name' => 'comments_comment_title', 'type' => 'string', 'internal' => 'title'],
         'comments_comment_status'      => ['name' => 'comments_comment_status', 'type' => 'int', 'internal' => 'status'],
@@ -51,7 +51,7 @@ final class CommentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'comments_comment';
+    protected static string $table = 'comments_comment';
 
     /**
      * Created at.
@@ -59,7 +59,7 @@ final class CommentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'comments_comment_created_at';
+    protected static string $createdAt = 'comments_comment_created_at';
 
     /**
      * Primary field name.
@@ -67,5 +67,5 @@ final class CommentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'comments_comment_id';
+    protected static string $primaryField = 'comments_comment_id';
 }

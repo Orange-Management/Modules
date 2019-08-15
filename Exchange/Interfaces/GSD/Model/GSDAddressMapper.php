@@ -32,7 +32,7 @@ final class GSDAddressMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'AdressRowId'     => ['name' => 'AdressRowId', 'type' => 'int', 'internal' => 'id'],
         'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'row_create_user' => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
@@ -52,7 +52,7 @@ final class GSDAddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'KUNDENADRESSE';
+    protected static string $table = 'KUNDENADRESSE';
 
     /**
      * Created at.
@@ -60,7 +60,7 @@ final class GSDAddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'row_create_time';
+    protected static string $createdAt = 'row_create_time';
 
     /**
      * Primary field name.
@@ -68,5 +68,5 @@ final class GSDAddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'AdressRowId';
+    protected static string $primaryField = 'AdressRowId';
 }

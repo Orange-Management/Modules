@@ -25,7 +25,7 @@ final class ProcessMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_process_id'             => ['name' => 'riskmngmt_process_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_process_name'           => ['name' => 'riskmngmt_process_name', 'type' => 'string', 'internal' => 'title'],
         'riskmngmt_process_description'    => ['name' => 'riskmngmt_process_description', 'type' => 'string', 'internal' => 'description'],
@@ -42,7 +42,7 @@ final class ProcessMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'unit'       => [
             'mapper' => UnitMapper::class,
             'dest'   => 'riskmngmt_cause_risk',
@@ -59,7 +59,7 @@ final class ProcessMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_process';
+    protected static string $table = 'riskmngmt_process';
 
     /**
      * Primary field name.
@@ -67,5 +67,5 @@ final class ProcessMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_process_id';
+    protected static string $primaryField = 'riskmngmt_process_id';
 }

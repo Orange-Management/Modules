@@ -34,7 +34,7 @@ final class GroupRelationMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'task_group_id'           => ['name' => 'task_group_id',           'type' => 'int', 'internal' => 'id'],
         'task_group_duty'         => ['name' => 'task_group_duty',         'type' => 'int', 'internal' => 'duty'],
         'task_group_group'        => ['name' => 'task_group_group',        'type' => 'int', 'internal' => 'relation'],
@@ -47,7 +47,7 @@ final class GroupRelationMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'relation' => [
             'mapper' => GroupMapper::class,
             'src'    => 'task_group_group',
@@ -60,7 +60,7 @@ final class GroupRelationMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'task_group';
+    protected static string $table = 'task_group';
 
     /**
      * Primary field name.
@@ -68,5 +68,5 @@ final class GroupRelationMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'task_group_id';
+    protected static string $primaryField = 'task_group_id';
 }

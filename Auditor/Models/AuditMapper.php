@@ -34,7 +34,7 @@ final class AuditMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'auditor_audit_id'         => ['name' => 'auditor_audit_id',         'type' => 'int',      'internal' => 'id'],
         'auditor_audit_created_by' => ['name' => 'auditor_audit_created_by', 'type' => 'int',      'internal' => 'createdBy'],
         'auditor_audit_created_at' => ['name' => 'auditor_audit_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
@@ -54,7 +54,7 @@ final class AuditMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'auditor_audit_created_by',
@@ -67,7 +67,7 @@ final class AuditMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'auditor_audit';
+    protected static string $table = 'auditor_audit';
 
     /**
      * Primary field name.
@@ -75,7 +75,7 @@ final class AuditMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'auditor_audit_id';
+    protected static string $primaryField = 'auditor_audit_id';
 
     /**
      * Created at.
@@ -83,5 +83,5 @@ final class AuditMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'auditor_audit_created_at';
+    protected static string $createdAt = 'auditor_audit_created_at';
 }

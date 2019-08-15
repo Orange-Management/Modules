@@ -25,7 +25,7 @@ final class ItemMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'itemmgmt_item_id'           => ['name' => 'itemmgmt_item_id', 'type' => 'int', 'internal' => 'id'],
         'itemmgmt_item_no'           => ['name' => 'itemmgmt_item_no', 'type' => 'string', 'internal' => 'number'],
         'itemmgmt_item_segment'      => ['name' => 'itemmgmt_item_segment', 'type' => 'int', 'internal' => 'segment'],
@@ -38,7 +38,7 @@ final class ItemMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'itemmgmt_item';
+    protected static string $table = 'itemmgmt_item';
 
     /**
      * Primary field name.
@@ -46,13 +46,13 @@ final class ItemMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'itemmgmt_item_id';    /**
+    protected static string $primaryField = 'itemmgmt_item_id';    /**
      * Has many relation.
      *
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'media' => [
             'mapper' => MediaMapper::class, /* mapper of the related object */
             'table'  => 'itemmgmt_item_media', /* table of the related object, null if no relation table is used (many->1) */

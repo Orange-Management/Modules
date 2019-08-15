@@ -34,7 +34,7 @@ final class AccountRelationMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'task_account_id'           => ['name' => 'task_account_id',           'type' => 'int', 'internal' => 'id'],
         'task_account_duty'         => ['name' => 'task_account_duty',         'type' => 'int', 'internal' => 'duty'],
         'task_account_account'      => ['name' => 'task_account_account',      'type' => 'int', 'internal' => 'relation'],
@@ -47,7 +47,7 @@ final class AccountRelationMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'relation' => [
             'mapper' => AccountMapper::class,
             'src'    => 'task_account_account',
@@ -60,7 +60,7 @@ final class AccountRelationMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'task_account';
+    protected static string $table = 'task_account';
 
     /**
      * Primary field name.
@@ -68,5 +68,5 @@ final class AccountRelationMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'task_account_id';
+    protected static string $primaryField = 'task_account_id';
 }

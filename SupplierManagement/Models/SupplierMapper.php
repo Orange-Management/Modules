@@ -28,7 +28,7 @@ final class SupplierMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'suppliermgmt_supplier_id'         => ['name' => 'suppliermgmt_supplier_id', 'type' => 'int', 'internal' => 'id'],
         'suppliermgmt_supplier_no'         => ['name' => 'suppliermgmt_supplier_no', 'type' => 'string', 'internal' => 'number'],
         'suppliermgmt_supplier_no_reverse' => ['name' => 'suppliermgmt_supplier_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
@@ -46,7 +46,7 @@ final class SupplierMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'suppliermgmt_supplier';
+    protected static string $table = 'suppliermgmt_supplier';
 
     /**
      * Primary field name.
@@ -54,7 +54,7 @@ final class SupplierMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'suppliermgmt_supplier_id';
+    protected static string $primaryField = 'suppliermgmt_supplier_id';
 
     /**
      * Created at column
@@ -62,7 +62,7 @@ final class SupplierMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'suppliermgmt_supplier_created_at';
+    protected static string $createdAt = 'suppliermgmt_supplier_created_at';
 
     /**
      * Has one relation.
@@ -70,7 +70,7 @@ final class SupplierMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'profile' => [
             'mapper' => ProfileMapper::class,
             'src'    => 'suppliermgmt_supplier_account',
@@ -81,7 +81,7 @@ final class SupplierMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'files'           => [
             'mapper' => MediaMapper::class, /* mapper of the related object */
             'table'  => 'suppliermgmt_supplier_media', /* table of the related object, null if no relation table is used (many->1) */

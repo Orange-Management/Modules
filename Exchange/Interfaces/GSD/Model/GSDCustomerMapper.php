@@ -32,14 +32,14 @@ final class GSDCustomerMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'row_id'               => ['name' => 'row_id', 'type' => 'int', 'internal' => 'id'],
         'row_create_time'      => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
         'row_create_user'      => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
         'Kundennummer'         => ['name' => 'Kundennummer', 'type' => 'string', 'internal' => 'number'],
     ];
 
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'mainAddress' => [
             'mapper' => GSDAddressMapper::class,
             'src'    => 'AddressId',
@@ -52,7 +52,7 @@ final class GSDCustomerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'Kunden';
+    protected static string $table = 'Kunden';
 
     /**
      * Created at.
@@ -60,7 +60,7 @@ final class GSDCustomerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'row_create_time';
+    protected static string $createdAt = 'row_create_time';
 
     /**
      * Primary field name.
@@ -68,5 +68,5 @@ final class GSDCustomerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'row_id';
+    protected static string $primaryField = 'row_id';
 }

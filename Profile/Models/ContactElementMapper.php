@@ -24,7 +24,7 @@ final class ContactElementMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'profile_contact_id' => ['name' => 'profile_contact_id', 'type' => 'int', 'internal' => 'id'],
     ];
 
@@ -34,7 +34,7 @@ final class ContactElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile_contact';
+    protected static string $table = 'profile_contact';
 
     /**
      * Primary field name.
@@ -42,5 +42,5 @@ final class ContactElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_contact_id';
+    protected static string $primaryField = 'profile_contact_id';
 }

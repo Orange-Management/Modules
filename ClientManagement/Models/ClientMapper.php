@@ -28,7 +28,7 @@ final class ClientMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'clientmgmt_client_id'         => ['name' => 'clientmgmt_client_id', 'type' => 'int', 'internal' => 'id'],
         'clientmgmt_client_no'         => ['name' => 'clientmgmt_client_no', 'type' => 'string', 'internal' => 'number'],
         'clientmgmt_client_no_reverse' => ['name' => 'clientmgmt_client_no_reverse', 'type' => 'string', 'internal' => 'numberReverse'],
@@ -46,7 +46,7 @@ final class ClientMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'clientmgmt_client';
+    protected static string $table = 'clientmgmt_client';
 
     /**
      * Primary field name.
@@ -54,7 +54,7 @@ final class ClientMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'clientmgmt_client_id';
+    protected static string $primaryField = 'clientmgmt_client_id';
 
     /**
      * Created at column
@@ -62,7 +62,7 @@ final class ClientMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'clientmgmt_client_created_at';
+    protected static string $createdAt = 'clientmgmt_client_created_at';
 
     /**
      * Has one relation.
@@ -70,7 +70,7 @@ final class ClientMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'profile' => [
             'mapper' => ProfileMapper::class,
             'src'    => 'clientmgmt_client_account',
@@ -81,7 +81,7 @@ final class ClientMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'files'           => [
             'mapper' => MediaMapper::class, /* mapper of the related object */
             'table'  => 'clientmgmt_client_media', /* table of the related object, null if no relation table is used (many->1) */

@@ -32,7 +32,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'dashboard_component_id'        => ['name' => 'dashboard_component_id',        'type' => 'int',    'internal' => 'id'],
         'dashboard_component_order'     => ['name' => 'dashboard_component_order',     'type' => 'int',    'internal' => 'order'],
         'dashboard_component_module'    => ['name' => 'dashboard_component_module',    'type' => 'string', 'internal' => 'module'],
@@ -46,7 +46,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'board' => [
             'mapper' => DashboardBoardMapper::class,
             'src'    => 'dashboard_component_board',
@@ -59,7 +59,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'dashboard_component';
+    protected static string $table = 'dashboard_component';
 
     /**
      * Primary field name.
@@ -67,5 +67,5 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'dashboard_component_id';
+    protected static string $primaryField = 'dashboard_component_id';
 }

@@ -33,7 +33,7 @@ final class KanbanColumnMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'kanban_column_id'    => ['name' => 'kanban_column_id', 'type' => 'int', 'internal' => 'id'],
         'kanban_column_name'  => ['name' => 'kanban_column_name', 'type' => 'string', 'internal' => 'name'],
         'kanban_column_order' => ['name' => 'kanban_column_order', 'type' => 'int', 'internal' => 'order'],
@@ -46,7 +46,7 @@ final class KanbanColumnMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'cards' => [
             'mapper' => KanbanCardMapper::class,
             'table'  => 'kanban_card',
@@ -61,7 +61,7 @@ final class KanbanColumnMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'kanban_column';
+    protected static string $table = 'kanban_column';
 
     /**
      * Primary field name.
@@ -69,5 +69,5 @@ final class KanbanColumnMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'kanban_column_id';
+    protected static string $primaryField = 'kanban_column_id';
 }

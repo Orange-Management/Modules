@@ -34,7 +34,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'kanban_board_id'         => ['name' => 'kanban_board_id', 'type' => 'int', 'internal' => 'id'],
         'kanban_board_name'       => ['name' => 'kanban_board_name', 'type' => 'string', 'internal' => 'name'],
         'kanban_board_desc'       => ['name' => 'kanban_board_desc', 'type' => 'string', 'internal' => 'description'],
@@ -50,7 +50,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'columns' => [
             'mapper' => KanbanColumnMapper::class,
             'table'  => 'kanban_column',
@@ -65,7 +65,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'kanban_board_created_by',
@@ -78,7 +78,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'kanban_board';
+    protected static string $table = 'kanban_board';
 
     /**
      * Created at.
@@ -86,7 +86,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'kanban_board_created_at';
+    protected static string $createdAt = 'kanban_board_created_at';
 
     /**
      * Primary field name.
@@ -94,5 +94,5 @@ final class KanbanBoardMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'kanban_board_id';
+    protected static string $primaryField = 'kanban_board_id';
 }

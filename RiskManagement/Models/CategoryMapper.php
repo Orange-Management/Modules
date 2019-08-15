@@ -24,7 +24,7 @@ final class CategoryMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_category_id'             => ['name' => 'riskmngmt_category_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_category_name'           => ['name' => 'riskmngmt_category_name', 'type' => 'string', 'internal' => 'title'],
         'riskmngmt_category_description'    => ['name' => 'riskmngmt_category_description', 'type' => 'string', 'internal' => 'description'],
@@ -40,7 +40,7 @@ final class CategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_category';
+    protected static string $table = 'riskmngmt_category';
 
     /**
      * Primary field name.
@@ -48,5 +48,5 @@ final class CategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_category_id';
+    protected static string $primaryField = 'riskmngmt_category_id';
 }

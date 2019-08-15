@@ -50,7 +50,7 @@ class Profile implements \JsonSerializable
     /**
      * Birthday.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $birthday = null;

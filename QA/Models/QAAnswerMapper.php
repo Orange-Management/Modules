@@ -34,7 +34,7 @@ final class QAAnswerMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'qa_answer_id'         => ['name' => 'qa_answer_id', 'type' => 'int', 'internal' => 'id'],
         'qa_answer_answer'     => ['name' => 'qa_answer_answer', 'type' => 'string', 'internal' => 'answer'],
         'qa_answer_question'   => ['name' => 'qa_answer_question', 'type' => 'int', 'internal' => 'question'],
@@ -50,7 +50,7 @@ final class QAAnswerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'qa_answer';
+    protected static string $table = 'qa_answer';
 
     /**
      * Created at.
@@ -58,7 +58,7 @@ final class QAAnswerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'qa_answer_created_at';
+    protected static string $createdAt = 'qa_answer_created_at';
 
     /**
      * Primary field name.
@@ -66,7 +66,7 @@ final class QAAnswerMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'qa_answer_id';
+    protected static string $primaryField = 'qa_answer_id';
 
     /**
      * Belongs to.
@@ -74,7 +74,7 @@ final class QAAnswerMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => ProfileMapper::class,
             'dest'   => 'qa_answer_created_by',

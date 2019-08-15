@@ -57,7 +57,7 @@ class Task implements \JsonSerializable
     /**
      * Created.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $createdAt = null;
@@ -113,7 +113,7 @@ class Task implements \JsonSerializable
     /**
      * Start.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $start = null;
@@ -121,7 +121,7 @@ class Task implements \JsonSerializable
     /**
      * Due.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $due = null;
@@ -129,7 +129,7 @@ class Task implements \JsonSerializable
     /**
      * Done.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $done = null;

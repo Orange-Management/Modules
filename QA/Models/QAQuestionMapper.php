@@ -34,7 +34,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'qa_question_id'         => ['name' => 'qa_question_id', 'type' => 'int', 'internal' => 'id'],
         'qa_question_title'      => ['name' => 'qa_question_title', 'type' => 'string', 'internal' => 'name'],
         'qa_question_language'   => ['name' => 'qa_question_language', 'type' => 'string', 'internal' => 'language'],
@@ -51,7 +51,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'answers' => [
             'mapper' => QAAnswerMapper::class,
             'table'  => 'qa_answer',
@@ -66,7 +66,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'category' => [
             'mapper' => QACategoryMapper::class,
             'dst'    => 'qa_question_category',
@@ -79,7 +79,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => ProfileMapper::class,
             'dest'   => 'qa_question_created_by',
@@ -92,7 +92,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'qa_question';
+    protected static string $table = 'qa_question';
 
     /**
      * Created at.
@@ -100,7 +100,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'qa_question_created_at';
+    protected static string $createdAt = 'qa_question_created_at';
 
     /**
      * Primary field name.
@@ -108,5 +108,5 @@ final class QAQuestionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'qa_question_id';
+    protected static string $primaryField = 'qa_question_id';
 }

@@ -35,7 +35,7 @@ final class AccountMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string|array>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'account_id'         => ['name' => 'account_id',         'type' => 'int',      'internal' => 'id',    'autocomplete' => true],
         'account_status'     => ['name' => 'account_status',     'type' => 'int',      'internal' => 'status'],
         'account_type'       => ['name' => 'account_type',       'type' => 'int',      'internal' => 'type'],
@@ -61,7 +61,7 @@ final class AccountMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'groups' => [
             'mapper' => GroupMapper::class,
             'table'  => 'account_group',
@@ -76,7 +76,7 @@ final class AccountMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'account';
+    protected static string $table = 'account';
 
     /**
      * Primary field name.
@@ -84,7 +84,7 @@ final class AccountMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'account_id';
+    protected static string $primaryField = 'account_id';
 
     /**
      * Created at column
@@ -92,7 +92,7 @@ final class AccountMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'account_created_at';
+    protected static string $createdAt = 'account_created_at';
 
     /**
      * Get account with permissions

@@ -33,7 +33,7 @@ final class GroupPermissionMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'group_permission_id'         => ['name' => 'group_permission_id', 'type' => 'int', 'internal' => 'id'],
         'group_permission_group'      => ['name' => 'group_permission_group', 'type' => 'int', 'internal' => 'group'],
         'group_permission_unit'       => ['name' => 'group_permission_unit', 'type' => 'int', 'internal' => 'unit'],
@@ -52,7 +52,7 @@ final class GroupPermissionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'group_permission';
+    protected static string $table = 'group_permission';
 
     /**
      * Primary field name.
@@ -60,5 +60,5 @@ final class GroupPermissionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'group_permission_id';
+    protected static string $primaryField = 'group_permission_id';
 }

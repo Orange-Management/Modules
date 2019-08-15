@@ -34,7 +34,7 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'kanban_card_comment_id'          => ['name' => 'kanban_card_comment_id', 'type' => 'int', 'internal' => 'id'],
         'kanban_card_comment_description' => ['name' => 'kanban_card_comment_description', 'type' => 'string', 'internal' => 'description'],
         'kanban_card_comment_card'        => ['name' => 'kanban_card_comment_card', 'type' => 'int', 'internal' => 'card'],
@@ -48,7 +48,7 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'media' => [
             'mapper' => MediaMapper::class,
             'table'  => 'kanban_card_comment_media',
@@ -63,7 +63,7 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'kanban_card_comment';
+    protected static string $table = 'kanban_card_comment';
 
     /**
      * Created at.
@@ -71,7 +71,7 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'kanban_card_comment_created_at';
+    protected static string $createdAt = 'kanban_card_comment_created_at';
 
     /**
      * Primary field name.
@@ -79,5 +79,5 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'kanban_card_comment_id';
+    protected static string $primaryField = 'kanban_card_comment_id';
 }

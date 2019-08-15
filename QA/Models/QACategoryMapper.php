@@ -33,7 +33,7 @@ final class QACategoryMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'qa_category_id'     => ['name' => 'qa_category_id', 'type' => 'int', 'internal' => 'id'],
         'qa_category_name'   => ['name' => 'qa_category_name', 'type' => 'string', 'internal' => 'name'],
         'qa_category_parent' => ['name' => 'qa_category_parent', 'type' => 'int', 'internal' => 'parent'],
@@ -45,7 +45,7 @@ final class QACategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'qa_category';
+    protected static string $table = 'qa_category';
 
     /**
      * Primary field name.
@@ -53,5 +53,5 @@ final class QACategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'qa_category_id';
+    protected static string $primaryField = 'qa_category_id';
 }

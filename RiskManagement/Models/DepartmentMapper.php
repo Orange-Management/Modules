@@ -24,7 +24,7 @@ final class DepartmentMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_department_id'          => ['name' => 'riskmngmt_department_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_department_department'  => ['name' => 'riskmngmt_department_department', 'type' => 'int', 'internal' => 'department'],
         'riskmngmt_department_responsible' => ['name' => 'riskmngmt_department_responsible', 'type' => 'int', 'internal' => 'responsible'],
@@ -37,7 +37,7 @@ final class DepartmentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_department';
+    protected static string $table = 'riskmngmt_department';
 
     /**
      * Primary field name.
@@ -45,7 +45,7 @@ final class DepartmentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_department_id';
+    protected static string $primaryField = 'riskmngmt_department_id';
 
     /**
      * Has one relation.
@@ -58,7 +58,7 @@ final class DepartmentMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'department' => [
             'mapper' => \Modules\Organization\Models\DepartmentMapper::class,
             'dest'   => 'riskmngmt_department_department',

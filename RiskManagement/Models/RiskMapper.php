@@ -26,7 +26,7 @@ final class RiskMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_risk_id'             => ['name' => 'riskmngmt_risk_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_risk_name'           => ['name' => 'riskmngmt_risk_name', 'type' => 'string', 'internal' => 'name'],
         'riskmngmt_risk_description'    => ['name' => 'riskmngmt_risk_description', 'type' => 'string', 'internal' => 'description'],
@@ -47,7 +47,7 @@ final class RiskMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'media'       => [
             'mapper' => MediaMapper::class,
             'table'  => 'riskmngmt_risk_media',
@@ -80,7 +80,7 @@ final class RiskMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'project'    => [
             'mapper' => ProjectMapper::class,
             'dest'   => 'riskmngmt_risk_project',
@@ -109,7 +109,7 @@ final class RiskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_risk';
+    protected static string $table = 'riskmngmt_risk';
 
     /**
      * Primary field name.
@@ -117,5 +117,5 @@ final class RiskMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_risk_id';
+    protected static string $primaryField = 'riskmngmt_risk_id';
 }

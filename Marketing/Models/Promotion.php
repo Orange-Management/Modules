@@ -55,7 +55,7 @@ class Promotion
     /**
      * Created at.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $createdAt = null;

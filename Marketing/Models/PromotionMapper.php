@@ -36,7 +36,7 @@ final class PromotionMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'marketing_promotion_id'          => ['name' => 'marketing_promotion_id', 'type' => 'int', 'internal' => 'id'],
         'marketing_promotion_name'        => ['name' => 'marketing_promotion_name', 'type' => 'string', 'internal' => 'name'],
         'marketing_promotion_description' => ['name' => 'marketing_promotion_description', 'type' => 'string', 'internal' => 'description'],
@@ -58,7 +58,7 @@ final class PromotionMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'tasks' => [
             'mapper' => TaskMapper::class,
             'table'  => 'marketing_promotion_task_relation',
@@ -79,7 +79,7 @@ final class PromotionMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'calendar' => [
             'mapper' => CalendarMapper::class,
             'src'    => 'marketing_promotion_calendar',
@@ -92,7 +92,7 @@ final class PromotionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'marketing_promotion';
+    protected static string $table = 'marketing_promotion';
 
     /**
      * Created at.
@@ -100,7 +100,7 @@ final class PromotionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'marketing_promotion_created_at';
+    protected static string $createdAt = 'marketing_promotion_created_at';
 
     /**
      * Primary field name.
@@ -108,5 +108,5 @@ final class PromotionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'marketing_promotion_id';
+    protected static string $primaryField = 'marketing_promotion_id';
 }

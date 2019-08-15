@@ -35,7 +35,7 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'task_element_id'         => ['name' => 'task_element_id',         'type' => 'int',      'internal' => 'id'],
         'task_element_desc'       => ['name' => 'task_element_desc',       'type' => 'string',   'internal' => 'description'],
         'task_element_desc_raw'   => ['name' => 'task_element_desc_raw',   'type' => 'string',   'internal' => 'descriptionRaw'],
@@ -53,7 +53,7 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'media' => [
             'mapper' => MediaMapper::class,
             'table'  => 'task_element_media',
@@ -80,7 +80,7 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'src'    => 'task_element_created_by',
@@ -93,7 +93,7 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'task_element';
+    protected static string $table = 'task_element';
 
     /**
      * Created at.
@@ -101,7 +101,7 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'task_element_created_at';
+    protected static string $createdAt = 'task_element_created_at';
 
     /**
      * Primary field name.
@@ -109,5 +109,5 @@ final class TaskElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'task_element_id';
+    protected static string $primaryField = 'task_element_id';
 }

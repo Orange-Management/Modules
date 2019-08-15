@@ -56,7 +56,7 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice created at.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $createdAt = null;
@@ -64,7 +64,7 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice send at.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $send = null;

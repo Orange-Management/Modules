@@ -33,7 +33,7 @@ final class GroupMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'group_id'       => ['name' => 'group_id', 'type' => 'int', 'internal' => 'id'],
         'group_name'     => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name', 'autocomplete' => true],
         'group_status'   => ['name' => 'group_status', 'type' => 'int', 'internal' => 'status'],
@@ -48,7 +48,7 @@ final class GroupMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'group';
+    protected static string $table = 'group';
 
     /**
      * Primary field name.
@@ -56,7 +56,7 @@ final class GroupMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'group_id';
+    protected static string $primaryField = 'group_id';
 
     /**
      * Created at column
@@ -64,7 +64,7 @@ final class GroupMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'group_created';
+    protected static string $createdAt = 'group_created';
 
     /**
      * Has many relation.
@@ -77,7 +77,7 @@ final class GroupMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'accounts' => [
             'mapper' => AccountMapper::class,
             'table'  => 'account_group',

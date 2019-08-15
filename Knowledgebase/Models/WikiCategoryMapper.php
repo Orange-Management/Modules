@@ -33,7 +33,7 @@ final class WikiCategoryMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'wiki_category_id'     => ['name' => 'wiki_category_id', 'type' => 'int', 'internal' => 'id'],
         'wiki_category_name'   => ['name' => 'wiki_category_name', 'type' => 'string', 'internal' => 'name'],
         'wiki_category_parent' => ['name' => 'wiki_category_parent', 'type' => 'int', 'internal' => 'parent'],
@@ -45,7 +45,7 @@ final class WikiCategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'wiki_category';
+    protected static string $table = 'wiki_category';
 
     /**
      * Primary field name.
@@ -53,5 +53,5 @@ final class WikiCategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'wiki_category_id';
+    protected static string $primaryField = 'wiki_category_id';
 }

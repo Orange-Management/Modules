@@ -93,7 +93,7 @@ class Schedule
     /**
      * Start.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $start = null;
@@ -109,7 +109,7 @@ class Schedule
     /**
      * End.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $end = null;
@@ -117,7 +117,7 @@ class Schedule
     /**
      * Created at.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $createdAt = null;

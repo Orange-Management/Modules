@@ -44,7 +44,7 @@ class BatchPosting implements \Countable
     /**
      * Created.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private $created = null;

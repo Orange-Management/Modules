@@ -36,7 +36,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'projectmanagement_project_id'            => ['name' => 'projectmanagement_project_id', 'type' => 'int', 'internal' => 'id'],
         'projectmanagement_project_name'          => ['name' => 'projectmanagement_project_name', 'type' => 'string', 'internal' => 'name'],
         'projectmanagement_project_description'   => ['name' => 'projectmanagement_project_description', 'type' => 'string', 'internal' => 'description'],
@@ -58,7 +58,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'tasks' => [
             'mapper' => TaskMapper::class,
             'table'  => 'projectmanagement_task_relation',
@@ -79,7 +79,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $ownsOne = [
+    protected static array $ownsOne = [
         'calendar' => [
             'mapper' => CalendarMapper::class,
             'src'    => 'projectmanagement_project_calendar',
@@ -92,7 +92,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'projectmanagement_project';
+    protected static string $table = 'projectmanagement_project';
 
     /**
      * Created at.
@@ -100,7 +100,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'projectmanagement_project_created_at';
+    protected static string $createdAt = 'projectmanagement_project_created_at';
 
     /**
      * Primary field name.
@@ -108,5 +108,5 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'projectmanagement_project_id';
+    protected static string $primaryField = 'projectmanagement_project_id';
 }

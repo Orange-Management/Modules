@@ -24,7 +24,7 @@ final class RiskObjectMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_risk_object_id'             => ['name' => 'riskmngmt_risk_object_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_risk_object_name'           => ['name' => 'riskmngmt_risk_object_name', 'type' => 'string', 'internal' => 'title'],
         'riskmngmt_risk_object_description'    => ['name' => 'riskmngmt_risk_object_description', 'type' => 'string', 'internal' => 'description'],
@@ -38,7 +38,7 @@ final class RiskObjectMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'unit' => [
             'mapper' => RiskMapper::class,
             'dest'   => 'riskmngmt_risk_object_risk',
@@ -51,7 +51,7 @@ final class RiskObjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_risk_object';
+    protected static string $table = 'riskmngmt_risk_object';
 
     /**
      * Primary field name.
@@ -59,5 +59,5 @@ final class RiskObjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_risk_object_id';
+    protected static string $primaryField = 'riskmngmt_risk_object_id';
 }

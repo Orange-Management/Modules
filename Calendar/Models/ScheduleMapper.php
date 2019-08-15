@@ -33,7 +33,7 @@ final class ScheduleMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'schedule_id'                     => ['name' => 'schedule_id', 'type' => 'int', 'internal' => 'id'],
         'schedule_uid'                    => ['name' => 'schedule_uid', 'type' => 'string', 'internal' => 'uid'],
         'schedule_status'                 => ['name' => 'schedule_status', 'type' => 'int', 'internal' => 'status'],
@@ -55,7 +55,7 @@ final class ScheduleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'schedule';
+    protected static string $table = 'schedule';
 
     /**
      * Created at.
@@ -63,7 +63,7 @@ final class ScheduleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'schedule_created_at';
+    protected static string $createdAt = 'schedule_created_at';
 
     /**
      * Primary field name.
@@ -71,5 +71,5 @@ final class ScheduleMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'schedule_id';
+    protected static string $primaryField = 'schedule_id';
 }

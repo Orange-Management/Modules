@@ -35,7 +35,7 @@ class MediaMapper extends DataMapperAbstract
      * @since 1.0.0
      * @todo: maybe add file name for searching by file name (path in media_file should not matter for search)
      */
-    protected static $columns = [
+    protected static array $columns = [
         'media_id'              => ['name' => 'media_id', 'type' => 'int', 'internal' => 'id'],
         'media_name'            => ['name' => 'media_name', 'type' => 'string', 'internal' => 'name', 'autocomplete' => true],
         'media_description'     => ['name' => 'media_description', 'type' => 'string', 'internal' => 'description', 'autocomplete' => true],
@@ -56,7 +56,7 @@ class MediaMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'dest'   => 'media_created_by',
@@ -69,7 +69,7 @@ class MediaMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'media';
+    protected static string $table = 'media';
 
     /**
      * Created at.
@@ -77,7 +77,7 @@ class MediaMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'media_created_at';
+    protected static string $createdAt = 'media_created_at';
 
     /**
      * Primary field name.
@@ -85,7 +85,7 @@ class MediaMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'media_id';
+    protected static string $primaryField = 'media_id';
 
     /**
      * Get media based on virtual path.

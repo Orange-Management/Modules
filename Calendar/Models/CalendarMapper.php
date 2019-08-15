@@ -41,7 +41,7 @@ final class CalendarMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'calendar_id'          => ['name' => 'calendar_id', 'type' => 'int', 'internal' => 'id'],
         'calendar_name'        => ['name' => 'calendar_name', 'type' => 'string', 'internal' => 'name'],
         'calendar_description' => ['name' => 'calendar_description', 'type' => 'string', 'internal' => 'description'],
@@ -54,7 +54,7 @@ final class CalendarMapper extends DataMapperAbstract
      * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
-    protected static $hasMany = [
+    protected static array $hasMany = [
         'events' => [
             'mapper' => EventMapper::class,
             'table'  => 'calendar_event',
@@ -69,7 +69,7 @@ final class CalendarMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'calendar';
+    protected static string $table = 'calendar';
 
     /**
      * Created at.
@@ -77,7 +77,7 @@ final class CalendarMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $createdAt = 'calendar_created_at';
+    protected static string $createdAt = 'calendar_created_at';
 
     /**
      * Primary field name.
@@ -85,5 +85,5 @@ final class CalendarMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'calendar_id';
+    protected static string $primaryField = 'calendar_id';
 }

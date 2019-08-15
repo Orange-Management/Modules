@@ -24,7 +24,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'riskmngmt_project_id'          => ['name' => 'riskmngmt_project_id', 'type' => 'int', 'internal' => 'id'],
         'riskmngmt_project_project'     => ['name' => 'riskmngmt_project_project', 'type' => 'int', 'internal' => 'project'],
         'riskmngmt_project_responsible' => ['name' => 'riskmngmt_project_responsible', 'type' => 'int', 'internal' => 'responsible'],
@@ -37,7 +37,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'riskmngmt_project';
+    protected static string $table = 'riskmngmt_project';
 
     /**
      * Primary field name.
@@ -45,7 +45,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'riskmngmt_project_id';
+    protected static string $primaryField = 'riskmngmt_project_id';
 
     /**
      * Has one relation.
@@ -58,7 +58,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array<string, string>>
      * @since 1.0.0
      */
-    protected static $belongsTo = [
+    protected static array $belongsTo = [
         'project' => [
             'mapper' => \Modules\ProjectManagement\Models\ProjectMapper::class,
             'dest'   => 'riskmngmt_project_project',

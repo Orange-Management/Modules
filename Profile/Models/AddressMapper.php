@@ -32,7 +32,7 @@ final class AddressMapper extends DataMapperAbstract
      * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
-    protected static $columns = [
+    protected static array $columns = [
         'profile_address_id'      => ['name' => 'profile_address_id', 'type' => 'int', 'internal' => 'id'],
         'profile_address_type'    => ['name' => 'profile_address_type', 'type' => 'int', 'internal' => 'type'],
         'profile_address_address' => ['name' => 'profile_address_address', 'type' => 'string', 'internal' => 'address'],
@@ -48,7 +48,7 @@ final class AddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $table = 'profile_address';
+    protected static string $table = 'profile_address';
 
     /**
      * Primary field name.
@@ -56,5 +56,5 @@ final class AddressMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static $primaryField = 'profile_address_id';
+    protected static string $primaryField = 'profile_address_id';
 }
