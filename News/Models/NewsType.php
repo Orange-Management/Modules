@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.2
+ * PHP Version 7.4
  *
  * @package    Modules\News\Models
  * @copyright  Dennis Eichhorn
