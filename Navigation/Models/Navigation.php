@@ -38,7 +38,7 @@ class Navigation
      * @var array
      * @since 1.0.0
      */
-    private $nav = [];
+    private array $nav = [];
 
     /**
      * Singleton instance.

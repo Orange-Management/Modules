@@ -30,7 +30,7 @@ class DashboardComponent implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Order.
@@ -38,7 +38,7 @@ class DashboardComponent implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $order = 0;
+    protected int $order = 0;
 
     /**
      * Board.
@@ -54,7 +54,7 @@ class DashboardComponent implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $module = '';
+    protected string $module = '';
 
     /**
      * Component.
@@ -62,7 +62,7 @@ class DashboardComponent implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $component = '';
+    protected string $component = '';
 
     /**
      * Get id

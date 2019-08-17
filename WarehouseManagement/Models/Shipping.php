@@ -31,12 +31,12 @@ class Shipping
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Order.
      *
-     * @var int
+     * @var intstring
      * @since 1.0.0
      */
     private $order = '';
@@ -52,10 +52,10 @@ class Shipping
     /**
      * Warehouse.
      *
-     * @var int
+     * @var string
      * @since 1.0.0
      */
-    private $warehouse = '';
+    private string $warehouse = '';
 
     /**
      * Date of arrival.
@@ -63,7 +63,7 @@ class Shipping
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $delivered = null;
+    private ?\DateTime $delivered = null;
 
     /**
      * Person who sent the delivery.
@@ -71,7 +71,7 @@ class Shipping
      * @var int
      * @since 1.0.0
      */
-    private $sender = null;
+    private int $sender = null;
 
     /**
      * Warehouse.
@@ -87,7 +87,7 @@ class Shipping
      * @var \Modules\Warehousing\Models\Article[]
      * @since 1.0.0
      */
-    private static $instances = [];
+    private static array $instances = [];
 
     /**
      * Constructor.

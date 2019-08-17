@@ -33,7 +33,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Title.
@@ -41,7 +41,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $title = '';
+    private string $title = '';
 
     /**
      * Color RGBA.
@@ -49,7 +49,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $color = '00000000';
+    private string $color = '00000000';
 
     /**
      * Creator.
@@ -65,7 +65,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $type = TagType::SINGLE;
+    private string $type = TagType::SINGLE;
 
     /**
      * Get created by

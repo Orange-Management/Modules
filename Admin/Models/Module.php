@@ -33,7 +33,7 @@ class Module
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Account name.
@@ -41,7 +41,7 @@ class Module
      * @var string
      * @since 1.0.0
      */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * Account name.
@@ -49,7 +49,7 @@ class Module
      * @var string
      * @since 1.0.0
      */
-    protected $description = '';
+    protected string $description = '';
 
     /**
      * Group status.
@@ -57,7 +57,7 @@ class Module
      * @var int
      * @since 1.0.0
      */
-    protected $status = ModuleStatus::INACTIVE;
+    protected int $status = ModuleStatus::INACTIVE;
 
     /**
      * Created at.
@@ -65,7 +65,7 @@ class Module
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $createdAt = null;
+    protected ?\DateTime $createdAt = null;
 
     /**
      * Constructor.

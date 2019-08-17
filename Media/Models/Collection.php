@@ -39,7 +39,7 @@ class Collection extends Media implements \Iterator
      * @var string
      * @since 1.0.0
      */
-    protected $extension = 'collection';
+    protected string $extension = 'collection';
 
     /**
      * Versioned.
@@ -47,7 +47,7 @@ class Collection extends Media implements \Iterator
      * @var bool
      * @since 1.0.0
      */
-    protected $versioned = false;
+    protected bool $versioned = false;
 
     /**
      * Set sources.

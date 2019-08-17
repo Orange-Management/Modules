@@ -31,7 +31,7 @@ class Warehouse
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -39,7 +39,7 @@ class Warehouse
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Location of the warehouse.
@@ -55,7 +55,7 @@ class Warehouse
      * @var \Modules\Warehousing\Models\Warehouse[]
      * @since 1.0.0
      */
-    private static $instances = [];
+    private static array $instances = [];
 
     /**
      * Constructor.

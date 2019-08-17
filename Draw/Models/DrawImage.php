@@ -34,7 +34,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Media object.

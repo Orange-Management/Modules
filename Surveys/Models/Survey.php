@@ -31,7 +31,7 @@ class Survey
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Name.
@@ -39,7 +39,7 @@ class Survey
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -47,7 +47,7 @@ class Survey
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Created.
@@ -63,7 +63,7 @@ class Survey
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private int $creator = null;
 
     private static $instances = [];
 

@@ -30,7 +30,7 @@ class Account extends \phpOMS\Account\Account
      * @var int
      * @since 1.0.0
      */
-    protected $tries = 0;
+    protected int $tries = 0;
 
     /**
      * Get remaining login tries

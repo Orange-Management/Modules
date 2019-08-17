@@ -36,7 +36,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     private $type = EventType::DEFAULT;
 
@@ -70,7 +70,7 @@ class Event
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Creator.
@@ -273,7 +273,7 @@ class Event
     }
 
     /**
-     * @param int $createdBy Creator
+     * @param $createdBy Creator
      *
      * @since  1.0.0
      */

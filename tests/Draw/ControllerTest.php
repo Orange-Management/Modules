@@ -42,7 +42,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     {
         $this->app = new class() extends ApplicationAbstract
         {
-            protected $appName = 'Api';
+            protected string $appName = 'Api';
         };
 
         $this->app->dbPool         = $GLOBALS['dbpool'];

@@ -32,7 +32,7 @@ class DashboardBoard implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Title.
@@ -40,7 +40,7 @@ class DashboardBoard implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $title = '';
+    protected string $title = '';
 
     /**
      * Account.
@@ -56,7 +56,7 @@ class DashboardBoard implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $status = DashboardBoardStatus::ACTIVE;
+    protected int $status = DashboardBoardStatus::ACTIVE;
 
     /**
      * Dashboard component.
@@ -64,7 +64,7 @@ class DashboardBoard implements \JsonSerializable
      * @var DashboardComponent[]
      * @since 1.0.0
      */
-    protected $components = [];
+    protected array $components = [];
 
     /**
      * Get id

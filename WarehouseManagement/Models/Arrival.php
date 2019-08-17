@@ -31,7 +31,7 @@ class Arrival
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Order.
@@ -39,7 +39,7 @@ class Arrival
      * @var int
      * @since 1.0.0
      */
-    private $order = '';
+    private int $order = '';
 
     /**
      * From.
@@ -63,7 +63,7 @@ class Arrival
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $date = null;
+    private ?\DateTime $date = null;
 
     /**
      * Person who accepted the delivery.
@@ -71,7 +71,7 @@ class Arrival
      * @var int
      * @since 1.0.0
      */
-    private $acceptor = null;
+    private int $acceptor = null;
 
     /**
      * Warehouse.
@@ -89,7 +89,7 @@ class Arrival
      * @var \Modules\Warehousing\Models\Arrival[]
      * @since 1.0.0
      */
-    private static $instances = [];
+    private static array $instances = [];
 
     /**
      * Constructor.

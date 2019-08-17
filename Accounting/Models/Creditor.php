@@ -33,12 +33,12 @@ class Creditor
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Account.
      *
-     * @var int
+     * @var null|int|phpOMS/Account/Account
      * @since 1.0.0
      */
     protected $account = null;

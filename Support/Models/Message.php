@@ -31,7 +31,7 @@ class Message
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -39,7 +39,7 @@ class Message
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Created.
@@ -47,7 +47,7 @@ class Message
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $created = null;
+    private ?\DateTime $created = null;
 
     /**
      * Creator.
@@ -55,7 +55,7 @@ class Message
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private int $creator = null;
 
     private static $instances = [];
 

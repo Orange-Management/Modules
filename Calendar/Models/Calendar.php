@@ -33,7 +33,7 @@ class Calendar
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Name.
@@ -41,7 +41,7 @@ class Calendar
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -49,7 +49,7 @@ class Calendar
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Created at.
@@ -57,7 +57,7 @@ class Calendar
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Current date of the calendar.
@@ -65,7 +65,7 @@ class Calendar
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $date = null;
+    private ?\DateTime $date = null;
 
     /**
      * Events.

@@ -30,7 +30,7 @@ class CostCenter
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Code.
@@ -38,7 +38,7 @@ class CostCenter
      * @var string
      * @since 1.0.0
      */
-    private $code = '';
+    private string $code = '';
 
     /**
      * Name.
@@ -46,7 +46,7 @@ class CostCenter
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -54,7 +54,7 @@ class CostCenter
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Get balance id

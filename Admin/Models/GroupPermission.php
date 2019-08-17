@@ -35,7 +35,7 @@ class GroupPermission extends PermissionAbstract
      * @var int
      * @since 1.0.0
      */
-    private $group = 0;
+    private int $group = 0;
 
     /**
      * Constructor.

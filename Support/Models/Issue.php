@@ -30,7 +30,7 @@ class Issue
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Name.
@@ -38,7 +38,7 @@ class Issue
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -46,7 +46,7 @@ class Issue
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Created.
@@ -54,7 +54,7 @@ class Issue
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $created = null;
+    private ?\DateTime $created = null;
 
     /**
      * Creator.
@@ -62,7 +62,7 @@ class Issue
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private int $creator = null;
 
     private static $instances = [];
 

@@ -30,5 +30,5 @@ class EventTemplate extends Event
      * @var int
      * @since 1.0.0
      */
-    private $type = EventType::TEMPLATE;
+    private int $type = EventType::TEMPLATE;
 }

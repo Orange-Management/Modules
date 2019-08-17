@@ -29,7 +29,7 @@ class Article
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private int $id = null;
 
     /**
      * Name.
@@ -37,7 +37,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -45,7 +45,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Matchcode.
@@ -53,7 +53,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $matchcode = '';
+    private string $matchcode = '';
 
     /**
      * Sector.
@@ -61,7 +61,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $sector = null;
+    private string $sector = null;
 
     /**
      * Group.
@@ -69,7 +69,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $group = null;
+    private string $group = null;
 
     /**
      * Suppliers.
@@ -79,7 +79,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $suppliers = null;
+    private string $suppliers = null;
 
     /**
      * Localization strings.
@@ -89,7 +89,7 @@ class Article
      * @var array
      * @since 1.0.0
      */
-    private $invoice_i18n = [];
+    private array $invoice_i18n = [];
 
     /**
      * Prizes.
@@ -99,7 +99,7 @@ class Article
      * @var array
      * @since 1.0.0
      */
-    private $prizes = [];
+    private array $prizes = [];
 
     /**
      * Active supplier.
@@ -107,7 +107,7 @@ class Article
      * @var string
      * @since 1.0.0
      */
-    private $pprice = null;
+    private string $pprice = null;
 
     /**
      * Created.
@@ -115,7 +115,7 @@ class Article
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $created = null;
+    private ?\DateTime $created = null;
 
     /**
      * Creator.
@@ -131,7 +131,7 @@ class Article
      * @var \Modules\Warehousing\Models\Article[]
      * @since 1.0.0
      */
-    private static $instances = [];
+    private static array $instances = [];
 
     /**
      * Constructor.

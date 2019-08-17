@@ -36,7 +36,7 @@ class TaskElement implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Description.
@@ -44,7 +44,7 @@ class TaskElement implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Description raw.
@@ -52,7 +52,7 @@ class TaskElement implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $descriptionRaw = '';
+    private string $descriptionRaw = '';
 
     /**
      * Task.
@@ -60,7 +60,7 @@ class TaskElement implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $task = 0;
+    private int $task = 0;
 
     /**
      * Creator.
@@ -76,7 +76,7 @@ class TaskElement implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Status.
@@ -84,7 +84,7 @@ class TaskElement implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $status = TaskStatus::OPEN;
+    private int $status = TaskStatus::OPEN;
 
     /**
      * Due.
@@ -92,7 +92,7 @@ class TaskElement implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $due = null;
+    private ?\DateTime $due = null;
 
     /**
      * Priority
@@ -100,7 +100,7 @@ class TaskElement implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $priority = TaskPriority::NONE;
+    protected int $priority = TaskPriority::NONE;
 
     /**
      * Media.
@@ -108,7 +108,7 @@ class TaskElement implements \JsonSerializable
      * @var array
      * @since 1.0.0
      */
-    private $media = [];
+    private array $media = [];
 
     /**
      * Accounts who received this task element.
@@ -116,7 +116,7 @@ class TaskElement implements \JsonSerializable
      * @var array
      * @since 1.0.0
      */
-    protected $accRelation = [];
+    protected array $accRelation = [];
 
     /**
      * Groups who received this task element.
@@ -124,7 +124,7 @@ class TaskElement implements \JsonSerializable
      * @var array
      * @since 1.0.0
      */
-    protected $grpRelation = [];
+    protected array $grpRelation = [];
 
     /**
      * Constructor.

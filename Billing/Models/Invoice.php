@@ -35,7 +35,7 @@ class Invoice implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $number = '';
+    private string $number = '';
 
     /**
      * Invoice type.
@@ -43,7 +43,7 @@ class Invoice implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $type = InvoiceType::BILL;
+    private int $type = InvoiceType::BILL;
 
     /**
      * Invoice status.
@@ -51,7 +51,7 @@ class Invoice implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $status = InvoiceStatus::DRAFT;
+    private int $status = InvoiceStatus::DRAFT;
 
     /**
      * Invoice created at.
@@ -59,7 +59,7 @@ class Invoice implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Invoice send at.
@@ -67,7 +67,7 @@ class Invoice implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $send = null;
+    private ?\DateTime $send = null;
 
     private $createdBy = 0;
 
@@ -103,7 +103,7 @@ class Invoice implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $referer = 0;
+    private int $referer = 0;
 
     private $refererName = '';
 
@@ -145,7 +145,7 @@ class Invoice implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $reference = 0;
+    private int $reference = 0;
 
     public function __construct()
     {

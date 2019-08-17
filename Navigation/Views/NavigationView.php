@@ -36,7 +36,7 @@ class NavigationView extends View
      * @var int
      * @since 1.0.0
      */
-    protected $navId = 0;
+    protected int $navId = 0;
 
     /**
      * Navigation.
@@ -44,7 +44,7 @@ class NavigationView extends View
      * @var mixed[]
      * @since 1.0.0
      */
-    protected $nav = [];
+    protected array $nav = [];
 
     /**
      * Parent element used for navigation.
@@ -52,7 +52,7 @@ class NavigationView extends View
      * @var int
      * @since 1.0.0
      */
-    protected $parent = 0;
+    protected int $parent = 0;
 
     /**
      * Get navigation Id.

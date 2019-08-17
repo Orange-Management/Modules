@@ -31,7 +31,7 @@ class Report implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Report status.
@@ -39,7 +39,7 @@ class Report implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $status = HelperStatus::INACTIVE;
+    private int $status = HelperStatus::INACTIVE;
 
     /**
      * Report title.
@@ -47,7 +47,7 @@ class Report implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $title = '';
+    private string $title = '';
 
     /**
      * Report description.
@@ -55,7 +55,7 @@ class Report implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Report description.
@@ -63,7 +63,7 @@ class Report implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $descriptionRaw = '';
+    private string $descriptionRaw = '';
 
     /**
      * Report created at.
@@ -71,7 +71,7 @@ class Report implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $createdAt = null;
+    protected ?\DateTime $createdAt = null;
 
     /**
      * Report created by.
@@ -84,7 +84,7 @@ class Report implements \JsonSerializable
     /**
      * Report template.
      *
-     * @var int
+     * @var null|int|Media
      * @since 1.0.0
      */
     private $template = 0;

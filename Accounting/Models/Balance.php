@@ -31,7 +31,7 @@ class Balance
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Balance data.
@@ -39,7 +39,7 @@ class Balance
      * @var array
      * @since 1.0.0
      */
-    private $balance = [];
+    private array $balance = [];
 
     /**
      * Balance name.
@@ -47,7 +47,7 @@ class Balance
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Balance description.
@@ -55,7 +55,7 @@ class Balance
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Get balance id

@@ -32,7 +32,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Name.
@@ -40,7 +40,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Parent
@@ -56,7 +56,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Description.
@@ -64,7 +64,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $descriptionRaw = '';
+    protected string $descriptionRaw = '';
 
     /**
      * Status
@@ -72,7 +72,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $status = Status::INACTIVE;
+    protected int $status = Status::INACTIVE;
 
     /**
      * Get id

@@ -31,7 +31,7 @@ final class GSDCostCenter implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Creator.
@@ -47,7 +47,7 @@ final class GSDCostCenter implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $createdAt = null;
+    protected ?\DateTime $createdAt = null;
 
     /**
      * Description.
@@ -55,7 +55,7 @@ final class GSDCostCenter implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $description = '';
+    protected string $description = '';
 
     /**
      * Cost center.
@@ -63,7 +63,7 @@ final class GSDCostCenter implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $costCenter = '';
+    protected string $costCenter = '';
 
     /**
      * Constructor.

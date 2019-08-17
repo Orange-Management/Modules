@@ -31,7 +31,7 @@ class Room
      * @var int
      * @since 1.0.0
      */
-    private $id = null;
+    private int $id = null;
 
     /**
      * Name.
@@ -39,7 +39,7 @@ class Room
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -47,7 +47,7 @@ class Room
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Created.
@@ -55,7 +55,7 @@ class Room
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $created = null;
+    private ?\DateTime $created = null;
 
     /**
      * Creator.
@@ -63,7 +63,7 @@ class Room
      * @var int
      * @since 1.0.0
      */
-    private $creator = null;
+    private int $creator = null;
 
     /**
      * Type.
@@ -79,7 +79,7 @@ class Room
      * @var string
      * @since 1.0.0
      */
-    private $password = null;
+    private string $password = null;
 
     private static $instances = [];
 

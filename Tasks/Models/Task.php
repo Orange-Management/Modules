@@ -36,7 +36,7 @@ class Task implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Title.
@@ -44,7 +44,7 @@ class Task implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $title = '';
+    protected string $title = '';
 
     /**
      * Creator.
@@ -60,7 +60,7 @@ class Task implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $createdAt = null;
+    protected ?\DateTime $createdAt = null;
 
     /**
      * Description.
@@ -68,7 +68,7 @@ class Task implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $description = '';
+    protected string $description = '';
 
     /**
      * Description raw.
@@ -76,7 +76,7 @@ class Task implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $descriptionRaw = '';
+    protected string $descriptionRaw = '';
 
     /**
      * Type.
@@ -84,7 +84,7 @@ class Task implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $type = TaskType::SINGLE;
+    protected int $type = TaskType::SINGLE;
 
     /**
      * Status.
@@ -92,7 +92,7 @@ class Task implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $status = TaskStatus::OPEN;
+    protected int $status = TaskStatus::OPEN;
 
     /**
      * Task can be closed by user.
@@ -100,7 +100,7 @@ class Task implements \JsonSerializable
      * @var bool
      * @since 1.0.0
      */
-    protected $isClosable = true;
+    protected bool $isClosable = true;
 
     /**
      * Task can be edited by user.
@@ -108,7 +108,7 @@ class Task implements \JsonSerializable
      * @var bool
      * @since 1.0.0
      */
-    protected $isEditable = true;
+    protected bool $isEditable = true;
 
     /**
      * Start.
@@ -140,7 +140,7 @@ class Task implements \JsonSerializable
      * @var TaskElement[]
      * @since 1.0.0
      */
-    protected $taskElements = [];
+    protected array $taskElements = [];
 
     /**
      * Task elements.
@@ -148,7 +148,7 @@ class Task implements \JsonSerializable
      * @var Tag[]
      * @since 1.0.0
      */
-    protected $tags = [];
+    protected array $tags = [];
 
     /**
      * Schedule
@@ -164,7 +164,7 @@ class Task implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $priority = TaskPriority::NONE;
+    protected int $priority = TaskPriority::NONE;
 
     /**
      * Media files
@@ -172,7 +172,7 @@ class Task implements \JsonSerializable
      * @var array
      * @since 1.0.0
      */
-    protected $media = [];
+    protected array $media = [];
 
     /**
      * Constructor.

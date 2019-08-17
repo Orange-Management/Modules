@@ -754,6 +754,15 @@
                 'state' => 2,
             ],
         ],
+        84 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
     ],
     '^:help :user .*$' => [
         0 => [
@@ -1502,6 +1511,15 @@
             ],
         ],
         83 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        84 => [
             'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
             'verb' => 16,
             'permission' => [
@@ -2266,6 +2284,15 @@
                 'state' => 3,
             ],
         ],
+        84 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 3,
+            ],
+        ],
     ],
     '^:help :module .*$' => [
         0 => [
@@ -3014,6 +3041,15 @@
             ],
         ],
         83 => [
+            'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
+            'verb' => 16,
+            'permission' => [
+                'module' => 'Help',
+                'type' => 2,
+                'state' => 2,
+            ],
+        ],
+        84 => [
             'dest' => '\Modules\Help\Controller\SearchController:searchHelp',
             'verb' => 16,
             'permission' => [

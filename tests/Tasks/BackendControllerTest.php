@@ -39,7 +39,7 @@ class BackendControllerTest extends \PHPUnit\Framework\TestCase
     {
         $this->app = new class() extends ApplicationAbstract
         {
-            protected $appName = 'Backend';
+            protected string $appName = 'Backend';
         };
 
         $this->app->dbPool         = $GLOBALS['dbpool'];

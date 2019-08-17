@@ -35,7 +35,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Name.
@@ -43,7 +43,7 @@ class Event
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Description.
@@ -51,7 +51,7 @@ class Event
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Created.
@@ -59,7 +59,7 @@ class Event
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Creator.
@@ -77,7 +77,7 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $type = EventType::SINGLE;
+    private int $type = EventType::SINGLE;
 
     /**
      * Event status.
@@ -87,12 +87,12 @@ class Event
      * @var int
      * @since 1.0.0
      */
-    private $status = EventStatus::ACTIVE;
+    private int $status = EventStatus::ACTIVE;
 
     /**
      * Schedule
      *
-     * @var Schedule
+     * @var null|int|Schedule
      * @since 1.0.0
      */
     private $schedule = null;
@@ -103,7 +103,7 @@ class Event
      * @var Location
      * @since 1.0.0
      */
-    private $location = null;
+    private ?Location $location = null;
 
     /**
      * Calendar
@@ -119,7 +119,7 @@ class Event
      * @var array
      * @since 1.0.0
      */
-    private $people = [];
+    private array $people = [];
 
     /**
      * Constructor.
@@ -258,7 +258,7 @@ class Event
     }
 
     /**
-     * @param int $createdBy Creator
+     * @param $createdBy Creator
      *
      * @since  1.0.0
      */

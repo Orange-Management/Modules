@@ -32,7 +32,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Name.
@@ -40,7 +40,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Parent
@@ -64,7 +64,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $description = '';
+    private string $description = '';
 
     /**
      * Description.
@@ -72,7 +72,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $descriptionRaw = '';
+    private string $descriptionRaw = '';
 
     /**
      * Status
@@ -80,7 +80,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $status = Status::INACTIVE;
+    protected int $status = Status::INACTIVE;
 
     /**
      * Get id

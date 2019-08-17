@@ -58,7 +58,7 @@ class Project
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Created by.
@@ -253,7 +253,7 @@ class Project
     }
 
     /**
-     * @param int $createdBy Creator
+     * @param $createdBy Creator
      *
      * @since  1.0.0
      */

@@ -32,7 +32,7 @@ class Audit
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Audit type.
@@ -40,7 +40,7 @@ class Audit
      * @var int
      * @since 1.0.0
      */
-    private $type = 0;
+    private int $type = 0;
 
     /**
      * Audit subtype.
@@ -48,7 +48,7 @@ class Audit
      * @var int
      * @since 1.0.0
      */
-    private $subtype = 0;
+    private int $subtype = 0;
 
     /**
      * Audit module.
@@ -108,7 +108,7 @@ class Audit
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     /**
      * Ip of creator.
@@ -116,7 +116,7 @@ class Audit
      * @var int
      * @since 1.0.0
      */
-    private $ip = 0;
+    private int $ip = 0;
 
     /**
      * Constructor.

@@ -42,7 +42,7 @@ class UploadFile
      * @var bool
      * @since 1.0.0
      */
-    private $isInterlaced = true;
+    private bool $isInterlaced = true;
 
     /**
      * Upload max size.
@@ -50,7 +50,7 @@ class UploadFile
      * @var int
      * @since 1.0.0
      */
-    private $maxSize = 50000000;
+    private int $maxSize = 50000000;
 
     /**
      * Allowed mime types.
@@ -66,7 +66,7 @@ class UploadFile
      * @var string
      * @since 1.0.0
      */
-    private $outputDir = __DIR__ . '/../../Modules/Media/Files';
+    private string $outputDir = __DIR__ . '/../../Modules/Media/Files';
 
     /**
      * Output file name.
@@ -74,7 +74,7 @@ class UploadFile
      * @var string
      * @since 1.0.0
      */
-    private $fileName = '';
+    private string $fileName = '';
 
     /**
      * Output file name.
@@ -82,7 +82,7 @@ class UploadFile
      * @var bool
      * @since 1.0.0
      */
-    private $preserveFileName = true;
+    private bool $preserveFileName = true;
 
     /**
      * Upload file to server.

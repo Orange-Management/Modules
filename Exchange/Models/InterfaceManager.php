@@ -35,7 +35,7 @@ class InterfaceManager
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * File path.
@@ -43,7 +43,7 @@ class InterfaceManager
      * @var string
      * @since 1.0.0
      */
-    private $path = '';
+    private string $path = '';
 
     /**
      * Info data.

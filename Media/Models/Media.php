@@ -31,7 +31,7 @@ class Media implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Name.
@@ -39,7 +39,7 @@ class Media implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * Extension.
@@ -47,7 +47,7 @@ class Media implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $extension = '';
+    protected string $extension = '';
 
     /**
      * File size in bytes.
@@ -55,7 +55,7 @@ class Media implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $size = 0;
+    protected int $size = 0;
 
     /**
      * Author.
@@ -71,7 +71,7 @@ class Media implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $createdAt = null;
+    protected ?\DateTime $createdAt = null;
 
     /**
      * Resource path.
@@ -79,7 +79,7 @@ class Media implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $path = '';
+    protected string $path = '';
 
     /**
      * Virtual path.
@@ -87,7 +87,7 @@ class Media implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $virtualPath = '/';
+    protected string $virtualPath = '/';
 
     /**
      * Is path absolute?
@@ -95,7 +95,7 @@ class Media implements \JsonSerializable
      * @var bool
      * @since 1.0.0
      */
-    protected $isAbsolute = false;
+    protected bool $isAbsolute = false;
 
     /**
      * Is versioned.
@@ -103,7 +103,7 @@ class Media implements \JsonSerializable
      * @var bool
      * @since 1.0.0
      */
-    protected $versioned = false;
+    protected bool $versioned = false;
 
     /**
      * Media Description.
@@ -111,7 +111,7 @@ class Media implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $description    = '';
+    protected string $description    = '';
     protected $descriptionRaw = '';
 
     /**

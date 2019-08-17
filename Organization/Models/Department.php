@@ -32,7 +32,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $id = 0;
+    protected int $id = 0;
 
     /**
      * Name.
@@ -40,7 +40,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $name = '';
+    protected string $name = '';
 
     /**
      * Parent
@@ -56,7 +56,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $status = Status::INACTIVE;
+    protected int $status = Status::INACTIVE;
 
     /**
      * Unit this department belongs to
@@ -72,7 +72,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $description = '';
+    protected string $description = '';
 
     /**
      * Description.
@@ -80,7 +80,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected $descriptionRaw = '';
+    protected string $descriptionRaw = '';
 
     /**
      * Constructor

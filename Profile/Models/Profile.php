@@ -37,12 +37,12 @@ class Profile implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Profile image.
      *
-     * @var Media
+     * @var null|int|Media
      * @since 1.0.0
      */
     private $image = null;
@@ -53,7 +53,7 @@ class Profile implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    private $birthday = null;
+    private ?\DateTime $birthday = null;
 
     /**
      * Account.
@@ -69,7 +69,7 @@ class Profile implements \JsonSerializable
      * @var array<Location>
      * @since 1.0.0
      */
-    private $location = [];
+    private array $location = [];
 
     /**
      * Constructor.
