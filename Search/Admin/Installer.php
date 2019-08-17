@@ -37,10 +37,11 @@ class Installer extends InstallerAbstract
      */
     public static function install(DatabasePool $dbPool, InfoManager $info) : void
     {
-        if (\file_exists(__DIR__ . '/../Search.php')) {
-            \unlink(__DIR__ . '/../Search.php');
+        if (\file_exists(__DIR__ . '/../SearchCommands.php')) {
+            \unlink(__DIR__ . '/../SearchCommands.php');
         }
 
+        \file_put_contents(__DIR__ . '/../SearchCommands.php', '<?php return [];');
         parent::install($dbPool, $info);
     }
 
