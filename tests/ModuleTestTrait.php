@@ -110,8 +110,8 @@ trait ModuleTestTrait
                 continue;
             }
 
-            $classReflection = new \ReflectionClass(\substr($class, 0, -6));
-            $properties      = $classReflection->getDefaultProperties();
+            $classReflection   = new \ReflectionClass(\substr($class, 0, -6));
+            $defaultProperties = $classReflection->getDefaultProperties();
 
             foreach ($columns as $cName => $column) {
                 $isArray = false;
@@ -121,15 +121,15 @@ trait ModuleTestTrait
                     $isArray = true;
                 }
 
-                self::assertArrayHasKey(
-                    $column['internal'], $properties,
+                self::assertTrue(
+                    $classReflection->hasProperty($column['internal']),
                     'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member'
                 );
 
                 // testing correct mapper/model variable type definition
-                $property = $properties[$column['internal']];
+                $property = $defaultProperties[$column['internal']] ?? null;
                 self::assertTrue(
-                    $property === null /* todo: change in the future. not every column value is alowed to be null. a flag needs to be implemented in the mapper column definitions e.g. null = true */
+                    $property === null /* @todo: change in the future. not every column value is alowed to be null. a flag needs to be implemented in the mapper column definitions e.g. null = true */
                     || (\is_string($property) && $column['type'] === 'string')
                     || (\is_int($property) && $column['type'] === 'int')
                     || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable' || $isArray))
@@ -144,11 +144,11 @@ trait ModuleTestTrait
             $rel = $mapperReflection->getDefaultProperties()['hasMany'];
             foreach ($rel as $pName => $def) {
                 self::assertTrue(
-                    isset($properties[$pName]),
+                    isset($defaultProperties[$pName]),
                     'Mapper "' . $class . '" property "' . $pName . '" doesn\'t exist in model'
                 );
 
-                $property = $properties[$pName];
+                $property = $defaultProperties[$pName];
                 self::assertIsArray($property,
                     'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition'
                 );
