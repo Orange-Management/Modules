@@ -100,11 +100,7 @@ echo $this->getData('nav')->render(); ?>
             </div>
         </section>
 
-        <div id="elements"
-            data-ui-content="#elements"
-            data-ui-element=".taskelement"
-            data-tag="form"
-            data-ui-form="taskElementCreate">
+        <div id="elements">
             <!-- todo: this doesn't work because single taskelements cannot be identified somehow we need to work with ids of elements, implement a counter for the current element or implement a nearest() function instead of the this.closest() -->
             <template>
                 <section id="taskelmenet-0" class="box wf-100 taskelement"
