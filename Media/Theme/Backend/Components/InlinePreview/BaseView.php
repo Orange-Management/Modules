@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Media\Theme\Backend\Components\Upload;
+namespace Modules\Media\Theme\Backend\Components\InlinePreview;
 
 use phpOMS\ApplicationAbstract;
 use phpOMS\Message\RequestAbstract;
@@ -42,13 +42,13 @@ class BaseView extends View
     public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
     {
         parent::__construct($app, $request, $response);
-        $this->setTemplate('/Modules/Media/Theme/Backend/Components/Upload/upload');
+        $this->setTemplate('/Modules/Media/Theme/Backend/Components/InlinePreview/inline-preview');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function render(...$data): string
+    public function render(...$data) : string
     {
         $this->form        = $data[0];
         $this->name        = $data[1];
