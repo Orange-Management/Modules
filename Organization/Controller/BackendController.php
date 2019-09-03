@@ -165,6 +165,9 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Organization/Theme/Backend/unit-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004703001, $request, $response));
 
+        $uploadView = new \Modules\Media\Theme\Backend\Components\InlinePreview\BaseView($this->app, $request, $response);
+        $view->addData('media-preview-upload', $uploadView);
+
         $selectorView = new \Modules\Organization\Theme\Backend\Components\UnitTagSelector\UnitTagSelectorView($this->app, $request, $response);
         $view->addData('unit-selector', $selectorView);
 

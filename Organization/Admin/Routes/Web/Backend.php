@@ -41,6 +41,15 @@ return [
     ],
     '^.*/organization/unit/create.*$' => [
         [
+            'dest' => '\Modules\Media\Controller\BackendController::setUpFileUploader',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::UNIT,
+            ],
+        ],
+        [
             'dest' => '\Modules\Organization\Controller\BackendController:viewUnitCreate',
             'verb' => RouteVerb::GET,
             'permission' => [

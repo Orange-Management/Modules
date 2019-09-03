@@ -25,6 +25,9 @@ echo $this->getData('nav')->render(); ?>
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>
+                        <tr><td><label for="iParent"><?= $this->getHtml('UnitLogo') ?></label>
+                        <tr><td><img id="preview-logo" class="preview" src="#" accept="image/*" alt="<?= $this->getHtml('UnitLogo') ?>">
+                        <tr><td><?= $this->getData('media-preview-upload')->render('fUnitCreate', 'logo', '/Modules/Organization'); ?>
                         <tr><td><label for="iParent"><?= $this->getHtml('Parent') ?></label>
                         <tr><td><?= $this->getData('unit-selector')->render('iParent', false); ?>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
