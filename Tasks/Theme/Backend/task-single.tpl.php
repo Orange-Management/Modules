@@ -37,6 +37,7 @@ echo $this->getData('nav')->render(); ?>
             data-method="POST"
             data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}task?{?}&csrf={$CSRF}'); ?>">
             <div class="inner">
+                <?php if ($task->isEditable()) : ?>
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
                 <template>
@@ -58,6 +59,7 @@ echo $this->getData('nav')->render(); ?>
                         <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                     </div>
                 </template>
+                <?php endif; ?>
 
                 <span id="task-status-badge" class="floatRight nobreak tag task-status-<?= $this->printHtml($task->getStatus()); ?>">
                     <?= $this->getHtml('S' . $task->getStatus()) ?>
@@ -89,7 +91,7 @@ echo $this->getData('nav')->render(); ?>
                         <?php endif; ?>
                     </div>
 
-                    <?php if ($this->request->getHeader()->getAccount() === $task->getCreatedBy()->getId()) : ?>
+                    <?php if ($task->isEditable() && $this->request->getHeader()->getAccount() === $task->getCreatedBy()->getId()) : ?>
                         <div class="vC">
                             <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
                             <button class="cancel hidden"><?= $this->getHtml('Cancel', '0', '0') ?></button>
@@ -102,6 +104,7 @@ echo $this->getData('nav')->render(); ?>
 
         <div id="elements">
             <!-- todo: this doesn't work because single taskelements cannot be identified somehow we need to work with ids of elements, implement a counter for the current element or implement a nearest() function instead of the this.closest() -->
+            <?php if ($task->isEditable()) : ?>
             <template>
                 <section id="taskelmenet-0" class="box wf-100 taskelement"
                     data-ui-content="#elements"
@@ -155,6 +158,7 @@ echo $this->getData('nav')->render(); ?>
                     <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                 </div>
             </template>
+            <?php endif; ?>
             <?php $c = 0; $previous = null;
             foreach ($elements as $key => $element) : ++$c;
                 if ($element->getDescription() !== '') :
@@ -208,7 +212,9 @@ echo $this->getData('nav')->render(); ?>
                         </div>
                     <?php endif; ?>
 
-                    <?php if ($this->request->getHeader()->getAccount() === $element->getCreatedBy()->getId()) : ?>
+                    <?php if ($task->isEditable()
+                        && $this->request->getHeader()->getAccount() === $element->getCreatedBy()->getId()
+                    ) : ?>
                         <div class="vC">
                             <input type="hidden" value="<?= $element->getId(); ?>" name="id">
                             <button class="save hidden"><?= $this->getHtml('Save', '0', '0') ?></button>
