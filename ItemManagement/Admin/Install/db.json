@@ -27,6 +27,103 @@
             }
         }
     },
+    "itemmgmt_item_l11n": {
+        "name": "itemmgmt_item_l11n",
+        "fields": {
+            "itemmgmt_item_l11n_id": {
+                "name": "itemmgmt_item_l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "itemmgmt_item_l11n_name1": {
+                "name": "itemmgmt_item_l11n_name1",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "itemmgmt_item_l11n_name2": {
+                "name": "itemmgmt_item_l11n_name2",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "itemmgmt_item_l11n_name3": {
+                "name": "itemmgmt_item_l11n_name3",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "itemmgmt_item_l11n_description1": {
+                "name": "itemmgmt_item_l11n_description1",
+                "type": "TEXT",
+                "null": false
+            },
+            "itemmgmt_item_l11n_description2": {
+                "name": "itemmgmt_item_l11n_description2",
+                "type": "TEXT",
+                "null": false
+            },
+            "itemmgmt_item_l11n_description3": {
+                "name": "itemmgmt_item_l11n_description3",
+                "type": "TEXT",
+                "null": false
+            },
+            "itemmgmt_item_l11n_item": {
+                "name": "itemmgmt_item_l11n_item",
+                "type": "INT(11)",
+                "null": false,
+                "foreignTable": "itemmgmt_item",
+                "foreignKey": "itemmgmt_item_id"
+            },
+            "itemmgmt_item_l11n_lang": {
+                "name": "itemmgmt_item_l11n_lang",
+                "type": "INT(11)",
+                "null": false,
+                "foreignTable": "language",
+                "foreignKey": "language_id"
+            }
+        }
+    },
+    "itemmgmt_item_attr_l11n": {
+        "name": "itemmgmt_item_attr_l11n",
+        "fields": {
+            "itemmgmt_item_attr_l11n_id": {
+                "name": "itemmgmt_item_attr_l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "itemmgmt_item_attr_l11n_item": {
+                "name": "itemmgmt_item_attr_l11n_item",
+                "type": "INT(11)",
+                "null": false,
+                "foreignTable": "itemmgmt_item",
+                "foreignKey": "itemmgmt_item_id"
+            },
+            "itemmgmt_item_attr_l11n_attr": {
+                "name": "itemmgmt_item_attr_l11n_attr",
+                "type": "INT(3)",
+                "null": false
+            },
+            "itemmgmt_item_attr_l11n_name": {
+                "name": "itemmgmt_item_attr_l11n_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "itemmgmt_item_attr_l11n_value": {
+                "name": "itemmgmt_item_attr_l11n_value",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "itemmgmt_item_attr_l11n_lang": {
+                "name": "itemmgmt_item_attr_l11n_lang",
+                "type": "INT(11)",
+                "null": false,
+                "foreignTable": "language",
+                "foreignKey": "language_id"
+            }
+        }
+    },
     "itemmgmt_item_media": {
         "name": "itemmgmt_item_media",
         "fields": {
@@ -36,6 +133,11 @@
                 "null": false,
                 "primary": true,
                 "autoincrement": true
+            },
+            "itemmgmt_item_media_type": {
+                "name": "itemmgmt_item_media_type",
+                "type": "INT",
+                "null": false
             },
             "itemmgmt_item_media_src": {
                 "name": "itemmgmt_item_media_src",

@@ -75,7 +75,9 @@ final class SupplierMapper extends DataMapperAbstract
             'mapper' => ProfileMapper::class,
             'src'    => 'suppliermgmt_supplier_account',
         ],
-    ];    /**
+    ];
+
+    /**
      * Has many relation.
      *
      * @var array<string, array<string, null|string>>

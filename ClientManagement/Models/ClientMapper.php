@@ -75,7 +75,9 @@ final class ClientMapper extends DataMapperAbstract
             'mapper' => ProfileMapper::class,
             'src'    => 'clientmgmt_client_account',
         ],
-    ];    /**
+    ];
+
+    /**
      * Has many relation.
      *
      * @var array<string, array<string, null|string>>
