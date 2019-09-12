@@ -72,4 +72,15 @@ return [
             ],
         ],
     ],
+    '^.*/sales/item/single.*$' => [
+        [
+            'dest' => '\Modules\ItemManagement\Controller\BackendController:viewItemManagementSalesItem',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::SALES_ITEM,
+            ],
+        ],
+    ],
 ];

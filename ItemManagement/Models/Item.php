@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\ItemManagement\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\ItemManagement\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use Modules\Media\Models\Media;
 /**
  * Account class.
  *
- * @package    Modules\ItemManagement\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\ItemManagement\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Item
 {
@@ -40,6 +40,8 @@ class Item
 
     private $successor = 0;
 
+    private $type = 0;
+
     private $media = [];
 
     private $l11n = null;
@@ -53,6 +55,16 @@ class Item
     private $disposal = null;
 
     private $createdAt = null;
+
+    private string $name1 = '';
+
+    private string $name2 = '';
+
+    private string $name3 = '';
+
+    private string $name4 = '';
+
+    private string $name5 = '';
 
     private $info = '';
 
@@ -81,73 +93,53 @@ class Item
         $this->number = $number;
     }
 
-    public function getArticleGroup() : int
+    public function setName1(string $name) : void
     {
-        return $this->articleGroup;
+        $this->name1 = $name;
     }
 
-    public function setArticleGroup(int $segment) : void
+    public function getName1() : string
     {
-        $this->articleGroup = $segment;
+        return $this->name1;
     }
 
-    public function getSalesGroup() : int
+    public function setName2(string $name) : void
     {
-        return $this->salesGroup;
+        $this->name2 = $name;
     }
 
-    public function setSalesGroup(int $segment) : void
+    public function getName2() : string
     {
-        $this->salesGroup = $segment;
+        return $this->name2;
     }
 
-    public function getProductGroup() : int
+    public function setName3(string $name) : void
     {
-        return $this->productGroup;
+        $this->name3 = $name;
     }
 
-    public function setProductGroup(int $segment) : void
+    public function getName3() : string
     {
-        $this->productGroup = $segment;
+        return $this->name3;
     }
 
-    public function getSegment() : int
+    public function setName4(string $name): void
     {
-        return $this->segment;
+        $this->name4 = $name;
     }
 
-    public function setSegment(int $segment) : void
+    public function getName4(): string
     {
-        $this->segment = $segment;
+        return $this->name4;
     }
 
-    public function getSuccessor() : int
+    public function setName5(string $name): void
     {
-        return $this->successor;
+        $this->name5 = $name;
     }
 
-    public function setSuccessor(int $successor) : void
+    public function getName5(): string
     {
-        $this->successor = $successor;
-    }
-
-    public function getMedia() : array
-    {
-        return $this->media;
-    }
-
-    public function addMedia(Media $media) : void
-    {
-        $this->media[] = $media;
-    }
-
-    public function getInfo() : string
-    {
-        return $this->info;
-    }
-
-    public function setInfo(string $info) : void
-    {
-        $this->info = $info;
+        return $this->name5;
     }
 }

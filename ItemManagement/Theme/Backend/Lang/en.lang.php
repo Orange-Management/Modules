@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    TBD
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   TBD
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 return ['ItemManagement' => [
     'Accounting'       => 'Accounting',
@@ -16,6 +16,7 @@ return ['ItemManagement' => [
     'All'              => 'All',
     'Article'          => 'Article',
     'Articlegroup'     => 'Articlegroup',
+    'Attributes'       => 'Attributes',
     'Attribute'        => 'Attribute',
     'Available'        => 'Available',
     'Bonus'            => 'Bonus',
@@ -26,6 +27,8 @@ return ['ItemManagement' => [
     'CostIndicator'    => 'Cost Indicator',
     'CostObject'       => 'CostObject',
     'Country'          => 'Country',
+    'Customer'         => 'Customer ',
+    'CustomerGroup'    => 'Customer Group',
     'CustomsID'        => 'Customs ID',
     'Date'             => 'Date',
     'Description'      => 'Description',
@@ -35,6 +38,7 @@ return ['ItemManagement' => [
     'EarningIndicator' => 'Earning Indicator',
     'End'              => 'End',
     'Files'            => 'Files',
+    'General'          => 'General',
     'GrossWeight'      => 'Gross Weight',
     'Group'            => 'Group',
     'Height'           => 'Height',
@@ -45,6 +49,7 @@ return ['ItemManagement' => [
     'Language'         => 'Language',
     'Leadtime'         => 'Lead time',
     'Length'           => 'Length',
+    'Localization'     => 'Localization',
     'Location'         => 'Location',
     'Log'              => 'Log',
     'Logs'             => 'Logs',
@@ -58,6 +63,8 @@ return ['ItemManagement' => [
     'Name1'            => 'Name1',
     'Name2'            => 'Name2',
     'Name3'            => 'Name3',
+    'Name4'            => 'Name4',
+    'Name5'            => 'Name5',
     'NetWeight'        => 'Net Weight',
     'None'             => 'None',
     'Ordered'          => 'Ordered',
@@ -71,6 +78,7 @@ return ['ItemManagement' => [
     'Property'         => 'Property',
     'Purchase'         => 'Purchase',
     'Purchasing'       => 'Purchasing',
+    'QA'               => 'QA',
     'QM'               => 'QM',
     'Quantity'         => 'Quantity',
     'QuantityUnit'     => 'Unit of quantity',
@@ -88,6 +96,7 @@ return ['ItemManagement' => [
     'Successor'        => 'Successor',
     'Supplier'         => 'Supplier',
     'Tax'              => 'Tax',
+    'Text'             => 'Text',
     'TimeUnit'         => 'Unit of time',
     'Tracking'         => 'Tracking',
     'TradingUnit'      => 'Trading Unit',
