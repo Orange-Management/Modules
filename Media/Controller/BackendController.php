@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Orange Management
  *
@@ -7,7 +8,7 @@
  * @package   Modules\Media
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
- * @version   GIT: <git_id>
+ * @version   GIT: <git_id>$Id$
  * @link      https://orange-management.org
  */
 declare(strict_types=1);
