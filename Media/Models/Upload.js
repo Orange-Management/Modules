@@ -37,7 +37,7 @@ export class Upload {
      *
      * @return {void}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     setMaxFileSize (size)
     {
@@ -49,7 +49,7 @@ export class Upload {
      *
      * @return {int} Max file size
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     getMaxFileSize ()
     {
@@ -64,7 +64,7 @@ export class Upload {
      *
      * @return {void}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     setSuccess (id, callback)
     {
@@ -78,7 +78,7 @@ export class Upload {
      *
      * @return {void}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     setUri (uri)
     {
@@ -92,7 +92,7 @@ export class Upload {
      *
      * @return {void}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     setAllowedTypes (allowed)
     {
@@ -106,7 +106,7 @@ export class Upload {
      *
      * @return {void}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     addAllowedType (allowed)
     {
@@ -120,7 +120,7 @@ export class Upload {
      *
      * @return {void}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     addFile (file)
     {
@@ -132,7 +132,7 @@ export class Upload {
      *
      * @return {int}
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     count ()
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Accounting\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Accounting\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Accounting\Models;
 /**
  * Account abstraction class.
  *
- * @package    Modules\Accounting\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Accounting\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 abstract class AccountAbstract
 {
@@ -28,7 +28,7 @@ abstract class AccountAbstract
     /**
      * Account ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -36,7 +36,7 @@ abstract class AccountAbstract
     /**
      * Type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $type = AccountType::IMPERSONAL;
@@ -44,7 +44,7 @@ abstract class AccountAbstract
     /**
      * Entry list.
      *
-     * @var EntryInterface[]
+     * @var   EntryInterface[]
      * @since 1.0.0
      */
     protected array $entries = [];
@@ -54,7 +54,7 @@ abstract class AccountAbstract
      *
      * @param int $id Account ID
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(int $id = 0)
     {
@@ -66,7 +66,7 @@ abstract class AccountAbstract
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -80,7 +80,7 @@ abstract class AccountAbstract
      *
      * @return null|EntryInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getEntryById(int $id) : ?EntryInterface
     {
@@ -96,7 +96,7 @@ abstract class AccountAbstract
      *
      * @return array
      *
-     * @since    1.0.0
+     * @since   1.0.0
      */
     public function getEntriesByDate(\DateTime $start, \DateTime $end, int $dateType = TimeRangeType::RECEIPT_DATE) : array
     {

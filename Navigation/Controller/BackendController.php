@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Navigation
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Navigation
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\Message\ResponseAbstract;
 /**
  * Navigation class.
  *
- * @package    Modules\Navigation
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Navigation
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class BackendController extends Controller
 {
@@ -38,7 +38,7 @@ final class BackendController extends Controller
      *
      * @return NavigationView
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function createNavigationMid(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView
@@ -66,7 +66,7 @@ final class BackendController extends Controller
      *
      * @return NavigationView
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function getView(RequestAbstract $request, ResponseAbstract $response) : NavigationView
@@ -101,7 +101,7 @@ final class BackendController extends Controller
      * @return void
      * @todo: this is slow maybe cache it per user? or maybe push it into one large language file which is stored in this module?
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function loadLanguage(RequestAbstract $request, ResponseAbstract $response) : void
@@ -131,7 +131,7 @@ final class BackendController extends Controller
      *
      * @return NavigationView
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function createNavigationSplash(int $pageId, RequestAbstract $request, ResponseAbstract $response) : NavigationView

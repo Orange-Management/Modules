@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Calendar\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Calendar\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -21,10 +21,10 @@ use phpOMS\Stdlib\Base\Location;
 /**
  * Event class.
  *
- * @package    Modules\Calendar\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Calendar\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Event
 {
@@ -32,7 +32,7 @@ class Event
     /**
      * Calendar ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -40,7 +40,7 @@ class Event
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -48,7 +48,7 @@ class Event
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -56,7 +56,7 @@ class Event
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -64,7 +64,7 @@ class Event
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -74,7 +74,7 @@ class Event
      *
      * Single event or a template (templates have a repeating)
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $type = EventType::SINGLE;
@@ -84,7 +84,7 @@ class Event
      *
      * Active, inactive etc.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $status = EventStatus::ACTIVE;
@@ -92,7 +92,7 @@ class Event
     /**
      * Schedule
      *
-     * @var null|int|Schedule
+     * @var   null|int|Schedule
      * @since 1.0.0
      */
     private $schedule = null;
@@ -100,7 +100,7 @@ class Event
     /**
      * Location of the event.
      *
-     * @var Location
+     * @var   Location
      * @since 1.0.0
      */
     private ?Location $location = null;
@@ -108,7 +108,7 @@ class Event
     /**
      * Calendar
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $calendar = null;
@@ -116,7 +116,7 @@ class Event
     /**
      * People.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $people = [];
@@ -124,7 +124,7 @@ class Event
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -136,7 +136,7 @@ class Event
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -146,7 +146,7 @@ class Event
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -156,7 +156,7 @@ class Event
     /**
      * @return Account[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPeople() : array
     {
@@ -168,7 +168,7 @@ class Event
      *
      * @return Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPerson(int $id) : Account
     {
@@ -180,7 +180,7 @@ class Event
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addPerson(Account $person) : void
     {
@@ -194,7 +194,7 @@ class Event
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removePerson(int $id) : bool
     {
@@ -210,7 +210,7 @@ class Event
     /**
      * @param string $name Event name/title
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -220,7 +220,7 @@ class Event
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -230,7 +230,7 @@ class Event
     /**
      * @param string $desc Event description
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $desc) : void
     {
@@ -240,7 +240,7 @@ class Event
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -250,7 +250,7 @@ class Event
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy() : int
     {
@@ -260,7 +260,7 @@ class Event
     /**
      * @param $createdBy Creator
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy(int $createdBy) : void
     {
@@ -271,7 +271,7 @@ class Event
     /**
      * @param Location $location Event location
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setLocation(Location $location) : void
     {
@@ -281,7 +281,7 @@ class Event
     /**
      * @return Location
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getLocation() : Location
     {
@@ -291,7 +291,7 @@ class Event
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCalendar() : int
     {
@@ -301,7 +301,7 @@ class Event
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getType() : int
     {
@@ -311,7 +311,7 @@ class Event
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -321,7 +321,7 @@ class Event
     /**
      * @param int $calendar Calendar
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCalendar(int $calendar) : void
     {
@@ -331,7 +331,7 @@ class Event
     /**
      * @return Schedule
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSchedule() : Schedule
     {

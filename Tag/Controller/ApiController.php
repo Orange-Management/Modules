@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tag
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tag
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -24,10 +24,10 @@ use phpOMS\Model\Message\FormValidation;
 /**
  * Tag controller class.
  *
- * @package    Modules\Tag
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tag
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -38,7 +38,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateTagCreate(RequestAbstract $request) : array
     {
@@ -63,7 +63,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTagUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -80,7 +80,7 @@ final class ApiController extends Controller
      *
      * @return Tag
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateTagFromRequest(RequestAbstract $request) : Tag
     {
@@ -102,7 +102,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTagCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -124,7 +124,7 @@ final class ApiController extends Controller
      *
      * @return Tag
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createTagFromRequest(RequestAbstract $request) : Tag
     {
@@ -146,7 +146,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTagGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -165,7 +165,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTagDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

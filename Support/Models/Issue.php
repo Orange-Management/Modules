@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Support
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Support
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,17 +17,17 @@ namespace Modules\Support\Models;
 /**
  * Issue class.
  *
- * @package    Modules\Support
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Support
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Issue
 {
     /**
      * Id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class Issue
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -43,7 +43,7 @@ class Issue
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -51,7 +51,7 @@ class Issue
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $created = null;
@@ -59,7 +59,7 @@ class Issue
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $creator = null;

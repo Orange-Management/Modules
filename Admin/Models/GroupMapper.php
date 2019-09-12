@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 /**
  * Group mapper class.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class GroupMapper extends DataMapperAbstract
 {
@@ -30,7 +30,7 @@ final class GroupMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -45,7 +45,7 @@ final class GroupMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'group';
@@ -53,7 +53,7 @@ final class GroupMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'group_id';
@@ -61,7 +61,7 @@ final class GroupMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'group_created';
@@ -69,12 +69,12 @@ final class GroupMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */    /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -93,7 +93,7 @@ final class GroupMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getPermissionForModule(string $module) : array
     {

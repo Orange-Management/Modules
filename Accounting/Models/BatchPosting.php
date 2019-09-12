@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Accounting\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Accounting\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Accounting\Models;
 /**
  * BatchPosting class.
  *
- * @package    Modules\Accounting\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Accounting\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class BatchPosting implements \Countable
 {
@@ -28,7 +28,7 @@ class BatchPosting implements \Countable
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class BatchPosting implements \Countable
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $creator = 0;
@@ -44,7 +44,7 @@ class BatchPosting implements \Countable
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $created = null;
@@ -52,7 +52,7 @@ class BatchPosting implements \Countable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -60,7 +60,7 @@ class BatchPosting implements \Countable
     /**
      * Postings.
      *
-     * @var PostingAbstract[]
+     * @var   PostingAbstract[]
      * @since 1.0.0
      */
     private $postings = [];
@@ -68,7 +68,7 @@ class BatchPosting implements \Countable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -80,7 +80,7 @@ class BatchPosting implements \Countable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -92,7 +92,7 @@ class BatchPosting implements \Countable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -106,7 +106,7 @@ class BatchPosting implements \Countable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $desc) : void
     {
@@ -118,7 +118,7 @@ class BatchPosting implements \Countable
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -130,7 +130,7 @@ class BatchPosting implements \Countable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreator()
     {
@@ -144,7 +144,7 @@ class BatchPosting implements \Countable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreator($creator) : void
     {
@@ -158,7 +158,7 @@ class BatchPosting implements \Countable
      *
      * @return null|PostingAbstract
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPosting(int $id) : ?PostingAbstract
     {
@@ -172,7 +172,7 @@ class BatchPosting implements \Countable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removePosting($id) : bool
     {
@@ -192,7 +192,7 @@ class BatchPosting implements \Countable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addPosting(PostingAbstract $posting) : void
     {

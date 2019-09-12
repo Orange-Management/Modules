@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Calendar\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Calendar\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\Stdlib\Base\SmartDateTime;
 /**
  * Calendar class.
  *
- * @package    Modules\Calendar\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Calendar\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Calendar
 {
@@ -30,7 +30,7 @@ class Calendar
     /**
      * Calendar ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -38,7 +38,7 @@ class Calendar
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -46,7 +46,7 @@ class Calendar
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -54,7 +54,7 @@ class Calendar
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -62,7 +62,7 @@ class Calendar
     /**
      * Current date of the calendar.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $date = null;
@@ -70,7 +70,7 @@ class Calendar
     /**
      * Events.
      *
-     * @var array<int, \Modules\Calendar\Models\Event>
+     * @var   array<int, \Modules\Calendar\Models\Event>
      * @since 1.0.0
      */
     private $events = [];
@@ -78,7 +78,7 @@ class Calendar
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -89,7 +89,7 @@ class Calendar
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -99,7 +99,7 @@ class Calendar
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -109,7 +109,7 @@ class Calendar
     /**
      * @param string $name Calendar name/title
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -119,7 +119,7 @@ class Calendar
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -131,7 +131,7 @@ class Calendar
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $desc) : void
     {
@@ -143,7 +143,7 @@ class Calendar
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addEvent(Event $event) : int
     {
@@ -159,7 +159,7 @@ class Calendar
     /**
      * @return Event[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getEvents() : array
     {
@@ -171,7 +171,7 @@ class Calendar
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removeEvent(int $id) : bool
     {
@@ -189,7 +189,7 @@ class Calendar
      *
      * @return Event
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getEvent(int $id) : Event
     {
@@ -199,7 +199,7 @@ class Calendar
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -211,7 +211,7 @@ class Calendar
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDate() : \DateTime
     {
@@ -223,7 +223,7 @@ class Calendar
      *
      * @param \DateTime $date Current date
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDate(\DateTime $date) : void
     {
@@ -237,7 +237,7 @@ class Calendar
      *
      * @return Event[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getEventByDate(\DateTime $date) : array
     {
@@ -258,7 +258,7 @@ class Calendar
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function hasEventOnDate(\DateTime $date) : bool
     {

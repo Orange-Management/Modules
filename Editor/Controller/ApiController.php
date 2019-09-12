@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Editor
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Editor
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -26,10 +26,10 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 /**
  * Calendar controller class.
  *
- * @package    Modules\Editor
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Editor
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -41,7 +41,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateEditorCreate(RequestAbstract $request) : array
     {
@@ -66,7 +66,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -88,7 +88,7 @@ final class ApiController extends Controller
      *
      * @return EditorDoc
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createDocFromRequest(RequestAbstract $request) : EditorDoc
     {
@@ -112,7 +112,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiEditorUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -129,7 +129,7 @@ final class ApiController extends Controller
      *
      * @return EditorDoc
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateEditorFromRequest(RequestAbstract $request) : EditorDoc
     {
@@ -152,7 +152,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiEditorGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -171,7 +171,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiEditorDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Accounting
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Accounting
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,22 +22,24 @@ use phpOMS\Views\View;
 /**
  * Accounting class.
  *
- * @package    Modules\Accounting
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Accounting
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class BackendController extends Controller
 {
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -50,13 +52,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewJournalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -69,13 +73,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewStackList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -88,13 +94,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewStackPredefinedList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -107,13 +115,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewStackCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -126,13 +136,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewStackEntries(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -145,13 +157,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewStackArchiveList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -164,13 +178,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewGLList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -183,13 +199,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewGLCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -202,13 +220,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewGLProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface

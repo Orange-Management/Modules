@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Kanban
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Kanban
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -33,14 +33,16 @@ use phpOMS\Model\Message\FormValidation;
 /**
  * Kanban controller class.
  *
- * @package    Modules\Kanban
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Kanban
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -49,7 +51,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiKanbanCardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -71,7 +73,7 @@ final class ApiController extends Controller
      *
      * @return KanbanCard
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function createKanbanCardFromRquest(RequestAbstract $request) : KanbanCard
     {
@@ -95,7 +97,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateKanbanCardCreate(RequestAbstract $request) : array
     {
@@ -118,6 +120,8 @@ final class ApiController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -126,7 +130,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -148,7 +152,7 @@ final class ApiController extends Controller
      *
      * @return KanbanBoard
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function createKanbanBoardFromRquest(RequestAbstract $request) : KanbanBoard
     {
@@ -169,7 +173,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateKanbanBoardCreate(RequestAbstract $request) : array
     {
@@ -187,6 +191,8 @@ final class ApiController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -195,7 +201,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiKanbanColumnCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -217,7 +223,7 @@ final class ApiController extends Controller
      *
      * @return KanbanColumn
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function createKanbanColumnFromRquest(RequestAbstract $request) : KanbanColumn
     {
@@ -236,7 +242,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateKanbanColumnCreate(RequestAbstract $request) : array
     {

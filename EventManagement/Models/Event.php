@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\EventManagement\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\EventManagement\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 /**
  * Event class.
  *
- * @package    Modules\EventManagement\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\EventManagement\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Event
 {
@@ -33,7 +33,7 @@ class Event
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -67,7 +67,7 @@ class Event
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -75,7 +75,7 @@ class Event
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -255,7 +255,7 @@ class Event
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -265,7 +265,7 @@ class Event
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy() : int
     {
@@ -275,7 +275,7 @@ class Event
     /**
      * @param $createdBy Creator
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy(int $createdBy) : void
     {

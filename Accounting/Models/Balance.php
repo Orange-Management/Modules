@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Accounting\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Accounting\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Accounting\Models;
 /**
  * Balance class.
  *
- * @package    Modules\Accounting\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Accounting\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Balance
 {
@@ -28,7 +28,7 @@ class Balance
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class Balance
     /**
      * Balance data.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $balance = [];
@@ -44,7 +44,7 @@ class Balance
     /**
      * Balance name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -52,7 +52,7 @@ class Balance
     /**
      * Balance description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -62,7 +62,7 @@ class Balance
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -76,7 +76,7 @@ class Balance
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -88,7 +88,7 @@ class Balance
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -102,7 +102,7 @@ class Balance
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -114,7 +114,7 @@ class Balance
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {

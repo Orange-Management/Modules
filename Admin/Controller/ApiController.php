@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -54,10 +54,10 @@ use phpOMS\Version\Version;
  *
  * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -72,7 +72,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -95,7 +95,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -120,7 +120,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiGroupGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -139,7 +139,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiGroupUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -156,7 +156,7 @@ final class ApiController extends Controller
      *
      * @return Group
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateGroupFromRequest(RequestAbstract $request) : Group
     {
@@ -176,7 +176,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateGroupCreate(RequestAbstract $request) : array
     {
@@ -201,7 +201,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiGroupCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -223,7 +223,7 @@ final class ApiController extends Controller
      *
      * @return Group
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createGroupFromRequest(RequestAbstract $request) : Group
     {
@@ -248,7 +248,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -268,7 +268,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiGroupFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -292,7 +292,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAccountGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -311,7 +311,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAccountFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -335,7 +335,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAccountGroupFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -372,7 +372,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateAccountCreate(RequestAbstract $request) : array
     {
@@ -400,7 +400,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAccountCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -426,7 +426,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createProfileForAccount(Account $account, RequestAbstract $request) : void
     {
@@ -454,7 +454,7 @@ final class ApiController extends Controller
      *
      * @return Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createAccountFromRequest(RequestAbstract $request) : Account
     {
@@ -482,7 +482,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -502,7 +502,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAccountUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -525,7 +525,7 @@ final class ApiController extends Controller
      *
      * @return Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateAccountFromRequest(RequestAbstract $request, bool $allowPassword = false) : Account
     {
@@ -556,7 +556,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiModuleStatusUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -617,7 +617,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAddGroupPermission(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -650,7 +650,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAddAccountPermission(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -682,7 +682,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function createAccountModelPermission(PermissionAbstract $permission, int $account) : void
     {
@@ -696,7 +696,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validatePermissionCreate(RequestAbstract $request) : array
     {
@@ -717,7 +717,7 @@ final class ApiController extends Controller
      *
      * @return AccountPermission|GroupPermission
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function createPermissionFromRequest(RequestAbstract $request) : PermissionAbstract
     {
@@ -750,7 +750,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAddGroupToAccount(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -772,7 +772,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiAddAccountToGroup(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -794,7 +794,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiReInit(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -839,7 +839,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiCheckForUpdates(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -891,7 +891,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiUpdateFile(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

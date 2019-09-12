@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Dashboard
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Dashboard
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 /**
  * DashboardBoard class.
  *
- * @package    Modules\Dashboard
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Dashboard
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class DashboardBoard implements \JsonSerializable
 {
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class DashboardBoard implements \JsonSerializable
     /**
      * Title.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $title = '';
@@ -45,7 +45,7 @@ class DashboardBoard implements \JsonSerializable
     /**
      * Account.
      *
-     * @var null|int
+     * @var   null|int
      * @since 1.0.0
      */
     protected $account = null;
@@ -53,7 +53,7 @@ class DashboardBoard implements \JsonSerializable
     /**
      * Status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $status = DashboardBoardStatus::ACTIVE;
@@ -61,7 +61,7 @@ class DashboardBoard implements \JsonSerializable
     /**
      * Dashboard component.
      *
-     * @var DashboardComponent[]
+     * @var   DashboardComponent[]
      * @since 1.0.0
      */
     protected array $components = [];
@@ -71,7 +71,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -83,7 +83,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return null|int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getAccount()
     {
@@ -97,7 +97,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setAccount($id) : void
     {
@@ -109,7 +109,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTitle() : string
     {
@@ -123,7 +123,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTitle(string $title) : void
     {
@@ -135,7 +135,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -151,7 +151,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @throws InvalidEnumValue
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -169,7 +169,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addComponent(DashboardComponent $element) : int
     {
@@ -189,7 +189,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removeComponent($id) : bool
     {
@@ -207,7 +207,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return DashboardComponent[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getComponents() : array
     {
@@ -221,7 +221,7 @@ class DashboardBoard implements \JsonSerializable
      *
      * @return DashboardComponent
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getComponent(int $id) : DashboardComponent
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    phpOMS\Module
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   phpOMS\Module
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,17 +22,17 @@ use phpOMS\Utils\ArrayUtils;
  *
  * Handling the info files for modules
  *
- * @package    phpOMS\Module
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package phpOMS\Module
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class InterfaceManager
 {
     /**
      * Interface ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -40,7 +40,7 @@ class InterfaceManager
     /**
      * File path.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $path = '';
@@ -48,7 +48,7 @@ class InterfaceManager
     /**
      * Info data.
      *
-     * @var array<string, mixed>
+     * @var   array<string, mixed>
      * @since 1.0.0
      */
     private $info = [];
@@ -58,7 +58,7 @@ class InterfaceManager
      *
      * @param string $path Info file path
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(string $path = '')
     {
@@ -70,7 +70,7 @@ class InterfaceManager
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -82,7 +82,7 @@ class InterfaceManager
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPath() : string
     {
@@ -94,7 +94,7 @@ class InterfaceManager
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getInterfacePath() : string
     {
@@ -106,7 +106,7 @@ class InterfaceManager
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -118,7 +118,7 @@ class InterfaceManager
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function hasImport() : bool
     {
@@ -130,7 +130,7 @@ class InterfaceManager
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function hasExport() : bool
     {
@@ -144,7 +144,7 @@ class InterfaceManager
      *
      * @throws PathException This exception is thrown in case the info file path doesn't exist
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function load() : void
     {
@@ -163,7 +163,7 @@ class InterfaceManager
      *
      * @throws PathException This exception is thrown in case the info file path doesn't exist
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function update() : void
     {
@@ -185,7 +185,7 @@ class InterfaceManager
      *
      * @throws \InvalidArgumentException This exception is thrown if the data is not scalar, array or jsonSerializable
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function set(string $path, $data, string $delim = '/') : void
     {
@@ -201,7 +201,7 @@ class InterfaceManager
      *
      * @return array<string, mixed>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function get() : array
     {

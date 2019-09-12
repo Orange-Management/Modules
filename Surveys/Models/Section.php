@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Surveys
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Surveys
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Surveys\Models;
 /**
  * Section class.
  *
- * @package    Modules\Surveys
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Surveys
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Section
 {
@@ -28,7 +28,7 @@ class Section
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class Section
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -44,7 +44,7 @@ class Section
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -119,7 +119,7 @@ class Section
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function init($id) : void
     {
@@ -129,7 +129,7 @@ class Section
     /**
      * Overwriting clone in order to maintain singleton pattern.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __clone()
     {

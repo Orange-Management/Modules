@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Media\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Media\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Media\Models;
 /**
  * Media class.
  *
- * @package    Modules\Media\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Media\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Media implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ class Media implements \JsonSerializable
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -36,7 +36,7 @@ class Media implements \JsonSerializable
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $name = '';
@@ -44,7 +44,7 @@ class Media implements \JsonSerializable
     /**
      * Extension.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $extension = '';
@@ -52,7 +52,7 @@ class Media implements \JsonSerializable
     /**
      * File size in bytes.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $size = 0;
@@ -60,7 +60,7 @@ class Media implements \JsonSerializable
     /**
      * Author.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -68,7 +68,7 @@ class Media implements \JsonSerializable
     /**
      * Uploaded.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -76,7 +76,7 @@ class Media implements \JsonSerializable
     /**
      * Resource path.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $path = '';
@@ -84,7 +84,7 @@ class Media implements \JsonSerializable
     /**
      * Virtual path.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $virtualPath = '/';
@@ -92,7 +92,7 @@ class Media implements \JsonSerializable
     /**
      * Is path absolute?
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     protected bool $isAbsolute = false;
@@ -100,7 +100,7 @@ class Media implements \JsonSerializable
     /**
      * Is versioned.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     protected bool $versioned = false;
@@ -108,7 +108,7 @@ class Media implements \JsonSerializable
     /**
      * Media Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $description    = '';
@@ -117,7 +117,7 @@ class Media implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -127,7 +127,7 @@ class Media implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -137,7 +137,7 @@ class Media implements \JsonSerializable
     /**
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isAbsolute() : bool
     {
@@ -147,7 +147,7 @@ class Media implements \JsonSerializable
     /**
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setAbsolute(bool $absolute) : void
     {
@@ -157,7 +157,7 @@ class Media implements \JsonSerializable
     /**
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -167,7 +167,7 @@ class Media implements \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -177,7 +177,7 @@ class Media implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getExtension() : string
     {
@@ -187,7 +187,7 @@ class Media implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPath() : string
     {
@@ -197,7 +197,7 @@ class Media implements \JsonSerializable
      /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getVirtualPath() : string
     {
@@ -207,7 +207,7 @@ class Media implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -217,7 +217,7 @@ class Media implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -227,7 +227,7 @@ class Media implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -237,7 +237,7 @@ class Media implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSize() : int
     {
@@ -247,7 +247,7 @@ class Media implements \JsonSerializable
     /**
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isVersioned() : bool
     {
@@ -259,7 +259,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($createdBy) : void
     {
@@ -271,7 +271,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setExtension(string $extension) : void
     {
@@ -283,7 +283,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPath(string $path) : void
     {
@@ -295,7 +295,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setVirtualPath(string $path) : void
     {
@@ -307,7 +307,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -319,7 +319,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -331,7 +331,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $description) : void
     {
@@ -343,7 +343,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setSize(int $size) : void
     {
@@ -355,7 +355,7 @@ class Media implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setVersioned(bool $versioned) : void
     {

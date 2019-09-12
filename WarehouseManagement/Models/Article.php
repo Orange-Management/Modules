@@ -4,21 +4,21 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Warehousing\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Warehousing\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */ /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
 namespace Modules\WarehouseManagement\Models;
 
 /**
  * Article class.
  *
- * @package    Modules\Warehousing\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Warehousing\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Article
 {
@@ -26,7 +26,7 @@ class Article
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = null;
@@ -34,7 +34,7 @@ class Article
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -42,7 +42,7 @@ class Article
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -50,7 +50,7 @@ class Article
     /**
      * Matchcode.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $matchcode = '';
@@ -58,7 +58,7 @@ class Article
     /**
      * Sector.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $sector = null;
@@ -66,7 +66,7 @@ class Article
     /**
      * Group.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $group = null;
@@ -76,7 +76,7 @@ class Article
      *
      * supplier price leadtime
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $suppliers = null;
@@ -86,7 +86,7 @@ class Article
      *
      * [en] Name - Description
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $invoice_i18n = [];
@@ -96,7 +96,7 @@ class Article
      *
      * [id] name country state prize discount% discountA bonus-in-kind groupA groupB amount event
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $prizes = [];
@@ -104,7 +104,7 @@ class Article
     /**
      * Active supplier.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $pprice = null;
@@ -112,7 +112,7 @@ class Article
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $created = null;
@@ -120,7 +120,7 @@ class Article
     /**
      * Creator.
      *
-     * @var \phpOMS\Models\User
+     * @var   \phpOMS\Models\User
      * @since 1.0.0
      */
     private $creator = null;
@@ -128,7 +128,7 @@ class Article
     /**
      * Article.
      *
-     * @var \Modules\Warehousing\Models\Article[]
+     * @var   \Modules\Warehousing\Models\Article[]
      * @since 1.0.0
      */
     private static array $instances = [];
@@ -138,7 +138,7 @@ class Article
      *
      * @param int $id Article ID
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct($id)
     {
@@ -162,7 +162,7 @@ class Article
      *
      * @return \Modules\Warehousing\Models\Article
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getInstance($id)
     {
@@ -178,7 +178,7 @@ class Article
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId()
     {
@@ -190,7 +190,7 @@ class Article
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName()
     {
@@ -204,7 +204,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName($name) : void
     {
@@ -216,7 +216,7 @@ class Article
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getMatchcode()
     {
@@ -230,7 +230,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setMatchcode($matchcode) : void
     {
@@ -242,7 +242,7 @@ class Article
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription()
     {
@@ -256,7 +256,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription($desc) : void
     {
@@ -268,7 +268,7 @@ class Article
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreated()
     {
@@ -282,7 +282,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreated($created) : void
     {
@@ -294,7 +294,7 @@ class Article
      *
      * @return \phpOMS\Models\User
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreator()
     {
@@ -308,7 +308,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreator($creator) : void
     {
@@ -323,7 +323,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addPrice($price, $db = true) : void
     {
@@ -339,7 +339,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removePrice($id, $db = true) : void
     {
@@ -357,7 +357,7 @@ class Article
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function editPrice($id, $price, $db = true) : void
     {

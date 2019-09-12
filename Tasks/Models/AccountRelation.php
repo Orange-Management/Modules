@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tasks
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tasks
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ use Modules\Admin\Models\Account;
 /**
  * Task relation to account
  *
- * @package    Modules\Tasks
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tasks
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class AccountRelation extends RelationAbstract
 {
     /**
      * Relation object
      *
-     * @var int|Account
+     * @var   int|Account
      * @since 1.0.0
      */
     private $relation = null;
@@ -40,7 +40,7 @@ class AccountRelation extends RelationAbstract
      * @param int|Account $account Account
      * @param int         $duty    Duty type
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct($account = 0, int $duty = DutyType::TO)
     {
@@ -53,7 +53,7 @@ class AccountRelation extends RelationAbstract
      *
      * @return int|Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getRelation()
     {

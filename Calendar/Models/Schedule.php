@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Calendar\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Calendar\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 /**
  * Schedule class.
  *
- * @package    Modules\Calendar\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Calendar\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Schedule
 {
     /**
      * Schedule ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Schedule
     /**
      * Calendar uid.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $uid = '';
@@ -45,7 +45,7 @@ class Schedule
     /**
      * Schedule status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $status = ScheduleStatus::ACTIVE;
@@ -53,7 +53,7 @@ class Schedule
     /**
      * Frequency type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $freqType = FrequencyType::ONCE;
@@ -61,7 +61,7 @@ class Schedule
     /**
      * Frequency interval.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $freqInterval = FrequencyInterval::DAY;
@@ -69,7 +69,7 @@ class Schedule
     /**
      * Frequency relative.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $relativeInternal = FrequencyRelative::FIRST;
@@ -77,7 +77,7 @@ class Schedule
     /**
      * Interval type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $intervalType = IntervalType::ABSOLUTE;
@@ -85,7 +85,7 @@ class Schedule
     /**
      * Recurrence factor.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $recurrenceFactor = 0;
@@ -93,7 +93,7 @@ class Schedule
     /**
      * Start.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $start = null;
@@ -101,7 +101,7 @@ class Schedule
     /**
      * Duration.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $duration = 3600;
@@ -109,7 +109,7 @@ class Schedule
     /**
      * End.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $end = null;
@@ -117,7 +117,7 @@ class Schedule
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -125,7 +125,7 @@ class Schedule
     /**
      * Created by.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -133,7 +133,7 @@ class Schedule
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -146,7 +146,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -156,7 +156,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -168,7 +168,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status)
     {
@@ -184,7 +184,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getFreqType() : int
     {
@@ -196,7 +196,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setFreqType(int $freqType)
     {
@@ -212,7 +212,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getIntervalType() : int
     {
@@ -224,7 +224,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setIntervalType(int $intervalType)
     {
@@ -240,7 +240,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getFrequencyRelative() : int
     {
@@ -252,7 +252,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setFrequencyRelative(int $relativeInterval)
     {
@@ -270,7 +270,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setFreqInterval(int $freqInterval)
     {
@@ -286,7 +286,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getFreqInterval() : int
     {
@@ -296,7 +296,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getRecurrenceFactor() : int
     {
@@ -308,7 +308,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setRecurrenceFactor(int $recurrence)
     {
@@ -320,7 +320,7 @@ class Schedule
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStart() : \DateTime
     {
@@ -332,7 +332,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStart(\DateTime $start)
     {
@@ -344,7 +344,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDuration() : int
     {
@@ -356,7 +356,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDuration(int $duration)
     {
@@ -372,7 +372,7 @@ class Schedule
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getEnd() : \DateTime
     {
@@ -384,7 +384,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setEnd(\DateTime $end)
     {
@@ -398,7 +398,7 @@ class Schedule
      *
      * @return $this
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy(int $creator)
     {
@@ -410,7 +410,7 @@ class Schedule
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy() : int
     {

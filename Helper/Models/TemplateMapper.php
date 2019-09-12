@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    TBD
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   TBD
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -24,7 +24,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -46,7 +46,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -59,7 +59,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
@@ -72,7 +72,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -87,7 +87,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'helper_template';
@@ -95,7 +95,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'helper_template_created';
@@ -103,7 +103,7 @@ final class TemplateMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'helper_template_id';

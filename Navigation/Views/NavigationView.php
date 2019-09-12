@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Navigation\Views
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Navigation\Views
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\Views\View;
 /**
  * Navigation view.
  *
- * @package    Modules\Navigation\Views
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Navigation\Views
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class NavigationView extends View
 {
@@ -33,7 +33,7 @@ class NavigationView extends View
      * This is getting used in order to identify which navigation elements should get rendered.
      * This usually is the parent navigation id
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $navId = 0;
@@ -41,7 +41,7 @@ class NavigationView extends View
     /**
      * Navigation.
      *
-     * @var mixed[]
+     * @var   mixed[]
      * @since 1.0.0
      */
     protected array $nav = [];
@@ -49,7 +49,7 @@ class NavigationView extends View
     /**
      * Parent element used for navigation.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $parent = 0;
@@ -59,7 +59,7 @@ class NavigationView extends View
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getNavId() : int
     {
@@ -73,7 +73,7 @@ class NavigationView extends View
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setNavId(int $navId) : void
     {
@@ -83,7 +83,7 @@ class NavigationView extends View
     /**
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getNav() : array
     {
@@ -95,7 +95,7 @@ class NavigationView extends View
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setNav(array $nav) : void
     {
@@ -105,7 +105,7 @@ class NavigationView extends View
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getParent() : int
     {
@@ -117,7 +117,7 @@ class NavigationView extends View
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setParent(int $parent) : void
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Organization
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Organization
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -33,10 +33,10 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 /**
  * Organization Controller class.
  *
- * @package    Modules\Organization
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Organization
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -48,7 +48,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateUnitCreate(RequestAbstract $request) : array
     {
@@ -80,7 +80,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiUnitGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -99,7 +99,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiUnitSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -116,7 +116,7 @@ final class ApiController extends Controller
      *
      * @return Unit
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateUnitFromRequest(RequestAbstract $request) : Unit
     {
@@ -143,7 +143,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -163,7 +163,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -185,7 +185,7 @@ final class ApiController extends Controller
      *
      * @return Unit
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createUnitFromRequest(RequestAbstract $request) : Unit
     {
@@ -208,7 +208,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validatePositionCreate(RequestAbstract $request) : array
     {
@@ -240,7 +240,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiPositionGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -259,7 +259,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -279,7 +279,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiPositionSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -296,7 +296,7 @@ final class ApiController extends Controller
      *
      * @return Position
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updatePositionFromRequest(RequestAbstract $request) : Position
     {
@@ -326,7 +326,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -348,7 +348,7 @@ final class ApiController extends Controller
      *
      * @return Position
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createPositionFromRequest(RequestAbstract $request) : Position
     {
@@ -374,7 +374,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateDepartmentCreate(RequestAbstract $request) : array
     {
@@ -405,7 +405,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiDepartmentGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -424,7 +424,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiDepartmentSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -441,7 +441,7 @@ final class ApiController extends Controller
      *
      * @return Department
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateDepartmentFromRequest(RequestAbstract $request) : Department
     {
@@ -471,7 +471,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -491,7 +491,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -513,7 +513,7 @@ final class ApiController extends Controller
      *
      * @return Department
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createDepartmentFromRequest(RequestAbstract $request) : Department
     {
@@ -541,7 +541,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiUnitFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -565,7 +565,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiDepartmentFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -589,7 +589,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiPositionFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

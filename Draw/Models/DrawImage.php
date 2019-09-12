@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Draw\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Draw\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -20,10 +20,10 @@ use phpOMS\Contract\ArrayableInterface;
 /**
  * News article class.
  *
- * @package    Modules\Draw\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Draw\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class DrawImage implements ArrayableInterface, \JsonSerializable
 {
@@ -31,7 +31,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -39,7 +39,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     /**
      * Media object.
      *
-     * @var int|Media
+     * @var   int|Media
      * @since 1.0.0
      */
     private $media = null;
@@ -49,7 +49,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -61,7 +61,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
      *
      * @return int|Media
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getMedia()
     {
@@ -75,7 +75,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setMedia($media) : void
     {
@@ -108,7 +108,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
      *
      * @return DrawImage
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function fromMedia(Media $media) : self
     {

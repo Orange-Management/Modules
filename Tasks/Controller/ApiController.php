@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tasks
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tasks
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -31,10 +31,10 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 /**
  * Api controller for the tasks module.
  *
- * @package    Modules\Tasks
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tasks
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -45,7 +45,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool> Returns the validation array of the request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateTaskCreate(RequestAbstract $request) : array
     {
@@ -71,7 +71,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTaskCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -93,7 +93,7 @@ final class ApiController extends Controller
      *
      * @return Task Returns the created task from the request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createTaskFromRequest(RequestAbstract $request) : Task
     {
@@ -130,7 +130,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTaskGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -149,7 +149,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTaskSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -166,7 +166,7 @@ final class ApiController extends Controller
      *
      * @return Task Returns the updated task from the request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateTaskFromRequest(RequestAbstract $request) : Task
     {
@@ -189,7 +189,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool> Returns the validation array of the request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateTaskElementCreate(RequestAbstract $request) : array
     {
@@ -216,7 +216,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTaskElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -243,7 +243,7 @@ final class ApiController extends Controller
      *
      * @return TaskElement Returns the task created from the request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
@@ -288,7 +288,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTaskElementGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -307,7 +307,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiTaskElementSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -326,7 +326,7 @@ final class ApiController extends Controller
      *
      * @return TaskElement Returns the updated task element from the request
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {

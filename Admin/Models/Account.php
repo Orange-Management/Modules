@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,17 +17,17 @@ namespace Modules\Admin\Models;
 /**
  * Account class.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Account extends \phpOMS\Account\Account
 {
     /**
      * Remaining login tries.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $tries = 0;
@@ -37,7 +37,7 @@ class Account extends \phpOMS\Account\Account
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getLoginTries() : int
     {
@@ -51,7 +51,7 @@ class Account extends \phpOMS\Account\Account
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setLoginTries(int $tries = 0) : void
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Accounting\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Accounting\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use Modules\Admin\Models\Account;
 /**
  * Debitor class.
  *
- * @package    Modules\Accounting\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Accounting\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Debitor
 {
@@ -30,7 +30,7 @@ class Debitor
     /**
      * Debitor ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -38,7 +38,7 @@ class Debitor
     /**
      * Account.
      *
-     * @var null|int|phpOMS/Account/Account
+     * @var   null|int|phpOMS/Account/Account
      * @since 1.0.0
      */
     protected $account = null;
@@ -48,7 +48,7 @@ class Debitor
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -60,7 +60,7 @@ class Debitor
      *
      * @return null|int|Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getAccount()
     {

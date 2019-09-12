@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Media\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Media\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Media\Models;
 /**
  * Media class.
  *
- * @package    Modules\Media\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Media\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Collection extends Media implements \Iterator
 {
@@ -28,7 +28,7 @@ class Collection extends Media implements \Iterator
     /**
      * Resource id.
      *
-     * @var array<int|Media>
+     * @var   array<int|Media>
      * @since 1.0.0
      */
     private $sources = [];
@@ -36,7 +36,7 @@ class Collection extends Media implements \Iterator
     /**
      * Extension name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $extension = 'collection';
@@ -44,7 +44,7 @@ class Collection extends Media implements \Iterator
     /**
      * Versioned.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     protected bool $versioned = false;
@@ -56,7 +56,7 @@ class Collection extends Media implements \Iterator
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setSources(array $sources) : void
     {
@@ -70,7 +70,7 @@ class Collection extends Media implements \Iterator
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addSource($source) : void
     {
@@ -82,7 +82,7 @@ class Collection extends Media implements \Iterator
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSources() : array
     {

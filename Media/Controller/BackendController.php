@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Orange Management
  *
@@ -8,7 +7,7 @@
  * @package   Modules\Media
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
- * @version   GIT: <git_id>$Id$
+ * @version   1.0.0
  * @link      https://orange-management.org
  */
 declare(strict_types=1);
@@ -29,10 +28,10 @@ use phpOMS\Views\View;
 /**
  * Media class.
  *
- * @package    Modules\Media
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Media
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class BackendController extends Controller
 {
@@ -40,7 +39,7 @@ final class BackendController extends Controller
     /**
      * Module path.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_PATH = __DIR__;
@@ -48,7 +47,7 @@ final class BackendController extends Controller
     /**
      * Module version.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_VERSION = '1.0.0';
@@ -56,7 +55,7 @@ final class BackendController extends Controller
     /**
      * Module name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_NAME = 'Media';
@@ -64,7 +63,7 @@ final class BackendController extends Controller
     /**
      * Module id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     public const MODULE_ID = 1000400000;
@@ -72,7 +71,7 @@ final class BackendController extends Controller
     /**
      * Providing.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $providing = [];
@@ -80,19 +79,21 @@ final class BackendController extends Controller
     /**
      * Dependencies.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $dependencies = [];
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public static function setUpFileUploader(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
@@ -103,13 +104,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewMediaList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -125,13 +128,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewMediaSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -160,13 +165,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface

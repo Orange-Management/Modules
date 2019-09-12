@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    TBD
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   TBD
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -25,7 +25,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -43,7 +43,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'suppliermgmt_supplier';
@@ -51,7 +51,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'suppliermgmt_supplier_id';
@@ -59,7 +59,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'suppliermgmt_supplier_created_at';
@@ -67,7 +67,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -80,7 +80,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [

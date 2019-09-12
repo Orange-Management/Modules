@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Profile\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Profile\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -24,17 +24,17 @@ use phpOMS\Stdlib\Base\Location;
 /**
  * Profile class.
  *
- * @package    Modules\Profile\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Profile\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Profile implements \JsonSerializable
 {
     /**
      * Id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -42,7 +42,7 @@ class Profile implements \JsonSerializable
     /**
      * Profile image.
      *
-     * @var null|int|Media
+     * @var   null|int|Media
      * @since 1.0.0
      */
     private $image = null;
@@ -50,7 +50,7 @@ class Profile implements \JsonSerializable
     /**
      * Birthday.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $birthday = null;
@@ -58,7 +58,7 @@ class Profile implements \JsonSerializable
     /**
      * Account.
      *
-     * @var Account
+     * @var   Account
      * @since 1.0.0
      */
     private $account = null;
@@ -66,7 +66,7 @@ class Profile implements \JsonSerializable
     /**
      * Location data.
      *
-     * @var array<Location>
+     * @var   array<Location>
      * @since 1.0.0
      */
     private array $location = [];
@@ -76,7 +76,7 @@ class Profile implements \JsonSerializable
      *
      * @param null|Account $account Account to initialize this profile with
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(Account $account = null)
     {
@@ -90,7 +90,7 @@ class Profile implements \JsonSerializable
      *
      * @return int Account id
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -102,7 +102,7 @@ class Profile implements \JsonSerializable
      *
      * @return array<Location>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getLocation() : array
     {
@@ -116,7 +116,7 @@ class Profile implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addLocation(Location $location) : void
     {
@@ -128,7 +128,7 @@ class Profile implements \JsonSerializable
      *
      * @return Media
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getImage() : Media
     {
@@ -142,7 +142,7 @@ class Profile implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setImage(Media $image) : void
     {
@@ -156,7 +156,7 @@ class Profile implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setAccount(Account $account) : void
     {
@@ -168,7 +168,7 @@ class Profile implements \JsonSerializable
      *
      * @return Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getAccount() : Account
     {
@@ -182,7 +182,7 @@ class Profile implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setBirthday(\DateTime $birthday) : void
     {
@@ -194,7 +194,7 @@ class Profile implements \JsonSerializable
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getBirthday() : \DateTime
     {

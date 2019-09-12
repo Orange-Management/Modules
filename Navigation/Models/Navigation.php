@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Navigation\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Navigation\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\Message\RequestAbstract;
 /**
  * Navigation class.
  *
- * @package    Modules\Navigation\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Navigation\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Navigation
 {
@@ -35,7 +35,7 @@ class Navigation
      *
      * Array of all navigation elements sorted by type->parent->id
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $nav = [];
@@ -43,7 +43,7 @@ class Navigation
     /**
      * Singleton instance.
      *
-     * @var \Modules\Navigation\Models\Navigation
+     * @var   \Modules\Navigation\Models\Navigation
      * @since 1.0.0
      */
     private static $instance = null;
@@ -51,7 +51,7 @@ class Navigation
     /**
      * Database pool.
      *
-     * @var DatabasePool
+     * @var   DatabasePool
      * @since 1.0.0
      */
     private $dbPool = null;
@@ -65,7 +65,7 @@ class Navigation
      * @param int             $unit    Unit
      * @param string          $appName App name
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function __construct(RequestAbstract $request, Account $account, DatabasePool $dbPool, int $unit, string $appName)
     {
@@ -83,7 +83,7 @@ class Navigation
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function load(array $hashes, Account $account, int $unit, string $app) : void
     {
@@ -133,7 +133,7 @@ class Navigation
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function setReadable(array &$nav, int $parent) : void
     {
@@ -162,7 +162,7 @@ class Navigation
      *
      * @throws \Exception
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getInstance(RequestAbstract $hashes = null, Account $account, DatabasePool $dbPool, int $unit, string $appName)
     {
@@ -182,7 +182,7 @@ class Navigation
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getNav() : array
     {

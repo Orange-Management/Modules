@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Knowledgebase\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Knowledgebase\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 /**
  * Mapper class.
  *
- * @package    Modules\Knowledgebase\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Knowledgebase\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class WikiCategoryMapper extends DataMapperAbstract
 {
@@ -30,7 +30,7 @@ final class WikiCategoryMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -42,7 +42,7 @@ final class WikiCategoryMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'wiki_category';
@@ -50,7 +50,7 @@ final class WikiCategoryMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'wiki_category_id';

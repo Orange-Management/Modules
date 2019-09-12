@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Exchange
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Exchange
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -23,10 +23,10 @@ use phpOMS\Message\ResponseAbstract;
 /**
  * Exchange controller class.
  *
- * @package    Modules\Exchange
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Exchange
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -42,7 +42,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiExchangeImport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -69,7 +69,7 @@ final class ApiController extends Controller
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function importDataFromRequest(RequestAbstract $request) : bool
     {
@@ -97,7 +97,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiExchangeExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Support
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Support
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Support\Models;
 /**
  * Issue class.
  *
- * @package    Modules\Support
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Support
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Message
 {
@@ -28,7 +28,7 @@ class Message
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -36,7 +36,7 @@ class Message
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -44,7 +44,7 @@ class Message
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $created = null;
@@ -52,7 +52,7 @@ class Message
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $creator = null;
@@ -137,7 +137,7 @@ class Message
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function init($id) : void
     {
@@ -147,7 +147,7 @@ class Message
     /**
      * Overwriting clone in order to maintain singleton pattern.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __clone()
     {

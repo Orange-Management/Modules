@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\News
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\News
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -30,10 +30,10 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 /**
  * News controller class.
  *
- * @package    Modules\News
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\News
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -44,7 +44,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateNewsCreate(RequestAbstract $request) : array
     {
@@ -81,7 +81,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiNewsUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -98,7 +98,7 @@ final class ApiController extends Controller
      *
      * @return NewsArticle
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateNewsFromRequest(RequestAbstract $request) : NewsArticle
     {
@@ -126,7 +126,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiNewsCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -148,7 +148,7 @@ final class ApiController extends Controller
      *
      * @return NewsArticle
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createNewsArticleFromRequest(RequestAbstract $request) : NewsArticle
     {
@@ -177,7 +177,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiNewsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -196,7 +196,7 @@ final class ApiController extends Controller
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getNewsListR(int $limit = 50, int $offset = 0, string $orderBy = 'news_created', string $ordered = 'ASC', Account $account = null)
     {
@@ -221,7 +221,7 @@ final class ApiController extends Controller
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getHeadlineListR(int $limit = 50, int $offset = 0, string $orderBy = 'news_created', string $ordered = 'ASC', Account $account = null)
     {
@@ -246,7 +246,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiNewsDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

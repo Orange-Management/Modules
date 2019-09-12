@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\tests
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\tests
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ namespace Modules\tests;
 /**
  * Autoloader class.
  *
- * @package    Modules\tests
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\tests
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Autoloader
 {
@@ -38,7 +38,7 @@ class Autoloader
      *
      * @throws AutoloadException Throws this exception if the class to autoload doesn't exist. This could also be related to a wrong namespace/file path correlation.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function defaultAutoloader(string $class) : void
     {
@@ -62,7 +62,7 @@ class Autoloader
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function exists(string $class) : bool
     {

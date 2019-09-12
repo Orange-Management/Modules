@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,17 +22,17 @@ use phpOMS\DataStorage\Database\RelationType;
 /**
  * Account mapper class.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class AccountMapper extends DataMapperAbstract
 {
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string|array>>
+     * @var   array<string, array<string, bool|string|array>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -53,12 +53,12 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */    /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -73,7 +73,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'account';
@@ -81,7 +81,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'account_id';
@@ -89,7 +89,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'account_created_at';
@@ -137,7 +137,7 @@ final class AccountMapper extends DataMapperAbstract
      *
      * @return int Login code
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function login(string $login, string $password) : int
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,17 +17,17 @@ namespace Modules\Admin\Models;
 /**
  * Account group class.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Group extends \phpOMS\Account\Group
 {
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -35,7 +35,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Created by.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -43,7 +43,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Group raw description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -51,7 +51,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Accounts
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     protected array $accounts = [];
@@ -61,7 +61,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @param string $name Group name
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(string $name = '')
     {
@@ -74,7 +74,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -86,7 +86,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -100,7 +100,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($createdBy) : void
     {
@@ -114,7 +114,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $description) : void
     {
@@ -126,7 +126,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @return string Raw description
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -138,7 +138,7 @@ class Group extends \phpOMS\Account\Group
      *
      * @return array Accounts
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getAccounts() : array
     {

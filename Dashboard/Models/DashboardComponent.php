@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Dashboard
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Dashboard
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,17 +17,17 @@ namespace Modules\Dashboard\Models;
 /**
  * DashboardBoard class.
  *
- * @package    Modules\Dashboard
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Dashboard
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class DashboardComponent implements \JsonSerializable
 {
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -35,7 +35,7 @@ class DashboardComponent implements \JsonSerializable
     /**
      * Order.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $order = 0;
@@ -43,7 +43,7 @@ class DashboardComponent implements \JsonSerializable
     /**
      * Board.
      *
-     * @var int|DashboardBoard
+     * @var   int|DashboardBoard
      * @since 1.0.0
      */
     protected $board = 0;
@@ -51,7 +51,7 @@ class DashboardComponent implements \JsonSerializable
     /**
      * Module.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $module = '';
@@ -59,7 +59,7 @@ class DashboardComponent implements \JsonSerializable
     /**
      * Component.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $component = '';
@@ -69,7 +69,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -81,7 +81,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getOrder() : int
     {
@@ -95,7 +95,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setOrder(int $order) : void
     {
@@ -107,7 +107,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getComponent() : string
     {
@@ -121,7 +121,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setComponent(string $component) : void
     {
@@ -133,7 +133,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getModule() : string
     {
@@ -147,7 +147,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setModule(string $module) : void
     {
@@ -159,7 +159,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return int|DashboardBoard
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getBoard()
     {
@@ -173,7 +173,7 @@ class DashboardComponent implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setBoard($id) : void
     {

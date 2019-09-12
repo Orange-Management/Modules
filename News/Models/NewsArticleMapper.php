@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    TBD
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   TBD
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -20,10 +20,10 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 /**
  * News mapper class.
  *
- * @package    Modules\News
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\News
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class NewsArticleMapper extends DataMapperAbstract
 {
@@ -31,7 +31,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -51,7 +51,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
@@ -64,7 +64,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'news';
@@ -72,7 +72,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'news_id';
@@ -80,7 +80,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'news_created_at';

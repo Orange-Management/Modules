@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Organization
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Organization
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -28,22 +28,24 @@ use phpOMS\Views\View;
 /**
  * Organization Controller class.
  *
- * @package    Modules\Organization
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Organization
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class BackendController extends Controller
 {
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewUnitList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -59,13 +61,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewUnitProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -86,13 +90,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewOrganigram(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -149,13 +155,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewUnitCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -178,13 +186,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewDepartmentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -200,13 +210,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewDepartmentProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -231,13 +243,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewDepartmentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -260,13 +274,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewPositionList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -282,13 +298,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewPositionProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -313,13 +331,15 @@ final class BackendController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
      *
-     * @since  1.0.0
+     * @since 1.0.0
      * @codeCoverageIgnore
      */
     public function viewPositionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface

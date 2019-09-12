@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Exchange\Interfaces\GSD\Model
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Exchange\Interfaces\GSD\Model
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Exchange\Interfaces\GSD\Model;
 /**
  * Cost object class.
  *
- * @package    Modules\Exchange\Interfaces\GSD\Model
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Exchange\Interfaces\GSD\Model
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class GSDCostObject implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -36,7 +36,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -44,7 +44,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -52,7 +52,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -60,7 +60,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Cost object.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $costObject = '';
@@ -68,7 +68,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -78,7 +78,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -90,7 +90,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -104,7 +104,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($id) : void
     {
@@ -118,7 +118,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -130,7 +130,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -144,7 +144,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCostObject(string $costObject) : void
     {
@@ -156,7 +156,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCostObject() : string
     {
@@ -168,7 +168,7 @@ final class GSDCostObject implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Organization
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Organization
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ use phpOMS\Contract\ArrayableInterface;
 /**
  * Organization department class.
  *
- * @package    Modules\Organization
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Organization
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Department implements ArrayableInterface, \JsonSerializable
 {
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $name = '';
@@ -45,7 +45,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var mixed
+     * @var   mixed
      * @since 1.0.0
      */
     protected $parent = null;
@@ -53,7 +53,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Status
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $status = Status::INACTIVE;
@@ -61,7 +61,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Unit this department belongs to
      *
-     * @var mixed
+     * @var   mixed
      * @since 1.0.0
      */
     protected $unit = 1;
@@ -69,7 +69,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -77,7 +77,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -87,7 +87,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @param string $name Department name
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(string $name = '')
     {
@@ -99,7 +99,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -111,7 +111,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -125,7 +125,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -137,7 +137,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getParent()
     {
@@ -151,7 +151,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setParent($parent) : void
     {
@@ -163,7 +163,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -177,7 +177,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -189,7 +189,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getUnit()
     {
@@ -203,7 +203,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setUnit($unit) : void
     {
@@ -215,7 +215,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -229,7 +229,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $desc) : void
     {
@@ -241,7 +241,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -255,7 +255,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $desc) : void
     {
@@ -280,7 +280,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __toString()
     {

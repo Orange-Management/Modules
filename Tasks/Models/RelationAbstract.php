@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tasks
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tasks
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -20,17 +20,17 @@ use Modules\Admin\Models\Group;
 /**
  * Task relation to accounts or groups
  *
- * @package    Modules\Tasks
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tasks
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 abstract class RelationAbstract implements \JsonSerializable
 {
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -38,7 +38,7 @@ abstract class RelationAbstract implements \JsonSerializable
     /**
      * Duty.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $duty = DutyType::TO;
@@ -47,7 +47,7 @@ abstract class RelationAbstract implements \JsonSerializable
     /**
      * Element id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $element = 0;
@@ -57,7 +57,7 @@ abstract class RelationAbstract implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -71,7 +71,7 @@ abstract class RelationAbstract implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDuty(int $duty) : void
     {
@@ -83,7 +83,7 @@ abstract class RelationAbstract implements \JsonSerializable
      *
      * @return void Is TO or CC
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDuty() : int
     {
@@ -95,7 +95,7 @@ abstract class RelationAbstract implements \JsonSerializable
      *
      * @return Account|Group
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     abstract public function getRelation();
 

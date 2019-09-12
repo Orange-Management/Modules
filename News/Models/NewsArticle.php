@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\News\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\News\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -21,10 +21,10 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 /**
  * News article class.
  *
- * @package    Modules\News\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\News\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class NewsArticle implements ArrayableInterface, \JsonSerializable
 {
@@ -32,7 +32,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -40,7 +40,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Title.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $title = '';
@@ -48,7 +48,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Content.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $content = '';
@@ -56,7 +56,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Unparsed.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $plain = '';
@@ -64,7 +64,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * News type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $type = NewsType::ARTICLE;
@@ -72,7 +72,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * News status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $status = NewsStatus::DRAFT;
@@ -80,7 +80,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Language.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $language = ISO639x1Enum::_EN;
@@ -88,7 +88,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -96,7 +96,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -104,7 +104,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Publish.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $publish = null;
@@ -112,7 +112,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Featured.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     private bool $featured = false;
@@ -120,7 +120,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Badge.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $badges = [];
@@ -128,7 +128,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -141,7 +141,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getBadges() : array
     {
@@ -155,7 +155,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addBadge($badge) : void
     {
@@ -167,7 +167,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getContent() : string
     {
@@ -181,7 +181,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setContent(string $content) : void
     {
@@ -195,7 +195,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPlain(string $plain) : void
     {
@@ -207,7 +207,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPlain() : string
     {
@@ -219,7 +219,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -231,7 +231,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -243,7 +243,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getLanguage() : string
     {
@@ -255,7 +255,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPublish() : \DateTime
     {
@@ -269,7 +269,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setLanguage(string $language) : void
     {
@@ -287,7 +287,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPublish(\DateTime $publish) : void
     {
@@ -299,7 +299,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -313,7 +313,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($id) : void
     {
@@ -323,7 +323,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTitle() : string
     {
@@ -337,7 +337,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTitle(string $title) : void
     {
@@ -349,7 +349,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getType() : int
     {
@@ -363,7 +363,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setType(int $type) : void
     {
@@ -379,7 +379,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -393,7 +393,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @throws InvalidEnumValue
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -407,7 +407,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isFeatured() : bool
     {
@@ -421,7 +421,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setFeatured(bool $featured) : void
     {

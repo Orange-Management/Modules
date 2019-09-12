@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\ProjectManagement\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\ProjectManagement\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 /**
  * Mapper class.
  *
- * @package    Modules\ProjectManagement\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\ProjectManagement\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ProjectMapper extends DataMapperAbstract
 {
@@ -33,7 +33,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -55,7 +55,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -76,7 +76,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -89,7 +89,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'projectmanagement_project';
@@ -97,7 +97,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'projectmanagement_project_created_at';
@@ -105,7 +105,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'projectmanagement_project_id';

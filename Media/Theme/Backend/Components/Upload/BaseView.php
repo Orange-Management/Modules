@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    TBD
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   TBD
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\Views\View;
 /**
  * Component view.
  *
- * @package    TBD
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package TBD
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  * @codeCoverageIgnore
  */
 class BaseView extends View

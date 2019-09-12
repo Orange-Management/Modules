@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Interfaces
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Interfaces
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -31,17 +31,17 @@ use phpOMS\Message\RequestAbstract;
 /**
  * GSD import class
  *
- * @package    Modules\Exchange\Models\Interfaces\GSD
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Exchange\Models\Interfaces\GSD
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class Importer extends ImporterAbstract
 {
     /**
      * Database connection.
      *
-     * @var ConnectionInterface
+     * @var   ConnectionInterface
      * @since 1.0.0
      */
     private $remote = null;
@@ -54,7 +54,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function import(\DateTime $start, \DateTime $end) : void
     {
@@ -77,7 +77,7 @@ final class Importer extends ImporterAbstract
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importFromRequest(RequestAbstract $request) : bool
     {
@@ -138,7 +138,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importCostCenter(\DateTime $start, \DateTime $end) : void
     {
@@ -164,7 +164,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importCostObject(\DateTime $start, \DateTime $end) : void
     {
@@ -190,7 +190,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importAddress(\DateTime $start, \DateTime $end) : void
     {
@@ -204,7 +204,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importCustomer(\DateTime $start, \DateTime $end) : void
     {
@@ -218,7 +218,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importSupplier(\DateTime $start, \DateTime $end) : void
     {
@@ -232,7 +232,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importAccount(\DateTime $start, \DateTime $end) : void
     {
@@ -246,7 +246,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importInvoice(\DateTime $start, \DateTime $end) : void
     {
@@ -260,7 +260,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importPosting(\DateTime $start, \DateTime $end) : void
     {
@@ -274,7 +274,7 @@ final class Importer extends ImporterAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function importBatchPosting(\DateTime $start, \DateTime $end) : void
     {

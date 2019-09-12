@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Helper\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Helper\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Helper\Models;
 /**
  * Report model.
  *
- * @package    Modules\Helper\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Helper\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Report implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ class Report implements \JsonSerializable
     /**
      * Report Id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class Report implements \JsonSerializable
     /**
      * Report status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $status = HelperStatus::INACTIVE;
@@ -44,7 +44,7 @@ class Report implements \JsonSerializable
     /**
      * Report title.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $title = '';
@@ -52,7 +52,7 @@ class Report implements \JsonSerializable
     /**
      * Report description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -60,7 +60,7 @@ class Report implements \JsonSerializable
     /**
      * Report description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -68,7 +68,7 @@ class Report implements \JsonSerializable
     /**
      * Report created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -76,7 +76,7 @@ class Report implements \JsonSerializable
     /**
      * Report created by.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -84,7 +84,7 @@ class Report implements \JsonSerializable
     /**
      * Report template.
      *
-     * @var null|int|Media
+     * @var   null|int|Media
      * @since 1.0.0
      */
     private $template = 0;
@@ -92,7 +92,7 @@ class Report implements \JsonSerializable
     /**
      * Report source.
      *
-     * @var int|\Modules\Media\Models\Collection
+     * @var   int|\Modules\Media\Models\Collection
      * @since 1.0.0
      */
     private $source = 0;
@@ -100,7 +100,7 @@ class Report implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -110,7 +110,7 @@ class Report implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -120,7 +120,7 @@ class Report implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -132,7 +132,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -142,7 +142,7 @@ class Report implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTitle() : string
     {
@@ -154,7 +154,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTitle(string $title) : void
     {
@@ -164,7 +164,7 @@ class Report implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -176,7 +176,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -186,7 +186,7 @@ class Report implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -198,7 +198,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $descriptionRaw) : void
     {
@@ -208,7 +208,7 @@ class Report implements \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -218,7 +218,7 @@ class Report implements \JsonSerializable
     /**
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -230,7 +230,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($creator) : void
     {
@@ -240,7 +240,7 @@ class Report implements \JsonSerializable
     /**
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTemplate()
     {
@@ -252,7 +252,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTemplate($template) : void
     {
@@ -264,7 +264,7 @@ class Report implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setSource($source) : void
     {
@@ -274,7 +274,7 @@ class Report implements \JsonSerializable
     /**
      * @return \Modules\Media\Models\Collection|int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSource()
     {
@@ -284,7 +284,7 @@ class Report implements \JsonSerializable
     /**
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function toArray() : array
     {

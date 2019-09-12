@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Warehousing\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Warehousing\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\WarehouseManagement\Models;
 /**
  * Warehouse class.
  *
- * @package    Modules\Warehousing\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Warehousing\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Warehouse
 {
@@ -28,7 +28,7 @@ class Warehouse
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -36,7 +36,7 @@ class Warehouse
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -44,7 +44,7 @@ class Warehouse
     /**
      * Location of the warehouse.
      *
-     * @var \phpOMS\Stdlib\Base\Location
+     * @var   \phpOMS\Stdlib\Base\Location
      * @since 1.0.0
      */
     private $location = null;
@@ -52,7 +52,7 @@ class Warehouse
     /**
      * Warehouse.
      *
-     * @var \Modules\Warehousing\Models\Warehouse[]
+     * @var   \Modules\Warehousing\Models\Warehouse[]
      * @since 1.0.0
      */
     private static array $instances = [];
@@ -62,7 +62,7 @@ class Warehouse
      *
      * @param int $id Warehouse ID
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct($id)
     {
@@ -76,7 +76,7 @@ class Warehouse
      *
      * @return \Modules\Warehousing\Models\Warehouse
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getInstance($id)
     {
@@ -102,7 +102,7 @@ class Warehouse
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId()
     {
@@ -114,7 +114,7 @@ class Warehouse
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName()
     {
@@ -128,7 +128,7 @@ class Warehouse
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName($name) : void
     {
@@ -140,7 +140,7 @@ class Warehouse
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription()
     {
@@ -154,7 +154,7 @@ class Warehouse
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription($description) : void
     {
@@ -166,7 +166,7 @@ class Warehouse
      *
      * @return \phpOMS\Stdlib\Base\Location
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getLocation()
     {
@@ -180,7 +180,7 @@ class Warehouse
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setLocation($location) : void
     {

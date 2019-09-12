@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tasks
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tasks
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 /**
  * Task class.
  *
- * @package    Modules\Tasks
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tasks
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Task implements \JsonSerializable
 {
@@ -33,7 +33,7 @@ class Task implements \JsonSerializable
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -41,7 +41,7 @@ class Task implements \JsonSerializable
     /**
      * Title.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $title = '';
@@ -49,7 +49,7 @@ class Task implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -57,7 +57,7 @@ class Task implements \JsonSerializable
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -65,7 +65,7 @@ class Task implements \JsonSerializable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -73,7 +73,7 @@ class Task implements \JsonSerializable
     /**
      * Description raw.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -81,7 +81,7 @@ class Task implements \JsonSerializable
     /**
      * Type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $type = TaskType::SINGLE;
@@ -89,7 +89,7 @@ class Task implements \JsonSerializable
     /**
      * Status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $status = TaskStatus::OPEN;
@@ -97,7 +97,7 @@ class Task implements \JsonSerializable
     /**
      * Task can be closed by user.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     protected bool $isClosable = true;
@@ -105,7 +105,7 @@ class Task implements \JsonSerializable
     /**
      * Task can be edited by user.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     protected bool $isEditable = true;
@@ -113,7 +113,7 @@ class Task implements \JsonSerializable
     /**
      * Start.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected $start = null;
@@ -121,7 +121,7 @@ class Task implements \JsonSerializable
     /**
      * Due.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected $due = null;
@@ -129,7 +129,7 @@ class Task implements \JsonSerializable
     /**
      * Done.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected $done = null;
@@ -137,7 +137,7 @@ class Task implements \JsonSerializable
     /**
      * Task elements.
      *
-     * @var TaskElement[]
+     * @var   TaskElement[]
      * @since 1.0.0
      */
     protected array $taskElements = [];
@@ -145,7 +145,7 @@ class Task implements \JsonSerializable
     /**
      * Task elements.
      *
-     * @var Tag[]
+     * @var   Tag[]
      * @since 1.0.0
      */
     protected array $tags = [];
@@ -153,7 +153,7 @@ class Task implements \JsonSerializable
     /**
      * Schedule
      *
-     * @var Schedule
+     * @var   Schedule
      * @since 1.0.0
      */
     protected $schedule = null;
@@ -161,7 +161,7 @@ class Task implements \JsonSerializable
     /**
      * Priority
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $priority = TaskPriority::NONE;
@@ -169,7 +169,7 @@ class Task implements \JsonSerializable
     /**
      * Media files
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     protected array $media = [];
@@ -177,7 +177,7 @@ class Task implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -193,7 +193,7 @@ class Task implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -209,7 +209,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setClosable(bool $closable) : void
     {
@@ -221,7 +221,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isClosable() : bool
     {
@@ -237,7 +237,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setEditable(bool $editable) : void
     {
@@ -249,7 +249,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isEditable() : bool
     {
@@ -263,7 +263,7 @@ class Task implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addElement(TaskElement $element) : int
     {
@@ -283,7 +283,7 @@ class Task implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addTag(Tag $tag) : int
     {
@@ -301,7 +301,7 @@ class Task implements \JsonSerializable
      *
      * @return array<int|\Modules\Media\Models\Media>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getMedia() : array
     {
@@ -315,7 +315,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addMedia($media) : void
     {
@@ -329,7 +329,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isToAccount(int $id) : bool
     {
@@ -349,7 +349,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isToGroup(int $id) : bool
     {
@@ -369,7 +369,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isCCAccount(int $id) : bool
     {
@@ -389,7 +389,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isCCGroup(int $id) : bool
     {
@@ -405,7 +405,7 @@ class Task implements \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -415,7 +415,7 @@ class Task implements \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStart() : \DateTime
     {
@@ -429,7 +429,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStart(\DateTime $start) : void
     {
@@ -441,7 +441,7 @@ class Task implements \JsonSerializable
      *
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -455,7 +455,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($id) : void
     {
@@ -468,7 +468,7 @@ class Task implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -482,7 +482,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -494,7 +494,7 @@ class Task implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -508,7 +508,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $description) : void
     {
@@ -520,7 +520,7 @@ class Task implements \JsonSerializable
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDone() : \DateTime
     {
@@ -534,7 +534,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDone(\DateTime $done) : void
     {
@@ -546,7 +546,7 @@ class Task implements \JsonSerializable
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDue() : \DateTime
     {
@@ -560,7 +560,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDue(\DateTime $due) : void
     {
@@ -572,7 +572,7 @@ class Task implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -588,7 +588,7 @@ class Task implements \JsonSerializable
      *
      * @throws InvalidEnumValue
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -604,7 +604,7 @@ class Task implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPriority() : int
     {
@@ -620,7 +620,7 @@ class Task implements \JsonSerializable
      *
      * @throws InvalidEnumValue
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPriority(int $priority) : void
     {
@@ -636,7 +636,7 @@ class Task implements \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTitle() : string
     {
@@ -650,7 +650,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTitle(string $title) : void
     {
@@ -664,7 +664,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removeElement($id) : bool
     {
@@ -684,7 +684,7 @@ class Task implements \JsonSerializable
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function removeTag($id) : bool
     {
@@ -702,7 +702,7 @@ class Task implements \JsonSerializable
      *
      * @return Tag[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTags() : array
     {
@@ -716,7 +716,7 @@ class Task implements \JsonSerializable
      *
      * @return Tag
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTag(int $id) : Tag
     {
@@ -728,7 +728,7 @@ class Task implements \JsonSerializable
      *
      * @return TaskElement[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTaskElements() : array
     {
@@ -742,7 +742,7 @@ class Task implements \JsonSerializable
      *
      * @return TaskElement
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTaskElement(int $id) : TaskElement
     {
@@ -754,7 +754,7 @@ class Task implements \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getType() : int
     {
@@ -768,7 +768,7 @@ class Task implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setType(int $type = TaskType::SINGLE) : void
     {
@@ -780,7 +780,7 @@ class Task implements \JsonSerializable
      *
      * @return Schedule
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSchedule() : Schedule
     {

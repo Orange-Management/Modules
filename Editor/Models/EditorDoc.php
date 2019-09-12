@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Editor\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Editor\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\Contract\ArrayableInterface;
 /**
  * News article class.
  *
- * @package    Modules\Editor\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Editor\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class EditorDoc implements ArrayableInterface, \JsonSerializable
 {
@@ -30,7 +30,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -38,7 +38,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Title.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $title = '';
@@ -46,7 +46,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Content.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $content = '';
@@ -54,7 +54,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Unparsed.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $plain = '';
@@ -62,7 +62,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Doc path for organizing.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $path = '';
@@ -70,7 +70,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -78,7 +78,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -86,7 +86,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -96,7 +96,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getContent() : string
     {
@@ -108,7 +108,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setContent(string $content) : void
     {
@@ -120,7 +120,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPlain(string $plain) : void
     {
@@ -130,7 +130,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPlain() : string
     {
@@ -140,7 +140,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -150,7 +150,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -160,7 +160,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -170,7 +170,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @param int $id
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($id) : void
     {
@@ -180,7 +180,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTitle() : string
     {
@@ -192,7 +192,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTitle(string $title)
     {
@@ -202,7 +202,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getPath() : string
     {
@@ -214,7 +214,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPath(string $path)
     {

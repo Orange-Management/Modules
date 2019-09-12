@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\ProjectManagement\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\ProjectManagement\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -21,10 +21,10 @@ use phpOMS\Localization\Money;
 /**
  * Project class.
  *
- * @package    Modules\ProjectManagement\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\ProjectManagement\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Project
 {
@@ -55,7 +55,7 @@ class Project
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -63,7 +63,7 @@ class Project
     /**
      * Created by.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -235,7 +235,7 @@ class Project
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -245,7 +245,7 @@ class Project
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy() : int
     {
@@ -255,7 +255,7 @@ class Project
     /**
      * @param $createdBy Creator
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy(int $createdBy) : void
     {

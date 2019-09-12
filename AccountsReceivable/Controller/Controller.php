@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\AccountsReceivable
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\AccountsReceivable
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -20,10 +20,10 @@ use phpOMS\Module\WebInterface;
 /**
  * Sales class.
  *
- * @package    Modules\AccountsReceivable
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\AccountsReceivable
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Controller extends ModuleAbstract implements WebInterface
 {
@@ -31,7 +31,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module path.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_PATH = __DIR__ . '/../';
@@ -39,7 +39,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module version.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_VERSION = '1.0.0';
@@ -47,7 +47,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_NAME = 'AccountsReceivable';
@@ -55,7 +55,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     public const MODULE_ID = 1004900000;
@@ -63,7 +63,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Providing.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $providing = [];
@@ -71,7 +71,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Dependencies.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $dependencies = [

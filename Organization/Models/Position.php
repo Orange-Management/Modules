@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Organization
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Organization
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ use phpOMS\Contract\ArrayableInterface;
 /**
  * Organization position class.
  *
- * @package    Modules\Organization
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Organization
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Position implements ArrayableInterface, \JsonSerializable
 {
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -45,7 +45,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var mixed
+     * @var   mixed
      * @since 1.0.0
      */
     private $parent = null;
@@ -53,7 +53,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Department
      *
-     * @var mixed
+     * @var   mixed
      * @since 1.0.0
      */
     private $department = null;
@@ -61,7 +61,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -69,7 +69,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -77,7 +77,7 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Status
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $status = Status::INACTIVE;
@@ -87,7 +87,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -99,7 +99,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -113,7 +113,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -125,7 +125,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getParent()
     {
@@ -139,7 +139,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setParent($parent) : void
     {
@@ -151,7 +151,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDepartment()
     {
@@ -165,7 +165,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDepartment($department) : void
     {
@@ -177,7 +177,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -191,7 +191,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -203,7 +203,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -217,7 +217,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $desc) : void
     {
@@ -229,7 +229,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -243,7 +243,7 @@ class Position implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $desc) : void
     {

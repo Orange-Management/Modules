@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Billing\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Billing\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -20,10 +20,10 @@ use phpOMS\Localization\Money;
 /**
  * Invoice class.
  *
- * @package    Modules\Billing\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Billing\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Invoice implements \JsonSerializable
 {
@@ -32,7 +32,7 @@ class Invoice implements \JsonSerializable
     /**
      * Number ID.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $number = '';
@@ -40,7 +40,7 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $type = InvoiceType::BILL;
@@ -48,7 +48,7 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $status = InvoiceStatus::DRAFT;
@@ -56,7 +56,7 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -64,7 +64,7 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice send at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $send = null;
@@ -100,7 +100,7 @@ class Invoice implements \JsonSerializable
     /**
      * Person refering for this order.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $referer = 0;
@@ -142,7 +142,7 @@ class Invoice implements \JsonSerializable
     /**
      * Reference to other invoice (delivery note/credit note etc).
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $reference = 0;

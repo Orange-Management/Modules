@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tasks
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tasks
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -23,10 +23,10 @@ use phpOMS\DataStorage\Database\Query\Builder;
 /**
  * Mapper class.
  *
- * @package    Modules\Tasks
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tasks
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class TaskMapper extends DataMapperAbstract
 {
@@ -34,7 +34,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -58,7 +58,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var   array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -85,7 +85,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
@@ -98,7 +98,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var   array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -111,7 +111,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $table = 'task';
@@ -119,7 +119,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $createdAt = 'task_created_at';
@@ -127,7 +127,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected static string $primaryField = 'task_id';
@@ -139,7 +139,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getOpenCreatedBy(int $user) : array
     {
@@ -157,7 +157,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getOpenTo(int $user) : array
     {
@@ -180,7 +180,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getOpenAny(int $user) : array
     {
@@ -203,7 +203,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getOpenCC(int $user) : array
     {
@@ -226,7 +226,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getCreatedBy(int $user) : array
     {
@@ -243,7 +243,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getTo(int $user) : array
     {
@@ -265,7 +265,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getCC(int $user) : array
     {
@@ -287,7 +287,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getAny(int $user) : array
     {
@@ -310,7 +310,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function countUnread(int $user) : int
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,10 +22,10 @@ use phpOMS\Module\WebInterface;
  *
  * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 abstract class Controller extends ModuleAbstract implements WebInterface
 {
@@ -33,7 +33,7 @@ abstract class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module path.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_PATH = __DIR__ . '/../';
@@ -41,7 +41,7 @@ abstract class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module version.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_VERSION = '1.0.0';
@@ -49,7 +49,7 @@ abstract class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     public const MODULE_NAME = 'Admin';
@@ -57,7 +57,7 @@ abstract class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     public const MODULE_ID = 1000100000;
@@ -65,7 +65,7 @@ abstract class Controller extends ModuleAbstract implements WebInterface
     /**
      * Providing.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $providing = [];
@@ -73,7 +73,7 @@ abstract class Controller extends ModuleAbstract implements WebInterface
     /**
      * Dependencies.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     protected static array $dependencies = [];

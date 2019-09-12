@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Search\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Search\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -24,10 +24,10 @@ use phpOMS\Utils\Parser\Php\ArrayParser;
 /**
  * Installer class.
  *
- * @package    Modules\Search\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Search\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Installer extends InstallerAbstract
 {
@@ -56,7 +56,7 @@ class Installer extends InstallerAbstract
      * @throws PathException This exception is thrown if the Search install file couldn't be found
      * @throws \Exception    This exception is thrown if the Search install file is invalid json
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function installExternal(DatabasePool $dbPool, array $data) : void
     {

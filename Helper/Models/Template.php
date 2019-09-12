@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Helper\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Helper\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\Helper\Models;
 /**
  * Template model.
  *
- * @package    Modules\Helper\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Helper\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Template implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ class Template implements \JsonSerializable
     /**
      * Template Id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class Template implements \JsonSerializable
     /**
      * Template status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $status = HelperStatus::INACTIVE;
@@ -44,7 +44,7 @@ class Template implements \JsonSerializable
     /**
      * Template data type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $datatype = TemplateDataType::OTHER;
@@ -52,7 +52,7 @@ class Template implements \JsonSerializable
     /**
      * Template doesn't need reports.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     private bool $isStandalone = false;
@@ -60,7 +60,7 @@ class Template implements \JsonSerializable
     /**
      * Template name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $name = '';
@@ -68,7 +68,7 @@ class Template implements \JsonSerializable
     /**
      * Template description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $description = '';
@@ -76,7 +76,7 @@ class Template implements \JsonSerializable
     /**
      * Template description.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -84,7 +84,7 @@ class Template implements \JsonSerializable
     /**
      * Template created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -92,7 +92,7 @@ class Template implements \JsonSerializable
     /**
      * Template created by.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -100,7 +100,7 @@ class Template implements \JsonSerializable
     /**
      * Template source.
      *
-     * @var int|Media
+     * @var   int|Media
      * @since 1.0.0
      */
     private $source = 0;
@@ -108,7 +108,7 @@ class Template implements \JsonSerializable
     /**
      * Expected files.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $expected = [];
@@ -116,7 +116,7 @@ class Template implements \JsonSerializable
     /**
      * Reports.
      *
-     * @var array
+     * @var   array
      * @since 1.0.0
      */
     private array $reports = [];
@@ -124,7 +124,7 @@ class Template implements \JsonSerializable
     /**
      * Constructor
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -134,7 +134,7 @@ class Template implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -155,7 +155,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -165,7 +165,7 @@ class Template implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -177,7 +177,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -187,7 +187,7 @@ class Template implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -199,7 +199,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescriptionRaw(string $description) : void
     {
@@ -209,7 +209,7 @@ class Template implements \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescriptionRaw() : string
     {
@@ -221,7 +221,7 @@ class Template implements \JsonSerializable
      *
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setSource($source)
     {
@@ -231,7 +231,7 @@ class Template implements \JsonSerializable
     /**
      * @return mixed
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSource()
     {
@@ -243,7 +243,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($createdBy) : void
     {
@@ -253,7 +253,7 @@ class Template implements \JsonSerializable
     /**
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -263,7 +263,7 @@ class Template implements \JsonSerializable
     /**
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -275,7 +275,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setExpected(array $expected) : void
     {
@@ -285,7 +285,7 @@ class Template implements \JsonSerializable
     /**
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getExpected() : array
     {
@@ -297,7 +297,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addExpected(string $expected) : void
     {
@@ -309,7 +309,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -319,7 +319,7 @@ class Template implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -331,7 +331,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDatatype(int $datatype) : void
     {
@@ -341,7 +341,7 @@ class Template implements \JsonSerializable
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDatatype() : int
     {
@@ -353,7 +353,7 @@ class Template implements \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStandalone(bool $isStandalone) : void
     {
@@ -363,7 +363,7 @@ class Template implements \JsonSerializable
     /**
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function isStandalone() : bool
     {

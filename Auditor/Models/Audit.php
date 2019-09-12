@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Auditor
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Auditor
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,17 +19,17 @@ use phpOMS\Account\Account;
 /**
  * Audit class.
  *
- * @package    Modules\Auditor
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Auditor
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Audit
 {
     /**
      * Audit id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Audit
     /**
      * Audit type.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $type = 0;
@@ -45,7 +45,7 @@ class Audit
     /**
      * Audit subtype.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $subtype = 0;
@@ -53,7 +53,7 @@ class Audit
     /**
      * Audit module.
      *
-     * @var null|string
+     * @var   null|string
      * @since 1.0.0
      */
     private $module = null;
@@ -63,7 +63,7 @@ class Audit
      *
      * This could be used to reference other model ids
      *
-     * @var null|string
+     * @var   null|string
      * @since 1.0.0
      */
     private $ref = null;
@@ -73,7 +73,7 @@ class Audit
      *
      * Additional audit information
      *
-     * @var null|string
+     * @var   null|string
      * @since 1.0.0
      */
     private $content = null;
@@ -81,7 +81,7 @@ class Audit
     /**
      * Old value.
      *
-     * @var null|string
+     * @var   null|string
      * @since 1.0.0
      */
     private $old = null;
@@ -89,7 +89,7 @@ class Audit
     /**
      * New value.
      *
-     * @var null|string
+     * @var   null|string
      * @since 1.0.0
      */
     private $new = null;
@@ -97,7 +97,7 @@ class Audit
     /**
      * Account.
      *
-     * @var Account|int
+     * @var   Account|int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -105,7 +105,7 @@ class Audit
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -113,7 +113,7 @@ class Audit
     /**
      * Ip of creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $ip = 0;
@@ -129,7 +129,7 @@ class Audit
      * @parram string  $module  Module id
      * @parram string  $content Additional audit information
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(
         $account = 0,
@@ -157,7 +157,7 @@ class Audit
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -169,7 +169,7 @@ class Audit
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getType() : int
     {
@@ -181,7 +181,7 @@ class Audit
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSubType() : int
     {
@@ -193,7 +193,7 @@ class Audit
      *
      * @return null|string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getModule() : ?string
     {
@@ -207,7 +207,7 @@ class Audit
      *
      * @return null|string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getRef() : ?string
     {
@@ -219,7 +219,7 @@ class Audit
      *
      * @return null|string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getContent() : ?string
     {
@@ -231,7 +231,7 @@ class Audit
      *
      * @return null|string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getOld() : ?string
     {
@@ -243,7 +243,7 @@ class Audit
      *
      * @return null|string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getNew() : ?string
     {
@@ -255,7 +255,7 @@ class Audit
      *
      * @return Account|int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -267,7 +267,7 @@ class Audit
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {

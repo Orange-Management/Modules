@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Warehousing\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Warehousing\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\WarehouseManagement\Models;
 /**
  * Warehouse class.
  *
- * @package    Modules\Warehousing\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Warehousing\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Arrival
 {
@@ -28,7 +28,7 @@ class Arrival
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class Arrival
     /**
      * Order.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $order = '';
@@ -44,7 +44,7 @@ class Arrival
     /**
      * From.
      *
-     * @var \phpOMS\Stdlib\Base\Address
+     * @var   \phpOMS\Stdlib\Base\Address
      * @since 1.0.0
      */
     private $from = null;
@@ -52,7 +52,7 @@ class Arrival
     /**
      * Warehouse.
      *
-     * @var \Modules\Warehousing\Models\Warehouse
+     * @var   \Modules\Warehousing\Models\Warehouse
      * @since 1.0.0
      */
     private $warehouse = null;
@@ -60,7 +60,7 @@ class Arrival
     /**
      * Date of arrival.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $date = null;
@@ -68,7 +68,7 @@ class Arrival
     /**
      * Person who accepted the delivery.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $acceptor = null;
@@ -76,7 +76,7 @@ class Arrival
     /**
      * Warehouse.
      *
-     * @var \Modules\Warehousing\Models\ArrivalStatus
+     * @var   \Modules\Warehousing\Models\ArrivalStatus
      * @since 1.0.0
      */
     private $status = null;
@@ -86,7 +86,7 @@ class Arrival
     /**
      * Arrival.
      *
-     * @var \Modules\Warehousing\Models\Arrival[]
+     * @var   \Modules\Warehousing\Models\Arrival[]
      * @since 1.0.0
      */
     private static array $instances = [];
@@ -96,7 +96,7 @@ class Arrival
      *
      * @param int $id Arrival ID
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function __construct($id)
     {
@@ -120,7 +120,7 @@ class Arrival
      *
      * @return \Modules\Warehousing\Models\Arrival
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getInstance($id)
     {
@@ -136,7 +136,7 @@ class Arrival
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId()
     {
@@ -148,7 +148,7 @@ class Arrival
      *
      * @return \DateTime Date of arrival
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDate()
     {
@@ -162,7 +162,7 @@ class Arrival
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDate($date) : void
     {
@@ -174,7 +174,7 @@ class Arrival
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getOrder()
     {
@@ -188,7 +188,7 @@ class Arrival
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setOrder($order) : void
     {
@@ -200,7 +200,7 @@ class Arrival
      *
      * @return \phpOMS\Stdlib\Base\Address
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getFrom()
     {
@@ -214,7 +214,7 @@ class Arrival
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setFrom($from) : void
     {
@@ -226,7 +226,7 @@ class Arrival
      *
      * @return \Modules\Warehousing\Models\ArrivalStatus
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus()
     {
@@ -240,7 +240,7 @@ class Arrival
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus($status) : void
     {
@@ -252,7 +252,7 @@ class Arrival
      *
      * @return \Modules\Warehousing\Models\Warehouse
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getWarehouse()
     {
@@ -264,7 +264,7 @@ class Arrival
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getAcceptor()
     {
@@ -278,7 +278,7 @@ class Arrival
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setAcceptor($acceptor) : void
     {

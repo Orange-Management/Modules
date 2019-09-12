@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Media
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Media
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -30,10 +30,10 @@ use phpOMS\System\MimeType;
 /**
  * Media class.
  *
- * @package    Modules\Media
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Media
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -49,7 +49,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiMediaFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -73,7 +73,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -102,7 +102,7 @@ final class ApiController extends Controller
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function uploadFiles(
         string $name,
@@ -132,7 +132,7 @@ final class ApiController extends Controller
      *
      * @return string Random path to store media files
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function createMediaPath(string $basePath = 'Modules/Media/Files') : string
     {
@@ -146,7 +146,7 @@ final class ApiController extends Controller
      *
      * @return array
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function createDbEntries(array $status, int $account, string $virtualPath = '/') : array
     {
@@ -221,7 +221,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiMediaUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -238,7 +238,7 @@ final class ApiController extends Controller
      *
      * @return Media
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function updateMediaFromRequest(RequestAbstract $request) : Media
     {

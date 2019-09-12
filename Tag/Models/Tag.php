@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Tag\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Tag\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\Contract\ArrayableInterface;
 /**
  * Tag article class.
  *
- * @package    Modules\Tag\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Tag\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Tag implements ArrayableInterface, \JsonSerializable
 {
@@ -30,7 +30,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -38,7 +38,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Title.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $title = '';
@@ -46,7 +46,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Color RGBA.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $color = '00000000';
@@ -54,7 +54,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -62,7 +62,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Tag type.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $type = TagType::SINGLE;
@@ -72,7 +72,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return int|\phpOMS\Account\Account
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedBy()
     {
@@ -86,7 +86,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setCreatedBy($id) : void
     {
@@ -98,7 +98,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getType() : int
     {
@@ -112,7 +112,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setType(int $type = TagType::SINGLE) : void
     {
@@ -124,7 +124,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getColor() : string
     {
@@ -138,7 +138,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setColor(string $color) : void
     {
@@ -150,7 +150,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -160,7 +160,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTitle() : string
     {
@@ -174,7 +174,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTitle(string $title) : void
     {

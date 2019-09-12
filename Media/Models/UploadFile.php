@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Media\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Media\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -20,10 +20,10 @@ use phpOMS\System\File\Local\Directory;
 /**
  * Upload.
  *
- * @package    Modules\Media\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Media\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  * @codeCoverageIgnore
  */
 class UploadFile
@@ -31,7 +31,7 @@ class UploadFile
     /**
      * Limit of iterations to find a possible random path for the file to upload to.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private const PATH_GENERATION_LIMIT = 1000;
@@ -39,7 +39,7 @@ class UploadFile
     /**
      * Image interlaced.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     private bool $isInterlaced = true;
@@ -47,7 +47,7 @@ class UploadFile
     /**
      * Upload max size.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $maxSize = 50000000;
@@ -55,7 +55,7 @@ class UploadFile
     /**
      * Allowed mime types.
      *
-     * @var string[]
+     * @var   string[]
      * @since 1.0.0
      */
     private $allowedTypes = [];
@@ -63,7 +63,7 @@ class UploadFile
     /**
      * Output directory.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $outputDir = __DIR__ . '/../../Modules/Media/Files';
@@ -71,7 +71,7 @@ class UploadFile
     /**
      * Output file name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $fileName = '';
@@ -79,7 +79,7 @@ class UploadFile
     /**
      * Output file name.
      *
-     * @var bool
+     * @var   bool
      * @since 1.0.0
      */
     private bool $preserveFileName = true;
@@ -95,7 +95,7 @@ class UploadFile
      *
      * @throws \Exception
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function upload(array $files, string $name = '', string $encoding = 'UTF-8') : array
     {
@@ -206,7 +206,7 @@ class UploadFile
      *
      * @throws \Exception This exception is thrown if the file couldn't be created
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createFileName(string $path, string $tempName, string $extension) : string
     {
@@ -241,7 +241,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function interlace(string $extension, string $path) : void
     {
@@ -277,7 +277,7 @@ class UploadFile
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function findOutputDir(array $files) : string
     {
@@ -295,7 +295,7 @@ class UploadFile
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function getUploadError($error) : int
     {
@@ -314,7 +314,7 @@ class UploadFile
     /**
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getMaxSize() : int
     {
@@ -326,7 +326,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setInterlaced(bool $isInterlaced) : void
     {
@@ -338,7 +338,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setMaxSize(int $maxSize) : void
     {
@@ -348,7 +348,7 @@ class UploadFile
     /**
      * @return string[]
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getAllowedTypes() : array
     {
@@ -360,7 +360,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setAllowedTypes(array $allowedTypes) : void
     {
@@ -372,7 +372,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function addAllowedTypes(string $allowedTypes) : void
     {
@@ -382,7 +382,7 @@ class UploadFile
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getOutputDir() : string
     {
@@ -396,7 +396,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setOutputDir(string $outputDir) : void
     {
@@ -406,7 +406,7 @@ class UploadFile
     /**
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getFileName() : string
     {
@@ -420,7 +420,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setFileName(string $fileName) : void
     {
@@ -434,7 +434,7 @@ class UploadFile
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setPreserveFileName(bool $preserveFileName) : void
     {

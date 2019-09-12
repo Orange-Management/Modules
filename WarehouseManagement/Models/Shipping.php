@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Warehousing\Models
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Warehousing\Models
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -17,10 +17,10 @@ namespace Modules\WarehouseManagement\Models;
 /**
  * Warehouse class.
  *
- * @package    Modules\Warehousing\Models
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Warehousing\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Shipping
 {
@@ -28,7 +28,7 @@ class Shipping
     /**
      * ID.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -36,7 +36,7 @@ class Shipping
     /**
      * Order.
      *
-     * @var intstring
+     * @var   intstring
      * @since 1.0.0
      */
     private $order = '';
@@ -44,7 +44,7 @@ class Shipping
     /**
      * From.
      *
-     * @var \phpOMS\Stdlib\Base\Address
+     * @var   \phpOMS\Stdlib\Base\Address
      * @since 1.0.0
      */
     private $to = null;
@@ -52,7 +52,7 @@ class Shipping
     /**
      * Warehouse.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     private string $warehouse = '';
@@ -60,7 +60,7 @@ class Shipping
     /**
      * Date of arrival.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $delivered = null;
@@ -68,7 +68,7 @@ class Shipping
     /**
      * Person who sent the delivery.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $sender = null;
@@ -76,7 +76,7 @@ class Shipping
     /**
      * Warehouse.
      *
-     * @var \Modules\Warehousing\Models\ArrivalStatus
+     * @var   \Modules\Warehousing\Models\ArrivalStatus
      * @since 1.0.0
      */
     private $status = null;
@@ -84,7 +84,7 @@ class Shipping
     /**
      * Shipping.
      *
-     * @var \Modules\Warehousing\Models\Article[]
+     * @var   \Modules\Warehousing\Models\Article[]
      * @since 1.0.0
      */
     private static array $instances = [];
@@ -94,7 +94,7 @@ class Shipping
      *
      * @param int $id Article ID
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct($id)
     {
@@ -108,7 +108,7 @@ class Shipping
      *
      * @return \Modules\Warehousing\Models\Article
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function getInstance($id)
     {
@@ -134,7 +134,7 @@ class Shipping
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId()
     {
@@ -146,7 +146,7 @@ class Shipping
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getOrder()
     {
@@ -160,7 +160,7 @@ class Shipping
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setOrder($order) : void
     {
@@ -172,7 +172,7 @@ class Shipping
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDelivered()
     {
@@ -186,7 +186,7 @@ class Shipping
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDelivered($delivered) : void
     {
@@ -198,7 +198,7 @@ class Shipping
      *
      * @return \phpOMS\Stdlib\Base\Address
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getTo()
     {
@@ -212,7 +212,7 @@ class Shipping
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setTo($to) : void
     {
@@ -224,7 +224,7 @@ class Shipping
      *
      * @return \Modules\Warehousing\Models\ArrivalStatus
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus()
     {
@@ -238,7 +238,7 @@ class Shipping
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus($status) : void
     {
@@ -250,7 +250,7 @@ class Shipping
      *
      * @return \Modules\Warehousing\Models\Warehouse
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getWarehouse()
     {
@@ -262,7 +262,7 @@ class Shipping
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getSender()
     {
@@ -276,7 +276,7 @@ class Shipping
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setSender($sender) : void
     {

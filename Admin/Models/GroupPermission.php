@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -22,17 +22,17 @@ use phpOMS\Account\PermissionType;
  *
  * A single permission for a group consisting of read, create, modify, delete and permission flags.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class GroupPermission extends PermissionAbstract
 {
     /**
      * Group id
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     private int $group = 0;
@@ -49,7 +49,7 @@ class GroupPermission extends PermissionAbstract
      * @param null|int    $component  (e.g. address) (null if all are acceptable)
      * @param int         $permission Permission to check
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct(
         int $group = 0,
@@ -71,7 +71,7 @@ class GroupPermission extends PermissionAbstract
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getGroup() : int
     {

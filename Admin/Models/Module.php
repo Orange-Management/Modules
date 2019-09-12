@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -19,10 +19,10 @@ use phpOMS\Module\ModuleStatus;
 /**
  * Module class.
  *
- * @package    Modules\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Module
 {
@@ -30,7 +30,7 @@ class Module
     /**
      * Account id.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -38,7 +38,7 @@ class Module
     /**
      * Account name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $name = '';
@@ -46,7 +46,7 @@ class Module
     /**
      * Account name.
      *
-     * @var string
+     * @var   string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -54,7 +54,7 @@ class Module
     /**
      * Group status.
      *
-     * @var int
+     * @var   int
      * @since 1.0.0
      */
     protected int $status = ModuleStatus::INACTIVE;
@@ -62,7 +62,7 @@ class Module
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var   null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -70,7 +70,7 @@ class Module
     /**
      * Constructor.
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __construct()
     {
@@ -82,7 +82,7 @@ class Module
      *
      * @return int
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getId() : int
     {
@@ -94,7 +94,7 @@ class Module
      *
      * @return \DateTime
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getCreatedAt() : \DateTime
     {
@@ -106,7 +106,7 @@ class Module
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getName() : string
     {
@@ -120,7 +120,7 @@ class Module
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setName(string $name) : void
     {
@@ -132,7 +132,7 @@ class Module
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getDescription() : string
     {
@@ -146,7 +146,7 @@ class Module
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setDescription(string $description) : void
     {
@@ -158,7 +158,7 @@ class Module
      *
      * @return int Module status
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function getStatus() : int
     {
@@ -172,7 +172,7 @@ class Module
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function setStatus(int $status) : void
     {
@@ -185,7 +185,7 @@ class Module
      *
      * @return string
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function __toString()
     {
@@ -197,7 +197,7 @@ class Module
      *
      * @return array<string, int|string>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     /**
      * {@inheritdoc}
@@ -212,7 +212,7 @@ class Module
      *
      * @return array<string, int|string>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function toArray() : array
     {

@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Media\Admin
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Media\Admin
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -24,10 +24,10 @@ use phpOMS\System\File\PathException;
 /**
  * Installer class.
  *
- * @package    Modules\Media\Admin
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Media\Admin
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 class Installer extends InstallerAbstract
 {
@@ -42,7 +42,7 @@ class Installer extends InstallerAbstract
      * @throws PathException This exception is thrown if the Navigation install file couldn't be found
      * @throws \Exception    This exception is thrown if the Navigation install file is invalid json
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public static function installExternal(DatabasePool $dbPool, array $data) : void
     {
@@ -77,7 +77,7 @@ class Installer extends InstallerAbstract
      *
      * @return void
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private static function installMedia($dbPool, $data) : void
     {

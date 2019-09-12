@@ -4,11 +4,11 @@
  *
  * PHP Version 7.4
  *
- * @package    Modules\Draw
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.0
- * @link       https://orange-management.org
+ * @package   Modules\Draw
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
  */
 declare(strict_types=1);
 
@@ -28,10 +28,10 @@ use phpOMS\Utils\ImageUtils;
 /**
  * Calendar controller class.
  *
- * @package    Modules\Draw
- * @license    OMS License 1.0
- * @link       https://orange-management.org
- * @since      1.0.0
+ * @package Modules\Draw
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 final class ApiController extends Controller
 {
@@ -43,7 +43,7 @@ final class ApiController extends Controller
      *
      * @return array<string, bool>
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function validateDrawCreate(RequestAbstract $request) : array
     {
@@ -58,6 +58,8 @@ final class ApiController extends Controller
     }
 
     /**
+     * Routing end-point for application behaviour.
+     *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
@@ -66,7 +68,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
@@ -117,7 +119,7 @@ final class ApiController extends Controller
      *
      * @return bool
      *
-     * @since  1.0.0
+     * @since 1.0.0
      */
     private function createLocalFile(string $outputPath, string $raw) : bool
     {
