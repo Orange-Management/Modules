@@ -102,4 +102,20 @@ final class ApiController extends Controller
     public function apiExchangeExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
     }
+
+    /**
+     * Api method to handle file upload
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiExchangeUpload(RequestAbstract $request, ResponseAbstract $response, $data = null): void
+    { }
 }

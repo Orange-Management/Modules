@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Orange Management
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\ItemManagement
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -17,6 +18,14 @@ namespace Modules\ItemManagement\Models;
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Item mapper class.
+ *
+ * @package Modules\ItemManagement
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class ItemMapper extends DataMapperAbstract
 {
     /**

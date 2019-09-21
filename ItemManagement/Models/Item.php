@@ -83,6 +83,16 @@ class Item
         return $this->createdAt;
     }
 
+    public function setSuccessor(int $successor): void
+    {
+        $this->successor = $successor;
+    }
+
+    public function getSuccessor(): int
+    {
+        return $this->successor;
+    }
+
     public function getNumber() : string
     {
         return $this->number;

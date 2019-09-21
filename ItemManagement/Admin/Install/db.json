@@ -27,6 +27,18 @@
             }
         }
     },
+    "itemmgmt_item_l11n_type": {
+        "name": "itemmgmt_item_l11n_type",
+        "fields": {
+            "itemmgmt_item_l11n_type_id": {
+                "name": "itemmgmt_item_l11n_type_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            }
+        }
+    },
     "itemmgmt_item_l11n": {
         "name": "itemmgmt_item_l11n",
         "fields": {
@@ -37,33 +49,8 @@
                 "primary": true,
                 "autoincrement": true
             },
-            "itemmgmt_item_l11n_name1": {
-                "name": "itemmgmt_item_l11n_name1",
-                "type": "VARCHAR(255)",
-                "null": false
-            },
-            "itemmgmt_item_l11n_name2": {
-                "name": "itemmgmt_item_l11n_name2",
-                "type": "VARCHAR(255)",
-                "null": false
-            },
-            "itemmgmt_item_l11n_name3": {
-                "name": "itemmgmt_item_l11n_name3",
-                "type": "VARCHAR(255)",
-                "null": false
-            },
-            "itemmgmt_item_l11n_description1": {
+            "itemmgmt_item_l11n_description": {
                 "name": "itemmgmt_item_l11n_description1",
-                "type": "TEXT",
-                "null": false
-            },
-            "itemmgmt_item_l11n_description2": {
-                "name": "itemmgmt_item_l11n_description2",
-                "type": "TEXT",
-                "null": false
-            },
-            "itemmgmt_item_l11n_description3": {
-                "name": "itemmgmt_item_l11n_description3",
                 "type": "TEXT",
                 "null": false
             },
@@ -73,6 +60,13 @@
                 "null": false,
                 "foreignTable": "itemmgmt_item",
                 "foreignKey": "itemmgmt_item_id"
+            },
+            "itemmgmt_item_l11n_type_ref": {
+                "name": "itemmgmt_item_l11n_type_ref",
+                "type": "INT(11)",
+                "null": false,
+                "foreignTable": "itemmgmt_item_l11n_type",
+                "foreignKey": "itemmgmt_item_l11n_type_id"
             },
             "itemmgmt_item_l11n_lang": {
                 "name": "itemmgmt_item_l11n_lang",

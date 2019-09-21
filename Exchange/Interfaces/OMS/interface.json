@@ -1,0 +1,8 @@
+{
+    "name": "OMS",
+    "version": "1.0.0",
+    "website": "",
+    "path": "OMS",
+    "export": false,
+    "import": true
+}

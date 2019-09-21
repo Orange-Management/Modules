@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Orange Management
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\Helper
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -18,6 +19,14 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\CollectionMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Report mapper class.
+ *
+ * @package Modules\Helper
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class TemplateMapper extends DataMapperAbstract
 {
 

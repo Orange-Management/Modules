@@ -6,7 +6,7 @@ declare(strict_types=1);
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\ItemManagement
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0

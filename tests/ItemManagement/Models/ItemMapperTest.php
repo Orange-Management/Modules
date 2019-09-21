@@ -27,9 +27,8 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
         $item = new Item();
 
         $item->setNumber('1');
-        $item->setSegment(4);
         $item->setSuccessor(5);
-        $item->setInfo('info text');
+        //$item->setInfo('info text');
 
         $id = ItemMapper::create($item);
         self::assertGreaterThan(0, $item->getId());
@@ -37,8 +36,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
 
         $itemR = ItemMapper::get($item->getId());
         self::assertEquals($item->getNumber(), $itemR->getNumber());
-        self::assertEquals($item->getSegment(), $itemR->getSegment());
-        self::assertEquals($item->getInfo(), $itemR->getInfo());
+        //self::assertEquals($item->getInfo(), $itemR->getInfo());
     }
 
     /**
@@ -50,8 +48,7 @@ class ItemMapperTest extends \PHPUnit\Framework\TestCase
             $item = new Item();
 
             $item->setNumber((string) ($i + 1));
-            $item->setSegment(\mt_rand(1, 9));
-            $item->setInfo('info text');
+            //$item->setInfo('info text');
 
             $id = ItemMapper::create($item);
         }

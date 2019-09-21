@@ -27,12 +27,9 @@ class ItemTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(0, $item->getId());
         self::assertEmpty('', $item->getNumber());
-        self::assertEquals(0, $item->getArticleGroup());
-        self::assertEquals(0, $item->getProductGroup());
-        self::assertEquals(0, $item->getSegment());
         self::assertEquals(0, $item->getSuccessor());
-        self::assertEmpty($item->getMedia());
-        self::assertEmpty($item->getInfo());
+        //self::assertEmpty($item->getMedia());
+        //self::assertEmpty($item->getInfo());
         self::assertInstanceOf('\DateTime', $item->getCreatedAt());
     }
 
@@ -43,22 +40,13 @@ class ItemTest extends \PHPUnit\Framework\TestCase
         $item->setNumber('1');
         self::assertEquals('1', $item->getNumber());
 
-        $item->setArticleGroup(2);
-        self::assertEquals(2, $item->getArticleGroup());
-
-        $item->setProductGroup(3);
-        self::assertEquals(3, $item->getProductGroup());
-
-        $item->setSegment(4);
-        self::assertEquals(4, $item->getSegment());
-
         $item->setSuccessor(5);
         self::assertEquals(5, $item->getSuccessor());
 
-        $item->setInfo('info text');
-        self::assertEquals('info text', $item->getInfo());
+        //$item->setInfo('info text');
+        //self::assertEquals('info text', $item->getInfo());
 
-        $item->addMedia(new Media());
-        self::assertInstanceOf('\Modules\Media\Models\Media', $item->getMedia()[0]);
+        //$item->addMedia(new Media());
+        //self::assertInstanceOf('\Modules\Media\Models\Media', $item->getMedia()[0]);
     }
 }

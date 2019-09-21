@@ -65,9 +65,13 @@ jsOMS.Modules.Media = class {
                         self.app.eventManager.trigger(form.id, requestId);
                     });
 
-                    const virtualPath = document.querySelector('input[form="' + e.id + '"][name="virtualPath"]');
-                    if (virtualPath !== null) {
-                        uploader.setUri('api/media?virtualPath=' + virtualPath.value);
+                    const uploadData = document.querySelector(
+                        '#' + e.id + ' input[type=file], '
+                        + 'input[form="' + e.id + '"][type="file"]'
+                    );
+
+                    if (uploadData.hasAttribute('data-uri') !== null) {
+                        uploader.setUri(uploadData.getAttribute('data-uri'));
                     } else {
                         uploader.setUri('api/media');
                     }

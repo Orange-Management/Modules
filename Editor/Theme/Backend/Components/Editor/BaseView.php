@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Orange Management
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\Editor
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -23,7 +24,7 @@ use phpOMS\Views\View;
 /**
  * Component view.
  *
- * @package TBD
+ * @package Modules\Editor
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
