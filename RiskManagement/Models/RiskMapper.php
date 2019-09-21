@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\RiskManagement
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -18,6 +18,14 @@ use Modules\Media\Models\MediaMapper;
 use Modules\Organization\Models\UnitMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Risk mapper class.
+ *
+ * @package Modules\RiskManagement
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class RiskMapper extends DataMapperAbstract
 {
     /**

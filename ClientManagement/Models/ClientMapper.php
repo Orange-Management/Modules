@@ -21,6 +21,14 @@ use Modules\Profile\Models\ProfileMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Column;
 
+/**
+ * Client mapper class.
+ *
+ * @package Modules\ClientManagement
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class ClientMapper extends DataMapperAbstract
 {
     /**

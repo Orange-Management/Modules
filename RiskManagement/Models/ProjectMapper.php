@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\RiskManagement
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -16,6 +16,14 @@ namespace Modules\RiskManagement\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Risk project mapper class.
+ *
+ * @package Modules\RiskManagement
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class ProjectMapper extends DataMapperAbstract
 {
     /**

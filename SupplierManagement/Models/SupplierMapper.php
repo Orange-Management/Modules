@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   TBD
+ * @package   Modules\SupplierManagement
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -20,6 +20,14 @@ use Modules\Profile\Models\ProfileMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Column;
 
+/**
+ * Supplier mapper class.
+ *
+ * @package Modules\SupplierManagement
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class SupplierMapper extends DataMapperAbstract
 {
     /**

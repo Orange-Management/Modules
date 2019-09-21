@@ -18,6 +18,14 @@ namespace Modules\Editor\Models;
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
+/**
+ * Editor doc mapper class.
+ *
+ * @package Modules\Editor
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 final class EditorDocMapper extends DataMapperAbstract
 {
 
