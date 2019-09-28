@@ -70,10 +70,10 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Creator.

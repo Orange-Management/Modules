@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Tag\Models
+ * @package   Modules\HumanResourceManagement\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,20 +12,20 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Tag\Models;
+namespace Modules\HumanResourceManagement\Models;
 
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Tag type enum.
+ * Employee activity status enum.
  *
- * @package Modules\Tag\Models
+ * @package Modules\HumanResourceManagement\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-abstract class TagType extends Enum
+abstract class EmployeeActivityStatus extends Enum
 {
-    public const SINGLE = 1;
-    public const SHARED = 2;
+    public const ACTIVE   = 1;
+    public const INACTIVE = 2;
 }

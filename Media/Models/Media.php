@@ -68,10 +68,10 @@ class Media implements \JsonSerializable
     /**
      * Uploaded.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    protected ?\DateTime $createdAt = null;
+    protected \DateTime $createdAt;
 
     /**
      * Resource path.

@@ -19,6 +19,8 @@ use Modules\Exchange\Models\InterfaceManagerMapper;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use Modules\Media\Models\UploadFile;
+use phpOMS\System\File\Local\Directory;
 
 /**
  * Exchange controller class.
@@ -83,6 +85,8 @@ final class ApiController extends Controller
             }
         }
 
+        Directory::delete(__DIR__ . '/../tmp/');
+
         return false;
     }
 
@@ -117,5 +121,12 @@ final class ApiController extends Controller
      * @since 1.0.0
      */
     public function apiExchangeUpload(RequestAbstract $request, ResponseAbstract $response, $data = null): void
-    { }
+    {
+        Directory::delete(__DIR__ . '/../tmp/');
+
+        $upload = new UploadFile();
+        $upload->setOutputDir(__DIR__ . '/../tmp/');
+
+        $upload->upload($request->getFiles());
+    }
 }

@@ -5,7 +5,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Helper
+ * @package   Modules\Helper\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 /**
  * Report mapper class.
  *
- * @package Modules\Helper
+ * @package Modules\Helper\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

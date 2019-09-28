@@ -32,6 +32,18 @@ use phpOMS\Views\View;
 final class BackendController extends Controller
 {
 
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewExchangeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);

@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\SupplierManagement
+ * @package   Modules\SupplierManagement\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -23,7 +23,7 @@ use phpOMS\DataStorage\Database\Query\Column;
 /**
  * Supplier mapper class.
  *
- * @package Modules\SupplierManagement
+ * @package Modules\SupplierManagement\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

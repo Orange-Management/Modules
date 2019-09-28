@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Surveys
+ * @package   Modules\Surveys\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -17,7 +17,7 @@ namespace Modules\Surveys\Models;
 /**
  * Survey class.
  *
- * @package Modules\Surveys
+ * @package Modules\Surveys\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -76,11 +76,9 @@ class Survey
         return self::$instances[$id];
     }
 
-
     public function init($id) : void
     {
     }
-
 
     public function __clone()
     {
@@ -131,26 +129,21 @@ class Survey
         $this->creator = $creator;
     }
 
-
     public function delete() : void
     {
     }
-
 
     public function create() : void
     {
     }
 
-
     public function update() : void
     {
     }
 
-
     public function serialize() : void
     {
     }
-
 
     public function unserialize($data) : void
     {

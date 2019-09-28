@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Tasks
+ * @package   Modules\Tasks\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -17,7 +17,7 @@ namespace Modules\Tasks\Models;
 /**
  * Task class.
  *
- * @package Modules\Tasks
+ * @package Modules\Tasks\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

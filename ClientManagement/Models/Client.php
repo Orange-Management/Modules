@@ -27,29 +27,38 @@ use Modules\Profile\Models\Profile;
  */
 class Client
 {
-    private $id = 0;
+    private int $id = 0;
 
-    private $number = '';
+    private string $number = '';
 
-    private $numberReverse = '';
+    private string $numberReverse = '';
 
-    private $status = 0;
+    private int $status = 0;
 
-    private $type = 0;
+    private int $type = 0;
 
-    private $taxId = 0;
+    private array $ids = [];
 
-    private $info = '';
+    private string $info = '';
 
-    private $createdAt = null;
+    private \DateTime $createdAt;
 
     private $profile = null;
 
-    private $files = [];
+    private array $files = [];
 
-    private $contactElements = [];
+    private array $contactElements = [];
 
-    private $address = [];
+    private array $address = [];
+
+    private array $partners = [];
+
+    private $salesRep = null;
+
+    private int $advertisementMaterial = 0;
+
+    private $defaultDeliveryAddress = null;
+    private $defaultInvoiceAddress = null;
 
     public function __construct()
     {
@@ -114,6 +123,26 @@ class Client
     public function setTaxId(int $taxId) : void
     {
         $this->taxId = $taxId;
+    }
+
+    public function setDefaultDeliveryAddress($deliveryAddress) : void
+    {
+        $this->defaultDeliveryAddress = $deliveryAddress;
+    }
+
+    public function getDefaultDeliveryAddress()
+    {
+        return $this->defaultDeliveryAddress;
+    }
+
+    public function setDefaultInvoiceAddress($invoiceAddress) : void
+    {
+        $this->defaultTnvoiceAddress = $invoiceAddress;
+    }
+
+    public function getDefaultInvoiceAddress()
+    {
+        return $this->defaultInvoiceAddress;
     }
 
     public function getInfo() : string

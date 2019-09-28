@@ -68,10 +68,10 @@ class Report implements \JsonSerializable
     /**
      * Report created at.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    protected ?\DateTime $createdAt = null;
+    protected \DateTime $createdAt;
 
     /**
      * Report created by.

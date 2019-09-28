@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Admin
+ * @package   Modules\Admin\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -17,7 +17,7 @@ namespace Modules\Admin\Models;
 /**
  * Account group class.
  *
- * @package Modules\Admin
+ * @package Modules\Admin\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -27,10 +27,10 @@ class Group extends \phpOMS\Account\Group
     /**
      * Created at.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    protected ?\DateTime $createdAt = null;
+    protected \DateTime $createdAt;
 
     /**
      * Created by.

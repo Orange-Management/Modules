@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Tasks
+ * @package   Modules\Tasks\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -15,14 +15,14 @@ declare(strict_types=1);
 namespace Modules\Tasks\Models;
 
 use Modules\Admin\Models\Account;
-
 use Modules\Admin\Models\Group;
+
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
- * Task class.
+ * Task element class.
  *
- * @package Modules\Tasks
+ * @package Modules\Tasks\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -73,10 +73,10 @@ class TaskElement implements \JsonSerializable
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Status.

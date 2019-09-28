@@ -5,7 +5,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Exchange
+ * @package   Modules\Exchange\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -21,7 +21,7 @@ use phpOMS\Stdlib\Base\Enum;
 /**
  * Exchange status enum.
  *
- * @package Modules\Exchange
+ * @package Modules\Exchange\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

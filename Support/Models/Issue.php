@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Support
+ * @package   Modules\Support\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -17,7 +17,7 @@ namespace Modules\Support\Models;
 /**
  * Issue class.
  *
- * @package Modules\Support
+ * @package Modules\Support\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -75,11 +75,9 @@ class Issue
         return self::$instances[$id];
     }
 
-
     public function init($id) : void
     {
     }
-
 
     public function __clone()
     {
@@ -120,26 +118,21 @@ class Issue
         $this->creator = $creator;
     }
 
-
     public function delete() : void
     {
     }
-
 
     public function create() : void
     {
     }
 
-
     public function update() : void
     {
     }
 
-
     public function serialize() : void
     {
     }
-
 
     public function unserialize($data) : void
     {

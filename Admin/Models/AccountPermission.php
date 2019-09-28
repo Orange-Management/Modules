@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Admin
+ * @package   Modules\Admin\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -22,7 +22,7 @@ use phpOMS\Account\PermissionType;
  *
  * A single permission for an account consisting of read, create, modify, delete and permission flags.
  *
- * @package Modules\Admin
+ * @package Modules\Admin\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Orange Management
  *
@@ -26,6 +25,7 @@ use Modules\Exchange\Models\ImporterAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\Message\RequestAbstract;
+use Modules\ClientManagement\Models\ClientMapper;
 
 /**
  * OMS import class
@@ -52,6 +52,7 @@ final class Importer extends ImporterAbstract
         $end   = new \DateTime($request->getData('end') ?? 'now');
 
         $type = (int) ($request->getData('type') ?? 0);
+        $source = (int) ($request->getData('source') ?? 0);
 
         if ($type === ExchangeType::CUSTOMER) {
             $this->importCustomer($start, $end);
@@ -151,7 +152,38 @@ final class Importer extends ImporterAbstract
      */
     public function importCustomer(\DateTime $start, \DateTime $end): void
     {
+        $euTIN = CustomerIdTypeMapper::getByType(CustomerIdType::EU_TIN);
+        $gerTIN = CustomerIdTypeMapper::getByType(CustomerIdType::GER_TIN);
 
+        while (($line = \fgetcsv($this->remote)) !== false) {
+            $customer = new Client();
+
+            $customer->setNumber($line[0]);
+            $customer->getProfile()->getAccount()->setName1($line[1]);
+            $customer->getProfile()->getAccount()->setName2($line[2]);
+            $customer->getProfile()->getAccount()->setName3($line[3]);
+            //$customer->addEmail(EmailType::BUSINESS, $line[4]);
+            //$customer->addPhone(PhoneType::BUSINESS, $line[5]);
+            //$customer->addWebsite(PhoneType::BUSINESS, $line[5]);
+
+            $address = new Address();
+            $customer->setDefaultDeliveryAddress($address);
+            $customer->setDefaultInvoiceAddress($address);
+
+            $customer->setDefaultPaymentTerms(new PaymentTerms());
+            $customer->setCreditLimit($line[12]);
+            $customer->setStatus($line[9]);
+            $customer->setInfo($line[9]);
+            $customer->setAdvertisementMaterial($line[13]);
+            $customer->setSalesRep();
+            $customer->setType();
+            $customer->addPartner();
+
+            $customer->addId($euTIN, $line[10]);
+            $customer->addId($gerTIN, $line[11]);
+
+            ClientMapper::create($customer);
+        }
     }
 
     /**

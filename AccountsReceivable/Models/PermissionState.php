@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\AccountsReceivable
+ * @package   Modules\AccountsReceivable\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -19,7 +19,7 @@ use phpOMS\Stdlib\Base\Enum;
 /**
  * Permision state enum.
  *
- * @package Modules\AccountsReceivable
+ * @package Modules\AccountsReceivable\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

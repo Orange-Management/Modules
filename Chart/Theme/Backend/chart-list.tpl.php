@@ -21,7 +21,6 @@ $footerView->setPage(1);
 
 echo $this->getData('nav')->render(); ?>
 
-
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">

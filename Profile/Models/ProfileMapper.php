@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 /**
  * Profile mapper.
  *
- * @package Modules\Profile
+ * @package Modules\Profile\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0

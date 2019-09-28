@@ -13,8 +13,6 @@
 /**
  * @var \phpOMS\Views\View $this
  */
-
-
 $templates = $this->getData('reports');
 
 echo $this->getData('nav')->render(); ?>

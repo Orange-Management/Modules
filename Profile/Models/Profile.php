@@ -50,10 +50,10 @@ class Profile implements \JsonSerializable
     /**
      * Birthday.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $birthday = null;
+    private \DateTime $birthday;
 
     /**
      * Account.

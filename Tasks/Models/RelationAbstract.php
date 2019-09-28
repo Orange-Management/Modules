@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Tasks
+ * @package   Modules\Tasks\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -20,7 +20,7 @@ use Modules\Admin\Models\Group;
 /**
  * Task relation to accounts or groups
  *
- * @package Modules\Tasks
+ * @package Modules\Tasks\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -42,7 +42,6 @@ abstract class RelationAbstract implements \JsonSerializable
      * @since 1.0.0
      */
     protected int $duty = DutyType::TO;
-
 
     /**
      * Element id.

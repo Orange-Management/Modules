@@ -192,7 +192,6 @@ trait ModuleTestTrait
         $builder = new SchemaBuilder($this->app->dbPool->get());
         $tables  = $builder->prefix($this->app->dbPool->get()->prefix)->selectTables()->execute()->fetchAll(\PDO::FETCH_COLUMN);
 
-
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
         if (\file_exists($schemaPath)) {
