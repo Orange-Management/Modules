@@ -34,12 +34,12 @@ final class InterfaceManagerMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'exchange_id'      => ['name' => 'exchange_id', 'type' => 'int', 'internal' => 'id'],
-        'exchange_title'   => ['name' => 'exchange_title', 'type' => 'string', 'internal' => 'info/name'],
-        'exchange_path'    => ['name' => 'exchange_path', 'type' => 'string', 'internal' => 'info/path'],
+        'exchange_id'      => ['name' => 'exchange_id',      'type' => 'int',    'internal' => 'id'],
+        'exchange_title'   => ['name' => 'exchange_title',   'type' => 'string', 'internal' => 'info/name'],
+        'exchange_path'    => ['name' => 'exchange_path',    'type' => 'string', 'internal' => 'info/path'],
         'exchange_version' => ['name' => 'exchange_version', 'type' => 'string', 'internal' => 'info/version'],
-        'exchange_export'  => ['name' => 'exchange_export', 'type' => 'bool', 'internal' => 'info/export'],
-        'exchange_import'  => ['name' => 'exchange_import', 'type' => 'bool', 'internal' => 'info/import'],
+        'exchange_export'  => ['name' => 'exchange_export',  'type' => 'bool',   'internal' => 'info/export'],
+        'exchange_import'  => ['name' => 'exchange_import',  'type' => 'bool',   'internal' => 'info/import'],
         'exchange_website' => ['name' => 'exchange_website', 'type' => 'string', 'internal' => 'info/website'],
     ];
 

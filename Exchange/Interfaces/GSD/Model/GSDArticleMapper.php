@@ -33,13 +33,13 @@ final class GSDArticleMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'row_id'               => ['name' => 'row_id', 'type' => 'int', 'internal' => 'id'],
-        'row_create_time'      => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
-        'row_create_user'      => ['name' => 'row_create_user', 'type' => 'int', 'internal' => 'createdBy'],
-        'Artikelnummer'        => ['name' => 'Artikelnummer', 'type' => 'string', 'internal' => 'number'],
-        'Artikelbezeichnung'   => ['name' => 'Artikelbezeichnung', 'type' => 'string', 'internal' => 'name1'],
-        '_Artikelbezeichnung2' => ['name' => '_Artikelbezeichnung2', 'type' => 'string', 'internal' => 'name2'],
-        'EUWarengruppe'        => ['name' => 'EUWarengruppe', 'type' => 'string', 'internal' => 'euCustomId'],
+        'row_id'               => ['name' => 'row_id',               'type' => 'int',      'internal' => 'id'],
+        'row_create_time'      => ['name' => 'row_create_time',      'type' => 'DateTime', 'internal' => 'createdAt'],
+        'row_create_user'      => ['name' => 'row_create_user',      'type' => 'int',      'internal' => 'createdBy'],
+        'Artikelnummer'        => ['name' => 'Artikelnummer',        'type' => 'string',   'internal' => 'number'],
+        'Artikelbezeichnung'   => ['name' => 'Artikelbezeichnung',   'type' => 'string',   'internal' => 'name1'],
+        '_Artikelbezeichnung2' => ['name' => '_Artikelbezeichnung2', 'type' => 'string',   'internal' => 'name2'],
+        'EUWarengruppe'        => ['name' => 'EUWarengruppe',        'type' => 'string',   'internal' => 'euCustomId'],
     ];
 
     /**

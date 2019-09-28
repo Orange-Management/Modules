@@ -37,19 +37,17 @@ final class TemplateMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'helper_template_id'         => ['name' => 'helper_template_id', 'type' => 'int', 'internal' => 'id'],
-        'helper_template_status'     => ['name' => 'helper_template_status', 'type' => 'int', 'internal' => 'status'],
-        'helper_template_title'      => ['name' => 'helper_template_title', 'type' => 'string', 'internal' => 'name'],
-        'helper_template_data'       => ['name' => 'helper_template_data', 'type' => 'int', 'internal' => 'datatype'],
-        'helper_template_standalone' => ['name' => 'helper_template_standalone', 'type' => 'bool', 'internal' => 'isStandalone'],
-        'helper_template_expected'   => ['name' => 'helper_template_expected', 'type' => 'Json', 'internal' => 'expected'],
-        'helper_template_desc'       => ['name' => 'helper_template_desc', 'type' => 'string', 'internal' => 'description'],
-        'helper_template_desc_raw'   => ['name' => 'helper_template_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'helper_template_media'      => ['name' => 'helper_template_media', 'type' => 'int', 'internal' => 'source'],
-        'helper_template_creator'    => ['name'     => 'helper_template_creator', 'type' => 'int',
-                                           'internal' => 'createdBy', ],
-        'helper_template_created'    => ['name'     => 'helper_template_created', 'type' => 'DateTime',
-                                           'internal' => 'createdAt', ],
+        'helper_template_id'         => ['name' => 'helper_template_id',          'type' => 'int',      'internal' => 'id'],
+        'helper_template_status'     => ['name' => 'helper_template_status',      'type' => 'int',      'internal' => 'status'],
+        'helper_template_title'      => ['name' => 'helper_template_title',       'type' => 'string',   'internal' => 'name'],
+        'helper_template_data'       => ['name' => 'helper_template_data',        'type' => 'int',      'internal' => 'datatype'],
+        'helper_template_standalone' => ['name' => 'helper_template_standalone',  'type' => 'bool',     'internal' => 'isStandalone'],
+        'helper_template_expected'   => ['name' => 'helper_template_expected',    'type' => 'Json',     'internal' => 'expected'],
+        'helper_template_desc'       => ['name' => 'helper_template_desc',        'type' => 'string',   'internal' => 'description'],
+        'helper_template_desc_raw'   => ['name' => 'helper_template_desc_raw',    'type' => 'string',   'internal' => 'descriptionRaw'],
+        'helper_template_media'      => ['name' => 'helper_template_media',       'type' => 'int',      'internal' => 'source'],
+        'helper_template_creator'    => ['name'     => 'helper_template_creator', 'type' => 'int',      'internal' => 'createdBy', ],
+        'helper_template_created'    => ['name'     => 'helper_template_created', 'type' => 'DateTime', 'internal' => 'createdAt', ],
     ];
 
     /**

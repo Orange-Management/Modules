@@ -35,7 +35,7 @@ final class TicketMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'support_ticket_id'   => ['name' => 'support_ticket_id', 'type' => 'int', 'internal' => 'id'],
+        'support_ticket_id'   => ['name' => 'support_ticket_id',   'type' => 'int', 'internal' => 'id'],
         'support_ticket_task' => ['name' => 'support_ticket_task', 'type' => 'int', 'internal' => 'task'],
     ];
 

@@ -37,19 +37,19 @@ final class PromotionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'marketing_promotion_id'          => ['name' => 'marketing_promotion_id', 'type' => 'int', 'internal' => 'id'],
-        'marketing_promotion_name'        => ['name' => 'marketing_promotion_name', 'type' => 'string', 'internal' => 'name'],
-        'marketing_promotion_description' => ['name' => 'marketing_promotion_description', 'type' => 'string', 'internal' => 'description'],
-        'marketing_promotion_calendar'    => ['name' => 'marketing_promotion_calendar', 'type' => 'int', 'internal' => 'calendar'],
-        'marketing_promotion_costs'       => ['name' => 'marketing_promotion_costs', 'type' => 'Serializable', 'internal' => 'costs'],
-        'marketing_promotion_budget'      => ['name' => 'marketing_promotion_budget', 'type' => 'Serializable', 'internal' => 'budget'],
-        'marketing_promotion_earnings'    => ['name' => 'marketing_promotion_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
-        'marketing_promotion_start'       => ['name' => 'marketing_promotion_start', 'type' => 'DateTime', 'internal' => 'start'],
-        'marketing_promotion_end'         => ['name' => 'marketing_promotion_end', 'type' => 'DateTime', 'internal' => 'end'],
-        'marketing_promotion_progress'      => ['name' => 'marketing_promotion_progress', 'type' => 'int', 'internal' => 'progress'],
-        'marketing_promotion_progress_type' => ['name' => 'marketing_promotion_progress_type', 'type' => 'int', 'internal' => 'progressType'],
-        'marketing_promotion_created_by'  => ['name' => 'marketing_promotion_created_by', 'type' => 'int', 'internal' => 'createdBy'],
-        'marketing_promotion_created_at'  => ['name' => 'marketing_promotion_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'marketing_promotion_id'            => ['name' => 'marketing_promotion_id',            'type' => 'int',          'internal' => 'id'],
+        'marketing_promotion_name'          => ['name' => 'marketing_promotion_name',          'type' => 'string',       'internal' => 'name'],
+        'marketing_promotion_description'   => ['name' => 'marketing_promotion_description',   'type' => 'string',       'internal' => 'description'],
+        'marketing_promotion_calendar'      => ['name' => 'marketing_promotion_calendar',      'type' => 'int',          'internal' => 'calendar'],
+        'marketing_promotion_costs'         => ['name' => 'marketing_promotion_costs',         'type' => 'Serializable', 'internal' => 'costs'],
+        'marketing_promotion_budget'        => ['name' => 'marketing_promotion_budget',        'type' => 'Serializable', 'internal' => 'budget'],
+        'marketing_promotion_earnings'      => ['name' => 'marketing_promotion_earnings',      'type' => 'Serializable', 'internal' => 'earnings'],
+        'marketing_promotion_start'         => ['name' => 'marketing_promotion_start',         'type' => 'DateTime',     'internal' => 'start'],
+        'marketing_promotion_end'           => ['name' => 'marketing_promotion_end',           'type' => 'DateTime',     'internal' => 'end'],
+        'marketing_promotion_progress'      => ['name' => 'marketing_promotion_progress',      'type' => 'int',          'internal' => 'progress'],
+        'marketing_promotion_progress_type' => ['name' => 'marketing_promotion_progress_type', 'type' => 'int',          'internal' => 'progressType'],
+        'marketing_promotion_created_by'    => ['name' => 'marketing_promotion_created_by',    'type' => 'int',          'internal' => 'createdBy'],
+        'marketing_promotion_created_at'    => ['name' => 'marketing_promotion_created_at',    'type' => 'DateTime',     'internal' => 'createdAt'],
     ];
 
     /**

@@ -34,8 +34,8 @@ final class ModuleMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'module_id'     => ['name' => 'module_id', 'type' => 'string', 'internal' => 'id'],
-        'module_active' => ['name' => 'module_active', 'type' => 'int', 'internal' => 'status'],
+        'module_id'     => ['name' => 'module_id',     'type' => 'string', 'internal' => 'id'],
+        'module_active' => ['name' => 'module_active', 'type' => 'int',    'internal' => 'status'],
     ];
 
     /**

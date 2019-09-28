@@ -33,10 +33,10 @@ final class ProjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'riskmngmt_project_id'          => ['name' => 'riskmngmt_project_id', 'type' => 'int', 'internal' => 'id'],
-        'riskmngmt_project_project'     => ['name' => 'riskmngmt_project_project', 'type' => 'int', 'internal' => 'project'],
+        'riskmngmt_project_id'          => ['name' => 'riskmngmt_project_id',          'type' => 'int', 'internal' => 'id'],
+        'riskmngmt_project_project'     => ['name' => 'riskmngmt_project_project',     'type' => 'int', 'internal' => 'project'],
         'riskmngmt_project_responsible' => ['name' => 'riskmngmt_project_responsible', 'type' => 'int', 'internal' => 'responsible'],
-        'riskmngmt_project_deputy'      => ['name' => 'riskmngmt_project_deputy', 'type' => 'int', 'internal' => 'deputy'],
+        'riskmngmt_project_deputy'      => ['name' => 'riskmngmt_project_deputy',      'type' => 'int', 'internal' => 'deputy'],
     ];
 
     /**

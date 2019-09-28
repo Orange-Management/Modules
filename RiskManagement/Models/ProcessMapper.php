@@ -34,14 +34,14 @@ final class ProcessMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'riskmngmt_process_id'             => ['name' => 'riskmngmt_process_id', 'type' => 'int', 'internal' => 'id'],
-        'riskmngmt_process_name'           => ['name' => 'riskmngmt_process_name', 'type' => 'string', 'internal' => 'title'],
-        'riskmngmt_process_description'    => ['name' => 'riskmngmt_process_description', 'type' => 'string', 'internal' => 'description'],
+        'riskmngmt_process_id'             => ['name' => 'riskmngmt_process_id',             'type' => 'int',    'internal' => 'id'],
+        'riskmngmt_process_name'           => ['name' => 'riskmngmt_process_name',           'type' => 'string', 'internal' => 'title'],
+        'riskmngmt_process_description'    => ['name' => 'riskmngmt_process_description',    'type' => 'string', 'internal' => 'description'],
         'riskmngmt_process_descriptionraw' => ['name' => 'riskmngmt_process_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'riskmngmt_process_department'     => ['name' => 'riskmngmt_process_department', 'type' => 'int', 'internal' => 'department'],
-        'riskmngmt_process_unit'           => ['name' => 'riskmngmt_process_unit', 'type' => 'int', 'internal' => 'unit'],
-        'riskmngmt_process_responsible'    => ['name' => 'riskmngmt_process_responsible', 'type' => 'int', 'internal' => 'responsible'],
-        'riskmngmt_process_deputy'         => ['name' => 'riskmngmt_process_deputy', 'type' => 'int', 'internal' => 'deputy'],
+        'riskmngmt_process_department'     => ['name' => 'riskmngmt_process_department',     'type' => 'int',    'internal' => 'department'],
+        'riskmngmt_process_unit'           => ['name' => 'riskmngmt_process_unit',           'type' => 'int',    'internal' => 'unit'],
+        'riskmngmt_process_responsible'    => ['name' => 'riskmngmt_process_responsible',    'type' => 'int',    'internal' => 'responsible'],
+        'riskmngmt_process_deputy'         => ['name' => 'riskmngmt_process_deputy',         'type' => 'int',    'internal' => 'deputy'],
     ];
 
     /**

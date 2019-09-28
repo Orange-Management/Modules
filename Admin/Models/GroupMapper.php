@@ -34,12 +34,12 @@ final class GroupMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'group_id'       => ['name' => 'group_id', 'type' => 'int', 'internal' => 'id'],
-        'group_name'     => ['name' => 'group_name', 'type' => 'string', 'internal' => 'name', 'autocomplete' => true],
-        'group_status'   => ['name' => 'group_status', 'type' => 'int', 'internal' => 'status'],
-        'group_desc'     => ['name' => 'group_desc', 'type' => 'string', 'internal' => 'description'],
-        'group_desc_raw' => ['name' => 'group_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'group_created'  => ['name' => 'group_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'group_id'       => ['name' => 'group_id',       'type' => 'int',      'internal' => 'id'],
+        'group_name'     => ['name' => 'group_name',     'type' => 'string',   'internal' => 'name', 'autocomplete' => true],
+        'group_status'   => ['name' => 'group_status',   'type' => 'int',      'internal' => 'status'],
+        'group_desc'     => ['name' => 'group_desc',     'type' => 'string',   'internal' => 'description'],
+        'group_desc_raw' => ['name' => 'group_desc_raw', 'type' => 'string',   'internal' => 'descriptionRaw'],
+        'group_created'  => ['name' => 'group_created',  'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**

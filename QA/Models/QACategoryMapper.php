@@ -34,9 +34,9 @@ final class QACategoryMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'qa_category_id'     => ['name' => 'qa_category_id', 'type' => 'int', 'internal' => 'id'],
-        'qa_category_name'   => ['name' => 'qa_category_name', 'type' => 'string', 'internal' => 'name'],
-        'qa_category_parent' => ['name' => 'qa_category_parent', 'type' => 'int', 'internal' => 'parent'],
+        'qa_category_id'     => ['name' => 'qa_category_id',     'type' => 'int',    'internal' => 'id'],
+        'qa_category_name'   => ['name' => 'qa_category_name',   'type' => 'string', 'internal' => 'name'],
+        'qa_category_parent' => ['name' => 'qa_category_parent', 'type' => 'int',    'internal' => 'parent'],
     ];
 
     /**

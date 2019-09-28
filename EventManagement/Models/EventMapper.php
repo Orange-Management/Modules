@@ -36,20 +36,20 @@ final class EventMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'eventmanagement_event_id'            => ['name' => 'eventmanagement_event_id', 'type' => 'int', 'internal' => 'id'],
-        'eventmanagement_event_name'          => ['name' => 'eventmanagement_event_name', 'type' => 'string', 'internal' => 'name'],
-        'eventmanagement_event_description'   => ['name' => 'eventmanagement_event_description', 'type' => 'string', 'internal' => 'description'],
-        'eventmanagement_event_type'          => ['name' => 'eventmanagement_event_type', 'type' => 'int', 'internal' => 'type'],
-        'eventmanagement_event_calendar'      => ['name' => 'eventmanagement_event_calendar', 'type' => 'int', 'internal' => 'calendar'],
-        'eventmanagement_event_start'         => ['name' => 'eventmanagement_event_start', 'type' => 'DateTime', 'internal' => 'start'],
-        'eventmanagement_event_end'           => ['name' => 'eventmanagement_event_end', 'type' => 'DateTime', 'internal' => 'end'],
-        'eventmanagement_event_progress'      => ['name' => 'eventmanagement_event_progress', 'type' => 'int', 'internal' => 'progress'],
-        'eventmanagement_event_progress_type' => ['name' => 'eventmanagement_event_progress_type', 'type' => 'int', 'internal' => 'progressType'],
-        'eventmanagement_event_costs'         => ['name' => 'eventmanagement_event_costs', 'type' => 'Serializable', 'internal' => 'costs'],
-        'eventmanagement_event_budget'        => ['name' => 'eventmanagement_event_budget', 'type' => 'Serializable', 'internal' => 'budget'],
-        'eventmanagement_event_earnings'      => ['name' => 'eventmanagement_event_earnings', 'type' => 'Serializable', 'internal' => 'earnings'],
-        'eventmanagement_event_created_by'    => ['name' => 'eventmanagement_event_created_by', 'type' => 'int', 'internal' => 'createdBy'],
-        'eventmanagement_event_created_at'    => ['name' => 'eventmanagement_event_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'eventmanagement_event_id'            => ['name' => 'eventmanagement_event_id',            'type' => 'int',          'internal' => 'id'],
+        'eventmanagement_event_name'          => ['name' => 'eventmanagement_event_name',          'type' => 'string',       'internal' => 'name'],
+        'eventmanagement_event_description'   => ['name' => 'eventmanagement_event_description',   'type' => 'string',       'internal' => 'description'],
+        'eventmanagement_event_type'          => ['name' => 'eventmanagement_event_type',          'type' => 'int',          'internal' => 'type'],
+        'eventmanagement_event_calendar'      => ['name' => 'eventmanagement_event_calendar',      'type' => 'int',          'internal' => 'calendar'],
+        'eventmanagement_event_start'         => ['name' => 'eventmanagement_event_start',         'type' => 'DateTime',     'internal' => 'start'],
+        'eventmanagement_event_end'           => ['name' => 'eventmanagement_event_end',           'type' => 'DateTime',     'internal' => 'end'],
+        'eventmanagement_event_progress'      => ['name' => 'eventmanagement_event_progress',      'type' => 'int',          'internal' => 'progress'],
+        'eventmanagement_event_progress_type' => ['name' => 'eventmanagement_event_progress_type', 'type' => 'int',          'internal' => 'progressType'],
+        'eventmanagement_event_costs'         => ['name' => 'eventmanagement_event_costs',         'type' => 'Serializable', 'internal' => 'costs'],
+        'eventmanagement_event_budget'        => ['name' => 'eventmanagement_event_budget',        'type' => 'Serializable', 'internal' => 'budget'],
+        'eventmanagement_event_earnings'      => ['name' => 'eventmanagement_event_earnings',      'type' => 'Serializable', 'internal' => 'earnings'],
+        'eventmanagement_event_created_by'    => ['name' => 'eventmanagement_event_created_by',    'type' => 'int',          'internal' => 'createdBy'],
+        'eventmanagement_event_created_at'    => ['name' => 'eventmanagement_event_created_at',    'type' => 'DateTime',     'internal' => 'createdAt'],
     ];
 
     /**

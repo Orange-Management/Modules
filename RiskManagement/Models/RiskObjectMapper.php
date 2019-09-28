@@ -33,11 +33,11 @@ final class RiskObjectMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'riskmngmt_risk_object_id'             => ['name' => 'riskmngmt_risk_object_id', 'type' => 'int', 'internal' => 'id'],
-        'riskmngmt_risk_object_name'           => ['name' => 'riskmngmt_risk_object_name', 'type' => 'string', 'internal' => 'title'],
-        'riskmngmt_risk_object_description'    => ['name' => 'riskmngmt_risk_object_description', 'type' => 'string', 'internal' => 'description'],
+        'riskmngmt_risk_object_id'             => ['name' => 'riskmngmt_risk_object_id',             'type' => 'int',    'internal' => 'id'],
+        'riskmngmt_risk_object_name'           => ['name' => 'riskmngmt_risk_object_name',           'type' => 'string', 'internal' => 'title'],
+        'riskmngmt_risk_object_description'    => ['name' => 'riskmngmt_risk_object_description',    'type' => 'string', 'internal' => 'description'],
         'riskmngmt_risk_object_descriptionraw' => ['name' => 'riskmngmt_risk_object_descriptionraw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'riskmngmt_risk_object_risk'           => ['name' => 'riskmngmt_risk_object_risk', 'type' => 'int', 'internal' => 'risk'],
+        'riskmngmt_risk_object_risk'           => ['name' => 'riskmngmt_risk_object_risk',           'type' => 'int',    'internal' => 'risk'],
     ];
 
     /**

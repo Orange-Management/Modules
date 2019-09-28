@@ -34,10 +34,10 @@ final class KanbanColumnMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'kanban_column_id'    => ['name' => 'kanban_column_id', 'type' => 'int', 'internal' => 'id'],
-        'kanban_column_name'  => ['name' => 'kanban_column_name', 'type' => 'string', 'internal' => 'name'],
-        'kanban_column_order' => ['name' => 'kanban_column_order', 'type' => 'int', 'internal' => 'order'],
-        'kanban_column_board' => ['name' => 'kanban_column_board', 'type' => 'int', 'internal' => 'board'],
+        'kanban_column_id'    => ['name' => 'kanban_column_id',    'type' => 'int',    'internal' => 'id'],
+        'kanban_column_name'  => ['name' => 'kanban_column_name',  'type' => 'string', 'internal' => 'name'],
+        'kanban_column_order' => ['name' => 'kanban_column_order', 'type' => 'int',    'internal' => 'order'],
+        'kanban_column_board' => ['name' => 'kanban_column_board', 'type' => 'int',    'internal' => 'board'],
     ];
 
     /**

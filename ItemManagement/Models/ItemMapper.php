@@ -35,10 +35,10 @@ final class ItemMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'itemmgmt_item_id'           => ['name' => 'itemmgmt_item_id', 'type' => 'int', 'internal' => 'id'],
-        'itemmgmt_item_no'           => ['name' => 'itemmgmt_item_no', 'type' => 'string', 'internal' => 'number'],
-        'itemmgmt_item_segment'      => ['name' => 'itemmgmt_item_segment', 'type' => 'int', 'internal' => 'segment'],
-        'itemmgmt_item_info'         => ['name' => 'itemmgmt_item_info', 'type' => 'string', 'internal' => 'info'],
+        'itemmgmt_item_id'           => ['name' => 'itemmgmt_item_id',      'type' => 'int',    'internal' => 'id'],
+        'itemmgmt_item_no'           => ['name' => 'itemmgmt_item_no',      'type' => 'string', 'internal' => 'number'],
+        'itemmgmt_item_segment'      => ['name' => 'itemmgmt_item_segment', 'type' => 'int',    'internal' => 'segment'],
+        'itemmgmt_item_info'         => ['name' => 'itemmgmt_item_info',    'type' => 'string', 'internal' => 'info'],
     ];
 
     protected static array $conditionals = [

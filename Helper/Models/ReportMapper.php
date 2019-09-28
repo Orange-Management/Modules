@@ -36,15 +36,15 @@ final class ReportMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'helper_report_id'       => ['name' => 'helper_report_id', 'type' => 'int', 'internal' => 'id'],
-        'helper_report_status'   => ['name' => 'helper_report_status', 'type' => 'int', 'internal' => 'status'],
-        'helper_report_title'    => ['name' => 'helper_report_title', 'type' => 'string', 'internal' => 'title'],
-        'helper_report_desc'     => ['name' => 'helper_report_desc', 'type' => 'string', 'internal' => 'description'],
-        'helper_report_desc_raw' => ['name' => 'helper_report_desc_raw', 'type' => 'string', 'internal' => 'descriptionRaw'],
-        'helper_report_media'    => ['name' => 'helper_report_media', 'type' => 'int', 'internal' => 'source'],
-        'helper_report_template' => ['name' => 'helper_report_template', 'type' => 'int', 'internal' => 'template'],
-        'helper_report_creator'  => ['name' => 'helper_report_creator', 'type' => 'int', 'internal' => 'createdBy'],
-        'helper_report_created'  => ['name' => 'helper_report_created', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'helper_report_id'       => ['name' => 'helper_report_id',       'type' => 'int',      'internal' => 'id'],
+        'helper_report_status'   => ['name' => 'helper_report_status',   'type' => 'int',      'internal' => 'status'],
+        'helper_report_title'    => ['name' => 'helper_report_title',    'type' => 'string',   'internal' => 'title'],
+        'helper_report_desc'     => ['name' => 'helper_report_desc',     'type' => 'string',   'internal' => 'description'],
+        'helper_report_desc_raw' => ['name' => 'helper_report_desc_raw', 'type' => 'string',   'internal' => 'descriptionRaw'],
+        'helper_report_media'    => ['name' => 'helper_report_media',    'type' => 'int',      'internal' => 'source'],
+        'helper_report_template' => ['name' => 'helper_report_template', 'type' => 'int',      'internal' => 'template'],
+        'helper_report_creator'  => ['name' => 'helper_report_creator',  'type' => 'int',      'internal' => 'createdBy'],
+        'helper_report_created'  => ['name' => 'helper_report_created',  'type' => 'DateTime', 'internal' => 'createdAt'],
     ];
 
     /**
