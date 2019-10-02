@@ -15,8 +15,8 @@ return ['Navigation' => [
     'Articles' => 'Articles',
     'Clients'  => 'Clients',
     'Create'   => 'Create',
-    'Invoices' => 'Invoices',
     'Invoice'  => 'Invoice',
+    'Invoices' => 'Invoices',
     'Profile'  => 'Profile',
     'Sales'    => 'Sales',
 ]];

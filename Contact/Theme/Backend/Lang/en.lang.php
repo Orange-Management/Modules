@@ -11,8 +11,8 @@
  * @link      https://orange-management.org
  */
 return ['Contact' => [
-    'Addresses' => 'Addresses',
     'Address'   => 'Address',
+    'Addresses' => 'Addresses',
     'City'      => 'City',
     'Contact'   => 'Contact',
     'Contacts'  => 'Contacts',

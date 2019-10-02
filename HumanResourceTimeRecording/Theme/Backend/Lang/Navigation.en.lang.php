@@ -12,6 +12,6 @@
  */
 return ['Navigation' => [
     'Create'        => 'Create',
-    'TimeRecording' => 'Time Recording',
     'List'          => 'List',
+    'TimeRecording' => 'Time Recording',
 ]];

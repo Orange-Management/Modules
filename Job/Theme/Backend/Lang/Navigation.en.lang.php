@@ -11,8 +11,8 @@
  * @link      https://orange-management.org
  */
 return ['Navigation' => [
-    'Jobs'   => 'Jobs',
-    'Job'    => 'Job',
-    'List'   => 'List',
     'Create' => 'Create',
+    'Job'    => 'Job',
+    'Jobs'   => 'Jobs',
+    'List'   => 'List',
 ]];

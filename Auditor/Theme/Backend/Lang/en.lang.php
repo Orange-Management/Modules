@@ -11,16 +11,16 @@
  * @link      https://orange-management.org
  */
 return ['Auditor' => [
-    'By'      => 'By',
-    'Auditor' => 'Auditor',
     'Audit'   => 'Audit',
+    'Auditor' => 'Auditor',
     'Audits'  => 'Audits',
-    'Date'    => 'Date',
+    'By'      => 'By',
     'Content' => 'Content',
-    'Old'     => 'Old',
-    'New'     => 'New',
-    'Type'    => 'Type',
-    'Subtype' => 'Subtype',
+    'Date'    => 'Date',
     'Module'  => 'Module',
     'Name'    => 'Name',
+    'New'     => 'New',
+    'Old'     => 'Old',
+    'Subtype' => 'Subtype',
+    'Type'    => 'Type',
 ]];

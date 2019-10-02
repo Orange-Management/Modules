@@ -12,6 +12,6 @@
  */
 return ['Navigation' => [
     'Analyze' => 'Analyze',
-    'List'    => 'List',
     'Create'  => 'Create',
+    'List'    => 'List',
 ]];

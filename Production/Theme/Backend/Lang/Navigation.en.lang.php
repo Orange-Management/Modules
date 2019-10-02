@@ -12,6 +12,6 @@
  */
 return ['Navigation' => [
     'Articles'   => 'Articles',
-    'Production' => 'Production',
     'Process'    => 'Process',
+    'Production' => 'Production',
 ]];

@@ -11,8 +11,8 @@
  * @link      https://orange-management.org
  */
 return ['QA' => [
-    'QA'     => 'QA',
     'Badges' => 'Badges',
     'List'   => 'List',
     'Name'   => 'Name',
+    'QA'     => 'QA',
 ]];

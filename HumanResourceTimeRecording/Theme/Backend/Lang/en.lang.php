@@ -11,17 +11,17 @@
  * @link      https://orange-management.org
  */
 return ['HumanResourceTimeRecording' => [
-    'End'    => 'End',
-    'Start'    => 'Start',
-    'Status'    => 'Status',
-    'Type'    => 'Type',
+    'CS0'    => 'Start',
+    'CS1'    => 'Pause',
+    'CS2'    => 'On the move',
+    'CS3'    => 'End',
     'CT0'    => 'Office',
     'CT1'    => 'Remote',
     'CT2'    => 'Home',
     'CT3'    => 'Vacation',
     'CT4'    => 'Sick',
-    'CS0'    => 'Start',
-    'CS1'    => 'Pause',
-    'CS2'    => 'On the move',
-    'CS3'    => 'End',
+    'End'    => 'End',
+    'Start'  => 'Start',
+    'Status' => 'Status',
+    'Type'   => 'Type',
 ]];

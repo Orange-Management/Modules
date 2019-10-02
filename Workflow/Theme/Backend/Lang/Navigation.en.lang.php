@@ -14,6 +14,6 @@ return ['Navigation' => [
     'Create'    => 'Create',
     'Dashboard' => 'Dashboard',
     'Templates' => 'Templates',
-    'Workflows' => 'Workflows',
     'Workflow'  => 'Workflow',
+    'Workflows' => 'Workflows',
 ]];

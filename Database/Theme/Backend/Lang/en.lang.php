@@ -11,8 +11,8 @@
  * @link      https://orange-management.org
  */
 return ['Database' => [
-    'Accounts'    => 'Accounts',
     'Account'     => 'Account',
+    'Accounts'    => 'Accounts',
     'Calculation' => 'Calculation',
     'Created'     => 'Created',
     'Creator'     => 'Creator',
@@ -24,8 +24,8 @@ return ['Database' => [
     'Group'       => 'Group',
     'Groups'      => 'Groups',
     'Headlines'   => 'Headlines',
-    'Modules'     => 'Modules',
     'Module'      => 'Module',
+    'Modules'     => 'Modules',
     'Name'        => 'Name',
     'Options'     => 'Options',
     'Permission'  => 'Permission',

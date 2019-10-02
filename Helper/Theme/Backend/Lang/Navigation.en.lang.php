@@ -12,9 +12,9 @@
  */
 return ['Navigation' => [
     'Create'         => 'Create',
-    'CreateTemplate' => 'Create Template',
     'CreateReport'   => 'Create Report',
+    'CreateTemplate' => 'Create Template',
+    'Helper'         => 'Helper',
     'List'           => 'List',
-    'Helper'       => 'Helper',
     'Reporting'      => 'Reporting',
 ]];

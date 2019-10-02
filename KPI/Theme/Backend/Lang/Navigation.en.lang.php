@@ -11,6 +11,6 @@
  * @link      https://orange-management.org
  */
 return ['Navigation' => [
-    'KPI'        => 'KPI',
     'Dashboard'  => 'Dashboard',
+    'KPI'        => 'KPI',
 ]];

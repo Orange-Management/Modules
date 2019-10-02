@@ -12,12 +12,11 @@
  */
 return ['ItemManagement' => [
     'Accounting'       => 'Accounting',
-    'IsActive'         => 'Active?',
     'All'              => 'All',
     'Article'          => 'Article',
     'Articlegroup'     => 'Articlegroup',
-    'Attributes'       => 'Attributes',
     'Attribute'        => 'Attribute',
+    'Attributes'       => 'Attributes',
     'Available'        => 'Available',
     'Bonus'            => 'Bonus',
     'ClientGroup'      => 'Client/Group',
@@ -44,6 +43,7 @@ return ['ItemManagement' => [
     'Height'           => 'Height',
     'ID'               => 'ID',
     'Info'             => 'Info',
+    'IsActive'         => 'Active?',
     'Item'             => 'Item',
     'Items'            => 'Items',
     'Language'         => 'Language',

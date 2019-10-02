@@ -11,11 +11,11 @@
  * @link      https://orange-management.org
  */
 return ['Navigation' => [
-    'Create'   => 'Create',
-    'Auditor'  => 'Auditor',
+    'Accounts' => 'Accounts',
     'Audit'    => 'Audit',
+    'Auditor'  => 'Auditor',
     'Audits'   => 'Audits',
+    'Create'   => 'Create',
     'List'     => 'List',
     'Modules'  => 'Modules',
-    'Accounts' => 'Accounts',
 ]];

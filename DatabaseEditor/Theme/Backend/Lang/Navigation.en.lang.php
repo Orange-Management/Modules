@@ -11,6 +11,6 @@
  * @link      https://orange-management.org
  */
 return ['Navigation' => [
-    'Editor'   => 'Editor',
     'DBEditor' => 'DBEditor',
+    'Editor'   => 'Editor',
 ]];

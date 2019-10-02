@@ -13,7 +13,7 @@
 return ['Arrival' => [
     'AccountID' => 'Account ID',
     'Arrivals'  => 'Arrivals',
+    'Company'   => 'Company',
     'Created'   => 'Created',
     'Creator'   => 'Creator',
-    'Company'   => 'Company',
 ]];

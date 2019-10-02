@@ -12,8 +12,8 @@
  */
 return ['DatabaseEditor' => [
     'CSV'          => 'CSV',
-    'DatabaseType' => 'Database Type',
     'Database'     => 'Database',
+    'DatabaseType' => 'Database Type',
     'Excel'        => 'Excel',
     'Execute'      => 'Execute',
     'Export'       => 'Export',
@@ -22,9 +22,9 @@ return ['DatabaseEditor' => [
     'Limit1000'    => 'Limit 1000',
     'Login'        => 'Login',
     'NoResults'    => 'No Results',
-    'Port'         => 'Port',
     'Password'     => 'Password',
-    'Test'         => 'Test',
+    'Port'         => 'Port',
     'Query'        => 'Query',
     'QueryResult'  => 'Query Result',
+    'Test'         => 'Test',
 ]];

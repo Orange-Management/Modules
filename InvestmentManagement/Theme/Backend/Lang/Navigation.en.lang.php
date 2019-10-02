@@ -11,6 +11,6 @@
  * @link      https://orange-management.org
  */
 return ['Navigation' => [
-    'Investment' => 'Investment',
     'Dashboard'  => 'Dashboard',
+    'Investment' => 'Investment',
 ]];

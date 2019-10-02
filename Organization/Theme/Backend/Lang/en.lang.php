@@ -22,6 +22,6 @@ return ['Organization' => [
     'Positions'   => 'Positions',
     'Status'      => 'Status',
     'Unit'        => 'Unit',
-    'Units'       => 'Units',
     'UnitLogo'    => 'Unit Logo',
+    'Units'       => 'Units',
 ]];
