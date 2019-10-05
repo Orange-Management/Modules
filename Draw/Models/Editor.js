@@ -109,7 +109,7 @@
         const img = this.canvas.getAttribute('data-src'),
             self  = this;
 
-        if(img !== null && typeof img !== 'undefined' && img.length > 0) {
+        if (img !== null && typeof img !== 'undefined' && img.length > 0) {
             /** global: Image */
             let imgObj = new Image();
 
