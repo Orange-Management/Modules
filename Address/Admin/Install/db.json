@@ -1,0 +1,40 @@
+{
+    "address": {
+        "name": "address",
+        "fields": {
+            "address_id": {
+                "name": "address_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "address_street": {
+                "name": "address_street",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "address_zip": {
+                "name": "address_zip",
+                "type": "VARCHAR(30)",
+                "null": false
+            },
+            "address_province": {
+                "name": "address_province",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "address_city": {
+                "name": "address_city",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "address_country": {
+                "name": "address_country",
+                "type": "INT",
+                "foreignTable": "country",
+                "foreignKey": "country_id"
+            }
+        }
+    }
+}
