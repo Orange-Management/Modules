@@ -16,8 +16,7 @@ use phpOMS\Uri\UriFactory;
 /**
  * @var \phpOMS\Views\View $this
  */
-$account = $this->getData('account');
-
+$account  = $this->getData('account');
 $settings = $this->getData('settings') ?? [];
 
 $countries       = \phpOMS\Localization\ISO3166NameEnum::getConstants();
@@ -66,7 +65,10 @@ echo $this->getData('nav')->render();
                                     <img class="m-profile rf"
                                         alt="<?= $this->getHtml('ProfileImage'); ?>"
                                         itemprop="logo"
-                                        data-lazyload="<?= $account->getImage() instanceof NullMedia ? UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') : UriFactory::build('{/prefix}' . $account->getImage()->getPath()); ?>"
+                                        data-lazyload="<?=
+                                            $account->getImage() instanceof NullMedia ?
+                                                UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') :
+                                                UriFactory::build('{/prefix}' . $account->getImage()->getPath()); ?>"
                                     >
                                 </span>
                                     <table class="list" style="table-layout: fixed">

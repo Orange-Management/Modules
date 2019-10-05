@@ -22,6 +22,6 @@ namespace Modules\Profile\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullProfile extends Profile
+final class NullProfile extends Profile
 {
 }

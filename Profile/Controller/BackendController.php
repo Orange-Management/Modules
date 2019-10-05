@@ -103,7 +103,7 @@ final class BackendController extends Controller
         $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
         $view->addData('calendar', $calendarView);
 
-        $view->setData('account', ProfileMapper::getFor((int) $request->getData('id'), 'account'));
+        $view->setData('account', ProfileMapper::get((int) $request->getData('id')));
 
         $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
         $view->addData('accGrpSelector', $accGrpSelector);
