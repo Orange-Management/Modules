@@ -112,7 +112,22 @@ class Media implements \JsonSerializable
      * @since 1.0.0
      */
     protected string $description    = '';
-    protected $descriptionRaw = '';
+
+    /**
+     * Media Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    protected string $descriptionRaw = '';
+
+    /**
+     * Media encryption hash.
+     *
+     * @var   null|string
+     * @since 1.0.0
+     */
+    protected ?string $encryptionHash = null;
 
     /**
      * Constructor.
@@ -132,6 +147,58 @@ class Media implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
+    }
+
+    public function encrypt(string $password, string $outputPath) : void
+    {
+        // todo: implement;
+    }
+
+    public function decrypt(string $password, string $outputPath) : string
+    {
+        // todo: implement;
+
+        return '';
+    }
+
+    /**
+     * Set encryption hash
+     *
+     * @param null|string $encryptionHash Hash from encryption password
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setEncryptionHash(?string $encryptionHash) : void
+    {
+        $this->encryptionHash = $encryptionHash;
+    }
+
+    /**
+     * Is media file encrypted?
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
+    public function isEncrypted() : bool
+    {
+        return $this->encryptionHash !== null;
+    }
+
+    /**
+     * Compare hash with encryption hash of the media file
+     *
+     * @param string $hash User hash
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
+    public function compareEncryptionHash(string $hash) : bool
+    {
+        return \hash_equals($this->encryptionHash, $hash);
     }
 
     /**
