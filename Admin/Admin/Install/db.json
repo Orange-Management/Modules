@@ -18,6 +18,21 @@
                 "name": "language_native",
                 "type": "VARCHAR(100)",
                 "null": false
+            },
+            "language_639_2T": {
+                "name": "language_639_2T",
+                "type": "VARCHAR(2)",
+                "null": false
+            },
+            "language_639_2B": {
+                "name": "language_639_2B",
+                "type": "VARCHAR(3)",
+                "null": false
+            },
+            "language_639_3": {
+                "name": "language_639_3",
+                "type": "VARCHAR(3)",
+                "null": false
             }
         }
     },
@@ -321,6 +336,43 @@
             "l11n_volume_glass": {
                 "name": "l11n_volume_glass",
                 "type": "VARCHAR(20)",
+                "null": false
+            }
+        }
+    },
+    "country": {
+        "name": "country",
+        "fields": {
+            "country_id": {
+                "name": "country_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "country_name": {
+                "name": "country_name",
+                "type": "VARCHAR(100)",
+                "null": false
+            },
+            "country_native": {
+                "name": "country_native",
+                "type": "VARCHAR(100)",
+                "null": false
+            },
+            "country_code2": {
+                "name": "country_code2",
+                "type": "VARCHAR(2)",
+                "null": false
+            },
+            "country_code3": {
+                "name": "country_code3",
+                "type": "VARCHAR(3)",
+                "null": false
+            },
+            "country_codenum": {
+                "name": "country_codenum",
+                "type": "INT(11)",
                 "null": false
             }
         }
