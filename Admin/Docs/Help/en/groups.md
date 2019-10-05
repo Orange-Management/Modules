@@ -12,11 +12,11 @@ The id (unique identifier) is automatically generated.
 
 ### Name
 
-In some cases it makes sense to put some additional information in the group name. In some cases a group is only for a specific unit or application in such a case it could make sense to prefix the group name e.g. `unitname_groupname` or `appname_groupname`. Group names can be changed any time without any side effects. 
+In some cases it makes sense to put some additional information in the group name. In some cases a group is only for a specific unit or application in such a case it could make sense to prefix the group name e.g. `unitname_groupname` or `appname_groupname`. Group names can be changed any time without any side effects.
 
 ### Description
 
-Sometimes it makes sense to provide some additional information for a group. In such a case you can add this in the discription field.
+Sometimes it makes sense to provide some additional information for a group. In such a case you can add this in the description field.
 
 ## Permissions
 
@@ -38,19 +38,19 @@ The module this permission is set for. Leave empty to address all modules
 
 ### Type
 
-The type is a `module` specific subpart which only should be set if the module is defined in the permission. For further information what kind of types are available for a module please refere to the module specific documentation. Usually it referes to a single page of a module.
+The type is a `module` specific subpart which only should be set if the module is defined in the permission. For further information what kind of types are available for a module please refer to the module specific documentation. Usually it refers to a single page of a module.
 
 ### Element
 
-The element is a `module` and `type` specific subpart which only should be set if the `type` is defined in the permission. For further information what kind of elements are available for a module and type please refere to the module specific documentation. Usually it referes to a section on a module page.
+The element is a `module` and `type` specific subpart which only should be set if the `type` is defined in the permission. For further information what kind of elements are available for a module and type please refer to the module specific documentation. Usually it referes to a section on a module page.
 
 ### Component
 
-The component is a `module`, `type` and `element` specific subpart which only should be set if the `element` is defined in the permission. For further information what kind of components are available for a module, type and element please refere to the module specific documentation. Usually it referes to a single input or option in a module.
+The component is a `module`, `type` and `element` specific subpart which only should be set if the `element` is defined in the permission. For further information what kind of components are available for a module, type and element please refer to the module specific documentation. Usually it refers to a single input or option in a module.
 
 ### Permission
 
-The actual permission consists of create (C), read (R), update (U), delete (D), permission (P) options. 
+The actual permission consists of create (C), read (R), update (U), delete (D), permission (P) options.
 
 #### Create (C)
 

@@ -58,7 +58,7 @@ Accounts can have the following status:
 * Banned (login not possible)
 * Timeout (login possible in x-minutes)
 
-The status doesn't represent account activity it's only perpose is to allow or disallow the login to the application. Only active accounts can login to the application. It is often necessary to create accounts in the system for ineraction but disallow them to login to the system, this can be achived by simply assigning the inactive status.
+The status doesn't represent account activity it's only purpose is to allow or disallow the login to the application. Only active accounts can login to the application. It is often necessary to create accounts in the system for interaction but disallow them to login to the system, this can be achieved by simply assigning the inactive status.
 
 ## Group Management
 

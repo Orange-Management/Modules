@@ -174,13 +174,14 @@ final class BackendController extends Controller
     private function getHelpModulePath(RequestAbstract $request) : string
     {
         if ($request->getData('page') === 'table-of-contencts' || $request->getData('page') === null) {
-            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/introduction.md');
+            $page = 'introduction';
         } else {
-            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/' . $request->getData('page') . '.md');
+            $page = $request->getData('page');
         }
 
+        $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/' . $page . '.md');
         if ($path === false) {
-            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/introduction.md');
+            $path = \realpath(__DIR__ . '/../../' . $request->getData('id') . '/Docs/Help/en/introduction.md');
         }
 
         return $path === false ? '' : $path;

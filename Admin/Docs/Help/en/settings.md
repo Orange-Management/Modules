@@ -12,7 +12,7 @@ In the security section it's possible to define and modify the global security s
 
 #### Password Regex
 
-In this field the password strucutre can be defined that is required by every account. Examples are:
+In this field the password structure can be defined that is required by every account. Examples are:
 
 ##### Password Example 1
 
@@ -58,7 +58,7 @@ In this field the amount of retries can be defined until the user login receives
 
 #### Timeout Period
 
-In this field the timeout period after inputting a incorrect password too often can be specified. During this period the user cannot login even if the password is correct. 
+In this field the timeout period after inputting a incorrect password too often can be specified. During this period the user cannot login even if the password is correct.
 
 **Recommended:** `30 minutes`
 
