@@ -22,6 +22,6 @@ namespace Modules\Knowledgebase\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullWikiCategory extends WikiCategory
+final class NullWikiCategory extends WikiCategory
 {
 }

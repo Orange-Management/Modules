@@ -22,6 +22,6 @@ namespace Modules\RiskManagement\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullProcess extends Process
+final class NullProcess extends Process
 {
 }

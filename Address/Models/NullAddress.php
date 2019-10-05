@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Organization\Models
+ * @package   Modules\News\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,16 +12,16 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Organization\Models;
+namespace Modules\Address\Models;
 
 /**
- * Organization null class.
+ * Null model
  *
- * @package Modules\Organization\Models
+ * @package Modules\Address\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class NullPosition extends Position
+final class NullAddress extends Address
 {
 }

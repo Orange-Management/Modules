@@ -22,6 +22,6 @@ namespace Modules\RiskManagement\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullCategory extends Category
+final class NullCategory extends Category
 {
 }

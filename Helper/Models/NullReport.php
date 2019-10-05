@@ -22,6 +22,6 @@ namespace Modules\Helper\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullReport extends Report
+final class NullReport extends Report
 {
 }

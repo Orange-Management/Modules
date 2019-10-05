@@ -22,6 +22,6 @@ namespace Modules\Knowledgebase\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullWikiDoc extends WikiDoc
+final class NullWikiDoc extends WikiDoc
 {
 }

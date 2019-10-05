@@ -22,6 +22,6 @@ namespace Modules\RiskManagement\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullRisk extends Risk
+final class NullRisk extends Risk
 {
 }

@@ -22,6 +22,6 @@ namespace Modules\Organization\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullUnit extends Unit
+final class NullUnit extends Unit
 {
 }

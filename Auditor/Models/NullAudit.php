@@ -22,6 +22,6 @@ namespace Modules\Auditor\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullAudit extends Audit
+final class NullAudit extends Audit
 {
 }

@@ -22,6 +22,6 @@ namespace Modules\Tag\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullTag extends Tag
+final class NullTag extends Tag
 {
 }

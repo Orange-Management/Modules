@@ -22,6 +22,6 @@ namespace Modules\Calendar\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullSchedule extends Schedule
+final class NullSchedule extends Schedule
 {
 }

@@ -22,6 +22,6 @@ namespace Modules\Media\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullCollection extends Collection
+final class NullCollection extends Collection
 {
 }
