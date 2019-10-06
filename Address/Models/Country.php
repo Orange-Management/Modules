@@ -30,7 +30,7 @@ class Country
      * @var   int
      * @since 1.0.0
      */
-    private $id = 0;
+    private int $id = 0;
 
     /**
      * Country name.
@@ -46,7 +46,7 @@ class Country
      * @var   string
      * @since 1.0.0
      */
-    private $native = '';
+    private string $native = '';
 
     /**
      * Country code.
@@ -54,7 +54,7 @@ class Country
      * @var   string
      * @since 1.0.0
      */
-    private $code2 = '';
+    private string $code2 = '';
 
     /**
      * Country code.
@@ -62,7 +62,7 @@ class Country
      * @var   string
      * @since 1.0.0
      */
-    private $code3 = '';
+    private string $code3 = '';
 
     /**
      * Country code.
@@ -70,7 +70,7 @@ class Country
      * @var   int
      * @since 1.0.0
      */
-    private $codenum = 0;
+    private int $codenum = 0;
 
     /**
      * Get id

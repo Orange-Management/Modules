@@ -38,7 +38,8 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $project->getName());
         self::assertEquals('', $project->getDescription());
         self::assertEquals(0, $project->getCosts()->getInt());
-        self::assertEquals(0, $project->getBudget()->getInt());
+        self::assertEquals(0, $project->getBudgetCosts()->getInt());
+        self::assertEquals(0, $project->getBudgetEarnings()->getInt());
         self::assertEquals(0, $project->getEarnings()->getInt());
         self::assertEquals(0, $project->getProgress());
         self::assertEquals(ProgressType::MANUAL, $project->getProgressType());
@@ -69,8 +70,11 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $project->setCosts($money);
         self::assertEquals($money->getAmount(), $project->getCosts()->getAmount());
 
-        $project->setBudget($money);
-        self::assertEquals($money->getAmount(), $project->getBudget()->getAmount());
+        $project->setBudgetCosts($money);
+        self::assertEquals($money->getAmount(), $project->getBudgetCosts()->getAmount());
+
+        $project->setBudgetEarnings($money);
+        self::assertEquals($money->getAmount(), $project->getBudgetEarnings()->getAmount());
 
         $project->setEarnings($money);
         self::assertEquals($money->getAmount(), $project->getEarnings()->getAmount());

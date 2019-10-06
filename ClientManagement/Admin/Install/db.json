@@ -29,11 +29,6 @@
                 "type": "TINYINT",
                 "null": false
             },
-            "clientmgmt_client_taxid": {
-                "name": "clientmgmt_client_taxid",
-                "type": "INT",
-                "null": false
-            },
             "clientmgmt_client_info": {
                 "name": "clientmgmt_client_info",
                 "type": "TEXT",

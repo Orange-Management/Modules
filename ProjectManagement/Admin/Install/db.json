@@ -36,8 +36,13 @@
                 "type": "INT",
                 "null": false
             },
-            "projectmanagement_project_budget": {
-                "name": "projectmanagement_project_budget",
+            "projectmanagement_project_budgetcosts": {
+                "name": "projectmanagement_project_budgetcosts",
+                "type": "INT",
+                "null": false
+            },
+            "projectmanagement_project_budgetearnings": {
+                "name": "projectmanagement_project_budgetearnings",
                 "type": "INT",
                 "null": false
             },
@@ -53,6 +58,11 @@
             },
             "projectmanagement_project_end": {
                 "name": "projectmanagement_project_end",
+                "type": "DATETIME",
+                "null": false
+            },
+            "projectmanagement_project_endestimated": {
+                "name": "projectmanagement_project_endestimated",
                 "type": "DATETIME",
                 "null": false
             },

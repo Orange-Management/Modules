@@ -15,6 +15,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\Address\Admin;
 
+use Modules\Address\Models\CountryMapper;
+
 /**
  * @internal
  */
@@ -22,6 +24,9 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'Address';
     protected const URI_LOAD = '';
+    protected const MAPPER_TO_IGNORE = [
+        CountryMapper::class,
+    ];
 
     use \Modules\tests\ModuleTestTrait;
 }

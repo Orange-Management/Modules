@@ -43,7 +43,8 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         $money->setString('1.23');
 
         $project->setCosts($money);
-        $project->setBudget($money);
+        $project->setBudgetCosts($money);
+        $project->setBudgetEarnings($money);
         $project->setEarnings($money);
 
         $task = new Task();
@@ -79,7 +80,8 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($project->getDescription(), $projectR->getDescription());
         self::assertEquals($project->countTasks(), $projectR->countTasks());
         self::assertEquals($project->getCosts()->getAmount(), $projectR->getCosts()->getAmount());
-        self::assertEquals($project->getBudget()->getAmount(), $projectR->getBudget()->getAmount());
+        self::assertEquals($project->getBudgetEarnings()->getAmount(), $projectR->getBudgetEarnings()->getAmount());
+        self::assertEquals($project->getBudgetCosts()->getAmount(), $projectR->getBudgetCosts()->getAmount());
         self::assertEquals($project->getEarnings()->getAmount(), $projectR->getEarnings()->getAmount());
         self::assertEquals($project->getCreatedAt()->format('Y-m-d'), $projectR->getCreatedAt()->format('Y-m-d'));
         self::assertEquals($project->getStart()->format('Y-m-d'), $projectR->getStart()->format('Y-m-d'));
@@ -87,8 +89,8 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($project->getProgress(), $projectR->getProgress());
         self::assertEquals($project->getProgressType(), $projectR->getProgressType());
 
-        $expected = $project->getMedia();
-        $actual   = $projectR->getMedia();
+        $expected = $project->getMedias();
+        $actual   = $projectR->getMedias();
 
         self::assertEquals(\end($expected)->getName(), \end($actual)->getName());
     }
@@ -122,7 +124,8 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
             $money->setString('1.23');
 
             $project->setCosts($money);
-            $project->setBudget($money);
+            $project->setBudgetCosts($money);
+            $project->setBudgetEarnings($money);
             $project->setEarnings($money);
 
             $id = ProjectMapper::create($project);

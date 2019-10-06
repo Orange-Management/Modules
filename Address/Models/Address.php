@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Address\Models;
 
+use phpOMS\Stdlib\Base\Location;
+
 /**
  * Address model
  *
@@ -22,6 +24,6 @@ namespace Modules\Address\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class Address
+class Address extends Location
 {
 }

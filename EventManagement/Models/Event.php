@@ -43,6 +43,7 @@ class Event
     private $start = null;
 
     private $end = null;
+
     /**
      * Name.
      *

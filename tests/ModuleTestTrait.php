@@ -176,10 +176,11 @@ trait ModuleTestTrait
                         || \stripos($column['type'] ?? '', 'INT') === 0
                         || \stripos($column['type'] ?? '', 'BIGINT') === 0
                         || \stripos($column['type'] ?? '', 'VARCHAR') === 0
+                        || \stripos($column['type'] ?? '', 'VARBINARY') === 0
                         || \stripos($column['type'] ?? '', 'TEXT') === 0
                         || \stripos($column['type'] ?? '', 'DATETIME') === 0
                         || \stripos($column['type'] ?? '', 'DECIMAL') === 0,
-                        'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" has missing/invalid type'
+                        'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type'
                     );
                 }
             }
@@ -224,7 +225,12 @@ trait ModuleTestTrait
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($mappers as $mapper) {
-                $class            = $this->getMapperFromPath($mapper);
+                $class = $this->getMapperFromPath($mapper);
+
+                if (\defined('self::MAPPER_TO_IGNORE') && \in_array(\ltrim($class, '\\'), self::MAPPER_TO_IGNORE)) {
+                    continue;
+                }
+
                 $mapperReflection = new \ReflectionClass($class);
                 $table            = $mapperReflection->getDefaultProperties()['table'];
                 $columns          = $mapperReflection->getDefaultProperties()['columns'];
@@ -244,6 +250,7 @@ trait ModuleTestTrait
                     self::assertTrue(
                         ($column['type'] === 'string'
                             && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
+                                || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
                                 || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
                         || ($column['type'] === 'int'
                             && (\stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0
@@ -483,7 +490,7 @@ trait ModuleTestTrait
 
     public function testRequestLoads() : void
     {
-        if (empty(self::URI_LOAD)) {
+        if (!\defined('self::URI_LOAD') || empty(self::URI_LOAD)) {
             return;
         }
 

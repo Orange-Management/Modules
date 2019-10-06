@@ -14,13 +14,13 @@
                 "type": "VARCHAR(255)",
                 "null": false
             },
-            "address_zip": {
-                "name": "address_zip",
+            "address_postal": {
+                "name": "address_postal",
                 "type": "VARCHAR(30)",
                 "null": false
             },
-            "address_province": {
-                "name": "address_province",
+            "address_state": {
+                "name": "address_state",
                 "type": "VARCHAR(255)",
                 "null": false
             },

@@ -42,7 +42,6 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
         $client->setReverseNumber('asdf');
         $client->setStatus(2);
         $client->setType(3);
-        $client->setTaxId(44);
         $client->setInfo('Some info.');
 
         $id = ClientMapper::create($client);
@@ -62,7 +61,6 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('asdf', $client->getReverseNumber());
         self::assertEquals(2, $client->getStatus());
         self::assertEquals(3, $client->getType());
-        self::assertEquals(44, $client->getTaxId());
         self::assertEquals('Some info.', $client->getInfo());
     }
 

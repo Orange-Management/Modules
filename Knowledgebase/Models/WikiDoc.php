@@ -31,6 +31,7 @@ class WikiDoc implements \JsonSerializable
      * @since 1.0.0
      */
     protected int $id = 0;
+
     /**
      * Name.
      *

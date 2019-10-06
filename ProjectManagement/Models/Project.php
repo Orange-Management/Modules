@@ -87,10 +87,10 @@ class Project
     /**
      * Calendar.
      *
-     * @var   Calendar
+     * @var   int|Calendar
      * @since 1.0.0
      */
-    private Calendar $calendar;
+    private $calendar;
 
     /**
      * Current total costs.
@@ -185,14 +185,15 @@ class Project
         $this->end   = new \DateTime('now');
         $this->end->modify('+1 month');
 
-        $this->estimatedEnd = clone $this->end;
+        $this->endEstimated = clone $this->end;
         $this->createdAt    = new \DateTime('now');
 
         $this->calendar = new Calendar();
 
-        $this->costs    = new Money();
-        $this->budget   = new Money();
-        $this->earnings = new Money();
+        $this->costs          = new Money();
+        $this->budgetCosts    = new Money();
+        $this->budgetEarnings = new Money();
+        $this->earnings       = new Money();
 
         $this->setName($name);
     }

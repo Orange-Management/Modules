@@ -50,7 +50,7 @@
                 "autoincrement": true
             },
             "itemmgmt_item_l11n_description": {
-                "name": "itemmgmt_item_l11n_description1",
+                "name": "itemmgmt_item_l11n_description",
                 "type": "TEXT",
                 "null": false
             },

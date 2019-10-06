@@ -30,7 +30,6 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         self::assertEmpty($client->getReverseNumber());
         self::assertEquals(0, $client->getStatus());
         self::assertEquals(0, $client->getType());
-        self::assertEmpty($client->getTaxId());
         self::assertEmpty($client->getInfo());
         self::assertInstanceOf('\DateTime', $client->getCreatedAt());
     }
@@ -50,9 +49,6 @@ class ClientTest extends \PHPUnit\Framework\TestCase
 
         $client->setType(3);
         self::assertEquals(3, $client->getType());
-
-        $client->setTaxId(44);
-        self::assertEquals(44, $client->getTaxId());
 
         $client->setInfo('Some info.');
         self::assertEquals('Some info.', $client->getInfo());

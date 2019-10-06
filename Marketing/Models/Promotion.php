@@ -39,6 +39,7 @@ class Promotion
     private $start = null;
 
     private $end = null;
+
     /**
      * Name.
      *

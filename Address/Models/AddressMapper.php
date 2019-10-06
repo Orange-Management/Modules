@@ -35,12 +35,12 @@ final class AddressMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'address_id'       => ['name' => 'address_id',       'type' => 'int',    'internal' => 'id'],
-        'address_street'   => ['name' => 'address_street',   'type' => 'string', 'internal' => 'street'],
-        'address_zip'      => ['name' => 'address_zip',      'type' => 'string', 'internal' => 'zip'],
-        'address_province' => ['name' => 'address_province', 'type' => 'string', 'internal' => 'province'],
-        'address_city'     => ['name' => 'address_city',     'type' => 'string', 'internal' => 'city'],
-        'address_country'  => ['name' => 'address_country',  'type' => 'int',    'internal' => 'country'],
+        'address_id'      => ['name' => 'address_id',      'type' => 'int',    'internal' => 'id'],
+        'address_street'  => ['name' => 'address_street',  'type' => 'string', 'internal' => 'address'],
+        'address_postal'  => ['name' => 'address_postal',  'type' => 'string', 'internal' => 'postal'],
+        'address_state'   => ['name' => 'address_state',   'type' => 'string', 'internal' => 'state'],
+        'address_city'    => ['name' => 'address_city',    'type' => 'string', 'internal' => 'city'],
+        'address_country' => ['name' => 'address_country', 'type' => 'int',    'internal' => 'country'],
     ];
 
     /**
