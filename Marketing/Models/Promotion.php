@@ -28,15 +28,31 @@ use phpOMS\Localization\Money;
  */
 class Promotion
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $start = null;
 
     private $end = null;
-
-    private $name = '';
-
-    private $description = '';
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
 
     private $calendar = null;
 
@@ -86,6 +102,13 @@ class Promotion
         $this->setName($name);
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -181,22 +204,54 @@ class Promotion
         return $this->calendar;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
         $this->calendar->setName($name);
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescription(string $description) : void
     {
         $this->description = $description;

@@ -19,6 +19,11 @@
                 "type": "TEXT",
                 "null": true
             },
+            "projectmanagement_project_description_raw": {
+                "name": "projectmanagement_project_description_raw",
+                "type": "TEXT",
+                "null": true
+            },
             "projectmanagement_project_calendar": {
                 "name": "projectmanagement_project_calendar",
                 "type": "INT",

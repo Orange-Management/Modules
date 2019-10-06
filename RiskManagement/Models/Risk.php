@@ -24,13 +24,34 @@ namespace Modules\RiskManagement\Models;
  */
 class Risk
 {
-    private $id = 0;
-
-    private $name = '';
-
-    private $description = '';
-
-    private $descriptionRaw = '';
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $descriptionRaw = '';
 
     private $unit = 1;
 
@@ -58,11 +79,23 @@ class Risk
 
     private $createdAt = null;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -118,16 +151,39 @@ class Risk
         return $this->histScore;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;

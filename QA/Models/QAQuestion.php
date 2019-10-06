@@ -24,11 +24,22 @@ namespace Modules\QA\Models;
  */
 class QAQuestion implements \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
 
-    private $name = '';
-
-    private $status = QAQuestionStatus::ACTIVE;
+    private int $status = QAQuestionStatus::ACTIVE;
 
     private $question = '';
 
@@ -44,11 +55,23 @@ class QAQuestion implements \JsonSerializable
 
     private $answers = [];
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -86,11 +109,27 @@ class QAQuestion implements \JsonSerializable
         return false;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
@@ -126,36 +165,87 @@ class QAQuestion implements \JsonSerializable
         $this->category = $category;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) : void
+    /**
+     * Set created by
+     *
+     * @param mixed $id Created by
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;
     }
 
+    /**
+     * Get badges
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getBadges() : array
     {
         return $this->badges;
     }
 
+    /**
+     * Add badge to question
+     *
+     * @param int|QABadge $badge Badge
+     */
     public function addBadge($badge) : void
     {
         $this->badges[] = $badge;
     }
 
+    /**
+     * Get answers
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getAnswers() : array
     {
         return $this->answers;
     }
 
+    /**
+     * Add answer to question
+     *
+     * @param int|QAAnswer $answer Answer to the question
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function addAnswer($answer) : void
     {
         $this->answers[] = $answer;

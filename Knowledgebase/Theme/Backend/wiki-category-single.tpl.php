@@ -1,7 +1,9 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * @var \phpOMS\Views\View $this
  */
+declare(strict_types=1);
+
 echo $this->getData('nav')->render();
 ?>
 

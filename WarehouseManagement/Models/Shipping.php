@@ -79,7 +79,7 @@ class Shipping
      * @var   \Modules\Warehousing\Models\ArrivalStatus
      * @since 1.0.0
      */
-    private $status = null;
+    private int $status = null;
 
     /**
      * Shipping.

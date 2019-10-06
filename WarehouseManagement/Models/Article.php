@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -9,7 +9,9 @@
  * @license   OMS License 1.0
  * @version   1.0.0
  * @link      https://orange-management.org
- */ /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
+ */
+declare(strict_types=1);
+ /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
 namespace Modules\WarehouseManagement\Models;
 
 /**

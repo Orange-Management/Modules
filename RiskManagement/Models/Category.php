@@ -24,13 +24,29 @@ namespace Modules\RiskManagement\Models;
  */
 class Category
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $title = '';
-
-    private $description = '';
-
-    private $descriptionRaw = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $descriptionRaw = '';
 
     private $parent = null;
 
@@ -38,10 +54,13 @@ class Category
 
     private $deputy = null;
 
-    public function __construct()
-    {
-    }
-
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -87,6 +106,13 @@ class Category
         $this->title = $title;
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;

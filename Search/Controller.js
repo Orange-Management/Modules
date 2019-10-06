@@ -36,8 +36,8 @@ jsOMS.Modules.Search = class {
      * @since 1.0.0
      */
     bind (id) {
-        const e = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)],
-            length = e.length;
+        const e      = typeof id === 'undefined' ? document.getElementsByClassName('nav') : [document.getElementById(id)];
+        const length = e.length;
 
         for (let i = 0; i < length; ++i) {
             this.bindElement(e[i]);
@@ -60,14 +60,14 @@ jsOMS.Modules.Search = class {
             return;
         }
 
-        const extend = e.querySelectorAll('li label'),
-            self = this;
+        const extend = e.querySelectorAll('li label');
+        const self   = this;
 
         this.navigation[e.id] = new Search(this.rawNavData[e.id]);
 
         // On load
         const open = this.navigation[e.id].getOpen();
-        let ele = null;
+        let ele    = null;
 
         for (let key in open) {
             if (open.hasOwnProperty(key) && (ele = document.getElementById(key)) !== null) {
@@ -84,7 +84,7 @@ jsOMS.Modules.Search = class {
             e.nextElementSibling.checked = width < 800;
         }
 
-        e.scrollTop = this.navigation[e.id].getScrollPosition().y;
+        e.scrollTop  = this.navigation[e.id].getScrollPosition().y;
         e.scrollLeft = this.navigation[e.id].getScrollPosition().x;
 
         // Bind minimize/maximize

@@ -27,17 +27,34 @@ use Modules\Tasks\Models\TaskType;
  */
 class Ticket
 {
-
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $task = null;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->task = new Task();
         $this->task->setType(TaskType::HIDDEN);
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;

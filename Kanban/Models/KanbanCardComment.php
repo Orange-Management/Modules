@@ -24,9 +24,20 @@ namespace Modules\Kanban\Models;
  */
 class KanbanCardComment implements \JsonSerializable
 {
-    private $id = 0;
-
-    private $description = '';
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
 
     private $card = 0;
 
@@ -36,11 +47,23 @@ class KanbanCardComment implements \JsonSerializable
 
     private $media = [];
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -56,26 +79,65 @@ class KanbanCardComment implements \JsonSerializable
         return $this->card;
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) : void
+    /**
+     * Set created by
+     *
+     * @param mixed $id Created by
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

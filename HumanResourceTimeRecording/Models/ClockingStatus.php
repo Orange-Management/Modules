@@ -26,8 +26,8 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class ClockingStatus extends Enum
 {
-    public const START = 1;
-    public const PAUSE = 2;
-    public const ON_THE_MOVE = 3;
-    public const END   = 4;
+    public const START    = 1;
+    public const PAUSE    = 2;
+    public const CONTINUE = 3;
+    public const END      = 4;
 }

@@ -24,11 +24,22 @@ namespace Modules\Knowledgebase\Models;
  */
 class WikiDoc implements \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
 
-    private $name = '';
-
-    private $status = WikiStatus::ACTIVE;
+    private int $status = WikiStatus::ACTIVE;
 
     private $doc = '';
 
@@ -42,11 +53,23 @@ class WikiDoc implements \JsonSerializable
 
     private $badges = [];
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -62,11 +85,27 @@ class WikiDoc implements \JsonSerializable
         $this->language = $language;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
@@ -102,16 +141,39 @@ class WikiDoc implements \JsonSerializable
         $this->category = $category;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy() : int
     {
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) : void
+    /**
+     * Set created by
+     *
+     * @param mixed $id Created by
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

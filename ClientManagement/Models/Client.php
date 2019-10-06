@@ -60,12 +60,24 @@ class Client
     private $defaultDeliveryAddress = null;
     private $defaultInvoiceAddress = null;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
         $this->profile   = new Profile();
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -155,6 +167,13 @@ class Client
         $this->info = $info;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

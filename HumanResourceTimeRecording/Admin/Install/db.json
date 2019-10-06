@@ -1,0 +1,70 @@
+{
+    "hr_timerecording_session": {
+        "name": "hr_timerecording_session",
+        "fields": {
+            "hr_timerecording_session_id": {
+                "name": "hr_timerecording_session_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "hr_timerecording_session_type": {
+                "name": "hr_timerecording_session_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "hr_timerecording_session_start": {
+                "name": "hr_timerecording_session_start",
+                "type": "DATETIME",
+                "null": false
+            },
+            "hr_timerecording_session_end": {
+                "name": "hr_timerecording_session_end",
+                "type": "DATETIME",
+                "null": false
+            },
+            "hr_timerecording_session_busy": {
+                "name": "hr_timerecording_session_busy",
+                "type": "DATETIME",
+                "null": false
+            },
+            "hr_timerecording_session_employee": {
+                "name": "hr_timerecording_session_employee",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "hr_staff",
+                "foreignKey": "hr_staff_id"
+            }
+        }
+    },
+    "hr_timerecording_session_element": {
+        "name": "hr_timerecording_session_element",
+        "fields": {
+            "hr_timerecording_session_element_id": {
+                "name": "hr_timerecording_session_element_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "hr_timerecording_session_element_type": {
+                "name": "hr_timerecording_session_element_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "hr_timerecording_session_element_dt": {
+                "name": "hr_timerecording_session_element_dt",
+                "type": "DATETIME",
+                "null": false
+            },
+            "hr_timerecording_session_element_session": {
+                "name": "hr_timerecording_session_element_session",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "hr_timerecording_session",
+                "foreignKey": "hr_timerecording_session_id"
+            }
+        }
+    }
+}

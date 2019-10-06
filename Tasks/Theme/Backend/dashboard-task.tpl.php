@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -10,6 +10,8 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
+
 ?>
 <div id="task-dashboard" class="col-xs-12 col-md-6" draggable="true">
     <div class="box wf-100">

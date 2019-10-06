@@ -27,15 +27,21 @@ use Modules\Profile\Models\Profile;
  */
 class Supplier
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $number = '';
 
     private $numberReverse = '';
 
-    private $status = 0;
+    private int $status = 0;
 
-    private $type = 0;
+    private int $type = 0;
 
     private $taxId = 0;
 
@@ -51,12 +57,24 @@ class Supplier
 
     private $address = [];
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
         $this->profile   = new Profile();
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -126,6 +144,13 @@ class Supplier
         $this->info = $info;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

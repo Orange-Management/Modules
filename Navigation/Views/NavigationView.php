@@ -91,7 +91,7 @@ class NavigationView extends View
     }
 
     /**
-     * @param array $nav
+     * @param array $nav Navigation data
      *
      * @return void
      *
@@ -113,7 +113,7 @@ class NavigationView extends View
     }
 
     /**
-     * @param int $parent
+     * @param int $parent Navigation parent element
      *
      * @return void
      *

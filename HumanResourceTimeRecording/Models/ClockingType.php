@@ -26,9 +26,10 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class ClockingType extends Enum
 {
-    public const OFFICE   = 1;
-    public const HOME     = 2;
-    public const REMOTE   = 3;
-    public const VACATION = 4;
-    public const SICK     = 5;
+    public const OFFICE      = 1;
+    public const HOME        = 2;
+    public const REMOTE      = 3;
+    public const VACATION    = 4;
+    public const SICK        = 5;
+    public const ON_THE_MOVE = 6;
 }

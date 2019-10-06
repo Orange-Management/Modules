@@ -24,26 +24,56 @@ namespace Modules\Knowledgebase\Models;
  */
 class WikiCategory implements \JsonSerializable
 {
-    private $id = 0;
-
-    private $name = '';
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
 
     private $parent = null;
 
-    public function __construct()
-    {
-    }
-
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;

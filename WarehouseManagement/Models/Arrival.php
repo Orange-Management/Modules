@@ -79,7 +79,7 @@ class Arrival
      * @var   \Modules\Warehousing\Models\ArrivalStatus
      * @since 1.0.0
      */
-    private $status = null;
+    private int $status = null;
 
     /* TODO: count, packaging, product count etc.... for every single position + where do you put it */
 

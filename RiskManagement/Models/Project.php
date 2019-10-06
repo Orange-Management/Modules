@@ -24,7 +24,13 @@ namespace Modules\RiskManagement\Models;
  */
 class Project
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $project = null;
 
@@ -32,10 +38,13 @@ class Project
 
     private $deputy = null;
 
-    public function __construct()
-    {
-    }
-
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;

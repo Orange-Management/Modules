@@ -27,7 +27,13 @@ use phpOMS\Localization\Money;
  */
 class Invoice implements \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     /**
      * Number ID.
@@ -147,6 +153,11 @@ class Invoice implements \JsonSerializable
      */
     private int $reference = 0;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->insurance = new Money();
@@ -157,6 +168,13 @@ class Invoice implements \JsonSerializable
         $this->createdAt = new \DateTime();
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -192,6 +210,13 @@ class Invoice implements \JsonSerializable
         $this->status = $status;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;
@@ -207,6 +232,13 @@ class Invoice implements \JsonSerializable
         return $this->send;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy() : int
     {
         return $this->createdBy;

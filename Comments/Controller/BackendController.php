@@ -91,6 +91,15 @@ final class BackendController extends Controller
         return $view;
     }
 
+    /**
+     * Validate comment create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool> Returns the validation array of the request
+     *
+     * @since 1.0.0
+     */
     private function validateCommentCreate(RequestAbstract $request) : array
     {
         $val = [];

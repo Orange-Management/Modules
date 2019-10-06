@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -9,4 +9,6 @@
  * @license   OMS License 1.0
  * @version   1.0.0
  * @link      https://orange-management.org
- */ // TODO: implement local file storage
+ */
+declare(strict_types=1);
+ // TODO: implement local file storage

@@ -221,6 +221,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
         $this->path = $path;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray() : array
     {
         return [
@@ -233,6 +236,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
         return (string) \json_encode($this->toArray());

@@ -175,6 +175,17 @@ final class ApiController extends Controller
         return $mediaCreated;
     }
 
+    /**
+     * Create db entry for uploaded file
+     *
+     * @param array  $status      Files
+     * @param int    $account     Uploader
+     * @param string $virtualPath Virtual path (not on the hard-drive)
+     *
+     * @return null|Media
+     *
+     * @since 1.0.0
+     */
     public static function createDbEntry(array $status, int $account, string $virtualPath = '/') : ?Media
     {
         $media = null;
@@ -195,6 +206,15 @@ final class ApiController extends Controller
         return $media;
     }
 
+    /**
+     * Normalize the file path
+     *
+     * @param string $path Path to the file
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     private static function normalizeDbPath(string $path) : string
     {
         $realpath = \realpath(__DIR__ . '/../../../');

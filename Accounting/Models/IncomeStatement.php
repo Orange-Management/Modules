@@ -24,13 +24,15 @@ namespace Modules\Accounting\Models;
  */
 class IncomeStatement
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $date = null;
 
     private $incomeStatement = [];
-
-    public function __construct()
-    {
-    }
 }

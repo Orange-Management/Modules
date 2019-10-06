@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * Orange Management
  *
@@ -10,6 +10,8 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+declare(strict_types=1);
+
 
 use \Modules\HumanResourceTimeRecording\Models\ClockingType;
 use \Modules\HumanResourceTimeRecording\Models\ClockingStatus;
@@ -30,13 +32,14 @@ echo $this->getData('nav')->render(); ?>
                                 <option value="<?= ClockingType::HOME; ?>"><?= $this->getHtml('CT2') ?>
                                 <option value="<?= ClockingType::VACATION; ?>"><?= $this->getHtml('CT3') ?>
                                 <option value="<?= ClockingType::SICK; ?>"><?= $this->getHtml('CT4') ?>
+                                <option value="<?= ClockingType::ON_THE_MOVE; ?>"><?= $this->getHtml('CT5') ?>
                             </select>
                         <tr><td><label for="iStatus"><?= $this->getHtml('Status') ?></label>
                         <tr><td>
                             <select id="iStatus" name="Status">
                                 <option value="<?= ClockingStatus::START; ?>"><?= $this->getHtml('CS0') ?>
                                 <option value="<?= ClockingStatus::PAUSE; ?>"><?= $this->getHtml('CS1') ?>
-                                <option value="<?= ClockingStatus::ON_THE_MOVE; ?>"><?= $this->getHtml('CS2') ?>
+                                <option value="<?= ClockingStatus::CONTINUE; ?>"><?= $this->getHtml('CS2') ?>
                                 <option value="<?= ClockingStatus::END; ?>"><?= $this->getHtml('CS3') ?>
                             </select>
                         <tr><td>

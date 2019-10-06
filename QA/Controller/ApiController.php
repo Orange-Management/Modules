@@ -28,6 +28,19 @@ use phpOMS\Message\ResponseAbstract;
  */
 final class ApiController extends Controller
 {
+    /**
+     * Api method to create a question
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
     public function apiQAQuestionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQAQuestionCreate($request))) {
@@ -41,6 +54,15 @@ final class ApiController extends Controller
         $response->set('question', $question->jsonSerialize());
     }
 
+    /**
+     * Method to create question from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return QAQuestion Returns the created question from the request
+     *
+     * @since 1.0.0
+     */
     public function createQAQuestionFromRquest(RequestAbstract $request) : QAQuestion
     {
         $mardkownParser = new Markdown();
@@ -56,6 +78,15 @@ final class ApiController extends Controller
         return $question;
     }
 
+    /**
+     * Validate question create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool> Returns the validation array of the request
+     *
+     * @since 1.0.0
+     */
     private function validateQAQuestionCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -75,6 +106,19 @@ final class ApiController extends Controller
         return [];
     }
 
+    /**
+     * Api method to create a answer
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
     public function apiQAAnswerCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQAAnswerCreate($request))) {
@@ -88,6 +132,15 @@ final class ApiController extends Controller
         $response->set('answer', $answer->jsonSerialize());
     }
 
+    /**
+     * Method to create answer from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return QAAnswer Returns the created answer from the request
+     *
+     * @since 1.0.0
+     */
     public function createQAAnswerFromRquest(RequestAbstract $request) : QAAnswer
     {
         $mardkownParser = new Markdown();
@@ -101,6 +154,15 @@ final class ApiController extends Controller
         return $answer;
     }
 
+    /**
+     * Validate answer create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool> Returns the validation array of the request
+     *
+     * @since 1.0.0
+     */
     private function validateQAAnswerCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -118,6 +180,19 @@ final class ApiController extends Controller
         return [];
     }
 
+    /**
+     * Api method to create a category
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
     public function apiQACategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateQACategoryCreate($request))) {
@@ -131,6 +206,15 @@ final class ApiController extends Controller
         $response->set('category', $category->jsonSerialize());
     }
 
+    /**
+     * Method to create category from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return QACategory Returns the created category from the request
+     *
+     * @since 1.0.0
+     */
     public function createQACategoryFromRquest(RequestAbstract $request) : QACategory
     {
         $mardkownParser = new Markdown();
@@ -142,6 +226,15 @@ final class ApiController extends Controller
         return $category;
     }
 
+    /**
+     * Validate category create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool> Returns the validation array of the request
+     *
+     * @since 1.0.0
+     */
     private function validateQACategoryCreate(RequestAbstract $request) : array
     {
         $val = [];

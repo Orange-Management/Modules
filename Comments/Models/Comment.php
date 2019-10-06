@@ -24,7 +24,13 @@ namespace Modules\Comments\Models;
  */
 class Comment
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $createdBy = 0;
 
@@ -34,7 +40,7 @@ class Comment
 
     private $title = '';
 
-    private $status = 0;
+    private int $status = 0;
 
     private $content = '';
 
@@ -42,11 +48,23 @@ class Comment
 
     private $ref = null;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime();
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -102,6 +120,13 @@ class Comment
         $this->contentRaw = $contentRaw;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy()
     {
         return $this->createdBy;
@@ -112,6 +137,13 @@ class Comment
         $this->createdBy = $createdBy;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

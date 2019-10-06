@@ -26,7 +26,13 @@ use Modules\Media\Models\Media;
  */
 class Item
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $number = '';
 
@@ -40,7 +46,7 @@ class Item
 
     private $successor = 0;
 
-    private $type = 0;
+    private int $type = 0;
 
     private $media = [];
 
@@ -68,16 +74,35 @@ class Item
 
     private $info = '';
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

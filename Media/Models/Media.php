@@ -111,7 +111,7 @@ class Media implements \JsonSerializable
      * @var   string
      * @since 1.0.0
      */
-    protected string $description    = '';
+    protected string $description = '';
 
     /**
      * Media Description.
@@ -149,11 +149,31 @@ class Media implements \JsonSerializable
         return $this->id;
     }
 
-    public function encrypt(string $password, string $outputPath) : void
+    /**
+     * Encrypt the media file
+     *
+     * @param string      $password   Password to encrypt the file with
+     * @param null|string $outputPath Output path of the encryption (null = replace file)
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function encrypt(string $password, string $outputPath = null) : void
     {
         // todo: implement;
     }
 
+    /**
+     * Decrypt the media file
+     *
+     * @param string      $password   Password to encrypt the file with
+     * @param null|string $outputPath Output path of the encryption (null = replace file)
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function decrypt(string $password, string $outputPath) : string
     {
         // todo: implement;

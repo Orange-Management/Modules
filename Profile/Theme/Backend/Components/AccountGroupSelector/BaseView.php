@@ -51,6 +51,13 @@ class BaseView extends View
         return $this->id;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;

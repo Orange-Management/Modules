@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\HumanResourceTimeRecording\Models;
 
 /**
- * Null model
+ * Session element model
  *
  * @package Modules\HumanResourceTimeRecording\Models
  * @license OMS License 1.0
@@ -24,11 +24,100 @@ namespace Modules\HumanResourceTimeRecording\Models;
  */
 class SessionElement implements ArrayableInterface, \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * Session element ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    private int $id = 0;
 
+    /**
+     * Session element type.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    private int $type = ClockingStatus::START;
+
+    /**
+     * DateTime
+     *
+     * @var   \DateTime
+     * @since 1.0.0
+     */
+    private \DateTime $dt;
+
+    /**
+     * Session id this element belongs to
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    private int $session = 0;
+
+    /**
+     * Constructor.
+     *
+     * @param int            $session Session id
+     * @param null|\DateTiem $dt      DateTime of the session element
+     *
+     * @since 1.0.0
+     */
+    public function __construct(int $session = 0, \DateTime $dt = null)
+    {
+        $this->session = $session;
+        $this->dt      = $dt ?? new \DateTime('now');
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int Account id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * Get the dt data
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
+    public function getDatetime() : \DateTime
+    {
+        return $this->dt;
+    }
+
+    /**
+     * Get the session element type
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getType() : int
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the session element type
+     *
+     * @param int $type Session element type
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setType(int $type) : void
+    {
+        $this->type = $type;
     }
 
     /**
@@ -37,7 +126,10 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
+            'id'       => $this->id,
+            'type'     => $this->type,
+            'dt'       => $this->dt->format('Y-m-d H:i:s'),
+            'sesseion' => $this->session,
         ];
     }
 
@@ -54,6 +146,6 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
      */
     public function jsonSerialize()
     {
-        eturn $this->toArray();
+        return $this->toArray();
     }
 }

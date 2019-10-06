@@ -26,7 +26,13 @@ use phpOMS\Localization\Money;
  */
 class InvoiceElement implements \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
     private $order = 0;
 
@@ -70,11 +76,23 @@ class InvoiceElement implements \JsonSerializable
 
     private $invoice = 0;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
 
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;

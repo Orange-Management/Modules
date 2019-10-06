@@ -24,9 +24,15 @@ namespace Modules\QA\Models;
  */
 class QAAnswer implements \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
-    private $status = QAAnswerStatus::ACTIVE;
+    private int $status = QAAnswerStatus::ACTIVE;
 
     private $answer = '';
 
@@ -38,11 +44,23 @@ class QAAnswer implements \JsonSerializable
 
     private $createdAt = null;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -88,6 +106,13 @@ class QAAnswer implements \JsonSerializable
         return $this->isAccepted;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy()
     {
         return $this->createdBy;
@@ -98,6 +123,13 @@ class QAAnswer implements \JsonSerializable
         $this->createdBy = $id;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;

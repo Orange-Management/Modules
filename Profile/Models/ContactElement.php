@@ -24,20 +24,34 @@ namespace Modules\Profile\Models;
  */
 class ContactElement
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
 
-    private $type = 0;
+    private int $type = 0;
 
     private $subtype = 0;
 
     private $value = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
 
-    private $description = '';
-
-    public function __construct()
-    {
-    }
-
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -73,11 +87,27 @@ class ContactElement
         $this->value = $value;
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescription(string $description) : void
     {
         $this->description = $description;

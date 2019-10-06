@@ -11,10 +11,10 @@ export class Editor {
 
     bind ()
     {
-        const editorButtons = document.querySelectorAll('#' + this.id + '-tools .editor-button'),
-            editorPreview   = this.editor.getElementsByTagName('article')[0],
-            length          = editorButtons.length,
-            self            = this;
+        const editorButtons = document.querySelectorAll('#' + this.id + '-tools .editor-button');
+        const editorPreview = this.editor.getElementsByTagName('article')[0];
+        const length        = editorButtons.length;
+        const self          = this;
 
         this.editorContent = this.editor.getElementsByTagName('textarea')[0];
 

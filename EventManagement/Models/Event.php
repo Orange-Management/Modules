@@ -38,15 +38,25 @@ class Event
      */
     private int $id = 0;
 
-    private $type = EventType::DEFAULT;
+    private int $type = EventType::DEFAULT;
 
     private $start = null;
 
     private $end = null;
-
-    private $name = '';
-
-    private $description = '';
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
 
     private $calendar = null;
 
@@ -148,21 +158,53 @@ class Event
         return $this->calendar;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
@@ -203,6 +245,13 @@ class Event
         return \count($this->tasks);
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;

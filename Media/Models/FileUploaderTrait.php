@@ -21,8 +21,10 @@ use phpOMS\Message\ResponseAbstract;
 /**
  * Options trait.
  *
- * @package    Modules\Media\Models
- * @since      1.0.0
+ * @package Modules\Media\Models
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
  */
 trait FileUploaderTrait
 {

@@ -24,15 +24,31 @@ namespace Modules\Kanban\Models;
  */
 class KanbanCard implements \JsonSerializable
 {
-    private $id = 0;
+    /**
+     * ID.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+    /**
+     * Name.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $name = '';
 
-    private $name = '';
+    private int $status = CardStatus::ACTIVE;
 
-    private $status = CardStatus::ACTIVE;
-
-    private $type = CardType::TEXT;
-
-    private $description = '';
+    private int $type = CardType::TEXT;
+    /**
+     * Description.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $description = '';
 
     private $column = 0;
 
@@ -50,6 +66,11 @@ class KanbanCard implements \JsonSerializable
 
     private $media = [];
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
@@ -65,6 +86,13 @@ class KanbanCard implements \JsonSerializable
         $this->order = $order;
     }
 
+    /**
+     * Get id.
+     *
+     * @return int Model id
+     *
+     * @since 1.0.0
+     */
     public function getId() : int
     {
         return $this->id;
@@ -80,11 +108,27 @@ class KanbanCard implements \JsonSerializable
         return $this->column;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getName() : string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setName(string $name) : void
     {
         $this->name = $name;
@@ -120,26 +164,65 @@ class KanbanCard implements \JsonSerializable
         $this->ref = $ref;
     }
 
+    /**
+     * Get description
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescription(string $description) : void
     {
         $this->description = $description;
     }
 
+    /**
+     * Get created by
+     *
+     * @return int|\phpOMS\Account\Account
+     *
+     * @since 1.0.0
+     */
     public function getCreatedBy()
     {
         return $this->createdBy;
     }
 
-    public function setCreatedBy(int $id) : void
+    /**
+     * Set created by
+     *
+     * @param mixed $id Created by
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }
 
+    /**
+     * Get created at date time
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
     public function getCreatedAt() : \DateTime
     {
         return $this->createdAt;
