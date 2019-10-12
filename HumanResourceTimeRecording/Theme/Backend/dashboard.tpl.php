@@ -64,10 +64,21 @@ echo $this->getData('nav')->render(); ?>
     </div>
 
     <div class="col-md-4 col-xs-12">
-        <section class="box wf-100">
-            <div class="inner">
-            </div>
-        </section>
+        <div class="box wf-100">
+        <table id="accountList" class="default">
+                <caption><?= $this->getHtml('Recordings') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                <thead>
+                <tr>
+                    <td><?= $this->getHtml('Date'); ?>
+                    <td><?= $this->getHtml('Start') ?>
+                    <td><?= $this->getHtml('Break') ?>
+                    <td><?= $this->getHtml('End') ?>
+                    <td><?= $this->getHtml('Total') ?>
+                <tfoot>
+                <tr><td colspan="5">
+                <tbody>
+            </table>
+        </div>
     </div>
 </div>
 

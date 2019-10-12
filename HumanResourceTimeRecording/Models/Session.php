@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\HumanResourceTimeRecording\Models;
 
+use phpOMS\Contract\ArrayableInterface;
+
 /**
  * Session model
  *
