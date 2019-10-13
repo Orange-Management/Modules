@@ -13,9 +13,8 @@
                 name="<?= $this->renderName(); ?>"
                 form="<?= $this->renderForm(); ?>"
                 data-tpl-text="<?= $this->renderTplText(); ?>"
-                data-tpl-value="<?= $this->renderTplValue(); ?>">
-                <?= $this->renderPlain(); ?>
-            </textarea><input type="hidden" id="<?= $this->renderId(); ?>-parsed">
+                data-tpl-value="<?= $this->renderTplValue(); ?>"><?= $this->renderPlain(); ?></textarea>
+            <input type="hidden" id="<?= $this->renderId(); ?>-parsed">
         </div>
 
         <input type="radio" id="<?= $this->renderId(); ?>-c-tab-2" name="tabular-1">

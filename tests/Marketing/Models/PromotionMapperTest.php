@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Marketing\Models;
 
 use Modules\Marketing\Models\Promotion;

@@ -12,22 +12,11 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\HumanResourceManagement\Models;
 
-use Modules\Admin\Models\Account;
-use Modules\Admin\Models\AccountMapper;
 use Modules\HumanResourceManagement\Models\Employee;
-
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
-use Modules\Organization\Models\Department;
-use Modules\Organization\Models\Position;
-use Modules\Organization\Models\Unit;
-
-use phpOMS\Account\AccountStatus;
-use phpOMS\Account\AccountType;
-
-use phpOMS\Utils\RnG\Name;
+use Modules\Profile\Models\ProfileMapper;
 
 /**
  * @internal
@@ -36,5 +25,12 @@ class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
 {
     public function testCRUD() : void
     {
+        $employee = new Employee(ProfileMapper::get(1));
+
+        $id = EmployeeMapper::create($employee);
+        self::assertGreaterThan(0, $employee->getId());
+        self::assertEquals($id, $employee->getId());
+
+        $employeeR = EmployeeMapper::get($employee->getId());
     }
 }

@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Navigation\Admin;
 
 use Modules\Admin\Models\AccountMapper;

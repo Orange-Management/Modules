@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Tasks\Models;
 
 use Modules\Tasks\Models\AccountRelation;

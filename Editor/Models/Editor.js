@@ -36,7 +36,12 @@ export class Editor {
         let textarea = this.editor.getElementsByTagName('textarea')[0];
 
         const startPosition = textarea.selectionStart;
-        const endPosition   = textarea.selectionEnd;
+        let endPosition     = textarea.selectionEnd;
+        let startOffset     = 0;
+        let endOffset       = 0;
+        let lines           = [];
+        let linesLength     = 0;
+        let end             = '';
 
         switch (e.dataset['editorButton']) {
             case 'undo':
@@ -46,39 +51,74 @@ export class Editor {
 
                 break;
             case 'bold':
+                startOffset = 2;
+                endOffset   = 2;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '**' + textarea.value.slice(startPosition, endPosition) + '**'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'italic':
+                startOffset = 1;
+                endOffset   = 1;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '*' + textarea.value.slice(startPosition, endPosition) + '*'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'underline':
+                startOffset = 2;
+                endOffset   = 2;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '__' + textarea.value.slice(startPosition, endPosition) + '__'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'strikethrough':
+                startOffset = 2;
+                endOffset   = 2;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '~~' + textarea.value.slice(startPosition, endPosition) + '~~'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'ulist':
-                textarea.value = textarea.value.slice(0, startPosition) + "\n"
-                    + '    * ' + textarea.value.slice(startPosition, endPosition)
-                    + textarea.value.slice(endPosition, textarea.value.length);
+                lines       = textarea.value.slice(startPosition, endPosition).split("\n");
+                linesLength = lines.length;
+
+                textarea.value = textarea.value.slice(0, startPosition);
+                end            = textarea.value.slice(endPosition, textarea.value.length);
+
+                for (let i = 0; i < linesLength; ++i) {
+                    textarea.value += '    * ' + lines[i] + "\n";
+                }
+
+                endPosition     = startPosition;
+                textarea.value += end;
                 break;
             case 'olist':
-                textarea.value = textarea.value.slice(0, startPosition) + "\n"
-                    + '    1. ' + textarea.value.slice(startPosition, endPosition)
-                    + textarea.value.slice(endPosition, textarea.value.length);
+                lines       = textarea.value.slice(startPosition, endPosition).split("\n");
+                linesLength = lines.length;
+
+                textarea.value = textarea.value.slice(0, startPosition);
+                end            = textarea.value.slice(endPosition, textarea.value.length);
+
+                for (let i = 0; i < linesLength; ++i) {
+                    textarea.value += '    ' + (i + 1) + '. ' + lines[i] + "\n";
+                }
+
+                endPosition     = startPosition;
+                textarea.value += end;
                 break;
             case 'indent':
-                textarea.value = textarea.value.slice(0, startPosition)
-                    + '    ' + textarea.value.slice(startPosition, endPosition)
-                    + textarea.value.slice(endPosition, textarea.value.length);
+                lines       = textarea.value.slice(startPosition, endPosition).split("\n");
+                linesLength = lines.length;
+
+                textarea.value = textarea.value.slice(0, startPosition);
+                end            = textarea.value.slice(endPosition, textarea.value.length);
+
+                for (let i = 0; i < linesLength; ++i) {
+                    textarea.value += '    ' + lines[i] + "\n";
+                }
+
+                endPosition     = startPosition;
+                textarea.value += end;
                 break;
             case 'table':
                 textarea.value = textarea.value.slice(0, startPosition) + "\n"
@@ -90,6 +130,8 @@ export class Editor {
                     + textarea.value.slice(startPosition, textarea.value.length);
                 break;
             case 'link':
+                startOffset = 1;
+                endOffset   = 0;
                 let link = textarea.value.slice(startPosition, endPosition);
 
                 textarea.value = textarea.value.slice(0, startPosition)
@@ -97,22 +139,24 @@ export class Editor {
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'code':
+                startOffset = 1;
+                endOffset   = 1;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '`' + textarea.value.slice(startPosition, endPosition) + '`'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'quote':
-                textarea.value = textarea.value.slice(0, startPosition) + "\n"
+                startOffset = 2;
+                endOffset   = 0;
+                textarea.value = textarea.value.slice(0, startPosition)
                     + '> ' + textarea.value.slice(startPosition, textarea.value.length);
                 break;
             default:
                 break;
         }
 
-        const cursorPosition = endPosition === startPosition ? endPosition + 2 : endPosition;
-
         textarea.focus();
-        textarea.setSelectionRange(cursorPosition, cursorPosition);
+        textarea.setSelectionRange(startPosition + startOffset, endPosition + startOffset);
     };
 
     getSelectedText ()

@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Kanban\Models;
 
 use Modules\Kanban\Models\KanbanBoard;

@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\tests\HumanResourceTimeManagement\Admin;
+namespace Modules\tests\HumanResourceTimeRecording\Admin;
 
 /**
  * @internal
@@ -21,12 +21,6 @@ class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'HumanResourceTimeRecording';
     protected const URI_LOAD = '';
-
-    public function testDummy()
-    {
-        $a = 1;
-
-    }
 
     use \Modules\tests\ModuleTestTrait;
 }

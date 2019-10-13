@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Accounting\Models;
 
 use Modules\Accounting\Models\Balance;

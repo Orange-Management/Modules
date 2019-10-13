@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\ClientManagement\Models;
 
 use Modules\ClientManagement\Models\Client;

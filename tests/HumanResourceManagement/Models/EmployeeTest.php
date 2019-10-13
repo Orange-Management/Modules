@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\HumanResourceManagement\Models;
 
 use Modules\Admin\Models\Account;

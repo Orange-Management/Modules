@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Organization;
 
 require_once __DIR__ . '/../Autoloader.php';

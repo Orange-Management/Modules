@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Calendar\Models;
 
 use Modules\Calendar\Models\Event;

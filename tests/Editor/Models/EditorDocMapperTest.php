@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Editor\Models;
 
 use Modules\Editor\Models\EditorDoc;

@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Knowledgebase\Models;
 
 use Modules\Knowledgebase\Models\WikiCategory;

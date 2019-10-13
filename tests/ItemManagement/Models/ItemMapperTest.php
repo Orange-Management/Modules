@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\ItemManagement\Models;
 
 use Modules\ItemManagement\Models\Item;

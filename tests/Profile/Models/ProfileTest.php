@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 namespace Modules\tests\Profile\Models;
 
 use Modules\Profile\Models\Profile;
