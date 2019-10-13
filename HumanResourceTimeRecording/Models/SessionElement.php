@@ -35,12 +35,12 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     private int $id = 0;
 
     /**
-     * Session element type.
+     * Session element status.
      *
      * @var   int
      * @since 1.0.0
      */
-    private int $type = ClockingStatus::START;
+    private int $status = ClockingStatus::START;
 
     /**
      * DateTime
@@ -53,10 +53,10 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     /**
      * Session id this element belongs to
      *
-     * @var   int
+     * @var   int|Session
      * @since 1.0.0
      */
-    private int $session = 0;
+    private $session = 0;
 
     /**
      * Constructor.
@@ -66,7 +66,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
      *
      * @since 1.0.0
      */
-    public function __construct(int $session = 0, \DateTime $dt = null)
+    public function __construct($session = 0, \DateTime $dt = null)
     {
         $this->session = $session;
         $this->dt      = $dt ?? new \DateTime('now');
@@ -97,29 +97,41 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * Get the session element type
+     * Get the session element status
      *
      * @return int
      *
      * @since 1.0.0
      */
-    public function getType() : int
+    public function getStatus() : int
     {
-        return $this->type;
+        return $this->status;
     }
 
     /**
-     * Set the session element type
+     * Set the session element status
      *
-     * @param int $type Session element type
+     * @param int $status Session element status
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setType(int $type) : void
+    public function setStatus(int $status) : void
     {
-        $this->type = $type;
+        $this->status = $status;
+    }
+
+    /**
+     * Get session this element is for
+     *
+     * @return int|Session
+     *
+     * @since 1.0.0
+     */
+    public function getSession()
+    {
+        return $this->session;
     }
 
     /**
@@ -129,7 +141,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     {
         return [
             'id'       => $this->id,
-            'type'     => $this->type,
+            'status'     => $this->status,
             'dt'       => $this->dt->format('Y-m-d H:i:s'),
             'sesseion' => $this->session,
         ];

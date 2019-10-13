@@ -17,4 +17,15 @@ return [
             ],
         ],
     ],
+    '^.*/private/timerecording/dashboard.*$' => [
+        [
+            'dest' => '\Modules\HumanResourceTimeRecording\Controller\BackendController:viewPrivateDashboard',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::PRIVATE_DASHBOARD,
+            ],
+        ],
+    ],
 ];

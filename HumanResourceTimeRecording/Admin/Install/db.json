@@ -22,7 +22,8 @@
             "hr_timerecording_session_end": {
                 "name": "hr_timerecording_session_end",
                 "type": "DATETIME",
-                "null": false
+                "null": true,
+                "default": null
             },
             "hr_timerecording_session_busy": {
                 "name": "hr_timerecording_session_busy",
@@ -48,8 +49,8 @@
                 "primary": true,
                 "autoincrement": true
             },
-            "hr_timerecording_session_element_type": {
-                "name": "hr_timerecording_session_element_type",
+            "hr_timerecording_session_element_status": {
+                "name": "hr_timerecording_session_element_status",
                 "type": "TINYINT",
                 "null": false
             },

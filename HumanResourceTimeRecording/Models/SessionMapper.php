@@ -16,6 +16,8 @@ namespace Modules\HumanResourceTimeRecording\Models;
 
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Mapper class.
@@ -86,4 +88,41 @@ final class SessionMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static string $primaryField = 'hr_timerecording_session_id';
+
+    /**
+     * Created at column
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    protected static string $createdAt = 'hr_timerecording_session_start';
+
+    /**
+     * Get last sessions from all employees
+     *
+     * @return array
+     *
+     * @todo: consider selecting only active employees
+     * @todo: consider using a datetime to limit the results to look for
+     *
+     * @since 1.0.0
+     */
+    public static function getLastSessionsForDate(\DateTime $dt = null) : array
+    {
+        $join = new Builder(self::$db);
+        $join->prefix(self::$db->getPrefix())
+            ->select(self::$table . '.hr_timerecording_session_employee')
+            ->selectAs('MAX(hr_timerecording_session_start)', 'maxDate')
+            ->from(self::$table)
+            ->groupBy(self::$table . '.hr_timerecording_session_employee');
+
+        $query = new Builder(self::$db);
+        $query->prefix(self::$db->getPrefix())
+            ->select('*')->fromAs(self::$table, 't')
+            ->innerJoin($join, 'tm')
+            ->on('t.hr_timerecording_session_employee', '=', 'tm.hr_timerecording_session_employee')
+            ->andOn('t.hr_timerecording_session_start', '=', 'tm.maxDate');
+
+        return self::getAllByQuery($query, RelationType::ALL, 6);
+    }
 }

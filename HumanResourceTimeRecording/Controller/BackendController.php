@@ -18,6 +18,7 @@ use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
+use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 
 /**
  * TimeRecording controller class.
@@ -47,6 +48,33 @@ final class BackendController extends Controller
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
+
+        $list = SessionMapper::getLastSessionsForDate(new \DateTime('now'));
+        $view->addData('sessions', $list);
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewPrivateDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/private-dashboard');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006303001, $request, $response));
+
+        $list = SessionMapper::getNewest(50);
+        $view->addData('sessions', $list);
 
         return $view;
     }

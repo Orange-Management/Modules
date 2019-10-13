@@ -85,11 +85,14 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Constructor.
      *
+     * @param int|Employee $employee Employee
+     *
      * @since 1.0.0
      */
-    public function __construct()
+    public function __construct($employee = 0)
     {
-        $this->start = new \DateTime('now');
+        $this->start    = new \DateTime('now');
+        $this->employee = $employee;
     }
 
     /**
@@ -105,6 +108,18 @@ class Session implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get employee.
+     *
+     * @return int|Employee
+     *
+     * @since 1.0.0
+     */
+    public function getEmployee()
+    {
+        return $this->employee;
+    }
+
+    /**
      * Add a session element to the session
      *
      * @param int|SessionElement $element Session element
@@ -115,9 +130,75 @@ class Session implements ArrayableInterface, \JsonSerializable
      */
     public function addSessionElement($element) : void
     {
-        $this->sessionElement[] = $element;
+        if ($element->getStatus() === ClockingStatus::START) {
+            // todo: prevent multiple starts and ends per session?
 
-        // todo: if quit element or pause element re-calculate busy time!
+            $this->start = $element->getDatetime();
+        }
+
+        if ($element->getStatus() === ClockingStatus::END) {
+            // todo: prevent multiple starts and ends per session?
+
+            $this->end = $element->getDatetime();
+        }
+
+        $this->sessionElements[] = $element;
+
+        \usort($this->sessionElements, function($a, $b) {
+            return $a->getDatetime()->getTimestamp() <=> $b->getDatetime()->getTimestamp();
+        });
+
+        $busyTime  = 0;
+        $lastStart = $this->start;
+
+        foreach ($this->sessionElements as $e) {
+            if ($e->getStatus() === ClockingStatus::START) {
+                continue;
+            }
+
+            if ($e->getStatus() === ClockingStatus::PAUSE || $e->getStatus() === ClockingStatus::END) {
+                $busyTime += $e->getDatetime()->getTimestamp() - $lastStart->getTimestamp();
+            }
+
+            if ($e->getStatus() === ClockingStatus::CONTINUE) {
+                $lastStart = $e->getDatetime();
+            }
+        }
+
+        $this->busy = $busyTime;
+    }
+
+    /**
+     * Get the total break time of a session
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getBreak() : int
+    {
+        \usort($this->sessionElements, function($a, $b) {
+            return $a->getDatetime()->getTimestamp() <=> $b->getDatetime()->getTimestamp();
+        });
+
+        $breakTime = 0;
+        $lastBreak = $this->start;
+
+        foreach ($this->sessionElements as $element) {
+            if ($element->getStatus() === ClockingStatus::START) {
+                continue;
+            }
+
+            if ($element->getStatus() === ClockingStatus::PAUSE || $element->getStatus() === ClockingStatus::END) {
+                $lastBreak = $element->getDatetime();
+            }
+
+            if ($element->getStatus() === ClockingStatus::CONTINUE) {
+                $breakTime += $element->getDatetime()->getTimestamp() - ($lastBreak->getTimestamp() ?? 0);
+            }
+        }
+
+        return $breakTime;
     }
 
     /**
