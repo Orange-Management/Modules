@@ -18,6 +18,7 @@ use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
+use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 
 /**
  * TimeRecording controller class.
@@ -47,6 +48,9 @@ final class TimerecordingController extends Controller
         $view = new View($this->app, $request, $response);
         $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Timeterminal/overview');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
+
+        $list = SessionMapper::getNewest(50);
+        $view->addData('sessions', $list);
 
         return $view;
     }

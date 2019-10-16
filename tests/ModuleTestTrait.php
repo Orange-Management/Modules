@@ -102,6 +102,7 @@ trait ModuleTestTrait
             $class            = $this->getMapperFromPath($mapper);
             $mapperReflection = new \ReflectionClass($class);
             $columns          = $mapperReflection->getDefaultProperties()['columns'];
+            $ownsOne          = $mapperReflection->getDefaultProperties()['ownsOne'];
 
             if ($class === '\Modules\Admin\Models\ModuleMapper') {
                 continue;
@@ -136,7 +137,8 @@ trait ModuleTestTrait
                     || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable' || $isArray))
                     || (\is_bool($property) && $column['type'] === 'bool')
                     || (\is_float($property) && $column['type'] === 'float')
-                    || ($property instanceof \DateTime && $column['type'] === 'DateTime'),
+                    || ($property instanceof \DateTime && $column['type'] === 'DateTime')
+                    || (isset($ownsOne[$column['internal']]) && $column['type'] === 'int'), // if it is in ownsOne it can be a different type because it is a reference!
                     'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition'
                 );
             }

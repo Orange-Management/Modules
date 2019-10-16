@@ -41,7 +41,9 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td><?= $session->getStart()->format('Y-m-d'); ?>
                     <td><span class="tag">Status Here</span>
-                    <td><?= $session->getEmployee()->getProfile()->getAccount()->getName1(); ?>, <?= $session->getEmployee()->getProfile()->getAccount()->getName2(); ?>
+                    <td>
+                        <?= $this->printHtml($session->getEmployee()->getProfile()->getAccount()->getName1()); ?>,
+                        <?= $this->printHtml($session->getEmployee()->getProfile()->getAccount()->getName2()); ?>
                     <td><?= $session->getStart()->format('H:i:s'); ?>
                     <td><?= (int) ($session->getBreak() / 3600); ?>h <?= ((int) ($session->getBreak() / 60) % 60); ?>m
                     <td><?= $session->getEnd() !== null ? $session->getEnd()->format('H:i') : ''; ?>

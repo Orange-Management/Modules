@@ -137,8 +137,26 @@ class TaskTest extends \PHPUnit\Framework\TestCase
             'due' => $task->getDue()->format('Y-m-d H:i:s'),
             'done' => $task->getDone()->format('Y-m-d H:i:s'),
         ];
-        self::assertArraySubset($arr, $task->toArray());
-        self::assertArraySubset($arr, $task->jsonSerialize());
+
+        $isSubset = true;
+        $parent   = $task->toArray();
+        foreach ($arr as $key => $value) {
+            if (!isset($parent[$key]) || $parent[$key] !== $value) {
+                $isSubset = false;
+                break;
+            }
+        }
+        self::assertTrue($isSubset);
+
+        $isSubset = true;
+        $parent   = $task->jsonSerialize();
+        foreach ($arr as $key => $value) {
+            if (!isset($parent[$key]) || $parent[$key] !== $value) {
+                $isSubset = false;
+                break;
+            }
+        }
+        self::assertTrue($isSubset);
     }
 
     public function testInvalidStatus() : void
