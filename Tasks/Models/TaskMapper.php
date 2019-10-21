@@ -137,7 +137,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -155,7 +155,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -178,7 +178,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -201,7 +201,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -224,7 +224,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -241,7 +241,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -263,7 +263,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
@@ -285,7 +285,7 @@ final class TaskMapper extends DataMapperAbstract
      *
      * @param int $user User
      *
-     * @return array
+     * @return Task[]
      *
      * @since 1.0.0
      */
