@@ -17,6 +17,8 @@ namespace Modules\tests\HumanResourceManagement\Models;
 use Modules\HumanResourceManagement\Models\Employee;
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
 use Modules\Profile\Models\ProfileMapper;
+use Modules\Profile\Models\Profile;
+use Modules\Admin\Models\AccountMapper;
 
 /**
  * @internal
@@ -25,7 +27,16 @@ class EmployeeMapperTest extends \PHPUnit\Framework\TestCase
 {
     public function testCRUD() : void
     {
-        $employee = new Employee(ProfileMapper::get(1));
+        if (($profile = ProfileMapper::getFor(1, 'account'))->getId() === 0) {
+            $profile = new Profile();
+
+            $profile->setAccount(AccountMapper::get(1));
+            $profile->setBirthday($date = new \DateTime('now'));
+
+            $id = ProfileMapper::create($profile);
+        }
+
+        $employee = new Employee(ProfileMapper::getFor(1, 'account'));
 
         $id = EmployeeMapper::create($employee);
         self::assertGreaterThan(0, $employee->getId());
