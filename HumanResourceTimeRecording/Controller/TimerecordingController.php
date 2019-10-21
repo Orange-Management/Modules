@@ -14,11 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\HumanResourceTimeRecording\Controller;
 
+use Modules\HumanResourceTimeRecording\Models\SessionMapper;
+
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
-use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 
 /**
  * TimeRecording controller class.

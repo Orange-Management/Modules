@@ -18,6 +18,7 @@ use Modules\HumanResourceManagement\Models\EmployeeMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\Stdlib\Base\SmartDateTime;
 
 /**
  * Mapper class.
@@ -100,14 +101,14 @@ final class SessionMapper extends DataMapperAbstract
     /**
      * Get last sessions from all employees
      *
-     * @return array
+     * @return Session[]
      *
      * @todo: consider selecting only active employees
      * @todo: consider using a datetime to limit the results to look for
      *
      * @since 1.0.0
      */
-    public static function getLastSessionsForDate(\DateTime $dt = null) : array
+    public static function getLastSessionsFromAllEmployees(\DateTime $dt = null) : array
     {
         $join = new Builder(self::$db);
         $join->prefix(self::$db->getPrefix())
@@ -124,5 +125,69 @@ final class SessionMapper extends DataMapperAbstract
             ->andOn('t.hr_timerecording_session_start', '=', 'tm.maxDate');
 
         return self::getAllByQuery($query, RelationType::ALL, 6);
+    }
+
+    /**
+     * Get the most plausible open session for an employee.
+     *
+     * This searches for an open session that could be ongoing. This is required to automatically select
+     * the current session for breaks, work continuation and ending work sessions without manually selecting
+     * the current session.
+     *
+     * @param int $employee Employee id
+     *
+     * @return null|Session
+     *
+     * @since 1.0.0
+     */
+    public static function getMostPlausibleOpenSessionForEmployee(int $employee) : ?Session
+    {
+        $dt = new SmartDateTime('now');
+        $dt->smartModify(0, 0, -32);
+
+        $query = self::getQuery();
+        $query->where(self::$table.'.hr_timerecording_session_employee', '=', $employee)
+            ->andWhere(self::$table.'.hr_timerecording_session_start', '>', $dt)
+            ->orderBy(self::$table.'.hr_timerecording_session_start', 'DESC')
+            ->limit(1);
+
+        /** @var Session[] $session */
+        $sessions = self::getAllByQuery($query, RelationType::ALL, 6);
+
+        if (empty($sessions)) {
+            return null;
+        }
+
+        if (\end($sessions)->getEnd() === null) {
+            return \end($sessions);
+        }
+
+        return null;
+    }
+
+    /**
+     * Get newest sessions for employee
+     *
+     * @param int       $employee Employee to get the sessions for
+     * @param \DateTime $start    Sessions after this date
+     */
+    public static function getNewestForEmployee(int $employee, \DateTime $start) : array
+    {
+        $query = new Builder(self::$db);
+        $query = self::getQuery($query)
+            ->where(self::$table . '.hr_timerecording_session_employee', '=', $employee)
+            ->andWhere(self::$table . '.' . self::$createdAt, '>', $start->format('Y-m-d'))
+            ->orderBy(self::$table . '.' . self::$createdAt, 'DESC');
+
+        $sth = self::$db->con->prepare($query->toSql());
+        $sth->execute();
+
+        $results = $sth->fetchAll(\PDO::FETCH_ASSOC);
+        $obj     = self::populateIterable($results === false ? [] : $results);
+
+        self::fillRelations($obj, RelationType::ALL, 6);
+        self::clear();
+
+        return $obj;
     }
 }

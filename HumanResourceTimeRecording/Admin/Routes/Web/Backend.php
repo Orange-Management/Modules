@@ -28,4 +28,15 @@ return [
             ],
         ],
     ],
+    '^.*/private/timerecording/session.*$' => [
+        [
+            'dest' => '\Modules\HumanResourceTimeRecording\Controller\BackendController:viewPrivateSession',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::PRIVATE_DASHBOARD,
+            ],
+        ],
+    ],
 ];

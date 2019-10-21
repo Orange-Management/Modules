@@ -131,13 +131,19 @@ class Session implements ArrayableInterface, \JsonSerializable
     public function addSessionElement($element) : void
     {
         if ($element->getStatus() === ClockingStatus::START) {
-            // todo: prevent multiple starts and ends per session?
+            foreach ($this->sessionElements as $e) {
+                if ($e->getStatus === ClockingStatus::START) {
+                    return;
+                }
+            }
 
             $this->start = $element->getDatetime();
         }
 
         if ($element->getStatus() === ClockingStatus::END) {
-            // todo: prevent multiple starts and ends per session?
+            if ($this->end !== null) {
+                return;
+            }
 
             $this->end = $element->getDatetime();
         }
@@ -166,6 +172,42 @@ class Session implements ArrayableInterface, \JsonSerializable
         }
 
         $this->busy = $busyTime;
+    }
+
+    /**
+     * Get all session elements
+     *
+     * @return SessionElement[]
+     *
+     * @since 1.0.0
+     */
+    public function getSessionElements() : array
+    {
+        return $this->sessionElements;
+    }
+
+    /**
+     * Get the status of the last session element
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getStatus() : int
+    {
+        if (\count($this->sessionElements) === 0) {
+            return ClockingStatus::START;
+        }
+
+        \usort($this->sessionElements, function($a, $b) {
+            return $a->getDatetime()->getTimestamp() <=> $b->getDatetime()->getTimestamp();
+        });
+
+        $last = \end($this->sessionElements);
+
+        \reset($this->sessionElements);
+
+        return $last->getStatus();
     }
 
     /**

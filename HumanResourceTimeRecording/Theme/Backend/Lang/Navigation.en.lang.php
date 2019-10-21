@@ -15,5 +15,7 @@ declare(strict_types=1);
 return ['Navigation' => [
     'Create'        => 'Create',
     'List'          => 'List',
+    'Stats'         => 'Stats',
     'TimeRecording' => 'Time Recording',
+    'Today'         => 'Today',
 ]];

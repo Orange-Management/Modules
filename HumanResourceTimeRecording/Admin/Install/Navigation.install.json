@@ -34,7 +34,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Stats",
-                "uri": "{/prefix}humanresource/timerecording/dashboard?{?}",
+                "uri": "{/prefix}humanresource/timerecording/stats?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 1,

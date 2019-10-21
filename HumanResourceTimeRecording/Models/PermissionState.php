@@ -26,6 +26,10 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class PermissionState extends Enum
 {
-    public const DASHBOARD         = 1;
-    public const PRIVATE_DASHBOARD = 2;
+    public const DASHBOARD               = 1;
+    public const PRIVATE_DASHBOARD       = 2;
+    public const SESSION                 = 3;
+    public const SESSION_FOREIGN         = 4;
+    public const SESSION_ELEMENT         = 5;
+    public const SESSION_ELEMENT_FOREIGN = 6;
 }
