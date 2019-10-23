@@ -22,6 +22,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
 use phpOMS\Stdlib\Base\SmartDateTime;
+use phpOMS\Views\PaginationView;
 
 /**
  * TimeRecording controller class.
@@ -79,11 +80,11 @@ final class BackendController extends Controller
         $employee        = EmployeeMapper::getFromAccount($request->getHeader()->getAccount())->getId();
         $lastOpenSession = SessionMapper::getMostPlausibleOpenSessionForEmployee($employee);
 
-        $limit = new SmartDateTime('now');
-        $limit = $limit->getEndOfMonth();
+        $start = new SmartDateTime('now');
+        $limit = $start->getEndOfMonth();
         $limit->smartModify(0, -2, 0);
 
-        $list = SessionMapper::getNewestForEmployee($employee, $limit);
+        $list = SessionMapper::getSessionListForEmployee($employee, $start, 0);
 
         $view->addData('sessions', $list);
         $view->addData('lastSession', $lastOpenSession);

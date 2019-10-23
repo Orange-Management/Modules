@@ -166,18 +166,26 @@ final class SessionMapper extends DataMapperAbstract
     }
 
     /**
-     * Get newest sessions for employee
+     * Get sessions for employee
      *
-     * @param int       $employee Employee to get the sessions for
-     * @param \DateTime $start    Sessions after this date
+     * @param int       $employee Employee id
+     * @param \DateTime $start    Start
+     * @param int       $offset   Offset
+     * @param int       $limit    Result limit
+     *
+     * @return Session[]
+     *
+     * @since 1.0.0
      */
-    public static function getNewestForEmployee(int $employee, \DateTime $start) : array
+    public static function getSessionListForEmployee(int $employee, \DateTime $start, int $offset = 0, int $limit = 50) : array
     {
         $query = new Builder(self::$db);
         $query = self::getQuery($query)
             ->where(self::$table . '.hr_timerecording_session_employee', '=', $employee)
-            ->andWhere(self::$table . '.' . self::$createdAt, '>', $start->format('Y-m-d'))
-            ->orderBy(self::$table . '.' . self::$createdAt, 'DESC');
+            ->andWhere(self::$table . '.' . self::$createdAt, '<=', $start->format('Y-m-d'))
+            ->orderBy(self::$table . '.' . self::$createdAt, 'DESC')
+            ->offset($offset)
+            ->limit($limit);
 
         $sth = self::$db->con->prepare($query->toSql());
         $sth->execute();

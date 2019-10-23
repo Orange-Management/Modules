@@ -172,6 +172,8 @@ show additional section with vacation days
                 ?>
                 <?php endforeach; ?>
             </table>
+
+            <?= $this->getData('pagination')->render(); ?>
         </div>
     </div>
 </div>

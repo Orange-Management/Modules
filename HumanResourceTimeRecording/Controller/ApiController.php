@@ -44,6 +44,37 @@ use phpOMS\DataStorage\Database\RelationType;
 final class ApiController extends Controller
 {
     /**
+     * Api method to get multiple sessions for an employee
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiSessionsListForEmployeeGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $account = (int) ($request->getData('account') ?? $request->getHeader()->getAccount());
+
+        if ($request->getData('account') !== null) {
+            if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+                PermissionType::GET, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SESSION_FOREIGN
+            )) {
+                $this->fillJsonResponse($request, $response, NotificationLevel::HIDDEN, '', '', []);
+            }
+        }
+
+        $employee = EmployeeMapper::getFromAccount($account);
+
+        $sessions = SessionMapper::getSessionListForEmployee($employee->getId(), (int) ($request->getData('session') ?? 0), 50);
+        $this->fillJsonResponse($request, $response, NotificationLevel::HIDDEN, '', '', $sessions);
+    }
+
+    /**
      * Api method to create a session
      *
      * @param RequestAbstract  $request  Request
