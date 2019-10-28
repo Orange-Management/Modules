@@ -66,7 +66,7 @@ class Controller extends ModuleAbstract implements WebInterface
      * @var   string[]
      * @since 1.0.0
      */
-    protected static $localization = [
+    protected static array $localization = [
     ];
 
     /**

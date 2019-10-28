@@ -25,7 +25,7 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Utils\TestUtils;
 
 /**
@@ -69,7 +69,7 @@ class BackendControllerTest extends \PHPUnit\Framework\TestCase
         $account->addPermission($permission);
 
         $this->app->accountManager->add($account);
-        $this->app->router = new Router();
+        $this->app->router = new WebRouter();
 
         $this->module = $this->app->moduleManager->get('Tasks');
 

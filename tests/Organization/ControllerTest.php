@@ -30,7 +30,7 @@ use phpOMS\Message\Http\Request;
 
 use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 
 use phpOMS\Uri\Http;
 
@@ -78,7 +78,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $account->addPermission($permission);
 
         $this->app->accountManager->add($account);
-        $this->app->router = new Router();
+        $this->app->router = new WebRouter();
 
         $this->module = $this->app->moduleManager->get('Organization');
 
@@ -163,7 +163,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$departmentId);
-        
+
         $this->module->apiDepartmentGet($request, $response);
 
         self::assertEquals('test', $response->get('')['response']->getName());

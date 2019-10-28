@@ -21,7 +21,7 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 
 require_once __DIR__ . '/../Autoloader.php';
 
@@ -50,7 +50,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
         $this->app->eventManager->importFromFile(__DIR__ . '/../../../Web/Api/Hooks.php');
 
-        $this->app->router = new Router();
+        $this->app->router = new WebRouter();
 
         $this->module = $this->app->moduleManager->get('Media');
     }

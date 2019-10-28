@@ -21,7 +21,7 @@ use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Message\Http\Request;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Module\NullModule;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\ArrayUtils;
 use phpOMS\Validation\Base\Json;
@@ -39,7 +39,7 @@ trait ModuleTestTrait
         };
 
         $this->app->dbPool     = $GLOBALS['dbpool'];
-        $this->app->router     = new Router();
+        $this->app->router     = new WebRouter();
         $this->app->dispatcher = new Dispatcher($this->app);
     }
 

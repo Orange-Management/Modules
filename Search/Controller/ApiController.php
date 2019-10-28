@@ -18,7 +18,7 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\System\MimeType;
 
 /**
@@ -40,7 +40,7 @@ final class ApiController extends Controller
     {
         parent::__construct($app);
 
-        $this->router = new Router();
+        $this->router = new WebRouter();
         $this->router->importFromFile(__DIR__ . '/../SearchCommands.php');
     }
 

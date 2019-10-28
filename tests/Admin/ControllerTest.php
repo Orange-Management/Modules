@@ -34,7 +34,7 @@ use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleManager;
 
-use phpOMS\Router\Router;
+use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Http;
 
 use phpOMS\Utils\TestUtils;
@@ -81,7 +81,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $account->addPermission($permission);
 
         $this->app->accountManager->add($account);
-        $this->app->router = new Router();
+        $this->app->router = new WebRouter();
 
         $this->module = $this->app->moduleManager->get('Admin');
 
