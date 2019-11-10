@@ -51,6 +51,7 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testVolume() : void
     {

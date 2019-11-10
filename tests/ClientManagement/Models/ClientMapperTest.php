@@ -26,6 +26,9 @@ use phpOMS\Utils\RnG\Name;
 class ClientMapperTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * @covers Modules\ClientManagement\Models\ClientMapper
+     */
     public function testCRUD() : void
     {
         $client = new Client();
@@ -65,6 +68,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testVolume() : void
     {

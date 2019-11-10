@@ -60,7 +60,7 @@ class BatchPosting implements \Countable
     /**
      * Postings.
      *
-     * @var   PostingAbstract[]
+     * @var   PostingInterface[]
      * @since 1.0.0
      */
     private $postings = [];
@@ -156,11 +156,11 @@ class BatchPosting implements \Countable
      *
      * @param int $id Posting ID
      *
-     * @return null|PostingAbstract
+     * @return null|PostingInterface
      *
      * @since 1.0.0
      */
-    public function getPosting(int $id) : ?PostingAbstract
+    public function getPosting(int $id) : ?PostingInterface
     {
         return $this->postings[$id] ?? null;
     }
@@ -188,13 +188,13 @@ class BatchPosting implements \Countable
     /**
      * Add posting.
      *
-     * @param PostingAbstract $posting Posting
+     * @param PostingInterface $posting Posting
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addPosting(PostingAbstract $posting) : void
+    public function addPosting(PostingInterface $posting) : void
     {
         $this->postings[] = $posting;
     }

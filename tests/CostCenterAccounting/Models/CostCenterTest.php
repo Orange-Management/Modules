@@ -12,9 +12,9 @@
  */
 declare(strict_types=1);
 
-namespace Modules\tests\Accounting\Models;
+namespace Modules\tests\CostCenterAccounting\Models;
 
-use Modules\Accounting\Models\CostCenter;
+use Modules\CostCenterAccounting\Models\CostCenter;
 
 /**
  * @internal
@@ -26,17 +26,25 @@ class CostCenterTest extends \PHPUnit\Framework\TestCase
         $cc = new CostCenter();
         self::assertEquals(0, $cc->getId());
         self::assertEquals('', $cc->getName());
+        self::assertEquals('', $cc->getCode());
         self::assertEquals('', $cc->getDescription());
+        self::assertEquals(null, $cc->getParent());
     }
 
     public function testSetGet() : void
     {
         $cc = new CostCenter();
 
+        $cc->setCode('Code');
+        self::assertEquals('Code', $cc->getCode());
+
         $cc->setName('Name');
         self::assertEquals('Name', $cc->getName());
 
         $cc->setDescription('Description');
         self::assertEquals('Description', $cc->getDescription());
+
+        $cc->setParent(2);
+        self::assertEquals(2, $cc->getParent());
     }
 }

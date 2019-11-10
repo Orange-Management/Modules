@@ -21,6 +21,9 @@ use Modules\Admin\Models\AccountPermission;
  */
 class AccountPermissionTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\Admin\Models\AccountPermission
+     */
     public function testDefault() : void
     {
         $account = new AccountPermission();

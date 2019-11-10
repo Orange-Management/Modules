@@ -268,8 +268,8 @@
                 "type": "INT",
                 "default": null,
                 "null": true,
-                "foreignTable": "projectmanagement_project",
-                "foreignKey": "projectmanagement_project_id"
+                "foreignTable": "riskmngmt_project",
+                "foreignKey": "riskmngmt_project_id"
             },
             "riskmngmt_risk_process": {
                 "name": "riskmngmt_risk_process",

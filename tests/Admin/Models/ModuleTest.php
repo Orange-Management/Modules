@@ -22,6 +22,9 @@ use phpOMS\Module\ModuleStatus;
  */
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\Admin\Models\Module
+     */
     public function testDefault() : void
     {
         $module = new Module();
@@ -34,18 +37,45 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($module->jsonSerialize(), $module->toArray());
     }
 
-    public function testGetSet() : void
+    /**
+     * @covers Modules\Admin\Models\Module
+     */
+    public function testNameInputOutput() : void
     {
         $module = new Module();
 
         $module->setName('Name');
         self::assertEquals('Name', $module->getName());
+    }
+
+    /**
+     * @covers Modules\Admin\Models\Module
+     */
+    public function testDescriptionInputOutput() : void
+    {
+        $module = new Module();
 
         $module->setDescription('Desc');
         self::assertEquals('Desc', $module->getDescription());
+    }
+
+    /**
+     * @covers Modules\Admin\Models\Module
+     */
+    public function testStatusInputOutput() : void
+    {
+        $module = new Module();
 
         $module->setStatus(ModuleStatus::ACTIVE);
         self::assertEquals(ModuleStatus::ACTIVE, $module->getStatus());
+    }
+
+    /**
+     * @covers Modules\Admin\Models\Module
+     */
+    public function testSerializations() : void
+    {
+        $module = new Module();
 
         self::assertEquals(\json_encode($module->jsonSerialize()), $module->__toString());
         self::assertEquals($module->jsonSerialize(), $module->toArray());

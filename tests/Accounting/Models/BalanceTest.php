@@ -21,20 +21,35 @@ use Modules\Accounting\Models\Balance;
  */
 class BalanceTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\Accounting\Models\Balance
+     */
     public function testDefault() : void
     {
         $balance = new Balance();
+
         self::assertEquals(0, $balance->getId());
         self::assertEquals('', $balance->getName());
         self::assertEquals('', $balance->getDescription());
     }
 
-    public function testGetSet() : void
+    /**
+     * @covers Modules\Accounting\Models\Balance
+     */
+    public function testNameInputOutput() : void
     {
         $balance = new Balance();
 
         $balance->setName('Name');
         self::assertEquals('Name', $balance->getName());
+    }
+
+    /**
+     * @covers Modules\Accounting\Models\Balance
+     */
+    public function testDescriptionInputOutput() : void
+    {
+        $balance = new Balance();
 
         $balance->setDescription('Description');
         self::assertEquals('Description', $balance->getDescription());

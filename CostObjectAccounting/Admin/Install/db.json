@@ -1,38 +1,36 @@
 {
-    "cost_unit_accounting": {
-        "name": "cost_unit_accounting",
+    "cost_object_co": {
+        "name": "cost_object_co",
         "fields": {
-            "cost_unit_accounting_id": {
-                "name": "cost_unit_accounting_id",
+            "cost_object_co_id": {
+                "name": "cost_object_co_id",
                 "type": "INT",
                 "null": false,
                 "primary": true,
                 "autoincrement": true
             },
-            "cost_unit_accounting_name": {
-                "name": "cost_unit_accounting_name",
+            "cost_object_co_code": {
+                "name": "cost_object_co_code",
+                "type": "VARCHAR(25)",
+                "null": false
+            },
+            "cost_object_co_name": {
+                "name": "cost_object_co_name",
                 "type": "VARCHAR(255)",
                 "null": false
             },
-            "cost_unit_accounting_parent": {
-                "name": "cost_unit_accounting_parent",
+            "cost_object_co_description": {
+                "name": "cost_object_co_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "cost_object_co_parent": {
+                "name": "cost_object_co_parent",
                 "type": "INT",
                 "default": null,
                 "null": true,
-                "foreignTable": "cost_unit_accounting",
-                "foreignKey": "cost_unit_accounting_id"
-            },
-            "cost_unit_accounting_created_at": {
-                "name": "cost_unit_accounting_created_at",
-                "type": "DATETIME",
-                "null": false
-            },
-            "cost_unit_accounting_created_by": {
-                "name": "cost_unit_accounting_created_by",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "account",
-                "foreignKey": "account_id"
+                "foreignTable": "cost_object_co",
+                "foreignKey": "cost_object_co_id"
             }
         }
     }

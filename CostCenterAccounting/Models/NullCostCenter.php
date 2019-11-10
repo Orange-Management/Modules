@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Accounting\Models
+ * @package   Modules\CostCenterAccounting\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,17 +12,17 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Accounting\Models;
+namespace Modules\CostCenterAccounting\Models;
 
 /**
- * Posting abstract class.
+ * Null model
  *
- * @package Modules\Accounting\Models
+ * @package Modules\CostCenterAccounting\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-abstract class PostingAbstract implements PostingInterface
+final class NullCostCenter extends CostCenter
 {
 
 }

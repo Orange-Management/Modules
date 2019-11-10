@@ -26,6 +26,9 @@ use phpOMS\Auth\LoginReturnType;
 class AccountMapperTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * @covers Modules\Admin\Models\AccountMapper
+     */
     public function testCRUD() : void
     {
         $account = new Account();
@@ -55,6 +58,9 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($account->getLoginTries(), $accountR->getLoginTries());
     }
 
+    /**
+     * @covers Modules\Admin\Models\AccountMapper
+     */
     public function testLogin() : void
     {
         self::assertEquals(LoginReturnType::WRONG_PASSWORD, AccountMapper::login('admin', ''));

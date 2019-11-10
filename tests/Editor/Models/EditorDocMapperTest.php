@@ -24,6 +24,9 @@ use phpOMS\Utils\RnG\Text;
 class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * @covers Modules\Editor\Models\EditorDocMapper
+     */
     public function testCRUD() : void
     {
         $doc = new EditorDoc();
@@ -47,6 +50,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testVolume() : void
     {

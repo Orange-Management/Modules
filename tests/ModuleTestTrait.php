@@ -29,7 +29,7 @@ use phpOMS\Version\Version;
 
 trait ModuleTestTrait
 {
-    protected $app = null;
+    protected ApplicationAbstract $app;
 
     protected function setUp() : void
     {
@@ -46,6 +46,7 @@ trait ModuleTestTrait
     /**
      * @group admin
      * @slowThreshold 5000
+     * @coversNothing
      */
     public function testModuleIntegration() : void
     {
@@ -59,6 +60,9 @@ trait ModuleTestTrait
         self::assertTrue($moduleManager->isActive(self::MODULE_NAME));
     }
 
+    /**
+     * @coversNothing
+     */
     public function testMembers() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
@@ -71,6 +75,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testValidMapper() : void
     {
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
@@ -94,6 +101,9 @@ trait ModuleTestTrait
         return '\\Modules\\' . self::MODULE_NAME . '\\Models\\' . $name;
     }
 
+    /**
+     * @coversNothing
+     */
     public function testMapperAgainstModel() : void
     {
         $mappers = \glob(__DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Models/*Mapper.php');
@@ -159,6 +169,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testValidDbSchema() : void
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
@@ -191,6 +204,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testDbSchemaAgainstDb() : void
     {
         $builder = new SchemaBuilder($this->app->dbPool->get());
@@ -217,6 +233,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testMapperAgainstDbSchema() : void
     {
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
@@ -279,6 +298,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testJson() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
@@ -295,6 +317,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testDependency() : void
     {
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
@@ -307,6 +332,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testRoutes() : void
     {
         $moduleManager      = new ModuleManager($this->app, __DIR__ . '/../../Modules');
@@ -330,6 +358,9 @@ trait ModuleTestTrait
         }
     }
 
+    /**
+     * @coversNothing
+     */
     public function testHooks() : void
     {
         $moduleManager     = new ModuleManager($this->app, __DIR__ . '/../../Modules');
@@ -355,6 +386,7 @@ trait ModuleTestTrait
 
     /**
      * @group final
+     * @coversNothing
      */
     public function testNavigation() : void
     {
@@ -489,6 +521,9 @@ trait ModuleTestTrait
         return false;
     }
 
+    /**
+     * @coversNothing
+     */
     public function testRequestLoads() : void
     {
         if (!\defined('self::URI_LOAD') || empty(self::URI_LOAD)) {

@@ -83,6 +83,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\News\Controller\ApiController
+     */
     public function testApiNewsCreate() : void
     {
         $response = new Response();
@@ -102,6 +105,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\News\Controller\ApiController
+     */
     public function testApiNewsGet() : void
     {
         $response = new Response();
@@ -115,6 +121,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\News\Controller\ApiController
+     */
     public function testApiNewsSet() : void
     {
         $response = new Response();
@@ -131,6 +140,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('New Title', $response->get('')['response']->getTitle());
     }
 
+    /**
+     * @covers Modules\News\Controller\ApiController
+     */
     public function testApiNewsDelete() : void
     {
         $response = new Response();

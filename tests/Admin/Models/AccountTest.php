@@ -21,13 +21,19 @@ use Modules\Admin\Models\Account;
  */
 class AccountTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\Admin\Models\Account
+     */
     public function testDefault() : void
     {
         $account = new Account();
         self::assertEquals(0, $account->getLoginTries());
     }
 
-    public function testGetSet() : void
+    /**
+     * @covers Modules\Admin\Models\Account
+     */
+    public function testChangingLoginTries() : void
     {
         $account = new Account();
 

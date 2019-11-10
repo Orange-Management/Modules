@@ -1,38 +1,36 @@
 {
-    "cost_center_accounting": {
-        "name": "cost_center_accounting",
+    "cost_center_cc": {
+        "name": "cost_center_cc",
         "fields": {
-            "cost_center_accounting_id": {
-                "name": "cost_center_accounting_id",
+            "cost_center_cc_id": {
+                "name": "cost_center_cc_id",
                 "type": "INT",
                 "null": false,
                 "primary": true,
                 "autoincrement": true
             },
-            "cost_center_accounting_name": {
-                "name": "cost_center_accounting_name",
+            "cost_center_cc_code": {
+                "name": "cost_center_cc_code",
+                "type": "VARCHAR(25)",
+                "null": false
+            },
+            "cost_center_cc_name": {
+                "name": "cost_center_cc_name",
                 "type": "VARCHAR(255)",
                 "null": false
             },
-            "cost_center_accounting_parent": {
-                "name": "cost_center_accounting_parent",
+            "cost_center_cc_description": {
+                "name": "cost_center_cc_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "cost_center_cc_parent": {
+                "name": "cost_center_cc_parent",
                 "type": "INT",
                 "default": null,
                 "null": true,
-                "foreignTable": "cost_center_accounting",
-                "foreignKey": "cost_center_accounting_id"
-            },
-            "cost_center_accounting_created_at": {
-                "name": "cost_center_accounting_created_at",
-                "type": "DATETIME",
-                "null": false
-            },
-            "cost_center_accounting_created_by": {
-                "name": "cost_center_accounting_created_by",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "account",
-                "foreignKey": "account_id"
+                "foreignTable": "cost_center_cc",
+                "foreignKey": "cost_center_cc_id"
             }
         }
     }

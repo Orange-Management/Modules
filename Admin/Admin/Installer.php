@@ -66,7 +66,9 @@ class Installer extends InstallerAbstract
         $query = new Builder($con);
         $query->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_codenum')->into('country');
 
-        $countries = $query->select('*')->from('country')->execute();
+        $querySqlite = new Builder($sqlite);
+        $countries   = $querySqlite->select('*')->from('country')->execute();
+
         foreach ($countries as $country) {
             $query->values(
                 $country['country_name'],
@@ -97,7 +99,9 @@ class Installer extends InstallerAbstract
         $query = new Builder($con);
         $query->insert('language_name', 'language_native', 'language_639_2T', 'language_639_2B', 'language_639_3')->into('language');
 
-        $languages = $query->select('*')->from('language')->execute();
+        $querySqlite = new Builder($sqlite);
+        $languages   = $querySqlite->select('*')->from('language')->execute();
+
         foreach ($languages as $language) {
             $query->values(
                 $language['language_name'],

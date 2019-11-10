@@ -17,8 +17,10 @@ namespace Modules\tests\Admin;
 require_once __DIR__ . '/../Autoloader.php';
 
 use Model\CoreSettings;
+
 use Modules\Admin\Models\AccountPermission;
 use Modules\Admin\Models\ModuleStatusUpdateType;
+
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\AccountStatus;
@@ -29,14 +31,11 @@ use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleManager;
-
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Http;
-
 use phpOMS\Utils\TestUtils;
 
 /**
@@ -88,6 +87,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiSettingsGet() : void
     {
         $response = new Response();
@@ -100,6 +102,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('DE', $response->get('')['response']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiSettingsSet() : void
     {
         $response = new Response();
@@ -114,6 +119,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('US', $response->get('')['response']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiGroupGet() : void
     {
         $response = new Response();
@@ -128,6 +136,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiGroupSet() : void
     {
         $response = new Response();
@@ -146,6 +157,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiGroupUpdate($request, $response);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiGroupFind() : void
     {
         $response = new Response();
@@ -159,6 +173,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('admin', $response->get('')[0]->getName());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiGroupCreateDelete() : void
     {
         $response = new Response();
@@ -181,6 +198,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiGroupCreateInvalid() : void
     {
         $response = new Response();
@@ -194,6 +214,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('group_create')::TYPE);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAccountGet() : void
     {
         $response = new Response();
@@ -208,6 +231,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAccountFind() : void
     {
         $response = new Response();
@@ -221,13 +247,17 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('admin', $response->get('')[0]->getName1());
     }
 
-    public function testApiAccountCreate() : void
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
+    public function testApiAccountAndProfileCreate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('login', 'guest');
+        $request->setData('password', 'guest');
         $request->setData('name1', 'Guest');
         $request->setData('email', 'test@email.com');
         $request->setData('type', AccountType::USER);
@@ -245,6 +275,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAccountCreateInvalid() : void
     {
         $response = new Response();
@@ -258,6 +291,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('account_create')::TYPE);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAccountUpdate() : void
     {
         $response = new Response();
@@ -274,6 +310,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiModuleStatusUpdate() : void
     {
         $response = new Response();
@@ -299,6 +338,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('ok', $response->get('')['status']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiModuleStatusUpdateEmptyModule() : void
     {
         $response = new Response();
@@ -311,6 +353,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertNull($response->get('module_stutus_update'));
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiModuleStatusUpdateInvalidStatus() : void
     {
         $response = new Response();
@@ -324,6 +369,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('warning', $response->get('')['status']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiModuleStatusUpdateInvalidModule() : void
     {
         $response = new Response();
@@ -337,6 +385,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('warning', $response->get('')['status']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddGroupPermission() : void
     {
         $response = new Response();
@@ -351,6 +402,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddAccountPermission() : void
     {
         $response = new Response();
@@ -365,6 +419,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddGroupPermissionInvalidData() : void
     {
         $response = new Response();
@@ -377,6 +434,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddGroupPermissionInvalidType() : void
     {
         $response = new Response();
@@ -390,6 +450,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddAccountPermissionInvalidData() : void
     {
         $response = new Response();
@@ -402,6 +465,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddAccountPermissionInvalidType() : void
     {
         $response = new Response();
@@ -415,6 +481,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('validation', $response->get('permission_create')::TYPE);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddGroupToAccount() : void
     {
         $response = new Response();
@@ -428,6 +497,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('ok', $response->get('')['status']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAddAccountToGroup() : void
     {
         $response = new Response();
@@ -441,6 +513,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('ok', $response->get('')['status']);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiReInit() : void
     {
         $response = new Response();
@@ -460,6 +535,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($hooks, $hooks2);
     }
 
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
     public function testApiAccountGroupFind() : void
     {
         $response = new Response();

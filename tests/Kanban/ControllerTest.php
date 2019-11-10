@@ -80,6 +80,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\Kanban\Controller\ApiController
+     */
     public function testCreateBoard() : void
     {
         $response = new Response();
@@ -95,6 +98,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Kanban\Controller\ApiController
+     */
     public function testCreateColumn() : void
     {
         $response = new Response();
@@ -110,6 +116,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Kanban\Controller\ApiController
+     */
     public function testCreateCard() : void
     {
         $response = new Response();

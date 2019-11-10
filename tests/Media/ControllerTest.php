@@ -55,6 +55,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module = $this->app->moduleManager->get('Media');
     }
 
+    /**
+     * @covers Modules\Media\Controller\ApiController
+     */
     public function testCreateDbEntries() : void
     {
         $status = [

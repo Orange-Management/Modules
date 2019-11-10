@@ -430,21 +430,23 @@ final class ApiController extends Controller
      */
     private function createProfileForAccount(Account $account, RequestAbstract $request) : void
     {
-        if (((string) ($request->getData('password') ?? '')) !== ''
-            && ((string) ($request->getData('login') ?? '')) !== ''
+        if (((string) ($request->getData('password') ?? '')) === ''
+            || ((string) ($request->getData('login') ?? '')) === ''
         ) {
-            $old = clone $account;
-
-            $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(
-                new \Modules\Profile\Models\Profile($account),
-                $request
-            );
-
-            $this->updateModel($request, $old, $account, function() use($account) : void {
-                $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
-                AccountMapper::update($account);
-            }, 'account');
+            return;
         }
+
+        $old = clone $account;
+
+        $this->app->moduleManager->get('Profile')->apiProfileCreateDbEntry(
+            new \Modules\Profile\Models\Profile($account),
+            $request
+        );
+
+        $this->updateModel($request, $old, $account, function() use($account) : void {
+            $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
+            AccountMapper::update($account);
+        }, 'account');
     }
 
     /**

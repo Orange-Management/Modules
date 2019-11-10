@@ -26,6 +26,9 @@ class AccountAbstractTest extends \PHPUnit\Framework\TestCase
         $this->account = new class() extends AccountAbstract {};
     }
 
+    /**
+     * @covers Modules\Accounting\Models\AccountAbstract
+     */
     public function testDefault() : void
     {
         self::assertEquals(0, $this->account->getId());

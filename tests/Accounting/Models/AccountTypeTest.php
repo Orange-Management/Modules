@@ -21,6 +21,9 @@ use Modules\Accounting\Models\AccountType;
  */
 class AccountTypeTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @coversNothing
+     */
     public function testEnums() : void
     {
         self::assertCount(4, AccountType::getConstants());

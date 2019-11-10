@@ -25,6 +25,9 @@ use Modules\HumanResourceTimeRecording\Models\SessionElement;
 class SessionMapperTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * @covers Modules\HumanResourceTimeRecording\Models\SessionMapper
+     */
     public function testCRUD() : void
     {
         $session = new Session(1);
@@ -42,6 +45,10 @@ class SessionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($session->getType(), $sessionR->getType());
     }
 
+    /**
+     * @group volume
+     * @coversNothing
+     */
     public function testVolume() : void
     {
         for ($i = 0; $i < 1000; ++$i) {

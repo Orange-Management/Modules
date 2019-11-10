@@ -28,7 +28,7 @@ echo $this->getData('nav')->render(); ?>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('Date'); ?>
-                    <td>Status
+                    <td><?= $this->getHtml('Type'); ?>
                     <td>Employee
                     <td><?= $this->getHtml('Start') ?>
                     <td><?= $this->getHtml('Break') ?>
@@ -40,7 +40,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php foreach ($sessions as $session) : ?>
                 <tr>
                     <td><?= $session->getStart()->format('Y-m-d'); ?>
-                    <td><span class="tag">Status Here</span>
+                    <td><span class="tag"><?= $this->getHtml('CT' . $session->getType()) ?></span>
                     <td>
                         <?= $this->printHtml($session->getEmployee()->getProfile()->getAccount()->getName1()); ?>,
                         <?= $this->printHtml($session->getEmployee()->getProfile()->getAccount()->getName2()); ?>

@@ -84,7 +84,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @group admin
+     * @covers Modules\Helper\Controller\ApiController
      */
     public function testCreateTemplate() : void
     {
@@ -156,7 +156,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @group admin
+     * @covers Modules\Helper\Controller\ApiController
      */
     public function testCreateReport() : void
     {

@@ -80,6 +80,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\Editor\Controller\ApiController
+     */
     public function testCreateEditor() : void
     {
         $response = new Response();

@@ -28,6 +28,9 @@ use phpOMS\Utils\RnG\Text;
 class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * @covers Modules\ProjectManagement\Models\ProjectMapper
+     */
     public function testCRUD() : void
     {
         $project = new Project();
@@ -103,6 +106,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testVolume() : void
     {

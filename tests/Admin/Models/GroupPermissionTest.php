@@ -21,6 +21,9 @@ use Modules\Admin\Models\GroupPermission;
  */
 class GroupPermissionTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\Admin\Models\GroupPermission
+     */
     public function testDefault() : void
     {
         $group = new GroupPermission();

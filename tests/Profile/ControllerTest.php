@@ -80,6 +80,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\Profile\Controller\ApiController
+     */
     public function testCreateProfile() : void
     {
         $response = new Response();

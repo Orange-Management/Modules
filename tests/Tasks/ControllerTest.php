@@ -81,6 +81,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testCreateTask() : void
     {
         $response = new Response();
@@ -97,6 +100,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testApiTaskGet() : void
     {
         $response = new Response();
@@ -110,6 +116,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(1, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testApiTaskSet() : void
     {
         $response = new Response();
@@ -126,6 +135,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('New Title', $response->get('')['response']->getTitle());
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testCreateTaskElement() : void
     {
         $response = new Response();
@@ -144,6 +156,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testApiTaskElementGet() : void
     {
         $response = new Response();
@@ -157,6 +172,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(1, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testApiTaskElementSet() : void
     {
         $response = new Response();
@@ -186,6 +204,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertNotEquals([], $response->get(''));
     }
 
+    /**
+     * @covers Modules\Tasks\Controller\ApiController
+     */
     public function testInvalidTaskElementCreate() : void
     {
         $response = new Response();

@@ -21,6 +21,9 @@ use Modules\Admin\Models\Group;
  */
 class GroupTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\Admin\Models\Group
+     */
     public function testDefault() : void
     {
         $group = new Group();
@@ -30,12 +33,23 @@ class GroupTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $group->getAccounts());
     }
 
-    public function testGetSet() : void
+    /**
+     * @covers Modules\Admin\Models\Group
+     */
+    public function testDescriptionInputOutput() : void
     {
         $group = new Group();
 
         $group->setDescriptionRaw('Some test');
         self::assertEquals('Some test', $group->getDescriptionRaw());
+    }
+
+    /**
+     * @covers Modules\Admin\Models\Group
+     */
+    public function testCreatornInputOutput() : void
+    {
+        $group = new Group();
 
         $group->setCreatedBy(3);
         self::assertEquals(3, $group->getCreatedBy());

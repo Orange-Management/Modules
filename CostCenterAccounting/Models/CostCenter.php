@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Accounting\Models
+ * @package   Modules\CostCenterAccounting\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,12 +12,12 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Accounting\Models;
+namespace Modules\CostCenterAccounting\Models;
 
 /**
- * BatchPosting class.
+ * Cost center class.
  *
- * @package Modules\Accounting\Models
+ * @package Modules\CostCenterAccounting\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -55,6 +55,14 @@ class CostCenter
      * @since 1.0.0
      */
     private string $description = '';
+
+    /**
+     * Parent.
+     *
+     * @var   null|int|CostCenter
+     * @since 1.0.0
+     */
+    private $parent = null;
 
     /**
      * Get balance id
@@ -144,5 +152,31 @@ class CostCenter
     public function getDescription() : string
     {
         return $this->description;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param string $parent Parent
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setParent($parent) : void
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

@@ -85,6 +85,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiUnitGet() : void
     {
         $response = new Response();
@@ -99,6 +102,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiUnitSet() : void
     {
         $response = new Response();
@@ -114,6 +120,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('OMS', $response->get('')['response']->getName());
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiUnitCreateDelete() : void
     {
         $response = new Response();
@@ -137,6 +146,10 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     protected static $departmentId = 0;
+
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiDepartmentCreate() : void
     {
         $response = new Response();
@@ -156,6 +169,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::$departmentId = $response->get('')['response']->getId();
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiDepartmentGet() : void
     {
         $response = new Response();
@@ -170,6 +186,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiDepartmentSet() : void
     {
         $response = new Response();
@@ -185,6 +204,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('Production', $response->get('')['response']->getName());
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiDepartmentDelete() : void
     {
         $response = new Response();
@@ -198,6 +220,10 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     protected static $positionId = 0;
+
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiPositionCreate() : void
     {
         $response = new Response();
@@ -215,6 +241,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::$positionId = $response->get('')['response']->getId();
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiPositionGet() : void
     {
         $response = new Response();
@@ -229,6 +258,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiPositionSet() : void
     {
         $response = new Response();
@@ -244,6 +276,9 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('Test', $response->get('')['response']->getName());
     }
 
+    /**
+     * @covers Modules\Organization\Controller\ApiController
+     */
     public function testApiPositionDelete() : void
     {
         $response = new Response();

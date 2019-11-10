@@ -34,6 +34,9 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, TaskMapper::countUnread(999));
     }
 
+    /**
+     * @covers Modules\Tasks\Models\TaskMapper
+     */
     public function testCRUD() : void
     {
         $task = new Task();
@@ -124,6 +127,9 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertCount(2, \end($actual)->getCC());
     }
 
+    /**
+     * @covers Modules\Tasks\Models\TaskMapper
+     */
     public function testNewest() : void
     {
         $newest = TaskMapper::getNewest(1);
@@ -133,6 +139,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testCreatedByMeForMe() : void
     {
@@ -172,6 +179,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testCreatedByMeForOther() : void
     {
@@ -209,6 +217,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @coversNothing
      */
     public function testCreatedByOtherForMe() : void
     {
