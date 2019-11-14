@@ -55,7 +55,7 @@ class Message
      * @var   int
      * @since 1.0.0
      */
-    private int $creator = null;
+    private ?int $creator = null;
 
     private static $instances = [];
 

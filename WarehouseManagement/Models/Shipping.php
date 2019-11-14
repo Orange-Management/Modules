@@ -71,7 +71,7 @@ class Shipping
      * @var   int
      * @since 1.0.0
      */
-    private int $sender = null;
+    private ?int $sender = null;
 
     /**
      * Warehouse.
@@ -79,7 +79,7 @@ class Shipping
      * @var   \Modules\Warehousing\Models\ArrivalStatus
      * @since 1.0.0
      */
-    private int $status = null;
+    private ?int $status = null;
 
     /**
      * Shipping.

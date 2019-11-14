@@ -36,10 +36,10 @@ class Arrival
     /**
      * Order.
      *
-     * @var   int
+     * @var   string
      * @since 1.0.0
      */
-    private int $order = '';
+    private string $order = '';
 
     /**
      * From.
@@ -71,7 +71,7 @@ class Arrival
      * @var   int
      * @since 1.0.0
      */
-    private int $acceptor = null;
+    private ?int $acceptor = null;
 
     /**
      * Warehouse.
@@ -79,7 +79,7 @@ class Arrival
      * @var   \Modules\Warehousing\Models\ArrivalStatus
      * @since 1.0.0
      */
-    private int $status = null;
+    private ?int $status = null;
 
     /* TODO: count, packaging, product count etc.... for every single position + where do you put it */
 

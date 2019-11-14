@@ -31,7 +31,7 @@ class Room
      * @var   int
      * @since 1.0.0
      */
-    private int $id = null;
+    private int $id = 0;
 
     /**
      * Name.
@@ -63,7 +63,7 @@ class Room
      * @var   int
      * @since 1.0.0
      */
-    private int $creator = null;
+    private ?int $creator = null;
 
     /**
      * Type.
@@ -79,7 +79,7 @@ class Room
      * @var   string
      * @since 1.0.0
      */
-    private string $password = null;
+    private ?string $password = null;
 
     private static $instances = [];
 

@@ -377,8 +377,7 @@ final class ApiController extends Controller
     private function validateAccountCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['login'] = empty($request->getData('login')))
-            || ($val['name1'] = empty($request->getData('name1')))
+        if (($val['name1'] = empty($request->getData('name1')))
             || ($val['type'] = !AccountType::isValidValue((int) $request->getData('type')))
             || ($val['status'] = !AccountStatus::isValidValue((int) $request->getData('status')))
             || ($val['email'] = !empty($request->getData('email')) && !Email::isValid((string) $request->getData('email')))

@@ -267,8 +267,24 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals('guest', $response->get('')['response']->getName());
         self::assertGreaterThan(0, $response->get('')['response']->getId());
+    }
 
-        // test delete
+    /**
+     * @covers Modules\Admin\Controller\ApiController
+     */
+    public function testApiAccountDelete() : void
+    {
+        $response = new Response();
+        $request  = new Request(new Http(''));
+
+        $request->getHeader()->setAccount(1);
+        // mustn't create a profile otherwise it will not be possible to delete the account because of FK constraints
+        $request->setData('name1', 'Guest');
+        $request->setData('email', 'test@email.com');
+        $request->setData('type', AccountType::USER);
+        $request->setData('status', AccountStatus::INACTIVE);
+
+        $this->module->apiAccountCreate($request, $response);
         $request->setData('id', $response->get('')['response']->getId());
         $this->module->apiAccountDelete($request, $response);
 

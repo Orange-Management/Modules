@@ -31,7 +31,7 @@ class Article
      * @var   int
      * @since 1.0.0
      */
-    private int $id = null;
+    private int $id = 0;
 
     /**
      * Name.
@@ -63,7 +63,7 @@ class Article
      * @var   string
      * @since 1.0.0
      */
-    private string $sector = null;
+    private string ?$sector = null;
 
     /**
      * Group.

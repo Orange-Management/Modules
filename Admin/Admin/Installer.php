@@ -79,7 +79,7 @@ class Installer extends InstallerAbstract
             );
         }
 
-        $con->execute($query->toSql());
+        $query->execute();
     }
 
     /**
@@ -112,6 +112,6 @@ class Installer extends InstallerAbstract
             );
         }
 
-        $con->execute($query->toSql());
+        $query->execute();
     }
 }

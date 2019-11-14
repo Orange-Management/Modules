@@ -62,10 +62,10 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Tag type.
      *
-     * @var   string
+     * @var   int
      * @since 1.0.0
      */
-    private string $type = TagType::SINGLE;
+    private int $type = TagType::SINGLE;
 
     /**
      * Get created by
