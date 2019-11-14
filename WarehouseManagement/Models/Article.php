@@ -60,28 +60,28 @@ class Article
     /**
      * Sector.
      *
-     * @var   string
+     * @var   null|string
      * @since 1.0.0
      */
-    private string ?$sector = null;
+    private ?string $sector = null;
 
     /**
      * Group.
      *
-     * @var   string
+     * @var   null|string
      * @since 1.0.0
      */
-    private string $group = null;
+    private ?string $group = null;
 
     /**
      * Suppliers.
      *
      * supplier price leadtime
      *
-     * @var   string
+     * @var   null|string
      * @since 1.0.0
      */
-    private string $suppliers = null;
+    private ?string $suppliers = null;
 
     /**
      * Localization strings.
@@ -106,10 +106,10 @@ class Article
     /**
      * Active supplier.
      *
-     * @var   string
+     * @var   null|string
      * @since 1.0.0
      */
-    private string $pprice = null;
+    private ?string $pprice = null;
 
     /**
      * Created.
@@ -122,7 +122,7 @@ class Article
     /**
      * Creator.
      *
-     * @var   \phpOMS\Models\User
+     * @var   null|\phpOMS\Models\User
      * @since 1.0.0
      */
     private $creator = null;

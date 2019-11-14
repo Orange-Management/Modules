@@ -22,6 +22,6 @@ namespace Modules\ProjectManagement\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class NullProject extends Employee
+final class NullProject extends Project
 {
 }
