@@ -76,11 +76,27 @@ class WikiDoc implements \JsonSerializable
         return $this->id;
     }
 
+    /**
+     * Get language
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getLanguage() : string
     {
         return $this->language;
     }
 
+    /**
+     * Set language
+     *
+     * @param string $language Language
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setLanguage(string $language) : void
     {
         $this->language = $language;
@@ -112,31 +128,79 @@ class WikiDoc implements \JsonSerializable
         $this->name = $name;
     }
 
+    /**
+     * Get content
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDoc() : string
     {
         return $this->doc;
     }
 
+    /**
+     * Set content
+     *
+     * @param string $doc Document content
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDoc(string $doc) : void
     {
         $this->doc = $doc;
     }
 
+    /**
+     * Get status
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getStatus() : int
     {
         return $this->status;
     }
 
+    /**
+     * Set status
+     *
+     * @param int $status Status
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
+    /**
+     * Get category
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getCategory()
     {
         return $this->category;
     }
 
+    /**
+     * Set cateogry
+     *
+     * @param int $category Category
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCategory(int $category) : void
     {
         $this->category = $category;
@@ -180,11 +244,27 @@ class WikiDoc implements \JsonSerializable
         return $this->createdAt;
     }
 
+    /**
+     * Get badges
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getBadges() : array
     {
         return $this->badges;
     }
 
+    /**
+     * Add badge
+     *
+     * @param mixed $badge Badge
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function addBadge($badge) : void
     {
         $this->badges[] = $badge;

@@ -71,7 +71,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     /**
      * Set media
      *
-     * @param int|Media $media
+     * @param int|Media $media Media
      *
      * @return void
      *

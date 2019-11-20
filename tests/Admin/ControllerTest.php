@@ -153,7 +153,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals('root', $response->get('')['response']->getName());
 
-        $request->setData('name', 'admin');
+        $request->setData('name', 'admin', true);
         $this->module->apiGroupUpdate($request, $response);
     }
 
@@ -341,15 +341,15 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->module->apiModuleStatusUpdate($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
 
-        $request->setData('status', ModuleStatusUpdateType::ACTIVATE);
+        $request->setData('status', ModuleStatusUpdateType::ACTIVATE, true);
         $this->module->apiModuleStatusUpdate($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
 
-        $request->setData('status', ModuleStatusUpdateType::DEACTIVATE);
+        $request->setData('status', ModuleStatusUpdateType::DEACTIVATE, true);
         $this->module->apiModuleStatusUpdate($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
 
-        $request->setData('status', ModuleStatusUpdateType::UNINSTALL);
+        $request->setData('status', ModuleStatusUpdateType::UNINSTALL, true);
         $this->module->apiModuleStatusUpdate($request, $response);
         self::assertEquals('ok', $response->get('')['status']);
     }

@@ -902,6 +902,15 @@ final class ApiController extends Controller
         ]]);
     }
 
+    /**
+     * Update the system or a module
+     *
+     * @param array $toUpdate Array of updte resources
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     private function apiUpdate(array $toUpdate) : void
     {
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
@@ -911,10 +920,19 @@ final class ApiController extends Controller
             \mkdir($dest);
             $this->downloadUpdate($update['download_url'], $dest . '/' . $update['name']);
             $this->runUpdate($dest . '/' . $update['name']);
-            $this->cleanupUpdate(__DIR__ . '/../Updates/' . $dest);
         }
     }
 
+    /**
+     * Package to download
+     *
+     * @param string $url  Url to download from
+     * @param string $dest Local destination of the download
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     private function downloadUpdate(string $url, string $dest) : void
     {
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
@@ -925,106 +943,17 @@ final class ApiController extends Controller
         File::put($dest, $updateFile);
     }
 
+    /**
+     * Run the update
+     *
+     * @param string $updateFile Update file/package
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     private function runUpdate(string $updateFile) : void
     {
-        $updateContent = \file_get_contents($updateFile);
-        if ($updateContent === false) {
-            return;
-        }
-
-        $package    = \json_decode($updateContent, true);
-        $updatePath = \dirname($updateFile);
-        $subPath    = $package['type'] === 'Modules/' ? $package['name'] : '';
-
-        foreach ($package['add'] as $src => $dest) {
-            $src  = StringUtils::startsWith($src, 'http') ? $src : $updatePath . '/' . $subPath . $src;
-            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
-
-            $this->updateAdd($src, $dest);
-        }
-
-        foreach ($package['remove'] as $src => $dest) {
-            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
-
-            $this->updateRemove($dest);
-        }
-
-        foreach ($package['replace'] as $src => $dest) {
-            $src  = StringUtils::startsWith($src, 'http') ? $src : $updatePath . '/' . $subPath . $src;
-            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
-
-            $this->updateReplace($src, $dest);
-        }
-
-        foreach ($package['move'] as $src => $dest) {
-            $src  = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $src;
-            $dest = __DIR__ . '/../../../' . $package['type'] . '/' . $subPath . $dest;
-
-            $this->updateMove($src, $dest);
-        }
-
-        foreach ($package['run'] as $dest) {
-            $dest = $updatePath . '/' . $dest;
-
-            $this->updateRun($dest);
-        }
-
-        foreach ($package['cmd'] as $cmd) {
-            $this->updateCmd($cmd);
-        }
-    }
-
-    private function updateAdd(string $src, string $dest) : void
-    {
-        if (StringUtils::startsWith($src, 'http')) {
-            $request = new Request(new Http($src));
-            $request->setMethod(RequestMethod::GET);
-
-            $content = Rest::request($request)->getBody();
-            File::put($dest, $content, ContentPutMode::CREATE);
-        } else {
-            if (\is_dir($src)) {
-                Directory::copy($src, $dest);
-            } else {
-                File::copy($src, $dest);
-            }
-        }
-    }
-
-    private function updateRemove(string $dest) : void
-    {
-        if (\is_dir($dest)) {
-            Directory::delete($dest);
-        } else {
-            File::delete($dest);
-        }
-    }
-
-    private function updateReplace(string $src, string $dest) : void
-    {
-        $this->updateRemove($dest);
-        $this->updateAdd($src, $dest);
-    }
-
-    private function updateMove(string $src, string $dest) : void
-    {
-        $this->updateAdd($src, $dest);
-        $this->updateRemove($src);
-    }
-
-    private function updateRun(string $dest) : void
-    {
-
-    }
-
-    private function updateCmd(string $cmd) : void
-    {
-
-    }
-
-    private function cleanupUpdate(string $path) : void
-    {
-        // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
-        Directory::delete($path);
+        // todo: do package functions here of the packagemanager
     }
 }

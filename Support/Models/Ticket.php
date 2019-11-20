@@ -60,11 +60,27 @@ class Ticket
         return $this->id;
     }
 
+    /**
+     * Get task.
+     *
+     * @return Task
+     *
+     * @since 1.0.0
+     */
     public function getTask() : Task
     {
         return $this->task;
     }
 
+    /**
+     * Set task.
+     *
+     * @param Task $task Task
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setTask(Task $task) : void
     {
         $this->task = $task;

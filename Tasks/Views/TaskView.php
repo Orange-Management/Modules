@@ -17,10 +17,27 @@ namespace Modules\Tasks\Views;
 use Modules\Tasks\Models\TaskStatus;
 use phpOMS\Views\View;
 
+/**
+ * Task view class.
+ *
+ * @package Modules\Tasks
+ * @license OMS License 1.0
+ * @link    https://orange-management.org
+ * @since   1.0.0
+ */
 class TaskView extends View
 {
     protected $media = [];
 
+    /**
+     * Get task status color.
+     *
+     * @param int $status Status
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getStatus(int $status) : string
     {
         if ($status === TaskStatus::OPEN) {

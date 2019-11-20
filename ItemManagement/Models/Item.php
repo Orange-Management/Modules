@@ -62,16 +62,6 @@ class Item
 
     private $createdAt = null;
 
-    private string $name1 = '';
-
-    private string $name2 = '';
-
-    private string $name3 = '';
-
-    private string $name4 = '';
-
-    private string $name5 = '';
-
     private $info = '';
 
     /**
@@ -108,73 +98,54 @@ class Item
         return $this->createdAt;
     }
 
+    /**
+     * Set the successor item
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setSuccessor(int $successor): void
     {
         $this->successor = $successor;
     }
 
+    /**
+     * Get the successor item
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getSuccessor(): int
     {
         return $this->successor;
     }
 
+    /**
+     * Get the item number
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getNumber() : string
     {
         return $this->number;
     }
 
+
+    /**
+     * Set the item number
+     *
+     * @param string $number Number
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setNumber(string $number) : void
     {
         $this->number = $number;
-    }
-
-    public function setName1(string $name) : void
-    {
-        $this->name1 = $name;
-    }
-
-    public function getName1() : string
-    {
-        return $this->name1;
-    }
-
-    public function setName2(string $name) : void
-    {
-        $this->name2 = $name;
-    }
-
-    public function getName2() : string
-    {
-        return $this->name2;
-    }
-
-    public function setName3(string $name) : void
-    {
-        $this->name3 = $name;
-    }
-
-    public function getName3() : string
-    {
-        return $this->name3;
-    }
-
-    public function setName4(string $name): void
-    {
-        $this->name4 = $name;
-    }
-
-    public function getName4(): string
-    {
-        return $this->name4;
-    }
-
-    public function setName5(string $name): void
-    {
-        $this->name5 = $name;
-    }
-
-    public function getName5(): string
-    {
-        return $this->name5;
     }
 }

@@ -46,6 +46,13 @@ class BaseView extends View
         $this->addData('popup', $view);
     }
 
+    /**
+     * Get selector id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;
@@ -63,6 +70,13 @@ class BaseView extends View
         return $this->name;
     }
 
+    /**
+     * Is required?
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
     public function isRequired() : bool
     {
         return $this->isRequired;

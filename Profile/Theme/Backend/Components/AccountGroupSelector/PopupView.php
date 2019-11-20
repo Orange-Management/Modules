@@ -41,11 +41,27 @@ class PopupView extends View
         $this->setTemplate('/Modules/Profile/Theme/Backend/Components/AccountGroupSelector/popup');
     }
 
+    /**
+     * Set popup id
+     *
+     * @param string $id Id
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setId(string $id) : void
     {
         $this->id = $id;
     }
 
+    /**
+     * Get popup id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;

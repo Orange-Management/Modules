@@ -49,85 +49,67 @@ class Section
      */
     private string $description = '';
 
-    private static $instances = [];
-
-    public function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
-    }
-
-    public function getId()
+    /**
+     * Get id.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName()
+    /**
+     * Get name.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setName($name) : void
-    {
-        $this->name = $name;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setDescription($desc) : void
-    {
-        $this->description = $desc;
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
-    }
-
     /**
-     * Init object by ID.
+     * Set name.
      *
-     * This usually happens from DB or cache
-     *
-     * @param int $id Object ID
+     * @param string $name Name
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function init($id) : void
+    public function setName(string $name) : void
     {
-        // TODO: Implement init() method.
+        $this->name = $name;
     }
 
     /**
-     * Overwriting clone in order to maintain singleton pattern.
+     * Get description.
+     *
+     * @return string
      *
      * @since 1.0.0
      */
-    public function __clone()
+    public function getDescription() : string
     {
-        // TODO: Implement __clone() method.
+        return $this->description;
+    }
+
+    /**
+     * Set description.
+     *
+     * @param string $desc Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setDescription(string $desc) : void
+    {
+        $this->description = $desc;
     }
 }

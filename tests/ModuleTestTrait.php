@@ -69,7 +69,7 @@ trait ModuleTestTrait
         $module        = $moduleManager->get(self::MODULE_NAME);
 
         if (!($module instanceof NullModule)) {
-            self::assertEquals(self::MODULE_NAME, self::MODULE_NAME);
+            self::assertEquals(self::MODULE_NAME, $module::MODULE_NAME);
             self::assertEquals(\realpath(__DIR__ . '/../../Modules/' . self::MODULE_NAME), \realpath($module::MODULE_PATH));
             self::assertGreaterThanOrEqual(0, Version::compare($module::MODULE_VERSION, '1.0.0'));
         }
@@ -88,7 +88,10 @@ trait ModuleTestTrait
             $columns         = $classReflection->getDefaultProperties()['columns'];
 
             foreach ($columns as $cName => $column) {
-                self::assertTrue(\in_array($column['type'], ['int', 'string', 'DateTime', 'Json', 'Serializable', 'bool', 'float']), 'Mapper "' . $class . '" column "' . $cName . '" has invalid type');
+                self::assertTrue(
+                    \in_array($column['type'], ['int', 'string', 'DateTime', 'Json', 'Serializable', 'bool', 'float']),
+                    'Mapper "' . $class . '" column "' . $cName . '" has invalid type'
+                );
                 self::assertEquals($cName, $column['name'] ?? false);
             }
         }

@@ -44,10 +44,10 @@ class Message
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $created = null;
+    private \DateTime $created;
 
     /**
      * Creator.
@@ -57,95 +57,101 @@ class Message
      */
     private ?int $creator = null;
 
-    private static $instances = [];
-
-    public function getInstance($id)
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
+    public function __construct()
     {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
+        $this->created = new \DateTime('now');
     }
 
-    public function getId()
+    /**
+     * Get id.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName()
+    /**
+     * Get name/title.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setName($name) : void
-    {
-        $this->name = $name;
-    }
-
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    public function setCreated($created) : void
-    {
-        $this->created = $created;
-    }
-
-    public function getCreator()
-    {
-        return $this->creator;
-    }
-
-    public function setCreator($creator) : void
-    {
-        $this->creator = $creator;
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
-    }
-
     /**
-     * Init object by ID.
+     * Set name.
      *
-     * This usually happens from DB or cache
-     *
-     * @param int $id Object ID
+     * @param string $name Name/title
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function init($id) : void
+    public function setName(string $name) : void
     {
-        // TODO: Implement init() method.
+        $this->name = $name;
     }
 
     /**
-     * Overwriting clone in order to maintain singleton pattern.
+     * Get created.
+     *
+     * @return \DateTime
      *
      * @since 1.0.0
      */
-    public function __clone()
+    public function getCreated() : \DateTime
     {
-        // TODO: Implement __clone() method.
+        return $this->created;
+    }
+
+    /**
+     * Set created.
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setCreated($created) : void
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * Get creator.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
+    public function getCreator()
+    {
+        return $this->creator;
+    }
+
+    /**
+     * Set creator.
+     *
+     * @param mixed $creator Creator
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setCreator($creator) : void
+    {
+        $this->creator = $creator;
     }
 }

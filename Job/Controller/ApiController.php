@@ -27,6 +27,19 @@ use phpOMS\Message\ResponseAbstract;
  */
 final class ApiController extends Controller
 {
+    /**
+     * Api method to create a job
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
     public function apiJobCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
     }

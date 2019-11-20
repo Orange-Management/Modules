@@ -58,6 +58,7 @@ class Client
     private int $advertisementMaterial = 0;
 
     private $defaultDeliveryAddress = null;
+
     private $defaultInvoiceAddress = null;
 
     /**
@@ -83,86 +84,214 @@ class Client
         return $this->id;
     }
 
+    /**
+     * Get number.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getNumber() : string
     {
         return $this->number;
     }
 
+    /**
+     * Set number.
+     *
+     * @param string $number Number
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setNumber(string $number) : void
     {
         $this->number = $number;
     }
 
-    public function getReverseNumber()
+    /**
+     * Get reverse number.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
+    public function getReverseNumber() : string
     {
         return $this->numberReverse;
     }
 
-    public function setReverseNumber($rev_no) : void
+    /**
+     * Set reverse number.
+     *
+     * @param string $numberReverse Reverse number
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setReverseNumber(string $numberReverse) : void
     {
-        if (!\is_scalar($rev_no)) {
+        if (!\is_scalar($numberReverse)) {
             throw new \Exception();
         }
 
-        $this->numberReverse = $rev_no;
+        $this->numberReverse = $numberReverse;
     }
 
+    /**
+     * Get status.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getStatus() : int
     {
         return $this->status;
     }
 
+    /**
+     * Set status.
+     *
+     * @param int $status Status
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
+    /**
+     * Get type.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getType() : int
     {
         return $this->type;
     }
 
+    /**
+     * Set type.
+     *
+     * @param int $type Type
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setType(int $type) : void
     {
         $this->type = $type;
     }
 
+    /**
+     * Get tax id.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getTaxId() : int
     {
         return $this->taxId;
     }
 
+    /**
+     * Set tax id.
+     *
+     * @param int $taxId Tax id
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setTaxId(int $taxId) : void
     {
         $this->taxId = $taxId;
     }
 
+    /**
+     * Set default delivery address.
+     *
+     * @param mixed $deliveryAddress Delivery address
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDefaultDeliveryAddress($deliveryAddress) : void
     {
         $this->defaultDeliveryAddress = $deliveryAddress;
     }
 
+    /**
+     * Get default delivery address.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getDefaultDeliveryAddress()
     {
         return $this->defaultDeliveryAddress;
     }
 
+    /**
+     * Set default invoice address.
+     *
+     * @param mixed $invoiceAddress Invoice address
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDefaultInvoiceAddress($invoiceAddress) : void
     {
         $this->defaultTnvoiceAddress = $invoiceAddress;
     }
 
+    /**
+     * Get default invoice address.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getDefaultInvoiceAddress()
     {
         return $this->defaultInvoiceAddress;
     }
 
+    /**
+     * Get info.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getInfo() : string
     {
         return $this->info;
     }
 
-    public function setInfo(string $info) : void  /* : void */
+    /**
+     * Set info.
+     *
+     * @param string $info Info
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setInfo(string $info) : void
     {
         $this->info = $info;
     }
@@ -179,31 +308,77 @@ class Client
         return $this->createdAt;
     }
 
+    /**
+     * Get profile.
+     *
+     * @return Profile
+     *
+     * @since 1.0.0
+     */
     public function getProfile() : Profile
     {
         return $this->profile;
     }
 
+    /**
+     * Set profile.
+     *
+     * @param Profile $profile Profile
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setProfile(Profile $profile) : void
     {
         $this->profile = $profile;
     }
 
+    /**
+     * Get media.
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getFiles() : array
     {
         return $this->files;
     }
 
+    /**
+     * Add media.
+     *
+     * @param Media $file Media
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function addFile(Media $file) : void
     {
         $this->files[] = $file;
     }
 
+    /**
+     * Get addresses.
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getAddresses() : array
     {
         return $this->address;
     }
 
+    /**
+     * Get contacts.
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getContactElements() : array
     {
         return $this->contactElements;

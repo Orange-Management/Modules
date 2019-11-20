@@ -66,41 +66,105 @@ class QAAnswer implements \JsonSerializable
         return $this->id;
     }
 
+    /**
+     * Get the answer
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getAnswer() : string
     {
         return $this->answer;
     }
 
+    /**
+     * Set the answer
+     *
+     * @param string $answer Answer
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setAnswer(string $answer) : void
     {
         $this->answer = $answer;
     }
 
+    /**
+     * Get the question
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getQuestion() : int
     {
         return $this->question;
     }
 
+    /**
+     * Set the question
+     *
+     * @param int $question Question
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setQuestion(int $question) : void
     {
         $this->question = $question;
     }
 
+    /**
+     * Get the status
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getStatus() : int
     {
         return $this->status;
     }
 
+    /**
+     * Set the status
+     *
+     * @param int $status Status
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
+    /**
+     * Set the answer as accepted
+     *
+     * @param bool $accepted Accepted
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setAccepted(bool $accepted) : void
     {
         $this->isAccepted = $accepted;
     }
 
+    /**
+     * Is the answer accepted
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
     public function isAccepted() : bool
     {
         return $this->isAccepted;
@@ -118,13 +182,22 @@ class QAAnswer implements \JsonSerializable
         return $this->createdBy;
     }
 
+    /**
+     * Set created by
+     *
+     * @param mixed $id Creator
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCreatedBy($id) : void
     {
         $this->createdBy = $id;
     }
 
     /**
-     * Get created at date time
+     * Get created at
      *
      * @return \DateTime
      *

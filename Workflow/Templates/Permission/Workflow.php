@@ -31,11 +31,25 @@ class Workflow implements WorkflowInterface
     private $state = 0;
     private $con   = null;
 
+    /**
+     * Constructor.
+     *
+     * @param ConnectionAbstract $con Database connection
+     *
+     * @since 1.0.0
+     */
     public function __construct(ConnectionAbstract $con)
     {
         $this->con = $con;
     }
 
+    /**
+     * Execute the workflow
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function run($data) : int
     {
         switch ($this->state) {
@@ -51,6 +65,13 @@ class Workflow implements WorkflowInterface
         return $this->state;
     }
 
+    /**
+     * Run tasks during the request
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function runRequest($data) : int
     {
         // todo: create workflow
@@ -60,6 +81,15 @@ class Workflow implements WorkflowInterface
         return 0;
     }
 
+    /**
+     * Run tasks after the status change from pending
+     *
+     * The next status could be a new request, an approval or dismissal
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function runPending($data) : int
     {
         // todo: approve?!
@@ -68,6 +98,13 @@ class Workflow implements WorkflowInterface
         return 0;
     }
 
+    /**
+     * Get the state of the workflow
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getState() : int
     {
         return $this->state;

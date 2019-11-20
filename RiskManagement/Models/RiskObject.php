@@ -62,21 +62,53 @@ class RiskObject
         return $this->id;
     }
 
+    /**
+     * Get risk.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getRisk()
     {
         return $this->risk;
     }
 
+    /**
+     * Set risk.
+     *
+     * @param mixed $risk Risk
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setRisk($risk) : void
     {
         $this->risk = $risk;
     }
 
+    /**
+     * Get title.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getTitle() : string
     {
         return $this->title;
     }
 
+    /**
+     * Set title.
+     *
+     * @param string $title Title
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setTitle(string $title) : void
     {
         $this->title = $title;
@@ -94,11 +126,27 @@ class RiskObject
         return $this->description;
     }
 
+    /**
+     * Get raw description.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescriptionRaw() : string
     {
         return $this->descriptionRaw;
     }
 
+    /**
+     * Set raw description.
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;

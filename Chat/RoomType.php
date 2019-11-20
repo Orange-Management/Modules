@@ -26,9 +26,7 @@ use phpOMS\Stdlib\Base\Enum;
  */
 abstract class RoomType extends Enum
 {
-    public const PUBLIC_CHAT = 0;
-
+    public const PUBLIC_CHAT  = 0;
     public const PRIVATE_CHAT = 1;
-
-    public const TEMP_CHAT = 2;
+    public const TEMP_CHAT    = 2;
 }

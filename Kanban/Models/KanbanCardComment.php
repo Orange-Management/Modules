@@ -69,11 +69,27 @@ class KanbanCardComment implements \JsonSerializable
         return $this->id;
     }
 
+    /**
+     * Set the card
+     *
+     * @param int $id Card id
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCard(int $id) : void
     {
         $this->card = $id;
     }
 
+    /**
+     * Get the card
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getCard() : int
     {
         return $this->card;
@@ -143,11 +159,27 @@ class KanbanCardComment implements \JsonSerializable
         return $this->createdAt;
     }
 
+    /**
+     * Get the media files
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getMedia() : array
     {
         return $this->media;
     }
 
+    /**
+     * Add a media file
+     *
+     * @param mixed $media Media
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function addMedia($media) : void
     {
         $this->media[] = $media;

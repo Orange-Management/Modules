@@ -76,18 +76,10 @@ class Shipping
     /**
      * Warehouse.
      *
-     * @var   \Modules\Warehousing\Models\ArrivalStatus
+     * @var   int
      * @since 1.0.0
      */
-    private ?int $status = null;
-
-    /**
-     * Shipping.
-     *
-     * @var   \Modules\Warehousing\Models\Article[]
-     * @since 1.0.0
-     */
-    private static array $instances = [];
+    private int $status = 0;
 
     /**
      * Constructor.
@@ -99,32 +91,6 @@ class Shipping
     public function __construct($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * Initializing object.
-     *
-     * @param int $id Article ID
-     *
-     * @return \Modules\Warehousing\Models\Article
-     *
-     * @since 1.0.0
-     */
-    public static function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
-    }
-
-    public function init($id) : void
-    {
-    }
-
-    public function __clone()
-    {
     }
 
     /**
@@ -220,11 +186,11 @@ class Shipping
     /**
      * Get status.
      *
-     * @return \Modules\Warehousing\Models\ArrivalStatus
+     * @return int
      *
      * @since 1.0.0
      */
-    public function getStatus()
+    public function getStatus() : int
     {
         return $this->status;
     }
@@ -232,13 +198,13 @@ class Shipping
     /**
      * Set status.
      *
-     * @param  \Modules\Warehousing\Models\ArrivalStatus
+     * @param int $status Status
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setStatus($status) : void
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -246,7 +212,7 @@ class Shipping
     /**
      * Get warehouse.
      *
-     * @return \Modules\Warehousing\Models\Warehouse
+     * @return mixed
      *
      * @since 1.0.0
      */
@@ -279,25 +245,5 @@ class Shipping
     public function setSender($sender) : void
     {
         $this->sender = $sender;
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
     }
 }

@@ -32,7 +32,12 @@ class CommentList
      */
     protected int $id = 0;
 
-    private $comments = [];
+    /**
+     *
+     * @var   array
+     * @since 1.0.0
+     */
+    private array $comments = [];
 
     /**
      * Get id.
@@ -46,11 +51,27 @@ class CommentList
         return $this->id;
     }
 
+    /**
+     * Get the comments
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getComments() : array
     {
         return $this->comments;
     }
 
+    /**
+     * Add a comment
+     *
+     * @param mixed $comment Comment
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function addComment($comment) : void
     {
         $this->comments[] = $comment;

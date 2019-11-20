@@ -33,6 +33,7 @@ class Cause
     protected int $id = 0;
 
     private $title = '';
+
     /**
      * Description.
      *
@@ -40,6 +41,7 @@ class Cause
      * @since 1.0.0
      */
     private string $description = '';
+
     /**
      * Description.
      *
@@ -68,51 +70,131 @@ class Cause
         return $this->id;
     }
 
+    /**
+     * Set risk.
+     *
+     * @param mixed $risk Risk
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setRisk($risk) : void
     {
         $this->risk = $risk;
     }
 
+    /**
+     * Get risk.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getRisk()
     {
         return $this->risk;
     }
 
+    /**
+     * Get category.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getCategory()
     {
         return $this->category;
     }
 
+    /**
+     * Set category.
+     *
+     * @param mixed $category Category
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCategory($category) : void
     {
         $this->category = $category;
     }
 
+    /**
+     * Get probability.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getProbability() : int
     {
         return $this->probability;
     }
 
+    /**
+     * Set probability.
+     *
+     * @param int $probability Probability
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setProbability(int $probability) : void
     {
         $this->probability = $probability;
     }
 
+    /**
+     * Get department.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getDepartment()
     {
         return $this->department;
     }
 
+    /**
+     * Set department.
+     *
+     * @param mixed $department Department
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDepartment($department) : void
     {
         $this->department = $department;
     }
 
+    /**
+     * Get title.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getTitle() : string
     {
         return $this->title;
     }
 
+    /**
+     * Set title.
+     *
+     * @param string $title Title
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setTitle(string $title) : void
     {
         $this->title = $title;
@@ -130,11 +212,27 @@ class Cause
         return $this->description;
     }
 
+    /**
+     * Get raw description.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescriptionRaw() : string
     {
         return $this->descriptionRaw;
     }
 
+    /**
+     * Set raw description.
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;

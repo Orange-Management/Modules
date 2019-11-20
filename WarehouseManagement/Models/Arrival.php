@@ -52,7 +52,7 @@ class Arrival
     /**
      * Warehouse.
      *
-     * @var   \Modules\Warehousing\Models\Warehouse
+     * @var   Warehouse
      * @since 1.0.0
      */
     private $warehouse = null;
@@ -76,20 +76,12 @@ class Arrival
     /**
      * Warehouse.
      *
-     * @var   \Modules\Warehousing\Models\ArrivalStatus
+     * @var   int
      * @since 1.0.0
      */
-    private ?int $status = null;
+    private int $status = 0;
 
     /* TODO: count, packaging, product count etc.... for every single position + where do you put it */
-
-    /**
-     * Arrival.
-     *
-     * @var   \Modules\Warehousing\Models\Arrival[]
-     * @since 1.0.0
-     */
-    private static array $instances = [];
 
     /**
      * Constructor.
@@ -101,32 +93,6 @@ class Arrival
     private function __construct($id)
     {
         $this->id = $id;
-    }
-
-    public function init($id) : void
-    {
-    }
-
-    public function __clone()
-    {
-    }
-
-    /**
-     * Initializing object.
-     *
-     * @param int $id Arrival ID
-     *
-     * @return \Modules\Warehousing\Models\Arrival
-     *
-     * @since 1.0.0
-     */
-    public function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
     }
 
     /**
@@ -222,11 +188,11 @@ class Arrival
     /**
      * Get status.
      *
-     * @return \Modules\Warehousing\Models\ArrivalStatus
+     * @return int
      *
      * @since 1.0.0
      */
-    public function getStatus()
+    public function getStatus() : int
     {
         return $this->status;
     }
@@ -234,13 +200,13 @@ class Arrival
     /**
      * Set status.
      *
-     * @param  \Modules\Warehousing\Models\ArrivalStatus
+     * @param int $status Status
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setStatus($status) : void
+    public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
@@ -248,7 +214,7 @@ class Arrival
     /**
      * Get warehouse.
      *
-     * @return \Modules\Warehousing\Models\Warehouse
+     * @return Warehouse
      *
      * @since 1.0.0
      */
@@ -281,25 +247,5 @@ class Arrival
     public function setAcceptor($acceptor) : void
     {
         $this->acceptor = $acceptor;
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
     }
 }

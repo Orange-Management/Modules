@@ -41,11 +41,27 @@ class GroupTagSelectorPopupView extends View
         $this->setTemplate('/Modules/Admin/Theme/Backend/Components/GroupTagSelector/group-selector-popup');
     }
 
+    /**
+     * Set selector id
+     *
+     * @param string $id Id
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setId(string $id) : void
     {
         $this->id = $id;
     }
 
+    /**
+     * Get selector id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;

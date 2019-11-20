@@ -94,6 +94,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get the content
+     *
      * @return string
      *
      * @since 1.0.0
@@ -104,7 +106,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $content
+     * Set the content
+     *
+     * @param string $content Content
      *
      * @return void
      *
@@ -116,7 +120,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $plain
+     * Set the plain text
+     *
+     * @param string $plain Plain text
      *
      * @return void
      *
@@ -128,6 +134,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get the plain text
+     *
      * @return string
      *
      * @since 1.0.0
@@ -138,6 +146,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get created at
+     *
      * @return \DateTime
      *
      * @since 1.0.0
@@ -148,6 +158,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get the id
+     *
      * @return int
      *
      * @since 1.0.0
@@ -158,6 +170,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get created by
+     *
      * @return int
      *
      * @since 1.0.0
@@ -168,7 +182,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param int $id
+     * Set created by
+     *
+     * @param int $id Creator
      *
      * @since 1.0.0
      */
@@ -178,6 +194,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get the title
+     *
      * @return string
      *
      * @since 1.0.0
@@ -188,7 +206,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $title
+     * Set the title
+     *
+     * @param string $title Title
      *
      * @return mixed
      *
@@ -200,6 +220,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
+     * Get the path
+     *
      * @return string
      *
      * @since 1.0.0
@@ -210,7 +232,9 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     }
 
     /**
-     * @param string $path
+     * Set the path if file
+     *
+     * @param string $path Path to file
      *
      * @return mixed
      *

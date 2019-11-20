@@ -41,11 +41,27 @@ class PositionTagSelectorPopupView extends View
         $this->setTemplate('/Modules/Organization/Theme/Backend/Components/PositionTagSelector/position-selector-popup');
     }
 
+    /**
+     * Set selctor id.
+     *
+     * @param string $id Id
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setId(string $id) : void
     {
         $this->id = $id;
     }
 
+    /**
+     * Get selector id.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;

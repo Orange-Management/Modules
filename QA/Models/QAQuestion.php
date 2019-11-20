@@ -33,17 +33,35 @@ class QAQuestion implements \JsonSerializable
     protected int $id = 0;
 
     /**
-     * Name.
+     * Title.
      *
      * @var   string
      * @since 1.0.0
      */
     private string $name = '';
 
+    /**
+     * Question status.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
     private int $status = QAQuestionStatus::ACTIVE;
 
-    private $question = '';
+    /**
+     * Question.
+     *
+     * @var   string
+     * @since 1.0.0
+     */
+    private string $question = '';
 
+    /**
+     * Category.
+     *
+     * @var   int
+     * @since 1.0.0
+     */
     private $category = 0;
 
     private $language = '';
@@ -52,9 +70,21 @@ class QAQuestion implements \JsonSerializable
 
     private $createdAt = null;
 
-    private $badges = [];
+    /**
+     * Badges.
+     *
+     * @var   array
+     * @since 1.0.0
+     */
+    private array $badges = [];
 
-    private $answers = [];
+    /**
+     * Answers.
+     *
+     * @var   array
+     * @since 1.0.0
+     */
+    private array $answers = [];
 
     /**
      * Constructor.
@@ -78,6 +108,13 @@ class QAQuestion implements \JsonSerializable
         return $this->id;
     }
 
+    /**
+     * Does the question have a accepted answer?
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
     public function hasAccepted() : bool
     {
         foreach ($this->answers as $answer) {
@@ -89,16 +126,39 @@ class QAQuestion implements \JsonSerializable
         return false;
     }
 
+    /**
+     * Get the language
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getLanguage() : string
     {
         return $this->language;
     }
 
+    /**
+     * Set the language
+     *
+     * @param string $language Language
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setLanguage(string $language) : void
     {
         $this->language = $language;
     }
 
+    /**
+     * Is the question answered?
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
     public function isAnswered() : bool
     {
         foreach ($this->answers as $answer) {
@@ -111,7 +171,7 @@ class QAQuestion implements \JsonSerializable
     }
 
     /**
-     * Get name
+     * Get title.
      *
      * @return string
      *
@@ -123,7 +183,7 @@ class QAQuestion implements \JsonSerializable
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name Name
      *
@@ -136,31 +196,79 @@ class QAQuestion implements \JsonSerializable
         $this->name = $name;
     }
 
+    /**
+     * Get the question.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getQuestion() : string
     {
         return $this->question;
     }
 
+    /**
+     * Set the question
+     *
+     * @param string $question Question
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setQuestion(string $question) : void
     {
         $this->question = $question;
     }
 
+    /**
+     * Get the status
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getStatus() : int
     {
         return $this->status;
     }
 
+    /**
+     * Set the status
+     *
+     * @param int $status Status
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
+    /**
+     * Get the category
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getCategory()
     {
         return $this->category;
     }
 
+    /**
+     * Set the category
+     *
+     * @param int $category Category
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCategory(int $category) : void
     {
         $this->category = $category;

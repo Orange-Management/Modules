@@ -30,13 +30,13 @@ use phpOMS\Views\View;
  */
 class TextView extends View
 {
-    private $id       = '';
-    private $name     = '';
-    private $form     = '';
-    private $plain    = '';
-    private $preview  = '';
-    private $tplText  = '';
-    private $tplValue = '';
+    private string $id       = '';
+    private string $name     = '';
+    private string $form     = '';
+    private string $plain    = '';
+    private string $preview  = '';
+    private string $tplText  = '';
+    private string $tplValue = '';
 
     /**
      * {@inheritdoc}
@@ -47,36 +47,87 @@ class TextView extends View
         $this->setTemplate('/Modules/Editor/Theme/Backend/Components/Editor/inline-editor');
     }
 
+    /**
+     * Render the form id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderId() : string
     {
         return $this->printHtml($this->id);
     }
 
+    /**
+     * Render the form name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderName() : string
     {
         return $this->printHtml($this->name);
     }
 
+    /**
+     * Render the form attribute name
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderForm() : string
     {
         return $this->printHtml($this->form);
     }
 
+    /**
+     * Render the preview
+     *
+     * Usually markdown
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderPreview() : string
     {
         return $this->preview;
     }
 
+    /**
+     * Render the plain text
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderPlain() : string
     {
         return $this->printHtml($this->plain);
     }
 
+    /**
+     * Render template text reference
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderTplText() : string
     {
         return $this->printHtml($this->tplText);
     }
 
+    /**
+     * Render template value reference
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderTplValue() : string
     {
         return $this->printHtml($this->tplValue);

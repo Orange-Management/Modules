@@ -31,6 +31,12 @@ use phpOMS\Views\View;
  */
 class BaseView extends View
 {
+    /**
+     * Editor id
+     *
+     * @var   string
+     * @since 1.0.0
+     */
     private $id = '';
 
     /**
@@ -47,6 +53,13 @@ class BaseView extends View
         $this->addData('text', $view);
     }
 
+    /**
+     * Render the editor id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function renderId() : string
     {
         return $this->printHtml($this->id);

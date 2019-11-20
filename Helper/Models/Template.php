@@ -141,6 +141,13 @@ class Template implements \JsonSerializable
         return $this->id;
     }
 
+    /**
+     * Get newest report for template.
+     *
+     * @return Report
+     *
+     * @since 1.0.0
+     */
     public function getNewestReport() : Report
     {
         if (!empty($this->reports)) {
@@ -370,6 +377,9 @@ class Template implements \JsonSerializable
         return $this->isStandalone;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toArray() : array
     {
         return [

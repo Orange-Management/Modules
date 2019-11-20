@@ -22,8 +22,6 @@ use Modules\Accounting\Models\CostObjectMapper;
 use Modules\Exchange\Interfaces\OMS\Model\ExchangeType;
 use Modules\Exchange\Models\ImporterAbstract;
 
-use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
-use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\Message\RequestAbstract;
 use Modules\ClientManagement\Models\ClientMapper;
 
@@ -51,7 +49,7 @@ final class Importer extends ImporterAbstract
         $start = new \DateTime($request->getData('start') ?? 'now');
         $end   = new \DateTime($request->getData('end') ?? 'now');
 
-        $type = (int) ($request->getData('type') ?? 0);
+        $type   = (int) ($request->getData('type') ?? 0);
         $source = (int) ($request->getData('source') ?? 0);
 
         if ($type === ExchangeType::CUSTOMER) {
@@ -136,7 +134,7 @@ final class Importer extends ImporterAbstract
     public function importAddress(\DateTime $start, \DateTime $end): void
     {
         while (($line = \fgetcsv($this->remote)) !== false) {
-
+            var_dump($line);
         }
     }
 
@@ -152,7 +150,7 @@ final class Importer extends ImporterAbstract
      */
     public function importCustomer(\DateTime $start, \DateTime $end): void
     {
-        $euTIN = CustomerIdTypeMapper::getByType(CustomerIdType::EU_TIN);
+        $euTIN  = CustomerIdTypeMapper::getByType(CustomerIdType::EU_TIN);
         $gerTIN = CustomerIdTypeMapper::getByType(CustomerIdType::GER_TIN);
 
         while (($line = \fgetcsv($this->remote)) !== false) {

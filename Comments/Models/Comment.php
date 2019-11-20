@@ -70,51 +70,131 @@ class Comment
         return $this->id;
     }
 
+    /**
+     * Reference id
+     *
+     * @param mixed $ref Reference
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setRef($ref) : void
     {
         $this->ref = $ref;
     }
 
+    /**
+     * Get the reference
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getRef()
     {
         return $this->ref;
     }
 
+    /**
+     * Set the list this comment belongs to
+     *
+     * @param mixed $list List
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setList($list) : void
     {
         $this->list = $list;
     }
 
+    /**
+     * Get the list this comment belongs to
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getList()
     {
         return $this->list;
     }
 
+    /**
+     * Get the title
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getTitle() : string
     {
         return $this->title;
     }
 
+    /**
+     * Set the title
+     *
+     * @param string $title Title
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
 
+    /**
+     * Get the content
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getContent() : string
     {
         return $this->content;
     }
 
+    /**
+     * Get the content
+     *
+     * @param string $content Content
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setContent(string $content) : void
     {
         $this->content = $content;
     }
 
+    /**
+     * Get the raw content
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getContentRaw() : string
     {
         return $this->contentRaw;
     }
 
+    /**
+     * Set the raw content
+     *
+     * @param string $contentRaw Content
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setContentRaw(string $contentRaw) : void
     {
         $this->contentRaw = $contentRaw;
@@ -132,6 +212,15 @@ class Comment
         return $this->createdBy;
     }
 
+    /**
+     * Set the creator
+     *
+     * @param mixed $createdBy Creator
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCreatedBy($createdBy) : void
     {
         $this->createdBy = $createdBy;

@@ -80,11 +80,27 @@ class QACategory implements \JsonSerializable
         $this->name = $name;
     }
 
+    /**
+     * Get the parent category
+     *
+     * @return null|int
+     *
+     * @since 1.0.0
+     */
     public function getParent() : ?int
     {
         return $this->parent;
     }
 
+    /**
+     * Set the parent category
+     *
+     * @param int $parent Parent category
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setParent(int $parent) : void
     {
         $this->parent = $parent;

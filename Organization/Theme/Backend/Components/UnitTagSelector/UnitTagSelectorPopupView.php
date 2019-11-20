@@ -41,11 +41,27 @@ class UnitTagSelectorPopupView extends View
         $this->setTemplate('/Modules/Organization/Theme/Backend/Components/UnitTagSelector/unit-selector-popup');
     }
 
+    /**
+     * Set the selector id
+     *
+     * @param string $id Selector id
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setId(string $id) : void
     {
         $this->id = $id;
     }
 
+    /**
+     * Get selector id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;

@@ -68,11 +68,27 @@ class Process
         return $this->id;
     }
 
+    /**
+     * Get title.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getTitle() : string
     {
         return $this->title;
     }
 
+    /**
+     * Set title.
+     *
+     * @param string $title Title
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setTitle(string $title) : void
     {
         $this->title = $title;
@@ -90,51 +106,131 @@ class Process
         return $this->description;
     }
 
+    /**
+     * Get raw description.
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getDescriptionRaw() : string
     {
         return $this->descriptionRaw;
     }
 
+    /**
+     * Set raw description.
+     *
+     * @param string $description Description
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDescriptionRaw(string $description) : void
     {
         $this->descriptionRaw = $description;
     }
 
+    /**
+     * Get unit.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getUnit()
     {
         return $this->unit;
     }
 
+    /**
+     * Set unit.
+     *
+     * @param mixed $unit Unit
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setUnit($unit) : void
     {
         $this->unit = $unit;
     }
 
+    /**
+     * Get department.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getDepartment()
     {
         return $this->department;
     }
 
+    /**
+     * Set department.
+     *
+     * @param mixed $department Department
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDepartment($department) : void
     {
         $this->department = $department;
     }
 
+    /**
+     * Get responsible.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getResponsible()
     {
         return $this->responsible;
     }
 
+    /**
+     * Set responsible.
+     *
+     * @param mixed $responsible Responsible
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setResponsible($responsible) : void
     {
         $this->responsible = $responsible;
     }
 
+    /**
+     * Get deputy.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getDeputy()
     {
         return $this->deputy;
     }
 
+    /**
+     * Set deputy.
+     *
+     * @param mixed $deputy Deputy
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDeputy($deputy) : void
     {
         $this->deputy = $deputy;

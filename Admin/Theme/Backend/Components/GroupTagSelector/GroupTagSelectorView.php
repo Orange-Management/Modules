@@ -45,11 +45,25 @@ class GroupTagSelectorView extends View
         $this->addData('group-selector-popup', $view);
     }
 
+    /**
+     * Get selector id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;
     }
 
+    /**
+     * Is required?
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
     public function isRequired() : bool
     {
         return $this->isRequired;

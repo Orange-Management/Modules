@@ -50,14 +50,6 @@ class Warehouse
     private $location = null;
 
     /**
-     * Warehouse.
-     *
-     * @var   \Modules\Warehousing\Models\Warehouse[]
-     * @since 1.0.0
-     */
-    private static array $instances = [];
-
-    /**
      * Constructor.
      *
      * @param int $id Warehouse ID
@@ -67,32 +59,6 @@ class Warehouse
     public function __construct($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * Initializing object.
-     *
-     * @param int $id Warehouse ID
-     *
-     * @return \Modules\Warehousing\Models\Warehouse
-     *
-     * @since 1.0.0
-     */
-    public static function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
-    }
-
-    public function init($id) : void
-    {
-    }
-
-    public function __clone()
-    {
     }
 
     /**
@@ -183,25 +149,5 @@ class Warehouse
     public function setLocation($location) : void
     {
         $this->location = $location;
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
     }
 }

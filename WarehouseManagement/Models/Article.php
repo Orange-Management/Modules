@@ -128,14 +128,6 @@ class Article
     private $creator = null;
 
     /**
-     * Article.
-     *
-     * @var   \Modules\Warehousing\Models\Article[]
-     * @since 1.0.0
-     */
-    private static array $instances = [];
-
-    /**
      * Constructor.
      *
      * @param int $id Article ID
@@ -145,32 +137,6 @@ class Article
     public function __construct($id)
     {
         $this->id = $id;
-    }
-
-    public function init($id) : void
-    {
-    }
-
-    public function __clone()
-    {
-    }
-
-    /**
-     * Initializing object.
-     *
-     * @param int $id Article ID
-     *
-     * @return \Modules\Warehousing\Models\Article
-     *
-     * @since 1.0.0
-     */
-    public function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
     }
 
     /**
@@ -364,25 +330,5 @@ class Article
         if (isset($this->prices[$id])) {
             $this->prices[$id] = $price;
         }
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
     }
 }

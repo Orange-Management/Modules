@@ -51,10 +51,20 @@ class Issue
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $created = null;
+    private \DateTime $created;
+
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
+    public function __construct()
+    {
+        $this->created = new \DateTime('now');
+    }
 
     /**
      * Creator.
@@ -64,77 +74,93 @@ class Issue
      */
     private ?int $creator = null;
 
-    private static $instances = [];
-
-    public function getInstance($id)
-    {
-        if (!isset(self::$instances[$id])) {
-            self::$instances[$id] = new self($id);
-        }
-
-        return self::$instances[$id];
-    }
-
-    public function init($id) : void
-    {
-    }
-
-    public function __clone()
-    {
-    }
-
-    public function getId()
+    /**
+     * Get id.
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName()
+    /**
+     * Get name/title
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function setName($name) : void
+    /**
+     * Set name/title
+     *
+     * @param string $name Name/title
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
 
-    public function getCreated()
+    /**
+     * Get created.
+     *
+     * @return \DateTime
+     *
+     * @since 1.0.0
+     */
+    public function getCreated() : \DateTime
     {
         return $this->created;
     }
 
+    /**
+     * Set created.
+     *
+     * @param \DateTime $created Date of when the article got created
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCreated($created) : void
     {
         $this->created = $created;
     }
 
+    /**
+     * Get creator.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getCreator()
     {
         return $this->creator;
     }
 
+    /**
+     * Set creator.
+     *
+     * @param mixed $creator Creator
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setCreator($creator) : void
     {
         $this->creator = $creator;
-    }
-
-    public function delete() : void
-    {
-    }
-
-    public function create() : void
-    {
-    }
-
-    public function update() : void
-    {
-    }
-
-    public function serialize() : void
-    {
-    }
-
-    public function unserialize($data) : void
-    {
     }
 }

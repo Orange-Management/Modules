@@ -122,7 +122,16 @@ final class BackendController extends Controller
         return $view;
     }
 
-    private function createOrgTree($components) : array
+    /**
+     * Create organization tree
+     *
+     * @param array $components Componants to form tree for
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
+    private function createOrgTree(array $components) : array
     {
         $tree = [];
         foreach ($components as $component) {

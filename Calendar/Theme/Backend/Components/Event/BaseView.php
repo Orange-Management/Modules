@@ -41,6 +41,13 @@ class BaseView extends View
         $this->setTemplate('/Modules/Calendar/Theme/Backend/Components/Event/popup');
     }
 
+    /**
+     * Get event view id
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
     public function getId() : string
     {
         return $this->id;

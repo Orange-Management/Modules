@@ -34,9 +34,6 @@ class ContactElement
 
     private int $type = 0;
 
-    private $subtype = 0;
-
-    private $value = '';
     /**
      * Description.
      *
@@ -57,34 +54,30 @@ class ContactElement
         return $this->id;
     }
 
+    /**
+     * Set type
+     *
+     * @param int $type Type
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setType(int $type) : void
     {
         $this->type = $type;
     }
 
+    /**
+     * Get type
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getType() : int
     {
         return $this->type;
-    }
-
-    public function setSubtype(int $type) : void
-    {
-        $this->subtype = $type;
-    }
-
-    public function getSubtype() : int
-    {
-        return $this->subtype;
-    }
-
-    public function getValue() : string
-    {
-        return $this->value;
-    }
-
-    public function setValue(string $value) : void
-    {
-        $this->value = $value;
     }
 
     /**

@@ -36,10 +36,6 @@ use phpOMS\Views\View;
  * Helper controller class.
  *
  * @package    Modules\Helper
- * @copyright  Dennis Eichhorn
- * @license    OMS License 1.0
- * @version    1.0.
- * @link       http://orange-managementcom
  * @license    OMS License 1.0
  * @link       https://orange-management.org
  * @since      1.0.0

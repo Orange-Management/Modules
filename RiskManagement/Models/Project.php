@@ -50,31 +50,79 @@ class Project
         return $this->id;
     }
 
+    /**
+     * Get project.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getProject()
     {
         return $this->project;
     }
 
+    /**
+     * Set project.
+     *
+     * @param mixed $project Project
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setProject($project) : void
     {
         $this->project = $project;
     }
 
+    /**
+     * Get responsible.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getResponsible()
     {
         return $this->responsible;
     }
 
+    /**
+     * Set responsible.
+     *
+     * @param mixed $responsible Responsible
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setResponsible($responsible) : void
     {
         $this->responsible = $responsible;
     }
 
+    /**
+     * Get deputy.
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
     public function getDeputy()
     {
         return $this->deputy;
     }
 
+    /**
+     * Set deputy.
+     *
+     * @param mixed $deputy Deputy
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setDeputy($deputy) : void
     {
         $this->deputy = $deputy;

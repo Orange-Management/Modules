@@ -3,9 +3,9 @@ import { Markdown } from '../../../jsOMS/Utils/Parser/Markdown.js';
 export class Editor {
     constructor (id)
     {
-        this.id       = id;
-        this.editor   = document.getElementById(id);
-        this.markdown = new Markdown.Converter({extensions: [], sanitize: true});
+        this.id            = id;
+        this.editor        = document.getElementById(id);
+        this.markdown      = new Markdown.Converter({extensions: [], sanitize: true});
         this.editorContent = null;
     };
 
@@ -51,29 +51,29 @@ export class Editor {
 
                 break;
             case 'bold':
-                startOffset = 2;
-                endOffset   = 2;
+                startOffset    = 2;
+                endOffset      = 2;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '**' + textarea.value.slice(startPosition, endPosition) + '**'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'italic':
-                startOffset = 1;
-                endOffset   = 1;
+                startOffset    = 1;
+                endOffset      = 1;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '*' + textarea.value.slice(startPosition, endPosition) + '*'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'underline':
-                startOffset = 2;
-                endOffset   = 2;
+                startOffset    = 2;
+                endOffset      = 2;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '__' + textarea.value.slice(startPosition, endPosition) + '__'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'strikethrough':
-                startOffset = 2;
-                endOffset   = 2;
+                startOffset    = 2;
+                endOffset      = 2;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '~~' + textarea.value.slice(startPosition, endPosition) + '~~'
                     + textarea.value.slice(endPosition, textarea.value.length);
@@ -132,22 +132,22 @@ export class Editor {
             case 'link':
                 startOffset = 1;
                 endOffset   = 0;
-                let link = textarea.value.slice(startPosition, endPosition);
+                let link    = textarea.value.slice(startPosition, endPosition);
 
                 textarea.value = textarea.value.slice(0, startPosition)
                     + ((link.startsWith('http') || link.startsWith('www')) ? '[' + link + ']' : '[' + link + '](https://www.website.com "' + link + '")')
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'code':
-                startOffset = 1;
-                endOffset   = 1;
+                startOffset    = 1;
+                endOffset      = 1;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '`' + textarea.value.slice(startPosition, endPosition) + '`'
                     + textarea.value.slice(endPosition, textarea.value.length);
                 break;
             case 'quote':
-                startOffset = 2;
-                endOffset   = 0;
+                startOffset    = 2;
+                endOffset      = 0;
                 textarea.value = textarea.value.slice(0, startPosition)
                     + '> ' + textarea.value.slice(startPosition, textarea.value.length);
                 break;

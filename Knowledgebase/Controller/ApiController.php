@@ -35,6 +35,19 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
 final class ApiController extends Controller
 {
 
+    /**
+     * Api method to create a wiki entry
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
     public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateWikiDocCreate($request))) {
@@ -48,6 +61,15 @@ final class ApiController extends Controller
         $response->set('doc', $doc->jsonSerialize());
     }
 
+    /**
+     * Method to create a wiki entry from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return WikiDoc
+     *
+     * @since 1.0.0
+     */
     public function createWikiDocFromRquest(RequestAbstract $request) : WikiDoc
     {
         $mardkownParser = new Markdown();
@@ -61,6 +83,15 @@ final class ApiController extends Controller
         return $doc;
     }
 
+    /**
+     * Method to validate wiki entry creation from request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since 1.0.0
+     */
     private function validateWikiDocCreate(RequestAbstract $request) : array
     {
         $val = [];
@@ -78,6 +109,19 @@ final class ApiController extends Controller
         return [];
     }
 
+    /**
+     * Api method to create a wiki category
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
     public function apiWikiCategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateWikiCategoryCreate($request))) {
@@ -91,6 +135,15 @@ final class ApiController extends Controller
         $response->set('category', $category->jsonSerialize());
     }
 
+    /**
+     * Method to create a wiki category from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return WikiCategory
+     *
+     * @since 1.0.0
+     */
     public function createWikiCategoryFromRquest(RequestAbstract $request) : WikiCategory
     {
         $mardkownParser = new Markdown();
@@ -102,6 +155,15 @@ final class ApiController extends Controller
         return $category;
     }
 
+    /**
+     * Method to validate wiki category creation from request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool>
+     *
+     * @since 1.0.0
+     */
     private function validateWikiCategoryCreate(RequestAbstract $request) : array
     {
         $val = [];

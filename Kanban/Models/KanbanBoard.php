@@ -105,21 +105,53 @@ class KanbanBoard implements \JsonSerializable
         $this->name = $name;
     }
 
+    /**
+     * Get the status
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getStatus() : int
     {
         return $this->status;
     }
 
+    /**
+     * Set the status
+     *
+     * @param int $status Status
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setStatus(int $status) : void
     {
         $this->status = $status;
     }
 
+    /**
+     * Get the order
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
     public function getOrder() : int
     {
         return $this->order;
     }
 
+    /**
+     * Set the order
+     *
+     * @param int $order Order
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function setOrder(int $order) : void
     {
         $this->order = $order;
@@ -189,16 +221,41 @@ class KanbanBoard implements \JsonSerializable
         return $this->createdAt;
     }
 
+    /**
+     * Get the columns
+     *
+     * @return array
+     *
+     * @since 1.0.0
+     */
     public function getColumns() : array
     {
         return $this->columns;
     }
 
+    /**
+     * Add a column
+     *
+     * @param mixed $column Column
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     public function addColumn($column) : void
     {
         $this->columns[] = $column;
     }
 
+    /**
+     * Remove a column
+     *
+     * @param int $id Id to remove
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
     public function removeColumn(int $id) : bool
     {
         if (isset($this->columns[$id])) {

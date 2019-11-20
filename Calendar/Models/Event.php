@@ -258,7 +258,11 @@ class Event
     }
 
     /**
-     * @param $createdBy Creator
+     * Set creator
+     *
+     * @param int $createdBy Creator
+     *
+     * @return void
      *
      * @since 1.0.0
      */
@@ -269,7 +273,11 @@ class Event
     }
 
     /**
+     * Set location
+     *
      * @param Location $location Event location
+     *
+     * @return void
      *
      * @since 1.0.0
      */
