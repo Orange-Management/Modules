@@ -37,14 +37,15 @@ use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
+use phpOMS\Module\ModuleAbstract;
 
 /**
  * @internal
  */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
-    protected $app    = null;
-    protected $module = null;
+    protected ApplicationAbstract $app;
+    protected ModuleAbstract $module;
 
     protected function setUp() : void
     {

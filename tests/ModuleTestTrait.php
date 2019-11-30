@@ -88,13 +88,17 @@ trait ModuleTestTrait
             $columns         = $classReflection->getDefaultProperties()['columns'];
 
             foreach ($columns as $cName => $column) {
-                self::assertTrue(
-                    \in_array($column['type'], ['int', 'string', 'DateTime', 'Json', 'Serializable', 'bool', 'float']),
-                    'Mapper "' . $class . '" column "' . $cName . '" has invalid type'
-                );
-                self::assertEquals($cName, $column['name'] ?? false);
+                if (!\in_array($column['type'], ['int', 'string', 'DateTime', 'Json', 'Serializable', 'bool', 'float'])) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type');
+                }
+
+                if ($cName !== ($column['name'] ?? false)) {
+                    self::assertTrue(false);
+                }
             }
         }
+
+        self::assertTrue(true);
     }
 
     private function getMapperFromPath(string $mapper) : string
@@ -136,40 +140,40 @@ trait ModuleTestTrait
                     $isArray = true;
                 }
 
-                self::assertTrue(
-                    $classReflection->hasProperty($column['internal']),
-                    'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member'
-                );
+                if (!$classReflection->hasProperty($column['internal'])) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has missing/invalid internal/member');
+                }
 
                 // testing correct mapper/model variable type definition
                 $property = $defaultProperties[$column['internal']] ?? null;
-                self::assertTrue(
-                    $property === null /* @todo: change in the future. not every column value is alowed to be null. a flag needs to be implemented in the mapper column definitions e.g. null = true */
+                if (!($property === null /* @todo: change in the future. not every column value is alowed to be null. a flag needs to be implemented in the mapper column definitions e.g. null = true */
                     || (\is_string($property) && $column['type'] === 'string')
                     || (\is_int($property) && $column['type'] === 'int')
                     || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable' || $isArray))
                     || (\is_bool($property) && $column['type'] === 'bool')
                     || (\is_float($property) && $column['type'] === 'float')
                     || ($property instanceof \DateTime && $column['type'] === 'DateTime')
-                    || (isset($ownsOne[$column['internal']]) && $column['type'] === 'int'), // if it is in ownsOne it can be a different type because it is a reference!
-                    'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition'
-                );
+                    || (isset($ownsOne[$column['internal']]) && $column['type'] === 'int') // if it is in ownsOne it can be a different type because it is a reference!
+                )) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition');
+                }
             }
 
             // test correct hasMany model variable type
             $rel = $mapperReflection->getDefaultProperties()['hasMany'];
             foreach ($rel as $pName => $def) {
-                self::assertTrue(
-                    isset($defaultProperties[$pName]),
-                    'Mapper "' . $class . '" property "' . $pName . '" doesn\'t exist in model'
-                );
+                if (!isset($defaultProperties[$pName])) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" property "' . $pName . '" doesn\'t exist in model');
+                }
 
                 $property = $defaultProperties[$pName];
-                self::assertIsArray($property,
-                    'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition'
-                );
+                if (!\is_array($property)) {
+                    self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" has invalid type compared to model definition');
+                }
             }
         }
+
+        self::assertTrue(true);
     }
 
     /**
@@ -183,12 +187,16 @@ trait ModuleTestTrait
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($db as $name => $table) {
-                self::assertEquals($name, $table['name'] ?? false);
+                if ($name !== ($table['name'] ?? false)) {
+                    self::assertTrue(false);
+                }
 
                 foreach ($table['fields'] as $cName => $column) {
-                    self::assertEquals($cName, $column['name'] ?? false);
-                    self::assertTrue(
-                        \stripos($column['type'] ?? '', 'TINYINT') === 0
+                    if ($cName !== ($column['name'] ?? false)) {
+                        self::assertTrue(false);
+                    }
+
+                    if (!(\stripos($column['type'] ?? '', 'TINYINT') === 0
                         || \stripos($column['type'] ?? '', 'SMALLINT') === 0
                         || \stripos($column['type'] ?? '', 'INT') === 0
                         || \stripos($column['type'] ?? '', 'BIGINT') === 0
@@ -196,15 +204,18 @@ trait ModuleTestTrait
                         || \stripos($column['type'] ?? '', 'VARBINARY') === 0
                         || \stripos($column['type'] ?? '', 'TEXT') === 0
                         || \stripos($column['type'] ?? '', 'DATETIME') === 0
-                        || \stripos($column['type'] ?? '', 'DECIMAL') === 0,
-                        'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type'
-                    );
+                        || \stripos($column['type'] ?? '', 'DECIMAL') === 0
+                    )) {
+                        self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is a missing/invalid type');
+                    }
                 }
             }
 
             $dbTemplate = \json_decode(\file_get_contents(__DIR__ . '/../../phpOMS/DataStorage/Database/tableDefinition.json'), true);
             self::assertTrue(Json::validateTemplate($dbTemplate, $db), 'Invalid db template for ' . self::MODULE_NAME);
         }
+
+        self::assertTrue(true);
     }
 
     /**
@@ -221,19 +232,22 @@ trait ModuleTestTrait
             $db = \json_decode(\file_get_contents($schemaPath), true);
 
             foreach ($db as $name => $table) {
-                self::assertContains($this->app->dbPool->get()->prefix . $name, $tables);
+                if (!\in_array($this->app->dbPool->get()->prefix . $name, $tables)) {
+                    self::assertTrue(false);
+                }
 
                 $field  = new SchemaBuilder($this->app->dbPool->get());
                 $fields = $field->prefix($this->app->dbPool->get()->prefix)->selectFields($name)->execute()->fetchAll();
 
                 foreach ($table['fields'] as $cName => $column) {
-                    self::assertTrue(
-                        ArrayUtils::inArrayRecursive($cName, $fields),
-                        'Couldn\'t find "' . $cName . '" in "' . $name . '"'
-                    );
+                    if (!ArrayUtils::inArrayRecursive($cName, $fields)) {
+                        self::assertTrue(false, 'Couldn\'t find "' . $cName . '" in "' . $name . '"');
+                    }
                 }
             }
         }
+
+        self::assertTrue(true);
     }
 
     /**
@@ -264,14 +278,12 @@ trait ModuleTestTrait
 
                 foreach ($columns as $cName => $column) {
                     // testing existence of field name in schema
-                    self::assertTrue(
-                        isset($db[$table]['fields'][$cName]),
-                        'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema'
-                    );
+                    if (!isset($db[$table]['fields'][$cName])) {
+                        self::assertTrue(false, 'Mapper "' . $class . '" column "' . $cName . '" doesn\'t match schema');
+                    }
 
                     // testing schema/mapper same column data type
-                    self::assertTrue(
-                        ($column['type'] === 'string'
+                    if (!(($column['type'] === 'string'
                             && (\stripos($db[$table]['fields'][$cName]['type'], 'VARCHAR') === 0
                                 || \stripos($db[$table]['fields'][$cName]['type'], 'VARBINARY') === 0
                                 || \stripos($db[$table]['fields'][$cName]['type'], 'TEXT') === 0))
@@ -286,19 +298,21 @@ trait ModuleTestTrait
                         || ($column['type'] === 'Serializable')
                         || ($column['type'] === 'bool' && \stripos($db[$table]['fields'][$cName]['type'], 'TINYINT') === 0)
                         || ($column['type'] === 'float' && \stripos($db[$table]['fields'][$cName]['type'], 'DECIMAL') === 0)
-                        || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0),
-                        'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"'
-                    );
+                        || ($column['type'] === 'DateTime' && \stripos($db[$table]['fields'][$cName]['type'], 'DATETIME') === 0)
+                    )) {
+                        self::assertTrue(false, 'Schema "' . $schemaPath . '" type "' . ($column['type'] ?? '') . '" is incompatible with mapper "' . $class . '" definition "' . $db[$table]['fields'][$cName]['type'] . '" for field "' . $cName . '"');
+                    }
                 }
 
                 // testing schema/mapper same primary key definition
                 $primary = $mapperReflection->getDefaultProperties()['primaryField'];
-                self::assertTrue(
-                    $db[$table]['fields'][$primary]['primary'] ?? false,
-                    'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"'
-                );
+                if (!($db[$table]['fields'][$primary]['primary'] ?? false)) {
+                    self::assertTrue(false, 'Field "' . $primary . '" from mapper "' . $class . '" is not defined as primary key in table "' . $table . '"');
+                }
             }
         }
+
+        self::assertTrue(true);
     }
 
     /**
