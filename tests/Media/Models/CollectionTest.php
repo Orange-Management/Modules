@@ -21,51 +21,73 @@ use Modules\Media\Models\Collection;
  */
 class CollectionTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $media = new Collection();
+    protected Collection $media;
 
-        self::assertEquals(0, $media->getId());
-        self::assertEquals(0, $media->getCreatedBy());
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $media->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals('collection', $media->getExtension());
-        self::assertEquals('', $media->getPath());
-        self::assertEquals('', $media->getName());
-        self::assertEquals('', $media->getDescription());
-        self::assertEquals(0, $media->getSize());
-        self::assertFalse($media->isVersioned());
-        self::assertEquals([], $media->getSources());
+    protected function setUp() : void
+    {
+        $this->media = new Collection();
     }
 
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $media = new Collection();
+        self::assertEquals(0, $this->media->getId());
+        self::assertEquals(0, $this->media->getCreatedBy());
+        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->media->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals('collection', $this->media->getExtension());
+        self::assertEquals('', $this->media->getPath());
+        self::assertEquals('', $this->media->getName());
+        self::assertEquals('', $this->media->getDescription());
+        self::assertEquals(0, $this->media->getSize());
+        self::assertFalse($this->media->isVersioned());
+        self::assertEquals([], $this->media->getSources());
+    }
 
-        $media->setCreatedBy(1);
-        self::assertEquals(1, $media->getCreatedBy());
+    public function testCreatedByInputOutput() : void
+    {
+        $this->media->setCreatedBy(1);
+        self::assertEquals(1, $this->media->getCreatedBy());
+    }
 
-        $media->setExtension('pdf');
-        self::assertEquals('collection', $media->getExtension());
+    public function testExtensionInputOutput() : void
+    {
+        $this->media->setExtension('pdf');
+        self::assertEquals('collection', $this->media->getExtension());
+    }
 
-        $media->setPath('/home/root');
-        self::assertEquals('/home/root', $media->getPath());
+    public function testPathInputOutput() : void
+    {
+        $this->media->setPath('/home/root');
+        self::assertEquals('/home/root', $this->media->getPath());
+    }
 
-        $media->setName('Report');
-        self::assertEquals('Report', $media->getName());
+    public function testDescriptionInputOutput() : void
+    {
+        $this->media->setDescription('This is a description');
+        self::assertEquals('This is a description', $this->media->getDescription());
+    }
 
-        $media->setDescription('This is a description');
-        self::assertEquals('This is a description', $media->getDescription());
+    public function testSizeInputOutput() : void
+    {
+        $this->media->setSize(11);
+        self::assertEquals(11, $this->media->getSize());
+    }
 
-        $media->setSize(11);
-        self::assertEquals(11, $media->getSize());
+    public function testVersionedInputOutput() : void
+    {
+        $this->media->setVersioned(true);
+        self::assertFalse($this->media->isVersioned());
+    }
 
-        $media->setVersioned(true);
-        self::assertFalse($media->isVersioned());
+    public function testSourceInputOutput() : void
+    {
+        $this->media->setSources([1, 2, 3]);
+        self::assertEquals([1, 2, 3], $this->media->getSources());
+    }
 
-        $media->setSources([1, 2, 3]);
-        self::assertEquals([1, 2, 3], $media->getSources());
-
-        $media->addSource(4);
-        self::assertEquals([1, 2, 3, 4], $media->getSources());
+    public function testSourceAddInputOutput() : void
+    {
+        $this->media->setSources([1, 2, 3]);
+        $this->media->addSource(4);
+        self::assertEquals([1, 2, 3, 4], $this->media->getSources());
     }
 }

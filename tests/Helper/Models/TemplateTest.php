@@ -23,52 +23,79 @@ use Modules\Helper\Models\TemplateDataType;
  */
 class TemplateTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $template = new Template();
+    protected Template $template;
 
-        self::assertEquals(0, $template->getId());
-        self::assertEquals(0, $template->getCreatedBy());
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $template->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals('', $template->getName());
-        self::assertEquals(HelperStatus::INACTIVE, $template->getStatus());
-        self::assertEquals('', $template->getDescription());
-        self::assertEquals('', $template->getDescriptionRaw());
-        self::assertEquals([], $template->getExpected());
-        self::assertEquals(0, $template->getSource());
-        self::assertFalse($template->isStandalone());
-        self::assertEquals(TemplateDataType::OTHER, $template->getDatatype());
+    protected function setUp() : void
+    {
+        $this->template = new Template();
     }
 
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $template = new Template();
+        self::assertEquals(0, $this->template->getId());
+        self::assertEquals(0, $this->template->getCreatedBy());
+        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->template->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals('', $this->template->getName());
+        self::assertEquals(HelperStatus::INACTIVE, $this->template->getStatus());
+        self::assertEquals('', $this->template->getDescription());
+        self::assertEquals('', $this->template->getDescriptionRaw());
+        self::assertEquals([], $this->template->getExpected());
+        self::assertEquals(0, $this->template->getSource());
+        self::assertFalse($this->template->isStandalone());
+        self::assertEquals(TemplateDataType::OTHER, $this->template->getDatatype());
+    }
 
-        $template->setCreatedBy(1);
-        self::assertEquals(1, $template->getCreatedBy());
+    public function testCreatedByInputOutput() : void
+    {
+        $this->template->setCreatedBy(1);
+        self::assertEquals(1, $this->template->getCreatedBy());
+    }
 
-        $template->setName('Title');
-        self::assertEquals('Title', $template->getName());
+    public function testNameInputOutput() : void
+    {
+        $this->template->setName('Title');
+        self::assertEquals('Title', $this->template->getName());
+    }
 
-        $template->setStatus(HelperStatus::ACTIVE);
-        self::assertEquals(HelperStatus::ACTIVE, $template->getStatus());
+    public function testStatusInputOutput() : void
+    {
+        $this->template->setStatus(HelperStatus::ACTIVE);
+        self::assertEquals(HelperStatus::ACTIVE, $this->template->getStatus());
+    }
 
-        $template->setStandalone(true);
-        self::assertTrue($template->isStandalone());
+    public function testStandalonInputOutput() : void
+    {
+        $this->template->setStandalone(true);
+        self::assertTrue($this->template->isStandalone());
+    }
 
-        $template->setDescription('Description');
-        self::assertEquals('Description', $template->getDescription());
+    public function testDescriptionInputOutput() : void
+    {
+        $this->template->setDescription('Description');
+        self::assertEquals('Description', $this->template->getDescription());
+    }
 
-        $template->setDescriptionRaw('DescriptionRaw');
-        self::assertEquals('DescriptionRaw', $template->getDescriptionRaw());
+    public function testDescriptionRawInputOutput() : void
+    {
+        $this->template->setDescriptionRaw('DescriptionRaw');
+        self::assertEquals('DescriptionRaw', $this->template->getDescriptionRaw());
+    }
 
-        $template->setExpected(['source1.csv', 'source2.csv']);
-        self::assertEquals(['source1.csv', 'source2.csv'], $template->getExpected());
+    public function testExpectedInputOutput() : void
+    {
+        $this->template->setExpected(['source1.csv', 'source2.csv']);
+        self::assertEquals(['source1.csv', 'source2.csv'], $this->template->getExpected());
+    }
 
-        $template->setSource(4);
-        self::assertEquals(4, $template->getSource());
+    public function testSourceInputOutput() : void
+    {
+        $this->template->setSource(4);
+        self::assertEquals(4, $this->template->getSource());
+    }
 
-        $template->setDatatype(TemplateDataType::GLOBAL_DB);
-        self::assertEquals(TemplateDataType::GLOBAL_DB, $template->getDatatype());
+    public function testDatatypeInputOutput() : void
+    {
+        $this->template->setDatatype(TemplateDataType::GLOBAL_DB);
+        self::assertEquals(TemplateDataType::GLOBAL_DB, $this->template->getDatatype());
     }
 }

@@ -83,7 +83,9 @@ final class ApiController extends Controller
             $request->getFiles(),
             $request->getHeader()->getAccount(),
             (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files'),
-            (string) ($request->getData('virtualPath') ?? '/')
+            (string) ($request->getData('virtualPath') ?? '/'),
+            (string) ($request->getData('password') ?? ''),
+            (string) ($request->getData('encrypt') ?? '')
         );
 
         $ids = [];
@@ -109,7 +111,9 @@ final class ApiController extends Controller
         array $files,
         int $account,
         string $basePath = 'Modules/Media/Files',
-        string $virtualPath = '/'
+        string $virtualPath = '/',
+        string $password = '',
+        string $encryptionKey = ''
     ) : array
     {
         $mediaCreated = [];
@@ -118,7 +122,7 @@ final class ApiController extends Controller
             $upload = new UploadFile();
             $upload->setOutputDir(self::createMediaPath($basePath));
 
-            $status       = $upload->upload($files, $name);
+            $status       = $upload->upload($files, $name, $encryptionKey);
             $mediaCreated = $this->createDbEntries($status, $account, $virtualPath);
         }
 

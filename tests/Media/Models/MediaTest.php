@@ -21,52 +21,79 @@ use Modules\Media\Models\Media;
  */
 class MediaTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $media = new Media();
+    protected Media $media;
 
-        self::assertEquals(0, $media->getId());
-        self::assertEquals(0, $media->getCreatedBy());
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $media->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals('', $media->getExtension());
-        self::assertEquals('', $media->getPath());
-        self::assertFalse($media->isAbsolute());
-        self::assertEquals('', $media->getName());
-        self::assertEquals('', $media->getDescription());
-        self::assertEquals('', $media->getDescriptionRaw());
-        self::assertEquals(0, $media->getSize());
-        self::assertFalse($media->isVersioned());
+    protected function setUp() : void
+    {
+        $this->media = new Media();
     }
 
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $media = new Media();
+        self::assertEquals(0, $this->media->getId());
+        self::assertEquals(0, $this->media->getCreatedBy());
+        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->media->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals('', $this->media->getExtension());
+        self::assertEquals('', $this->media->getPath());
+        self::assertFalse($this->media->isAbsolute());
+        self::assertEquals('', $this->media->getName());
+        self::assertEquals('', $this->media->getDescription());
+        self::assertEquals('', $this->media->getDescriptionRaw());
+        self::assertEquals(0, $this->media->getSize());
+        self::assertFalse($this->media->isVersioned());
+    }
 
-        $media->setCreatedBy(1);
-        self::assertEquals(1, $media->getCreatedBy());
+    public function testCreatedByInputOutput() : void
+    {
+        $this->media->setCreatedBy(1);
+        self::assertEquals(1, $this->media->getCreatedBy());
+    }
 
-        $media->setExtension('pdf');
-        self::assertEquals('pdf', $media->getExtension());
+    public function testExtensionInputOutput() : void
+    {
+        $this->media->setExtension('pdf');
+        self::assertEquals('pdf', $this->media->getExtension());
+    }
 
-        $media->setPath('/home/root');
-        self::assertEquals('/home/root', $media->getPath());
+    public function testPathInputOutput() : void
+    {
+        $this->media->setPath('/home/root');
+        self::assertEquals('/home/root', $this->media->getPath());
+    }
 
-        $media->setAbsolute(true);
-        self::assertTrue($media->isAbsolute());
+    public function testAbsolutePathInputOutput() : void
+    {
+        $this->media->setAbsolute(true);
+        self::assertTrue($this->media->isAbsolute());
+    }
 
-        $media->setName('Report');
-        self::assertEquals('Report', $media->getName());
+    public function testNameInputOutput() : void
+    {
+        $this->media->setName('Report');
+        self::assertEquals('Report', $this->media->getName());
+    }
 
-        $media->setDescription('This is a description');
-        self::assertEquals('This is a description', $media->getDescription());
+    public function testDescriptionInputOutput() : void
+    {
+        $this->media->setDescription('This is a description');
+        self::assertEquals('This is a description', $this->media->getDescription());
+    }
 
-        $media->setDescriptionRaw('This is a description raw');
-        self::assertEquals('This is a description raw', $media->getDescriptionRaw());
+    public function testDescriptionRawInputOutput() : void
+    {
+        $this->media->setDescriptionRaw('This is a description raw');
+        self::assertEquals('This is a description raw', $this->media->getDescriptionRaw());
+    }
 
-        $media->setSize(11);
-        self::assertEquals(11, $media->getSize());
+    public function testSizeInputOutput() : void
+    {
+        $this->media->setSize(11);
+        self::assertEquals(11, $this->media->getSize());
+    }
 
-        $media->setVersioned(true);
-        self::assertTrue($media->isVersioned());
+    public function testVersionedInputOutput() : void
+    {
+        $this->media->setVersioned(true);
+        self::assertTrue($this->media->isVersioned());
     }
 }

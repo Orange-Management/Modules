@@ -122,12 +122,20 @@ class Media implements \JsonSerializable
     protected string $descriptionRaw = '';
 
     /**
-     * Media encryption hash.
+     * Media encryption nonce.
      *
      * @var   null|string
      * @since 1.0.0
      */
-    protected ?string $encryptionHash = null;
+    protected ?string $nonce = null;
+
+    /**
+     * Media password hash.
+     *
+     * @var   null|string
+     * @since 1.0.0
+     */
+    protected ?string $password = null;
 
     /**
      * Constructor.
@@ -182,17 +190,17 @@ class Media implements \JsonSerializable
     }
 
     /**
-     * Set encryption hash
+     * Set encryption nonce
      *
-     * @param null|string $encryptionHash Hash from encryption password
+     * @param null|string $nonce Nonce from encryption password
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setEncryptionHash(?string $encryptionHash) : void
+    public function setNonce(?string $nonce) : void
     {
-        $this->encryptionHash = $encryptionHash;
+        $this->nonce = $nonce;
     }
 
     /**
@@ -204,21 +212,49 @@ class Media implements \JsonSerializable
      */
     public function isEncrypted() : bool
     {
-        return $this->encryptionHash !== null;
+        return $this->nonce !== null;
     }
 
     /**
-     * Compare hash with encryption hash of the media file
+     * Set encryption password
      *
-     * @param string $hash User hash
+     * @param null|string $password Password
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setPassword(?string $password) : void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * Compare user password with password of the media file
+     *
+     * @param string $password User password
      *
      * @return bool
      *
      * @since 1.0.0
      */
-    public function compareEncryptionHash(string $hash) : bool
+    public function comparePassword(string $password) : bool
     {
-        return \hash_equals($this->encryptionHash, $hash);
+        return \password_verify($password, $this->password ?? '');
+    }
+
+    /**
+     * Compare nonce with encryption nonce of the media file
+     *
+     * @param string $nonce User nonce
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
+    public function compareNonce(string $nonce) : bool
+    {
+        return \hash_equals($this->nonce, $nonce);
     }
 
     /**

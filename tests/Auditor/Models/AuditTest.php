@@ -36,7 +36,7 @@ class AuditTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTime', $audit->getCreatedAt());
     }
 
-    public function testSetGet() : void
+    public function testConstructorInputOutput() : void
     {
         $audit = new Audit(
             new Account(),

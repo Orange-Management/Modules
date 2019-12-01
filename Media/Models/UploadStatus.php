@@ -36,4 +36,5 @@ abstract class UploadStatus extends Enum
     public const NOT_UPLOADED     = -7;
     public const NOT_MOVABLE      = -8;
     public const FAILED_HASHING   = -9;
+    public const NOT_ENCRYPTABLE  = -10;
 }

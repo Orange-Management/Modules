@@ -22,40 +22,58 @@ use Modules\Helper\Models\Report;
  */
 class ReportTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $report = new Report();
+    protected Report $report;
 
-        self::assertEquals(0, $report->getId());
-        self::assertEquals(0, $report->getCreatedBy());
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $report->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals('', $report->getTitle());
-        self::assertEquals(HelperStatus::INACTIVE, $report->getStatus());
-        self::assertEquals('', $report->getDescription());
-        self::assertEquals(0, $report->getTemplate());
-        self::assertEquals(0, $report->getSource());
+    protected function setUp() : void
+    {
+        $this->report = new Report();
     }
 
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $report = new Report();
+        self::assertEquals(0, $this->report->getId());
+        self::assertEquals(0, $this->report->getCreatedBy());
+        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->report->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals('', $this->report->getTitle());
+        self::assertEquals(HelperStatus::INACTIVE, $this->report->getStatus());
+        self::assertEquals('', $this->report->getDescription());
+        self::assertEquals(0, $this->report->getTemplate());
+        self::assertEquals(0, $this->report->getSource());
+    }
 
-        $report->setCreatedBy(1);
-        self::assertEquals(1, $report->getCreatedBy());
+    public function testCreatedByInputOutput() : void
+    {
+        $this->report->setCreatedBy(1);
+        self::assertEquals(1, $this->report->getCreatedBy());
+    }
 
-        $report->setTitle('Title');
-        self::assertEquals('Title', $report->getTitle());
+    public function testTitleInputOutput() : void
+    {
+        $this->report->setTitle('Title');
+        self::assertEquals('Title', $this->report->getTitle());
+    }
 
-        $report->setStatus(HelperStatus::ACTIVE);
-        self::assertEquals(HelperStatus::ACTIVE, $report->getStatus());
+    public function testStatusInputOutput() : void
+    {
+        $this->report->setStatus(HelperStatus::ACTIVE);
+        self::assertEquals(HelperStatus::ACTIVE, $this->report->getStatus());
+    }
 
-        $report->setDescription('Description');
-        self::assertEquals('Description', $report->getDescription());
+    public function testDescriptionInputOutput() : void
+    {
+        $this->report->setDescription('Description');
+        self::assertEquals('Description', $this->report->getDescription());
+    }
 
-        $report->setTemplate(11);
-        self::assertEquals(11, $report->getTemplate());
+    public function testTemplateInputOutput() : void
+    {
+        $this->report->setTemplate(11);
+        self::assertEquals(11, $this->report->getTemplate());
+    }
 
-        $report->setSource(4);
-        self::assertEquals(4, $report->getSource());
+    public function testSourceInputOutput() : void
+    {
+        $this->report->setSource(4);
+        self::assertEquals(4, $this->report->getSource());
     }
 }

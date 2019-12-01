@@ -87,9 +87,10 @@ class UploadFile
     /**
      * Upload file to server.
      *
-     * @param array  $files    File data ($_FILE)
-     * @param string $name     File name
-     * @param string $encoding Encoding used for uploaded file. Empty string will not convert file content.
+     * @param array  $files         File data ($_FILE)
+     * @param string $name          File name
+     * @param string $encryptionKey Encryption key
+     * @param string $encoding      Encoding used for uploaded file. Empty string will not convert file content.
      *
      * @return array
      *
@@ -97,7 +98,7 @@ class UploadFile
      *
      * @since 1.0.0
      */
-    public function upload(array $files, string $name = '', string $encoding = 'UTF-8') : array
+    public function upload(array $files, string $name = '', string $encryptionKey = '', string $encoding = 'UTF-8') : array
     {
         $result = [];
 
@@ -177,6 +178,32 @@ class UploadFile
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
+            }
+
+            if ($encryptionKey !== '') {
+                $nonce = \sodium_randombytes_buf(24);
+
+                $fpSource  = \fopen($dest, 'r+');
+                $fpEncoded = \fopen($dest . '.tmp', 'w');
+
+                if ($fpSource === false || $fpEncoded === false) {
+                    $result[$key]['status'] = UploadStatus::NOT_ENCRYPTABLE;
+
+                    return $result;
+                }
+
+                while (($buffer = \fgets($fpSource, 4096)) !== false) {
+                    $encrypted = \sodium_crypto_secretbox($buffer, $nonce, $encryptionKey);
+
+                    \fwrite($fpEncoded, $encrypted);
+                }
+
+                \fclose($fpSource);
+                \fclose($fpEncoded);
+
+                \unlink($dest);
+                \rename($dest . '.tmp', $dest);
+                $result[$key]['nonce'] = $nonce;
             }
 
             /*

@@ -52,8 +52,14 @@
                 "type": "TINYINT",
                 "null": false
             },
-            "media_encryptionhash": {
-                "name": "media_encryptionhash",
+            "media_nonce": {
+                "name": "media_nonce",
+                "type": "VARCHAR(255)",
+                "null": true,
+                "default": null
+            },
+            "media_password": {
+                "name": "media_password",
                 "type": "VARCHAR(255)",
                 "null": true,
                 "default": null
