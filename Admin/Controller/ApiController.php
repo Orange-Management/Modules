@@ -39,13 +39,10 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use phpOMS\System\File\ContentPutMode;
-use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\File;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\Http;
 use phpOMS\Utils\Parser\Markdown\Markdown;
-use phpOMS\Utils\StringUtils;
 use phpOMS\Validation\Network\Email;
 use phpOMS\Version\Version;
 
