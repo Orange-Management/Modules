@@ -57,6 +57,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Media\Controller\ApiController
+     * @group module
      */
     public function testCreateDbEntries() : void
     {

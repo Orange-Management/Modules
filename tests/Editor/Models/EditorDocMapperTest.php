@@ -26,6 +26,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Editor\Models\EditorDocMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -50,6 +51,7 @@ class EditorDocMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testVolume() : void

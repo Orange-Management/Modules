@@ -34,6 +34,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      * Test if navigation model works correct
      *
      * @group final
+     * @group module
      */
     public function testNavigationElements() : void
     {

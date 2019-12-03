@@ -31,6 +31,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\EventManagement\Models\EventMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -98,6 +99,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\EventManagement\Models\EventMapper
+     * @group module
      */
     public function testNewest() : void
     {
@@ -108,6 +110,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testVolume() : void

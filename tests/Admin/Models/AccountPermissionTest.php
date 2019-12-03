@@ -23,6 +23,7 @@ class AccountPermissionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Admin\Models\AccountPermission
+     * @group module
      */
     public function testDefault() : void
     {

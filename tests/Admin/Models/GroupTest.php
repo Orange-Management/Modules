@@ -23,6 +23,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Admin\Models\Group
+     * @group module
      */
     public function testDefault() : void
     {
@@ -35,6 +36,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Group
+     * @group module
      */
     public function testDescriptionInputOutput() : void
     {
@@ -46,6 +48,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Group
+     * @group module
      */
     public function testCreatornInputOutput() : void
     {

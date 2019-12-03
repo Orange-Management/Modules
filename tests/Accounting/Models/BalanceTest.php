@@ -23,6 +23,7 @@ class BalanceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Accounting\Models\Balance
+     * @group module
      */
     public function testDefault() : void
     {
@@ -35,6 +36,7 @@ class BalanceTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Accounting\Models\Balance
+     * @group module
      */
     public function testNameInputOutput() : void
     {
@@ -46,6 +48,7 @@ class BalanceTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Accounting\Models\Balance
+     * @group module
      */
     public function testDescriptionInputOutput() : void
     {

@@ -23,6 +23,7 @@ class AccountTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Admin\Models\Account
+     * @group module
      */
     public function testDefault() : void
     {
@@ -32,6 +33,7 @@ class AccountTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Account
+     * @group module
      */
     public function testChangingLoginTries() : void
     {

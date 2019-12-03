@@ -83,6 +83,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testCreateTask() : void
     {
@@ -102,6 +103,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testApiTaskGet() : void
     {
@@ -118,6 +120,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testApiTaskSet() : void
     {
@@ -137,6 +140,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testCreateTaskElement() : void
     {
@@ -158,6 +162,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testApiTaskElementGet() : void
     {
@@ -174,6 +179,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testApiTaskElementSet() : void
     {
@@ -206,6 +212,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Controller\ApiController
+     * @group module
      */
     public function testInvalidTaskElementCreate() : void
     {

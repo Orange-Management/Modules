@@ -41,6 +41,7 @@ class PositionMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group         volume
      * @slowThreshold 15000
+     * @group module
      */
     public function testVolume() : void
     {

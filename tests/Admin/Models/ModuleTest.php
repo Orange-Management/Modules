@@ -24,6 +24,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Admin\Models\Module
+     * @group module
      */
     public function testDefault() : void
     {
@@ -39,6 +40,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Module
+     * @group module
      */
     public function testNameInputOutput() : void
     {
@@ -50,6 +52,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Module
+     * @group module
      */
     public function testDescriptionInputOutput() : void
     {
@@ -61,6 +64,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Module
+     * @group module
      */
     public function testStatusInputOutput() : void
     {
@@ -72,6 +76,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\Module
+     * @group module
      */
     public function testSerializations() : void
     {

@@ -28,6 +28,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\ClientManagement\Models\ClientMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -68,6 +69,7 @@ class ClientMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testVolume() : void

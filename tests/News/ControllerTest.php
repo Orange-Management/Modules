@@ -85,6 +85,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\News\Controller\ApiController
+     * @group module
      */
     public function testApiNewsCreate() : void
     {
@@ -107,6 +108,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\News\Controller\ApiController
+     * @group module
      */
     public function testApiNewsGet() : void
     {
@@ -123,6 +125,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\News\Controller\ApiController
+     * @group module
      */
     public function testApiNewsSet() : void
     {
@@ -142,6 +145,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\News\Controller\ApiController
+     * @group module
      */
     public function testApiNewsDelete() : void
     {

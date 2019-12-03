@@ -87,6 +87,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiUnitGet() : void
     {
@@ -104,6 +105,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiUnitSet() : void
     {
@@ -122,6 +124,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiUnitCreateDelete() : void
     {
@@ -149,6 +152,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiDepartmentCreate() : void
     {
@@ -171,6 +175,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiDepartmentGet() : void
     {
@@ -188,6 +193,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiDepartmentSet() : void
     {
@@ -206,6 +212,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiDepartmentDelete() : void
     {
@@ -223,6 +230,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiPositionCreate() : void
     {
@@ -243,6 +251,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiPositionGet() : void
     {
@@ -260,6 +269,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiPositionSet() : void
     {
@@ -278,6 +288,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Organization\Controller\ApiController
+     * @group module
      */
     public function testApiPositionDelete() : void
     {

@@ -80,6 +80,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testCreatedByMeForMe() : void
@@ -116,6 +117,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      */
     public function testCreatedByMeForOther() : void
     {
@@ -151,6 +153,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      */
     public function testCreatedByOtherForMe() : void
     {

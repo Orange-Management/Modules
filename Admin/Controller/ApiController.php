@@ -608,6 +608,104 @@ final class ApiController extends Controller
     }
 
     /**
+     * Api method to get a user permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiAccountPermissionGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $account = AccountPermissionMapper::get((int) $request->getData('id'));
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully returned', $account);
+    }
+
+    /**
+     * Api method to get a group permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiGroupPermissionGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $account = GroupPermissionMapper::get((int) $request->getData('id'));
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully returned', $account);
+    }
+
+    /**
+     * Api method to delete a group permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiGroupPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $permission = GroupPermissionMapper::get((int) $request->getData('id'));
+        $this->deleteModel($request, $permission, GroupPermissionMapper::class, 'group-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
+    }
+
+    /**
+     * Api method to delete a user permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiAccountPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $permission = AccountPermissionMapper::get((int) $request->getData('id'));
+        $this->deleteModel($request, $permission, AccountPermissionMapper::class, 'user-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
+    }
+
+    /**
+     * Api method to delete a user permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiUserPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $permission = UserPermissionMapper::get((int) $request->getData('id'));
+        $this->deleteModel($request, $permission, UserPermissionMapper::class, 'user-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
+    }
+
+    /**
      * Api method to add a permission to a group
      *
      * @param RequestAbstract  $request  Request
@@ -730,11 +828,83 @@ final class ApiController extends Controller
         $permission->setElement(empty($request->getData('permissionelement')) ? null : (int) $request->getData('permissionelement'));
         $permission->setComponent(empty($request->getData('permissioncomponent')) ? null : (int) $request->getData('permissioncomponent'));
         $permission->setPermission(
-            (int) $request->getData('permissioncreate')
-            | (int) $request->getData('permissionread')
-            | (int) $request->getData('permissionupdate')
-            | (int) $request->getData('permissiondelete')
-            | (int) $request->getData('permissionpermission')
+            (int) ($request->getData('permissioncreate') ?? 0)
+            | (int) ($request->getData('permissionread') ?? 0)
+            | (int) ($request->getData('permissionupdate') ?? 0)
+            | (int) ($request->getData('permissiondelete') ?? 0)
+            | (int) ($request->getData('permissionpermission') ?? 0)
+        );
+
+        return $permission;
+    }
+
+    /**
+     * Api method to update a account permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiAccountPermissionUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $old = clone AccountPermissionMapper::get((int) $request->getData('id'));
+        $new = $this->updatePermissionFromRequest(AccountPermissionMapper::get((int) $request->getData('id')), $request);
+
+        $this->updateModel($request, $old, $new, AccountPermissionMapper::class, 'account-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully updated', $new);
+    }
+
+    /**
+     * Api method to update a group permission
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiGroupPermissionUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $old = clone GroupPermissionMapper::get((int) $request->getData('id'));
+        $new = $this->updatePermissionFromRequest(GroupPermissionMapper::get((int) $request->getData('id')), $request);
+
+        $this->updateModel($request, $old, $new, GroupPermissionMapper::class, 'group-permission');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully updated', $new);
+    }
+
+    /**
+     * Method to update a group permission from a request
+     *
+     * @param PermissionAbstract $permission Permission model
+     * @param RequestAbstract    $request    Request
+     *
+     * @return PermissionAbstract
+     *
+     * @since 1.0.0
+     */
+    private function updatePermissionFromRequest(PermissionAbstract $permission, RequestAbstract $request) : PermissionAbstract
+    {
+        $permission->setUnit(empty($request->getData('permissionunit')) ? $permission->getUnit() : (int) $request->getData('permissionunit'));
+        $permission->setApp(empty($request->getData('permissionapp')) ? $permission->getApp() : (string) $request->getData('permissionapp'));
+        $permission->setModule(empty($request->getData('permissionmodule')) ? $permission->getModule() : (string) $request->getData('permissionmodule'));
+        $permission->setType(empty($request->getData('permissiontype')) ? $permission->getType() : (int) $request->getData('permissiontype'));
+        $permission->setElement(empty($request->getData('permissionelement')) ? $permission->getElement() : (int) $request->getData('permissionelement'));
+        $permission->setComponent(empty($request->getData('permissioncomponent')) ? $permission->getComponent() : (int) $request->getData('permissioncomponent'));
+        $permission->setPermission((int) ($request->getData('permissioncreate') ?? 0)
+            | (int) ($request->getData('permissionread') ?? 0)
+            | (int) ($request->getData('permissionupdate') ?? 0)
+            | (int) ($request->getData('permissiondelete') ?? 0)
+            | (int) ($request->getData('permissionpermission') ?? 0)
         );
 
         return $permission;
@@ -799,7 +969,6 @@ final class ApiController extends Controller
      */
     public function apiReInit(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $p           = __DIR__ . '/../../../Web/*';
         $directories = \glob(__DIR__ . '/../../../Web/*' , \GLOB_ONLYDIR);
 
         foreach ($directories as $directory) {

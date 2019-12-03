@@ -82,6 +82,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Kanban\Controller\ApiController
+     * @group module
      */
     public function testCreateBoard() : void
     {
@@ -100,6 +101,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Kanban\Controller\ApiController
+     * @group module
      */
     public function testCreateColumn() : void
     {
@@ -118,6 +120,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Kanban\Controller\ApiController
+     * @group module
      */
     public function testCreateCard() : void
     {

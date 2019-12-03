@@ -82,6 +82,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Editor\Controller\ApiController
+     * @group module
      */
     public function testCreateEditor() : void
     {

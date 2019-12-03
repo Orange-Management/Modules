@@ -28,6 +28,7 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\AccountMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -60,6 +61,7 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Admin\Models\AccountMapper
+     * @group module
      */
     public function testLogin() : void
     {

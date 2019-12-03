@@ -46,6 +46,7 @@ trait ModuleTestTrait
     /**
      * @group admin
      * @slowThreshold 5000
+     * @group module
      * @coversNothing
      */
     public function testModuleIntegration() : void
@@ -61,6 +62,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testMembers() : void
@@ -76,6 +78,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testValidMapper() : void
@@ -109,6 +112,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testMapperAgainstModel() : void
@@ -177,6 +181,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testValidDbSchema() : void
@@ -219,6 +224,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testDbSchemaAgainstDb() : void
@@ -251,6 +257,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testMapperAgainstDbSchema() : void
@@ -316,6 +323,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testJson() : void
@@ -335,6 +343,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testDependency() : void
@@ -350,6 +359,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testRoutes() : void
@@ -376,6 +386,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testHooks() : void
@@ -403,6 +414,7 @@ trait ModuleTestTrait
 
     /**
      * @group final
+     * @group module
      * @coversNothing
      */
     public function testNavigation() : void
@@ -539,6 +551,7 @@ trait ModuleTestTrait
     }
 
     /**
+     * @group module
      * @coversNothing
      */
     public function testRequestLoads() : void

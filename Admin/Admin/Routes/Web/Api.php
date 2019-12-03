@@ -177,8 +177,35 @@ return [
 
     '^.*/admin/group/permission.*$' => [
         [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiGroupPermissionGet',
+            'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+        [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAddGroupPermission',
             'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiGroupPermissionUpdate',
+            'verb' => RouteVerb::SET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiGroupPermissionDelete',
+            'verb' => RouteVerb::DELETE,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::PERMISSION,
@@ -188,8 +215,35 @@ return [
     ],
     '^.*/admin/account/permission.*$' => [
         [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiAccountPermissionGet',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+        [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAddAccountPermission',
             'verb' => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiAccountPermissionUpdate',
+            'verb' => RouteVerb::SET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::PERMISSION,
+                'state' => PermissionState::MODULE,
+            ],
+        ],
+        [
+            'dest' => '\Modules\Admin\Controller\ApiController:apiAccountPermissionDelete',
+            'verb' => RouteVerb::DELETE,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::PERMISSION,

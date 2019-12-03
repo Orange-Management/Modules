@@ -82,6 +82,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Draw\Controller\ApiController
+     * @group module
      */
     public function testCreateDraw() : void
     {

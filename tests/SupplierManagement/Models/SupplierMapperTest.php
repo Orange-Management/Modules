@@ -28,6 +28,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\SupplierManagement\Models\SupplierMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -70,6 +71,7 @@ class SupplierMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testVolume() : void

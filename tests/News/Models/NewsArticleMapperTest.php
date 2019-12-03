@@ -29,6 +29,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\News\Models\NewsArticleMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -63,6 +64,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
     /**
      * @group volume
      * @covers Modules\News\Models\NewsArticleMapper
+     * @group module
      */
     public function testVolume() : void
     {

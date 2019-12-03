@@ -24,6 +24,7 @@ class BatchPostingTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Accounting\Models\BatchPosting
+     * @group module
      */
     public function testDefault() : void
     {
@@ -40,6 +41,7 @@ class BatchPostingTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Accounting\Models\BatchPosting
+     * @group module
      */
     public function testCreatorInputOutput() : void
     {
@@ -51,6 +53,7 @@ class BatchPostingTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Accounting\Models\BatchPosting
+     * @group module
      */
     public function testDescriptionInputOutput() : void
     {
@@ -62,6 +65,7 @@ class BatchPostingTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Accounting\Models\BatchPosting
+     * @group module
      */
     public function testRemovePosting() : void
     {

@@ -23,6 +23,7 @@ class GroupPermissionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Admin\Models\GroupPermission
+     * @group module
      */
     public function testDefault() : void
     {

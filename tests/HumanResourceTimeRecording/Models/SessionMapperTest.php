@@ -27,6 +27,7 @@ class SessionMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\HumanResourceTimeRecording\Models\SessionMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -47,6 +48,7 @@ class SessionMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testVolume() : void

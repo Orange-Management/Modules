@@ -36,6 +36,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Models\TaskMapper
+     * @group module
      */
     public function testCRUD() : void
     {
@@ -129,6 +130,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Tasks\Models\TaskMapper
+     * @group module
      */
     public function testNewest() : void
     {
@@ -139,6 +141,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testCreatedByMeForMe() : void
@@ -179,6 +182,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testCreatedByMeForOther() : void
@@ -217,6 +221,7 @@ class TaskMapperTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @group volume
+     * @group module
      * @coversNothing
      */
     public function testCreatedByOtherForMe() : void

@@ -28,6 +28,7 @@ class AccountAbstractTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Accounting\Models\AccountAbstract
+     * @group module
      */
     public function testDefault() : void
     {
