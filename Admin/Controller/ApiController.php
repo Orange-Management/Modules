@@ -700,8 +700,8 @@ final class ApiController extends Controller
      */
     public function apiUserPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $permission = UserPermissionMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $permission, UserPermissionMapper::class, 'user-permission');
+        $permission = AccountPermissionMapper::get((int) $request->getData('id'));
+        $this->deleteModel($request, $permission, AccountPermissionMapper::class, 'user-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
     }
 
