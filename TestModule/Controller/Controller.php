@@ -16,6 +16,8 @@ namespace Modules\TestModule\Controller;
 
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
+use phpOMS\Message\RequestAbstract;
+use phpOMS\Message\ResponseAbstract;
 
 /**
  * Test controller class.
@@ -69,6 +71,9 @@ class Controller extends ModuleAbstract implements WebInterface
      */
     protected static array $dependencies = [];
 
+    /**
+     * Test Endpoint
+     */
     public function testEndpoint(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
     }
