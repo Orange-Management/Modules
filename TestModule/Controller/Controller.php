@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\TestModule
+ * @package   Modules\TestModule\Controller
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,15 +12,15 @@
  */
 declare(strict_types=1);
 
-namespace Modules\TestModule;
+namespace Modules\TestModule\Controller;
 
 use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 
 /**
- * Sales class.
+ * Test controller class.
  *
- * @package Modules\TestModule
+ * @package Modules\TestModule\Controller
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
@@ -68,4 +68,8 @@ class Controller extends ModuleAbstract implements WebInterface
      * @since 1.0.0
      */
     protected static array $dependencies = [];
+
+    public function testEndpoint(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+    }
 }

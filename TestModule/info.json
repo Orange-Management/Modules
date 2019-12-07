@@ -21,5 +21,23 @@
     "providing": {
     },
     "load": [
+        {
+            "pid": [
+                "/testmodule"
+            ],
+            "type": 4,
+            "for": "Content",
+            "file": "TestModule",
+            "from": "TestModule"
+        },
+        {
+            "pid": [
+                "/testmodule"
+            ],
+            "type": 5,
+            "for": "Content",
+            "file": "TestModule",
+            "from": "TestModule"
+        }
     ]
 }
