@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 $mail = new \phpOMS\Message\Mail\Imap();
-$mail->connect('{imap.gmail.com:993/imap/ssl}[Gmail]/Gesendet', 'dev.orange.management@gmail.com', DEV_PASSWORD);
+$mail->connect('{imap.gmail.com:993/imap/ssl}[Gmail]/Gesendet', 'dev.orange.management@gmail.com', 'DEV_PASSWORD');
 $sent = $mail->getInboxAll();
 $quota = $mail->getQuota();
 
@@ -21,7 +21,7 @@ echo $this->getData('nav')->render(); ?>
 
 <section class="box w-100">
     <ul class="btns floatLeft">
-        <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}messages/mail/create'); ?>"><i class="fa fa-pencil"></i> <?{?}= $this->getHtml('Create', '0', '0'); ?></a>
+        <li><a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}messages/mail/create'); ?>"><i class="fa fa-pencil"></i> <?= $this->getHtml('Create', '0', '0'); ?></a>
         <li><a href=""><i class="fa fa-trash"></i> <?= $this->getHtml('Delete') ?></a>
     </ul>
 </section>
