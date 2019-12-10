@@ -24,7 +24,7 @@ use phpOMS\Module\StatusAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class Status extends StatusAbstract
+final class Status extends StatusAbstract
 {
 
 }
