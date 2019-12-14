@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Kanban\Controller;
 
 use Modules\Kanban\Models\KanbanBoardMapper;
-
 use Modules\Kanban\Models\KanbanCardMapper;
 use Modules\Kanban\Models\PermissionState;
 
@@ -133,6 +132,8 @@ final class BackendController extends Controller
     public function viewKanbanArchive(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app, $request, $response);
+        $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-archive');
+
         return $view;
     }
 

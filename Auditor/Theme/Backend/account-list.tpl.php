@@ -28,6 +28,7 @@ echo $this->getData('nav')->render(); ?>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
+                    <td class="wf-100"><?= $this->getHtml('Email') ?>
                 <tfoot>
                 <tr>
                     <td colspan="2">
@@ -36,7 +37,10 @@ echo $this->getData('nav')->render(); ?>
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/audit/single?{?}&id=' . $account->getId()); ?>
                     <tr data-href="<?= $url; ?>">
                         <td><?= $this->printHtml($account->getId()); ?>
-                        <td><?= $this->printHtml($account->getName1()); ?>
+                        <td><?= $this->printHtml(
+                            \sprintf('%3$s %2$s %1$s', $account->getName1(), $account->getName2(), $account->getName3())
+                        ); ?>
+                        <td><?= $this->printHtml($account->getEmail()); ?>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                 <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>

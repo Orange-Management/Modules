@@ -19,6 +19,7 @@ return ['Auditor' => [
     'By'      => 'By',
     'Content' => 'Content',
     'Date'    => 'Date',
+    'Email'   => 'Email',
     'Module'  => 'Module',
     'Name'    => 'Name',
     'New'     => 'New',
