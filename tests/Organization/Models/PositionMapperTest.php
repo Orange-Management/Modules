@@ -22,7 +22,6 @@ use Modules\Organization\Models\PositionMapper;
  */
 class PositionMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $position = new Position();

@@ -23,7 +23,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $category = new WikiCategory();

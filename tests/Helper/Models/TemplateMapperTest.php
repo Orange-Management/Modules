@@ -26,7 +26,6 @@ use Modules\Media\Models\Media;
  */
 class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $template = new Template();

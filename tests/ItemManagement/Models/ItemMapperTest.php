@@ -22,7 +22,6 @@ use Modules\ItemManagement\Models\ItemMapper;
  */
 class ItemMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $item = new Item();

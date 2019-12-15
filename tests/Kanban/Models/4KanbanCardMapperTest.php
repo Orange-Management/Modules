@@ -25,7 +25,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class KanbanCardMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $card = new KanbanCard();

@@ -24,7 +24,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $answer = new QAAnswer();

@@ -22,7 +22,6 @@ use Modules\Comments\Models\CommentMapper;
  */
 class CommentMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $comment = new Comment();

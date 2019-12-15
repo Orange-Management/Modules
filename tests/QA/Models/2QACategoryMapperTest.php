@@ -23,7 +23,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $category = new QACategory();

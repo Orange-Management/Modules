@@ -27,7 +27,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class TicketMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $ticket = new Ticket();

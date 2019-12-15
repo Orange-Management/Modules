@@ -22,7 +22,6 @@ use Modules\Organization\Models\DepartmentMapper;
  */
 class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $department = new Department();

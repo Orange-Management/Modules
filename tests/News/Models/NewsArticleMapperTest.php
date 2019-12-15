@@ -26,7 +26,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * @covers Modules\News\Models\NewsArticleMapper
      * @group module

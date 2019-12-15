@@ -22,7 +22,6 @@ use Modules\RiskManagement\Models\ProjectMapper;
  */
 class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $obj = new Project();

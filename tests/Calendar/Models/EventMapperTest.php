@@ -22,7 +22,6 @@ use Modules\Calendar\Models\EventMapper;
  */
 class EventMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $calendarEvent1 = new Event();

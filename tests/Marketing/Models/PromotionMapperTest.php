@@ -26,7 +26,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $promotion = new Promotion();

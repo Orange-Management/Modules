@@ -24,7 +24,6 @@ use Modules\Profile\Models\ProfileMapper;
  */
 class ProfileMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * @covers Modules\Profile\Models\ProfileMapper
      * @group module

@@ -25,7 +25,6 @@ use phpOMS\Utils\RnG\Name;
  */
 class SupplierMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * @covers Modules\SupplierManagement\Models\SupplierMapper
      * @group module

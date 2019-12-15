@@ -19,7 +19,6 @@ namespace Modules\tests\AccountsPayable\Admin;
  */
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-
     protected const MODULE_NAME = 'AccountsPayable';
     protected const URI_LOAD = '';
 

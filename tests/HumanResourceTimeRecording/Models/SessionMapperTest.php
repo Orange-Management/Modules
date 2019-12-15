@@ -24,7 +24,6 @@ use Modules\HumanResourceTimeRecording\Models\SessionElement;
  */
 class SessionMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * @covers Modules\HumanResourceTimeRecording\Models\SessionMapper
      * @group module

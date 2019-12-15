@@ -25,7 +25,6 @@ use phpOMS\Utils\RnG\Name;
  */
 class ClientMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * @covers Modules\ClientManagement\Models\ClientMapper
      * @group module

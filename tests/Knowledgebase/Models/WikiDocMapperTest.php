@@ -24,7 +24,6 @@ use phpOMS\Utils\RnG\Text;
  */
 class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $doc = new WikiDoc();

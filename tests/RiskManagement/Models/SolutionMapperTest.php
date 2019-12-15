@@ -22,7 +22,6 @@ use Modules\RiskManagement\Models\SolutionMapper;
  */
 class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     public function testCRUD() : void
     {
         $obj = new Solution();

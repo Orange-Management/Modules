@@ -25,7 +25,6 @@ use phpOMS\Auth\LoginReturnType;
  */
 class AccountMapperTest extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * @covers Modules\Admin\Models\AccountMapper
      * @group module
