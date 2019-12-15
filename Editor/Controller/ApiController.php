@@ -33,7 +33,6 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Validate document create request
      *

@@ -24,5 +24,4 @@ namespace Modules\CreditManagement\Controller;
  */
 final class BackendController extends Controller
 {
-
 }

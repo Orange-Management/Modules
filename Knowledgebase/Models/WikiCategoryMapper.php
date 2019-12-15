@@ -26,7 +26,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class WikiCategoryMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

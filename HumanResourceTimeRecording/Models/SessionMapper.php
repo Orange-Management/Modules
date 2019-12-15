@@ -30,7 +30,6 @@ use phpOMS\Stdlib\Base\SmartDateTime;
  */
 final class SessionMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

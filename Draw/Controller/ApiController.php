@@ -35,7 +35,6 @@ use phpOMS\Utils\ImageUtils;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Validate draw create request
      *

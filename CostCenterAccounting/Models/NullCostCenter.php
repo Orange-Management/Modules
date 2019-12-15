@@ -24,5 +24,4 @@ namespace Modules\CostCenterAccounting\Models;
  */
 final class NullCostCenter extends CostCenter
 {
-
 }

@@ -26,7 +26,6 @@ use phpOMS\Contract\ArrayableInterface;
  */
 class EditorDoc implements ArrayableInterface, \JsonSerializable
 {
-
     /**
      * Article ID.
      *

@@ -24,7 +24,6 @@ namespace Modules\Helper\Models;
  */
 class Report implements \JsonSerializable
 {
-
     /**
      * Report Id.
      *

@@ -40,7 +40,6 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Validate unit create request
      *

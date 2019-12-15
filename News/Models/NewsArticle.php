@@ -28,7 +28,6 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
  */
 class NewsArticle implements ArrayableInterface, \JsonSerializable
 {
-
     /**
      * Article ID.
      *

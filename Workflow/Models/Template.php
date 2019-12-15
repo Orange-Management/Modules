@@ -24,5 +24,4 @@ namespace Modules\Workflow\Models;
  */
 class Template
 {
-
 }

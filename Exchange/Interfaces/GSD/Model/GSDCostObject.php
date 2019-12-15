@@ -24,7 +24,6 @@ namespace Modules\Exchange\Interfaces\GSD\Model;
  */
 final class GSDCostObject implements \JsonSerializable
 {
-
     /**
      * ID.
      *

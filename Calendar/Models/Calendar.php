@@ -26,7 +26,6 @@ use phpOMS\Stdlib\Base\SmartDateTime;
  */
 class Calendar
 {
-
     /**
      * Calendar ID.
      *

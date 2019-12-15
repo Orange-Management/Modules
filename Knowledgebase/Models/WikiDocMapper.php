@@ -26,7 +26,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class WikiDocMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

@@ -51,7 +51,6 @@ use phpOMS\Views\View;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Routing end-point for application behaviour.
      *

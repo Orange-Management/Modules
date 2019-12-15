@@ -24,5 +24,4 @@ namespace Modules\Tasks\Models;
  */
 final class NullTaskElement extends TaskElement
 {
-
 }

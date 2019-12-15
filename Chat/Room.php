@@ -24,7 +24,6 @@ namespace Modules\Chat;
  */
 class Room
 {
-
     /**
      * Room ID.
      *

@@ -24,7 +24,6 @@ namespace Modules\Media\Models;
  */
 class Media implements \JsonSerializable
 {
-
     /**
      * ID.
      *

@@ -29,7 +29,6 @@ use phpOMS\Views\View;
  */
 final class BackendController extends Controller
 {
-
     /**
      * Routing end-point for application behaviour.
      *

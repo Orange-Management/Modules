@@ -29,7 +29,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class PromotionMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

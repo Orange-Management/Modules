@@ -24,7 +24,6 @@ namespace Modules\Accounting\Models;
  */
 abstract class AccountAbstract
 {
-
     /**
      * Account ID.
      *

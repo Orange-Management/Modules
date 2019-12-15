@@ -24,7 +24,6 @@ namespace Modules\Accounting\Models;
  */
 class Balance
 {
-
     /**
      * ID.
      *

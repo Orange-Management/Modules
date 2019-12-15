@@ -24,7 +24,6 @@ namespace Modules\WarehouseManagement\Models;
  */
 class Shipping
 {
-
     /**
      * ID.
      *

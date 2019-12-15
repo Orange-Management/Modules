@@ -24,5 +24,4 @@ namespace Modules\Shop\Controller;
  */
 final class ShopController extends Controller
 {
-
 }

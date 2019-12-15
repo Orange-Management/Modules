@@ -26,7 +26,6 @@ use Modules\Admin\Models\Account;
  */
 class Creditor
 {
-
     /**
      * Creditor ID.
      *

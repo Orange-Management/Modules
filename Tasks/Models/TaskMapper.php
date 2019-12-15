@@ -30,7 +30,6 @@ use phpOMS\DataStorage\Database\Query\Builder;
  */
 final class TaskMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

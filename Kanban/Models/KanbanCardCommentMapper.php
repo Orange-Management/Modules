@@ -27,7 +27,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class KanbanCardCommentMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

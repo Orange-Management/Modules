@@ -34,7 +34,6 @@ use phpOMS\Views\PaginationView;
  */
 final class BackendController extends Controller
 {
-
     /**
      * Routing end-point for application behaviour.
      *

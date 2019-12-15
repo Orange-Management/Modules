@@ -24,5 +24,4 @@ namespace Modules\Accounting\Models;
  */
 abstract class PostingAbstract implements PostingInterface
 {
-
 }

@@ -24,7 +24,6 @@ namespace Modules\Support\Models;
  */
 class Message
 {
-
     /**
      * Name.
      *

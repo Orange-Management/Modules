@@ -26,7 +26,6 @@ namespace Modules\tests;
  */
 class Autoloader
 {
-
     /**
      * Loading classes by namespace + class name.
      *

@@ -28,7 +28,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class TemplateMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

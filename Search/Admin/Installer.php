@@ -31,7 +31,6 @@ use phpOMS\Utils\Parser\Php\ArrayParser;
  */
 class Installer extends InstallerAbstract
 {
-
     /**
      * {@inheritdoc}
      */

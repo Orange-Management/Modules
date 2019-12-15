@@ -29,7 +29,6 @@ use phpOMS\Module\WebInterface;
  */
 abstract class Controller extends ModuleAbstract implements WebInterface
 {
-
     /**
      * Module path.
      *

@@ -24,7 +24,6 @@ namespace Modules\Media\Models;
  */
 class Collection extends Media implements \Iterator
 {
-
     /**
      * Resource id.
      *

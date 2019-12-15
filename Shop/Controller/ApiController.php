@@ -24,5 +24,4 @@ namespace Modules\Shop\Controller;
  */
 final class ApiController extends Controller
 {
-
 }

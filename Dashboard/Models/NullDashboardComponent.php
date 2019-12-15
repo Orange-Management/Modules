@@ -24,5 +24,4 @@ namespace Modules\Dashboard\Models;
  */
 final class NullDashboardComponent extends DashboardComponent
 {
-
 }

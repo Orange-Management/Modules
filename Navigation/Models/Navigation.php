@@ -29,7 +29,6 @@ use phpOMS\Message\RequestAbstract;
  */
 class Navigation
 {
-
     /**
      * Navigation array.
      *

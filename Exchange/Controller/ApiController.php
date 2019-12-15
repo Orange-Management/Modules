@@ -32,7 +32,6 @@ use phpOMS\System\File\Local\Directory;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Api method to import data
      *

@@ -26,5 +26,4 @@ use phpOMS\Module\UninstallerAbstract;
  */
 final class Uninstaller extends UninstallerAbstract
 {
-
 }

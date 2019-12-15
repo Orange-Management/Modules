@@ -28,7 +28,6 @@ use phpOMS\Stdlib\Base\Location;
  */
 class Event
 {
-
     /**
      * Calendar ID.
      *

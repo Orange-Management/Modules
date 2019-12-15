@@ -26,7 +26,6 @@ use phpOMS\Contract\ArrayableInterface;
  */
 class Tag implements ArrayableInterface, \JsonSerializable
 {
-
     /**
      * Article ID.
      *

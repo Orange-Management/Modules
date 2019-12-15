@@ -24,7 +24,6 @@ namespace Modules\Surveys\Models;
  */
 class Survey
 {
-
     /**
      * ID.
      *

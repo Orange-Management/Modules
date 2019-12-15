@@ -24,5 +24,4 @@ namespace Modules\CMS\Controller;
  */
 final class BackendController extends Controller
 {
-
 }

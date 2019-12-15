@@ -31,7 +31,6 @@ use phpOMS\Module\InstallerAbstract;
  */
 class Installer extends InstallerAbstract
 {
-
     /**
      * {@inheritdoc}
      */

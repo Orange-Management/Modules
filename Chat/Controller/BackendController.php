@@ -24,5 +24,4 @@ namespace Modules\Chat\Controller;
  */
 final class BackendController extends Controller
 {
-
 }

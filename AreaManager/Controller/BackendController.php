@@ -24,5 +24,4 @@ namespace Modules\AreaManager\Controller;
  */
 final class BackendController extends Controller
 {
-
 }

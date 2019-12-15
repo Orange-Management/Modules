@@ -29,7 +29,6 @@ use phpOMS\System\File\Local\Directory;
  */
 class Installer extends InstallerAbstract
 {
-
     /**
      * {@inheritdoc}
      */

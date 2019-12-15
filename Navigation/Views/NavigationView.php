@@ -26,7 +26,6 @@ use phpOMS\Views\View;
  */
 class NavigationView extends View
 {
-
     /**
      * Navigation Id.
      *

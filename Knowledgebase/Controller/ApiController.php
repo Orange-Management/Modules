@@ -34,7 +34,6 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Api method to create a wiki entry
      *

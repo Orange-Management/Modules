@@ -24,7 +24,6 @@ namespace Modules\Accounting\Models;
  */
 class BatchPosting implements \Countable
 {
-
     /**
      * ID.
      *

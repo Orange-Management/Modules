@@ -24,7 +24,6 @@ namespace Modules\Helper\Models;
  */
 class Template implements \JsonSerializable
 {
-
     /**
      * Template Id.
      *

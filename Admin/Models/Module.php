@@ -26,7 +26,6 @@ use phpOMS\Module\ModuleStatus;
  */
 class Module
 {
-
     /**
      * Account id.
      *

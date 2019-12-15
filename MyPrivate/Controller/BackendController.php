@@ -24,5 +24,4 @@ namespace Modules\MyPrivate\Controller;
  */
 final class BackendController extends Controller
 {
-
 }

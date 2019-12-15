@@ -27,7 +27,6 @@ use phpOMS\Contract\ArrayableInterface;
  */
 class DrawImage implements ArrayableInterface, \JsonSerializable
 {
-
     /**
      * Article ID.
      *

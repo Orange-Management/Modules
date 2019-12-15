@@ -24,5 +24,4 @@ namespace Modules\WarehouseManagement\Models;
  */
 class CountingList
 {
-
 }

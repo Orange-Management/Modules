@@ -24,5 +24,4 @@ namespace Modules\CostObjectAccounting\Models;
  */
 final class NullCostObject extends CostObject
 {
-
 }

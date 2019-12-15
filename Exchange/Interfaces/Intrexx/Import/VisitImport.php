@@ -24,5 +24,4 @@ namespace Modules\Exchange\Interfaces\Intrexx\Import;
  */
 final class VisitImport
 {
-
 }

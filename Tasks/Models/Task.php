@@ -29,7 +29,6 @@ use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
  */
 class Task implements \JsonSerializable
 {
-
     /**
      * ID.
      *

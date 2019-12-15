@@ -29,7 +29,6 @@ use phpOMS\Message\ResponseAbstract;
  */
 class Controller extends ModuleAbstract implements WebInterface
 {
-
     /**
      * Module path.
      *

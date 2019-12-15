@@ -24,5 +24,4 @@ namespace Modules\Database\Models;
  */
 class DatabaseRequest
 {
-
 }

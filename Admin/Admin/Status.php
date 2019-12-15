@@ -26,5 +26,4 @@ use phpOMS\Module\StatusAbstract;
  */
 final class Status extends StatusAbstract
 {
-
 }

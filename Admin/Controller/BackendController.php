@@ -43,7 +43,6 @@ use phpOMS\Views\View;
  */
 final class BackendController extends Controller
 {
-
     /**
      * Method which generates the general settings view.
      *

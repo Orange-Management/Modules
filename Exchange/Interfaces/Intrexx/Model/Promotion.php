@@ -24,5 +24,4 @@ namespace Modules\Exchange\Interfaces\Intrexx\Model;
  */
 final class Promotion
 {
-
 }

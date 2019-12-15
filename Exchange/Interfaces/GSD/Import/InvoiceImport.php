@@ -24,5 +24,4 @@ namespace Modules\Exchange\Interfaces\GSD\Import;
  */
 final class InvoiceImport
 {
-
 }

@@ -27,7 +27,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 class MediaMapper extends DataMapperAbstract
 {
-
     /**
      * Columns.
      *

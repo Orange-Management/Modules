@@ -29,7 +29,6 @@ use phpOMS\System\File\Local\Directory;
  */
 final class Updater extends UpdaterAbstract
 {
-
     /**
      * {@inheritdoc}
      */

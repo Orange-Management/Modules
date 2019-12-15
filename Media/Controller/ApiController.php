@@ -37,7 +37,6 @@ use phpOMS\System\MimeType;
  */
 final class ApiController extends Controller
 {
-
     /**
      * Api method to find media
      *

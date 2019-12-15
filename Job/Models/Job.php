@@ -24,5 +24,4 @@ namespace Modules\Job\Models;
  */
 class Job
 {
-
 }

@@ -31,7 +31,6 @@ use phpOMS\System\File\PathException;
  */
 class Installer extends InstallerAbstract
 {
-
     /**
      * Install data from providing modules.
      *

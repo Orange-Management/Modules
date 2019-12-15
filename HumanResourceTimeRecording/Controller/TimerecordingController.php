@@ -31,7 +31,6 @@ use phpOMS\Views\View;
  */
 final class TimerecordingController extends Controller
 {
-
     /**
      * Routing end-point for application behaviour.
      *
