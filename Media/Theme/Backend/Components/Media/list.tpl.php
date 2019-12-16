@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 use phpOMS\System\File\ExtensionType;
 use phpOMS\System\File\FileUtils;
+use phpOMS\Uri\UriFactory;
 
 ?>
 <div class="box wf-100">
@@ -16,7 +17,7 @@ use phpOMS\System\File\FileUtils;
         <tfoot>
         <tbody>
             <?php $count = 0; foreach ($this->media as $key => $value) : ++$count;
-                $url = \UriFactory::build('{/prefix}media/single?{?}&id=' . $value->getId());
+                $url = UriFactory::build('{/prefix}media/single?{?}&id=' . $value->getId());
 
                 $icon = '';
                 $extensionType = FileUtils::getExtensionType($value->getExtension());
