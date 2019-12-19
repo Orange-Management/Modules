@@ -39,6 +39,7 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
+use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\File;
 use phpOMS\System\MimeType;
 use phpOMS\Uri\Http;
@@ -104,6 +105,52 @@ final class ApiController extends Controller
         }, 'settings');
 
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Settigns', 'Settings successfully modified', $data);
+    }
+
+    /**
+     * Api method to install a application
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiInstallApplication(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $this->apiActivateTheme($request, $response);
+    }
+
+    /**
+     * Api method to activate a theme
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiActivateTheme(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (\file_exists(__DIR__ . '/../../../Web/' . $request->getData('app') . '/css')) {
+            Directory::delete(__DIR__ . '/../../../Web/' . $request->getData('app') . '/css');
+        }
+
+        if (\file_exists(__DIR__ . '/../../../Web/' . $request->getData('app') . '/' . $request->getData('theme') . '/css')) {
+            Directory::copy(
+                __DIR__ . '/../../../Web/' . $request->getData('app') . '/' . $request->getData('theme') . '/css',
+                __DIR__ . '/../../../Web/' . $request->getData('app') . '/css',
+                true
+            );
+        }
     }
 
     /**
