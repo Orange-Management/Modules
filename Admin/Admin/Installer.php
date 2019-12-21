@@ -64,7 +64,9 @@ final class Installer extends InstallerAbstract
         $con = $dbPool->get();
 
         $query = new Builder($con);
-        $query->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_codenum')->into('country');
+        $query->prefix($con->getPrefix())
+            ->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_codenum')
+            ->into('country');
 
         $querySqlite = new Builder($sqlite);
         $countries   = $querySqlite->select('*')->from('country')->execute();
@@ -97,7 +99,9 @@ final class Installer extends InstallerAbstract
         $con = $dbPool->get();
 
         $query = new Builder($con);
-        $query->insert('language_name', 'language_native', 'language_639_2T', 'language_639_2B', 'language_639_3')->into('language');
+        $query->prefix($con->getPrefix())
+            ->insert('language_name', 'language_native', 'language_639_2T', 'language_639_2B', 'language_639_3')
+            ->into('language');
 
         $querySqlite = new Builder($sqlite);
         $languages   = $querySqlite->select('*')->from('language')->execute();
