@@ -56,7 +56,7 @@
         "icon": null,
         "order": 1,
         "from": "HumanResourceTimeRecording",
-        "permission": { "permission": 2, "type": null, "element": null },
+        "permission": { "permission": 2, "type": 2, "element": null },
         "parent": 1003401001,
         "children": []
     }

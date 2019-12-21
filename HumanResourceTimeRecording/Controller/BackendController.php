@@ -80,6 +80,7 @@ final class BackendController extends Controller
         $lastOpenSession = SessionMapper::getMostPlausibleOpenSessionForEmployee($employee);
 
         $start = new SmartDateTime('now');
+        $start = $start->getEndOfDay();
         $limit = $start->getEndOfMonth();
         $limit->smartModify(0, -2, 0);
 

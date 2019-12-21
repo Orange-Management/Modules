@@ -181,7 +181,7 @@ final class SessionMapper extends DataMapperAbstract
         $query = new Builder(self::$db);
         $query = self::getQuery($query)
             ->where(self::$table . '.hr_timerecording_session_employee', '=', $employee)
-            ->andWhere(self::$table . '.' . self::$createdAt, '<=', $start->format('Y-m-d'))
+            ->andWhere(self::$table . '.' . self::$createdAt, '<=', $start->format('Y-m-d H:i:s'))
             ->orderBy(self::$table . '.' . self::$createdAt, 'DESC')
             ->offset($offset)
             ->limit($limit);

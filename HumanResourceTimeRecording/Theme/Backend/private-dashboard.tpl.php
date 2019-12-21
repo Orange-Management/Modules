@@ -80,7 +80,13 @@ show additional section with vacation days
                             </select>
                         <tr><td>
                             <input type="hidden" name="session" value="<?= $lastOpenSession !== null ? $lastOpenSession->getId() : ''; ?>">
-                            <input type="submit" id="iclockingButton" name="clockingButton" value="<?= $this->getHtml('Submit', '0', '0'); ?>">
+                            <input type="submit" id="iclockingButton" name="clockingButton" value="<?= $this->getHtml('Submit', '0', '0'); ?>" data-action='[
+                                    {
+                                        "key": 1, "listener": "click", "action": [
+                                            {"key": 1, "type": "dom.reload", "delay": 3000}
+                                        ]
+                                    }
+                                ]'>
                     </table>
                 </form>
             </div>
@@ -148,7 +154,7 @@ show additional section with vacation days
                     <td><a href="<?= $url; ?>"><?= (int) ($session->getBreak() / 3600); ?>h <?= ((int) ($session->getBreak() / 60) % 60); ?>m</a>
                     <td><a href="<?= $url; ?>"><?= $session->getEnd() !== null ? $session->getEnd()->format('H:i') : ''; ?></a>
                     <td><a href="<?= $url; ?>"><?= (int) ($session->getBusy() / 3600); ?>h <?= ((int) ($session->getBusy() / 60) % 60); ?>m</a>
-                <?php if ($session->getStart()->getTimestamp() < $startWeek->getTimestamp() || $count === $sessionCount) : ?>
+                <?php $busy['week'] += $session->getBusy(); if ($session->getStart()->getTimestamp() < $startWeek->getTimestamp() || $count === $sessionCount) : ?>
                 <tr>
                     <th colspan="6"> <?= $startWeek->format('Y/m/d'); ?> - <?= $endWeek->format('Y/m/d'); ?>
                     <th><?= (int) ($busy['week'] / 3600); ?>h <?= ((int) ($busy['week'] / 60) % 60); ?>m
@@ -157,9 +163,8 @@ show additional section with vacation days
                         $startWeek    = $startWeek->createModify(0, 0, -7);
                         $busy['week'] = 0;
                     endif;
-                    $busy['week'] += $session->getBusy();
                 ?>
-                <?php if ($session->getStart()->getTimestamp() < $startMonth->getTimestamp() || $count === $sessionCount) : ?>
+                <?php $busy['month'] += $session->getBusy(); if ($session->getStart()->getTimestamp() < $startMonth->getTimestamp() || $count === $sessionCount) : ?>
                 <tr>
                     <th colspan="6"> <?= $startMonth->format('Y/m/d'); ?> - <?= $endMonth->format('Y/m/d'); ?>
                     <th><?= (int) ($busy['month'] / 3600); ?>h <?= ((int) ($busy['month'] / 60) % 60); ?>m
@@ -168,7 +173,6 @@ show additional section with vacation days
                         $startMonth    = $startMonth->createModify(0, -1, 0);
                         $busy['month'] = 0;
                     endif;
-                    $busy['month'] += $session->getBusy();
                 ?>
                 <?php endforeach; ?>
             </table>
