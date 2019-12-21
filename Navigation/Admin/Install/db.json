@@ -48,7 +48,7 @@
             },
             "nav_action": {
                 "name": "nav_action",
-                "type": "text",
+                "type": "TEXT",
                 "default": null,
                 "null": true
             },
