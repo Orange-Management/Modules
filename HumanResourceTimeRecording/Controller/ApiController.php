@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\HumanResourceTimeRecording\Controller;
 
+use DateTime;
 use Modules\HumanResourceTimeRecording\Models\ClockingStatus;
 use Modules\HumanResourceTimeRecording\Models\ClockingType;
 use Modules\HumanResourceTimeRecording\Models\NullSession;
@@ -62,15 +63,14 @@ final class ApiController extends Controller
 
         if ($request->getData('account') !== null) {
             if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-                PermissionType::GET, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SESSION_FOREIGN
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::SESSION_FOREIGN
             )) {
                 $this->fillJsonResponse($request, $response, NotificationLevel::HIDDEN, '', '', []);
             }
         }
 
         $employee = EmployeeMapper::getFromAccount($account);
-
-        $sessions = SessionMapper::getSessionListForEmployee($employee->getId(), (int) ($request->getData('session') ?? 0), 50);
+        $sessions = SessionMapper::getSessionListForEmployee($employee->getId(), new DateTime($request->getData('start') ?? 'now'), (int) ($request->getData('session') ?? 0), 50);
         $this->fillJsonResponse($request, $response, NotificationLevel::HIDDEN, '', '', $sessions);
     }
 

@@ -37,7 +37,7 @@ class Creditor
     /**
      * Account.
      *
-     * @var   null|int|phpOMS/Account/Account
+     * @var   null|int|Account
      * @since 1.0.0
      */
     protected $account = null;
