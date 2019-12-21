@@ -46,6 +46,12 @@
                 "default": null,
                 "null": true
             },
+            "nav_action": {
+                "name": "nav_action",
+                "type": "text",
+                "default": null,
+                "null": true
+            },
             "nav_from": {
                 "name": "nav_from",
                 "type": "VARCHAR(255)",

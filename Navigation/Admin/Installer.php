@@ -91,6 +91,7 @@ class Installer extends InstallerAbstract
         $navElement->icon              = $data['icon'] ?? null;
         $navElement->uri               = $data['uri'] ?? null;
         $navElement->target            = (string) ($data['target'] ?? 'self');
+        $navElement->action            = $data['action'] ?? null;
         $navElement->from              = (string) ($data['from'] ?? '0');
         $navElement->order             = (int) ($data['order'] ?? 1);
         $navElement->parent            = (int) ($data['parent'] ?? 0);

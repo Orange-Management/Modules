@@ -41,6 +41,7 @@ final class NavElementMapper extends DataMapperAbstract
         'nav_icon'                  => ['name' => 'nav_icon',                  'type' => 'string', 'internal' => 'icon'],
         'nav_uri'                   => ['name' => 'nav_uri',                   'type' => 'string', 'internal' => 'uri'],
         'nav_target'                => ['name' => 'nav_target',                'type' => 'string', 'internal' => 'target'],
+        'nav_action'                => ['name' => 'nav_action',                'type' => 'string', 'internal' => 'action'],
         'nav_from'                  => ['name' => 'nav_from',                  'type' => 'string', 'internal' => 'from'],
         'nav_order'                 => ['name' => 'nav_order',                 'type' => 'int',    'internal' => 'order'],
         'nav_parent'                => ['name' => 'nav_parent',                'type' => 'int',    'internal' => 'parent'],

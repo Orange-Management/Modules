@@ -32,6 +32,7 @@ class NavElement
     public $icon              = null;
     public $uri               = null;
     public $target            = 'self';
+    public $action            = null;
     public $from              = '0';
     public $order             = 1;
     public $parent            = 0;
