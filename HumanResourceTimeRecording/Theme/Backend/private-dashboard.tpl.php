@@ -44,8 +44,8 @@ $busy = [
 
 echo $this->getData('nav')->render(); ?>
 
-on response successfull reload!!! or!
-on response successfull change ui/change ui and on response not successfull undo changed ui both result in the same
+on response successful reload!!! or!
+on response successful change ui/change ui and on response not successful undo changed ui both result in the same
 
 list for month show total of total
 list contains segments for week show total of total

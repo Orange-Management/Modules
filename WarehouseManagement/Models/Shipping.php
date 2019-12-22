@@ -35,10 +35,10 @@ class Shipping
     /**
      * Order.
      *
-     * @var   intstring
+     * @var   int
      * @since 1.0.0
      */
-    private $order = '';
+    private $order = 0;
 
     /**
      * From.
@@ -87,7 +87,7 @@ class Shipping
      *
      * @since 1.0.0
      */
-    public function __construct($id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }
@@ -111,7 +111,7 @@ class Shipping
      *
      * @since 1.0.0
      */
-    public function getOrder()
+    public function getOrder() : int
     {
         return $this->order;
     }
@@ -125,7 +125,7 @@ class Shipping
      *
      * @since 1.0.0
      */
-    public function setOrder($order) : void
+    public function setOrder(int $order) : void
     {
         $this->order = $order;
     }

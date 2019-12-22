@@ -50,7 +50,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
      * @covers Modules\Admin\Models\Group
      * @group module
      */
-    public function testCreatornInputOutput() : void
+    public function testCreatorInputOutput() : void
     {
         $group = new Group();
 
