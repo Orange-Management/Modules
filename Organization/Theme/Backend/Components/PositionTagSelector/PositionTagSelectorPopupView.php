@@ -30,7 +30,7 @@ use phpOMS\Views\View;
  */
 class PositionTagSelectorPopupView extends View
 {
-    private $id = '';
+    private string $id = '';
 
     /**
      * {@inheritdoc}

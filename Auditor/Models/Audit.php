@@ -40,7 +40,7 @@ class Audit
      * @var   int
      * @since 1.0.0
      */
-    private int $type = 0;
+    private int $type;
 
     /**
      * Audit subtype.
@@ -48,7 +48,7 @@ class Audit
      * @var   int
      * @since 1.0.0
      */
-    private int $subtype = 0;
+    private int $subtype;
 
     /**
      * Audit module.
@@ -56,7 +56,7 @@ class Audit
      * @var   null|string
      * @since 1.0.0
      */
-    private $module = null;
+    private ?string $module;
 
     /**
      * Audit reference.
@@ -66,7 +66,7 @@ class Audit
      * @var   null|string
      * @since 1.0.0
      */
-    private $ref = null;
+    private ?string $ref;
 
     /**
      * Audit content.
@@ -76,7 +76,7 @@ class Audit
      * @var   null|string
      * @since 1.0.0
      */
-    private $content = null;
+    private ?string $content;
 
     /**
      * Old value.
@@ -84,7 +84,7 @@ class Audit
      * @var   null|string
      * @since 1.0.0
      */
-    private $old = null;
+    private ?string $old;
 
     /**
      * New value.
@@ -92,7 +92,7 @@ class Audit
      * @var   null|string
      * @since 1.0.0
      */
-    private $new = null;
+    private ?string $new;
 
     /**
      * Account.
@@ -100,15 +100,15 @@ class Audit
      * @var   Account|int
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private $createdBy;
 
     /**
      * Created at.
      *
-     * @var   null|\DateTime
+     * @var   \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Ip of creator.
@@ -121,13 +121,13 @@ class Audit
     /**
      * Constructor.
      *
-     * @parram Account $account Account of the creator
-     * @parram string  $old     Old value
-     * @parram string  $new     New value
-     * @parram int     $type    Type of the audit
-     * @parram int     $subtype Subtype of the audit
-     * @parram string  $module  Module id
-     * @parram string  $content Additional audit information
+     * @parram Account     $account Account of the creator
+     * @parram null|string $old     Old value
+     * @parram null|string $new     New value
+     * @parram int         $type    Type of the audit
+     * @parram int         $subtype Subtype of the audit
+     * @parram null|string $module  Module id
+     * @parram null|string $content Additional audit information
      *
      * @since 1.0.0
      */
