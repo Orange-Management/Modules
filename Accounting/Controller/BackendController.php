@@ -20,7 +20,7 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
 
 /**
- * Accounting class.
+ * Controller class.
  *
  * @package Modules\Accounting
  * @license OMS License 1.0

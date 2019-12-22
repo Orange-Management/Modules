@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\DatabaseEditor\Models;
 
 /**
- * Table
+ * Table.
  *
  * @package Modules\DatabaseEditor\Models
  * @license OMS License 1.0

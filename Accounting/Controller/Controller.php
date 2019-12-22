@@ -18,7 +18,7 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 
 /**
- * Accounting class.
+ * Controller class.
  *
  * @package Modules\Accounting
  * @license OMS License 1.0
