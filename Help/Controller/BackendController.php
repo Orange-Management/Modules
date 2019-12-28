@@ -19,6 +19,7 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
+use phpOMS\Asset\AssetType;
 
 /**
  * Help class.
