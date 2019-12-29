@@ -670,7 +670,7 @@ class TaskElement implements \JsonSerializable
             'status'      => $this->status,
             'to'          => $this->getTo(),
             'cc'          => $this->getCC(),
-            'due'         => isset($this->due) ? $this->due->format('Y-m-d H:i:s') : null,
+            'due'         => $this->due,
         ];
     }
 

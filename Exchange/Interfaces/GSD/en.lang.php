@@ -13,12 +13,15 @@
 declare(strict_types=1);
 
 return [
-    'Accounts' => 'Accounts',
-    'Articles' => 'Articles',
+    'Assets'      => 'Assets',
+    'Accounts'    => 'Accounts',
+    'Articles'    => 'Articles',
     'CostCenters' => 'Cost Centers',
     'CostObjects' => 'Cost Objects',
-    'Customers' => 'Customers',
-    'Invoices' => 'Invoices',
-    'Options' => 'Options',
-    'Suppliers' => 'Suppliers',
+    'Customers'   => 'Customers',
+    'Invoices'    => 'Invoices',
+    'Options'     => 'Options',
+    'Postings'    => 'Postings',
+    'Stocks'      => 'Stocks',
+    'Suppliers'   => 'Suppliers',
 ];

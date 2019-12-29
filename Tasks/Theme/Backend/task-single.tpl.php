@@ -12,15 +12,14 @@
  */
 declare(strict_types=1);
 
-
 use \Modules\Tasks\Models\AccountRelation;
 use \Modules\Tasks\Models\GroupRelation;
 use \Modules\Tasks\Models\TaskPriority;
 use \Modules\Tasks\Models\TaskStatus;
 
 /**
- * @var \phpOMS\Views\View         $this
- * @var \Modules\Tasks\Models\Task $task
+ * @var \Modules\Tasks\Views\TaskView $this
+ * @var \Modules\Tasks\Models\Task    $task
  */
 $task      = $this->getData('task');
 $taskMedia = $task->getMedia();
@@ -66,7 +65,9 @@ echo $this->getData('nav')->render(); ?>
                 <span id="task-status-badge" class="floatRight nobreak tag task-status-<?= $this->printHtml($task->getStatus()); ?>">
                     <?= $this->getHtml('S' . $task->getStatus()) ?>
                 </span>
-                <div><?= $this->printHtml($task->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($task->getCreatedAt()->format('Y/m/d H:i')); ?></div>
+                <div>
+                    <?= $this->printHtml($task->getCreatedBy()->getName1()); ?> - <?= $this->printHtml($task->getCreatedAt()->format('Y/m/d H:i')); ?>
+                </div>
             </div>
             <header>
                 <h1 data-tpl-text="/title" data-tpl-value="/title" data-value=""><?= $this->printHtml($task->getTitle()); ?></h1>

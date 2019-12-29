@@ -219,7 +219,7 @@ class Module
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
-            'createdAt'   => $this->createdAt->format('Y-m-d H:i:s'),
+            'createdAt'   => $this->createdAt,
         ];
     }
 }

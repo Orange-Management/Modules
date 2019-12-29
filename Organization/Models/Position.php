@@ -259,8 +259,8 @@ class Position implements ArrayableInterface, \JsonSerializable
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
-            'department' => $this->department,
-            'parent' => $this->parent,
+            'department'  => $this->department,
+            'parent'      => $this->parent,
         ];
     }
 

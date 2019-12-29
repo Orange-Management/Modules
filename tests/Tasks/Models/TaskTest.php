@@ -128,14 +128,14 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $arr = [
             'id' => 0,
             'createdBy' => $task->getCreatedBy(),
-            'createdAt' => $task->getCreatedAt()->format('Y-m-d H:i:s'),
+            'createdAt' => $task->getCreatedAt(),
             'title' => $task->getTitle(),
             'description' => $task->getDescription(),
             'status' => $task->getStatus(),
             'type' => $task->getType(),
             'priority' => $task->getPriority(),
-            'due' => $task->getDue()->format('Y-m-d H:i:s'),
-            'done' => $task->getDone()->format('Y-m-d H:i:s'),
+            'due' => $task->getDue(),
+            'done' => $task->getDone(),
         ];
 
         $isSubset = true;

@@ -81,8 +81,8 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
             'type' => $news->getType(),
             'status' => $news->getStatus(),
             'featured' => $news->isFeatured(),
-            'publish' => $news->getPublish()->format('Y-m-d H:i:s'),
-            'createdAt' => $news->getCreatedAt()->format('Y-m-d H:i:s'),
+            'publish' => $news->getPublish(),
+            'createdAt' => $news->getCreatedAt(),
             'createdBy' => $news->getCreatedBy(),
         ];
         self::assertEquals($arr, $news->toArray());

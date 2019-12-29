@@ -290,7 +290,7 @@ class Report implements \JsonSerializable
         return [
             'id'          => $this->id,
             'createdBy'   => $this->createdBy,
-            'createdAt'   => $this->createdAt->format('Y-m-d H:i:s'),
+            'createdAt'   => $this->createdAt,
             'name'        => $this->title,
             'description' => $this->description,
             'status'      => $this->status,

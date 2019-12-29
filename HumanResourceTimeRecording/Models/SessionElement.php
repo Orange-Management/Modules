@@ -142,7 +142,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
         return [
             'id'       => $this->id,
             'status'   => $this->status,
-            'dt'       => $this->dt->format('Y-m-d H:i:s'),
+            'dt'       => $this->dt,
             'session'  => \is_int($this->session) ? $this->session : $this->session->getId(),
         ];
     }

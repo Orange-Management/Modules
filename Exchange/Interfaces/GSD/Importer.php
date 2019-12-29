@@ -239,6 +239,20 @@ final class Importer extends ImporterAbstract
     }
 
     /**
+     * Import articles
+     *
+     * @param \DateTime $start Start time (inclusive)
+     * @param \DateTime $end   End time (inclusive)
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function importArticle(\DateTime $start, \DateTime $end) : void
+    {
+    }
+
+    /**
      * Import invoices
      *
      * @param \DateTime $start Start time (inclusive)

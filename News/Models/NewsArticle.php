@@ -433,15 +433,15 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'plain' => $this->plain,
-            'content' => $this->content,
-            'type' => $this->type,
-            'status' => $this->status,
-            'featured' => $this->featured,
-            'publish' => $this->publish->format('Y-m-d H:i:s'),
-            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
+            'id'        => $this->id,
+            'title'     => $this->title,
+            'plain'     => $this->plain,
+            'content'   => $this->content,
+            'type'      => $this->type,
+            'status'    => $this->status,
+            'featured'  => $this->featured,
+            'publish'   => $this->publish,
+            'createdAt' => $this->createdAt,
             'createdBy' => $this->createdBy,
         ];
     }

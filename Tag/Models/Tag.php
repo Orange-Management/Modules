@@ -186,7 +186,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
+            'id'    => $this->id,
             'title' => $this->title,
             'color' => $this->color,
         ];

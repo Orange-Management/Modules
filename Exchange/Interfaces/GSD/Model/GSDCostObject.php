@@ -182,7 +182,7 @@ final class GSDCostObject implements \JsonSerializable
         return [
             'id' => $this->id,
             'createdBy' => $this->createdBy,
-            'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
+            'createdAt' => $this->createdAt,
             'description' => $this->description,
             'costObject' => $this->costObject,
         ];

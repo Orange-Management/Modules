@@ -57,7 +57,7 @@ class EditorDocTest extends \PHPUnit\Framework\TestCase
             'title' => $doc->getTitle(),
             'plain' => $doc->getPlain(),
             'content' => $doc->getContent(),
-            'createdAt' => $doc->getCreatedAt()->format('Y-m-d H:i:s'),
+            'createdAt' => $doc->getCreatedAt(),
             'createdBy' => $doc->getCreatedBy(),
         ];
         self::assertEquals($arr, $doc->toArray());

@@ -312,8 +312,8 @@ class Session implements ArrayableInterface, \JsonSerializable
     {
         return [
             'id'       => $this->id,
-            'start'    => $this->start->format('Y-m-d H:i:s'),
-            'end'      => $this->end === null ? null : $this->end->format('Y-m-d H:i:s'),
+            'start'    => $this->start,
+            'end'      => $this->end,
             'busy'     => $this->busy,
             'type'     => $this->type,
             'employee' => $this->employee,
