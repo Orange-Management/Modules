@@ -12,79 +12,19 @@
  */
 declare(strict_types=1);
 
-namespace Modules\tests\News;
+namespace Modules\tests\News\Controller\Api;
 
-require_once __DIR__ . '/../Autoloader.php';
-
-use Model\CoreSettings;
-use Modules\Admin\Models\AccountPermission;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
-use phpOMS\Account\Account;
-use phpOMS\Account\AccountManager;
-use phpOMS\Account\PermissionType;
-use phpOMS\ApplicationAbstract;
-use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Event\EventManager;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\Response;
-use phpOMS\Module\ModuleManager;
-use phpOMS\Router\WebRouter;
-
 use phpOMS\Uri\Http;
-use phpOMS\Utils\TestUtils;
 
-/**
- * @internal
- */
-class ControllerTest extends \PHPUnit\Framework\TestCase
+trait ApiControllerNewsArticleTrait
 {
-    protected $app    = null;
-    protected $module = null;
-
-    protected function setUp() : void
-    {
-        $this->app = new class() extends ApplicationAbstract
-        {
-            protected string $appName = 'Api';
-        };
-
-        $this->app->dbPool         = $GLOBALS['dbpool'];
-        $this->app->orgId          = 1;
-        $this->app->appName        = 'Backend';
-        $this->app->accountManager = new AccountManager($GLOBALS['session']);
-        $this->app->appSettings    = new CoreSettings($this->app->dbPool->get());
-        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../../Modules');
-        $this->app->dispatcher     = new Dispatcher($this->app);
-        $this->app->eventManager   = new EventManager($this->app->dispatcher);
-        $this->app->eventManager->importFromFile(__DIR__ . '/../../../Web/Api/Hooks.php');
-
-        $account = new Account();
-        TestUtils::setMember($account, 'id', 1);
-
-        $permission = new AccountPermission();
-        $permission->setUnit(1);
-        $permission->setApp('backend');
-        $permission->setPermission(
-            PermissionType::READ
-            | PermissionType::CREATE
-            | PermissionType::MODIFY
-            | PermissionType::DELETE
-            | PermissionType::PERMISSION
-        );
-
-        $account->addPermission($permission);
-
-        $this->app->accountManager->add($account);
-        $this->app->router = new WebRouter();
-
-        $this->module = $this->app->moduleManager->get('News');
-
-        TestUtils::setMember($this->module, 'app', $this->app);
-    }
-
     /**
-     * @covers Modules\News\Controller\ApiController
+    * @testdox A news article can be created
+    * @covers Modules\News\Controller\ApiController
      * @group module
      */
     public function testApiNewsCreate() : void
@@ -107,6 +47,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox A news article can be returned
      * @covers Modules\News\Controller\ApiController
      * @group module
      */
@@ -124,10 +65,11 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox A news article can be updated
      * @covers Modules\News\Controller\ApiController
      * @group module
      */
-    public function testApiNewsSet() : void
+    public function testApiNewsUpdate() : void
     {
         $response = new Response();
         $request  = new Request(new Http(''));
@@ -144,6 +86,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox A news article can be deleted
      * @covers Modules\News\Controller\ApiController
      * @group module
      */
