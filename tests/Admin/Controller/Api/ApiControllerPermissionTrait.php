@@ -140,6 +140,13 @@ trait ApiControllerPermissionTrait
 
         self::assertEquals(PermissionType::READ, $response->get('')['response']->getPermission());
         self::assertGreaterThan(0, $response->get('')['response']->getId());
+
+        $request->setData('permissioncreate', PermissionType::CREATE);
+        $request->setData('permissionupdate', PermissionType::MODIFY);
+        $request->setData('permissiondelete', PermissionType::DELETE);
+        $request->setData('permissionpermission', PermissionType::PERMISSION);
+
+        $this->module->apiGroupPermissionUpdate($request, $response);
     }
 
     /**
