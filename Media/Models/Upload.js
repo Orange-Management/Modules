@@ -88,7 +88,7 @@ export class Upload {
     /**
      * Set allowed upload file types.
      *
-     * @param {array} allowed Allowed upload file types
+     * @param {Array} allowed Allowed upload file types
      *
      * @return {void}
      *
