@@ -192,13 +192,6 @@ class Module
     }
 
     /**
-     * Json serialize.
-     *
-     * @return array<string, int|string>
-     *
-     * @since 1.0.0
-     */
-    /**
      * {@inheritdoc}
      */
     public function jsonSerialize()
@@ -207,11 +200,7 @@ class Module
     }
 
     /**
-     * To array
-     *
-     * @return array<string, int|string>
-     *
-     * @since 1.0.0
+     * {@inheritdoc}
      */
     public function toArray() : array
     {
