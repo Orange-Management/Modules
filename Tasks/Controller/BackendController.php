@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Tasks\Controller;
 
 use Modules\Tasks\Models\PermissionState;
-use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Views\TaskView;
 

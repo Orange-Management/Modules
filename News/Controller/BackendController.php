@@ -163,6 +163,9 @@ final class BackendController extends Controller
         $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
         $view->addData('editor', $editor);
 
+        $accGrpSelector = new \Modules\Profile\Theme\Backend\Components\AccountGroupSelector\BaseView($this->app, $request, $response);
+        $view->addData('accGrpSelector', $accGrpSelector);
+
         return $view;
     }
 }

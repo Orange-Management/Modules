@@ -22,7 +22,7 @@ echo $this->getData('nav')->render(); ?>
         <div id="testEditor" class="m-editor">
             <section class="box wf-100">
                 <div class="inner">
-                    <input type="text" name="title" form="docForm">
+                    <input id="iTitle" type="text" name="title" form="docForm">
                 </div>
             </section>
 
@@ -57,7 +57,7 @@ echo $this->getData('nav')->render(); ?>
                             <td>
                                 <input type="submit" name="deleteButton" id="iDeleteButton" value="<?= $this->getHtml('Delete', '0', '0'); ?>">
                             <td class="rightText">
-                                <input type="submit" name="saveButton" id="iSaveButton" value="<?= $this->getHtml('Save', '0', '0'); ?>">
+                                <input type="submit" formaction="<?= \phpOMS\Uri\UriFactory::build('{/api}news?{?}&release=false&csrf={$CSRF}'); ?>" name="saveButton" id="iSaveButton" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 <input type="submit" name="publishButton" id="iPublishButton" value="<?= $this->getHtml('Publish'); ?>">
                     </table>
                 </form>
@@ -88,26 +88,11 @@ echo $this->getData('nav')->render(); ?>
         <section class="box wf-100">
             <div class="inner">
                 <table class="layout wf-100">
-                    <tr><td><label for="permission"><?= $this->getHtml('Permissions'); ?></label>
-                    <tr><td>
-                        <span class="input">
-                            <button type="button" formaction=""><i class="fa fa-book"></i></button>
-                            <input type="text" id="permission"><input type="hidden" form="docForm" name="permission">
-                        </span>
-                    <tr><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
-                </table>
-            </div>
-        </section>
-        <section class="box wf-100">
-            <div class="inner">
-                <table class="layout wf-100">
-                    <tr><td colspan="2"><label for="groups"><?= $this->getHtml('Groups'); ?></label>
-                    <tr><td>
-                        <span class="input">
-                            <button type="button" formaction=""><i class="fa fa-book"></i></button>
-                            <input  type="text" id="groups"><input type="hidden" form="docForm" name="groups">
-                        </span>
-                    <tr><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                    <tr><td><label for="permission"><?= $this->getHtml('Accounts/Groups'); ?></label>
+                    <!-- @todo: add form this belongs to -->
+                    <!-- @todo: make auto save on change for already created news article -->
+                    <!-- @todo: add default values (some can be removed/overwritten and some not?) -->
+                    <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', 'receiver', false); ?>
                 </table>
             </div>
         </section>
