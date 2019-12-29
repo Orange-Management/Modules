@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
             data-ui-element="#task header, #task .task-content"
             data-tag="form"
             data-method="POST"
-            data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}task?{?}&csrf={$CSRF}'); ?>">
+            data-uri="<?= \phpOMS\Uri\UriFactory::build('{/api}task?id={?id}&csrf={$CSRF}'); ?>">
             <div class="inner">
                 <?php if ($task->isEditable()) : ?>
                 <template><!-- todo: this needs to be here for the form js to work (edit). find a way to remove these. maybe check if add functionality is available. --></template>
@@ -55,7 +55,7 @@ echo $this->getData('nav')->render(); ?>
                             'plain',
                             'taskElementEdit',
                             '', '',
-                            '/content', '{%}'
+                            '/content', '{/api}task?id={?id}'
                         ); ?>
                         <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                     </div>
@@ -73,7 +73,7 @@ echo $this->getData('nav')->render(); ?>
                 <h1 data-tpl-text="/title" data-tpl-value="/title" data-value=""><?= $this->printHtml($task->getTitle()); ?></h1>
             </header>
             <div class="inner task-content">
-                <article data-tpl-text="/content" data-tpl-value="{%}" data-value=""><?= $task->getDescription(); ?></article>
+                <article data-tpl-text="/content" data-tpl-value="{/api}task?id={?id}" data-value=""><?= $task->getDescription(); ?></article>
             </div>
 
             <?php if (!empty($taskMedia)) : ?>
@@ -125,7 +125,7 @@ echo $this->getData('nav')->render(); ?>
                     </div>
 
                     <div class="inner taskelement-content">
-                        <article data-tpl-text="/content" data-tpl-value="{%}" data-value=""></article>
+                        <article data-tpl-text="/content" data-tpl-value="{/api}task?id={?id}" data-value=""></article>
                     </div>
 
                     <div class="inner">
@@ -156,7 +156,7 @@ echo $this->getData('nav')->render(); ?>
                             'plain',
                             'taskElementEdit',
                             '', '',
-                            '/content', '{%}'
+                            '/content', '{/api}task?id={?id}'
                         ); ?>
                     <!--<textarea data-tpl-text="/content" data-tpl-value="/content" data-value=""></textarea>-->
                 </div>
@@ -183,7 +183,7 @@ echo $this->getData('nav')->render(); ?>
 
                     <?php if ($element->getDescription() !== '') : ?>
                         <div class="inner taskelement-content">
-                            <article data-tpl-text="/content" data-tpl-value="{%}" data-value=""><?= $element->getDescription(); ?></article>
+                            <article data-tpl-text="/content" data-tpl-value="{/api}task?id={?id}" data-value=""><?= $element->getDescription(); ?></article>
                         </div>
                     <?php endif; ?>
 
@@ -262,7 +262,7 @@ echo $this->getData('nav')->render(); ?>
                             'plain',
                             'taskElementCreate',
                             '', '',
-                            '/content', '{%}'
+                            '/content', '{/api}task?id={?id}'
                             ); ?>
                         <tr><td><label for="iPriority"><?= $this->getHtml('Priority') ?></label>
                         <tr><td>
