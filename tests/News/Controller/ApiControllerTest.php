@@ -19,7 +19,8 @@ require_once __DIR__ . '/../../Autoloader.php';
 use Model\CoreSettings;
 
 use Modules\Admin\Models\AccountPermission;
-use Modules\tests\Admin\Controller\Api\ApiControllerNewsArticleTrait;
+use Modules\tests\News\Controller\Api\ApiControllerNewsArticleTrait;
+
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -32,7 +33,7 @@ use phpOMS\Utils\TestUtils;
 
 /**
  * @testdox Modules\tests\News\Controller\ApiControllerTest: News api controller
- * 
+ *
  * @internal
  */
 class ControllerTest extends \PHPUnit\Framework\TestCase
