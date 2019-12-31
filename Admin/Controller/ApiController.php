@@ -59,6 +59,9 @@ use phpOMS\Version\Version;
  *
  * @todo Orange-Management/Modules#172
  *  Add user & group settings
+ *
+ * @todo Orange-Management/Modules#193
+ *  Implement online database and downloading api for modules and updates
  */
 final class ApiController extends Controller
 {
@@ -1056,7 +1059,7 @@ final class ApiController extends Controller
      *
      * @api
      *
-     * @todo Orange-Management/Moduels#64
+     * @todo Orange-Management/Modules#64
      *  Create update functionality
      *
      * @since 1.0.0
@@ -1173,6 +1176,5 @@ final class ApiController extends Controller
      */
     private function runUpdate(string $updateFile) : void
     {
-        // todo: do package functions here of the packagemanager
     }
 }

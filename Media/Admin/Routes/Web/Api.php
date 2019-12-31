@@ -31,7 +31,6 @@ return [
             ],
         ],
     ],
-    // todo: the order of find is bad but needed for now.
     '^.*/media/find.*$' => [
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaFind',

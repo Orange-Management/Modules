@@ -272,14 +272,16 @@ final class ApiController extends Controller
      *
      * @return void
      *
+     * @todo Orange-Management/Modules#194
+     *  Allow session update
+     *  Employee can only change start/end if vacation
+     *
      * @api
      *
      * @since 1.0.0
      */
     public function apiSessionUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: allow to change employee and type.
-        // employee can only change start/end if vacation
     }
 
     /**
@@ -291,15 +293,17 @@ final class ApiController extends Controller
      *
      * @return void
      *
+     * @todo Orange-Management/Modules#195
+     *  Allow session element update
+     *  Employee can only change start/end if vacation.
+     *  This also has to update the session since the data is not 100% normalized.
+     *
      * @api
      *
      * @since 1.0.0
      */
     public function apiSessionElementUpdate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: allow to change session, status, and datetime
-        // employee can only change start/end if vacation
-        // any change in start end will also change the session because it's not 100% normalized!
     }
 
     /**
@@ -311,13 +315,16 @@ final class ApiController extends Controller
      *
      * @return void
      *
+     * @todo Orange-Management/Modules#196
+     *  Implement session delete
+     *  Employee can only delete vacations (maybe)
+     *
      * @api
      *
      * @since 1.0.0
      */
     public function apiSessionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // employee can only delete if vacation
     }
 
     /**
@@ -329,12 +336,15 @@ final class ApiController extends Controller
      *
      * @return void
      *
+     * @todo Orange-Management/Modules#196
+     *  Implement session delete
+     *  Employee can only delete vacations (maybe)
+     *
      * @api
      *
      * @since 1.0.0
      */
     public function apiSessionElementDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // employee can only delete if vacation
     }
 }
