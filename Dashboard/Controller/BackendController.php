@@ -15,11 +15,11 @@ declare(strict_types=1);
 namespace Modules\Dashboard\Controller;
 
 use Modules\Dashboard\Models\DashboardBoardMapper;
+use Modules\Dashboard\Models\DashboardElementInterface;
 use Modules\Dashboard\Models\NullDashboardBoard;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\NullModule;
 use phpOMS\Views\View;
 
 /**
@@ -29,6 +29,10 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#137
+ *  Default dashboard styles
+ *  Allow default dashboard templates which users can select
  */
 final class BackendController extends Controller
 {
@@ -40,6 +44,10 @@ final class BackendController extends Controller
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
+     *
+     * @todo Orange-Management/Modules#57
+     *  Users should be able to customize their dashboard.
+     *  This includes drag and drop and module selection.
      *
      * @since 1.0.0
      * @codeCoverageIgnore
@@ -62,10 +70,7 @@ final class BackendController extends Controller
         foreach ($boardComponents as $component) {
             $module = $this->app->moduleManager->get($component->getModule());
 
-            // todo: check if this should be done with instanceof DashboardView -> instanceof DashboardView
-            if ($module instanceof NullModule
-                || !\method_exists($module, 'viewDashboard')
-            ) {
+            if (!($module instanceof DashboardElementInterface)) {
                 continue;
             }
 

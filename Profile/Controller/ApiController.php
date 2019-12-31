@@ -29,6 +29,12 @@ use phpOMS\Message\ResponseAbstract;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#138
+ *  Allow Admin to login as user
+ *  Admins should be allowed to log in as users.
+ *  This doesn't mean that the admins can create content in the name of a user but they get to see all the things this user can see.
+ *  They basically log in with the same permissions.
  */
 final class ApiController extends Controller
 {

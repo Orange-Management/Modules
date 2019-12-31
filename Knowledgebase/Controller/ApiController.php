@@ -25,12 +25,16 @@ use phpOMS\Message\ResponseAbstract;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 
 /**
- * Task class.
+ * Knowledgebase class.
  *
  * @package Modules\Knowledgebase
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#79
+ *  Add category management
+ *  Categories cannot get managed right (created and edited). Categories need to have a language component.
  */
 final class ApiController extends Controller
 {

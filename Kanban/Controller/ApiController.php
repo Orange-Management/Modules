@@ -37,6 +37,10 @@ use phpOMS\Model\Message\FormValidation;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#77
+ *  Edit functionality
+ *  Currently nothing can be edited (change)
  */
 final class ApiController extends Controller
 {

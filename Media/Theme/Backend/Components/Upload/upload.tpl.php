@@ -1,3 +1,7 @@
+<!--
+@todo Orange-Management/Modules#58
+    Implement drag/drop upload
+-->
 <section class="box wf-100">
     <header><h1><?= $this->getHtml('Media') ?></h1></header>
 

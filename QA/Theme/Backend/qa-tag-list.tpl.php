@@ -12,6 +12,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @todo Orange-Management/Modules#73
+ *  Profile pics
+ *  There are no profile pics in questions and answers. Implement!
+ */
 
 $tags = $this->getData('tags');
 

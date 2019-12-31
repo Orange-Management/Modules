@@ -23,12 +23,6 @@ jsOMS.Modules.Editor = class {
 
     bindElement (id)
     {
-        if (typeof id === 'undefined' || !id) {
-            // todo: do logging
-
-            return;
-        }
-
         this.editors[id] = new Editor(id);
         this.editors[id].bind();
     };

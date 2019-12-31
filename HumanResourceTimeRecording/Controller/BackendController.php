@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\HumanResourceTimeRecording\Controller;
 
+use Modules\Dashboard\Models\DashboardElementInterface;
 use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 
 use phpOMS\Contract\RenderableInterface;
@@ -32,19 +33,10 @@ use phpOMS\Views\PaginationView;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class BackendController extends Controller
+final class BackendController extends Controller implements DashboardElementInterface
 {
     /**
-     * Routing end-point for application behaviour.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
+     * {@inheritdoc}
      */
     public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {

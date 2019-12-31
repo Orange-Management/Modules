@@ -18,10 +18,6 @@ use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\WebInterface;
 
 /**
- * TODO: Implement auto sqlite generator on upload
- */
-
-/**
  * Helper controller class.
  *
  * @package    Modules\Helper

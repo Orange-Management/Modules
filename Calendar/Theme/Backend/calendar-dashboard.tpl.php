@@ -1,4 +1,10 @@
 <?php declare(strict_types=1);
+
+/**
+ * @todo Orange-Management/Modules#69
+ *  Create a popup when clicking on an event with full information.
+ */
+
 $calendar = $this->getData('calendar');
 ?>
 <div class="row">

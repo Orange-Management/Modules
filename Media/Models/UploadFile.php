@@ -329,7 +329,6 @@ class UploadFile
     {
         switch ($error) {
             case \UPLOAD_ERR_NO_FILE:
-                // TODO: no file sent
                 return UploadStatus::NOTHING_UPLOADED;
             case \UPLOAD_ERR_INI_SIZE:
             case \UPLOAD_ERR_FORM_SIZE:

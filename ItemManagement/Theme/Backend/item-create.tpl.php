@@ -619,7 +619,7 @@ echo $this->getData('nav')->render(); ?>
 </div>
 
 <!--
-@todo:
+@todo
     maybe put a master variations selection at the beginning so that you need to change it for other variations...
     this way you will however not be able to see all at once only one at a time
     make container in packaging department that can be used by packaging for sales and purchase

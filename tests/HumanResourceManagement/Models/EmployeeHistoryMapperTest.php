@@ -28,8 +28,7 @@ class EmployeeHistoryMapperTest extends \PHPUnit\Framework\TestCase
     {
         $employee = new Employee(ProfileMapper::get(1));
 
-        $history = new EmployeeHistory();
-        $history->setEmployee($employee);
+        $history = new EmployeeHistory($employee);
 
         $id = EmployeeHistoryMapper::create($history);
         self::assertGreaterThan(0, $history->getId());

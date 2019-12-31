@@ -29,10 +29,6 @@ use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
 
 /**
- * TODO: Implement auto sqlite generator on upload
- */
-
-/**
  * Helper controller class.
  *
  * @package    Modules\Helper

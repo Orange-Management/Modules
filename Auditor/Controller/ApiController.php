@@ -27,6 +27,11 @@ use phpOMS\Utils\StringUtils;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#111
+ *  Implement blockchain for audited elements
+ *  Blockchain should be implemented in order to allow auditors to validate that data hasn't been changed.
+ *  This is mostly important for accounting and accounting related data.
  */
 final class ApiController extends Controller
 {

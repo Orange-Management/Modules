@@ -32,6 +32,10 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#150
+ *  Allow to create new files (not only upload)
+ *  In many cases it would be nice to create a new file manually with the module (e.g. create a new .txt or .sqlite file) which then can get edited directly in the media module.
  */
 final class BackendController extends Controller
 {

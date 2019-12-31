@@ -30,6 +30,14 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Moduels#14
+ *  The editor should support (maybe as extension) versioning.
+ *  This doesn't have to be git or svn but at least multiple version should be able to get stored into the database.
+ *  The versioning should be very straight forward and only contain a version number, date and optionally a version name.
+ *  The basic save button should be just "save new version" or something similar.
+ *  Based on this it should also be possible to compare different versions against each other.
+ *  It should be possible to see who wrote which word, when and what it got changed to (e.g. git or microsoft track change mode).
  */
 final class ApiController extends Controller
 {

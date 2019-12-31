@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Admin\Models;
 
 use phpOMS\Module\ModuleStatus;
+use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * Module class.
@@ -175,7 +176,10 @@ class Module
      */
     public function setStatus(int $status) : void
     {
-        // todo: check valid
+        if (!ModuleStatusUpdateType::isValidValue($status)) {
+            throw new InvalidEnumValue($status);
+        }
+
         $this->status = $status;
     }
 

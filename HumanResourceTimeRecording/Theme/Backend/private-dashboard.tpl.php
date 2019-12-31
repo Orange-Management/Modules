@@ -26,7 +26,6 @@ $lastOpenSession = $this->getData('lastSession');
 $type   = $lastOpenSession !== null ? $lastOpenSession->getType() : ClockingType::OFFICE;
 $status = $lastOpenSession !== null ? $lastOpenSession->getStatus() : ClockingStatus::END;
 
-// @todo: users may have a different definition of week start!
 /** @var \phpOMS\Stdlib\Base\SmartDateTime $startWeek */
 $startWeek = new SmartDateTime('now');
 $startWeek = $startWeek->getStartOfWeek();

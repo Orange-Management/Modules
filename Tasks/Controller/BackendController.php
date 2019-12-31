@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Controller;
 
+use Modules\Dashboard\Models\DashboardElementInterface;
 use Modules\Tasks\Models\PermissionState;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Views\TaskView;
@@ -34,8 +35,13 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#148
+ *  Add a calender like task view
+ *  If you define tasks far into the future it can become very difficult to read and organize them.
+ *  For this purpose there should be a calendar view for them.
  */
-final class BackendController extends Controller
+final class BackendController extends Controller implements DashboardElementInterface
 {
     /**
      * Routing end-point for application behaviour.
@@ -45,6 +51,11 @@ final class BackendController extends Controller
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface Returns a renderable object
+     *
+     * @todo Orange-Management/Modules#54
+     *  Implement dashboard statistics
+     *  Currently on the dashboard there is only a placeholder for some stats.
+     *  These stats need to be implemented.
      *
      * @since 1.0.0
      * @codeCoverageIgnore
@@ -68,16 +79,7 @@ final class BackendController extends Controller
     }
 
     /**
-     * Routing end-point for application behaviour.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface Returns a renderable object
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
+     * {@inheritdoc}
      */
     public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {

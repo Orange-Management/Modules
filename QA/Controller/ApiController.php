@@ -17,6 +17,14 @@ namespace Modules\QA\Controller;
 use Modules\QA\Models\QAQuestionMapper;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Message\FormValidation;
+use Modules\QA\Models\QAQuestion;
+use phpOMS\Utils\Parser\Markdown\Markdown;
+use Modules\QA\Models\QAQuestionStatus;
+use Modules\QA\Models\QAAnswer;
+use Modules\QA\Models\QAAnswerStatus;
+use Modules\QA\Models\QACategoryMapper;
+use Modules\QA\Models\QACategory;
 
 /**
  * Task class.
@@ -25,6 +33,13 @@ use phpOMS\Message\ResponseAbstract;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#70
+ *  There is no voting implemented right now, this needs to be added (visually and model/database)
+ *
+ * @todo Orange-Management/Modules#78
+ *  Edit functionality
+ *  Currently nothing can be edited (change)
  */
 final class ApiController extends Controller
 {
@@ -147,7 +162,7 @@ final class ApiController extends Controller
 
         $answer = new QAAnswer();
         $answer->setName((string) $request->getData('title'));
-        $answer->setQuestion((string) $request->getData('plain'));
+        $answer->setAnswer((string) $request->getData('plain'));
         $answer->setQuestion((int) $request->getData('question'));
         $answer->setStatus((int) $request->getData('status'));
 

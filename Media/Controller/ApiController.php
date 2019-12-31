@@ -20,9 +20,9 @@ use Modules\Media\Models\MediaMapper;
 use Modules\Media\Models\PermissionState;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
+
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\NotificationLevel;
-
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\System\MimeType;
@@ -34,6 +34,25 @@ use phpOMS\System\MimeType;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#50
+ *  Allow collection modification
+ *  Allow to change (add/remove) collection components.
+ *
+ * @todo Orange-Management/Modules#59
+ *  Implement resumable uploads
+ *  This is especially useful if someone wants to upload when he/she has wifi access
+ *
+ * @todo Orange-Management/Modules#139
+ *  Allow text file modification directly in the media module
+ *  For text files there should be a edit button which replaces the display with a textarea which can be saved.
+ *
+ * @todo Orange-Management/Modules#150
+ *  Allow to create new files (not only upload)
+ *  In many cases it would be nice to create a new file manually with the module (e.g. create a new .txt or .sqlite file) which then can get edited directly in the media module.
+ *
+ * @todo Orange-Management/Modules#160
+ *  Fix media upload
  */
 final class ApiController extends Controller
 {

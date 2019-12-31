@@ -99,7 +99,10 @@ final class TimerecordingController extends Controller
      * @param ResponseAbstract $response Response
      *
      * @return void
-     * @todo: this is slow maybe cache it per user? or maybe push it into one large language file which is stored in this module?
+     *
+     * @todo Orange-Management/Modules#190
+     *  The loading of the language file is slow since every module is loaded separately.
+     *  This should either get cached per user or maybe put into one large language file per language (like the routes).
      *
      * @since 1.0.0
      * @codeCoverageIgnore
@@ -109,7 +112,6 @@ final class TimerecordingController extends Controller
         $languages = $this->app->moduleManager->getLanguageFiles($request);
         $langCode  = $response->getHeader()->getL11n()->getLanguage();
 
-        // @todo: this should be in one file I guess? or will this be worst because getLanguageFiles currently only returns a subset of all files?
         foreach ($languages as $path) {
             $path = __DIR__ . '/../../..' . $path . '.' . $langCode . '.lang.php';
 

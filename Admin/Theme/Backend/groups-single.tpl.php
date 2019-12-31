@@ -12,6 +12,31 @@
  */
 declare(strict_types=1);
 
+/**
+ * @todo Orange-Management/Modules#122
+ *  Add group account removal
+ *  In front of every account there should be a red x which allows to remove an account from the group.
+ *
+ * @todo Orange-Management/Modules#127
+ *  Add account group removal
+ *  Add red x in front of every group which removes the group for this account.
+ *
+ * @todo Orange-Management/Modules#124
+ *  Add group permission removal
+ *  Add a red x in front of every permission which removes the permission from the group.
+ *
+ * @todo Orange-Management/Modules#123
+ *  Add group permission adjustment
+ *  In front of every permission there should be a cogs sign for modifying permissions.
+ *  Clicking on it will put the info into the form below and change the button from add to update.
+ *  At the same time there should be a clear button which allows to clear all these info and show the add button again.
+ *  Alternatively the modification could be done inline in the permission list.
+ *
+ * @todo Orange-Management/Modules#125
+ *  Add group log tab for audits
+ *  A new tab should be added where all changes can be audited if required.
+ *  This tab should also show all the places where the group is mentioned.
+ */
 
 /**
  * @var \phpOMS\Views\View $this

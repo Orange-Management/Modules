@@ -56,7 +56,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var   int
      * @since 1.0.0
      */
-    protected $createdBy = 0;
+    protected $owner = 0;
 
     /**
      * Tag type.
@@ -69,13 +69,13 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return null|int|\phpOMS\Account\Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getOwner()
     {
-        return $this->createdBy;
+        return $this->owner;
     }
 
     /**
@@ -87,9 +87,9 @@ class Tag implements ArrayableInterface, \JsonSerializable
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setOwner($id) : void
     {
-        $this->createdBy = $id;
+        $this->owner = $id;
     }
 
     /**

@@ -12,10 +12,24 @@
  */
 declare(strict_types=1);
 
-
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\PermissionType;
+
+/**
+ * @todo Orange-Management/Modules#122
+ *  Add group account removal
+ *  In front of every account there should be a red x which allows to remove an account from the group.
+ *
+ * @todo Orange-Management/Modules#127
+ *  Add account group removal
+ *  Add red x in front of every group which removes the group for this account.
+ *
+ * @todo Orange-Management/Modules#126
+ *  Add account log tab
+ *  Add auditing log tab to accounts for whenever something changes for an account.
+ *  This tab should show everything this user is doing and all places where he is mentioned.
+ */
 
 /**
  * @var \phpOMS\Views\View $this

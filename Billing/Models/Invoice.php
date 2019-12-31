@@ -1067,7 +1067,7 @@ class Invoice implements \JsonSerializable
      *
      * @return void
      *
-     * @todo: do same for actual tracking information per trackign id
+     * @todo do same for actual tracking information per trackign id
      *
      * @since 1.0.0
      */

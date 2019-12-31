@@ -25,8 +25,6 @@ trait ApiControllerPermissionTrait
     /**
      * @testdox A permission can be added to a user group
      * @covers Modules\Admin\Controller\ApiController
-     * @todo also update group permission
-     * @todo also delete group permission
      * @group module
      */
     public function testApiAddGroupPermission() : void
@@ -152,8 +150,6 @@ trait ApiControllerPermissionTrait
     /**
      * @testdox A permission can be added to a user
      * @covers Modules\Admin\Controller\ApiController
-     * @todo also update user permission
-     * @todo also delete user permission
      * @group module
      */
     public function testApiAddAccountPermission() : void

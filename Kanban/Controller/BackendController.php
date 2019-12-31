@@ -33,6 +33,10 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#77
+ *  Edit functionality
+ *  Currently nothing can be edited (change)
  */
 final class BackendController extends Controller
 {
@@ -44,6 +48,9 @@ final class BackendController extends Controller
      * @param mixed            $data     Generic data
      *
      * @return void
+     *
+     * @todo Orange-Management/Modules#76
+     *  Style board, card and columns
      *
      * @since 1.0.0
      * @codeCoverageIgnore

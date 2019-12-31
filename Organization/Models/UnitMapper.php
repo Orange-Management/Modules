@@ -48,10 +48,6 @@ final class UnitMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $belongsTo = [
-        'unit' => [
-            'mapper' => self::class,
-            'dest'   => 'organization_uni_parent',
-        ],
         'parent'  => [
             'mapper' => self::class,
             'dest'   => 'organization_unit_parent',

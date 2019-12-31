@@ -14,12 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\DatabaseEditor\Controller;
 
-use Model\Settings;
-
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 
 /**
  * Admin controller class.
@@ -30,6 +29,23 @@ use phpOMS\Message\ResponseAbstract;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#19
+ *  Create a database query tool in order to create manual queries.
+ *  Modules should have to register for this tool to be included.
+ *  During the registration the modules tell the database module which tables can be queried.
+ *  The tool itself has to analyze the database for data type, possible selections etc.
+ *  Once the module registered the tables and columns the user can write normal sql queries (read only).
+ *  For this purpose a second database user should be generated that only has reading permissions.
+ *  Maybe it should be considered to grant reading access only to the allowed tables during the registration process?!
+ *  Maybe instead of writing queries users could write code?
+ *  This way they don't need to know different database specifications depending on the server.
+ *  At the same time a user interface is a must for creating queries through clicking!
+ *
+ * @todo Orange-Management/Modules#164
+ *  Consider storing queries
+ *  Currently queries and connection cannot be stored.
+ *  Maybe it makes sense to store them for queries that you want to run more than once.
  */
 final class ApiController extends Controller
 {

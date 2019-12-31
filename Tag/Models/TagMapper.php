@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Tag\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use Modules\Admin\Models\AccountMapper;
 
 /**
  * Tag mapper class.
@@ -38,7 +39,7 @@ final class TagMapper extends DataMapperAbstract
         'tag_color'      => ['name' => 'tag_color',      'type' => 'string', 'internal' => 'color'],
         'tag_type'       => ['name' => 'tag_type',       'type' => 'int',    'internal' => 'type'],
         'tag_color'      => ['name' => 'tag_color',      'type' => 'string', 'internal' => 'color'],
-        'tag_created_by' => ['name' => 'tag_created_by', 'type' => 'int',    'internal' => 'createdBy'],
+        'tag_owner'      => ['name' => 'tag_owner',      'type' => 'int',    'internal' => 'owner'],
     ];
 
     /**
@@ -48,9 +49,9 @@ final class TagMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $belongsTo = [
-        'createdBy' => [
+        'owner' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'tag_created_by',
+            'src'    => 'tag_owner',
         ],
     ];
 

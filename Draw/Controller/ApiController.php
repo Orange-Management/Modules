@@ -82,13 +82,21 @@ final class ApiController extends Controller
         $filename  = '';
         $rnd       = '';
 
-        // todo: implement limit since this could get exploited
+        $i = 0;
         do {
             $filename  = \sha1(((string) $request->getData('image')) . $rnd);
             $filename .= '.' . $extension;
 
             $rnd = \mt_rand();
-        } while (\file_exists($path . '/' . $filename));
+
+            ++$i;
+        } while (\file_exists($path . '/' . $filename) && $i < 10000);
+
+        // protection against infinite loop
+        if ($i >= 10000) {
+            $this->fillJsonResponse($request, $response, NotificationLevel::ERROR, 'Draw', 'Draw failed.', null);
+            return;
+        }
 
         $fullPath = __DIR__ . '/../../../' . $path . '/' . $filename;
 

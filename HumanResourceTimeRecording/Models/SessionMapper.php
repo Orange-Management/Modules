@@ -102,8 +102,9 @@ final class SessionMapper extends DataMapperAbstract
      *
      * @return Session[]
      *
-     * @todo: consider selecting only active employees
-     * @todo: consider using a datetime to limit the results to look for
+     * @todo Orange-Management/Modules#189
+     *  Currently the last work session of all employees is returned. This should be optionally reduced to only return active employees.
+     *  Alternatively it might make sense to limit the last session by an oldest date.
      *
      * @since 1.0.0
      */

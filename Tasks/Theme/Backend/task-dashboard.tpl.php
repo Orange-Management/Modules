@@ -12,8 +12,15 @@
  */
 declare(strict_types=1);
 
+use Modules\Tasks\Models\TaskPriority;
 
- use Modules\Tasks\Models\TaskPriority;
+/**
+ * @todo Orange-Management/Modules#176
+ *  Batch handle tasks in the dashboard list
+ *  In the dashboard/list it should be possible to change the status of a task without going into it (changing it to done is the most important).
+ *  This could be done with a button but also touch sliding/swiping should be possible for mobile.
+ *  It could also make sense to implement checkboxes infront of the list items which then show a close/done etc. button which can be pressed and changes the status of all of the checked tasks.
+ */
 
  /**
  * @var \phpOMS\Views\View           $this

@@ -18,8 +18,8 @@ use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
-use phpOMS\Account\Account;
 
+use phpOMS\Account\Account;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
@@ -220,6 +220,8 @@ final class ApiController extends Controller
      * @param Account $account Accont for permission handling
      *
      * @return array
+     *
+     * @api
      *
      * @since 1.0.0
      */

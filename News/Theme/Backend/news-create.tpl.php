@@ -89,9 +89,9 @@ echo $this->getData('nav')->render(); ?>
             <div class="inner">
                 <table class="layout wf-100">
                     <tr><td><label for="permission"><?= $this->getHtml('Accounts/Groups'); ?></label>
-                    <!-- @todo: add form this belongs to -->
-                    <!-- @todo: make auto save on change for already created news article -->
-                    <!-- @todo: add default values (some can be removed/overwritten and some not?) -->
+                    <!-- @todo add form this belongs to -->
+                    <!-- @todo make auto save on change for already created news article -->
+                    <!-- @todo add default values (some can be removed/overwritten and some not?) -->
                     <tr><td><?= $this->getData('accGrpSelector')->render('iReceiver', 'receiver', false); ?>
                 </table>
             </div>

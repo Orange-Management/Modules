@@ -67,7 +67,7 @@ final class ProjectMapper extends DataMapperAbstract
             'dst'    => 'projectmanagement_task_relation_dst',
             'src'    => 'projectmanagement_task_relation_src',
         ],
-        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
+        'media' => [
             'mapper' => MediaMapper::class,
             'table'  => 'projectmanagement_project_media',
             'dst'    => 'projectmanagement_project_media_src',

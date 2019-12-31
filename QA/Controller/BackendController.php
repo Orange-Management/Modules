@@ -30,6 +30,10 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#78
+ *  Edit functionality
+ *  Currently nothing can be edited (change)
  */
 final class BackendController extends Controller
 {

@@ -25,7 +25,7 @@ use Modules\Helper\Models\TemplateMapper;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\NullCollection;
-
+use Modules\Media\Models\PermissionState as MediaPermissionState;
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\Http\RequestStatusCode;
@@ -38,16 +38,22 @@ use phpOMS\Utils\StringUtils;
 use phpOMS\Views\View;
 
 /**
- * TODO: Implement auto sqlite generator on upload
- */
-
-/**
  * Helper controller class.
  *
  * @package    Modules\Helper
  * @license    OMS License 1.0
  * @link       https://orange-management.org
  * @since      1.0.0
+ *
+ * @todo Orange-Management/Modules#22
+ *  Implement a way to support template settings.
+ *  Different templates require different settings such as different type of permissions, default values, etc.
+ *  Letting the user write config files would not be a problem (e.g. direct modification of json files) but how would this work with a settings ui where also predefined options are selectable.
+ *  Many templates may be provided by other modules or 3rd party and not by inhouse developers.
+ *  One solution could be to define a config layout where you can define predefined values, regex for validation etc?
+ *  This would require a form builder that could build forms based on json objects. This however would be one large form and not split nicely over multiple forms.
+ *  One more outer array could be used to create multiple forms.
+ *  At the same time the application would have to register a form view/template at the beginning that could be used.
  */
 final class ApiController extends Controller
 {
@@ -66,25 +72,34 @@ final class ApiController extends Controller
      */
     public function apiHelperExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: check permission here
-
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
 
-        if ($template->getCreatedBy()->getId() !== $accountId // todo: also check if report createdBy
-            && !$this->app->accountManager->get($accountId)->hasPermission(
+        // is allowed to read
+        if (!$this->app->accountManager->get($accountId)->hasPermission(
             PermissionType::READ, $this->app->orgId, null, self::MODULE_NAME, PermissionState::REPORT, $template->getId())
         ) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+
+            return;
+        }
+
+        if ($request->getData('download') !== null) {
+            // is allowed to export
+            if (!$this->app->accountManager->get($accountId)->hasPermission(
+                PermissionType::READ, $this->app->orgId, $this->app->appName, self::MODULE_NAME, PermissionState::EXPORT
+            )) {
+                $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+
+                return;
+            }
+
+            $response->getHeader()->setDownloadable($template->getName(), (string) $request->getData('type'));
         }
 
         $view = $this->createView($template, $request, $response);
         $this->setHelperResponseHeader($view, $template->getName(), $request, $response);
         $view->setData('path', __DIR__ . '/../../../');
-
-        if ($request->getData('download') !== null) {
-            $response->getHeader()->setDownloadable($template->getName(), (string) $request->getData('type'));
-        }
 
         $response->set('export', $view);
     }
@@ -128,7 +143,6 @@ final class ApiController extends Controller
                 break;
             default:
                 $response->getHeader()->set('Content-Type', 'text/html; charset=utf-8');
-                // todo: use html template here instead which uses the tcoll/template!!!
                 $view->setTemplate('/' . \substr($view->getData('tcoll')['template']->getPath(), 0, -8));
         }
     }
@@ -273,7 +287,12 @@ final class ApiController extends Controller
             $file = (int) $file;
         }
 
-        // TODO: make sure this user has permissions for provided files
+        // is allowed to create media file
+        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, MediaPermissionState::COLLECTION, null)
+        ) {
+            return new NullCollection();
+        }
 
         /* Create collection */
         $mediaCollection = new Collection();
@@ -311,7 +330,6 @@ final class ApiController extends Controller
             $helperTemplate->setSource($collectionId);
         }
 
-        // todo: check if this is working. might not work correctly either because name is different or because type is invalid
         $helperTemplate->setStandalone((bool) ($request->getData('standalone') ?? false));
         $helperTemplate->setExpected(!empty($expected) ? \json_decode($expected, true) : []);
         $helperTemplate->setCreatedBy($request->getHeader()->getAccount());
@@ -335,8 +353,14 @@ final class ApiController extends Controller
      */
     public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: check permission here
         $collection = $this->createMediaCollectionFromRequest($request);
+
+        if ($collection instanceof NullCollection) {
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            $this->fillJsonResponse($request, $response, NotificationLevel::ERROR, 'Report', 'Couldn\'t create collection for report', null);
+
+            return;
+        }
 
         $report = $this->createReportFromRequest($request, $response, $collection->getId());
 

@@ -107,7 +107,6 @@ trait ApiControllerAccountTrait
     /**
      * @testdox A user can be deleted
      * @covers Modules\Admin\Controller\ApiController
-     * @todo also test user deletion with profile data and other references?! maybe just empty private data?
      * @group module
      */
     public function testApiAccountDelete() : void

@@ -41,19 +41,6 @@ final class RiskObjectMapper extends DataMapperAbstract
     ];
 
     /**
-     * Belongs to.
-     *
-     * @var   array<string, array<string, string>>
-     * @since 1.0.0
-     */
-    protected static array $belongsTo = [
-        'unit' => [
-            'mapper' => RiskMapper::class,
-            'dest'   => 'riskmngmt_risk_object_risk',
-        ],
-    ];
-
-    /**
      * Primary table.
      *
      * @var   string

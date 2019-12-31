@@ -29,6 +29,16 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#41
+ *  Add Milestones
+ *  Tasks should be assignable to milestones.
+ *
+ * @todo Orange-Management/Modules#102
+ *  Goal definition
+ *  While costs are universal the goal for promotions, events etc. is not.
+ *  In some cases it could be sales in others it could be response rate etc.
+ *  Implement a way to define goals and allow manual+system side evaluation.
  */
 final class BackendController extends Controller
 {

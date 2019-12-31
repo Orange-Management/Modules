@@ -32,6 +32,14 @@ use phpOMS\Model\Message\FormValidation;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#12
+ *  Dynamic providing should be handled in the DB
+ *  Providing for the dashboard is dynamic and can be customized by the user himself.
+ *  Hence the loading of the plugins should be handled in the module manager and database.
+ *  Module specific providing could remain the same? Maybe even create a dashboard table just for this like the navigation module.
+ *  This way modules can tell the dashboard that there is a plugin it can use.
+ *  In this table it also should be possible to specify additional information.
  */
 final class ApiController extends Controller
 {

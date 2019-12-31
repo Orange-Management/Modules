@@ -24,10 +24,11 @@
                 "type": "TINYINT(1)",
                 "null": false
             },
-            "tag_created_by": {
-                "name": "tag_created_by",
+            "tag_owner": {
+                "name": "tag_owner",
                 "type": "INT",
-                "null": false,
+                "null": true,
+                "default": null,
                 "foreignTable": "account",
                 "foreignKey": "account_id"
             }

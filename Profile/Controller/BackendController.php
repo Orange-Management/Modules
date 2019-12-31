@@ -61,6 +61,12 @@ final class BackendController extends Controller
      *
      * @return RenderableInterface
      *
+     * @todo Orange-Management/Modules#104
+     *  Define account types to show
+     *  Currently all accounts are shown in the profile module.
+     *  The profile module should have an option to define which accounts to show (e.g. only employee models, partners etc.).
+     *  To do this the profile module either needs to request them from the modules or the modules have to provide these accounts.
+     *
      * @since 1.0.0
      */
     public function viewProfileList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
@@ -81,6 +87,10 @@ final class BackendController extends Controller
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
+     *
+     * @todo Orange-Management/Modules#53
+     *  Implement basic profile view
+     *  The profile view currently only contains fixed values this needs to change.
      *
      * @since 1.0.0
      */

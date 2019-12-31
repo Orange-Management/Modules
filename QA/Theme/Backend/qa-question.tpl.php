@@ -1,6 +1,25 @@
-<?php declare(strict_types=1);
+<?php
+/**
+ * Orange Management
+ *
+ * PHP Version 7.4
+ *
+ * @package   Modules\QA
+ * @copyright Dennis Eichhorn
+ * @license   OMS License 1.0
+ * @version   1.0.0
+ * @link      https://orange-management.org
+ */
+declare(strict_types=1);
+
+/**
+ * @todo Orange-Management/Modules#73
+ *  Profile pics
+ *  There are no profile pics in questions and answers. Implement!
+ */
+
 $question = $this->getData('question');
-$answers = $question->getAnswers();
+$answers  = $question->getAnswers();
 
 echo $this->getData('nav')->render();
 ?>

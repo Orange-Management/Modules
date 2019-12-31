@@ -15,15 +15,14 @@ declare(strict_types=1);
 namespace Modules\Organization\Controller;
 
 use Modules\Organization\Models\Department;
-
 use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
-use phpOMS\Message\NotificationLevel;
 
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
@@ -37,6 +36,16 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#135
+ *  Automatic group generation *optional*
+ *  Whenever a new
+ *      * Unit
+ *      * Department
+ *      * Position
+ *  is created a new group is created and all of the possibilities (this should be a optional setting for the module).
+ *  Group name strucutre: org:position-department-unit or org:unit-department-position
+ *  This should be solvable through hooks.
  */
 final class ApiController extends Controller
 {

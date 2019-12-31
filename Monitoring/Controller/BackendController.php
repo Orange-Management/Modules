@@ -26,6 +26,10 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#141
+ *  Implement code integrity
+ *  Implement code integrity checks for all files.
  */
 final class BackendController extends Controller
 {

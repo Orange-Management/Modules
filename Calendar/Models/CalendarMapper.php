@@ -9,7 +9,10 @@
  * @license   OMS License 1.0
  * @version   1.0.0
  * @link      https://orange-management.org
- * @todo       only load events of 3 month or 1 year?!
+ *
+ * @todo Orange-Management/Modules#191
+ *  When showing a calendar the default behavior should be to only load a fixed amount of months in order to avoid unnecessary overhead.
+ *  Maybe only load the current month, the next month and the previous month.
  */
 declare(strict_types=1);
 
@@ -27,14 +30,6 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  */
 final class CalendarMapper extends DataMapperAbstract
 {
-    /**
-     * Class name.
-     *
-     * @var   string
-     * @since 1.0.0
-     */
-    protected static $CLASS = __CLASS__;
-
     /**
      * Columns.
      *

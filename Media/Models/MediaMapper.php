@@ -32,16 +32,15 @@ class MediaMapper extends DataMapperAbstract
      *
      * @var   array<string, array<string, bool|string>>
      * @since 1.0.0
-     * @todo: maybe add file name for searching by file name (path in media_file should not matter for search)
      */
     protected static array $columns = [
         'media_id'              => ['name' => 'media_id',              'type' => 'int',      'internal' => 'id'],
-        'media_name'            => ['name' => 'media_name',            'type' => 'string',   'internal' => 'name', 'autocomplete' => true],
-        'media_description'     => ['name' => 'media_description',     'type' => 'string',   'internal' => 'description', 'autocomplete' => true],
+        'media_name'            => ['name' => 'media_name',            'type' => 'string',   'internal' => 'name',          'autocomplete' => true],
+        'media_description'     => ['name' => 'media_description',     'type' => 'string',   'internal' => 'description',   'autocomplete' => true],
         'media_description_raw' => ['name' => 'media_description_raw', 'type' => 'string',   'internal' => 'descriptionRaw'],
         'media_versioned'       => ['name' => 'media_versioned',       'type' => 'bool',     'internal' => 'versioned'],
-        'media_file'            => ['name' => 'media_file',            'type' => 'string',   'internal' => 'path', 'autocomplete' => true],
-        'media_virtual'         => ['name' => 'media_virtual',         'type' => 'string',   'internal' => 'virtualPath', 'autocomplete' => true],
+        'media_file'            => ['name' => 'media_file',            'type' => 'string',   'internal' => 'path',          'autocomplete' => true],
+        'media_virtual'         => ['name' => 'media_virtual',         'type' => 'string',   'internal' => 'virtualPath',   'autocomplete' => true],
         'media_absolute'        => ['name' => 'media_absolute',        'type' => 'bool',     'internal' => 'isAbsolute'],
         'media_nonce'           => ['name' => 'media_nonce',           'type' => 'string',   'internal' => 'nonce'],
         'media_password'        => ['name' => 'media_password',        'type' => 'string',   'internal' => 'password'],

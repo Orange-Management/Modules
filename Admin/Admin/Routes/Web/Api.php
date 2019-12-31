@@ -66,7 +66,6 @@ return [
         ],
     ],
 
-    // todo: the order of find and account is bad but needed for now. otherwise the admin/account.* also matches and we match two routes = bad
     '^.*/admin/find/account.*$' => [
         [
             'dest' => '\Modules\Admin\Controller\ApiController:apiAccountFind',

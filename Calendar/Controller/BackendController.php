@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Calendar\Controller;
 
 use Modules\Calendar\Models\CalendarMapper;
-
+use Modules\Dashboard\Models\DashboardElementInterface;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
@@ -30,8 +30,13 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#52
+ *  Allow user to define start of week
+ *  Weeks should be customizable. Some prefer the week to start on Monday, others on Sunday etc.
+ *  This is probably a global setting in the backend or user localization!
  */
-final class BackendController extends Controller
+final class BackendController extends Controller implements DashboardElementInterface
 {
     /**
      * Routing end-point for application behaviour.
@@ -67,16 +72,7 @@ final class BackendController extends Controller
     }
 
     /**
-     * Routing end-point for application behaviour.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
+     * {@inheritdoc}
      */
     public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {

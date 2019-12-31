@@ -54,12 +54,6 @@ jsOMS.Modules.Navigation = class {
      * @since 1.0.0
      */
     bindElement (e) {
-        if (typeof e === 'undefined' || !e) {
-            // todo: do logging here
-
-            return;
-        }
-
         const extend = e.querySelectorAll('li label');
         const self   = this;
 
@@ -80,7 +74,12 @@ jsOMS.Modules.Navigation = class {
                 || document.documentElement.clientWidth
                 || document.body.clientWidth;
 
-            // todo: still buggy maybe always set true if < 800 and only call this if if >= 800
+            /**
+             * @todo Orange-Management/Modules#192
+             *  The sidebar navigation is not working properly in many cases
+             *  1. if the content is too wide then the side nav becomes smaller (resize window for testing)
+             *  2. if the device is a handheld device it feels unintuitive to open/hide the navigation
+             */
             e.nextElementSibling.checked = width < 800;
         }
 

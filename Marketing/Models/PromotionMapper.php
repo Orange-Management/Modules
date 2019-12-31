@@ -64,11 +64,11 @@ final class PromotionMapper extends DataMapperAbstract
             'dst'    => 'marketing_promotion_task_relation_dst',
             'src'    => 'marketing_promotion_task_relation_src',
         ],
-        'media' => [ // todo: maybe make this a has one and then link to collection instead of single media files!
-                     'mapper' => MediaMapper::class,
-                     'table'  => 'marketing_promotion_media',
-                     'dst'    => 'marketing_promotion_media_src',
-                     'src'    => 'marketing_promotion_media_dst',
+        'media' => [
+            'mapper' => MediaMapper::class,
+            'table'  => 'marketing_promotion_media',
+            'dst'    => 'marketing_promotion_media_src',
+            'src'    => 'marketing_promotion_media_dst',
         ],
     ];
 

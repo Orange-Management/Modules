@@ -150,7 +150,7 @@ trait ModuleTestTrait
 
                 // testing correct mapper/model variable type definition
                 $property = $defaultProperties[$column['internal']] ?? null;
-                if (!($property === null /* @todo: change in the future. not every column value is alowed to be null. a flag needs to be implemented in the mapper column definitions e.g. null = true */
+                if (!($property === null /* not every value is allowed to be null but this just has to be correctly implemented in the mapper, no additional checks for this case! */
                     || (\is_string($property) && $column['type'] === 'string')
                     || (\is_int($property) && $column['type'] === 'int')
                     || (\is_array($property) && ($column['type'] === 'Json' || $column['type'] === 'Serializable' || $isArray))
