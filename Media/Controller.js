@@ -43,7 +43,11 @@ jsOMS.Modules.Media = class {
                 // Inject media upload into form view
                 this.app.uiManager.getFormManager().get(form.id).injectSubmit(function (e, requestId)
                 {
-                    // todo: what if a form needs multiple different upload fields which should not be mixed
+                    /**
+                     * @todo Orange-Management/Modules#198
+                     *  The uploader should support multiple upload fields.
+                     *  Currently only one is supported per form.
+                     */
 
                     /** global: jsOMS */
                     const fileFields = document.querySelectorAll(

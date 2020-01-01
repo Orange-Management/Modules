@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -220,9 +219,6 @@ echo $this->getData('nav')->render(); ?>
     /*
      * Media Add
      */
-
-    // TODO: add media upload drop panel
-
     $tabView->addTab($this->getHtml('Helper', 'New'), $createPanel->render() . $mediaPanel->render(), 'Backend', 'new');
     ?>
     <?= $this->printHtml($tabView->render()); ?>

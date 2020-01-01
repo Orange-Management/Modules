@@ -17,6 +17,7 @@ namespace Modules\Profile\Models;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use Modules\Address\Models\AddressMapper;
 
 /**
  * Profile mapper.
@@ -68,8 +69,8 @@ final class ProfileMapper extends DataMapperAbstract
         'location' => [
             'mapper' => AddressMapper::class,
             'table'  => 'profile_address',
-            'dst'    => 'profile_address_account',
-            'src'    => null,
+            'dst'    => 'profile_address_address',
+            'src'    => 'profile_address_profile',
         ],
     ];
 

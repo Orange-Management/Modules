@@ -15,7 +15,6 @@ declare(strict_types=1);
 /**
  * @var \phpOMS\Views\View $this
  */
-// TODO: load template in new view that doesn't get access to anything otherwise user can interact with app in bad ways
 $tcoll    = $this->getData('tcoll');
 $rcoll    = $this->getData('rcoll');
 $cLang    = $this->getData('lang');
@@ -24,7 +23,7 @@ $report   = $this->getData('report');
 
 /** @noinspection PhpIncludeInspection */
 $reportLanguage = isset($tcoll['lang']) ? include __DIR__ . '/../../../../' . \ltrim($tcoll['lang']->getPath(), '/') : [];
-$lang = $reportLanguage[$cLang] ?? [];
+$lang           = $reportLanguage[$cLang] ?? [];
 
 echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
@@ -33,7 +32,6 @@ echo $this->getData('nav')->render(); ?>
             <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
         </div>
     </div>
-<!--
     <div class="col-xs-12 col-md-3">
         <?php if (\count($reportLanguage) > 1) : ?>
         <section class="box wf-100">
@@ -128,5 +126,5 @@ echo $this->getData('nav')->render(); ?>
                 </table>
             </div>
         </section>
-    </div>-->
+    </div>
 </div>

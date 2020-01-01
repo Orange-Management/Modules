@@ -23,7 +23,6 @@
                         <th data-name="city">City
                         <th data-name="zip">Zip
                         <th data-name="country">Country
-                        <!-- todo: get data from tr in action and pass it to next actions, or make new request based on table cell? -->
                 <tbody data-action='[
                     {
                         "key": 1, "listener": "click", "selector": "#acc-table tbody tr", "action": [

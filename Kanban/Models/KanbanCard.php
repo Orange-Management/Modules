@@ -458,6 +458,4 @@ class KanbanCard implements \JsonSerializable
 
         return $card;
     }
-
-    /* todo: maybe allow ref to be an object and datamapper creates that object? how does the datamapper know what kind of datamapper to use? Just assume it's called ObjectMapper? bad isn't it?! */
 }

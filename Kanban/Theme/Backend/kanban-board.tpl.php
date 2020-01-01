@@ -1,8 +1,12 @@
 <?php declare(strict_types=1);
 $board = $this->getData('board');
 $columns = $board->getColumns();
-// todo: column width should be % but with min-width and on small screens full width
 ?>
+<!--
+@todo Orange-Management/Modules#197
+    Columns width should be in % but with min-width and on smaller screens full width
+    The amount of columns depends on the user settings
+-->
 <div class="row">
     <?php $i = 0; foreach ($columns as $column) : $i++; $cards = $column->getCards(); ?>
     <div id="kanban-column-<?= $this->printHtml($i); ?>" class="col-xs-12 col-sm-3" draggable="true">

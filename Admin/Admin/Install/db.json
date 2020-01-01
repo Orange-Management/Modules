@@ -340,43 +340,6 @@
             }
         }
     },
-    "country": {
-        "name": "country",
-        "fields": {
-            "country_id": {
-                "name": "country_id",
-                "type": "INT",
-                "null": false,
-                "primary": true,
-                "autoincrement": true
-            },
-            "country_name": {
-                "name": "country_name",
-                "type": "VARCHAR(100)",
-                "null": false
-            },
-            "country_native": {
-                "name": "country_native",
-                "type": "VARCHAR(100)",
-                "null": false
-            },
-            "country_code2": {
-                "name": "country_code2",
-                "type": "VARCHAR(2)",
-                "null": false
-            },
-            "country_code3": {
-                "name": "country_code3",
-                "type": "VARCHAR(3)",
-                "null": false
-            },
-            "country_codenum": {
-                "name": "country_codenum",
-                "type": "INT(11)",
-                "null": false
-            }
-        }
-    },
     "account": {
         "name": "account",
         "fields": {
@@ -568,36 +531,6 @@
             }
         }
     },
-    "account_settings": {
-        "name": "account_settings",
-        "fields": {
-            "account_settings_id": {
-                "name": "account_settings_id",
-                "type": "INT",
-                "null": false,
-                "primary": true,
-                "autoincrement": true
-            },
-            "account_settings_name": {
-                "name": "account_settings_name",
-                "type": "VARCHAR(30)",
-                "null": false,
-                "unique": true
-            },
-            "account_settings_content": {
-                "name": "account_settings_content",
-                "type": "VARCHAR(250)",
-                "null": false
-            },
-            "account_settings_account": {
-                "name": "account_settings_account",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "account",
-                "foreignKey": "account_id"
-            }
-        }
-    },
     "settings": {
         "name": "settings",
         "fields": {
@@ -635,6 +568,14 @@
                 "null": true,
                 "foreignTable": "group",
                 "foreignKey": "group_id"
+            },
+            "settings_account": {
+                "name": "settings_account",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
             }
         }
     }

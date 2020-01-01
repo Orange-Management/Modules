@@ -146,7 +146,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><?= $this->getHtml('Net') ?>
                             <tfoot>
                             <tr>
-                                <td colspan="8"><!-- todo: make this look nicer. even as alpha release this looks bad. -->
+                                <td colspan="8">
                                     <?= $this->getHtml('Freightage') ?>: 0.00 -
                                     <?= $this->getHtml('Net') ?>: 0.00 -
                                     <?= $this->getHtml('Tax') ?>: 0.00 -
@@ -156,7 +156,7 @@ echo $this->getData('nav')->render(); ?>
                                 <td><i class="fa fa-plus"></i> <i class="fa fa-chevron-up"></i> <i class="fa fa-chevron-down"></i>
                                 <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" required></span>
                                 <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" required></span>
-                                <td><input type="text" required><!-- todo: make this textarea -->
+                                <td><textarea required></textarea>
                                 <td><input type="number" min="0" value="0" required>
                                 <td><input type="number" min="0">
                                 <td><input type="number" min="0" max="100" step="any">
