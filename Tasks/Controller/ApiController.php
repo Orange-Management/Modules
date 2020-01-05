@@ -215,7 +215,7 @@ final class ApiController extends Controller
             || ($val['due'] = !((bool) \strtotime((string) $request->getData('due'))))
             || ($val['task'] = !(\is_numeric($request->getData('task'))))
             || ($val['forward'] = !(\is_numeric(empty($request->getData('forward')) ? $request->getHeader()->getAccount() : $request->getData('forward'))))
-        ) { // todo: validate correct task
+        ) {
             return $val;
         }
 
@@ -242,6 +242,11 @@ final class ApiController extends Controller
 
             return;
         }
+
+        /**
+         * @todo Orange-Management/Moudles#201
+         *  Validate that the user is allowed to create a task element for a specific task
+         */
 
         $element = $this->createTaskElementFromRequest($request);
         $task    = TaskMapper::get($element->getTask());
@@ -331,7 +336,13 @@ final class ApiController extends Controller
         $old = clone TaskElementMapper::get((int) $request->getData('id'));
         $new = $this->updateTaskElementFromRequest($request);
         $this->updateModel($request, $old, $new, TaskElementMapper::class, 'taskelement');
-        // todo: update task if element status change had effect on task status!!!
+
+        /**
+         * @todo Orange-Management/Modules#205
+         *  Update task status depending on the new task element or updated task element
+         *  The task status is not normalized and relates to the last task element.
+         *  Depending on the task status of the last task element also the task status should change.
+         */
         //$this->updateModel($request, $task, $task, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully updated.', $new);
     }

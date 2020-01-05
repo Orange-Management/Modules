@@ -17,7 +17,9 @@ namespace Modules\tests\Task;
 require_once __DIR__ . '/../Autoloader.php';
 
 use Model\CoreSettings;
+
 use Modules\Admin\Models\AccountPermission;
+
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -79,6 +81,12 @@ class BackendControllerTest extends \PHPUnit\Framework\TestCase
     public function testNavigation() : void
     {
         self::assertEquals(0, $this->module->openNav(999));
-        //self::assertGreaterThan(0, $this->module->openNav(1)); todo: check again maybe a task needs to be created in here first
+
+        /**
+         * @todo Orange-Management/Modules#206
+         *  Implement has seen feature
+         *  In order to allow a "user has seen task x" feature every task should have a user/account status for the different users (creator, cc, receiver).
+         */
+        // self::assertGreaterThan(0, $this->module->openNav(1));
     }
 }

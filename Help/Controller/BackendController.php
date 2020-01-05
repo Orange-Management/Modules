@@ -19,7 +19,6 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Views\View;
-use phpOMS\Asset\AssetType;
 
 /**
  * Help class.
@@ -28,6 +27,10 @@ use phpOMS\Asset\AssetType;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ *
+ * @todo Orange-Management/Modules#200
+ *  Currently only the end-user help documentation is shown in the modules.
+ *  Implement the help documentation for developers as well.
  */
 final class BackendController extends Controller
 {

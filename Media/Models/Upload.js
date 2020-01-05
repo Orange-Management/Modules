@@ -139,12 +139,28 @@ export class Upload {
         return this.files.length;
     };
 
-    // todo: maybe do file upload together with data upload in FormData.
-    // let the module forward the files to the media module?!
+    /**
+     * Upload data from form
+     *
+     * @param {string} formId Form id
+     *
+     * @return {void}
+     *
+     * @todo Orange-Management/Modules#202
+     *  Consider to use FormData
+     *  Form data is currently submitted in two steps if it contains media files.
+     *      1. Upload media data
+     *      2. Submit form data
+     *  Consider to use `FormData` in order to submit media files and form data at the same time.
+     *
+     * @since 1.0.0
+     */
     upload (formId)
     {
-        // TODO: validate file type + file size
-
+        /**
+         * @todo Orange-Management/Modules#207
+         *  Validate file type and file size on the frontend before uploading
+         */
         const request = new Request(),
             formData  = new FormData(),
             self      = this;

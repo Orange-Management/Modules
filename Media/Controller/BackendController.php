@@ -115,6 +115,11 @@ final class BackendController extends Controller
      *
      * @return RenderableInterface
      *
+     * @todo Orange-Management/Modules#208
+     *  Improve the media list
+     *      1. Collections should show their content
+     *      2. The first page should show an overview (Modules, Users, ...?)
+     *
      * @since 1.0.0
      * @codeCoverageIgnore
      */
@@ -139,6 +144,11 @@ final class BackendController extends Controller
      *
      * @return RenderableInterface
      *
+     * @todo Orange-Management/Modules#208
+     *  Improve the media list
+     *      1. Collections should show their content
+     *      2. The first page should show an overview (Modules, Users, ...?)
+     *
      * @since 1.0.0
      * @codeCoverageIgnore
      */
@@ -156,10 +166,6 @@ final class BackendController extends Controller
             );
 
             $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
-
-            // todo: currently the $media list only contains elements from the path but it should also include all
-            // the collection elements which might be the same but maybe some are not in the same virtualPath!!!
-            // the *unique* merge should be done through the ids!
         }
 
         $view->addData('media', $media);

@@ -11,7 +11,7 @@
  * @link      https://orange-management.org
  */
 declare(strict_types=1);
- /* TODO: maybe make this a framework object? and let warehousing, sales, purchase extend this */
+
 namespace Modules\WarehouseManagement\Models;
 
 /**

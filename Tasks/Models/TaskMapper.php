@@ -190,7 +190,6 @@ final class TaskMapper extends DataMapperAbstract
                 ->on(TaskElementMapper::getTable() . '.task_element_id', '=', AccountRelationMapper::getTable() . '.task_account_task_element')
             ->where(self::$table . '.task_status', '=', TaskStatus::OPEN)
             ->andWhere(AccountRelationMapper::getTable() . '.task_account_account', '=', $user);
-            // todo: ->orWhere(self::$table . '.createdBy', '=', $user) this needs a where condition so we can create (...) or created by
 
         return self::getAllByQuery($query);
     }

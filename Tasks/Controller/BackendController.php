@@ -200,6 +200,10 @@ final class BackendController extends Controller implements DashboardElementInte
      *
      * @return int Returns the amount of unread tasks
      *
+     * @todo Orange-Management/Modules#206
+     *  Implement has seen feature
+     *  In order to allow a "user has seen task x" feature every task should have a user/account status for the different users (creator, cc, receiver).
+     *
      * @since 1.0.0
      */
     public function openNav(int $account) : int

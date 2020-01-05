@@ -80,7 +80,7 @@ class Arrival
      */
     private int $status = 0;
 
-    /* TODO: count, packaging, product count etc.... for every single position + where do you put it */
+    private bool $goodPackaging = false;
 
     /**
      * Constructor.

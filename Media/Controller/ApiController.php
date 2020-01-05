@@ -95,7 +95,14 @@ final class ApiController extends Controller
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        // todo: this is really messy because i don't use formdata object. media first get's uploaded but nothing is done with the form data
+        /**
+         * @todo Orange-Management/Modules#202
+         *  Consider to use FormData
+         *  Form data is currently submitted in two steps if it contains media files.
+         *      1. Upload media data
+         *      2. Submit form data
+         *  Consider to use `FormData` in order to submit media files and form data at the same time.
+         */
         $uploads = $this->uploadFiles(
             $request->getData('name') ?? '',
             $request->getFiles(),

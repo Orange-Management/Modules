@@ -117,7 +117,6 @@ class UploadFile
             $result[$key]['status'] = UploadStatus::OK;
 
             if (!isset($f['error'])) {
-                // TODO: handle wrong parameters
                 $result[$key]['status'] = UploadStatus::WRONG_PARAMETERS;
 
                 return $result;
@@ -135,7 +134,6 @@ class UploadFile
                 return $result;
             }
 
-            // TODO: do I need pecl fileinfo?
             if (!empty($this->allowedTypes) && ($ext = \array_search($f['type'], $this->allowedTypes, true)) === false) {
                 $result[$key]['status'] = UploadStatus::WRONG_EXTENSION;
 
@@ -206,12 +204,27 @@ class UploadFile
                 $result[$key]['nonce'] = $nonce;
             }
 
+            /**
+             * @todo Orange-Management/Modules#203
+             *  Automatically enable image interlacing
+             *  Interlacing png images currently messes up the images.
+             */
             /*
             if ($this->isInterlaced && \in_array($extension, FileUtils::IMAGE_EXTENSION)) {
-                // todo: interlacing somehow messes up some images (tested with logo.png from assets)
                 //$this->interlace($extension, $dest);
             }
+            */
 
+            /**
+             * @todo Orange-Management/Modules#204
+             *  Automatically change the file encoding of text files
+             *  Basic text files should be converted to utf-8. E.g.
+             *  * csv
+             *  * log
+             *  * txt
+             *  * ...
+             */
+            /*
             if ($encoding !== '') {
                 // changing encoding bugs out image files
                 //FileUtils::changeFileEncoding($dest, $encoding);
