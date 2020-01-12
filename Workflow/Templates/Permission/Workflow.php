@@ -74,9 +74,9 @@ class Workflow implements WorkflowInterface
      */
     public function runRequest($data) : int
     {
-        // todo: create workflow
-        // todo: create task
-        // todo: set state
+        // create workflow
+        // create task
+        // set state
 
         return 0;
     }
@@ -92,8 +92,7 @@ class Workflow implements WorkflowInterface
      */
     public function runPending($data) : int
     {
-        // todo: approve?!
-        // todo:
+        // approve?!
 
         return 0;
     }
