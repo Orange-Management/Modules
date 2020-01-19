@@ -66,7 +66,7 @@ class Profile implements \JsonSerializable
     /**
      * Location data.
      *
-     * @var   array<Location>
+     * @var   Location[]
      * @since 1.0.0
      */
     protected array $location = [];
@@ -100,7 +100,7 @@ class Profile implements \JsonSerializable
     /**
      * Get account locations.
      *
-     * @return array<Location>
+     * @return Location[]
      *
      * @since 1.0.0
      */
