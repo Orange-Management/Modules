@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\TestModule\Controller;
 
-use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Module\ModuleAbstract;
+use phpOMS\Module\WebInterface;
 
 /**
  * Test controller class.
@@ -32,7 +32,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module path.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     public const MODULE_PATH = __DIR__;
@@ -40,7 +40,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module version.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     public const MODULE_VERSION = '1.0.0';
@@ -48,7 +48,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Module name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     public const MODULE_NAME = 'TestModule';
@@ -56,7 +56,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Providing.
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     protected static array $providing = [
@@ -65,7 +65,7 @@ class Controller extends ModuleAbstract implements WebInterface
     /**
      * Dependencies.
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     protected static array $dependencies = [];

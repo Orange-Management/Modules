@@ -15,15 +15,14 @@ declare(strict_types=1);
 namespace Modules\HumanResourceTimeRecording\Controller;
 
 use Modules\Dashboard\Models\DashboardElementInterface;
-use Modules\HumanResourceTimeRecording\Models\SessionMapper;
+use Modules\HumanResourceManagement\Models\EmployeeMapper;
 
+use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Views\View;
-use Modules\HumanResourceManagement\Models\EmployeeMapper;
 use phpOMS\Stdlib\Base\SmartDateTime;
-use phpOMS\Views\PaginationView;
+use phpOMS\Views\View;
 
 /**
  * TimeRecording controller class.

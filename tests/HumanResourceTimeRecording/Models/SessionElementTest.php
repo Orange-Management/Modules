@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\HumanResourceTimeRecording\Models;
 
-use Modules\HumanResourceTimeRecording\Models\SessionElement;
 use Modules\HumanResourceTimeRecording\Models\ClockingStatus;
+use Modules\HumanResourceTimeRecording\Models\SessionElement;
 
 /**
  * @internal

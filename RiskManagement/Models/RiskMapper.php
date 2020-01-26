@@ -31,7 +31,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -52,7 +52,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var   array<string, array<string, null|string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -85,7 +85,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var   array<string, array<string, string>>
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
@@ -114,7 +114,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'riskmngmt_risk';
@@ -122,7 +122,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'riskmngmt_risk_id';

@@ -29,7 +29,7 @@ class Schedule
     /**
      * Schedule ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Schedule
     /**
      * Calendar uid.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $uid = '';
@@ -45,7 +45,7 @@ class Schedule
     /**
      * Schedule status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = ScheduleStatus::ACTIVE;
@@ -53,7 +53,7 @@ class Schedule
     /**
      * Frequency type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $freqType = FrequencyType::ONCE;
@@ -61,7 +61,7 @@ class Schedule
     /**
      * Frequency interval.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $freqInterval = FrequencyInterval::DAY;
@@ -69,7 +69,7 @@ class Schedule
     /**
      * Frequency relative.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $relativeInternal = FrequencyRelative::FIRST;
@@ -77,7 +77,7 @@ class Schedule
     /**
      * Interval type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $intervalType = IntervalType::ABSOLUTE;
@@ -85,7 +85,7 @@ class Schedule
     /**
      * Recurrence factor.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $recurrenceFactor = 0;
@@ -93,7 +93,7 @@ class Schedule
     /**
      * Start.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $start = null;
@@ -101,7 +101,7 @@ class Schedule
     /**
      * Duration.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $duration = 3600;
@@ -109,7 +109,7 @@ class Schedule
     /**
      * End.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $end = null;
@@ -117,7 +117,7 @@ class Schedule
     /**
      * Created at.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -125,7 +125,7 @@ class Schedule
     /**
      * Created by.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;

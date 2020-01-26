@@ -31,7 +31,7 @@ class Promotion
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -43,14 +43,14 @@ class Promotion
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -72,7 +72,7 @@ class Promotion
     /**
      * Created at.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -80,7 +80,7 @@ class Promotion
     /**
      * Created by.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -169,7 +169,7 @@ class Promotion
     /**
      * Remove task
      *
-     * @param int $id Id to remove.
+     * @param int $id id to remove
      *
      * @return bool
      *

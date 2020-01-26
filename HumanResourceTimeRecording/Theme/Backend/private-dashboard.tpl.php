@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-use \Modules\HumanResourceTimeRecording\Models\ClockingType;
 use \Modules\HumanResourceTimeRecording\Models\ClockingStatus;
+use \Modules\HumanResourceTimeRecording\Models\ClockingType;
 use \phpOMS\Stdlib\Base\SmartDateTime;
 
 /** @var Session[] $sessions */

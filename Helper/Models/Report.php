@@ -27,7 +27,7 @@ class Report implements \JsonSerializable
     /**
      * Report Id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class Report implements \JsonSerializable
     /**
      * Report status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = HelperStatus::INACTIVE;
@@ -43,7 +43,7 @@ class Report implements \JsonSerializable
     /**
      * Report title.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $title = '';
@@ -51,7 +51,7 @@ class Report implements \JsonSerializable
     /**
      * Report description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -59,7 +59,7 @@ class Report implements \JsonSerializable
     /**
      * Report description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -67,7 +67,7 @@ class Report implements \JsonSerializable
     /**
      * Report created at.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     protected \DateTime $createdAt;
@@ -75,7 +75,7 @@ class Report implements \JsonSerializable
     /**
      * Report created by.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -83,7 +83,7 @@ class Report implements \JsonSerializable
     /**
      * Report template.
      *
-     * @var   null|int|Media
+     * @var null|int|Media
      * @since 1.0.0
      */
     private $template = 0;
@@ -91,7 +91,7 @@ class Report implements \JsonSerializable
     /**
      * Report source.
      *
-     * @var   int|\Modules\Media\Models\Collection
+     * @var int|\Modules\Media\Models\Collection
      * @since 1.0.0
      */
     private $source = 0;

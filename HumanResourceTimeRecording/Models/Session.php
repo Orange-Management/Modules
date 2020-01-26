@@ -29,7 +29,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Session ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Session start
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $start;
@@ -45,7 +45,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Session end
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $end = null;
@@ -53,7 +53,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Busy time.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $busy = 0;
@@ -61,7 +61,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Session type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $type = ClockingType::OFFICE;
@@ -69,7 +69,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Session elements.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $sessionElements = [];
@@ -77,7 +77,7 @@ class Session implements ArrayableInterface, \JsonSerializable
     /**
      * Employee.
      *
-     * @var   int|Employee
+     * @var int|Employee
      * @since 1.0.0
      */
     private $employee = 0;

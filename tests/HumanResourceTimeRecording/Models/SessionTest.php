@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\tests\HumanResourceTimeRecording\Models;
 
 use Modules\HumanResourceTimeRecording\Models\ClockingStatus;
-use Modules\HumanResourceTimeRecording\Models\Session;
 use Modules\HumanResourceTimeRecording\Models\ClockingType;
+use Modules\HumanResourceTimeRecording\Models\Session;
 use Modules\HumanResourceTimeRecording\Models\SessionElement;
 
 /**
@@ -33,7 +33,7 @@ class SessionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(ClockingType::OFFICE, $session->getType());
         self::assertEquals(ClockingStatus::START, $session->getStatus());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $session->getStart()->format('Y-m-d'));
-        self::assertEquals(null, $session->getEnd());
+        self::assertNull($session->getEnd());
     }
 
     public function testSetGet() : void

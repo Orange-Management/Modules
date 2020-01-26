@@ -29,7 +29,7 @@ class AccountRelation extends RelationAbstract
     /**
      * Relation object
      *
-     * @var   int|Account
+     * @var int|Account
      * @since 1.0.0
      */
     private $relation = null;

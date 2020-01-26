@@ -20,11 +20,11 @@ use Model\CoreSettings;
 
 use Modules\Admin\Models\AccountPermission;
 
-use Modules\tests\Admin\Controller\Api\ApiControllerSettingsTrait;
 use Modules\tests\Admin\Controller\Api\ApiControllerAccountTrait;
 use Modules\tests\Admin\Controller\Api\ApiControllerGroupTrait;
-use Modules\tests\Admin\Controller\Api\ApiControllerPermissionTrait;
 use Modules\tests\Admin\Controller\Api\ApiControllerModuleTrait;
+use Modules\tests\Admin\Controller\Api\ApiControllerPermissionTrait;
+use Modules\tests\Admin\Controller\Api\ApiControllerSettingsTrait;
 
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;

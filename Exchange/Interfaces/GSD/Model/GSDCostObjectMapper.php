@@ -29,7 +29,7 @@ final class GSDCostObjectMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -43,7 +43,7 @@ final class GSDCostObjectMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'FiKostentraeger';
@@ -51,7 +51,7 @@ final class GSDCostObjectMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $createdAt = 'row_create_time';
@@ -59,7 +59,7 @@ final class GSDCostObjectMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'ROW_ID';

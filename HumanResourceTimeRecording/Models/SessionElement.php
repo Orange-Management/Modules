@@ -29,7 +29,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     /**
      * Session element ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     /**
      * Session element status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = ClockingStatus::START;
@@ -45,7 +45,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     /**
      * DateTime
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $dt;
@@ -53,7 +53,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
     /**
      * Session id this element belongs to
      *
-     * @var   int|Session
+     * @var int|Session
      * @since 1.0.0
      */
     private $session = 0;

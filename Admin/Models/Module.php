@@ -30,7 +30,7 @@ class Module
     /**
      * Account id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -38,7 +38,7 @@ class Module
     /**
      * Account name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $name = '';
@@ -46,7 +46,7 @@ class Module
     /**
      * Account name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -54,7 +54,7 @@ class Module
     /**
      * Group status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $status = ModuleStatus::INACTIVE;
@@ -62,7 +62,7 @@ class Module
     /**
      * Created at.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     protected \DateTime $createdAt;

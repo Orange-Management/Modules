@@ -29,7 +29,7 @@ final class CommentListMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -39,7 +39,7 @@ final class CommentListMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var   array<string, array<string, null|string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -54,7 +54,7 @@ final class CommentListMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'comments_list';
@@ -62,7 +62,7 @@ final class CommentListMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'comments_list_id';

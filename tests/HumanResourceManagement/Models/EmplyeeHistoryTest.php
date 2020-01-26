@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\tests\HumanResourceManagement\Models;
 
-use Modules\HumanResourceManagement\Models\Employee;
 use Modules\HumanResourceManagement\Models\EmployeeHistory;
 
 /**
@@ -27,7 +26,7 @@ class EmployeeHistoryTest extends \PHPUnit\Framework\TestCase
         $history = new EmployeeHistory();
 
         self::assertEquals(0, $history->getId());
-        self::assertEquals(null, $history->getEnd());
+        self::assertNull($history->getEnd());
         self::assertInstanceOf('\Modules\HumanResourceManagement\Models\NullEmployee', $history->getEmployee());
         self::assertInstanceOf('\Modules\Organization\Models\NullPosition', $history->getPosition());
         self::assertInstanceOf('\Modules\Organization\Models\NullUnit', $history->getUnit());

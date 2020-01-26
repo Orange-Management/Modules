@@ -28,7 +28,7 @@ class CostObjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $co->getCode());
         self::assertEquals('', $co->getName());
         self::assertEquals('', $co->getDescription());
-        self::assertEquals(null, $co->getParent());
+        self::assertNull($co->getParent());
     }
 
     public function testSetGet() : void

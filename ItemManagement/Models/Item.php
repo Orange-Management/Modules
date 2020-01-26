@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\ItemManagement\Models;
 
-use Modules\Media\Models\Media;
-
 /**
  * Account class.
  *
@@ -29,7 +27,7 @@ class Item
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;

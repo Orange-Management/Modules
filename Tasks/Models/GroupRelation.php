@@ -29,7 +29,7 @@ class GroupRelation extends RelationAbstract
     /**
      * Relation object
      *
-     * @var   int|Group
+     * @var int|Group
      * @since 1.0.0
      */
     private $relation = null;

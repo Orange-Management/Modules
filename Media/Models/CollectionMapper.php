@@ -27,7 +27,7 @@ final class CollectionMapper extends MediaMapper
     /**
      * Has many relation.
      *
-     * @var   array<string, array<string, null|string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -42,7 +42,7 @@ final class CollectionMapper extends MediaMapper
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'media';
@@ -50,7 +50,7 @@ final class CollectionMapper extends MediaMapper
     /**
      * Created at.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $createdAt = 'media_created_at';
@@ -58,7 +58,7 @@ final class CollectionMapper extends MediaMapper
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'media_id';

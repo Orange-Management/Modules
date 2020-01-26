@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\tests\HumanResourceManagement\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\HumanResourceManagement\Models\Employee;
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
-use Modules\Profile\Models\ProfileMapper;
 use Modules\Profile\Models\Profile;
-use Modules\Admin\Models\AccountMapper;
+use Modules\Profile\Models\ProfileMapper;
 
 /**
  * @internal

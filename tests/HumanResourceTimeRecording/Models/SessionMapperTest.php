@@ -16,8 +16,8 @@ namespace Modules\tests\HumanResourceTimeRecording\Models;
 
 use Modules\HumanResourceTimeRecording\Models\ClockingStatus;
 use Modules\HumanResourceTimeRecording\Models\Session;
-use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 use Modules\HumanResourceTimeRecording\Models\SessionElement;
+use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 
 /**
  * @internal

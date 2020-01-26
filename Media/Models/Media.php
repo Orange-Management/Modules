@@ -27,7 +27,7 @@ class Media implements \JsonSerializable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -35,7 +35,7 @@ class Media implements \JsonSerializable
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $name = '';
@@ -43,7 +43,7 @@ class Media implements \JsonSerializable
     /**
      * Extension.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $extension = '';
@@ -51,7 +51,7 @@ class Media implements \JsonSerializable
     /**
      * File size in bytes.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $size = 0;
@@ -59,7 +59,7 @@ class Media implements \JsonSerializable
     /**
      * Author.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -67,7 +67,7 @@ class Media implements \JsonSerializable
     /**
      * Uploaded.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     protected \DateTime $createdAt;
@@ -75,7 +75,7 @@ class Media implements \JsonSerializable
     /**
      * Resource path.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $path = '';
@@ -83,7 +83,7 @@ class Media implements \JsonSerializable
     /**
      * Virtual path.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $virtualPath = '/';
@@ -91,7 +91,7 @@ class Media implements \JsonSerializable
     /**
      * Is path absolute?
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     protected bool $isAbsolute = false;
@@ -99,7 +99,7 @@ class Media implements \JsonSerializable
     /**
      * Is versioned.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     protected bool $versioned = false;
@@ -107,7 +107,7 @@ class Media implements \JsonSerializable
     /**
      * Media Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -115,7 +115,7 @@ class Media implements \JsonSerializable
     /**
      * Media Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -123,7 +123,7 @@ class Media implements \JsonSerializable
     /**
      * Media encryption nonce.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     protected ?string $nonce = null;
@@ -131,7 +131,7 @@ class Media implements \JsonSerializable
     /**
      * Media password hash.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     protected ?string $password = null;

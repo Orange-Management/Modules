@@ -30,7 +30,7 @@ final class QAAnswerMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -46,7 +46,7 @@ final class QAAnswerMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'qa_answer';
@@ -54,7 +54,7 @@ final class QAAnswerMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $createdAt = 'qa_answer_created_at';
@@ -62,7 +62,7 @@ final class QAAnswerMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'qa_answer_id';
@@ -70,7 +70,7 @@ final class QAAnswerMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var   array<string, array<string, string>>
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $belongsTo = [

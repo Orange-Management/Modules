@@ -30,7 +30,7 @@ final class GroupRelationMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -43,7 +43,7 @@ final class GroupRelationMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var   array<string, array<string, string>>
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -56,7 +56,7 @@ final class GroupRelationMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'task_group';
@@ -64,7 +64,7 @@ final class GroupRelationMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'task_group_id';

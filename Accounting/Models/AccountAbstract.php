@@ -27,7 +27,7 @@ abstract class AccountAbstract
     /**
      * Account ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -35,7 +35,7 @@ abstract class AccountAbstract
     /**
      * Type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $type = AccountType::IMPERSONAL;
@@ -43,7 +43,7 @@ abstract class AccountAbstract
     /**
      * Entry list.
      *
-     * @var   EntryInterface[]
+     * @var EntryInterface[]
      * @since 1.0.0
      */
     protected array $entries = [];

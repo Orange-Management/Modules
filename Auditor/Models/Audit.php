@@ -29,7 +29,7 @@ class Audit
     /**
      * Audit id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Audit
     /**
      * Audit type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $type;
@@ -45,7 +45,7 @@ class Audit
     /**
      * Audit subtype.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $subtype;
@@ -53,7 +53,7 @@ class Audit
     /**
      * Audit module.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $module;
@@ -63,7 +63,7 @@ class Audit
      *
      * This could be used to reference other model ids
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $ref;
@@ -73,7 +73,7 @@ class Audit
      *
      * Additional audit information
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $content;
@@ -81,7 +81,7 @@ class Audit
     /**
      * Old value.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $old;
@@ -89,7 +89,7 @@ class Audit
     /**
      * New value.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $new;
@@ -97,7 +97,7 @@ class Audit
     /**
      * Account.
      *
-     * @var   Account|int
+     * @var Account|int
      * @since 1.0.0
      */
     private $createdBy;
@@ -105,7 +105,7 @@ class Audit
     /**
      * Created at.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $createdAt;
@@ -113,7 +113,7 @@ class Audit
     /**
      * Ip of creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $ip = 0;

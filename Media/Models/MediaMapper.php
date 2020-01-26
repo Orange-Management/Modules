@@ -30,7 +30,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -53,7 +53,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var   array<string, array<string, string>>
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
@@ -66,7 +66,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'media';
@@ -74,7 +74,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Created at.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $createdAt = 'media_created_at';
@@ -82,7 +82,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'media_id';

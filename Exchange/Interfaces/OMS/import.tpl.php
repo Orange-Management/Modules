@@ -1,6 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 use Modules\Exchange\Models\ExchangeType;
+
 ?>
 <div class="tabview tab-2">
     <div class="box wf-100 col-xs-12">

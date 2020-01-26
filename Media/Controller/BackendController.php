@@ -42,7 +42,7 @@ final class BackendController extends Controller
     /**
      * Module path.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     public const MODULE_PATH = __DIR__;
@@ -50,7 +50,7 @@ final class BackendController extends Controller
     /**
      * Module version.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     public const MODULE_VERSION = '1.0.0';
@@ -58,7 +58,7 @@ final class BackendController extends Controller
     /**
      * Module name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     public const MODULE_NAME = 'Media';
@@ -66,7 +66,7 @@ final class BackendController extends Controller
     /**
      * Module id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     public const MODULE_ID = 1000400000;
@@ -74,7 +74,7 @@ final class BackendController extends Controller
     /**
      * Providing.
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     protected static array $providing = [];
@@ -82,7 +82,7 @@ final class BackendController extends Controller
     /**
      * Dependencies.
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     protected static array $dependencies = [];

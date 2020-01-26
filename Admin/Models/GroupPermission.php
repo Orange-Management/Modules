@@ -32,7 +32,7 @@ class GroupPermission extends PermissionAbstract
     /**
      * Group id
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $group = 0;

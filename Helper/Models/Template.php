@@ -27,7 +27,7 @@ class Template implements \JsonSerializable
     /**
      * Template Id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class Template implements \JsonSerializable
     /**
      * Template status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = HelperStatus::INACTIVE;
@@ -43,7 +43,7 @@ class Template implements \JsonSerializable
     /**
      * Template data type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $datatype = TemplateDataType::OTHER;
@@ -51,7 +51,7 @@ class Template implements \JsonSerializable
     /**
      * Template doesn't need reports.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     private bool $isStandalone = false;
@@ -59,7 +59,7 @@ class Template implements \JsonSerializable
     /**
      * Template name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -67,7 +67,7 @@ class Template implements \JsonSerializable
     /**
      * Template description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -75,7 +75,7 @@ class Template implements \JsonSerializable
     /**
      * Template description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -83,7 +83,7 @@ class Template implements \JsonSerializable
     /**
      * Template created at.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     protected \DateTime $createdAt;
@@ -91,7 +91,7 @@ class Template implements \JsonSerializable
     /**
      * Template created by.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -99,7 +99,7 @@ class Template implements \JsonSerializable
     /**
      * Template source.
      *
-     * @var   int|Media
+     * @var int|Media
      * @since 1.0.0
      */
     private $source = 0;
@@ -107,7 +107,7 @@ class Template implements \JsonSerializable
     /**
      * Expected files.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $expected = [];
@@ -115,7 +115,7 @@ class Template implements \JsonSerializable
     /**
      * Reports.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $reports = [];

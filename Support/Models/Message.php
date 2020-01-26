@@ -27,7 +27,7 @@ class Message
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -35,7 +35,7 @@ class Message
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -43,7 +43,7 @@ class Message
     /**
      * Created.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $created;
@@ -51,7 +51,7 @@ class Message
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private ?int $creator = null;

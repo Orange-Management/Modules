@@ -29,7 +29,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Title.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $title = '';
@@ -45,7 +45,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Content.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $content = '';
@@ -53,7 +53,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Unparsed.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $plain = '';
@@ -61,7 +61,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Doc path for organizing.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $path = '';
@@ -69,7 +69,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Created.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $createdAt;
@@ -77,7 +77,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;

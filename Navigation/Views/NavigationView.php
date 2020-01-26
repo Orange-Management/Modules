@@ -32,7 +32,7 @@ class NavigationView extends View
      * This is getting used in order to identify which navigation elements should get rendered.
      * This usually is the parent navigation id
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $navId = 0;
@@ -40,7 +40,7 @@ class NavigationView extends View
     /**
      * Navigation.
      *
-     * @var   mixed[]
+     * @var mixed[]
      * @since 1.0.0
      */
     protected array $nav = [];
@@ -48,7 +48,7 @@ class NavigationView extends View
     /**
      * Parent element used for navigation.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $parent = 0;

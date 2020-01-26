@@ -27,7 +27,7 @@ class Collection extends Media implements \Iterator
     /**
      * Resource id.
      *
-     * @var   array<int|Media>
+     * @var array<int|Media>
      * @since 1.0.0
      */
     private $sources = [];
@@ -35,7 +35,7 @@ class Collection extends Media implements \Iterator
     /**
      * Extension name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $extension = 'collection';
@@ -43,7 +43,7 @@ class Collection extends Media implements \Iterator
     /**
      * Versioned.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     protected bool $versioned = false;

@@ -29,7 +29,7 @@ class Debitor
     /**
      * Debitor ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class Debitor
     /**
      * Account.
      *
-     * @var   null|int|Account
+     * @var null|int|Account
      * @since 1.0.0
      */
     protected $account = null;

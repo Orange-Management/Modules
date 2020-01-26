@@ -30,7 +30,7 @@ abstract class ImporterAbstract
     /**
      * Database connection.
      *
-     * @var   ConnectionInterface
+     * @var ConnectionInterface
      * @since 1.0.0
      */
     private $local = null;

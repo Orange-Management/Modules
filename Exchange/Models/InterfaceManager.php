@@ -32,7 +32,7 @@ class InterfaceManager
     /**
      * Interface ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -40,7 +40,7 @@ class InterfaceManager
     /**
      * File path.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $path = '';
@@ -48,7 +48,7 @@ class InterfaceManager
     /**
      * Info data.
      *
-     * @var   array<string, mixed>
+     * @var array<string, mixed>
      * @since 1.0.0
      */
     private $info = [];

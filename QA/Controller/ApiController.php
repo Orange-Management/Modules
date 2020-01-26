@@ -14,17 +14,17 @@ declare(strict_types=1);
 
 namespace Modules\QA\Controller;
 
+use Modules\QA\Models\QAAnswer;
+use Modules\QA\Models\QAAnswerStatus;
+use Modules\QA\Models\QACategory;
+use Modules\QA\Models\QACategoryMapper;
+use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionMapper;
+use Modules\QA\Models\QAQuestionStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use Modules\QA\Models\QAQuestion;
 use phpOMS\Utils\Parser\Markdown\Markdown;
-use Modules\QA\Models\QAQuestionStatus;
-use Modules\QA\Models\QAAnswer;
-use Modules\QA\Models\QAAnswerStatus;
-use Modules\QA\Models\QACategoryMapper;
-use Modules\QA\Models\QACategory;
 
 /**
  * Task class.

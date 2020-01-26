@@ -27,7 +27,7 @@ class Cause
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class Cause
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -45,7 +45,7 @@ class Cause
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';

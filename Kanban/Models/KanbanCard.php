@@ -29,7 +29,7 @@ class KanbanCard implements \JsonSerializable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class KanbanCard implements \JsonSerializable
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -48,7 +48,7 @@ class KanbanCard implements \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';

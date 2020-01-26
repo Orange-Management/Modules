@@ -32,7 +32,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string|array>>
+     * @var array<string, array<string, bool|string|array>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -53,12 +53,12 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var   array<string, array<string, null|string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */    /**
      * Has many relation.
      *
-     * @var   array<string, array<string, null|string>>
+     * @var array<string, array<string, null|string>>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -73,7 +73,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'account';
@@ -81,7 +81,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'account_id';
@@ -89,7 +89,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Created at column
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $createdAt = 'account_created_at';

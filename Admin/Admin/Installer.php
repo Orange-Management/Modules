@@ -41,7 +41,7 @@ final class Installer extends InstallerAbstract
         $sqlite = new SQLiteConnection([
             'db' => 'sqlite',
             'prefix' => '',
-            'database' => __DIR__ . '/../../../phpOMS/Localization/Defaults/localization.sqlite'
+            'database' => __DIR__ . '/../../../phpOMS/Localization/Defaults/localization.sqlite',
         ]);
 
         self::installLanguages($sqlite, $dbPool);

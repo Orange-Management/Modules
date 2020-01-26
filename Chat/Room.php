@@ -27,7 +27,7 @@ class Room
     /**
      * Room ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class Room
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -43,7 +43,7 @@ class Room
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -51,7 +51,7 @@ class Room
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $created = null;
@@ -59,7 +59,7 @@ class Room
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private ?int $creator = null;
@@ -67,7 +67,7 @@ class Room
     /**
      * Type.
      *
-     * @var   \Modules\Chat\RoomType
+     * @var \Modules\Chat\RoomType
      * @since 1.0.0
      */
     private $room_type = null;
@@ -75,7 +75,7 @@ class Room
     /**
      * Password.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private ?string $password = null;

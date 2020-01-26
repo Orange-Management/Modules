@@ -27,7 +27,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Created at.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     protected \DateTime $createdAt;
@@ -35,7 +35,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Created by.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -43,7 +43,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Group raw description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -51,7 +51,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Accounts
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     protected array $accounts = [];

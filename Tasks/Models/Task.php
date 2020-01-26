@@ -32,7 +32,7 @@ class Task implements \JsonSerializable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -40,7 +40,7 @@ class Task implements \JsonSerializable
     /**
      * Title.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $title = '';
@@ -48,7 +48,7 @@ class Task implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -56,7 +56,7 @@ class Task implements \JsonSerializable
     /**
      * Created.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     protected \DateTime $createdAt;
@@ -64,7 +64,7 @@ class Task implements \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -72,7 +72,7 @@ class Task implements \JsonSerializable
     /**
      * Description raw.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -80,7 +80,7 @@ class Task implements \JsonSerializable
     /**
      * Type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $type = TaskType::SINGLE;
@@ -88,7 +88,7 @@ class Task implements \JsonSerializable
     /**
      * Status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $status = TaskStatus::OPEN;
@@ -96,7 +96,7 @@ class Task implements \JsonSerializable
     /**
      * Task can be closed by user.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     protected bool $isClosable = true;
@@ -104,7 +104,7 @@ class Task implements \JsonSerializable
     /**
      * Task can be edited by user.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     protected bool $isEditable = true;
@@ -112,7 +112,7 @@ class Task implements \JsonSerializable
     /**
      * Start.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $start = null;
@@ -120,7 +120,7 @@ class Task implements \JsonSerializable
     /**
      * Due.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $due = null;
@@ -128,7 +128,7 @@ class Task implements \JsonSerializable
     /**
      * Done.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected $done = null;
@@ -136,7 +136,7 @@ class Task implements \JsonSerializable
     /**
      * Task elements.
      *
-     * @var   TaskElement[]
+     * @var TaskElement[]
      * @since 1.0.0
      */
     protected array $taskElements = [];
@@ -144,7 +144,7 @@ class Task implements \JsonSerializable
     /**
      * Task elements.
      *
-     * @var   Tag[]
+     * @var Tag[]
      * @since 1.0.0
      */
     protected array $tags = [];
@@ -152,7 +152,7 @@ class Task implements \JsonSerializable
     /**
      * Schedule
      *
-     * @var   Schedule
+     * @var Schedule
      * @since 1.0.0
      */
     protected $schedule = null;
@@ -160,7 +160,7 @@ class Task implements \JsonSerializable
     /**
      * Priority
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $priority = TaskPriority::NONE;
@@ -168,7 +168,7 @@ class Task implements \JsonSerializable
     /**
      * Media files
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     protected array $media = [];

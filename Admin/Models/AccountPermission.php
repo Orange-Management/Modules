@@ -32,7 +32,7 @@ class AccountPermission extends PermissionAbstract
     /**
      * Account id
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $account = 0;

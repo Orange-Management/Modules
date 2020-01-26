@@ -34,7 +34,7 @@ class Navigation
      *
      * Array of all navigation elements sorted by type->parent->id
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $nav = [];
@@ -42,7 +42,7 @@ class Navigation
     /**
      * Singleton instance.
      *
-     * @var   \Modules\Navigation\Models\Navigation
+     * @var \Modules\Navigation\Models\Navigation
      * @since 1.0.0
      */
     private static $instance = null;
@@ -50,7 +50,7 @@ class Navigation
     /**
      * Database pool.
      *
-     * @var   DatabasePool
+     * @var DatabasePool
      * @since 1.0.0
      */
     private $dbPool = null;

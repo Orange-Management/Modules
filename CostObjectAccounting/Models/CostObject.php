@@ -27,7 +27,7 @@ class CostObject
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class CostObject
     /**
      * Code.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $code = '';
@@ -43,7 +43,7 @@ class CostObject
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -51,7 +51,7 @@ class CostObject
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -59,7 +59,7 @@ class CostObject
     /**
      * Parent.
      *
-     * @var   null|int|CostObject
+     * @var null|int|CostObject
      * @since 1.0.0
      */
     private $parent = null;

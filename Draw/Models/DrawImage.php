@@ -30,7 +30,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -38,7 +38,7 @@ class DrawImage implements ArrayableInterface, \JsonSerializable
     /**
      * Media object.
      *
-     * @var   int|Media
+     * @var int|Media
      * @since 1.0.0
      */
     private $media = null;

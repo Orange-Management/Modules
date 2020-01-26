@@ -29,7 +29,7 @@ class Calendar
     /**
      * Calendar ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Calendar
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -45,7 +45,7 @@ class Calendar
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -53,7 +53,7 @@ class Calendar
     /**
      * Created at.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -61,7 +61,7 @@ class Calendar
     /**
      * Current date of the calendar.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $date = null;
@@ -69,7 +69,7 @@ class Calendar
     /**
      * Events.
      *
-     * @var   array<int, \Modules\Calendar\Models\Event>
+     * @var array<int, \Modules\Calendar\Models\Event>
      * @since 1.0.0
      */
     private $events = [];

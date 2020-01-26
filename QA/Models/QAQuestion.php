@@ -27,7 +27,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -35,7 +35,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Title.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -43,7 +43,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Question status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = QAQuestionStatus::ACTIVE;
@@ -51,7 +51,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Question.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $question = '';
@@ -59,7 +59,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Category.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $category = 0;
@@ -73,7 +73,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Badges.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $badges = [];
@@ -81,7 +81,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Answers.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $answers = [];

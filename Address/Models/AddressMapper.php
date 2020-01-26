@@ -29,7 +29,7 @@ final class AddressMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var   array<string, array<string, bool|string>>
+     * @var array<string, array<string, bool|string>>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -49,7 +49,7 @@ final class AddressMapper extends DataMapperAbstract
      *  If a column is defined only that column value should get populated in the model and not the full model!
      *  OwnsOne, HasOne, use single value instead of full model defined in the mapper.
      *
-     * @var   array<string, array<string, string>>
+     * @var array<string, array<string, string>>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -63,7 +63,7 @@ final class AddressMapper extends DataMapperAbstract
     /**
      * Primary table.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $table = 'address';
@@ -71,7 +71,7 @@ final class AddressMapper extends DataMapperAbstract
     /**
      * Primary field name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected static string $primaryField = 'address_id';

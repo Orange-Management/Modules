@@ -31,7 +31,7 @@ class Project
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -39,7 +39,7 @@ class Project
     /**
      * Start date.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $start;
@@ -47,7 +47,7 @@ class Project
     /**
      * End date.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $end;
@@ -55,7 +55,7 @@ class Project
     /**
      * Estimated end date.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $endEstimated;
@@ -63,7 +63,7 @@ class Project
     /**
      * Project name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -71,7 +71,7 @@ class Project
     /**
      * Project description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -79,7 +79,7 @@ class Project
     /**
      * Project raw description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -87,7 +87,7 @@ class Project
     /**
      * Calendar.
      *
-     * @var   int|Calendar
+     * @var int|Calendar
      * @since 1.0.0
      */
     private $calendar;
@@ -95,7 +95,7 @@ class Project
     /**
      * Current total costs.
      *
-     * @var   Money
+     * @var Money
      * @since 1.0.0
      */
     private Money $costs;
@@ -103,7 +103,7 @@ class Project
     /**
      * Budget costs.
      *
-     * @var   Money
+     * @var Money
      * @since 1.0.0
      */
     private Money $budgetCosts;
@@ -111,7 +111,7 @@ class Project
     /**
      * Budget earnings.
      *
-     * @var   Money
+     * @var Money
      * @since 1.0.0
      */
     private Money $budgetEarnings;
@@ -119,7 +119,7 @@ class Project
     /**
      * Current total earnings.
      *
-     * @var   Money
+     * @var Money
      * @since 1.0.0
      */
     private Money $earnings;
@@ -127,7 +127,7 @@ class Project
     /**
      * Progress percentage.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $progress = 0;
@@ -135,7 +135,7 @@ class Project
     /**
      * Progress calculation.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $progressType = ProgressType::MANUAL;
@@ -143,7 +143,7 @@ class Project
     /**
      * Media files.
      *
-     * @var   Media[]
+     * @var Media[]
      * @since 1.0.0
      */
     private array $media = [];
@@ -151,7 +151,7 @@ class Project
     /**
      * Created at.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $createdAt;
@@ -159,7 +159,7 @@ class Project
     /**
      * Created by.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -167,7 +167,7 @@ class Project
     /**
      * Tasks.
      *
-     * @var   Tasks[]
+     * @var Tasks[]
      * @since 1.0.0
      */
     private $tasks = [];

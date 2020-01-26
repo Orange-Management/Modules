@@ -29,7 +29,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -37,7 +37,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $name = '';
@@ -45,7 +45,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var   mixed
+     * @var mixed
      * @since 1.0.0
      */
     protected $parent = null;
@@ -53,7 +53,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Status
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $status = Status::INACTIVE;
@@ -61,7 +61,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Unit this department belongs to
      *
-     * @var   mixed
+     * @var mixed
      * @since 1.0.0
      */
     protected $unit = 1;
@@ -69,7 +69,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -77,7 +77,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';

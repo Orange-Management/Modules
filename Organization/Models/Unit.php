@@ -29,7 +29,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -37,7 +37,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -45,7 +45,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var   mixed
+     * @var mixed
      * @since 1.0.0
      */
     private $parent = null;
@@ -53,7 +53,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -61,7 +61,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $descriptionRaw = '';
@@ -69,7 +69,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Status
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $status = Status::INACTIVE;

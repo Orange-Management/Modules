@@ -27,7 +27,7 @@ class Article
     /**
      * Article ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class Article
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -43,7 +43,7 @@ class Article
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -51,7 +51,7 @@ class Article
     /**
      * Matchcode.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $matchcode = '';
@@ -59,7 +59,7 @@ class Article
     /**
      * Sector.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $sector = null;
@@ -67,7 +67,7 @@ class Article
     /**
      * Group.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $group = null;
@@ -77,7 +77,7 @@ class Article
      *
      * supplier price leadtime
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $suppliers = null;
@@ -87,7 +87,7 @@ class Article
      *
      * [en] Name - Description
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $invoice_i18n = [];
@@ -97,7 +97,7 @@ class Article
      *
      * [id] name country state prize discount% discountA bonus-in-kind groupA groupB amount event
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $prizes = [];
@@ -105,7 +105,7 @@ class Article
     /**
      * Active supplier.
      *
-     * @var   null|string
+     * @var null|string
      * @since 1.0.0
      */
     private ?string $pprice = null;
@@ -113,7 +113,7 @@ class Article
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $created = null;
@@ -121,7 +121,7 @@ class Article
     /**
      * Creator.
      *
-     * @var   null|\phpOMS\Models\User
+     * @var null|\phpOMS\Models\User
      * @since 1.0.0
      */
     private $creator = null;

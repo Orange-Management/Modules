@@ -31,7 +31,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Article ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -39,7 +39,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Title.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $title = '';
@@ -47,7 +47,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Content.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $content = '';
@@ -55,7 +55,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Unparsed.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $plain = '';
@@ -63,7 +63,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * News type.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $type = NewsType::ARTICLE;
@@ -71,7 +71,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * News status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = NewsStatus::DRAFT;
@@ -79,7 +79,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Language.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $language = ISO639x1Enum::_EN;
@@ -87,7 +87,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Created.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $createdAt;
@@ -95,7 +95,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -103,7 +103,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Publish.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $publish;
@@ -111,7 +111,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Featured.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     private bool $featured = false;
@@ -119,7 +119,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Badge.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $badges = [];

@@ -32,7 +32,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -40,7 +40,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -48,7 +48,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Description raw.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $descriptionRaw = '';
@@ -56,7 +56,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Task.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $task = 0;
@@ -64,7 +64,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -72,7 +72,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Created.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $createdAt;
@@ -80,7 +80,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Status.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = TaskStatus::OPEN;
@@ -88,7 +88,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Due.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $due = null;
@@ -96,7 +96,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Priority
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $priority = TaskPriority::NONE;
@@ -104,7 +104,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Media.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     private array $media = [];
@@ -112,7 +112,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Accounts who received this task element.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     protected array $accRelation = [];
@@ -120,7 +120,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Groups who received this task element.
      *
-     * @var   array
+     * @var array
      * @since 1.0.0
      */
     protected array $grpRelation = [];

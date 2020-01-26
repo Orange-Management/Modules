@@ -27,7 +27,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -35,7 +35,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected $createdBy = 0;
@@ -43,7 +43,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     protected ?\DateTime $createdAt = null;
@@ -51,7 +51,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $description = '';
@@ -59,7 +59,7 @@ final class GSDCostObject implements \JsonSerializable
     /**
      * Cost object.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     protected string $costObject = '';

@@ -34,7 +34,7 @@ class BaseView extends View
     /**
      * Editor id
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private $id = '';

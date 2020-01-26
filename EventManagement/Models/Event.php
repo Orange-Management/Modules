@@ -32,7 +32,7 @@ class Event
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -46,14 +46,14 @@ class Event
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -77,7 +77,7 @@ class Event
     /**
      * Created.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $createdAt = null;
@@ -85,7 +85,7 @@ class Event
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -337,7 +337,7 @@ class Event
     /**
      * Remove task
      *
-     * @param int $id Id to remove.
+     * @param int $id id to remove
      *
      * @return bool
      *

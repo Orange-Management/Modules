@@ -27,7 +27,7 @@ class Shipping
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class Shipping
     /**
      * Order.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private $order = 0;
@@ -43,7 +43,7 @@ class Shipping
     /**
      * From.
      *
-     * @var   \phpOMS\Stdlib\Base\Address
+     * @var \phpOMS\Stdlib\Base\Address
      * @since 1.0.0
      */
     private $to = null;
@@ -51,7 +51,7 @@ class Shipping
     /**
      * Warehouse.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $warehouse = '';
@@ -59,7 +59,7 @@ class Shipping
     /**
      * Date of arrival.
      *
-     * @var   null|\DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
     private ?\DateTime $delivered = null;
@@ -67,7 +67,7 @@ class Shipping
     /**
      * Person who sent the delivery.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private ?int $sender = null;
@@ -75,7 +75,7 @@ class Shipping
     /**
      * Warehouse.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $status = 0;

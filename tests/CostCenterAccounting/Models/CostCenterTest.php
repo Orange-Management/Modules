@@ -28,7 +28,7 @@ class CostCenterTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $cc->getName());
         self::assertEquals('', $cc->getCode());
         self::assertEquals('', $cc->getDescription());
-        self::assertEquals(null, $cc->getParent());
+        self::assertNull($cc->getParent());
     }
 
     public function testSetGet() : void

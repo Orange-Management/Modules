@@ -31,7 +31,7 @@ class UploadFile
     /**
      * Limit of iterations to find a possible random path for the file to upload to.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private const PATH_GENERATION_LIMIT = 1000;
@@ -39,7 +39,7 @@ class UploadFile
     /**
      * Image interlaced.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     private bool $isInterlaced = true;
@@ -47,7 +47,7 @@ class UploadFile
     /**
      * Upload max size.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $maxSize = 50000000;
@@ -55,7 +55,7 @@ class UploadFile
     /**
      * Allowed mime types.
      *
-     * @var   string[]
+     * @var string[]
      * @since 1.0.0
      */
     private $allowedTypes = [];
@@ -63,7 +63,7 @@ class UploadFile
     /**
      * Output directory.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $outputDir = __DIR__ . '/../../Modules/Media/Files';
@@ -71,7 +71,7 @@ class UploadFile
     /**
      * Output file name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $fileName = '';
@@ -79,7 +79,7 @@ class UploadFile
     /**
      * Output file name.
      *
-     * @var   bool
+     * @var bool
      * @since 1.0.0
      */
     private bool $preserveFileName = true;

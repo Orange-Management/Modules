@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\DatabaseEditor\Controller;
 
+use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 
 /**
  * Admin controller class.

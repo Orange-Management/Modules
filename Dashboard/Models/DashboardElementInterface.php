@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Models;
 
+use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Contract\RenderableInterface;
 
 /**
  * Dashboard element interface.

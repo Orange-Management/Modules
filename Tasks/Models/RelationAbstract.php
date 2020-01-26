@@ -30,7 +30,7 @@ abstract class RelationAbstract implements \JsonSerializable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $id = 0;
@@ -38,7 +38,7 @@ abstract class RelationAbstract implements \JsonSerializable
     /**
      * Duty.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $duty = DutyType::TO;
@@ -46,7 +46,7 @@ abstract class RelationAbstract implements \JsonSerializable
     /**
      * Element id.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     protected int $element = 0;

@@ -27,7 +27,7 @@ class BatchPosting implements \Countable
     /**
      * ID.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $id = 0;
@@ -35,7 +35,7 @@ class BatchPosting implements \Countable
     /**
      * Creator.
      *
-     * @var   int
+     * @var int
      * @since 1.0.0
      */
     private int $creator = 0;
@@ -43,7 +43,7 @@ class BatchPosting implements \Countable
     /**
      * Created.
      *
-     * @var   \DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
     private \DateTime $created;
@@ -51,7 +51,7 @@ class BatchPosting implements \Countable
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -59,7 +59,7 @@ class BatchPosting implements \Countable
     /**
      * Postings.
      *
-     * @var   PostingInterface[]
+     * @var PostingInterface[]
      * @since 1.0.0
      */
     private $postings = [];

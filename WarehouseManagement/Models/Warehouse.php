@@ -27,7 +27,7 @@ class Warehouse
     /**
      * Name.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $name = '';
@@ -35,7 +35,7 @@ class Warehouse
     /**
      * Description.
      *
-     * @var   string
+     * @var string
      * @since 1.0.0
      */
     private string $description = '';
@@ -43,7 +43,7 @@ class Warehouse
     /**
      * Location of the warehouse.
      *
-     * @var   \phpOMS\Stdlib\Base\Location
+     * @var \phpOMS\Stdlib\Base\Location
      * @since 1.0.0
      */
     private $location = null;
