@@ -23,7 +23,7 @@ return [
         ],
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpdate',
-            'verb' => RouteVerb::PUT,
+            'verb' => RouteVerb::POST,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,

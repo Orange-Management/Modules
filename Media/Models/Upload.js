@@ -171,10 +171,9 @@ export class Upload {
         });
 
         request.setData(formData);
-        request.setType(RequestType.FILE);
+        request.setType(RequestType.FORM_DATA);
         request.setUri(this.uri);
         request.setMethod(RequestMethod.PUT);
-        request.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
         request.setSuccess(function (xhr)
         {
             try {

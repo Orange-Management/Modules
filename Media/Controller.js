@@ -74,7 +74,7 @@ jsOMS.Modules.Media = class {
                         + 'input[form="' + e.id + '"][type="file"]'
                     );
 
-                    if (uploadData.hasAttribute('data-uri') !== null) {
+                    if (uploadData.hasAttribute('data-uri')) {
                         uploader.setUri(uploadData.getAttribute('data-uri'));
                     } else {
                         uploader.setUri('api/media');

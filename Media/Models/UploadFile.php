@@ -166,13 +166,7 @@ class UploadFile
                 Directory::create($path, 0755, true);
             }
 
-            if (!\is_uploaded_file($f['tmp_name'])) {
-                $result[$key]['status'] = UploadStatus::NOT_UPLOADED;
-
-                return $result;
-            }
-
-            if (!\move_uploaded_file($f['tmp_name'], $dest = $path . '/' . $this->fileName)) {
+            if (!\rename($f['tmp_name'], $dest = $path . '/' . $this->fileName)) {
                 $result[$key]['status'] = UploadStatus::NOT_MOVABLE;
 
                 return $result;
