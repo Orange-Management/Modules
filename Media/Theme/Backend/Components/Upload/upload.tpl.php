@@ -44,7 +44,6 @@
                 <tr><td>
                     <input type="hidden" name="virtualPath" form="<?= $this->form; ?>" value="<?= $this->virtualPath; ?>">
                     <input type="file" id="iUpload" name="upload" form="<?= $this->form; ?>" multiple>
-                    <input form="<?= $this->form; ?>" type="hidden" name="media-list"><td>
             </table>
         </form>
     </div>

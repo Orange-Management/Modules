@@ -27,10 +27,8 @@ $lang           = $reportLanguage[$cLang] ?? [];
 
 echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
-    <div class="col-xs-12">
-        <div class="box wf-100" style="height: 100%;">
-            <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
-        </div>
+    <div class="col-xs-12 col-md-9">
+        <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
     </div>
     <div class="col-xs-12 col-md-3">
         <?php if (\count($reportLanguage) > 1) : ?>

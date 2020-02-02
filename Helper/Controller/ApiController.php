@@ -243,13 +243,17 @@ final class ApiController extends Controller
      */
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $files = $this->app->moduleManager->get('Media')->uploadFiles(
-            $request->getData('name') ?? '',
-            $request->getFiles(),
-            $request->getHeader()->getAccount(),
-            __DIR__ . '/../../../Modules/Media/Files',
-            ''
-        );
+        $files = $request->getDataJson('media-list');
+
+        if (empty($files)) {
+            $files = $this->app->moduleManager->get('Media')->uploadFiles(
+                $request->getData('name') ?? '',
+                $request->getFiles(),
+                $request->getHeader()->getAccount(),
+                __DIR__ . '/../../../Modules/Media/Files',
+                ''
+            );
+        }
 
         $collection =  $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
             (string) ($request->getData('name') ?? ''),
