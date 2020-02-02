@@ -129,8 +129,11 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
-        $media = MediaMapper::getByVirtualPath('/');
+        $path  = (string) ($request->getData('path') ?? '/');
+        $media = MediaMapper::getByVirtualPath($path);
+
         $view->addData('media', $media);
+        $view->addData('path', $path);
 
         return $view;
     }
@@ -160,11 +163,16 @@ final class BackendController extends Controller
 
         $media = MediaMapper::get((int) $request->getData('id'));
         if ($media->getExtension() === 'collection') {
+
             //$media = CollectionMapper::get($media->getId());
             $media = MediaMapper::getByVirtualPath(
                 $media->getVirtualPath() . ($media->getVirtualPath() !== '/' ? '/' : '') . $media->getName()
             );
 
+            $collection = CollectionMapper::get((int) $request->getData('id'));
+            $media      = \array_merge($media, $collection->getSources());
+
+            $view->addData('path', $collection->getVirtualPath() . '/' . $collection->getName());
             $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
         }
 

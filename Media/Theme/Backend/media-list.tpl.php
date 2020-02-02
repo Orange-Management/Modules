@@ -12,16 +12,48 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
 
 include __DIR__ . '/template-functions.php';
 
 /**
  * @var \phpOMS\Views\View $this
+ * @var string             $parent
  */
+$mediaPath = $this->getData('path') ?? '/';
 
+/**
+ * @var \Modules\Media\Models\Media[] $media
+ */
 $media = $this->getData('media');
 
 echo $this->getData('nav')->render(); ?>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <ul class="crumbs-1">
+                <li data-href="<?= UriFactory::build('{/prefix}media/list?path=/'); ?>"><a href="<?= UriFactory::build('{/prefix}media/list?path=/'); ?>">/</a></li>
+                <?php
+                    $subPath = '';
+                    $paths   = \explode('/', \ltrim($mediaPath, '/'));
+                    $length  = \count($paths);
+
+                    for ($i = 0; $i < $length; ++$i) :
+                        if ($paths[$i] === '') {
+                            continue;
+                        }
+
+                        $subPath .= '/' . $paths[$i];
+
+                        $url = $i === $length - 1 ? UriFactory::build('{%}') : UriFactory::build('{/prefix}media/list?path=' . $subPath);
+                ?>
+                    <li data-href="<?= $url; ?>"><a href="<?= $url; ?>"><?= $this->printHtml($paths[$i]); ?></a></li>
+                <?php endfor; ?>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-xs-12">
@@ -40,7 +72,7 @@ echo $this->getData('nav')->render(); ?>
                     <?php $count = 0;
                         foreach ($media as $key => $value) :
                             ++$count;
-                            $url  = \phpOMS\Uri\UriFactory::build('{/prefix}media/single?{?}&id=' . $value->getId());
+                            $url  = UriFactory::build('{/prefix}media/single?id=' . $value->getId());
                             $icon = $fileIconFunction(\phpOMS\System\File\FileUtils::getExtensionType($value->getExtension()));
                         ?>
                     <tr data-href="<?= $url; ?>">

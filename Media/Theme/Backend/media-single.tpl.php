@@ -20,8 +20,8 @@ use \phpOMS\Uri\UriFactory;
 include __DIR__ . '/template-functions.php';
 
 /**
- * @var \phpOMS\Views\View $this
- * @var $media             \Modules\Media\Models\Media
+ * @var \phpOMS\Views\View          $this
+ * @var \Modules\Media\Models\Media $media
  */
 $media = $this->getData('media');
 echo $this->getData('nav')->render();
@@ -124,7 +124,11 @@ echo $this->getData('nav')->render();
                         <template>
                             <textarea class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content" name="content"></textarea>
                         </template>
-                        <pre class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content"><?= $this->getFileContent($media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/')); ?></pre>
+                        <pre class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content"><?= $this->printHtml(
+                            $this->getFileContent(
+                                $media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/')
+                            )
+                        ); ?></pre>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>

@@ -22,7 +22,7 @@ jsOMS.Modules.Media = class {
             length = e.length;
 
         for (let i = 0; i < length; ++i) {
-            this.bindElement(e[i]);
+            //this.bindElement(e[i]);
         }
     };
 

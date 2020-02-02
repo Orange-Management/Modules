@@ -52,7 +52,7 @@ class BaseView extends View
     {
         $this->form        = $data[0];
         $this->name        = $data[1];
-        $this->virtualPath = $data[2] ?? '/';
+        $this->virtualPath = $data[2] ?? '';
         return parent::render();
     }
 }

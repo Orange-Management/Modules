@@ -146,13 +146,6 @@ export class Upload {
      *
      * @return {void}
      *
-     * @todo Orange-Management/Modules#202
-     *  Consider to use FormData
-     *  Form data is currently submitted in two steps if it contains media files.
-     *      1. Upload media data
-     *      2. Submit form data
-     *  Consider to use `FormData` in order to submit media files and form data at the same time.
-     *
      * @since 1.0.0
      */
     upload (formId)

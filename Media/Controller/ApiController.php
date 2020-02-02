@@ -26,6 +26,10 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\System\MimeType;
+use Modules\Media\Models\NullCollection;
+use phpOMS\Utils\Parser\Markdown\Markdown;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
 
 /**
  * Media class.
@@ -95,20 +99,12 @@ final class ApiController extends Controller
      */
     public function apiMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /**
-         * @todo Orange-Management/Modules#202
-         *  Consider to use FormData
-         *  Form data is currently submitted in two steps if it contains media files.
-         *      1. Upload media data
-         *      2. Submit form data
-         *  Consider to use `FormData` in order to submit media files and form data at the same time.
-         */
         $uploads = $this->uploadFiles(
             $request->getData('name') ?? '',
             $request->getFiles(),
             $request->getHeader()->getAccount(),
             (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files'),
-            (string) ($request->getData('virtualPath') ?? '/'),
+            (string) ($request->getData('virtualPath') ?? ''),
             (string) ($request->getData('password') ?? ''),
             (string) ($request->getData('encrypt') ?? '')
         );
@@ -136,7 +132,7 @@ final class ApiController extends Controller
         array $files,
         int $account,
         string $basePath = 'Modules/Media/Files',
-        string $virtualPath = '/',
+        string $virtualPath = '',
         string $password = '',
         string $encryptionKey = ''
     ) : array
@@ -177,7 +173,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function createDbEntries(array $status, int $account, string $virtualPath = '/') : array
+    public function createDbEntries(array $status, int $account, string $virtualPath = '') : array
     {
         $mediaCreated = [];
 
@@ -215,7 +211,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public static function createDbEntry(array $status, int $account, string $virtualPath = '/') : ?Media
+    public static function createDbEntry(array $status, int $account, string $virtualPath = '') : ?Media
     {
         $media = null;
 
@@ -305,5 +301,44 @@ final class ApiController extends Controller
         }
 
         return $media;
+    }
+
+    /**
+     * Method to create media collection from request.
+     *
+     * @param string  $name        Collection name
+     * @param string  $description Description
+     * @param Media[] $media       Media files to create the collection from
+     * @param int     $account     Account Id
+     *
+     * @return Collection
+     *
+     * @since 1.0.0
+     */
+    public function createMediaCollectionFromMedia(string $name, string $description, array $media, int $account) : Collection
+    {
+        if (empty($media)) {
+            return new NullCollection();
+        }
+
+        // is allowed to create media file
+        if (!$this->app->accountManager->get($account)->hasPermission(
+            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, PermissionState::COLLECTION, null)
+        ) {
+            return new NullCollection();
+        }
+
+        /* Create collection */
+        $mediaCollection = new Collection();
+        $mediaCollection->setName($name);
+        $mediaCollection->setDescription(Markdown::parse($description));
+        $mediaCollection->setDescriptionRaw($description);
+        $mediaCollection->setCreatedBy($account);
+        $mediaCollection->setSources($media);
+        $mediaCollection->setVirtualPath('/Modules/Helper');
+
+        CollectionMapper::create($mediaCollection);
+
+        return $mediaCollection;
     }
 }
