@@ -15,8 +15,11 @@ declare(strict_types=1);
 namespace Modules\Media\Controller;
 
 use Modules\Admin\Models\AccountPermission;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
+use Modules\Media\Models\NullCollection;
 use Modules\Media\Models\PermissionState;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
@@ -26,10 +29,7 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\System\MimeType;
-use Modules\Media\Models\NullCollection;
 use phpOMS\Utils\Parser\Markdown\Markdown;
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\CollectionMapper;
 
 /**
  * Media class.
