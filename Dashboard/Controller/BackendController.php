@@ -68,6 +68,10 @@ final class BackendController extends Controller
         $boardComponents = $board->getComponents();
 
         foreach ($boardComponents as $component) {
+            if (!$this->app->moduleManager->isActive($component->getModule())) {
+                continue;
+            }
+
             $module = $this->app->moduleManager->get($component->getModule());
 
             if (!($module instanceof DashboardElementInterface)) {
