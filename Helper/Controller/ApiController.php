@@ -22,10 +22,7 @@ use Modules\Helper\Models\ReportMapper;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
 use Modules\Helper\Models\TemplateMapper;
-use Modules\Media\Models\Collection;
-use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\NullCollection;
-use Modules\Media\Models\PermissionState as MediaPermissionState;
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\Http\RequestStatusCode;
@@ -169,8 +166,7 @@ final class ApiController extends Controller
             $lowerPath = \strtolower($tMedia->getPath());
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
-                $language                 = \explode('.', $lowerPath)[0];
-                $tcoll['lang'][$language] = $tMedia;
+                $tcoll['lang'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php')
                 || StringUtils::endsWith($lowerPath, '.xls.php')
             ) {
@@ -227,6 +223,7 @@ final class ApiController extends Controller
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage());
         $view->addData('template', $template);
+        $view->addData('basepath', __DIR__ . '/../../../');
 
         return $view;
     }
@@ -246,8 +243,29 @@ final class ApiController extends Controller
      */
     public function apiTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $collection = $this->createMediaCollectionFromRequest($request);
-        $template   = $this->createTemplateFromRequest($request, $collection->getId());
+        $files = $this->app->moduleManager->get('Media')->uploadFiles(
+            $request->getData('name') ?? '',
+            $request->getFiles(),
+            $request->getHeader()->getAccount(),
+            __DIR__ . '/../../../Modules/Media/Files',
+            ''
+        );
+
+        $collection =  $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
+            (string) ($request->getData('name') ?? ''),
+            (string) ($request->getData('description') ?? ''),
+            $files,
+            $request->getHeader()->getAccount()
+        );
+
+        if ($collection instanceof NullCollection) {
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
+            $this->fillJsonResponse($request, $response, NotificationLevel::ERROR, 'Template', 'Couldn\'t create collection for template', null);
+
+            return;
+        }
+
+        $template = $this->createTemplateFromRequest($request, $collection->getId());
 
         $this->app->moduleManager->get('Admin')->createAccountModelPermission(
             new AccountPermission(
@@ -267,46 +285,7 @@ final class ApiController extends Controller
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Template', 'Template successfully created', $template);
     }
 
-    /**
-     * Method to create media collection from request.
-     *
-     * @param RequestAbstract $request Request
-     *
-     * @return Collection
-     *
-     * @since 1.0.0
-     */
-    private function createMediaCollectionFromRequest(RequestAbstract $request) : Collection
-    {
-        if (empty($request->getData('media-list'))) {
-            return new NullCollection();
-        }
 
-        $files = $request->getDataList('media-list');
-        foreach ($files as &$file) {
-            $file = (int) $file;
-        }
-
-        // is allowed to create media file
-        if (!$this->app->accountManager->get($request->getHeader()->getAccount())->hasPermission(
-            PermissionType::CREATE, $this->app->orgId, null, self::MODULE_NAME, MediaPermissionState::COLLECTION, null)
-        ) {
-            return new NullCollection();
-        }
-
-        /* Create collection */
-        $mediaCollection = new Collection();
-        $mediaCollection->setName((string) ($request->getData('name') ?? 'Empty'));
-        $mediaCollection->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
-        $mediaCollection->setDescriptionRaw((string) ($request->getData('description') ?? ''));
-        $mediaCollection->setCreatedBy($request->getHeader()->getAccount());
-        $mediaCollection->setSources($files);
-        $mediaCollection->setVirtualPath('/Modules/Helper');
-
-        CollectionMapper::create($mediaCollection);
-
-        return $mediaCollection;
-    }
 
     /**
      * Method to create template from request.
@@ -353,7 +332,20 @@ final class ApiController extends Controller
      */
     public function apiReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $collection = $this->createMediaCollectionFromRequest($request);
+        $files = $this->app->moduleManager->get('Media')->uploadFiles(
+            $request->getData('name') ?? '',
+            $request->getFiles(),
+            $request->getHeader()->getAccount(),
+            __DIR__ . '/../../../Modules/Media/Files',
+            ''
+        );
+
+        $collection =  $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
+            (string) ($request->getData('name') ?? ''),
+            (string) ($request->getData('description') ?? ''),
+            $files,
+            $request->getHeader()->getAccount()
+        );
 
         if ($collection instanceof NullCollection) {
             $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
