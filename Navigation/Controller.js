@@ -40,6 +40,10 @@ jsOMS.Modules.Navigation = class {
         const length = e.length;
 
         for (let i = 0; i < length; ++i) {
+            if (e[i] === null) {
+                continue;
+            }
+
             this.bindElement(e[i]);
         }
     };
