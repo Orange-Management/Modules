@@ -293,7 +293,7 @@ final class ApiController extends Controller
 
         if ($request->getData('content') !== null) {
             \file_put_contents(
-                $media->isAbsolute() ? $media->getPath() : __DIR__ . '/../../../../' . \ltrim($media->getPath(), '/'),
+                $media->isAbsolute() ? $media->getPath() : __DIR__ . '/../../../' . \ltrim($media->getPath(), '/'),
                 $request->getData('content')
             );
 

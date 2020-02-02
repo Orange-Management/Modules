@@ -122,12 +122,12 @@ echo $this->getData('nav')->render();
                     <?php else : ?>
                         <template></template><!-- todo: this is required because of selectorLength + i in Form.js = first element = add template, second element = edit element. Fix -->
                         <template>
-                            <textarea class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content" name="content"></textarea>
+                        <textarea class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content" data-marker="tpl" name="content"></textarea>
                         </template>
                         <pre class="textContent" data-tpl-text="/media/content" data-tpl-value="/media/content"><?= $this->printHtml(
-                            $this->getFileContent(
-                                $media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/')
-                            )
+                                $this->getFileContent(
+                                    $media->isAbsolute() ? $path : __DIR__ . '/../../../../' . \ltrim($path, '/')
+                                )
                         ); ?></pre>
                     <?php endif; ?>
                 <?php endif; ?>
