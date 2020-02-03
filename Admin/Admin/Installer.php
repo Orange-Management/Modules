@@ -45,6 +45,7 @@ final class Installer extends InstallerAbstract
         ]);
 
         self::installLanguages($sqlite, $dbPool);
+        self::installCurrencies($sqlite, $dbPool);
 
         $sqlite->close();
     }
@@ -78,6 +79,44 @@ final class Installer extends InstallerAbstract
                 $language['language_639_2T'],
                 $language['language_639_2B'],
                 $language['language_639_3']
+            );
+        }
+
+        $query->execute();
+    }
+
+    /**
+     * Install currencies
+     *
+     * @param SQLiteConnection $sqlite SQLLite database connection of the source data
+     * @param DatabasePool     $dbPool Database pool to save data to
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    private static function installCurrencies(SQLiteConnection $sqlite, DatabasePool $dbPool) : void
+    {
+        $con = $dbPool->get();
+
+        $query = new Builder($con);
+        $query->prefix($con->getPrefix())
+            ->insert('currency_id', 'currency_name', 'currency_char', 'currency_number', 'currency_symbol', 'currency_subunits', 'currency_decimals', 'currency_countries')
+            ->into('currency');
+
+        $querySqlite = new Builder($sqlite);
+        $currencies  = $querySqlite->select('*')->from('currency')->execute();
+
+        foreach ($currencies as $currency) {
+            $query->values(
+                $currency['currency_id'],
+                $currency['currency_name'],
+                $currency['currency_char'],
+                $currency['currency_number'],
+                $currency['currency_symbol'],
+                $currency['currency_subunits'],
+                $currency['currency_decimals'],
+                $currency['currency_countries']
             );
         }
 
