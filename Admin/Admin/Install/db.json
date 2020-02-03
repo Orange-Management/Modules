@@ -53,7 +53,7 @@
             },
             "currency_number": {
                 "name": "currency_number",
-                "type": "SMALLINT(4)",
+                "type": "VARCHAR(3)",
                 "null": false
             },
             "currency_symbol": {
@@ -68,7 +68,7 @@
             },
             "currency_decimals": {
                 "name": "currency_decimals",
-                "type": "TINYINT(3)",
+                "type": "VARCHAR(10)",
                 "null": false
             },
             "currency_subunits": {
