@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Models;
 
-use Modules\Address\Models\CountryMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\Localization\Defaults\CountryMapper;
 use phpOMS\Localization\Defaults\CurrencyMapper;
 use phpOMS\Localization\Defaults\LanguageMapper;
 
