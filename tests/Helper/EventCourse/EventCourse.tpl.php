@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -43,37 +43,37 @@ require 'Worker.php';
                     <tr>
                         <td><?= 'EventCourseInt' ?>
                         <td><?= '?' ?>
-                        <td><?= number_format($type['A'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
-                        <td><?= number_format(0.00 / $month * 12, 2) ?>
-                        <td><?= number_format(0.00, 2) ?>
+                        <td><?= \number_format($type['A'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format(0.00 / $month * 12, 2) ?>
+                        <td><?= \number_format(0.00, 2) ?>
                         <td><?= '100.00%' ?>
                     <tr>
                         <td><?= 'EventCourse' ?>
                         <td><?= '?' ?>
-                        <td><?= number_format(($type['K'][$fiscal_end->format('Y')]['value'] ?? 0) + ($type['R'][$fiscal_end->format('Y')]['value'] ?? 0) + ($type['V'][$fiscal_end->format('Y')]['value'] ?? 0), 2, ',', '.') ?>
-                        <td><?= number_format(0.00 / $month * 12, 2) ?>
-                        <td><?= number_format(0.00, 2) ?>
+                        <td><?= \number_format(($type['K'][$fiscal_end->format('Y')]['value'] ?? 0) + ($type['R'][$fiscal_end->format('Y')]['value'] ?? 0) + ($type['V'][$fiscal_end->format('Y')]['value'] ?? 0), 2, ',', '.') ?>
+                        <td><?= \number_format(0.00 / $month * 12, 2) ?>
+                        <td><?= \number_format(0.00, 2) ?>
                         <td><?= '100.00%' ?>
                     <tr>
                         <td><?= 'Demo' ?>
                         <td><?= '?' ?>
-                        <td><?= number_format($type['D'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
-                        <td><?= number_format(0.00 / $month * 12, 2) ?>
-                        <td><?= number_format(0.00, 2) ?>
+                        <td><?= \number_format($type['D'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format(0.00 / $month * 12, 2) ?>
+                        <td><?= \number_format(0.00, 2) ?>
                         <td><?= '100.00%' ?>
                     <tr>
                         <td><?= 'Briefing' ?>
                         <td><?= '?' ?>
-                        <td><?= number_format($type['E'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
-                        <td><?= number_format(0.00 / $month * 12, 2) ?>
-                        <td><?= number_format(0.00, 2) ?>
+                        <td><?= \number_format($type['E'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format(0.00 / $month * 12, 2) ?>
+                        <td><?= \number_format(0.00, 2) ?>
                         <td><?= '100.00%' ?>
                     <tr>
                         <td><?= 'Advice' ?>
                         <td><?= '?' ?>
-                        <td><?= number_format($type['B'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
-                        <td><?= number_format(0.00 / $month * 12, 2) ?>
-                        <td><?= number_format(0.00, 2) ?>
+                        <td><?= \number_format($type['B'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format(0.00 / $month * 12, 2) ?>
+                        <td><?= \number_format(0.00, 2) ?>
                         <td><?= '100.00%' ?>
                 </table>
             </div>
@@ -98,10 +98,10 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $stype ?>
-                        <td><?= (number_format($history = $type[$key][$fiscal_end_prev->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
-                        <td><?= (number_format($current = $type[$key][$fiscal_end->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
-                        <td><?= (number_format($forecast = ($type[$key][$fiscal_end->format('Y')]['value'] ?? 0.0) / abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) * 12, 2, ',', '.')) ?>
-                        <td><?= number_format($history == 0 ? 0 : 100 * ($forecast - $history) / $history, 2, ',', '.') . '%' ?>
+                        <td><?= (\number_format($history = $type[$key][$fiscal_end_prev->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
+                        <td><?= (\number_format($current = $type[$key][$fiscal_end->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
+                        <td><?= (\number_format($forecast = ($type[$key][$fiscal_end->format('Y')]['value'] ?? 0.0) / \abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) * 12, 2, ',', '.')) ?>
+                        <td><?= \number_format($history == 0 ? 0 : 100 * ($forecast - $history) / $history, 2, ',', '.') . '%' ?>
                             <?php
                             $sum_hist += $history;
                             $sum_current += $current;
@@ -110,10 +110,10 @@ require 'Worker.php';
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($sum_hist, 2, ',', '.') ?>
-                        <td><?= number_format($sum_current, 2, ',', '.') ?>
-                        <td><?= number_format($sum_forecast, 2, ',', '.') ?>
-                        <td><?= number_format($sum_hist === 0.0 ? 0 : (100 * $sum_forecast - $sum_hist) / $sum_hist, 2, ',', '.') . '%' ?>
+                        <td><?= \number_format($sum_hist, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_current, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_forecast, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_hist === 0.0 ? 0 : (100 * $sum_forecast - $sum_hist) / $sum_hist, 2, ',', '.') . '%' ?>
                 </table>
             </div>
 
@@ -137,10 +137,10 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?=  $ccDef[$key] ?>
-                        <td><?= (number_format($history = $costcenter[$key][$fiscal_end_prev->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
-                        <td><?= (number_format($current = $costcenter[$key][$fiscal_end->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
-                        <td><?= (number_format($forecast = ($costcenter[$key][$fiscal_end->format('Y')]['value'] ?? 0.0) / abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) * 12, 2, ',', '.')) ?>
-                        <td><?= number_format($history == 0 ? 0 : 100 * ($forecast - $history) / $history, 2, ',', '.') . '%' ?>
+                        <td><?= (\number_format($history = $costcenter[$key][$fiscal_end_prev->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
+                        <td><?= (\number_format($current = $costcenter[$key][$fiscal_end->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
+                        <td><?= (\number_format($forecast = ($costcenter[$key][$fiscal_end->format('Y')]['value'] ?? 0.0) / \abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) * 12, 2, ',', '.')) ?>
+                        <td><?= \number_format($history == 0 ? 0 : 100 * ($forecast - $history) / $history, 2, ',', '.') . '%' ?>
                             <?php
                             $sum_hist += $history;
                             $sum_current += $current;
@@ -149,10 +149,10 @@ require 'Worker.php';
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($sum_hist, 2, ',', '.') ?>
-                        <td><?= number_format($sum_current, 2, ',', '.') ?>
-                        <td><?= number_format($sum_forecast, 2, ',', '.') ?>
-                        <td><?= number_format($sum_hist === 0.0 ? 0 : 100 * ($sum_forecast - $sum_hist) / $sum_hist, 2, ',', '.') . '%' ?>
+                        <td><?= \number_format($sum_hist, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_current, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_forecast, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_hist === 0.0 ? 0 : 100 * ($sum_forecast - $sum_hist) / $sum_hist, 2, ',', '.') . '%' ?>
                 </table>
             </div>
 
@@ -176,10 +176,10 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?=  $acDef[$key] ?>
-                        <td><?= (number_format($history = $account[$key][$fiscal_end_prev->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
-                        <td><?= (number_format($current = $account[$key][$fiscal_end->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
-                        <td><?= (number_format($forecast = ($account[$key][$fiscal_end->format('Y')]['value'] ?? 0.0) / abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) * 12, 2, ',', '.')) ?>
-                        <td><?= number_format($history == 0 ? 0 : 100 * ($forecast - $history) / $history, 2, ',', '.') . '%' ?>
+                        <td><?= (\number_format($history = $account[$key][$fiscal_end_prev->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
+                        <td><?= (\number_format($current = $account[$key][$fiscal_end->format('Y')]['value'] ?? 0.0, 2, ',', '.')) ?>
+                        <td><?= (\number_format($forecast = ($account[$key][$fiscal_end->format('Y')]['value'] ?? 0.0) / \abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) * 12, 2, ',', '.')) ?>
+                        <td><?= \number_format($history == 0 ? 0 : 100 * ($forecast - $history) / $history, 2, ',', '.') . '%' ?>
                             <?php
                             $sum_hist += $history;
                             $sum_current += $current;
@@ -188,10 +188,10 @@ require 'Worker.php';
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($sum_hist, 2, ',', '.') ?>
-                        <td><?= number_format($sum_current, 2, ',', '.') ?>
-                        <td><?= number_format($sum_forecast, 2, ',', '.') ?>
-                        <td><?= number_format($sum_hist === 0.0 ? 0 : 100 * ($sum_forecast - $sum_hist) / $sum_hist, 2, ',', '.') . '%' ?>
+                        <td><?= \number_format($sum_hist, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_current, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_forecast, 2, ',', '.') ?>
+                        <td><?= \number_format($sum_hist === 0.0 ? 0 : 100 * ($sum_forecast - $sum_hist) / $sum_hist, 2, ',', '.') . '%' ?>
                 </table>
             </div>
         </div>
@@ -209,18 +209,18 @@ require 'Worker.php';
                     <tbody>
                     <?php
                     foreach ($costobject as $key => $co) :
-                    if (strrpos($key, 'K', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) : ?>
+                    if (\strrpos($key, 'K', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) : ?>
                     <tr>
                         <td><?= $key ?>
                         <td>
                         <td><?= $coDef[$key] ?? '' ?>
-                        <td><?= number_format($co[$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($co[$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                             <?php endif; endforeach; ?>
                     <tr>
                         <td>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($type['K'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($type['K'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
 
@@ -238,12 +238,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $ccDef[$key] ?? '' ?>
-                        <td><?= number_format($stype, 2, ',', '.') ?>
+                        <td><?= \number_format($stype, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($type['K'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($type['K'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
 
@@ -261,12 +261,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $acDef[$key] ?? '' ?>
-                        <td><?= number_format($stype, 2, ',', '.') ?>
+                        <td><?= \number_format($stype, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($type['K'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($type['K'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
         </div>
@@ -286,12 +286,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $acDef[$key] ?? '' ?>
-                        <td><?= number_format($co, 2, ',', '.') ?>
+                        <td><?= \number_format($co, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($costobject['K152333'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($costobject['K152333'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
 
@@ -309,12 +309,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $ccDef[$key] ?? '' ?>
-                        <td><?= number_format($co, 2, ',', '.') ?>
+                        <td><?= \number_format($co, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($costobject['K152333'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($costobject['K152333'][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
         </div>
@@ -334,12 +334,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $acDef[$key] ?? '' ?>
-                        <td><?= number_format($ac, 2, ',', '.') ?>
+                        <td><?= \number_format($ac, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($costcenter[241][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($costcenter[241][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
 
@@ -357,12 +357,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $types[$key] ?? '' ?>
-                        <td><?= number_format($co, 2, ',', '.') ?>
+                        <td><?= \number_format($co, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($costcenter[241][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($costcenter[241][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
 
@@ -380,12 +380,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $coDef[$key] ?? '' ?>
-                        <td><?= number_format($co, 2, ',', '.') ?>
+                        <td><?= \number_format($co, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($costcenter[241][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($costcenter[241][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
         </div>
@@ -405,12 +405,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $types[$key] ?? '' ?>
-                        <td><?= number_format($stype, 2, ',', '.') ?>
+                        <td><?= \number_format($stype, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($account[4480][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($account[4480][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
 
@@ -428,12 +428,12 @@ require 'Worker.php';
                     <tr>
                         <td><?= $key ?>
                         <td><?= $ccDef[$key] ?? '' ?>
-                        <td><?= number_format($cc, 2, ',', '.') ?>
+                        <td><?= \number_format($cc, 2, ',', '.') ?>
                             <?php endforeach; ?>
                     <tr>
                         <td>
                         <td><?= 'Total' ?>
-                        <td><?= number_format($account[4480][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
+                        <td><?= \number_format($account[4480][$fiscal_end->format('Y')]['value'] ?? 0, 2, ',', '.') ?>
                 </table>
             </section>
         </div>

@@ -16,20 +16,14 @@ namespace Modules\tests\Helper;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountPermission;
-use Modules\Helper\Models\TemplateDataType;
-use Modules\Media\Models\UploadStatus;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Localization\Localization;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
-use phpOMS\Uri\Http;
 use phpOMS\Utils\TestUtils;
 
 require_once __DIR__ . '/../Autoloader.php';

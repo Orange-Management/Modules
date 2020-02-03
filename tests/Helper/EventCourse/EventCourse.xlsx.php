@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 require 'Worker.php';
 $lang = $this->getData('lang');
 
-date_default_timezone_set('Europe/London');
+\date_default_timezone_set('Europe/London');
 
 // Create new PHPExcel object
 $excel = new \phpOMS\Utils\Excel\Excel();
@@ -229,7 +229,7 @@ $excel->getActiveSheet()
     ->setCellValue('F' . $i, $lang['Budget'])
     ->setCellValue('G' . $i, $lang['DiffBudget%']);
 
-$i += 1;
+++$i;
 $start = $i;
 foreach ($types as $key => $stype) {
     $excel->getActiveSheet()
@@ -237,11 +237,11 @@ foreach ($types as $key => $stype) {
         ->setCellValue('B' . $i, $stype)
         ->setCellValue('C' . $i, (isset($type[$key][$fiscal_end_prev->format('Y')]['value']) ? $type[$key][$fiscal_end_prev->format('Y')]['value'] : 0.0))
         ->setCellValue('D' . $i, (isset($type[$key][$fiscal_end->format('Y')]['value']) ? $type[$key][$fiscal_end->format('Y')]['value'] : 0.0))
-        ->setCellValue('E' . $i, '=D' . $i . '/' . abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) . '*12')
+        ->setCellValue('E' . $i, '=D' . $i . '/' . \abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) . '*12')
         ->setCellValue('F' . $i, $budget[$key])
         ->setCellValue('G' . $i, '=(E' . $i . '-F' . $i . ')/F' . $i);
 
-    $i++;
+    ++$i;
 }
 
 $excel->getActiveSheet()
@@ -265,7 +265,7 @@ $excel->getActiveSheet()
     ->setCellValue('E' . $i, $lang['Forecast'])
     ->setCellValue('F' . $i, $lang['DiffHistory%']);
 
-$i += 1;
+++$i;
 $start = $i;
 foreach ($costcenter as $key => $cc) {
     $excel->getActiveSheet()
@@ -273,10 +273,10 @@ foreach ($costcenter as $key => $cc) {
         ->setCellValue('B' . $i, $ccDef[$key])
         ->setCellValue('C' . $i, (isset($costcenter[$key][$fiscal_end_prev->format('Y')]['value']) ? $costcenter[$key][$fiscal_end_prev->format('Y')]['value'] : 0.0))
         ->setCellValue('D' . $i, (isset($costcenter[$key][$fiscal_end->format('Y')]['value']) ? $costcenter[$key][$fiscal_end->format('Y')]['value'] : 0.0))
-        ->setCellValue('E' . $i, '=D' . $i . '/' . abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) . '*12')
+        ->setCellValue('E' . $i, '=D' . $i . '/' . \abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) . '*12')
         ->setCellValue('F' . $i, '=(E' . $i . '-C' . $i . ')/C' . $i);
 
-    $i++;
+    ++$i;
 }
 
 $excel->getActiveSheet()
@@ -299,7 +299,7 @@ $excel->getActiveSheet()
     ->setCellValue('E' . $i, $lang['Forecast'])
     ->setCellValue('F' . $i, $lang['DiffHistory%']);
 
-$i += 1;
+++$i;
 $start = $i;
 foreach ($account as $key => $ac) {
     $excel->getActiveSheet()
@@ -307,10 +307,10 @@ foreach ($account as $key => $ac) {
         ->setCellValue('B' . $i, $acDef[$key])
         ->setCellValue('C' . $i, (isset($account[$key][$fiscal_end_prev->format('Y')]['value']) ? $account[$key][$fiscal_end_prev->format('Y')]['value'] : 0.0))
         ->setCellValue('D' . $i, (isset($account[$key][$fiscal_end->format('Y')]['value']) ? $account[$key][$fiscal_end->format('Y')]['value'] : 0.0))
-        ->setCellValue('E' . $i, '=D' . $i . '/' . abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) . '*12')
+        ->setCellValue('E' . $i, '=D' . $i . '/' . \abs(((int) $fiscal_current->format('m') - ((int) $fiscal_end->format('m') + 1)) % 12 + 1) . '*12')
         ->setCellValue('F' . $i, '=(E' . $i . '-C' . $i . ')/C' . $i);
 
-    $i++;
+    ++$i;
 }
 
 $excel->getActiveSheet()
@@ -382,7 +382,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'B', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'B', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -393,7 +393,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -410,25 +410,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['B']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -455,7 +455,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Advice');
@@ -489,7 +489,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'D', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'D', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -500,7 +500,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -517,25 +517,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['D']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -562,7 +562,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Demo');
@@ -597,7 +597,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'E', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'E', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -608,7 +608,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -619,25 +619,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['E']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -664,7 +664,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Briefing & Training');
@@ -699,7 +699,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'I', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'I', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -710,7 +710,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -721,25 +721,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['I']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -766,7 +766,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('IMPLA');
@@ -801,7 +801,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'M', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'M', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -812,7 +812,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -823,25 +823,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['M']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -868,7 +868,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Marketing Support');
@@ -903,7 +903,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'P', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'P', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -914,7 +914,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -925,25 +925,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['P']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -970,7 +970,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Promotion');
@@ -1005,7 +1005,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'S', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'S', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -1016,7 +1016,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -1027,25 +1027,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['S']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -1072,7 +1072,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Roadshow');
@@ -1107,7 +1107,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if (strrpos($key, 'U', -strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if (\strrpos($key, 'U', -\strlen($key)) !== false && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -1118,7 +1118,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -1129,25 +1129,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['U']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -1174,7 +1174,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Additional Support');
@@ -1209,7 +1209,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if ((strrpos($key, 'A', -strlen($key)) !== false || $key === '') && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if ((\strrpos($key, 'A', -\strlen($key)) !== false || $key === '') && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -1220,7 +1220,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -1231,25 +1231,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . $budget['A']);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -1276,7 +1276,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Export Courses');
@@ -1311,7 +1311,7 @@ $excel->getActiveSheet()
 
 $i = $start = 6;
 foreach ($costobject as $key => $co) {
-    if ((strrpos($key, 'K', -strlen($key)) !== false || strrpos($key, 'V', -strlen($key)) !== false || strrpos($key, 'R', -strlen($key)) !== false) && isset($co[$fiscal_end->format('Y')]['value'])) {
+    if ((\strrpos($key, 'K', -\strlen($key)) !== false || \strrpos($key, 'V', -\strlen($key)) !== false || \strrpos($key, 'R', -\strlen($key)) !== false) && isset($co[$fiscal_end->format('Y')]['value'])) {
         $excel->getActiveSheet()
             ->setCellValue('A' . $i, '=MID(B' . $i . ', 1, 1)')
             ->setCellValue('B' . $i, $key)
@@ -1322,7 +1322,7 @@ foreach ($costobject as $key => $co) {
             ->setCellValue('G' . $i, 0.0)
             ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-        $i++;
+        ++$i;
     }
 }
 
@@ -1333,25 +1333,25 @@ $excel->getActiveSheet()
     ->setCellValue('G' . $i, '=SUM(G' . $start . ':G' . ($i - 1) . ')')
     ->setCellValue('H' . $i, '=F' . $i . '+G' . $i);
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Forecast'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '/(1+MOD(MONTH($H$3)-(MONTH($E$3)+1),12))*12');
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Budget'])
     ->setCellValue('H' . $i, '=' . ($budget['K'] + $budget['R'] + $budget['V']));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['Remaining'])
     ->setCellValue('H' . $i, '=H' . ($i - 1) . '-H' . ($i - 3));
 
-$i++;
+++$i;
 $excel->getActiveSheet()
     ->mergeCells('A' . $i . ':G' . $i)
     ->setCellValue('A' . $i, $lang['RemainingForecast'])
@@ -1378,7 +1378,7 @@ $excel->getActiveSheet()
     ->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
 $conditionalStyles = $excel->getActiveSheet()->getStyle('H' . $i)->getConditionalStyles();
-array_push($conditionalStyles, $badBudget);
+\array_push($conditionalStyles, $badBudget);
 $excel->getActiveSheet()->getStyle('H' . $i)->setConditionalStyles($conditionalStyles);
 
 $excel->getActiveSheet()->setTitle('Events & Courses');

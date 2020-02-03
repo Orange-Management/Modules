@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $fiscal_end        = new \phpOMS\Stdlib\Base\SmartDateTime('2016/06/30');
 $fiscal_current    = new \phpOMS\Stdlib\Base\SmartDateTime('2015/09/30');
 $fiscal_start      = new \phpOMS\Stdlib\Base\SmartDateTime('2015/07/01');
@@ -15,35 +15,35 @@ $courseList = [];
 $month      = 1;
 
 if (($path = \realpath($oPath = __DIR__ . '/' . $rcoll['crm.csv']->getPath())) !== false) {
-    $file = fopen($path, 'r');
-    while (($line = fgetcsv($file, 0, ';', '"')) !== false) {
+    $file = \fopen($path, 'r');
+    while (($line = \fgetcsv($file, 0, ';', '"')) !== false) {
         $courseList[$line[0]] = $line;
     }
-    fclose($file);
+    \fclose($file);
 }
 
 if (($path = \realpath($oPath = __DIR__ . '/' . $rcoll['accounts.csv']->getPath())) !== false) {
-    $file = fopen($path, 'r');
-    while (($line = fgetcsv($file, 0, ';', '"')) !== false) {
+    $file = \fopen($path, 'r');
+    while (($line = \fgetcsv($file, 0, ';', '"')) !== false) {
         $acDef[$line[0]] = $line[1];
     }
-    fclose($file);
+    \fclose($file);
 }
 
 if (($path = \realpath($oPath = __DIR__ . '/' . $rcoll['costcenters.csv']->getPath())) !== false) {
-    $file = fopen($path, 'r');
-    while (($line = fgetcsv($file, 0, ';', '"')) !== false) {
+    $file = \fopen($path, 'r');
+    while (($line = \fgetcsv($file, 0, ';', '"')) !== false) {
         $ccDef[$line[0]] = $line[1];
     }
-    fclose($file);
+    \fclose($file);
 }
 
 if (($path = \realpath($oPath = __DIR__ . '/' . $rcoll['costobjects.csv']->getPath())) !== false) {
-    $file = fopen($path, 'r');
-    while (($line = fgetcsv($file, 0, ';', '"')) !== false) {
+    $file = \fopen($path, 'r');
+    while (($line = \fgetcsv($file, 0, ';', '"')) !== false) {
         $coDef[$line[0]] = $line[1];
     }
-    fclose($file);
+    \fclose($file);
 }
 
 $accounts = [
@@ -74,8 +74,8 @@ $costobject = [];
 $total = [];
 
 if (($path = \realpath($oPath = __DIR__ . '/' . $rcoll['entries.csv']->getPath())) !== false) {
-    $file = fopen($path, 'r');
-    while (($line = fgetcsv($file, 0, ',', '"')) !== false) {
+    $file = \fopen($path, 'r');
+    while (($line = \fgetcsv($file, 0, ',', '"')) !== false) {
         if (\in_array($line[10], $accounts)) {
             $date  = new \phpOMS\Stdlib\Base\SmartDateTime($line[0]);
             $year  = (int) $date->format('Y');
@@ -194,5 +194,5 @@ if (($path = \realpath($oPath = __DIR__ . '/' . $rcoll['entries.csv']->getPath()
             $total[$fiscal_year] += $val;
         }
     }
-    fclose($file);
+    \fclose($file);
 }
