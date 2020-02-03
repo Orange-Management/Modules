@@ -65,7 +65,7 @@ class Installer extends InstallerAbstract
 
         $query = new Builder($con);
         $query->prefix($con->getPrefix())
-            ->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_codenum')
+            ->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_numeric')
             ->into('country');
 
         $querySqlite = new Builder($sqlite);

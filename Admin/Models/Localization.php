@@ -26,4 +26,23 @@ use phpOMS\Localization\Localization as FrameworkLocalization;
  */
 class Localization extends FrameworkLocalization
 {
+    /**
+     * Country id.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $id = 0;
+
+    /**
+     * Get id
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
+    }
 }

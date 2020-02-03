@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Address\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\Localization\Defaults\CountryMapper;
 
 /**
  * Address mapper class.

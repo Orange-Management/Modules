@@ -29,8 +29,8 @@
                 "type": "VARCHAR(3)",
                 "null": false
             },
-            "country_codenum": {
-                "name": "country_codenum",
+            "country_numeric": {
+                "name": "country_numeric",
                 "type": "INT(11)",
                 "null": false
             }
