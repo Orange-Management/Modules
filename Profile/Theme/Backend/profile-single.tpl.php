@@ -17,6 +17,7 @@ use phpOMS\Uri\UriFactory;
 
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Profile\Models\Profile $account
  */
 $account  = $this->getData('account');
 $settings = $this->getData('settings') ?? [];
@@ -79,34 +80,42 @@ echo $this->getData('nav')->render();
                                             <td itemprop="jobTitle">Sailor
                                         <tr>
                                             <th><?= $this->getHtml('Birthday') ?>
-                                            <td itemprop="birthDate" itemprop="foundingDate">06.09.1934
-                                        <tr>
-                                            <th><?= $this->getHtml('Ranks') ?>
-                                            <td itemprop="memberOf">Gosling
+                                            <td itemprop="birthDate" itemprop="foundingDate"><?= $account->getBirthday()->format('Y-m-d'); ?>
                                         <tr>
                                             <th><?= $this->getHtml('Email') ?>
                                             <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $this->printHtml($account->getAccount()->getEmail()); ?></a>
                                         <tr>
-                                            <th>Address
+                                            <th><?= $this->getHtml('Address') ?>
                                             <td>
+                                        <?php
+                                            $locations = $account->getLocation();
+                                            if (empty($locations)) :
+                                        ?>
+                                        <tr>
+                                            <th>
+                                            <td>No address specified
+                                        <?php endif; ?>
+                                        <?php foreach ($locations as $location) : ?>
                                         <tr>
                                             <th class="vT">Private
                                             <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
+                                        <?php endforeach; ?>
                                         <tr>
-                                            <th class="vT">Work
-                                            <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
-                                        <tr>
-                                            <th><?= $this->getHtml('Phone') ?>
+                                            <th><?= $this->getHtml('Contact') ?>
                                             <td>
+                                            <?php
+                                            $contacts = $account->getContactElements();
+                                            if (empty($contacts)) :
+                                        ?>
+                                        <tr>
+                                            <th>
+                                            <td>No contact specified
+                                        <?php endif; ?>
+                                        <?php foreach ($contacts as $location) : ?>
                                         <tr>
                                             <th>Private
                                             <td itemprop="telephone">+01 12345-4567
-                                        <tr>
-                                            <th>Mobile
-                                            <td itemprop="telephone">+01 12345-4567
-                                        <tr>
-                                            <th>Work
-                                            <td itemprop="telephone">+01 12345-4567
+                                        <?php endforeach; ?>
                                         <tr>
                                             <th><?= $this->getHtml('Registered') ?>
                                             <td><?= $this->printHtml($account->getAccount()->getCreatedAt()->format('Y-m-d')); ?>
@@ -115,7 +124,7 @@ echo $this->getData('nav')->render();
                                             <td><?= $this->printHtml($account->getAccount()->getLastActive()->format('Y-m-d')); ?>
                                         <tr>
                                             <th><?= $this->getHtml('Status') ?>
-                                            <td><span class="tag green"><?= $this->printHtml($account->getAccount()->getStatus()); ?></span>
+                                            <td><span class="tag green"><?= $this->getHtml(':s' . $account->getAccount()->getStatus(), 'Admin'); ?></span>
                                     </table>
                                     <!-- @formatter:on -->
                         </div>

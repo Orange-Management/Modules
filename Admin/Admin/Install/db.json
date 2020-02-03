@@ -36,6 +36,48 @@
             }
         }
     },
+    "currency": {
+        "name": "currency",
+        "fields": {
+            "currency_id": {
+                "name": "currency_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "currency_name": {
+                "name": "currency_name",
+                "type": "VARCHAR(100)",
+                "null": false
+            },
+            "currency_num": {
+                "name": "currency_num",
+                "type": "VARCHAR(3)",
+                "null": false
+            },
+            "currency_symbol": {
+                "name": "currency_symbol",
+                "type": "VARCHAR(5)",
+                "null": false
+            },
+            "currency_char": {
+                "name": "currency_char",
+                "type": "VARCHAR(3)",
+                "null": false
+            },
+            "currency_decimals": {
+                "name": "currency_decimals",
+                "type": "TINYINT(3)",
+                "null": false
+            },
+            "currency_subunits": {
+                "name": "currency_subunits",
+                "type": "TINYINT(3)",
+                "null": false
+            }
+        }
+    },
     "group": {
         "name": "group",
         "fields": {
@@ -155,18 +197,32 @@
             },
             "l11n_country": {
                 "name": "l11n_country",
-                "type": "VARCHAR(20)",
-                "null": false
+                "type": "INT(11)",
+                "default": null,
+                "null": true,
+                "foreignTable": "country",
+                "foreignKey": "country_id"
             },
             "l11n_language": {
                 "name": "l11n_language",
-                "type": "VARCHAR(20)",
+                "type": "INT(11)",
+                "default": null,
+                "null": true,
+                "foreignTable": "language",
+                "foreignKey": "language_id"
+            },
+            "l11n_datetime": {
+                "name": "l11n_datetime",
+                "type": "INT(11)",
                 "null": false
             },
             "l11n_currency": {
                 "name": "l11n_currency",
-                "type": "VARCHAR(20)",
-                "null": false
+                "type": "INT(11)",
+                "default": null,
+                "null": true,
+                "foreignTable": "currency",
+                "foreignKey": "currency_id"
             },
             "l11n_number_thousand": {
                 "name": "l11n_number_thousand",

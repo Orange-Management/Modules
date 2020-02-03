@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Profile\Models;
 
 /**
- * Account class.
+ * Contact element class.
  *
  * @package Modules\Profile\Models
  * @license OMS License 1.0
@@ -35,12 +35,12 @@ class ContactElement
     private int $type = 0;
 
     /**
-     * Description.
+     * Content.
      *
      * @var string
      * @since 1.0.0
      */
-    private string $description = '';
+    private string $content = '';
 
     /**
      * Get id.
@@ -81,28 +81,28 @@ class ContactElement
     }
 
     /**
-     * Get description
+     * Get content
      *
      * @return string
      *
      * @since 1.0.0
      */
-    public function getDescription() : string
+    public function getContent() : string
     {
-        return $this->description;
+        return $this->content;
     }
 
     /**
-     * Set description
+     * Set content
      *
-     * @param string $description Description
+     * @param string $content Content
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setDescription(string $description) : void
+    public function setContent(string $content) : void
     {
-        $this->description = $description;
+        $this->content = $content;
     }
 }

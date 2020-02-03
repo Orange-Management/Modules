@@ -72,6 +72,14 @@ class Profile implements \JsonSerializable
     protected array $location = [];
 
     /**
+     * Contact data.
+     *
+     * @var ContactElements[]
+     * @since 1.0.0
+     */
+    protected array $contactElements = [];
+
+    /**
      * Constructor.
      *
      * @param null|Account $account Account to initialize this profile with
@@ -121,6 +129,32 @@ class Profile implements \JsonSerializable
     public function addLocation(Location $location) : void
     {
         $this->location[] = $location;
+    }
+
+    /**
+     * Get account contact element.
+     *
+     * @return Location[]
+     *
+     * @since 1.0.0
+     */
+    public function getContactElements() : array
+    {
+        return $this->contactElements;
+    }
+
+    /**
+     * Add contact element.
+     *
+     * @param ContactElements $contactElements Contact Element
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function addContactElements(Location $contactElements) : void
+    {
+        $this->contactElements[] = $contactElements;
     }
 
     /**

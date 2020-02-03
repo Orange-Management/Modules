@@ -72,6 +72,12 @@ final class ProfileMapper extends DataMapperAbstract
             'dst'    => 'profile_address_address',
             'src'    => 'profile_address_profile',
         ],
+        'contactElements' => [
+            'mapper' => ContactElementMapper::class,
+            'table'  => 'profile_contactelement',
+            'src'    => null,
+            'dst'    => 'profile_contactelement_contact',
+        ],
     ];
 
     /**

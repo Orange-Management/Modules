@@ -14,6 +14,10 @@ declare(strict_types=1);
 
 return [
     'Admin' => [
+        ':s1'                => 'Active',
+        ':s2'                => 'Inactive',
+        ':s3'                => 'Timeout',
+        ':s4'                => 'Banned',
         'Account'            => 'Account',
         'Account/Group'      => 'Account/Group',
         'Accounts'           => 'Accounts',

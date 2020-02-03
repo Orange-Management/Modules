@@ -21,6 +21,7 @@ return ['Profile' => [
     'Birthday'           => 'Birthday',
     'City'               => 'City',
     'Community'          => 'Community',
+    'Contact'            => 'Contact',
     'ContactInformation' => 'Contact Information',
     'Country'            => 'Country',
     'CreateProfile'      => 'Create Profile',

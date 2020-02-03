@@ -39,7 +39,6 @@ echo $this->getData('nav')->render(); ?>
                 <form action="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
-                        <?php if (\count($reportLanguage) > 1) : ?>
                         <tr>
                             <td><label for="iLang"><?= $this->getHtml('Language'); ?></label>
                         <tr>
@@ -48,7 +47,6 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml($key); ?>"<?= $this->printHtml($key === $cLang ? ' selected' : ''); ?>><?= $this->printHtml($language[':language']); ?>
                                     <?php endforeach; ?>
                                 </select>
-                        <?php endif; ?>
                         <?php if (!$template->isStandalone()) : ?><tr>
                             <td><label for="iReport"><?= $this->getHtml('Report'); ?></label>
                         <tr>
