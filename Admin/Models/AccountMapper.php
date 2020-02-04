@@ -51,11 +51,19 @@ final class AccountMapper extends DataMapperAbstract
     ];
 
     /**
-     * Has many relation.
+     * Has one relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array<string, string>>
      * @since 1.0.0
-     */    /**
+     */
+    protected static array $ownsOne = [
+        'localization'  => [
+            'mapper' => LocalizationMapper::class,
+            'src'    => 'account_localization',
+        ],
+    ];
+
+    /**
      * Has many relation.
      *
      * @var array<string, array<string, null|string>>

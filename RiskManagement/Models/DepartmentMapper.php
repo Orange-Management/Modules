@@ -56,11 +56,6 @@ final class DepartmentMapper extends DataMapperAbstract
     protected static string $primaryField = 'riskmngmt_department_id';
 
     /**
-     * Has one relation.
-     *
-     * @var array<string, array<string, string>>
-     * @since 1.0.0
-     */    /**
      * Belongs to.
      *
      * @var array<string, array<string, string>>
