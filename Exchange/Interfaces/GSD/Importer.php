@@ -85,12 +85,13 @@ final class Importer extends ImporterAbstract
         $end   = new \DateTime($request->getData('end') ?? 'now');
 
         $this->remote = ConnectionFactory::create([
-            'db'       => $request->getData('db') ?? '',
-            'host'     => $request->getData('host') ?? '',
+            'db'       => (string) ($request->getData('db') ?? ''),
+            'host'     => (string) ($request->getData('host') ?? ''),
             'port'     => (int) ($request->getData('port') ?? 0),
-            'database' => $request->getData('database') ?? '',
-            'login'    => $request->getData('login') ?? '',
-            'password' => $request->getData('password') ?? '',
+            'database' => (string) ($request->getData('database') ?? ''),
+            'login'    => (string) ($request->getData('login') ?? ''),
+            'password' => (string) ($request->getData('password') ?? ''),
+            'prefix'   => '',
         ]);
 
         if ($this->remote->getStatus() !== DatabaseStatus::OK) {

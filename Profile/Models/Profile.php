@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Profile\Models;
 
 use Modules\Admin\Models\Account;
+use Modules\Profile\Models\ContactElement;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
@@ -74,7 +75,7 @@ class Profile implements \JsonSerializable
     /**
      * Contact data.
      *
-     * @var ContactElements[]
+     * @var ContactElement[]
      * @since 1.0.0
      */
     protected array $contactElements = [];
@@ -134,7 +135,7 @@ class Profile implements \JsonSerializable
     /**
      * Get account contact element.
      *
-     * @return Location[]
+     * @return ContactElement[]
      *
      * @since 1.0.0
      */
@@ -146,13 +147,13 @@ class Profile implements \JsonSerializable
     /**
      * Add contact element.
      *
-     * @param ContactElements $contactElements Contact Element
+     * @param ContactElement $contactElements Contact Element
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addContactElements(Location $contactElements) : void
+    public function addContactElements(ContactElement $contactElements) : void
     {
         $this->contactElements[] = $contactElements;
     }

@@ -32,6 +32,12 @@ class ContactElement
      */
     protected int $id = 0;
 
+    /**
+     * Contact element type.
+     *
+     * @var int
+     * @since 1.0.0
+     */
     private int $type = 0;
 
     /**

@@ -64,9 +64,10 @@ final class ApiController extends Controller
      */
     public function apiQueryExecute(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $config = $this->createDbConfigFromRequest($request);
-        $con    = ConnectionFactory::create($config);
-        $buider = new Builder($con);
+        /** @var array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string} $config */
+        $config  = $this->createDbConfigFromRequest($request);
+        $con     = ConnectionFactory::create($config);
+        $builder = new Builder($con);
         $builder->raw($request->getData('query') ?? '');
 
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute());
@@ -87,6 +88,7 @@ final class ApiController extends Controller
      */
     public function apiConnectionTest(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        /** @var array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string} $config */
         $config = $this->createDbConfigFromRequest($request);
         $con    = ConnectionFactory::create($config);
 

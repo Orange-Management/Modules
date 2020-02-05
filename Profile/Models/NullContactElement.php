@@ -22,6 +22,6 @@ namespace Modules\Profile\Models;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class NullContactElement implements ContactElement
+class NullContactElement extends ContactElement
 {
 }
