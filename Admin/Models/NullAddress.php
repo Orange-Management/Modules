@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Address\Admin
+ * @package   Modules\Admin\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,18 +12,16 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Address\Admin;
-
-use phpOMS\Module\StatusAbstract;
+namespace Modules\Admin\Models;
 
 /**
- * Navigation class.
+ * Null model
  *
- * @package Modules\Address\Admin
+ * @package Modules\Admin\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class Status extends StatusAbstract
+final class NullAddress extends Address
 {
 }

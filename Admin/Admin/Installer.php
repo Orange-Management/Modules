@@ -44,10 +44,46 @@ final class Installer extends InstallerAbstract
             'database' => __DIR__ . '/../../../phpOMS/Localization/Defaults/localization.sqlite',
         ]);
 
+        self::installCountries($sqlite, $dbPool);
         self::installLanguages($sqlite, $dbPool);
         self::installCurrencies($sqlite, $dbPool);
 
         $sqlite->close();
+    }
+
+    /**
+     * Install countries
+     *
+     * @param SQLiteConnection $sqlite SQLLite database connection of the source data
+     * @param DatabasePool     $dbPool Database pool to save data to
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    private static function installCountries(SQLiteConnection $sqlite, DatabasePool $dbPool) : void
+    {
+        $con = $dbPool->get();
+
+        $query = new Builder($con);
+        $query->prefix($con->getPrefix())
+            ->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_numeric')
+            ->into('country');
+
+        $querySqlite = new Builder($sqlite);
+        $countries   = $querySqlite->select('*')->from('country')->execute();
+
+        foreach ($countries as $country) {
+            $query->values(
+                $country['country_name'],
+                $country['country_name'],
+                $country['country_code2'],
+                $country['country_code3'],
+                $country['country_numeric']
+            );
+        }
+
+        $query->execute();
     }
 
     /**

@@ -20,9 +20,9 @@ use Modules\Accounting\Models\CostCenterMapper;
 use Modules\Accounting\Models\CostObject;
 use Modules\Accounting\Models\CostObjectMapper;
 use Modules\ClientManagement\Models\ClientMapper;
-use Modules\Exchange\Interfaces\OMS\Model\ExchangeType;
-
+use Modules\Exchange\Models\ExchangeType;
 use Modules\Exchange\Models\ImporterAbstract;
+
 use phpOMS\Message\RequestAbstract;
 
 /**

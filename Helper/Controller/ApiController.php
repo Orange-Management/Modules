@@ -256,7 +256,7 @@ final class ApiController extends Controller
             );
         }
 
-        $collection =  $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
+        $collection = $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
             (string) ($request->getData('name') ?? ''),
             (string) ($request->getData('description') ?? ''),
             $files,
@@ -345,7 +345,7 @@ final class ApiController extends Controller
             ''
         );
 
-        $collection =  $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
+        $collection = $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
             (string) ($request->getData('name') ?? ''),
             (string) ($request->getData('description') ?? ''),
             $files,

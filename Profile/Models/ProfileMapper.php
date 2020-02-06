@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Profile\Models;
 
-use Modules\Address\Models\AddressMapper;
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\AddressMapper;
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 

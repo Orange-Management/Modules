@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Address\Models
+ * @package   Modules\Admin\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Address\Models;
+namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Localization\Defaults\CountryMapper;
@@ -20,7 +20,7 @@ use phpOMS\Localization\Defaults\CountryMapper;
 /**
  * Address mapper class.
  *
- * @package Modules\Address\Models
+ * @package Modules\Admin\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
