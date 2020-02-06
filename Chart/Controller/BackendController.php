@@ -69,7 +69,7 @@ final class BackendController extends Controller
      */
     public function viewChartCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004101001, $request, $response));
 
@@ -90,7 +90,7 @@ final class BackendController extends Controller
      */
     public function viewChartCreateLine(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create-line');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004101001, $request, $response));
 
@@ -111,7 +111,7 @@ final class BackendController extends Controller
      */
     public function viewChartCreateArea(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-create-area');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004101001, $request, $response));
 
@@ -132,7 +132,7 @@ final class BackendController extends Controller
      */
     public function viewChartList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Chart/Theme/Backend/chart-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004101001, $request, $response));
 

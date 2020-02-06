@@ -39,7 +39,7 @@ final class BackendController extends Controller implements DashboardElementInte
      */
     public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
 
@@ -63,7 +63,7 @@ final class BackendController extends Controller implements DashboardElementInte
      */
     public function viewPrivateDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/private-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006303001, $request, $response));
 
@@ -98,7 +98,7 @@ final class BackendController extends Controller implements DashboardElementInte
      */
     public function viewPrivateSession(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/private-session');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006303001, $request, $response));
 
@@ -128,7 +128,7 @@ final class BackendController extends Controller implements DashboardElementInte
      */
     public function viewHRStats(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/HumanResourceTimeRecording/Theme/Backend/hr-stats');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006301001, $request, $response));
 

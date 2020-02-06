@@ -47,7 +47,7 @@ final class BackendController extends Controller
      */
     public function viewAuditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/audit-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
@@ -71,7 +71,7 @@ final class BackendController extends Controller
      */
     public function viewAuditorSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/audit-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
@@ -95,7 +95,7 @@ final class BackendController extends Controller
      */
     public function viewAuditorModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/module-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
@@ -119,7 +119,7 @@ final class BackendController extends Controller
      */
     public function viewAuditorModuleSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/module-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
@@ -143,7 +143,7 @@ final class BackendController extends Controller
      */
     public function viewAuditorAccountList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/account-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 
@@ -166,7 +166,7 @@ final class BackendController extends Controller
      */
     public function viewAuditorAccountSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Auditor/Theme/Backend/account-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006201001, $request, $response));
 

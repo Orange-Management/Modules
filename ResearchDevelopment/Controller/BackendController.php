@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewProjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/ResearchDevelopment/Theme/Backend/rnd-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002202001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewProjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/ResearchDevelopment/Theme/Backend/rnd-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002202001, $request, $response));
 

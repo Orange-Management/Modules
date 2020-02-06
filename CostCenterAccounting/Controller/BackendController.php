@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewCostCenterList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004501001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewCostCenterCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004501001, $request, $response));
 
@@ -85,7 +85,7 @@ final class BackendController extends Controller
      */
     public function viewCostCenterProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/CostCenterAccounting/Theme/Backend/costcenter-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004501001, $request, $response));
 

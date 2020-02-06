@@ -76,7 +76,7 @@ final class BackendController extends Controller
      */
     public function viewKanbanDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005801001, $request, $response));
@@ -101,7 +101,7 @@ final class BackendController extends Controller
      */
     public function viewKanbanBoard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $board     = KanbanBoardMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();
@@ -137,7 +137,7 @@ final class BackendController extends Controller
      */
     public function viewKanbanArchive(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Kanban/Theme/Backend/kanban-archive');
 
         return $view;
@@ -157,7 +157,7 @@ final class BackendController extends Controller
      */
     public function viewKanbanBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $accountId = $request->getHeader()->getAccount();
 
@@ -189,7 +189,7 @@ final class BackendController extends Controller
      */
     public function viewKanbanCard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $card      = KanbanCardMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();

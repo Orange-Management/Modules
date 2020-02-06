@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewBalanceDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Balance/Theme/Backend/balance-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006501001, $request, $response));
 

@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Editor\Theme\Backend\Components\Editor;
 
-use phpOMS\ApplicationAbstract;
 use phpOMS\Asset\AssetType;
+use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -42,14 +42,14 @@ class BaseView extends View
     /**
      * {@inheritdoc}
      */
-    public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
+    public function __construct(L11nManager $l11n = null, RequestAbstract $request, ResponseAbstract $response)
     {
-        parent::__construct($app, $request, $response);
+        parent::__construct($l11n, $request, $response);
         $this->setTemplate('/Modules/Editor/Theme/Backend/Components/Editor/inline-editor-tools');
 
         $response->get('Content')->getData('head')->addAsset(AssetType::JSLATE, 'Modules/Editor/Controller.js', ['type' => 'module']);
 
-        $view = new TextView($app, $request, $response);
+        $view = new TextView($l11n, $request, $response);
         $this->addData('text', $view);
     }
 

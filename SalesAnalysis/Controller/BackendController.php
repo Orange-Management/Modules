@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewBackendDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/SalesAnalysis/Theme/Backend/analysis-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationSplash(1005401001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewBackendOverviewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/SalesAnalysis/Theme/Backend/analysis-overview-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005401001, $request, $response));
 

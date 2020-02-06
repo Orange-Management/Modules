@@ -52,7 +52,7 @@ final class BackendController extends Controller
      */
     public function viewTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Helper/Theme/Backend/helper-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
@@ -77,13 +77,13 @@ final class BackendController extends Controller
      */
     public function viewTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Helper/Theme/Backend/helper-template-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
-        $view->addData('media-upload', new BaseView($this->app, $request, $response));
+        $view->addData('media-upload', new BaseView($this->app->l11nManager, $request, $response));
 
-        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app->l11nManager, $request, $response);
         $view->addData('editor', $editor);
 
         return $view;
@@ -103,13 +103,13 @@ final class BackendController extends Controller
      */
     public function viewReportCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Helper/Theme/Backend/helper-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1002701001, $request, $response));
-        $view->addData('media-upload', new BaseView($this->app, $request, $response));
+        $view->addData('media-upload', new BaseView($this->app->l11nManager, $request, $response));
 
-        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app, $request, $response);
+        $editor = new \Modules\Editor\Theme\Backend\Components\Editor\BaseView($this->app->l11nManager, $request, $response);
         $view->addData('editor', $editor);
 
         return $view;
@@ -131,7 +131,7 @@ final class BackendController extends Controller
      */
     public function viewHelperReport(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         //$file = preg_replace('([^\w\s\d\-_~,;:\.\[\]\(\).])', '', $template->getName());
 
         $template = TemplateMapper::get((int) $request->getData('id'));

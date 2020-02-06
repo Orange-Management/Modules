@@ -52,7 +52,7 @@ final class BackendController extends Controller implements DashboardElementInte
      */
     public function viewCalendarDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
@@ -65,7 +65,7 @@ final class BackendController extends Controller implements DashboardElementInte
         $calendar->setDate(new SmartDateTime((string) ($request->getData('date') ?? 'now')));
         $view->addData('calendar', $calendar);
 
-        $calendarEventPopup = new \Modules\Calendar\Theme\Backend\Components\Event\BaseView($this->app, $request, $response);
+        $calendarEventPopup = new \Modules\Calendar\Theme\Backend\Components\Event\BaseView($this->app->l11nManager, $request, $response);
         $view->addData('calendarEventPopup', $calendarEventPopup);
 
         return $view;
@@ -80,10 +80,10 @@ final class BackendController extends Controller implements DashboardElementInte
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Calendar/Theme/Backend/css/styles.css');
 
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Calendar/Theme/Backend/dashboard-calendar');
 
-        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app, $request, $response);
+        $calendarView = new \Modules\Calendar\Theme\Backend\Components\Calendar\BaseView($this->app->l11nManager, $request, $response);
         $calendarView->setTemplate('/Modules/Calendar/Theme/Backend/Components/Calendar/mini');
         $view->addData('calendar', $calendarView);
 

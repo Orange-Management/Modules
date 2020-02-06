@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewCostObjectList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004401001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewCostObjectCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004401001, $request, $response));
 
@@ -85,7 +85,7 @@ final class BackendController extends Controller
      */
     public function viewCostObjectProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/CostObjectAccounting/Theme/Backend/costobject-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004401001, $request, $response));
 

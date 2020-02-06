@@ -48,7 +48,7 @@ final class BackendController extends Controller
      */
     public function viewHelp(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Help/Theme/Backend/help');
 
         return $view;
@@ -68,7 +68,7 @@ final class BackendController extends Controller
      */
     public function viewHelpGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $path = $this->getHelpGeneralPath($request);
 
         $toParse = \file_get_contents($path);
@@ -123,7 +123,7 @@ final class BackendController extends Controller
      */
     public function viewHelpModuleList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module-list');
 
         return $view;
@@ -149,7 +149,7 @@ final class BackendController extends Controller
             return $this->viewHelpModuleList($request, $response, $data);
         }
 
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $path = $this->getHelpModulePath($request);
 
         $toParse = \file_get_contents($path);
@@ -205,7 +205,7 @@ final class BackendController extends Controller
      */
     public function viewHelpDeveloper(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $path = $this->getHelpDeveloperPath($request);
 
         $toParse = \file_get_contents($path);

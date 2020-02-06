@@ -199,7 +199,7 @@ final class ApiController extends Controller
             }
         }
 
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         if (!$template->isStandalone()) {
             $report = ReportMapper::getNewest(1,
                 (new Builder($this->app->dbPool->get()))->where('helper_report.helper_report_template', '=', $template->getId())

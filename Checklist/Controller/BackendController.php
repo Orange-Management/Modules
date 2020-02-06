@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewChecklistList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003601001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewChecklistTemplateList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003601001, $request, $response));
 
@@ -85,7 +85,7 @@ final class BackendController extends Controller
      */
     public function viewChecklistTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Checklist/Theme/Backend/checklist-template-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003601001, $request, $response));
 

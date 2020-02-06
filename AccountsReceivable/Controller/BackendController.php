@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewDebitorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004901001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewDebitorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004901001, $request, $response));
 
@@ -85,7 +85,7 @@ final class BackendController extends Controller
      */
     public function viewDebitorProfile(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/debitor-profile');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004901001, $request, $response));
 
@@ -106,7 +106,7 @@ final class BackendController extends Controller
      */
     public function viewEntriesList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/entries-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004901001, $request, $response));
 
@@ -127,7 +127,7 @@ final class BackendController extends Controller
      */
     public function viewAnalyzeDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/AccountsReceivable/Theme/Backend/analyze-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004901001, $request, $response));
 

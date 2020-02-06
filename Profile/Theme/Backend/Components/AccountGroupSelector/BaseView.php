@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Profile\Theme\Backend\Components\AccountGroupSelector;
 
-use phpOMS\ApplicationAbstract;
+use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -37,12 +37,12 @@ class BaseView extends View
     /**
      * {@inheritdoc}
      */
-    public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
+    public function __construct(L11nManager $l11n = null, RequestAbstract $request, ResponseAbstract $response)
     {
-        parent::__construct($app, $request, $response);
+        parent::__construct($l11n, $request, $response);
         $this->setTemplate('/Modules/Profile/Theme/Backend/Components/AccountGroupSelector/base');
 
-        $view = new PopupView($app, $request, $response);
+        $view = new PopupView($l11n, $request, $response);
         $this->addData('popup', $view);
     }
 

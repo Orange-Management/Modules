@@ -1021,13 +1021,15 @@ final class ApiController extends Controller
     {
         $directories = \glob(__DIR__ . '/../../../Web/*' , \GLOB_ONLYDIR);
 
-        foreach ($directories as $directory) {
-            if (\file_exists($path = $directory . '/Routes.php')) {
-                \file_put_contents($path, '<?php return [];');
-            }
+        if ($directories !== false) {
+            foreach ($directories as $directory) {
+                if (\file_exists($path = $directory . '/Routes.php')) {
+                    \file_put_contents($path, '<?php return [];');
+                }
 
-            if (\file_exists($path = $directory . '/Hooks.php')) {
-                \file_put_contents($path, '<?php return [];');
+                if (\file_exists($path = $directory . '/Hooks.php')) {
+                    \file_put_contents($path, '<?php return [];');
+                }
             }
         }
 

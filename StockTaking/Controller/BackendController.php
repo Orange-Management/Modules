@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewStockTakingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/StockTaking/Theme/Backend/stock-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1006701001, $request, $response));
 

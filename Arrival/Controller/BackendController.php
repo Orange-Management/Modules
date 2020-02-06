@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewArrivalList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Arrival/Theme/Backend/arrival-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001501001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewArrivalCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Arrival/Theme/Backend/arrival-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1001501001, $request, $response));
 

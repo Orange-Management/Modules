@@ -47,7 +47,7 @@ final class BackendController extends Controller
      */
     public function viewMonitoringGeneral(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
 
@@ -68,7 +68,7 @@ final class BackendController extends Controller
      */
     public function viewMonitoringLogList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
 
@@ -89,7 +89,7 @@ final class BackendController extends Controller
      */
     public function viewMonitoringLogEntry(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-logs-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
 
@@ -110,7 +110,7 @@ final class BackendController extends Controller
      */
     public function viewMonitoringSecurityDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Monitoring/Theme/Backend/monitoring-security');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000706001, $request, $response));
 

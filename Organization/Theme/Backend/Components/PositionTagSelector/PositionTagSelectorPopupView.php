@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Theme\Backend\Components\PositionTagSelector;
 
-use phpOMS\ApplicationAbstract;
+use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -35,9 +35,9 @@ class PositionTagSelectorPopupView extends View
     /**
      * {@inheritdoc}
      */
-    public function __construct(ApplicationAbstract $app, RequestAbstract $request, ResponseAbstract $response)
+    public function __construct(L11nManager $l11n, RequestAbstract $request, ResponseAbstract $response)
     {
-        parent::__construct($app, $request, $response);
+        parent::__construct($l11n, $request, $response);
         $this->setTemplate('/Modules/Organization/Theme/Backend/Components/PositionTagSelector/position-selector-popup');
     }
 

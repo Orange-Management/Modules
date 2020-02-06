@@ -68,7 +68,7 @@ final class BackendController extends Controller
      */
     public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
@@ -90,7 +90,7 @@ final class BackendController extends Controller
      */
     public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $draw      = DrawImageMapper::get((int) ($request->getData('id')));
         $accountId = $request->getHeader()->getAccount();
@@ -117,7 +117,7 @@ final class BackendController extends Controller
      */
     public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));

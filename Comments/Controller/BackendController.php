@@ -14,10 +14,14 @@ declare(strict_types=1);
 
 namespace Modules\Comments\Controller;
 
+use Modules\Comments\Models\Comment;
+use Modules\Comments\Models\CommentMapper;
+
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Message\FormValidation;
 use phpOMS\Views\View;
 
 /**
@@ -62,7 +66,7 @@ final class BackendController extends Controller
      */
     public function viewCommentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Comments/Theme/Backend/comment-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 
@@ -83,7 +87,7 @@ final class BackendController extends Controller
      */
     public function viewCommentList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Comments/Theme/Backend/comment-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005301001, $request, $response));
 

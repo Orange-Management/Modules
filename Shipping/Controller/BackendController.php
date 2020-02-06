@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewShippingList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Shipping/Theme/Backend/shipping-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004001001, $request, $response));
 
@@ -64,7 +64,7 @@ final class BackendController extends Controller
      */
     public function viewShippingCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Shipping/Theme/Backend/shipping-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004001001, $request, $response));
 

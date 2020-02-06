@@ -127,7 +127,7 @@ final class Application
         $this->app->router->add(
             '/Shop/e403',
             function() use ($request, $response) {
-                $view = new View($this->app, $request, $response);
+                $view = new View($this->app->l11nManager, $request, $response);
                 $view->setTemplate('/Web/Shop/Error/403_inline');
                 $response->getHeader()->setStatusCode(RequestStatusCode::R_403);
 

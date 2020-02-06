@@ -35,4 +35,5 @@ abstract class ExchangeType extends Enum
     public const ADDRESS    = 6;
     public const COSTCENTER = 7;
     public const COSTOBJECT = 8;
+    public const INVOICE    = 9;
 }

@@ -33,7 +33,7 @@ abstract class ImporterAbstract
      * @var ConnectionInterface
      * @since 1.0.0
      */
-    private $local = null;
+    protected $local = null;
 
     /**
      * Constructor

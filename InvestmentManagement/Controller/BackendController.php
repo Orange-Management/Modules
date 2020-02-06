@@ -43,7 +43,7 @@ final class BackendController extends Controller
      */
     public function viewInvestmentDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
-        $view = new View($this->app, $request, $response);
+        $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/InvestmentManagement/Theme/Backend/investment-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1004601001, $request, $response));
 
