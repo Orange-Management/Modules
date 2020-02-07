@@ -57,7 +57,7 @@ final class TemplateMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'source' => [
             'mapper' => CollectionMapper::class,
-            'src'    => 'helper_template_media',
+            'self'   => 'helper_template_media',
         ],
     ];
 
@@ -70,7 +70,7 @@ final class TemplateMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'helper_template_creator',
+            'self'   => 'helper_template_creator',
         ],
     ];
 
@@ -84,8 +84,8 @@ final class TemplateMapper extends DataMapperAbstract
         'reports' => [
             'mapper' => ReportMapper::class,
             'table'  => 'helper_report',
-            'dst'    => 'helper_report_template',
-            'src'    => null,
+            'external' => 'helper_report_template',
+            'self'   => null,
         ],
     ];
 

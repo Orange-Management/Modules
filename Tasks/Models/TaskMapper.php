@@ -62,22 +62,22 @@ final class TaskMapper extends DataMapperAbstract
      */
     protected static array $hasMany = [
         'taskElements' => [
-            'mapper' => TaskElementMapper::class,
-            'table'  => 'task_element',
-            'dst'    => 'task_element_task',
-            'src'    => null,
+            'mapper'   => TaskElementMapper::class,
+            'table'    => 'task_element',
+            'external' => 'task_element_task',
+            'self'     => null,
         ],
         'media'        => [
-            'mapper' => MediaMapper::class,
-            'table'  => 'task_media',
-            'dst'    => 'task_media_src',
-            'src'    => 'task_media_dst',
+            'mapper'   => MediaMapper::class,
+            'table'    => 'task_media',
+            'external' => 'task_media_src',
+            'self'     => 'task_media_dst',
         ],
-        'tags'        => [
-            'mapper' => MediaMapper::class,
-            'table'  => 'task_tag',
-            'dst'    => 'task_tag_src',
-            'src'    => 'task_tag_dst',
+        'tags'         => [
+            'mapper'   => MediaMapper::class,
+            'table'    => 'task_tag',
+            'external' => 'task_tag_src',
+            'self'     => 'task_tag_dst',
         ],
     ];
 
@@ -90,7 +90,7 @@ final class TaskMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'task_created_by',
+            'self'   => 'task_created_by',
         ],
     ];
 
@@ -103,7 +103,7 @@ final class TaskMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'schedule' => [
             'mapper' => ScheduleMapper::class,
-            'src'    => 'task_schedule',
+            'self'   => 'task_schedule',
         ],
     ];
 

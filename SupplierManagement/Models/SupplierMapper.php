@@ -81,7 +81,7 @@ final class SupplierMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'profile' => [
             'mapper' => ProfileMapper::class,
-            'src'    => 'suppliermgmt_supplier_account',
+            'self'   => 'suppliermgmt_supplier_account',
         ],
     ];
 
@@ -95,14 +95,14 @@ final class SupplierMapper extends DataMapperAbstract
         'files'           => [
             'mapper' => MediaMapper::class, /* mapper of the related object */
             'table'  => 'suppliermgmt_supplier_media', /* table of the related object, null if no relation table is used (many->1) */
-            'dst'    => 'suppliermgmt_supplier_media_dst',
-            'src'    => 'suppliermgmt_supplier_media_src',
+            'external' => 'suppliermgmt_supplier_media_dst',
+            'self'   => 'suppliermgmt_supplier_media_src',
         ],
         'contactElements' => [
             'mapper' => ContactElementMapper::class,
             'table'  => 'suppliermgmt_supplier_contactelement',
-            'dst'    => 'suppliermgmt_supplier_contactelement_dst',
-            'src'    => 'suppliermgmt_supplier_contactelement_src',
+            'external' => 'suppliermgmt_supplier_contactelement_dst',
+            'self'   => 'suppliermgmt_supplier_contactelement_src',
         ],
     ];
 }

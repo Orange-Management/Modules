@@ -79,7 +79,7 @@ final class ClientMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'profile' => [
             'mapper' => ProfileMapper::class,
-            'src'    => 'clientmgmt_client_account',
+            'self'   => 'clientmgmt_client_account',
         ],
     ];
 
@@ -93,14 +93,14 @@ final class ClientMapper extends DataMapperAbstract
         'files'           => [
             'mapper' => MediaMapper::class, /* mapper of the related object */
             'table'  => 'clientmgmt_client_media', /* table of the related object, null if no relation table is used (many->1) */
-            'dst'    => 'clientmgmt_client_media_dst',
-            'src'    => 'clientmgmt_client_media_src',
+            'external' => 'clientmgmt_client_media_dst',
+            'self'   => 'clientmgmt_client_media_src',
         ],
         'contactElements' => [
             'mapper' => ContactElementMapper::class,
             'table'  => 'clientmgmt_client_contactelement',
-            'dst'    => 'clientmgmt_client_contactelement_dst',
-            'src'    => 'clientmgmt_client_contactelement_src',
+            'external' => 'clientmgmt_client_contactelement_dst',
+            'self'   => 'clientmgmt_client_contactelement_src',
         ],
     ];
 }

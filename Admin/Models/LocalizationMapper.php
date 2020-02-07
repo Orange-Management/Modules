@@ -54,17 +54,17 @@ final class LocalizationMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'country'  => [
             'mapper' => CountryMapper::class,
-            'src'    => 'l11n_country',
+            'self'   => 'l11n_country',
             'by'     => 'code2'
         ],
         'language'    => [
             'mapper' => LanguageMapper::class,
-            'src'    => 'l11n_language',
+            'self'   => 'l11n_language',
             'by'     => 'code2'
         ],
         'currency'    => [
             'mapper' => CurrencyMapper::class,
-            'src'    => 'l11n_currency',
+            'self'   => 'l11n_currency',
             'by'     => 'code'
         ],
     ];

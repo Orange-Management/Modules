@@ -64,14 +64,14 @@ final class ProjectMapper extends DataMapperAbstract
         'tasks' => [
             'mapper' => TaskMapper::class,
             'table'  => 'projectmanagement_task_relation',
-            'dst'    => 'projectmanagement_task_relation_dst',
-            'src'    => 'projectmanagement_task_relation_src',
+            'external' => 'projectmanagement_task_relation_dst',
+            'self'   => 'projectmanagement_task_relation_src',
         ],
         'media' => [
             'mapper' => MediaMapper::class,
             'table'  => 'projectmanagement_project_media',
-            'dst'    => 'projectmanagement_project_media_src',
-            'src'    => 'projectmanagement_project_media_dst',
+            'external' => 'projectmanagement_project_media_src',
+            'self'   => 'projectmanagement_project_media_dst',
         ],
     ];
 
@@ -84,7 +84,7 @@ final class ProjectMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'calendar' => [
             'mapper' => CalendarMapper::class,
-            'src'    => 'projectmanagement_project_calendar',
+            'self'   => 'projectmanagement_project_calendar',
         ],
     ];
 

@@ -49,7 +49,7 @@ final class AccountRelationMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'relation' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'task_account_account',
+            'self'   => 'task_account_account',
         ],
     ];
 

@@ -56,7 +56,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'news_created_by',
+            'self'   => 'news_created_by',
         ],
     ];
 

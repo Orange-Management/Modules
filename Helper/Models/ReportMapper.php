@@ -54,11 +54,11 @@ final class ReportMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'source'   => [
             'mapper' => \Modules\Media\Models\CollectionMapper::class,
-            'src'    => 'helper_report_media',
+            'self'   => 'helper_report_media',
         ],
         'template' => [
             'mapper' => \Modules\Helper\Models\TemplateMapper::class,
-            'src'    => 'helper_report_template',
+            'self'   => 'helper_report_template',
         ],
     ];
 
@@ -71,7 +71,7 @@ final class ReportMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'helper_report_creator',
+            'self'   => 'helper_report_creator',
         ],
     ];
 

@@ -51,11 +51,11 @@ final class ProfileMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'account'  => [
             'mapper' => AccountMapper::class,
-            'src'    => 'profile_account_account',
+            'self'   => 'profile_account_account',
         ],
         'image'    => [
             'mapper' => MediaMapper::class,
-            'src'    => 'profile_account_image',
+            'self'   => 'profile_account_image',
         ],
     ];
 
@@ -69,14 +69,14 @@ final class ProfileMapper extends DataMapperAbstract
         'location' => [
             'mapper' => AddressMapper::class,
             'table'  => 'profile_address',
-            'dst'    => 'profile_address_address',
-            'src'    => 'profile_address_profile',
+            'external' => 'profile_address_address',
+            'self'   => 'profile_address_profile',
         ],
         'contactElements' => [
             'mapper' => ContactElementMapper::class,
             'table'  => 'profile_contactelement',
-            'src'    => null,
-            'dst'    => 'profile_contactelement_contact',
+            'self'   => null,
+            'external' => 'profile_contactelement_contact',
         ],
     ];
 

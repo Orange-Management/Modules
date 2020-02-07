@@ -54,8 +54,8 @@ final class WikiDocMapper extends DataMapperAbstract
         'badges' => [
             'mapper' => BadgeMapper::class,
             'table'  => 'wiki_article_badge',
-            'src'    => 'wiki_article_badge_badge',
-            'dst'    => 'wiki_article_badge_article',
+            'self'   => 'wiki_article_badge_badge',
+            'external' => 'wiki_article_badge_article',
         ],
     ];*/
 
@@ -68,7 +68,7 @@ final class WikiDocMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'category' => [
             'mapper' => WikiCategoryMapper::class,
-            'dst'    => 'wiki_article_category',
+            'external' => 'wiki_article_category',
         ],
     ];
 

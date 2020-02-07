@@ -51,7 +51,7 @@ final class TagMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'owner' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'tag_owner',
+            'self'   => 'tag_owner',
         ],
     ];
 

@@ -53,8 +53,8 @@ final class CalendarMapper extends DataMapperAbstract
         'events' => [
             'mapper' => EventMapper::class,
             'table'  => 'calendar_event',
-            'dst'    => 'calendar_event_calendar',
-            'src'    => null,
+            'external' => 'calendar_event_calendar',
+            'self'   => null,
         ],
     ];
 

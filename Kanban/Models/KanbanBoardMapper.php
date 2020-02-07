@@ -53,8 +53,8 @@ final class KanbanBoardMapper extends DataMapperAbstract
         'columns' => [
             'mapper' => KanbanColumnMapper::class,
             'table'  => 'kanban_column',
-            'dst'    => 'kanban_column_board',
-            'src'    => null,
+            'external' => 'kanban_column_board',
+            'self'   => null,
         ],
     ];
 
@@ -67,7 +67,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => AccountMapper::class,
-            'src'    => 'kanban_board_created_by',
+            'self'   => 'kanban_board_created_by',
         ],
     ];
 

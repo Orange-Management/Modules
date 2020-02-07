@@ -54,7 +54,7 @@ final class EventMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'schedule' => [
             'mapper' => ScheduleMapper::class,
-            'src'    => 'calendar_event_schedule',
+            'self'   => 'calendar_event_schedule',
         ],
     ];
 

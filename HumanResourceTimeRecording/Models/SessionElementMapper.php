@@ -48,7 +48,7 @@ final class SessionElementMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'session' => [
             'mapper' => SessionMapper::class,
-            'src'    => 'hr_timerecording_session_element_session',
+            'self'   => 'hr_timerecording_session_element_session',
         ],
     ];
 

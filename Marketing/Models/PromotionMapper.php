@@ -61,14 +61,14 @@ final class PromotionMapper extends DataMapperAbstract
         'tasks' => [
             'mapper' => TaskMapper::class,
             'table'  => 'marketing_promotion_task_relation',
-            'dst'    => 'marketing_promotion_task_relation_dst',
-            'src'    => 'marketing_promotion_task_relation_src',
+            'external' => 'marketing_promotion_task_relation_dst',
+            'self'   => 'marketing_promotion_task_relation_src',
         ],
         'media' => [
             'mapper' => MediaMapper::class,
             'table'  => 'marketing_promotion_media',
-            'dst'    => 'marketing_promotion_media_src',
-            'src'    => 'marketing_promotion_media_dst',
+            'external' => 'marketing_promotion_media_src',
+            'self'   => 'marketing_promotion_media_dst',
         ],
     ];
 
@@ -81,7 +81,7 @@ final class PromotionMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'calendar' => [
             'mapper' => CalendarMapper::class,
-            'src'    => 'marketing_promotion_calendar',
+            'self'   => 'marketing_promotion_calendar',
         ],
     ];
 

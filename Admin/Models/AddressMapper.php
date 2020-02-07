@@ -57,7 +57,7 @@ final class AddressMapper extends DataMapperAbstract
         'country' => [
             'mapper' => CountryMapper::class,
             'column' => '',
-            'src'    => 'address_country',
+            'self'   => 'address_country',
         ],
     ];
 
