@@ -26,8 +26,8 @@ use Modules\Exchange\Models\ImporterAbstract;
 
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabaseStatus;
-use phpOMS\Message\RequestAbstract;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\Message\RequestAbstract;
 
 /**
  * GSD import class
