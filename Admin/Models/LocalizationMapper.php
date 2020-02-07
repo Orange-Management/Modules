@@ -15,11 +15,11 @@ declare(strict_types=1);
 namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Localization\Defaults\CountryMapper;
 use phpOMS\Localization\Defaults\CurrencyMapper;
 use phpOMS\Localization\Defaults\LanguageMapper;
 use phpOMS\Localization\Localization;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Localization mapper.
@@ -55,17 +55,17 @@ final class LocalizationMapper extends DataMapperAbstract
         'country'  => [
             'mapper' => CountryMapper::class,
             'self'   => 'l11n_country',
-            'by'     => 'code2'
+            'by'     => 'code2',
         ],
         'language'    => [
             'mapper' => LanguageMapper::class,
             'self'   => 'l11n_language',
-            'by'     => 'code2'
+            'by'     => 'code2',
         ],
         'currency'    => [
             'mapper' => CurrencyMapper::class,
             'self'   => 'l11n_currency',
-            'by'     => 'code'
+            'by'     => 'code',
         ],
     ];
 
