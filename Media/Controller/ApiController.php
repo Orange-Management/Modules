@@ -47,10 +47,6 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  *  Implement resumable uploads
  *  This is especially useful if someone wants to upload when he/she has wifi access
  *
- * @todo Orange-Management/Modules#139
- *  Allow text file modification directly in the media module
- *  For text files there should be a edit button which replaces the display with a textarea which can be saved.
- *
  * @todo Orange-Management/Modules#150
  *  Allow to create new files (not only upload)
  *  In many cases it would be nice to create a new file manually with the module (e.g. create a new .txt or .sqlite file) which then can get edited directly in the media module.
