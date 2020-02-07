@@ -169,6 +169,8 @@ final class AccountMapper extends DataMapperAbstract
 
             $result = $result[0];
 
+            // @todo: implement account tries
+
             if ($result['account_tries'] <= 0) {
                 return LoginReturnType::WRONG_INPUT_EXCEEDED;
             }

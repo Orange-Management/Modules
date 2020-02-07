@@ -106,7 +106,7 @@ final class Application
      */
     public function run(Request $request, Response $response) : void
     {
-        $pageView = new ShopView($this->app, $request, $response);
+        $pageView = new ShopView($this->l11nManager, $request, $response);
         $head     = new Head();
 
         $pageView->setData('head', $head);

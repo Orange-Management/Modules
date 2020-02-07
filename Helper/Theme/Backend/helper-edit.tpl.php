@@ -15,7 +15,7 @@ declare(strict_types=1);
 /**
  * @var \phpOMS\Views\View $this
  */
-$tabView = new \Web\Views\Divider\TabularView($this->app, $this->request, $this->response);
+$tabView = new \Web\Views\Divider\TabularView($this->l11nManager, $this->request, $this->response);
 $tabView->setTemplate('/Web/Templates/Divider/Tabular');
 
 echo $this->getData('nav')->render(); ?>
@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
     /**
      * @var \phpOMS\Views\View $this
      */
-    $overviwPanel    = new \Web\Views\Panel\PanelView($this->app, $this->request, $this->response);
+    $overviwPanel    = new \Web\Views\Panel\PanelView($this->l11nManager, $this->request, $this->response);
     $permissionPanel = clone $overviwPanel;
 
     $overviwPanel->setTitle($this->getHtml('Create'));
@@ -52,7 +52,7 @@ echo $this->getData('nav')->render(); ?>
      * Overview
      */
 
-    $formOverview = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
+    $formOverview = new \Web\Views\Form\FormView($this->l11nManager, $this->request, $this->response);
     $formOverview->setTemplate('/Web/Templates/Forms/FormFull');
     $formOverview->setSubmit('submit1', $this->getHtml('Edit'));
     $formOverview->setSubmit('submit2', $this->getHtml('Delete'));
@@ -98,7 +98,7 @@ echo $this->getData('nav')->render(); ?>
      * Permission Add
      */
 
-    $formPermissionAdd = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
+    $formPermissionAdd = new \Web\Views\Form\FormView($this->l11nManager, $this->request, $this->response);
     $formPermissionAdd->setTemplate('/Web/Templates/Forms/FormFull');
     $formPermissionAdd->setSubmit('submit1', $this->getHtml('Add', '0', '0'));
     $formPermissionAdd->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());
@@ -140,8 +140,8 @@ echo $this->getData('nav')->render(); ?>
     /*
      * Permission List
      */
-    $permissionListView = new \Web\Views\Lists\ListView($this->app, $this->request, $this->response);
-    $headerView         = new \Web\Views\Lists\HeaderView($this->app, $this->request, $this->response);
+    $permissionListView = new \Web\Views\Lists\ListView($this->l11nManager, $this->request, $this->response);
+    $headerView         = new \Web\Views\Lists\HeaderView($this->l11nManager, $this->request, $this->response);
 
     $permissionListView->setTemplate('/Web/Templates/Lists/ListFull');
     $headerView->setTemplate('/Web/Templates/Lists/Header/HeaderTable');
@@ -164,8 +164,8 @@ echo $this->getData('nav')->render(); ?>
     /*
  * UI Logic
  */
-    $sourceList           = new \Web\Views\Lists\ListView($this->app, $this->request, $this->response);
-    $sourceListHeaderView = new \Web\Views\Lists\HeaderView($this->app, $this->request, $this->response);
+    $sourceList           = new \Web\Views\Lists\ListView($this->l11nManager, $this->request, $this->response);
+    $sourceListHeaderView = new \Web\Views\Lists\HeaderView($this->l11nManager, $this->request, $this->response);
 
     $sourceList->setTemplate('/Web/Templates/Lists/ListFull');
     $sourceListHeaderView->setTemplate('/Web/Templates/Lists/Header/HeaderTable');
@@ -189,7 +189,7 @@ echo $this->getData('nav')->render(); ?>
     /*
      * Create
      */
-    $createPanel = new \Web\Views\Panel\PanelView($this->app, $this->request, $this->response);
+    $createPanel = new \Web\Views\Panel\PanelView($this->l11nManager, $this->request, $this->response);
     $mediaPanel  = clone $createPanel;
 
     $createPanel->setTitle($this->getHtml('Create'));
@@ -201,7 +201,7 @@ echo $this->getData('nav')->render(); ?>
     $this->addView('permissionFormPanel', $mediaPanel);
     $this->getView('permissionFormPanel')->setTemplate('/Web/Templates/Panel/BoxHalf');
 
-    $formCreateForm = new \Web\Views\Form\FormView($this->app, $this->request, $this->response);
+    $formCreateForm = new \Web\Views\Form\FormView($this->l11nManager, $this->request, $this->response);
     $formCreateForm->setTemplate('/Web/Templates/Forms/FormFull');
     $formCreateForm->setSubmit('submit1', $this->getHtml('Submit'));
     $formCreateForm->setAction($this->request->getUri()->getScheme() . '://' . $this->request->getUri()->getHost());

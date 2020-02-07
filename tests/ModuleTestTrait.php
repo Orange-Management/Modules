@@ -354,7 +354,7 @@ trait ModuleTestTrait
         if (!($module instanceof NullModule)) {
             // validate dependency installation
             $info = \json_decode(\file_get_contents($module::MODULE_PATH . '/info.json'), true);
-            self::assertTrue($this->dependencyTest($info, $moduleManager->getInstalledModules(false)));
+            self::assertTrue($this->dependencyTest($info, $moduleManager->getInstalledModules(false)), 'Invalid dependency configuration in ' . self::MODULE_NAME);
         }
     }
 

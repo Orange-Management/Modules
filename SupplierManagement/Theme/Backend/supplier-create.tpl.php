@@ -162,7 +162,7 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-7" name="tabular-2">
         <div class="tab">
             <?php
-            $footerView = new \phpOMS\Views\PaginationView($this->app, $this->request, $this->response);
+            $footerView = new \phpOMS\Views\PaginationView($this->l11nManager, $this->request, $this->response);
             $footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
             $footerView->setPages(20);
             $footerView->setPage(1);
