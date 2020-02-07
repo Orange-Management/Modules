@@ -18,6 +18,8 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Localization\Defaults\CountryMapper;
 use phpOMS\Localization\Defaults\CurrencyMapper;
 use phpOMS\Localization\Defaults\LanguageMapper;
+use phpOMS\Localization\Localization;
+use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Localization mapper.
@@ -37,7 +39,6 @@ final class LocalizationMapper extends DataMapperAbstract
      */
     protected static array $columns = [
         'l11n_id'              => ['name' => 'l11n_id',              'type' => 'int',     'internal' => 'id'],
-        'l11n_datetime'        => ['name' => 'l11n_datetime',        'type' => 'int',     'internal' => 'datetime'],
         'l11n_number_thousand' => ['name' => 'l11n_number_thousand', 'type' => 'string',  'internal' => 'thousands'],
         'l11n_number_decimal'  => ['name' => 'l11n_number_decimal',  'type' => 'string',  'internal' => 'decimal'],
         'l11n_angle'           => ['name' => 'l11n_angle',           'type' => 'string',  'internal' => 'angle'],
@@ -54,17 +55,17 @@ final class LocalizationMapper extends DataMapperAbstract
         'country'  => [
             'mapper' => CountryMapper::class,
             'src'    => 'l11n_country',
-            'ref'    => 'country_code2'
+            'by'     => 'code2'
         ],
         'language'    => [
             'mapper' => LanguageMapper::class,
             'src'    => 'l11n_language',
-            'ref'    => 'language_639_2T'
+            'by'     => 'code2'
         ],
         'currency'    => [
             'mapper' => CurrencyMapper::class,
             'src'    => 'l11n_currency',
-            'ref'    => 'currency_code'
+            'by'     => 'code'
         ],
     ];
 
@@ -83,4 +84,29 @@ final class LocalizationMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static string $primaryField = 'l11n_id';
+
+    /**
+     * Model to use by the mapper.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected static string $model = Localization::class;
+
+    /**
+     * Get object.
+     *
+     * @param mixed $primaryKey Key
+     * @param int   $relations  Load relations
+     * @param mixed $fill       Object to fill
+     * @param int   $depth      Relation depth
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
+    public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null, int $depth = 1)
+    {
+        return parent::get($primaryKey, $relations, $fill, 1);
+    }
 }
