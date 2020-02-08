@@ -762,25 +762,23 @@
                 "primary": true,
                 "autoincrement": true
             },
-            "settings_module": {
-                "name": "settings_module",
-                "type": "VARCHAR(255)",
-                "default": null,
-                "null": true,
-                "unique": true,
-                "foreignTable": "module",
-                "foreignKey": "module_id"
-            },
             "settings_name": {
                 "name": "settings_name",
                 "type": "VARCHAR(30)",
-                "null": false,
-                "unique": true
+                "null": true
             },
             "settings_content": {
                 "name": "settings_content",
                 "type": "VARCHAR(250)",
                 "null": false
+            },
+            "settings_module": {
+                "name": "settings_module",
+                "type": "VARCHAR(255)",
+                "default": null,
+                "null": true,
+                "foreignTable": "module",
+                "foreignKey": "module_id"
             },
             "settings_group": {
                 "name": "settings_group",

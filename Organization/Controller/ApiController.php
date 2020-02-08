@@ -18,10 +18,12 @@ use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
+use Modules\Organization\Models\SettingsEnum;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
-
+use phpOMS\Account\GroupStatus;
+use phpOMS\Message\Http\Request;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -183,6 +185,14 @@ final class ApiController extends Controller
 
         $unit = $this->createUnitFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $unit, UnitMapper::class, 'unit');
+
+        if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_UNIT) === '1') {
+            $newRequest = new Request();
+            $newRequest->setData('name', 'org:unit:' . \strtolower($unit->getName()));
+            $newRequest->setData('status', GroupStatus::ACTIVE);
+            $this->app->moduleManager->get('Admin')->apiGroupCreate($newRequest, $response, $data);
+        }
+
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully created.', $unit);
     }
 
@@ -346,6 +356,14 @@ final class ApiController extends Controller
 
         $position = $this->createPositionFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $position, PositionMapper::class, 'position');
+
+        if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_POSITION) === '1') {
+            $newRequest = new Request();
+            $newRequest->setData('name', 'org:pos:' . \strtolower($position->getName()));
+            $newRequest->setData('status', GroupStatus::ACTIVE);
+            $this->app->moduleManager->get('Admin')->apiGroupCreate($newRequest, $response, $data);
+        }
+
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully created.', $position);
     }
 
@@ -511,6 +529,14 @@ final class ApiController extends Controller
 
         $department = $this->createDepartmentFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $department, DepartmentMapper::class, 'department');
+
+        if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_DEPARTMENT) === '1') {
+            $newRequest = new Request();
+            $newRequest->setData('name', 'org:dep:' . \strtolower($department->getName()));
+            $newRequest->setData('status', GroupStatus::ACTIVE);
+            $this->app->moduleManager->get('Admin')->apiGroupCreate($newRequest, $response, $data);
+        }
+
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully created.', $department);
     }
 
