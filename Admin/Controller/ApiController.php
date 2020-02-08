@@ -31,6 +31,7 @@ use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
+use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\Request;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
@@ -46,7 +47,6 @@ use phpOMS\Uri\Http;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Validation\Network\Email;
 use phpOMS\Version\Version;
-use phpOMS\Localization\Localization;
 
 /**
  * Admin controller class.
