@@ -29,7 +29,7 @@ final class NavElementMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -65,4 +65,12 @@ final class NavElementMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static string $primaryField = 'nav_id';
+
+    /**
+     * Autoincrement primary field.
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    protected static bool $autoincrement = false;
 }

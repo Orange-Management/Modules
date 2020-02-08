@@ -17,7 +17,6 @@ namespace Modules\Navigation\Admin;
 use Modules\Navigation\Models\NavElement;
 use Modules\Navigation\Models\NavElementMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Module\InstallerAbstract;
 use phpOMS\System\File\PathException;
 
@@ -99,7 +98,7 @@ class Installer extends InstallerAbstract
         $navElement->permissionType    = $data['permission']['type'] ?? null;
         $navElement->permissionElement = $data['permission']['element'] ?? null;
 
-        $lastInsertID = NavElementMapper::create($navElement, RelationType::ALL, true);
+        $lastInsertID = NavElementMapper::create($navElement);
 
         foreach ($data['children'] as $link) {
             $parent = ($link['parent'] === null ? $lastInsertID : $link['parent']);

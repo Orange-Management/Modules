@@ -29,7 +29,7 @@ final class PositionMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -45,17 +45,17 @@ final class PositionMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string}>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
         'parent'     => [
             'mapper' => self::class,
-            'dest'   => 'organization_position_parent',
+            'self'   => 'organization_position_parent',
         ],
         'department' => [
             'mapper' => DepartmentMapper::class,
-            'dest'   => 'organization_position_department',
+            'self'   => 'organization_position_department',
         ],
     ];
 

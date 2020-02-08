@@ -30,7 +30,7 @@ final class ProcessMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -47,17 +47,17 @@ final class ProcessMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string}>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
         'unit'       => [
             'mapper' => UnitMapper::class,
-            'dest'   => 'riskmngmt_cause_risk',
+            'self'   => 'riskmngmt_cause_risk',
         ],
         'department' => [
             'mapper' => DepartmentMapper::class,
-            'dest'   => 'riskmngmt_cause_department',
+            'self'   => 'riskmngmt_cause_department',
         ],
     ];
 

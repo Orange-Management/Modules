@@ -34,7 +34,7 @@ final class LocalizationMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string|array>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -48,7 +48,7 @@ final class LocalizationMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string, by?:string}>
      * @since 1.0.0
      */
     protected static array $ownsOne = [

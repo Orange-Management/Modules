@@ -30,7 +30,7 @@ final class AddressMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -50,13 +50,13 @@ final class AddressMapper extends DataMapperAbstract
      *  If a column is defined only that column value should get populated in the model and not the full model!
      *  OwnsOne, HasOne, use single value instead of full model defined in the mapper.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string, by?:string}>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
         'country' => [
             'mapper' => CountryMapper::class,
-            'column' => '',
+            //'column' => '',
             'self'   => 'address_country',
         ],
     ];

@@ -53,7 +53,7 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string, by?:string}>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -66,15 +66,15 @@ final class AccountMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [
         'groups' => [
-            'mapper' => GroupMapper::class,
-            'table'  => 'account_group',
+            'mapper'   => GroupMapper::class,
+            'table'    => 'account_group',
             'external' => 'account_group_account',
-            'self'   => 'account_group_group',
+            'self'     => 'account_group_group',
         ],
     ];
 

@@ -45,7 +45,7 @@ final class ProfileMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string, by?:string}>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
@@ -62,20 +62,20 @@ final class ProfileMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [
         'location' => [
-            'mapper' => AddressMapper::class,
-            'table'  => 'profile_address',
+            'mapper'   => AddressMapper::class,
+            'table'    => 'profile_address',
             'external' => 'profile_address_address',
-            'self'   => 'profile_address_profile',
+            'self'     => 'profile_address_profile',
         ],
         'contactElements' => [
-            'mapper' => ContactElementMapper::class,
-            'table'  => 'profile_contactelement',
-            'self'   => null,
+            'mapper'   => ContactElementMapper::class,
+            'table'    => 'profile_contactelement',
+            'self'     => null,
             'external' => 'profile_contactelement_contact',
         ],
     ];

@@ -29,7 +29,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -43,7 +43,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string}>
      * @since 1.0.0
      */
     protected static array $belongsTo = [

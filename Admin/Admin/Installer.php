@@ -137,7 +137,7 @@ final class Installer extends InstallerAbstract
 
         $query = new Builder($con);
         $query->prefix($con->getPrefix())
-            ->insert('currency_id', 'currency_name', 'currency_char', 'currency_number', 'currency_symbol', 'currency_subunits', 'currency_decimals', 'currency_countries')
+            ->insert('currency_id', 'currency_name', 'currency_code', 'currency_number', 'currency_symbol', 'currency_subunits', 'currency_decimal', 'currency_countries')
             ->into('currency');
 
         $querySqlite = new Builder($sqlite);
@@ -147,11 +147,11 @@ final class Installer extends InstallerAbstract
             $query->values(
                 $currency['currency_id'],
                 $currency['currency_name'],
-                $currency['currency_char'],
+                $currency['currency_code'],
                 $currency['currency_number'],
                 $currency['currency_symbol'],
                 $currency['currency_subunits'],
-                $currency['currency_decimals'],
+                $currency['currency_decimal'],
                 $currency['currency_countries']
             );
         }

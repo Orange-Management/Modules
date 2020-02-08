@@ -30,7 +30,7 @@ final class QAQuestionMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -47,7 +47,7 @@ final class QAQuestionMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -75,13 +75,13 @@ final class QAQuestionMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string}>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
         'createdBy' => [
             'mapper' => ProfileMapper::class,
-            'dest'   => 'qa_question_created_by',
+            'self'   => 'qa_question_created_by',
         ],
     ];
 

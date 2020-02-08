@@ -31,7 +31,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -52,7 +52,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -85,29 +85,29 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Belongs to.
      *
-     * @var array<string, array<string, string>>
+     * @var array<string, array{mapper:string, self:string}>
      * @since 1.0.0
      */
     protected static array $belongsTo = [
         'project'    => [
             'mapper' => ProjectMapper::class,
-            'dest'   => 'riskmngmt_risk_project',
+            'self'   => 'riskmngmt_risk_project',
         ],
         'process'    => [
             'mapper' => ProcessMapper::class,
-            'dest'   => 'riskmngmt_risk_process',
+            'self'   => 'riskmngmt_risk_process',
         ],
         'category'   => [
             'mapper' => CategoryMapper::class,
-            'dest'   => 'riskmngmt_risk_category',
+            'self'   => 'riskmngmt_risk_category',
         ],
         'department' => [
             'mapper' => DepartmentMapper::class,
-            'dest'   => 'riskmngmt_risk_department',
+            'self'   => 'riskmngmt_risk_department',
         ],
         'unit'       => [
             'mapper' => UnitMapper::class,
-            'dest'   => 'riskmngmt_risk_unit',
+            'self'   => 'riskmngmt_risk_unit',
         ],
     ];
 

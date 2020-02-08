@@ -29,7 +29,7 @@ final class KanbanColumnMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array<string, bool|string>>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -42,7 +42,7 @@ final class KanbanColumnMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [
