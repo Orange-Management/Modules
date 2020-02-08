@@ -75,10 +75,10 @@ final class Installer extends InstallerAbstract
 
         foreach ($countries as $country) {
             $query->values(
-                $country['country_name'],
-                $country['country_name'],
-                $country['country_code2'],
-                $country['country_code3'],
+                $country['country_name'] === null ? null : \trim($country['country_name']),
+                $country['country_name'] === null ? null : \trim($country['country_name']),
+                $country['country_code2'] === null ? null : \trim($country['country_code2']),
+                $country['country_code3'] === null ? null : \trim($country['country_code3']),
                 $country['country_numeric']
             );
         }
@@ -110,11 +110,11 @@ final class Installer extends InstallerAbstract
 
         foreach ($languages as $language) {
             $query->values(
-                $language['language_name'],
-                $language['language_native'],
-                $language['language_639_2T'],
-                $language['language_639_2B'],
-                $language['language_639_3']
+                $language['language_name'] === null ? null : \trim($language['language_name']),
+                $language['language_native'] === null ? null : \trim($language['language_native']),
+                $language['language_639_2T'] === null ? null : \trim($language['language_639_2T']),
+                $language['language_639_2B'] === null ? null : \trim($language['language_639_2B']),
+                $language['language_639_3'] === null ? null : \trim($language['language_639_3'])
             );
         }
 
@@ -146,13 +146,13 @@ final class Installer extends InstallerAbstract
         foreach ($currencies as $currency) {
             $query->values(
                 $currency['currency_id'],
-                $currency['currency_name'],
-                $currency['currency_code'],
-                $currency['currency_number'],
-                $currency['currency_symbol'],
+                $currency['currency_name'] === null ? null : \trim($currency['currency_name']),
+                $currency['currency_code'] === null ? null : \trim($currency['currency_code']),
+                $currency['currency_number'] === null ? null : \trim($currency['currency_number']),
+                $currency['currency_symbol'] === null ? null : \trim($currency['currency_symbol']),
                 $currency['currency_subunits'],
-                $currency['currency_decimal'],
-                $currency['currency_countries']
+                $currency['currency_decimal'] === null ? null : \trim($currency['currency_decimal']),
+                $currency['currency_countries'] === null ? null : \trim($currency['currency_countries'])
             );
         }
 
