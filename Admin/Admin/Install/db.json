@@ -201,6 +201,11 @@
                 "foreignTable": "currency",
                 "foreignKey": "currency_code"
             },
+            "l11n_currency_format": {
+                "name": "l11n_currency_format",
+                "type": "VARCHAR(20)",
+                "null": false
+            },
             "l11n_number_thousand": {
                 "name": "l11n_number_thousand",
                 "type": "VARCHAR(20)",
@@ -401,6 +406,48 @@
             },
             "l11n_volume_glass": {
                 "name": "l11n_volume_glass",
+                "type": "VARCHAR(20)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_delim_date": {
+                "name": "l11n_datetime_delim_date",
+                "type": "VARCHAR(1)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_delim_time": {
+                "name": "l11n_datetime_delim_time",
+                "type": "VARCHAR(1)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_very_short": {
+                "name": "l11n_datetime_very_short",
+                "type": "VARCHAR(20)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_short": {
+                "name": "l11n_datetime_short",
+                "type": "VARCHAR(20)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_medium": {
+                "name": "l11n_datetime_medium",
+                "type": "VARCHAR(20)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_long": {
+                "name": "l11n_datetime_long",
+                "type": "VARCHAR(20)",
+                "default": null,
+                "null": true
+            },
+            "l11n_datetime_very_long": {
+                "name": "l11n_datetime_very_long",
                 "type": "VARCHAR(20)",
                 "default": null,
                 "null": true

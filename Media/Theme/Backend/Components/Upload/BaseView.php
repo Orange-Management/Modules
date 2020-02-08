@@ -51,7 +51,7 @@ class BaseView extends View
     public function render(...$data): string
     {
         $this->form        = $data[0];
-        $this->name        = $data[1];
+        $this->name        = $data[1] ?? 'UNDEFINED';
         $this->virtualPath = $data[2] ?? '';
         return parent::render();
     }

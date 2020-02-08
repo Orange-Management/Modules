@@ -46,6 +46,7 @@ use phpOMS\Uri\Http;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Validation\Network\Email;
 use phpOMS\Version\Version;
+use phpOMS\Localization\Localization;
 
 /**
  * Admin controller class.
@@ -518,6 +519,20 @@ final class ApiController extends Controller
         $account->setName3((string) ($request->getData('name3') ?? ''));
         $account->setEmail((string) ($request->getData('email') ?? ''));
         $account->generatePassword((string) ($request->getData('password') ?? ''));
+
+        if ($request->getData('lang') === null) {
+            $account->setL11n(
+                Localization::fromJson(
+                    $this->app->l11nServer === null ? $request->getHeader()->getL11n()->jsonSerialize() : $this->app->l11nServer->jsonSerialize()
+                )
+            );
+        } else {
+            $l11n = $account->getL11n();
+            $l11n->loadFromLanguage(
+                (string) ($request->getData('lang')),
+                (string) ($request->getData('country') ?? $this->app->l11nServer->getCountry())
+            );
+        }
 
         return $account;
     }
