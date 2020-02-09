@@ -104,7 +104,7 @@ class MediaMapper extends DataMapperAbstract
      * path if so desired without deleting or moving the orginal media files.
      *
      * @param string $virtualPath Virtual path
-     * @param string $hidden      Get hidden files
+     * @param bool   $hidden      Get hidden files
      *
      * @return array
      *

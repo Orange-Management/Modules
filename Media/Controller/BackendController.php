@@ -128,18 +128,22 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
 
-        $path  = (string) ($request->getData('path') ?? '/');
+        $path = (string) ($request->getData('path') ?? '/');
+
+        /** @var Media[] $media */
         $media = MediaMapper::getByVirtualPath($path);
 
         $collection = CollectionMapper::getParentCollection($path);
         if (!empty($collection)) {
             $media += $collection->getSources();
 
+            /** @var string[] $glob */
             $glob = \glob(__DIR__ . '/../Files' . \trim($collection->getPath(), '/') . '/' . $collection->getName() . '/*');
+            $glob = $glob === false ? [] : $glob;
 
             foreach ($glob as $file) {
                 foreach ($media as $obj) {
-                    if ($obj->getName() . '.' . $obj->getExtension() === \basename($file)){
+                    if ($obj->getName() . '.' . $obj->getExtension() === \basename($file)) {
                         continue 2;
                     }
                 }
@@ -148,7 +152,7 @@ final class BackendController extends Controller
 
                 $localMedia = new Media();
                 $localMedia->setName($pathinfo['filename']);
-                $localMedia->setExtension($pathinfo['extension']);
+                $localMedia->setExtension($pathinfo['extension'] ?? '');
                 $localMedia->setCreatedBy(new Account());
 
                 $media[] = $localMedia;
