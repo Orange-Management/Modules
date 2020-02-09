@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Media\Controller;
 
 use Modules\Admin\Models\Account;
+use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
@@ -24,7 +25,6 @@ use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
-use Modules\Media\Models\Collection;
 
 /**
  * Media class.
