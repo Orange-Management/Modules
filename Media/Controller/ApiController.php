@@ -20,6 +20,7 @@ use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Media\Models\NullCollection;
+use Modules\Media\Models\PathSettings;
 use Modules\Media\Models\PermissionState;
 use Modules\Media\Models\UploadFile;
 use Modules\Media\Models\UploadStatus;
@@ -102,7 +103,8 @@ final class ApiController extends Controller
             (string) ($request->getData('path') ?? __DIR__ . '/../../../Modules/Media/Files'),
             (string) ($request->getData('virtualPath') ?? ''),
             (string) ($request->getData('password') ?? ''),
-            (string) ($request->getData('encrypt') ?? '')
+            (string) ($request->getData('encrypt') ?? ''),
+            (int) ($request->getData('pathsettings') ?? PathSettings::RANDOM_PATH)
         );
 
         $ids = [];
@@ -114,10 +116,19 @@ final class ApiController extends Controller
     }
 
     /**
-     * @param string $name     Name
-     * @param array  $files    Files
-     * @param int    $account  Uploader
-     * @param string $basePath Base path
+     * Upload a media file
+     *
+     * @param string $name          Name
+     * @param array  $files         Files
+     * @param int    $account       Uploader
+     * @param string $basePath      Base path. The path which is used for the upload.
+     * @param string $virtualPath   Virtual path The path which is used to visually structure the files, like directories.
+     *                              The file storage on the system can be different
+     * @param string $password      File password. The password to protect the file (only database)
+     * @param string $encryptionKey Encryption key. Used to encrypt the file on the local file storage.
+     * @param int    $pathSettings  Settings which describe where the file should be uploaded to (physically)
+     *                              RANDOM_PATH = random location in the base path
+     *                              FILE_PATH   = combination of base path and virtual path
      *
      * @return array
      *
@@ -130,16 +141,28 @@ final class ApiController extends Controller
         string $basePath = 'Modules/Media/Files',
         string $virtualPath = '',
         string $password = '',
-        string $encryptionKey = ''
-    ) : array
-    {
+        string $encryptionKey = '',
+        int $pathSettings = PathSettings::RANDOM_PATH
+    ) : array {
         $mediaCreated = [];
 
         if (!empty($files)) {
-            $upload = new UploadFile();
-            $upload->setOutputDir(self::createMediaPath($basePath));
+            $outputDir = '';
+            $absolute  = false;
 
-            $status       = $upload->upload($files, $name, $encryptionKey);
+            if ($pathSettings === PathSettings::RANDOM_PATH) {
+                $outputDir = self::createMediaPath($basePath);
+            } elseif ($pathSettings === PathSettings::FILE_PATH) {
+                $outputDir = $basePath . $virtualPath;
+                $absolute  = true;
+            } else {
+                return $mediaCreated;
+            }
+
+            $upload = new UploadFile();
+            $upload->setOutputDir($outputDir);
+
+            $status       = $upload->upload($files, $name, $absolute, $encryptionKey);
             $mediaCreated = $this->createDbEntries($status, $account, $virtualPath);
         }
 
@@ -332,6 +355,7 @@ final class ApiController extends Controller
         $mediaCollection->setCreatedBy($account);
         $mediaCollection->setSources($media);
         $mediaCollection->setVirtualPath('/Modules/Helper');
+        $mediaCollection->setPath('/Modules/Helper');
 
         CollectionMapper::create($mediaCollection);
 

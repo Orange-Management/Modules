@@ -137,6 +137,14 @@ class Media implements \JsonSerializable
     protected ?string $password = null;
 
     /**
+     * Media is hidden.
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    protected bool $hidden = false;
+
+    /**
      * Constructor.
      *
      * @since 1.0.0
@@ -495,6 +503,28 @@ class Media implements \JsonSerializable
     }
 
     /**
+     * @return bool
+     *
+     * @since 1.0.0
+     */
+    public function isHidden() : bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * @param bool $hidden File is hidden
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setHidden(bool $hidden) : void
+    {
+        $this->hidden = $hidden;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function toArray() : array
@@ -504,7 +534,9 @@ class Media implements \JsonSerializable
             'name'        => $this->name,
             'description' => $this->description,
             'extension'   => $this->extension,
+            'virtualpath' => $this->virtualPath,
             'size'        => $this->size,
+            'hidden'      => $this->hidden,
         ];
     }
 

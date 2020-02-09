@@ -37,6 +37,11 @@
                 "type": "TINYINT",
                 "null": false
             },
+            "media_hidden": {
+                "name": "media_hidden",
+                "type": "TINYINT",
+                "null": false
+            },
             "media_file": {
                 "name": "media_file",
                 "type": "VARCHAR(255)",

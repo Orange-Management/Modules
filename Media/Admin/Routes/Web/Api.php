@@ -15,11 +15,6 @@ return [
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::MEDIA,
             ],
-            'data' => [
-                'field_name' => [
-                    'type' => 'string', 'default' => 'Hello', 'validation' => '[\\w]*', 'required' => false,'annotation' => [],
-                ],
-            ],
         ],
         [
             'dest' => '\Modules\Media\Controller\ApiController:apiMediaUpdate',

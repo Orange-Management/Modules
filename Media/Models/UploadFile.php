@@ -89,6 +89,7 @@ class UploadFile
      *
      * @param array  $files         File data ($_FILE)
      * @param string $name          File name
+     * @param bool   $absolute      Use absolute path
      * @param string $encryptionKey Encryption key
      * @param string $encoding      Encoding used for uploaded file. Empty string will not convert file content.
      *
@@ -98,16 +99,21 @@ class UploadFile
      *
      * @since 1.0.0
      */
-    public function upload(array $files, string $name = '', string $encryptionKey = '', string $encoding = 'UTF-8') : array
-    {
+    public function upload(
+        array $files,
+        string $name = '',
+        bool $absolute = false,
+        string $encryptionKey = '',
+        string $encoding = 'UTF-8'
+    ) : array  {
         $result = [];
 
         if (\count($files) === \count($files, \COUNT_RECURSIVE)) {
             $files = [$files];
         }
 
-        if (\count($files) > 1) {
-            $this->outputDir = $this->findOutputDir($files);
+        if (!$absolute && \count($files) > 1) {
+            $this->outputDir = $this->findOutputDir();
         }
 
         $path = $this->outputDir;
@@ -308,13 +314,11 @@ class UploadFile
     /**
      * Find unique output path for batch of files
      *
-     * @param array $files Array of files
-     *
      * @return string
      *
      * @since 1.0.0
      */
-    private function findOutputDir(array $files) : string
+    private function findOutputDir() : string
     {
         do {
             $rndPath = \str_pad(\dechex(\mt_rand(0, 65535)), 4, '0', \STR_PAD_LEFT);

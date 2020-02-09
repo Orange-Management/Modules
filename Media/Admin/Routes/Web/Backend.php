@@ -17,9 +17,9 @@ return [
             ],
         ],
     ],
-    '^.*/media/create.*$' => [
+    '^.*/media/upload.*$' => [
         [
-            'dest' => '\Modules\Media\Controller\BackendController:setUpFileUploader',
+            'dest' => '\Modules\Media\Controller\BackendController:viewMediaUpload',
             'verb' => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::MODULE_NAME,
@@ -27,8 +27,21 @@ return [
                 'state' => PermissionState::MEDIA,
             ],
         ],
+    ],
+    '^.*/media/file/create.*$' => [
         [
-            'dest' => '\Modules\Media\Controller\BackendController:viewMediaCreate',
+            'dest' => '\Modules\Media\Controller\BackendController:viewMediaFileCreate',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::CREATE,
+                'state' => PermissionState::MEDIA,
+            ],
+        ],
+    ],
+    '^.*/media/collection/create.*$' => [
+        [
+            'dest' => '\Modules\Media\Controller\BackendController:viewMediaCollectionCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::MODULE_NAME,

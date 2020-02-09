@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Media\Controller;
 
+use Modules\Admin\Models\Account;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 use Modules\Media\Views\MediaView;
-
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
@@ -127,10 +127,33 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Media/Theme/Backend/media-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
 
         $path  = (string) ($request->getData('path') ?? '/');
         $media = MediaMapper::getByVirtualPath($path);
+
+        $collection = CollectionMapper::getParentCollection($path);
+        if (!empty($collection)) {
+            $media += $collection->getSources();
+
+            $glob = \glob(__DIR__ . '/../Files' . \trim($collection->getPath(), '/') . '/' . $collection->getName() . '/*');
+
+            foreach ($glob as $file) {
+                foreach ($media as $obj) {
+                    if ($obj->getName() . '.' . $obj->getExtension() === \basename($file)){
+                        continue 2;
+                    }
+                }
+
+                $pathinfo = \pathinfo($file);
+
+                $localMedia = new Media();
+                $localMedia->setName($pathinfo['filename']);
+                $localMedia->setExtension($pathinfo['extension']);
+                $localMedia->setCreatedBy(new Account());
+
+                $media[] = $localMedia;
+            }
+        }
 
         $view->addData('media', $media);
         $view->addData('path', $path);
@@ -193,11 +216,50 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewMediaCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewMediaUpload(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/Media/Theme/Backend/media-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000401001, $request, $response));
+        $view->setTemplate('/Modules/Media/Theme/Backend/media-upload');
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewMediaFileCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+        $view->setTemplate('/Modules/Media/Theme/Backend/media-file-create');
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewMediaCollectionCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+        $view->setTemplate('/Modules/Media/Theme/Backend/media-collection-create');
 
         return $view;
     }

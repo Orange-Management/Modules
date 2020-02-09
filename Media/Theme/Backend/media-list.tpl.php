@@ -12,6 +12,7 @@
  */
 declare(strict_types=1);
 
+use Modules\Media\Models\Collection;
 use phpOMS\Uri\UriFactory;
 
 include __DIR__ . '/template-functions.php';
@@ -26,8 +27,17 @@ $mediaPath = $this->getData('path') ?? '/';
  * @var \Modules\Media\Models\Media[] $media
  */
 $media = $this->getData('media');
+?>
 
-echo $this->getData('nav')->render(); ?>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <a class="button" href="<?= UriFactory::build('{/prefix}media/upload?path={?path}'); ?>">Upload</a>
+            <a class="button" href="<?= UriFactory::build('{/prefix}media/file/create?path={?path}'); ?>">Create File</a>
+            <a class="button" href="<?= UriFactory::build('{/prefix}media/collection/create?path={?path}'); ?>">Create Collection</a>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-xs-12">
@@ -72,12 +82,18 @@ echo $this->getData('nav')->render(); ?>
                     <?php $count = 0;
                         foreach ($media as $key => $value) :
                             ++$count;
-                            $url  = UriFactory::build('{/prefix}media/single?id=' . $value->getId());
+
+                            if ($value->getExtension() === 'collection') {
+                                $url = UriFactory::build('{/prefix}media/list?path=' . \rtrim($value->getVirtualPath(), '/') . '/' . $value->getName());
+                            } else {
+                                $url = UriFactory::build('{/prefix}media/single?id=' . $value->getId());
+                            }
                             $icon = $fileIconFunction(\phpOMS\System\File\FileUtils::getExtensionType($value->getExtension()));
                         ?>
                     <tr data-href="<?= $url; ?>">
                         <td data-label="<?= $this->getHtml('Type') ?>"><a href="<?= $url; ?>"><i class="fa fa-<?= $this->printHtml($icon); ?>"></i></a>
-                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml(
+                            $value->getExtension() !== 'collection' ? $value->getName() . '.' . $value->getExtension() : $value->getName()); ?></a>
                         <td data-label="<?= $this->getHtml('Extension') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getExtension()); ?></a>
                         <td data-label="<?= $this->getHtml('Size') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getSize()); ?></a>
                         <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getName1()); ?></a>

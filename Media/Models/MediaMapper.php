@@ -39,6 +39,7 @@ class MediaMapper extends DataMapperAbstract
         'media_description'     => ['name' => 'media_description',     'type' => 'string',   'internal' => 'description',   'autocomplete' => true],
         'media_description_raw' => ['name' => 'media_description_raw', 'type' => 'string',   'internal' => 'descriptionRaw'],
         'media_versioned'       => ['name' => 'media_versioned',       'type' => 'bool',     'internal' => 'versioned'],
+        'media_hidden'          => ['name' => 'media_hidden',          'type' => 'bool',     'internal' => 'hidden'],
         'media_file'            => ['name' => 'media_file',            'type' => 'string',   'internal' => 'path',          'autocomplete' => true],
         'media_virtual'         => ['name' => 'media_virtual',         'type' => 'string',   'internal' => 'virtualPath',   'autocomplete' => true],
         'media_absolute'        => ['name' => 'media_absolute',        'type' => 'bool',     'internal' => 'isAbsolute'],
@@ -103,16 +104,44 @@ class MediaMapper extends DataMapperAbstract
      * path if so desired without deleting or moving the orginal media files.
      *
      * @param string $virtualPath Virtual path
+     * @param string $hidden      Get hidden files
      *
      * @return array
      *
      * @since 1.0.0
      */
-    public static function getByVirtualPath(string $virtualPath = '/') : array
+    public static function getByVirtualPath(string $virtualPath = '/', bool $hidden = false) : array
     {
         $query = self::getQuery();
         $query->where(self::$table . '.media_virtual', '=', $virtualPath);
 
+        if ($hidden === false) {
+            $query->where(self::$table . '.media_hidden', '=', (int) $hidden);
+        }
+
         return self::getAllByQuery($query);
+    }
+
+    /**
+     * Get parent collection
+     *
+     * @param string $path Virtual path
+     *
+     * @return mixed
+     *
+     * @since 1.0.0
+     */
+    public static function getParentCollection(string $path = '/')
+    {
+        $virtualPath = \substr($path, 0, \strripos($path, '/') + 1);
+        $name        = \substr($path, \strripos($path, '/') + 1);
+
+        $query = self::getQuery();
+        $query->where(self::$table . '.media_virtual', '=', $virtualPath)
+            ->andWhere(self::$table . '.media_name', '=', $name);
+
+        $objs = self::getAllByQuery($query);
+
+        return \count($objs) === 1 ? \reset($objs) : $objs;
     }
 }

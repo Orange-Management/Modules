@@ -27,7 +27,7 @@ class Collection extends Media implements \Iterator
     /**
      * Resource id.
      *
-     * @var array<int|Media>
+     * @var array<int, int|Media>
      * @since 1.0.0
      */
     private $sources = [];

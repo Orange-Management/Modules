@@ -251,8 +251,7 @@ final class ApiController extends Controller
                 $request->getData('name') ?? '',
                 $request->getFiles(),
                 $request->getHeader()->getAccount(),
-                __DIR__ . '/../../../Modules/Media/Files',
-                ''
+                __DIR__ . '/../../../Modules/Media/Files'
             );
         }
 
@@ -341,8 +340,7 @@ final class ApiController extends Controller
             $request->getData('name') ?? '',
             $request->getFiles(),
             $request->getHeader()->getAccount(),
-            __DIR__ . '/../../../Modules/Media/Files',
-            ''
+            __DIR__ . '/../../../Modules/Media/Files'
         );
 
         $collection = $this->app->moduleManager->get('Media')->createMediaCollectionFromMedia(
