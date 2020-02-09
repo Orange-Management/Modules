@@ -168,6 +168,8 @@ final class ApiController extends Controller
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
                 $tcoll['lang'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.cfg.php')) {
+                $tcoll['cfg'][$tMedia->getName()] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php')
                 || StringUtils::endsWith($lowerPath, '.xls.php')
             ) {
