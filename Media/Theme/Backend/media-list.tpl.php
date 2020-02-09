@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-use Modules\Media\Models\Collection;
 use phpOMS\Uri\UriFactory;
 
 include __DIR__ . '/template-functions.php';
