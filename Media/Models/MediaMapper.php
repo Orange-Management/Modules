@@ -133,7 +133,7 @@ class MediaMapper extends DataMapperAbstract
      */
     public static function getParentCollection(string $path = '/')
     {
-        $virtualPath = \substr($path, 0, \strripos($path, '/') + 1);
+        $virtualPath = '/' . trim(\substr($path, 0, \strripos($path, '/') + 1), '/');
         $name        = \substr($path, \strripos($path, '/') + 1);
 
         $query = self::getQuery();

@@ -24,6 +24,7 @@ use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
+use Modules\Media\Models\Collection;
 
 /**
  * Media class.
@@ -134,7 +135,7 @@ final class BackendController extends Controller
         $media = MediaMapper::getByVirtualPath($path);
 
         $collection = CollectionMapper::getParentCollection($path);
-        if (!empty($collection)) {
+        if ($collection instanceof Collection) {
             $media += $collection->getSources();
 
             /** @var string[] $glob */
