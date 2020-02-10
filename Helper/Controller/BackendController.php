@@ -146,6 +146,8 @@ final class BackendController extends Controller
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
                 $tcoll['lang'] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.cfg.json')) {
+                $tcoll['cfg'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, 'worker.php')) {
                 $tcoll['worker'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php') || StringUtils::endsWith($lowerPath, '.xls.php')) {
@@ -197,6 +199,7 @@ final class BackendController extends Controller
             $view->addData('rcoll', $rcoll);
         }
 
+        $view->addData('unit', $this->app->orgId);
         $view->addData('tcoll', $tcoll);
         $view->addData('lang', $request->getData('lang') ?? $request->getHeader()->getL11n()->getLanguage());
         $view->addData('template', $template);

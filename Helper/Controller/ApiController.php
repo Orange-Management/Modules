@@ -133,8 +133,6 @@ final class ApiController extends Controller
                     . '"'
                 , true);
                 $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
-
-                $response->getHeader()->set('Content-Type', MimeType::M_XLSX, true);
                 break;
             case 'json':
                 $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
@@ -168,8 +166,8 @@ final class ApiController extends Controller
 
             if (StringUtils::endsWith($lowerPath, '.lang.php')) {
                 $tcoll['lang'] = $tMedia;
-            } elseif (StringUtils::endsWith($lowerPath, '.cfg.php')) {
-                $tcoll['cfg'][$tMedia->getName()] = $tMedia;
+            } elseif (StringUtils::endsWith($lowerPath, '.cfg.json')) {
+                $tcoll['cfg'] = $tMedia;
             } elseif (StringUtils::endsWith($lowerPath, '.xlsx.php')
                 || StringUtils::endsWith($lowerPath, '.xls.php')
             ) {

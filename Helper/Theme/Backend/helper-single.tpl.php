@@ -12,6 +12,9 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Model\Html\FormElementGenerator;
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -24,19 +27,19 @@ $report   = $this->getData('report');
 /** @noinspection PhpIncludeInspection */
 $reportLanguage = isset($tcoll['lang']) ? include __DIR__ . '/../../../../' . \ltrim($tcoll['lang']->getPath(), '/') : [];
 $lang           = $reportLanguage[$cLang] ?? [];
+$settings       = isset($tcoll['cfg']) ? \json_decode(\file_get_contents(__DIR__ . '/../../../../' . \ltrim($tcoll['cfg']->getPath(), '/')), true) : [];
 
 echo $this->getData('nav')->render(); ?>
 <div class="row" style="height: calc(100% - 85px);">
     <div class="col-xs-12 col-md-9">
-        <iframe src="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/report/export/?id=' . $template->getId()); ?>" allowfullscreen></iframe>
+        <iframe src="<?= UriFactory::build('{/api}helper/report/export/?id=' . $template->getId()); ?>&u=<?=  $this->getData('unit'); ?>" allowfullscreen></iframe>
     </div>
     <div class="col-xs-12 col-md-3">
-        <?php if (\count($reportLanguage) > 1) : ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Reports') ?></h1></header>
 
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/template'); ?>" method="post">
+                <form action="<?= UriFactory::build('{/api}helper/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
                         <tr>
@@ -57,14 +60,13 @@ echo $this->getData('nav')->render(); ?>
                 </form>
             </div>
         </section>
-        <?php endif; ?>
 
         <?php if (isset($tcoll['excel']) || isset($tcoll['pdf']) || isset($tcoll['word']) || isset($tcoll['powerpoint']) || isset($tcoll['csv']) || isset($tcoll['json'])) : ?>
         <section class="box wf-100">
             <header><h1><?= $this->getHtml('Export') ?></h1></header>
 
             <div class="inner">
-                <form action="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/template'); ?>" method="post">
+                <form>
                     <table class="layout wf-100">
                         <tbody>
                         <tr>
@@ -72,6 +74,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr>
                             <td><select id="iExport" name="export-type">
                                     <option value="select" disabled><?= $this->getHtml('Select'); ?>
+                                    <option value="htm"><?= $this->getHtml('Print'); ?>
                                     <option value="excel"<?= $this->printHtml((!isset($tcoll['excel'])) ? ' disabled' : ''); ?>>Excel
                                     <option value="pdf"<?= $this->printHtml((!isset($tcoll['pdf'])) ? ' disabled' : ''); ?>>Pdf
                                     <option value="doc"<?= $this->printHtml((!isset($tcoll['word'])) ? ' disabled' : ''); ?>>Word
@@ -81,8 +84,27 @@ echo $this->getData('nav')->render(); ?>
 
                                 </select>
                         <tr>
-                            <td><input type="button" value="<?= $this->getHtml('Export'); ?>"
-                                    data-ropen="{#lang}/api/helper/export.php?{type=#iExport}{lang=#iLang}{QUERY}">
+                            <td><a target="_blank" class="button" href="<?= UriFactory::build('{/api}helper/report/export?{?}'); ?>&type={#iExport}&lang={#iLang}{#iUiSettings}"><?= $this->getHtml('Export'); ?></a>
+                    </table>
+                </form>
+            </div>
+        </section>
+        <?php endif; ?>
+
+        <?php if (!empty($settings)) : ?>
+        <section class="box wf-100">
+            <header><h1><?= $this->getHtml('Settings') ?></h1></header>
+
+            <div class="inner">
+                <form id="iUiSettings">
+                    <table class="layout wf-100">
+                        <tbody>
+                        <?php foreach ($settings as $element) : ?>
+                        <tr>
+                            <td><?= FormElementGenerator::generate($element, $this->request->getData($element['attributes']['name'] ?? '')); ?>
+                        <?php endforeach; ?>
+                        <tr>
+                            <td><a class="button" href="<?= UriFactory::build('{%}') ;?>&type={#iExport}&lang={#iLang}{#iUiSettings}"><?= $this->getHtml('Load'); ?></a>
                     </table>
                 </form>
             </div>
