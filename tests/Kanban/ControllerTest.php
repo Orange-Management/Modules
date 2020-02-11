@@ -24,8 +24,8 @@ use phpOMS\Account\PermissionType;
 use phpOMS\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
 use phpOMS\Uri\Http;
@@ -86,8 +86,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateBoard() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Board');
@@ -105,8 +105,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateColumn() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Column');
@@ -124,8 +124,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreateCard() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Card');

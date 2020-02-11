@@ -18,7 +18,7 @@ use phpOMS\ApplicationAbstract;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\Schema\Builder as SchemaBuilder;
 use phpOMS\Dispatcher\Dispatcher;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Module\NullModule;
 use phpOMS\Router\WebRouter;
@@ -562,7 +562,7 @@ trait ModuleTestTrait
 
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
 
-        $request = new Request(new Http(self::URI_LOAD));
+        $request = new HttpRequest(new Http(self::URI_LOAD));
         $request->createRequestHashs(2);
 
         $loaded = $moduleManager->getUriLoad($request);

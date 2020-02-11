@@ -16,8 +16,8 @@ namespace Modules\tests\Admin\Controller\Api;
 
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Uri\Http;
 
 trait ApiControllerAccountTrait
@@ -29,8 +29,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAccountGet() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -48,8 +48,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAccountUpdate() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', 1);
@@ -69,8 +69,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAccountFind() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('search', 'admin');
@@ -87,8 +87,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAccountAndProfileCreate() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('login', 'guest');
@@ -111,8 +111,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAccountDelete() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         // mustn't create a profile otherwise it will not be possible to delete the account because of FK constraints
@@ -135,8 +135,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAccountCreateInvalid() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('status', 999);
@@ -153,8 +153,8 @@ trait ApiControllerAccountTrait
      */
     public function testApiAddGroupToAccount() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('account', 1);

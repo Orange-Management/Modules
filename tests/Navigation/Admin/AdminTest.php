@@ -16,7 +16,7 @@ namespace Modules\tests\Navigation\Admin;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Navigation\Models\Navigation;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Uri\Http;
 
@@ -38,7 +38,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      */
     public function testNavigationElements() : void
     {
-        $request = new Request(new Http('http://127.0.0.1/en/backend'));
+        $request = new HttpRequest(new Http('http://127.0.0.1/en/backend'));
         $request->createRequestHashs(1);
 
         $account       = AccountMapper::getWithPermissions(1);

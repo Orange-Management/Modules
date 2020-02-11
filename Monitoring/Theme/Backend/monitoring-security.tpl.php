@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\Rest;
 use phpOMS\Security\PhpCode;
 use phpOMS\System\File\Local\Directory;
@@ -64,7 +64,7 @@ echo $this->getData('nav')->render(); ?>
                                 <?= \phpOMS\Security\PhpCode::validateStringIntegrity(
                                     $content,
                                     Rest::request(
-                                        new Request(
+                                        new HttpRequest(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/' . $file)
                                         )
                                     )->getBody()
@@ -83,7 +83,7 @@ echo $this->getData('nav')->render(); ?>
                                 <?= \phpOMS\Security\PhpCode::validateStringIntegrity(
                                     $content,
                                     Rest::request(
-                                        new Request(
+                                        new HttpRequest(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/Model/develop/' . $file)
                                         )
                                     )->getBody()
@@ -102,7 +102,7 @@ echo $this->getData('nav')->render(); ?>
                                 <?= \phpOMS\Security\PhpCode::validateStringIntegrity(
                                     $content,
                                     Rest::request(
-                                        new Request(
+                                        new HttpRequest(
                                             new Http('https://raw.githubusercontent.com/Orange-Management/Modules/develop/' . $file)
                                         )
                                     )->getBody()

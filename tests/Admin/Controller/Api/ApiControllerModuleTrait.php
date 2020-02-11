@@ -16,8 +16,8 @@ namespace Modules\tests\Admin\Controller\Api;
 
 use Modules\Admin\Models\ModuleStatusUpdateType;
 
-use phpOMS\Message\Http\Request;
-use phpOMS\Message\Http\Response;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Uri\Http;
 
 trait ApiControllerModuleTrait
@@ -29,8 +29,8 @@ trait ApiControllerModuleTrait
      */
     public function testApiModuleStatusUpdate() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('module', 'TestModule');
@@ -59,8 +59,8 @@ trait ApiControllerModuleTrait
      */
     public function testApiModuleStatusUpdateEmptyModule() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
 
@@ -76,8 +76,8 @@ trait ApiControllerModuleTrait
      */
     public function testApiModuleStatusUpdateInvalidStatus() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('module', 'TestModule');
@@ -94,8 +94,8 @@ trait ApiControllerModuleTrait
      */
     public function testApiModuleStatusUpdateInvalidModule() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('module', 'invalid');
@@ -112,8 +112,8 @@ trait ApiControllerModuleTrait
      */
     public function testApiReInit() : void
     {
-        $response = new Response();
-        $request  = new Request(new Http(''));
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new Http(''));
 
         $request->getHeader()->setAccount(1);
 

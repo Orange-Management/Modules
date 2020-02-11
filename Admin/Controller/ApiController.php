@@ -32,7 +32,7 @@ use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
 use phpOMS\Localization\Localization;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestMethod;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\Http\Rest;
@@ -1084,7 +1084,7 @@ final class ApiController extends Controller
     public function apiCheckForUpdates(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
-        $request = new Request(new Http('https://api.github.com/repos/Orange-Management/Updates/contents'));
+        $request = new HttpRequest(new Http('https://api.github.com/repos/Orange-Management/Updates/contents'));
         $request->setMethod(RequestMethod::GET);
         $request->getHeader()->set('User-Agent', 'spl1nes');
 
@@ -1175,7 +1175,7 @@ final class ApiController extends Controller
     private function downloadUpdate(string $url, string $dest) : void
     {
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
-        $request = new Request(new Http($url));
+        $request = new HttpRequest(new Http($url));
         $request->setMethod(RequestMethod::GET);
 
         $updateFile = Rest::request($request)->getBody();

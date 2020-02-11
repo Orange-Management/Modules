@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\Rest;
 use phpOMS\Uri\Http;
 
@@ -45,7 +45,7 @@ echo $this->getData('nav')->render(); ?>
                         $file,
                         \md5(
                             Rest::request(
-                                new Request(
+                                new HttpRequest(
                                     new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php')
                                 )
                             )->getBody()

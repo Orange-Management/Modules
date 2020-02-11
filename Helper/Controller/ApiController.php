@@ -26,6 +26,7 @@ use Modules\Media\Models\NullCollection;
 
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
@@ -58,7 +59,7 @@ final class ApiController extends Controller
     /**
      * Routing end-point for application behaviour.
      *
-     * @param RequestAbstract  $request  Request
+     * @param HttpRequest      $request  Request
      * @param ResponseAbstract $response Response
      * @param mixed            $data     Generic data
      *
@@ -68,7 +69,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiHelperExport(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiHelperExport(HttpRequest $request, ResponseAbstract $response, $data = null) : void
     {
         $template  = TemplateMapper::get((int) $request->getData('id'));
         $accountId = $request->getHeader()->getAccount();

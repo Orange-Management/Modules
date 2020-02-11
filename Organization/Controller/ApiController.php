@@ -23,7 +23,7 @@ use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 use phpOMS\Account\GroupStatus;
-use phpOMS\Message\Http\Request;
+use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -187,7 +187,7 @@ final class ApiController extends Controller
         $this->createModel($request->getHeader()->getAccount(), $unit, UnitMapper::class, 'unit');
 
         if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_UNIT) === '1') {
-            $newRequest = new Request();
+            $newRequest = new HttpRequest();
             $newRequest->setData('name', 'org:unit:' . \strtolower($unit->getName()));
             $newRequest->setData('status', GroupStatus::ACTIVE);
             $this->app->moduleManager->get('Admin')->apiGroupCreate($newRequest, $response, $data);
@@ -358,7 +358,7 @@ final class ApiController extends Controller
         $this->createModel($request->getHeader()->getAccount(), $position, PositionMapper::class, 'position');
 
         if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_POSITION) === '1') {
-            $newRequest = new Request();
+            $newRequest = new HttpRequest();
             $newRequest->setData('name', 'org:pos:' . \strtolower($position->getName()));
             $newRequest->setData('status', GroupStatus::ACTIVE);
             $this->app->moduleManager->get('Admin')->apiGroupCreate($newRequest, $response, $data);
@@ -531,7 +531,7 @@ final class ApiController extends Controller
         $this->createModel($request->getHeader()->getAccount(), $department, DepartmentMapper::class, 'department');
 
         if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_DEPARTMENT) === '1') {
-            $newRequest = new Request();
+            $newRequest = new HttpRequest();
             $newRequest->setData('name', 'org:dep:' . \strtolower($department->getName()));
             $newRequest->setData('status', GroupStatus::ACTIVE);
             $this->app->moduleManager->get('Admin')->apiGroupCreate($newRequest, $response, $data);

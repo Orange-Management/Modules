@@ -154,7 +154,7 @@ export class Upload {
          * @todo Orange-Management/Modules#207
          *  Validate file type and file size on the frontend before uploading
          */
-        const request = new Request(),
+        const request = new HttpRequest(),
             formData  = new FormData(),
             self      = this;
 
