@@ -104,7 +104,7 @@ echo $this->getData('nav')->render(); ?>
                             <td><?= FormElementGenerator::generate($element, $this->request->getData($element['attributes']['name'] ?? '')); ?>
                         <?php endforeach; ?>
                         <tr>
-                            <td><a class="button" href="<?= UriFactory::build('{%}') ;?>&type={#iExport}&lang={#iLang}{#iUiSettings}"><?= $this->getHtml('Load'); ?></a>
+                            <td><a class="button" href="<?= UriFactory::build('{%}');?>&type={#iExport}&lang={#iLang}{#iUiSettings}"><?= $this->getHtml('Load'); ?></a>
                     </table>
                 </form>
             </div>
