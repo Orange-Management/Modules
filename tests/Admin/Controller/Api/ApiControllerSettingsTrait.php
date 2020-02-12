@@ -16,7 +16,7 @@ namespace Modules\tests\Admin\Controller\Api;
 
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 trait ApiControllerSettingsTrait
 {
@@ -28,7 +28,7 @@ trait ApiControllerSettingsTrait
     public function testApiSettingsGet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1000000019');
@@ -45,7 +45,7 @@ trait ApiControllerSettingsTrait
     public function testApiSettingsSet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('settings', \json_encode(['1000000019' => 'US']));

@@ -43,7 +43,7 @@ use phpOMS\Model\Message\FormValidation;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\File;
 use phpOMS\System\MimeType;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 use phpOMS\Validation\Network\Email;
 use phpOMS\Version\Version;
@@ -1084,7 +1084,7 @@ final class ApiController extends Controller
     public function apiCheckForUpdates(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
-        $request = new HttpRequest(new Http('https://api.github.com/repos/Orange-Management/Updates/contents'));
+        $request = new HttpRequest(new HttpUri('https://api.github.com/repos/Orange-Management/Updates/contents'));
         $request->setMethod(RequestMethod::GET);
         $request->getHeader()->set('User-Agent', 'spl1nes');
 
@@ -1175,7 +1175,7 @@ final class ApiController extends Controller
     private function downloadUpdate(string $url, string $dest) : void
     {
         // this is only a temp... in the future this logic will change but for current purposes this is the easiest way to implement updates
-        $request = new HttpRequest(new Http($url));
+        $request = new HttpRequest(new HttpUri($url));
         $request->setMethod(RequestMethod::GET);
 
         $updateFile = Rest::request($request)->getBody();

@@ -18,7 +18,7 @@ use Modules\Admin\Models\AccountMapper;
 use Modules\Navigation\Models\Navigation;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Module\ModuleManager;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 /**
  * @internal
@@ -38,7 +38,7 @@ class AdminTest extends \PHPUnit\Framework\TestCase
      */
     public function testNavigationElements() : void
     {
-        $request = new HttpRequest(new Http('http://127.0.0.1/en/backend'));
+        $request = new HttpRequest(new HttpUri('http://127.0.0.1/en/backend'));
         $request->createRequestHashs(1);
 
         $account       = AccountMapper::getWithPermissions(1);

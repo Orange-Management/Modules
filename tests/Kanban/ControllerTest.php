@@ -28,7 +28,7 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\TestUtils;
 
 /**
@@ -87,7 +87,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testCreateBoard() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Board');
@@ -106,7 +106,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testCreateColumn() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Column');
@@ -125,7 +125,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testCreateCard() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('title', 'Controller Test Card');

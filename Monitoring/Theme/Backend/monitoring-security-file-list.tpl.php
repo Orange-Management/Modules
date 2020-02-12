@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\Rest;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 /**
  * @var \phpOMS\Views\View $this
@@ -46,7 +46,7 @@ echo $this->getData('nav')->render(); ?>
                         \md5(
                             Rest::request(
                                 new HttpRequest(
-                                    new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php')
+                                    new HttpUri('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/Account/Account.php')
                                 )
                             )->getBody()
                         )

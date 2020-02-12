@@ -22,7 +22,7 @@ use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Module\NullModule;
 use phpOMS\Router\WebRouter;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\ArrayUtils;
 use phpOMS\Validation\Base\Json;
 use phpOMS\Version\Version;
@@ -562,7 +562,7 @@ trait ModuleTestTrait
 
         $moduleManager = new ModuleManager($this->app, __DIR__ . '/../../Modules');
 
-        $request = new HttpRequest(new Http(self::URI_LOAD));
+        $request = new HttpRequest(new HttpUri(self::URI_LOAD));
         $request->createRequestHashs(2);
 
         $loaded = $moduleManager->getUriLoad($request);

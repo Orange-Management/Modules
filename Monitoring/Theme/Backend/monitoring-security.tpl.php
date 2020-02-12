@@ -18,7 +18,7 @@ use phpOMS\Message\Http\Rest;
 use phpOMS\Security\PhpCode;
 use phpOMS\System\File\Local\Directory;
 use phpOMS\System\File\Local\File;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 echo $this->getData('nav')->render(); ?>
 
@@ -65,7 +65,7 @@ echo $this->getData('nav')->render(); ?>
                                     $content,
                                     Rest::request(
                                         new HttpRequest(
-                                            new Http('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/' . $file)
+                                            new HttpUri('https://raw.githubusercontent.com/Orange-Management/phpOMS/develop/' . $file)
                                         )
                                     )->getBody()
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
@@ -84,7 +84,7 @@ echo $this->getData('nav')->render(); ?>
                                     $content,
                                     Rest::request(
                                         new HttpRequest(
-                                            new Http('https://raw.githubusercontent.com/Orange-Management/Model/develop/' . $file)
+                                            new HttpUri('https://raw.githubusercontent.com/Orange-Management/Model/develop/' . $file)
                                         )
                                     )->getBody()
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>
@@ -103,7 +103,7 @@ echo $this->getData('nav')->render(); ?>
                                     $content,
                                     Rest::request(
                                         new HttpRequest(
-                                            new Http('https://raw.githubusercontent.com/Orange-Management/Modules/develop/' . $file)
+                                            new HttpUri('https://raw.githubusercontent.com/Orange-Management/Modules/develop/' . $file)
                                         )
                                     )->getBody()
                                 ) ? $this->getHtml('OK') : $this->getHtml('NG'); ?>

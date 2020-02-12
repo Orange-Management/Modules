@@ -32,7 +32,7 @@ use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
 
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 use phpOMS\Utils\TestUtils;
 
@@ -92,7 +92,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiUnitGet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -110,7 +110,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiUnitSet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '1');
@@ -129,7 +129,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiUnitCreateDelete() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -157,7 +157,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentCreate() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -180,7 +180,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentGet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$departmentId);
@@ -198,7 +198,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentSet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$departmentId);
@@ -217,7 +217,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiDepartmentDelete() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$departmentId);
@@ -235,7 +235,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionCreate() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -256,7 +256,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionGet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$positionId);
@@ -274,7 +274,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionSet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$positionId);
@@ -293,7 +293,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
     public function testApiPositionDelete() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', self::$positionId);

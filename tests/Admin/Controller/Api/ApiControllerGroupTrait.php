@@ -17,7 +17,7 @@ namespace Modules\tests\Admin\Controller\Api;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\HttpResponse;
-use phpOMS\Uri\Http;
+use phpOMS\Uri\HttpUri;
 
 trait ApiControllerGroupTrait
 {
@@ -29,7 +29,7 @@ trait ApiControllerGroupTrait
     public function testApiGroupGet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '3');
@@ -48,7 +48,7 @@ trait ApiControllerGroupTrait
     public function testApiGroupSet() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('id', '3');
@@ -71,7 +71,7 @@ trait ApiControllerGroupTrait
     public function testApiGroupFind() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('search', 'admin');
@@ -89,7 +89,7 @@ trait ApiControllerGroupTrait
     public function testApiGroupCreateDelete() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('name', 'test');
@@ -116,7 +116,7 @@ trait ApiControllerGroupTrait
     public function testApiGroupCreateInvalid() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('status', 999);
@@ -134,7 +134,7 @@ trait ApiControllerGroupTrait
     public function testApiAddAccountToGroup() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('group', 1);
@@ -152,7 +152,7 @@ trait ApiControllerGroupTrait
     public function testApiAccountGroupFind() : void
     {
         $response = new HttpResponse();
-        $request  = new HttpRequest(new Http(''));
+        $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
         $request->setData('search', 'admin');
