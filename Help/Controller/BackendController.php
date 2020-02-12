@@ -126,6 +126,8 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Help/Theme/Backend/help-module-list');
 
+        $view->setData('modules', $this->app->moduleManager->getInstalledModules());
+
         return $view;
     }
 

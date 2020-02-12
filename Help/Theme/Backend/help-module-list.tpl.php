@@ -12,12 +12,11 @@
  */
 declare(strict_types=1);
 
-
 /**
  * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Module\InfoManager[] $modules
  */
-
-$modules = $this->app->moduleManager->getInstalledModules();
+$modules = $this->getData('modules');
 ?>
 
 <div class="row">
@@ -35,18 +34,18 @@ $modules = $this->app->moduleManager->getInstalledModules();
                 <?php
                 $count = 0;
                 foreach ($modules as $key => $module) :
-                    if ((\realpath(__DIR__ . '/../../../' . $module['directory'] . '/Docs/Help/en/SUMMARY.md')) === false) {
+                    if ((\realpath(__DIR__ . '/../../../' . $module->getDirectory() . '/Docs/Help/en/SUMMARY.md')) === false) {
                         continue;
                     }
 
                     ++$count;
                     $url = \phpOMS\Uri\UriFactory::build(
                         '{/lang}/backend/help/module/single?id={$module}',
-                        ['$module' => $module['name']['internal']]
+                        ['$module' => $module->getInternalName()]
                     );
                 ?>
                     <tr data-href="<?= $url; ?>">
-                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module['name']['external']); ?></a>
+                        <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($module->getExternalName()); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
                     <tr><td class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
