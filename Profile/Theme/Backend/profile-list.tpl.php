@@ -14,14 +14,9 @@ declare(strict_types=1);
 
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Profile\Models\Profile[] $accounts
  */
-
-$footerView  = new \phpOMS\Views\PaginationView($this->l11nManager, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-$footerView->setPages(20);
-$footerView->setPage(1);
-
-$accounts = $this->getData('accounts');
+ $accounts = $this->getData('accounts');
 ?>
 
 <div class="row">

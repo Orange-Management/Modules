@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Helper\Models\Template[] $templates
  */
 $templates = $this->getData('reports');
 

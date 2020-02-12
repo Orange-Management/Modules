@@ -14,14 +14,9 @@ declare(strict_types=1);
 
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Organization\Models\Department[] $departments
  */
-
-$footerView = new \phpOMS\Views\PaginationView($this->l11nManager, $this->request, $this->response);
-$footerView->setTemplate('/Web/Templates/Lists/Footer/PaginationBig');
-
-$footerView->setPages(25);
-$footerView->setPage(1);
-$footerView->setResults(1);
+$departments = $this->getData('list:elements') ?? [];
 
 echo $this->getData('nav')->render(); ?>
 
@@ -39,7 +34,7 @@ echo $this->getData('nav')->render(); ?>
                         <tfoot>
                 <tr><td colspan="4">
                         <tbody>
-                        <?php $c = 0; foreach ($this->getData('list:elements') as $key => $value) : ++$c;
+                        <?php $c = 0; foreach ($departments as $key => $value) : ++$c;
                         $url = \phpOMS\Uri\UriFactory::build('{/prefix}organization/department/profile?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>

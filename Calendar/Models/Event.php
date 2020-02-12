@@ -55,15 +55,15 @@ class Event
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Creator.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -91,10 +91,10 @@ class Event
     /**
      * Schedule
      *
-     * @var null|int|Schedule
+     * @var int|Schedule
      * @since 1.0.0
      */
-    private $schedule = null;
+    private $schedule;
 
     /**
      * Location of the event.
@@ -102,7 +102,7 @@ class Event
      * @var Location
      * @since 1.0.0
      */
-    private ?Location $location = null;
+    private Location $location;
 
     /**
      * Calendar
@@ -247,11 +247,11 @@ class Event
     }
 
     /**
-     * @return int
+     * @return int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -268,7 +268,10 @@ class Event
     public function setCreatedBy(int $createdBy) : void
     {
         $this->createdBy = $createdBy;
-        $this->schedule->setCreatedBy($this->createdBy);
+
+        if ($this->schedule instanceof Schedule) {
+            $this->schedule->setCreatedBy($this->createdBy);
+        }
     }
 
     /**
@@ -336,11 +339,11 @@ class Event
     }
 
     /**
-     * @return Schedule
+     * @return int|Schedule
      *
      * @since 1.0.0
      */
-    public function getSchedule() : Schedule
+    public function getSchedule()
     {
         return $this->schedule;
     }

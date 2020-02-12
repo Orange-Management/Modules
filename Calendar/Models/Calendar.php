@@ -53,18 +53,18 @@ class Calendar
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Current date of the calendar.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $date = null;
+    private \DateTime $date;
 
     /**
      * Events.
@@ -152,7 +152,7 @@ class Calendar
         $key = \key($this->events);
         \reset($this->events);
 
-        return $key;
+        return $key ?? 0;
     }
 
     /**

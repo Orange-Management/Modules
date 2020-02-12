@@ -12,10 +12,12 @@
  */
 declare(strict_types=1);
 
+use Modules\News\Models\NewsType;
+
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\News\Models\NewsArticle[] $newsList
  */
-
 $newsList = $this->getData('news');
 
 echo $this->getData('nav')->render(); ?>
@@ -36,9 +38,9 @@ echo $this->getData('nav')->render(); ?>
                 <?php $count = 0; foreach ($newsList as $key => $news) : ++$count;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}news/article?{?}&id=' . $news->getId());
                 $color = 'darkred';
-                if ($news->getType() === \Modules\News\Models\NewsType::ARTICLE) { $color = 'green'; }
-                elseif ($news->getType() === \Modules\News\Models\NewsType::HEADLINE) { $color = 'purple'; }
-                elseif ($news->getType() === \Modules\News\Models\NewsType::LINK) { $color = 'yellow'; }
+                if ($news->getType() === NewsType::ARTICLE) { $color = 'green'; }
+                elseif ($news->getType() === NewsType::HEADLINE) { $color = 'purple'; }
+                elseif ($news->getType() === NewsType::LINK) { $color = 'yellow'; }
                 ?>
                 <tr data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $news->isFeatured() ? '<i class="fa fa-star favorite"></i>' : ''; ?></a>

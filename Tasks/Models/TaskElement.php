@@ -64,7 +64,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;

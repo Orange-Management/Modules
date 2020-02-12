@@ -62,10 +62,10 @@ class Invoice implements \JsonSerializable
     /**
      * Invoice created at.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Invoice send at.
@@ -303,7 +303,7 @@ class Invoice implements \JsonSerializable
      *
      * @since 1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

@@ -13,7 +13,8 @@
 declare(strict_types=1);
 
 /**
- * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Views\View                 $this
+ * @var \Modules\Editor\Models\EditorDoc[] $docs
  */
 $docs = $this->getData('docs');
 

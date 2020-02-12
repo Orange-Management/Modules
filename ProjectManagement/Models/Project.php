@@ -15,8 +15,10 @@ declare(strict_types=1);
 namespace Modules\ProjectManagement\Models;
 
 use Modules\Calendar\Models\Calendar;
+use Modules\Media\Models\NullMedia;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
+use Modules\Media\Models\Media;
 
 /**
  * Project class.
@@ -143,7 +145,7 @@ class Project
     /**
      * Media files.
      *
-     * @var Media[]
+     * @var array<int, int|media>
      * @since 1.0.0
      */
     private array $media = [];
@@ -159,7 +161,7 @@ class Project
     /**
      * Created by.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -213,7 +215,7 @@ class Project
     /**
      * Get all media files.
      *
-     * @return Media[]
+     * @return array<int, int|Media>
      *
      * @since 1.0.0
      */
@@ -233,7 +235,7 @@ class Project
      */
     public function addMedia($media) : void
     {
-        if ($media->getId() !== 0) {
+        if ($media instanceof Media && $media->getId() !== 0) {
             $this->media[$media->getId()] = $media;
         } else {
             $this->media[] = $media;
@@ -369,13 +371,13 @@ class Project
      *
      * @param int $id Media id
      *
-     * @return Media
+     * @return int|Media
      *
      * @since 1.0.0
      */
-    public function getMedia(int $id) : Media
+    public function getMedia(int $id)
     {
-        return $this->media[$id] ?? new Task();
+        return $this->media[$id] ?? new NullMedia();
     }
 
     /**
@@ -702,11 +704,11 @@ class Project
     /**
      * Get created by
      *
-     * @return int
+     * @return int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

@@ -91,7 +91,7 @@ class Template implements \JsonSerializable
     /**
      * Template created by.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -99,7 +99,7 @@ class Template implements \JsonSerializable
     /**
      * Template source.
      *
-     * @var int|Media
+     * @var int|\Modules\Media\Models\Media
      * @since 1.0.0
      */
     private $source = 0;

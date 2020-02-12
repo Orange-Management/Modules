@@ -77,7 +77,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -171,7 +171,7 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return int
+     * @return int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */

@@ -75,7 +75,7 @@ class Report implements \JsonSerializable
     /**
      * Report created by.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -83,7 +83,7 @@ class Report implements \JsonSerializable
     /**
      * Report template.
      *
-     * @var null|int|Media
+     * @var int|\Modules\Media\Models\Media
      * @since 1.0.0
      */
     private $template = 0;

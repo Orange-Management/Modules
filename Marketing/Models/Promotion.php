@@ -80,7 +80,7 @@ class Promotion
     /**
      * Created by.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -486,11 +486,11 @@ class Promotion
     /**
      * Get created by
      *
-     * @return int
+     * @return int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

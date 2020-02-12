@@ -93,10 +93,10 @@ class Schedule
     /**
      * Start.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $start = null;
+    private \DateTime $start;
 
     /**
      * Duration.
@@ -109,23 +109,23 @@ class Schedule
     /**
      * End.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $end = null;
+    private \DateTime $end;
 
     /**
      * Created at.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Created by.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -361,7 +361,7 @@ class Schedule
     public function setDuration(int $duration)
     {
         if ($duration < 1) {
-            throw new \InvalidArgumentException($duration);
+            throw new \InvalidArgumentException((string) $duration);
         }
 
         $this->duration = $duration;
@@ -408,11 +408,11 @@ class Schedule
     }
 
     /**
-     * @return int
+     * @return int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }

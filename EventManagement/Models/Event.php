@@ -77,15 +77,15 @@ class Event
     /**
      * Created.
      *
-     * @var null|\DateTime
+     * @var \DateTime
      * @since 1.0.0
      */
-    private ?\DateTime $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Creator.
      *
-     * @var int
+     * @var int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
     private $createdBy = 0;
@@ -515,11 +515,11 @@ class Event
     /**
      * Get creator
      *
-     * @return int
+     * @return int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy() : int
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
