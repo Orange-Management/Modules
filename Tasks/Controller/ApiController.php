@@ -119,7 +119,7 @@ final class ApiController extends Controller
         $task->setDescription(Markdown::parse((string) ($request->getData('plain') ?? '')));
         $task->setDescriptionRaw((string) ($request->getData('plain') ?? ''));
         $task->setCreatedBy($request->getHeader()->getAccount());
-        $task->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
+        $task->setDue(new \DateTime($request->getData('due')));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
         $task->setPriority((int) $request->getData('priority'));

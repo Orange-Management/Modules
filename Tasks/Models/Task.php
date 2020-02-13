@@ -517,13 +517,13 @@ class Task implements \JsonSerializable
     /**
      * Get done date
      *
-     * @return \DateTime
+     * @return null|\DateTime
      *
      * @since 1.0.0
      */
-    public function getDone() : \DateTime
+    public function getDone() : ?\DateTime
     {
-        return $this->done ?? new \DateTime('now');
+        return $this->done;
     }
 
     /**
@@ -543,11 +543,11 @@ class Task implements \JsonSerializable
     /**
      * Get due date
      *
-     * @return \DateTime
+     * @return null|\DateTime
      *
      * @since 1.0.0
      */
-    public function getDue() : \DateTime
+    public function getDue() : ?\DateTime
     {
         return $this->due;
     }
@@ -555,13 +555,13 @@ class Task implements \JsonSerializable
     /**
      * Set due date
      *
-     * @param \DateTime $due Due date
+     * @param null|\DateTime $due Due date
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setDue(\DateTime $due) : void
+    public function setDue(?\DateTime $due) : void
     {
         $this->due = $due;
     }

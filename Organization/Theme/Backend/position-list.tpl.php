@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 /**
- * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Views\View                      $this
  * @var \Modules\Organization\Models\Position[] $positions
  */
 $positions = $this->getData('list:elements') ?? [];

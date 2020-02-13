@@ -15,10 +15,10 @@ declare(strict_types=1);
 namespace Modules\ProjectManagement\Models;
 
 use Modules\Calendar\Models\Calendar;
+use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
-use Modules\Media\Models\Media;
 
 /**
  * Project class.

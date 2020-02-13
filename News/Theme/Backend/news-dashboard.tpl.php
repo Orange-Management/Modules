@@ -15,7 +15,7 @@ declare(strict_types=1);
 use Modules\News\Models\NewsType;
 
 /**
- * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Views\View                 $this
  * @var \Modules\News\Models\NewsArticle[] $newsList
  */
 $newsList = $this->getData('news');
