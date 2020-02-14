@@ -44,16 +44,6 @@ use phpOMS\Views\View;
  *  E.g. a user could request a unlocking of a customer for invoicing by a simple button click and a credit manager only has to approve it.
  *  The workflow module now knows that the approval means to unlock the customer (maybe for only one invoice, limited time, value etc).
  *
- * @todo Orange-Management/Modules#22
- *  Implement a way to support template settings.
- *  Different templates require different settings such as different type of permissions, default values, etc.
- *  Letting the user write config files would not be a problem (e.g. direct modification of json files) but how would this work with a settings ui where also predefined options are selectable.
- *  Many templates may be provided by other modules or 3rd party and not by inhouse developers.
- *  One solution could be to define a config layout where you can define predefined values, regex for validation etc?
- *  This would require a form builder that could build forms based on json objects. This however would be one large form and not split nicely over multiple forms.
- *  One more outer array could be used to create multiple forms.
- *  At the same time the application would have to register a form view/template at the beginning that could be used.
- *
  * @todo Orange-Management/Modules#23
  *  Request/approval workflow
  *  For many things a request/approval workflow should be implemented.
