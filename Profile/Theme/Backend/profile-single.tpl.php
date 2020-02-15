@@ -221,10 +221,6 @@ echo $this->getData('nav')->render();
                                             <?php endforeach; ?>
                                         </select>
                                 <tr><td colspan="2"><h2><?= $this->getHtml('Timeformat'); ?></h2>
-                                <tr><td><label for="iDateDelim"><?= $this->getHtml('DateDelim'); ?></label>
-                                    <td><label for="iTimeDelim"><?= $this->getHtml('TimeDelim'); ?></label>
-                                <tr><td><input form="fLocalization" id="iDateDelim" name="settings_1000000027" type="text" value="<?= $this->printHtml($l11n->getDateDelim()); ?>" placeholder="." required>
-                                    <td><input form="fLocalization" id="iTimeDelim" name="settings_1000000028" type="text" value="<?= $this->printHtml($l11n->getTimeDelim()); ?>" placeholder=":" required>
                                 <tr><td colspan="2"><label for="iVeryShort"><?= $this->getHtml('VeryShort'); ?></label>
                                 <tr><td colspan="2"><input form="fLocalization" id="iDateDelim" name="settings_1000000027" type="text" value="<?= $this->printHtml($l11n->getDatetime()['very_short']); ?>" placeholder="Y" required>
                                 <tr><td colspan="2"><label for="iShort"><?= $this->getHtml('Short'); ?></label>
@@ -257,8 +253,8 @@ echo $this->getData('nav')->render();
                                     <tr><td colspan="2"><label><?= $this->getHtml('Currencyformat'); ?></label>
                                     <tr><td colspan="2">
                                             <select form="fLocalization">
-                                                <option value="%s1 %s2"<?= $this->printHtml('%s1 %s2' === $l11n->getCurrencyFormat() ? ' selected' : ''); ?>><?= $this->getHtml('Amount') , ' ' , $this->printHtml($l11n->getCurrency()); ?>
-                                                <option value="%s2 %s1"<?= $this->printHtml('%s2 %s1' === $l11n->getCurrencyFormat() ? ' selected' : ''); ?>><?= $this->printHtml($l11n->getCurrency()) , ' ' , $this->getHtml('Amount'); ?>
+                                                <option value="0"<?= $this->printHtml('0' === $l11n->getCurrencyFormat() ? ' selected' : ''); ?>><?= $this->getHtml('Amount') , ' ' , $this->printHtml($l11n->getCurrency()); ?>
+                                                <option value="1"<?= $this->printHtml('1' === $l11n->getCurrencyFormat() ? ' selected' : ''); ?>><?= $this->printHtml($l11n->getCurrency()) , ' ' , $this->getHtml('Amount'); ?>
                                             </select>
                                     <tr><td colspan="2"><h2><?= $this->getHtml('Numberformat'); ?></h2>
                                     <tr><td><label for="iDecimalPoint"><?= $this->getHtml('DecimalPoint'); ?></label>

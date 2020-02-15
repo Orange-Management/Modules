@@ -410,18 +410,6 @@
                 "default": null,
                 "null": true
             },
-            "l11n_datetime_delim_date": {
-                "name": "l11n_datetime_delim_date",
-                "type": "VARCHAR(1)",
-                "default": null,
-                "null": true
-            },
-            "l11n_datetime_delim_time": {
-                "name": "l11n_datetime_delim_time",
-                "type": "VARCHAR(1)",
-                "default": null,
-                "null": true
-            },
             "l11n_datetime_very_short": {
                 "name": "l11n_datetime_very_short",
                 "type": "VARCHAR(20)",
@@ -449,6 +437,36 @@
             "l11n_datetime_very_long": {
                 "name": "l11n_datetime_very_long",
                 "type": "VARCHAR(20)",
+                "default": null,
+                "null": true
+            },
+            "l11n_precision_very_short": {
+                "name": "l11n_precision_very_short",
+                "type": "SMALLINT(4)",
+                "default": null,
+                "null": true
+            },
+            "l11n_precision_short": {
+                "name": "l11n_precision_short",
+                "type": "SMALLINT(4)",
+                "default": null,
+                "null": true
+            },
+            "l11n_precision_medium": {
+                "name": "l11n_precision_medium",
+                "type": "SMALLINT(4)",
+                "default": null,
+                "null": true
+            },
+            "l11n_precision_long": {
+                "name": "l11n_precision_long",
+                "type": "SMALLINT(4)",
+                "default": null,
+                "null": true
+            },
+            "l11n_precision_very_long": {
+                "name": "l11n_precision_very_long",
+                "type": "SMALLINT(4)",
                 "default": null,
                 "null": true
             }
