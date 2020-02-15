@@ -770,7 +770,7 @@
             "settings_content": {
                 "name": "settings_content",
                 "type": "VARCHAR(250)",
-                "null": false
+                "null": true
             },
             "settings_module": {
                 "name": "settings_module",

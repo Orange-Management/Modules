@@ -38,16 +38,6 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
- *
- * @todo Orange-Management/Modules#135
- *  Automatic group generation *optional*
- *  Whenever a new
- *      * Unit
- *      * Department
- *      * Position
- *  is created a new group is created and all of the possibilities (this should be a optional setting for the module).
- *  Group name strucutre: org:position-department-unit or org:unit-department-position
- *  This should be solvable through hooks.
  */
 final class ApiController extends Controller
 {
@@ -186,7 +176,7 @@ final class ApiController extends Controller
         $unit = $this->createUnitFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $unit, UnitMapper::class, 'unit');
 
-        if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_UNIT) === '1') {
+        if ($this->app->appSettings->get(null, SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_UNIT) === '1') {
             $newRequest = new HttpRequest();
             $newRequest->setData('name', 'org:unit:' . \strtolower($unit->getName()));
             $newRequest->setData('status', GroupStatus::ACTIVE);
@@ -357,7 +347,7 @@ final class ApiController extends Controller
         $position = $this->createPositionFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $position, PositionMapper::class, 'position');
 
-        if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_POSITION) === '1') {
+        if ($this->app->appSettings->get(null, SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_POSITION) === '1') {
             $newRequest = new HttpRequest();
             $newRequest->setData('name', 'org:pos:' . \strtolower($position->getName()));
             $newRequest->setData('status', GroupStatus::ACTIVE);
@@ -530,7 +520,7 @@ final class ApiController extends Controller
         $department = $this->createDepartmentFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $department, DepartmentMapper::class, 'department');
 
-        if ($this->app->appSettings->get(SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_DEPARTMENT) === '1') {
+        if ($this->app->appSettings->get(null, SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_DEPARTMENT) === '1') {
             $newRequest = new HttpRequest();
             $newRequest->setData('name', 'org:dep:' . \strtolower($department->getName()));
             $newRequest->setData('status', GroupStatus::ACTIVE);

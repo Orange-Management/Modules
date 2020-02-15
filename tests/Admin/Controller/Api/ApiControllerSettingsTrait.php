@@ -31,7 +31,7 @@ trait ApiControllerSettingsTrait
         $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
-        $request->setData('id', '1000000019');
+        $request->setData('name', '1000000019');
 
         $this->module->apiSettingsGet($request, $response);
         self::assertEquals('DE', $response->get('')['response']);
@@ -48,10 +48,10 @@ trait ApiControllerSettingsTrait
         $request  = new HttpRequest(new HttpUri(''));
 
         $request->getHeader()->setAccount(1);
-        $request->setData('settings', \json_encode(['1000000019' => 'US']));
+        $request->setData('settings', \json_encode([['name' => '1000000019', 'content' => 'US']]));
         $this->module->apiSettingsSet($request, $response);
 
-        $request->setData('id', '1000000019');
+        $request->setData('name', '1000000019');
         $this->module->apiSettingsGet($request, $response);
         self::assertEquals('US', $response->get('')['response']);
     }

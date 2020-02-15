@@ -39,7 +39,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         self::assertTrue($task->isEditable());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $task->getCreatedAt()->format('Y-m-d'));
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $task->getStart()->format('Y-m-d'));
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $task->getDone()->format('Y-m-d'));
+        self::assertNull($task->getDone());
         self::assertEquals((new \DateTime('now'))->modify('+1 day')->format('Y-m-d'), $task->getDue()->format('Y-m-d'));
         self::assertEquals(TaskStatus::OPEN, $task->getStatus());
         self::assertTrue($task->isClosable());

@@ -81,10 +81,20 @@ final class ApiController extends Controller
      */
     public function apiSettingsGet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        $id      = $request->getData('id');
+        $group   = $request->getData('group');
+        $account = $request->getData('account');
+
         $response->set(
             $request->getUri()->__toString(),
             [
-                'response' => $this->app->appSettings->get((int) $request->getData('id')),
+                'response' => $this->app->appSettings->get(
+                    $id !== null ? (int) $id : $id,
+                    $request->getData('name'),
+                    $request->getData('module'),
+                    $group !== null ? (int) $group : $group,
+                    $account !== null ? (int) $account : $account
+                ),
             ]
         );
     }
@@ -104,14 +114,28 @@ final class ApiController extends Controller
      */
     public function apiSettingsSet(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        $data = $request->getDataJson('settings');
-        $keys = \array_keys($data);
+        $dataSettings = $request->getDataJson('settings');
 
-        $this->updateModel($request, $this->app->appSettings->get($keys), $data, function() use($data) : void {
-            $this->app->appSettings->set($data, true);
-        }, 'settings');
+        foreach ($dataSettings as $data) {
+            $id      = isset($data['id']) ? (int) $data['id'] : null;
+            $name    = $data['name'] ?? null;
+            $content = $data['content'] ?? null;
+            $module  = $data['module'] ?? null;
+            $group   = isset($data['group']) ? (int) $data['group'] : null;
+            $account = isset($data['account']) ? (int) $data['account'] : null;
 
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Settigns', 'Settings successfully modified', $data);
+            $this->updateModel(
+                $request,
+                $this->app->appSettings->get($id, $name, $module, $group, $account),
+                $data,
+                function() use($id, $name, $content, $module, $group, $account) : void {
+                    $this->app->appSettings->set([['id' => $id, 'name' => $name, 'content' => $content, 'module' => $module, 'group' => $group, 'account' => $account]], true);
+                },
+                'settings'
+            );
+        }
+
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Settigns', 'Settings successfully modified', $dataSettings);
     }
 
     /**
