@@ -62,7 +62,7 @@ class SessionElement implements ArrayableInterface, \JsonSerializable
      * Constructor.
      *
      * @param int            $session Session id
-     * @param null|\DateTiem $dt      DateTime of the session element
+     * @param null|\DateTime $dt      DateTime of the session element
      *
      * @since 1.0.0
      */

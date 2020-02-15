@@ -135,11 +135,11 @@ class Arrival
     /**
      * Get order.
      *
-     * @return int
+     * @return string
      *
      * @since 1.0.0
      */
-    public function getOrder()
+    public function getOrder() : string
     {
         return $this->order;
     }
@@ -147,13 +147,13 @@ class Arrival
     /**
      * Set order.
      *
-     * @param int $order Order Id
+     * @param string $order Order Id
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setOrder($order) : void
+    public function setOrder(string $order) : void
     {
         $this->order = $order;
     }

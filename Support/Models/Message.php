@@ -25,6 +25,14 @@ namespace Modules\Support\Models;
 class Message
 {
     /**
+     * ID.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+
+    /**
      * Name.
      *
      * @var string

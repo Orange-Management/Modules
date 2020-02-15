@@ -20,6 +20,7 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
+use Modules\Tag\Models\TagMapper;
 
 /**
  * Tag controller class.

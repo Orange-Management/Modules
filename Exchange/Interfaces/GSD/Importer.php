@@ -28,6 +28,7 @@ use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Message\RequestAbstract;
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 
 /**
  * GSD import class
@@ -42,7 +43,7 @@ final class Importer extends ImporterAbstract
     /**
      * Database connection.
      *
-     * @var ConnectionInterface
+     * @var ConnectionAbstract
      * @since 1.0.0
      */
     private $remote = null;

@@ -23,6 +23,7 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Stdlib\Base\SmartDateTime;
 use phpOMS\Views\View;
+use Modules\HumanResourceTimeRecording\Models\NullSession;
 
 /**
  * TimeRecording controller class.

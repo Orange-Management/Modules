@@ -45,10 +45,9 @@ class MediaView extends View
     protected function filePathFunction(Media $media, string $sub) : string
     {
         if (\is_file($media->getPath() . $sub)
-            && StringUtils::startsWith(
-                \str_replace('\\', '/', \realpath($media->getPath() . $sub)),
-                $media->getPath()
-            )
+            && ($path = \realpath($media->getPath() . $sub)) !== false
+            && ($path = \str_replace('\\', '/', $path)) !== false
+            && StringUtils::startsWith($path, $media->getPath())
         ) {
             return $media->getPath() . $sub;
         }
@@ -69,10 +68,9 @@ class MediaView extends View
     protected function dirPathFunction(Media $media, string $sub) : string
     {
         if (\is_dir($media->getPath() . $sub)
-            && StringUtils::startsWith(
-                \str_replace('\\', '/', \realpath($media->getPath() . $sub)),
-                $media->getPath()
-            )
+            && ($path = \realpath($media->getPath() . $sub)) !== false
+            && ($path = \str_replace('\\', '/', $path)) !== false
+            && StringUtils::startsWith($path, $media->getPath())
         ) {
             return $media->getPath() . $sub;
         }
@@ -111,6 +109,11 @@ class MediaView extends View
     protected function getFileContent(string $path) : string
     {
         $output = \file_get_contents($path);
+
+        if ($output === false) {
+            return '';
+        }
+
         $output = \str_replace(["\r\n", "\r"], "\n", $output);
 
         return $output;
@@ -128,6 +131,11 @@ class MediaView extends View
     protected function lineContentFunction(string $path) : array
     {
         $output = \file_get_contents($path);
+
+        if ($output === false) {
+            return [];
+        }
+
         $output = \str_replace(["\r\n", "\r"], "\n", $output);
 
         return \explode("\n", $output);

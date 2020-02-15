@@ -80,7 +80,7 @@ abstract class RelationAbstract implements \JsonSerializable
     /**
      * Get the duty (TO or CC)
      *
-     * @return void Is TO or CC
+     * @return int Is TO or CC
      *
      * @since 1.0.0
      */

@@ -237,4 +237,12 @@ class Comment
     {
         return $this->createdAt;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize() : array
+    {
+        return [];
+    }
 }

@@ -170,11 +170,11 @@ class Media implements \JsonSerializable
      * @param string      $password   Password to encrypt the file with
      * @param null|string $outputPath Output path of the encryption (null = replace file)
      *
-     * @return void
+     * @return string
      *
      * @since 1.0.0
      */
-    public function encrypt(string $password, string $outputPath = null) : void
+    public function encrypt(string $password, string $outputPath = null) : string
     {
         /**
          * @todo Orange-Management/Modules#185
@@ -182,6 +182,8 @@ class Media implements \JsonSerializable
          *  The media module should allow to define a password (not encrypted on the hard drive)
          *  and an encryption checkbox which forces a password AND encrypts the file on the harddrive.
          */
+
+        return '';
     }
 
     /**
@@ -190,7 +192,7 @@ class Media implements \JsonSerializable
      * @param string      $password   Password to encrypt the file with
      * @param null|string $outputPath Output path of the encryption (null = replace file)
      *
-     * @return void
+     * @return string
      *
      * @since 1.0.0
      */

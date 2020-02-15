@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\QA\Models;
 
+use Modules\Tag\Models\Tag;
+
 /**
  * Task class.
  *
@@ -73,7 +75,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Badges.
      *
-     * @var array
+     * @var array<int, int|Tag>
      * @since 1.0.0
      */
     private array $badges = [];
@@ -327,11 +329,21 @@ class QAQuestion implements \JsonSerializable
     /**
      * Add badge to question
      *
-     * @param int|QABadge $badge Badge
+     * @param int|Tag $badge Badge
      */
     public function addBadge($badge) : void
     {
         $this->badges[] = $badge;
+    }
+
+    /**
+     * Set badges to question
+     *
+     * @param array<int, int|Tag> $badges Badges
+     */
+    public function setBadges(array $badges) : void
+    {
+        $this->badges = $badges;
     }
 
     /**

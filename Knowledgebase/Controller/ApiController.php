@@ -23,6 +23,7 @@ use Modules\Knowledgebase\Models\WikiStatus;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Utils\Parser\Markdown\Markdown;
+use phpOMS\Model\Message\FormValidation;
 
 /**
  * Knowledgebase class.
