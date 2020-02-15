@@ -24,11 +24,11 @@ use Modules\Exchange\Interfaces\GSD\Model\GSDCostObjectMapper;
 
 use Modules\Exchange\Models\ImporterAbstract;
 
+use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\DatabaseStatus;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 use phpOMS\Message\RequestAbstract;
-use phpOMS\DataStorage\Database\Connection\ConnectionAbstract;
 
 /**
  * GSD import class
