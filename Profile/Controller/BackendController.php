@@ -14,13 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\Profile\Controller;
 
-use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
 
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Views\PaginationView;
 use phpOMS\Views\View;
 
 /**
@@ -74,7 +74,12 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Profile/Theme/Backend/profile-list');
-        $view->setData('accounts', ProfileMapper::getNewest(25));
+
+        if ($request->getData('ptype') === '-') {
+            $view->setData('accounts', ProfileMapper::getBeforePivot((int) ($request->getData('id') ?? 0), null, 25));
+        } else {
+            $view->setData('accounts', ProfileMapper::getAfterPivot((int) ($request->getData('id') ?? 0), null, 25));
+        }
 
         return $view;
     }
