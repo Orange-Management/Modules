@@ -18,13 +18,21 @@ use Modules\Auditor\Models\Audit;
 use phpOMS\Account\Account;
 
 /**
+ * @testdox Modules\tests\Auditor\Models\AuditTest: Audit model
+ *
  * @internal
  */
 class AuditTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @testdox The model has the expected default values after initialization
+     * @covers Modules\Auditor\Models\Audit
+     * @group module
+     */
     public function testDefault() : void
     {
-        $audit = new Audit(new Account(), null, null);
+        $audit = new Audit();
+        self::assertEquals(0, $audit->getId());
         self::assertEquals(0, $audit->getType());
         self::assertEquals(0, $audit->getSubType());
         self::assertNull($audit->getModule());
@@ -32,10 +40,15 @@ class AuditTest extends \PHPUnit\Framework\TestCase
         self::assertNull($audit->getContent());
         self::assertNull($audit->getOld());
         self::assertNull($audit->getNew());
-        self::assertEquals(0, $audit->getCreatedBy()->getId());
+        self::assertEquals(0, $audit->getCreatedBy());
         self::assertInstanceOf('\DateTime', $audit->getCreatedAt());
     }
 
+    /**
+     * @testdox The model can be initialized correctly
+     * @covers Modules\Auditor\Models\Audit
+     * @group module
+     */
     public function testConstructorInputOutput() : void
     {
         $audit = new Audit(

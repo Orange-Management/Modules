@@ -21,15 +21,18 @@ use phpOMS\Account\AccountType;
 use phpOMS\Auth\LoginReturnType;
 
 /**
+ * @testdox Modules\tests\Admin\Models\LocalizationMapperTest: Account database mapper
+ *
  * @internal
  */
 class AccountMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @testdox The model can be created and read from the database
      * @covers Modules\Admin\Models\AccountMapper
      * @group module
      */
-    public function testCRUD() : void
+    public function testCR() : void
     {
         $account = new Account();
 
@@ -59,14 +62,42 @@ class AccountMapperTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox A empty user password results in a failed login
      * @covers Modules\Admin\Models\AccountMapper
      * @group module
      */
-    public function testLogin() : void
+    public function testEmptyPasswordLogin() : void
     {
         self::assertEquals(LoginReturnType::WRONG_PASSWORD, AccountMapper::login('admin', ''));
-        self::assertEquals(LoginReturnType::WRONG_USERNAME, AccountMapper::login('zzzzInvalidTestzzz', 'orange'));
+    }
+
+    /**
+     * @testdox A invalid user password results in a failed login
+     * @covers Modules\Admin\Models\AccountMapper
+     * @group module
+     */
+    public function testInvalidPasswordLogin() : void
+    {
         self::assertEquals(LoginReturnType::WRONG_PASSWORD, AccountMapper::login('admin', 'invalid'));
+    }
+
+    /**
+     * @testdox A invalid user name results in a failed login
+     * @covers Modules\Admin\Models\AccountMapper
+     * @group module
+     */
+    public function testInvalidUsernameLogin() : void
+    {
+        self::assertEquals(LoginReturnType::WRONG_USERNAME, AccountMapper::login('zzzzInvalidTestzzz', 'orange'));
+    }
+
+    /**
+     * @testdox A valid user name and password results in a successful login
+     * @covers Modules\Admin\Models\AccountMapper
+     * @group module
+     */
+    public function testValidLogin() : void
+    {
         self::assertGreaterThan(0, AccountMapper::login('admin', 'orange'));
     }
 }

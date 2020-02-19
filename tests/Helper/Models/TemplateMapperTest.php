@@ -22,11 +22,18 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\Media;
 
 /**
+ * @testdox Modules\tests\Helper\Models\TemplateMapperTest: Template database mapper
+ *
  * @internal
  */
 class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 {
-    public function testCRUD() : void
+    /**
+     * @testdox The model can be created and read from the database
+     * @covers Modules\Helper\Models\TemplateMapper
+     * @group module
+     */
+    public function testCR() : void
     {
         $template = new Template();
 
@@ -109,6 +116,11 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($template->getExpected(), $templateR->getExpected());
     }
 
+    /**
+     * @testdox The newest model can be read from the database
+     * @covers Modules\Helper\Models\TemplateMapper
+     * @group module
+     */
     public function testNewest() : void
     {
         $newest = TemplateMapper::getNewest(1);

@@ -74,7 +74,7 @@ final class ApiController extends Controller
     {
         $old = clone TagMapper::get((int) $request->getData('id'));
         $new = $this->updateTagFromRequest($request);
-        $this->updateModel($request, $old, $new, TagMapper::class, 'tag');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, TagMapper::class, 'tag');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Tag', 'Tag successfully updated', $new);
     }
 
@@ -175,7 +175,7 @@ final class ApiController extends Controller
     public function apiTagDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $tag = TagMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $tag, TagMapper::class, 'tag');
+        $this->deleteModel($request->getHeader()->getAccount(), $tag, TagMapper::class, 'tag');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Tag', 'Tag successfully deleted', $tag);
     }
 }

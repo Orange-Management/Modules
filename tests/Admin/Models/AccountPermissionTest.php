@@ -17,11 +17,14 @@ namespace Modules\tests\Admin\Models;
 use Modules\Admin\Models\AccountPermission;
 
 /**
+ * @testdox Modules\tests\Admin\Models\AccountPermissionTest: Account permission
+ *
  * @internal
  */
 class AccountPermissionTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @testdox The account permission has the expected default values after initialization
      * @covers Modules\Admin\Models\AccountPermission
      * @group module
      */

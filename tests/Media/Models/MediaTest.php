@@ -39,6 +39,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $this->media->getName());
         self::assertEquals('', $this->media->getDescription());
         self::assertEquals('', $this->media->getDescriptionRaw());
+        self::assertEquals('/', $this->media->getVirtualPath());
         self::assertEquals(0, $this->media->getSize());
         self::assertFalse($this->media->isVersioned());
     }
@@ -95,5 +96,17 @@ class MediaTest extends \PHPUnit\Framework\TestCase
     {
         $this->media->setVersioned(true);
         self::assertTrue($this->media->isVersioned());
+    }
+
+    public function testVirtualPathInputOutput() : void
+    {
+        $this->media->setVirtualPath('/test/path');
+        self::assertEquals('/test/path', $this->media->getVirtualPath());
+    }
+
+    public function testHiddenInputOutput() : void
+    {
+        $this->media->setHidden(true);
+        self::assertTrue($this->media->isHidden());
     }
 }

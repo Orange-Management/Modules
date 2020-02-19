@@ -532,13 +532,16 @@ class Media implements \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id'          => $this->id,
-            'name'        => $this->name,
-            'description' => $this->description,
-            'extension'   => $this->extension,
-            'virtualpath' => $this->virtualPath,
-            'size'        => $this->size,
-            'hidden'      => $this->hidden,
+            'id'             => $this->id,
+            'name'           => $this->name,
+            'description'    => $this->description,
+            'descriptionRaw' => $this->descriptionRaw,
+            'extension'      => $this->extension,
+            'virtualpath'    => $this->virtualPath,
+            'size'           => $this->size,
+            'hidden'         => $this->hidden,
+            'path'           => $this->path,
+            'absolute'       => $this->isAbsolute,
         ];
     }
 

@@ -172,7 +172,7 @@ final class ApiController extends Controller
     {
         $old = clone TaskMapper::get((int) $request->getData('id'));
         $new = $this->updateTaskFromRequest($request);
-        $this->updateModel($request, $old, $new, TaskMapper::class, 'task');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task', 'Task successfully updated.', $new);
     }
 
@@ -254,7 +254,7 @@ final class ApiController extends Controller
         $task->setPriority($element->getPriority());
 
         $this->createModel($request->getHeader()->getAccount(), $element, TaskElementMapper::class, 'taskelement');
-        $this->updateModel($request, $task, $task, TaskMapper::class, 'task');
+        $this->updateModel($request->getHeader()->getAccount(), $task, $task, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully created.', $element);
     }
 
@@ -335,7 +335,7 @@ final class ApiController extends Controller
     {
         $old = clone TaskElementMapper::get((int) $request->getData('id'));
         $new = $this->updateTaskElementFromRequest($request);
-        $this->updateModel($request, $old, $new, TaskElementMapper::class, 'taskelement');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, TaskElementMapper::class, 'taskelement');
 
         /**
          * @todo Orange-Management/Modules#205
@@ -343,7 +343,7 @@ final class ApiController extends Controller
          *  The task status is not normalized and relates to the last task element.
          *  Depending on the task status of the last task element also the task status should change.
          */
-        //$this->updateModel($request, $task, $task, TaskMapper::class, 'task');
+        //$this->updateModel($request->getHeader()->getAccount(), $task, $task, TaskMapper::class, 'task');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Task element', 'Task element successfully updated.', $new);
     }
 

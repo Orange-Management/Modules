@@ -125,7 +125,7 @@ final class ApiController extends Controller
     {
         $old = clone EditorDocMapper::get((int) $request->getData('id'));
         $new = $this->updateEditorFromRequest($request);
-        $this->updateModel($request, $old, $new, EditorDocMapper::class, 'doc');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, EditorDocMapper::class, 'doc');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully updated', $new);
     }
 
@@ -183,7 +183,7 @@ final class ApiController extends Controller
     public function apiEditorDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $doc = EditorDocMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $doc, EditorDocMapper::class, 'doc');
+        $this->deleteModel($request->getHeader()->getAccount(), $doc, EditorDocMapper::class, 'doc');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Document', 'Document successfully deleted', $doc);
     }
 }

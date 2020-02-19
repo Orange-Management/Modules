@@ -105,7 +105,7 @@ final class ApiController extends Controller
     {
         $old = clone UnitMapper::get((int) $request->getData('id'));
         $new = $this->updateUnitFromRequest($request);
-        $this->updateModel($request, $old, $new, UnitMapper::class, 'unit');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, UnitMapper::class, 'unit');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully updated.', $new);
     }
 
@@ -148,7 +148,7 @@ final class ApiController extends Controller
     public function apiUnitDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $unit = UnitMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $unit, UnitMapper::class, 'unit');
+        $this->deleteModel($request->getHeader()->getAccount(), $unit, UnitMapper::class, 'unit');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Unit', 'Unit successfully deleted.', $unit);
     }
 
@@ -272,7 +272,7 @@ final class ApiController extends Controller
     public function apiPositionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $position = PositionMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $position, PositionMapper::class, 'position');
+        $this->deleteModel($request->getHeader()->getAccount(), $position, PositionMapper::class, 'position');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully deleted.', $position);
     }
 
@@ -293,7 +293,7 @@ final class ApiController extends Controller
     {
         $old = clone PositionMapper::get((int) $request->getData('id'));
         $new = $this->updatePositionFromRequest($request);
-        $this->updateModel($request, $old, $new, PositionMapper::class, 'position');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, PositionMapper::class, 'position');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Position', 'Position successfully updated.', $new);
     }
 
@@ -446,7 +446,7 @@ final class ApiController extends Controller
     {
         $old = clone DepartmentMapper::get((int) $request->getData('id'));
         $new = $this->updateDepartmentFromRequest($request);
-        $this->updateModel($request, $old, $new, DepartmentMapper::class, 'department');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, DepartmentMapper::class, 'department');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully updated.', $new);
     }
 
@@ -492,7 +492,7 @@ final class ApiController extends Controller
     public function apiDepartmentDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $department = DepartmentMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $department, DepartmentMapper::class, 'department');
+        $this->deleteModel($request->getHeader()->getAccount(), $department, DepartmentMapper::class, 'department');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Department', 'Department successfully deleted.', $department);
     }
 

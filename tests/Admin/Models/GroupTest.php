@@ -17,11 +17,14 @@ namespace Modules\tests\Admin\Models;
 use Modules\Admin\Models\Group;
 
 /**
+ * @testdox Modules\tests\Admin\Models\GroupTest: Group model
+ *
  * @internal
  */
 class GroupTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @testdox The group has the expected default values after initialization
      * @covers Modules\Admin\Models\Group
      * @group module
      */
@@ -35,6 +38,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox The description can be set and returned
      * @covers Modules\Admin\Models\Group
      * @group module
      */
@@ -47,6 +51,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox The creator can be set and returned
      * @covers Modules\Admin\Models\Group
      * @group module
      */

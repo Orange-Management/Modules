@@ -288,12 +288,13 @@ class Report implements \JsonSerializable
     public function toArray() : array
     {
         return [
-            'id'          => $this->id,
-            'createdBy'   => $this->createdBy,
-            'createdAt'   => $this->createdAt,
-            'name'        => $this->title,
-            'description' => $this->description,
-            'status'      => $this->status,
+            'id'             => $this->id,
+            'createdBy'      => $this->createdBy,
+            'createdAt'      => $this->createdAt,
+            'name'           => $this->title,
+            'description'    => $this->description,
+            'descriptionRaw' => $this->descriptionRaw,
+            'status'         => $this->status,
         ];
     }
 

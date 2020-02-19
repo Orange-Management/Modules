@@ -17,11 +17,14 @@ namespace Modules\tests\Admin\Models;
 use Modules\Admin\Models\GroupPermission;
 
 /**
+ * @testdox Modules\tests\Admin\Models\GroupPermissionTest: Group permission
+ *
  * @internal
  */
 class GroupPermissionTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @testdox The group permission has the expected default values after initialization
      * @covers Modules\Admin\Models\GroupPermission
      * @group module
      */

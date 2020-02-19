@@ -17,11 +17,14 @@ namespace Modules\tests\Admin\Models;
 use Modules\Admin\Models\Account;
 
 /**
+ * @testdox Modules\tests\Admin\Models\AccountTest: Account model
+ *
  * @internal
  */
 class AccountTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @testdox The account has the expected default values after initialization
      * @covers Modules\Admin\Models\Account
      * @group module
      */
@@ -32,10 +35,11 @@ class AccountTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @testdox The login tries can be set and returned
      * @covers Modules\Admin\Models\Account
      * @group module
      */
-    public function testChangingLoginTries() : void
+    public function testLoginTriesInputOutput() : void
     {
         $account = new Account();
 

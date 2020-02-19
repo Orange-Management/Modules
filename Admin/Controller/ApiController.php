@@ -125,7 +125,7 @@ final class ApiController extends Controller
             $account = isset($data['account']) ? (int) $data['account'] : null;
 
             $this->updateModel(
-                $request,
+                $request->getHeader()->getAccount(),
                 $this->app->appSettings->get($id, $name, $module, $group, $account),
                 $data,
                 function() use($id, $name, $content, $module, $group, $account) : void {
@@ -220,7 +220,7 @@ final class ApiController extends Controller
     {
         $old = clone GroupMapper::get((int) $request->getData('id'));
         $new = $this->updateGroupFromRequest($request);
-        $this->updateModel($request, $old, $new, GroupMapper::class, 'group');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, GroupMapper::class, 'group');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully updated', $new);
     }
 
@@ -328,7 +328,7 @@ final class ApiController extends Controller
     public function apiGroupDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $group = GroupMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $group, GroupMapper::class, 'group');
+        $this->deleteModel($request->getHeader()->getAccount(), $group, GroupMapper::class, 'group');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Group successfully deleted', $group);
     }
 
@@ -517,7 +517,7 @@ final class ApiController extends Controller
             $request
         );
 
-        $this->updateModel($request, $old, $account, function() use($account) : void {
+        $this->updateModel($request->getHeader()->getAccount(), $old, $account, function() use($account) : void {
             $account->setLoginTries((int) $this->app->appSettings->get(Settings::LOGIN_TRIES));
             AccountMapper::update($account);
         }, 'account');
@@ -577,7 +577,7 @@ final class ApiController extends Controller
     public function apiAccountDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $account = AccountMapper::get((int) ($request->getData('id')));
-        $this->deleteModel($request, $account, AccountMapper::class, 'account');
+        $this->deleteModel($request->getHeader()->getAccount(), $account, AccountMapper::class, 'account');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Account successfully deleted', $account);
     }
 
@@ -598,7 +598,7 @@ final class ApiController extends Controller
     {
         $old = clone AccountMapper::get((int) $request->getData('id'));
         $new = $this->updateAccountFromRequest($request);
-        $this->updateModel($request, $old, $new, AccountMapper::class, 'account');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, AccountMapper::class, 'account');
 
         if (\Modules\Profile\Models\ProfileMapper::getFor($new->getId(), 'account') instanceof \Modules\Profile\Models\NullProfile) {
             $this->createProfileForAccount($new, $request);
@@ -750,7 +750,7 @@ final class ApiController extends Controller
     public function apiGroupPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $permission = GroupPermissionMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $permission, GroupPermissionMapper::class, 'group-permission');
+        $this->deleteModel($request->getHeader()->getAccount(), $permission, GroupPermissionMapper::class, 'group-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
     }
 
@@ -770,7 +770,7 @@ final class ApiController extends Controller
     public function apiAccountPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $permission = AccountPermissionMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $permission, AccountPermissionMapper::class, 'user-permission');
+        $this->deleteModel($request->getHeader()->getAccount(), $permission, AccountPermissionMapper::class, 'user-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
     }
 
@@ -790,7 +790,7 @@ final class ApiController extends Controller
     public function apiUserPermissionDelete(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         $permission = AccountPermissionMapper::get((int) $request->getData('id'));
-        $this->deleteModel($request, $permission, AccountPermissionMapper::class, 'user-permission');
+        $this->deleteModel($request->getHeader()->getAccount(), $permission, AccountPermissionMapper::class, 'user-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully deleted', $permission);
     }
 
@@ -945,7 +945,7 @@ final class ApiController extends Controller
         $old = clone AccountPermissionMapper::get((int) $request->getData('id'));
         $new = $this->updatePermissionFromRequest(AccountPermissionMapper::get((int) $request->getData('id')), $request);
 
-        $this->updateModel($request, $old, $new, AccountPermissionMapper::class, 'account-permission');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, AccountPermissionMapper::class, 'account-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully updated', $new);
     }
 
@@ -967,7 +967,7 @@ final class ApiController extends Controller
         $old = clone GroupPermissionMapper::get((int) $request->getData('id'));
         $new = $this->updatePermissionFromRequest(GroupPermissionMapper::get((int) $request->getData('id')), $request);
 
-        $this->updateModel($request, $old, $new, GroupPermissionMapper::class, 'group-permission');
+        $this->updateModel($request->getHeader()->getAccount(), $old, $new, GroupPermissionMapper::class, 'group-permission');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Permission', 'Permission successfully updated', $new);
     }
 
@@ -1017,7 +1017,7 @@ final class ApiController extends Controller
         $account = (int) $request->getData('account');
         $groups  = \array_map('intval', $request->getDataList('igroup-idlist'));
 
-        $this->createModelRelation($request, $account, $groups, AccountMapper::class, 'groups', 'account-group');
+        $this->createModelRelation($request->getHeader()->getAccount(), $account, $groups, AccountMapper::class, 'groups', 'account-group');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Account', 'Relation added', []);
     }
 
@@ -1039,7 +1039,7 @@ final class ApiController extends Controller
         $group    = (int) $request->getData('group');
         $accounts = \array_map('intval', $request->getDataList('iaccount-idlist'));
 
-        $this->createModelRelation($request, $group, $accounts, GroupMapper::class, 'accounts', 'group-account');
+        $this->createModelRelation($request->getHeader()->getAccount(), $group, $accounts, GroupMapper::class, 'accounts', 'group-account');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Group', 'Relation added', []);
     }
 

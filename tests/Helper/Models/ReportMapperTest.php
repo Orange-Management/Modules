@@ -23,6 +23,8 @@ use Modules\Media\Models\Collection;
 use Modules\Media\Models\Media;
 
 /**
+ * @testdox Modules\tests\Helper\Models\ReportMapperTest: Report database mapper
+ *
  * @internal
  */
 class ReportMapperTest extends \PHPUnit\Framework\TestCase
@@ -96,7 +98,12 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         return $template;
     }
 
-    public function testCRUD() : void
+    /**
+     * @testdox The model can be created and read from the database
+     * @covers Modules\Helper\Models\ReportMapper
+     * @group module
+     */
+    public function testCR() : void
     {
         $report = new Report();
 
@@ -171,6 +178,5 @@ class ReportMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($report->getTitle(), $reportR->getTitle());
         self::assertEquals($report->getStatus(), $reportR->getStatus());
         self::assertEquals($report->getTemplate()->getName(), $reportR->getTemplate()->getName());
-
     }
 }
