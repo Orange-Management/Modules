@@ -31,7 +31,7 @@ final class RiskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -46,7 +46,7 @@ final class RiskMapper extends DataMapperAbstract
         'riskmngmt_risk_process'        => ['name' => 'riskmngmt_risk_process',        'type' => 'int',      'internal' => 'process'],
         'riskmngmt_risk_responsible'    => ['name' => 'riskmngmt_risk_responsible',    'type' => 'int',      'internal' => 'responsible'],
         'riskmngmt_risk_deputy'         => ['name' => 'riskmngmt_risk_deputy',         'type' => 'int',      'internal' => 'deputy'],
-        'riskmngmt_risk_created_at'     => ['name' => 'riskmngmt_risk_created_at',     'type' => 'DateTime', 'internal' => 'createdAt'],
+        'riskmngmt_risk_created_at'     => ['name' => 'riskmngmt_risk_created_at',     'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

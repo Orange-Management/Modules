@@ -29,7 +29,7 @@ final class GroupMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -38,7 +38,7 @@ final class GroupMapper extends DataMapperAbstract
         'group_status'   => ['name' => 'group_status',   'type' => 'int',      'internal' => 'status'],
         'group_desc'     => ['name' => 'group_desc',     'type' => 'string',   'internal' => 'description'],
         'group_desc_raw' => ['name' => 'group_desc_raw', 'type' => 'string',   'internal' => 'descriptionRaw'],
-        'group_created'  => ['name' => 'group_created',  'type' => 'DateTime', 'internal' => 'createdAt'],
+        'group_created'  => ['name' => 'group_created',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

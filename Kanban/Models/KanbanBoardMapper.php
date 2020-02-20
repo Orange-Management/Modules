@@ -30,7 +30,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -40,7 +40,7 @@ final class KanbanBoardMapper extends DataMapperAbstract
         'kanban_board_status'     => ['name' => 'kanban_board_status',     'type' => 'int',      'internal' => 'status'],
         'kanban_board_order'      => ['name' => 'kanban_board_order',      'type' => 'int',      'internal' => 'order'],
         'kanban_board_created_by' => ['name' => 'kanban_board_created_by', 'type' => 'int',      'internal' => 'createdBy'],
-        'kanban_board_created_at' => ['name' => 'kanban_board_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'kanban_board_created_at' => ['name' => 'kanban_board_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

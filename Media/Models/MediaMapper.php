@@ -30,7 +30,7 @@ class MediaMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -48,7 +48,7 @@ class MediaMapper extends DataMapperAbstract
         'media_extension'       => ['name' => 'media_extension',       'type' => 'string',   'internal' => 'extension'],
         'media_size'            => ['name' => 'media_size',            'type' => 'int',      'internal' => 'size'],
         'media_created_by'      => ['name' => 'media_created_by',      'type' => 'int',      'internal' => 'createdBy'],
-        'media_created_at'      => ['name' => 'media_created_at',      'type' => 'DateTime', 'internal' => 'createdAt'],
+        'media_created_at'      => ['name' => 'media_created_at',      'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

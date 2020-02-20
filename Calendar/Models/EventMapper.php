@@ -29,7 +29,7 @@ final class EventMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -42,7 +42,7 @@ final class EventMapper extends DataMapperAbstract
         'calendar_event_schedule'    => ['name' => 'calendar_event_schedule',    'type' => 'int',          'internal' => 'schedule'],
         'calendar_event_calendar'    => ['name' => 'calendar_event_calendar',    'type' => 'int',          'internal' => 'calendar'],
         'calendar_event_created_by'  => ['name' => 'calendar_event_created_by',  'type' => 'int',          'internal' => 'createdBy'],
-        'calendar_event_created_at'  => ['name' => 'calendar_event_created_at',  'type' => 'DateTime',     'internal' => 'createdAt'],
+        'calendar_event_created_at'  => ['name' => 'calendar_event_created_at',  'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

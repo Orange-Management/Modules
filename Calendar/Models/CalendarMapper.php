@@ -33,14 +33,14 @@ final class CalendarMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
         'calendar_id'          => ['name' => 'calendar_id',          'type' => 'int',      'internal' => 'id'],
         'calendar_name'        => ['name' => 'calendar_name',        'type' => 'string',   'internal' => 'name'],
         'calendar_description' => ['name' => 'calendar_description', 'type' => 'string',   'internal' => 'description'],
-        'calendar_created_at'  => ['name' => 'calendar_created_at',  'type' => 'DateTime', 'internal' => 'createdAt'],
+        'calendar_created_at'  => ['name' => 'calendar_created_at',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

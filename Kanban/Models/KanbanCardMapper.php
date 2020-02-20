@@ -31,7 +31,7 @@ final class KanbanCardMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -43,7 +43,7 @@ final class KanbanCardMapper extends DataMapperAbstract
         'kanban_card_order'       => ['name' => 'kanban_card_order',       'type' => 'int',      'internal' => 'order'],
         'kanban_card_ref'         => ['name' => 'kanban_card_ref',         'type' => 'int',      'internal' => 'ref'],
         'kanban_card_column'      => ['name' => 'kanban_card_column',      'type' => 'int',      'internal' => 'column'],
-        'kanban_card_created_at'  => ['name' => 'kanban_card_created_at',  'type' => 'DateTime', 'internal' => 'createdAt'],
+        'kanban_card_created_at'  => ['name' => 'kanban_card_created_at',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
         'kanban_card_created_by'  => ['name' => 'kanban_card_created_by',  'type' => 'int',      'internal' => 'createdBy'],
     ];
 

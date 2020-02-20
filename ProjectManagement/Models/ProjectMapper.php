@@ -32,7 +32,7 @@ final class ProjectMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -51,7 +51,7 @@ final class ProjectMapper extends DataMapperAbstract
         'projectmanagement_project_progress'        => ['name' => 'projectmanagement_project_progress',        'type' => 'int',          'internal' => 'progress'],
         'projectmanagement_project_progress_type'   => ['name' => 'projectmanagement_project_progress_type',   'type' => 'int',          'internal' => 'progressType'],
         'projectmanagement_project_created_by'      => ['name' => 'projectmanagement_project_created_by',      'type' => 'int',          'internal' => 'createdBy'],
-        'projectmanagement_project_created_at'      => ['name' => 'projectmanagement_project_created_at',      'type' => 'DateTime',     'internal' => 'createdAt'],
+        'projectmanagement_project_created_at'      => ['name' => 'projectmanagement_project_created_at',      'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

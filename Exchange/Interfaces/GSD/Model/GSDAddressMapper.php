@@ -29,12 +29,12 @@ final class GSDAddressMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
         'AdressRowId'     => ['name' => 'AdressRowId',     'type' => 'int',      'internal' => 'id'],
-        'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
         'row_create_user' => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy'],
         'NAME1'           => ['name' => 'NAME1',           'type' => 'string',   'internal' => 'name1'],
         'NAME2'           => ['name' => 'NAME2',           'type' => 'string',   'internal' => 'name2'],

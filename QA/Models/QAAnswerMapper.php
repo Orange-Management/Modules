@@ -30,7 +30,7 @@ final class QAAnswerMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -40,7 +40,7 @@ final class QAAnswerMapper extends DataMapperAbstract
         'qa_answer_status'     => ['name' => 'qa_answer_status',     'type' => 'int',      'internal' => 'status'],
         'qa_answer_accepted'   => ['name' => 'qa_answer_accepted',   'type' => 'bool',     'internal' => 'isAccepted'],
         'qa_answer_created_by' => ['name' => 'qa_answer_created_by', 'type' => 'int',      'internal' => 'createdBy'],
-        'qa_answer_created_at' => ['name' => 'qa_answer_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'qa_answer_created_at' => ['name' => 'qa_answer_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

@@ -33,7 +33,7 @@ final class SupplierMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -44,7 +44,7 @@ final class SupplierMapper extends DataMapperAbstract
         'suppliermgmt_supplier_type'       => ['name' => 'suppliermgmt_supplier_type',       'type' => 'int',      'internal' => 'type'],
         'suppliermgmt_supplier_taxid'      => ['name' => 'suppliermgmt_supplier_taxid',      'type' => 'int',      'internal' => 'taxId'],
         'suppliermgmt_supplier_info'       => ['name' => 'suppliermgmt_supplier_info',       'type' => 'string',   'internal' => 'info'],
-        'suppliermgmt_supplier_created_at' => ['name' => 'suppliermgmt_supplier_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'suppliermgmt_supplier_created_at' => ['name' => 'suppliermgmt_supplier_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
         'suppliermgmt_supplier_account'    => ['name' => 'suppliermgmt_supplier_account',    'type' => 'int',      'internal' => 'profile'],
     ];
 

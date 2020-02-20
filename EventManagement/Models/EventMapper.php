@@ -31,7 +31,7 @@ final class EventMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -48,7 +48,7 @@ final class EventMapper extends DataMapperAbstract
         'eventmanagement_event_budget'        => ['name' => 'eventmanagement_event_budget',        'type' => 'Serializable', 'internal' => 'budget'],
         'eventmanagement_event_earnings'      => ['name' => 'eventmanagement_event_earnings',      'type' => 'Serializable', 'internal' => 'earnings'],
         'eventmanagement_event_created_by'    => ['name' => 'eventmanagement_event_created_by',    'type' => 'int',          'internal' => 'createdBy'],
-        'eventmanagement_event_created_at'    => ['name' => 'eventmanagement_event_created_at',    'type' => 'DateTime',     'internal' => 'createdAt'],
+        'eventmanagement_event_created_at'    => ['name' => 'eventmanagement_event_created_at',    'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

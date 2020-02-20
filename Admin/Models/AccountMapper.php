@@ -48,7 +48,7 @@ final class AccountMapper extends DataMapperAbstract
         'account_tries'        => ['name' => 'account_tries',        'type' => 'int',      'internal' => 'tries'],
         'account_lactive'      => ['name' => 'account_lactive',      'type' => 'DateTime', 'internal' => 'lastActive'],
         'account_localization' => ['name' => 'account_localization', 'type' => 'int',      'internal' => 'localization'],
-        'account_created_at'   => ['name' => 'account_created_at',   'type' => 'DateTime', 'internal' => 'createdAt'],
+        'account_created_at'   => ['name' => 'account_created_at',   'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

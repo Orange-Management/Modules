@@ -30,7 +30,7 @@ final class NewsArticleMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -44,7 +44,7 @@ final class NewsArticleMapper extends DataMapperAbstract
         'news_status'     => ['name' => 'news_status',     'type' => 'int',      'internal' => 'status'],
         'news_type'       => ['name' => 'news_type',       'type' => 'int',      'internal' => 'type'],
         'news_featured'   => ['name' => 'news_featured',   'type' => 'bool',     'internal' => 'featured'],
-        'news_created_at' => ['name' => 'news_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'news_created_at' => ['name' => 'news_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

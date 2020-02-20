@@ -30,7 +30,7 @@ final class QAQuestionMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -41,7 +41,7 @@ final class QAQuestionMapper extends DataMapperAbstract
         'qa_question_status'     => ['name' => 'qa_question_status',     'type' => 'int',      'internal' => 'status'],
         'qa_question_category'   => ['name' => 'qa_question_category',   'type' => 'int',      'internal' => 'category'],
         'qa_question_created_by' => ['name' => 'qa_question_created_by', 'type' => 'int',      'internal' => 'createdBy'],
-        'qa_question_created_at' => ['name' => 'qa_question_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'qa_question_created_at' => ['name' => 'qa_question_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

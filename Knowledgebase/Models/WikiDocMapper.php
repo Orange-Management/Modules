@@ -29,7 +29,7 @@ final class WikiDocMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -40,7 +40,7 @@ final class WikiDocMapper extends DataMapperAbstract
         'wiki_article_status'     => ['name' => 'wiki_article_status',     'type' => 'int',      'internal' => 'status'],
         'wiki_article_category'   => ['name' => 'wiki_article_category',   'type' => 'int',      'internal' => 'category'],
         'wiki_article_created_by' => ['name' => 'wiki_article_created_by', 'type' => 'int',      'internal' => 'createdBy'],
-        'wiki_article_created_at' => ['name' => 'wiki_article_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'wiki_article_created_at' => ['name' => 'wiki_article_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

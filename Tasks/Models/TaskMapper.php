@@ -33,7 +33,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -51,7 +51,7 @@ final class TaskMapper extends DataMapperAbstract
         'task_schedule'   => ['name' => 'task_schedule',   'type' => 'int',      'internal' => 'schedule'],
         'task_start'      => ['name' => 'task_start',      'type' => 'DateTime', 'internal' => 'start'],
         'task_created_by' => ['name' => 'task_created_by', 'type' => 'int',      'internal' => 'createdBy'],
-        'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt'],
+        'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

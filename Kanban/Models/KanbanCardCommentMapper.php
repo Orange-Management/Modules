@@ -30,14 +30,14 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
         'kanban_card_comment_id'          => ['name' => 'kanban_card_comment_id',          'type' => 'int',      'internal' => 'id'],
         'kanban_card_comment_description' => ['name' => 'kanban_card_comment_description', 'type' => 'string',   'internal' => 'description'],
         'kanban_card_comment_card'        => ['name' => 'kanban_card_comment_card',        'type' => 'int',      'internal' => 'card'],
-        'kanban_card_comment_created_at'  => ['name' => 'kanban_card_comment_created_at',  'type' => 'DateTime', 'internal' => 'createdAt'],
+        'kanban_card_comment_created_at'  => ['name' => 'kanban_card_comment_created_at',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
         'kanban_card_comment_created_by'  => ['name' => 'kanban_card_comment_created_by',  'type' => 'int',      'internal' => 'createdBy'],
     ];
 

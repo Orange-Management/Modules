@@ -29,12 +29,12 @@ final class GSDArticleMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
         'row_id'               => ['name' => 'row_id',               'type' => 'int',      'internal' => 'id'],
-        'row_create_time'      => ['name' => 'row_create_time',      'type' => 'DateTime', 'internal' => 'createdAt'],
+        'row_create_time'      => ['name' => 'row_create_time',      'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
         'row_create_user'      => ['name' => 'row_create_user',      'type' => 'int',      'internal' => 'createdBy'],
         'Artikelnummer'        => ['name' => 'Artikelnummer',        'type' => 'string',   'internal' => 'number'],
         'Artikelbezeichnung'   => ['name' => 'Artikelbezeichnung',   'type' => 'string',   'internal' => 'name1'],

@@ -30,7 +30,7 @@ final class ReportMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -42,7 +42,7 @@ final class ReportMapper extends DataMapperAbstract
         'helper_report_media'    => ['name' => 'helper_report_media',    'type' => 'int',      'internal' => 'source'],
         'helper_report_template' => ['name' => 'helper_report_template', 'type' => 'int',      'internal' => 'template'],
         'helper_report_creator'  => ['name' => 'helper_report_creator',  'type' => 'int',      'internal' => 'createdBy'],
-        'helper_report_created'  => ['name' => 'helper_report_created',  'type' => 'DateTime', 'internal' => 'createdAt'],
+        'helper_report_created'  => ['name' => 'helper_report_created',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

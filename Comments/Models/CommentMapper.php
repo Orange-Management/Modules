@@ -29,7 +29,7 @@ final class CommentMapper extends DataMapperAbstract
     /**
      * Columns.
      *
-     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, annotations?:array}>
+     * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
     protected static array $columns = [
@@ -41,7 +41,7 @@ final class CommentMapper extends DataMapperAbstract
         'comments_comment_list'        => ['name' => 'comments_comment_list',        'type' => 'int',      'internal' => 'list'],
         'comments_comment_ref'         => ['name' => 'comments_comment_ref',         'type' => 'int',      'internal' => 'ref'],
         'comments_comment_created_by'  => ['name' => 'comments_comment_created_by',  'type' => 'int',      'internal' => 'createdBy'],
-        'comments_comment_created_at'  => ['name' => 'comments_comment_created_at',  'type' => 'DateTime', 'internal' => 'createdAt'],
+        'comments_comment_created_at'  => ['name' => 'comments_comment_created_at',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**
