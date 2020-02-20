@@ -43,7 +43,7 @@ final class AccountMapper extends DataMapperAbstract
         'account_name1'        => ['name' => 'account_name1',        'type' => 'string',   'internal' => 'name1', 'autocomplete' => true, 'annotations' => ['gdpr' => true]],
         'account_name2'        => ['name' => 'account_name2',        'type' => 'string',   'internal' => 'name2', 'autocomplete' => true, 'annotations' => ['gdpr' => true]],
         'account_name3'        => ['name' => 'account_name3',        'type' => 'string',   'internal' => 'name3', 'autocomplete' => true, 'annotations' => ['gdpr' => true]],
-        'account_password'     => ['name' => 'account_password',     'type' => 'string',   'internal' => 'password'],
+        'account_password'     => ['name' => 'account_password',     'type' => 'string',   'internal' => 'password', 'writeonly' => true],
         'account_email'        => ['name' => 'account_email',        'type' => 'string',   'internal' => 'email', 'autocomplete' => true, 'annotations' => ['gdpr' => true]],
         'account_tries'        => ['name' => 'account_tries',        'type' => 'int',      'internal' => 'tries'],
         'account_lactive'      => ['name' => 'account_lactive',      'type' => 'DateTime', 'internal' => 'lastActive'],
@@ -159,7 +159,7 @@ final class AccountMapper extends DataMapperAbstract
 
             $query  = new Builder(self::$db);
             $result = $query->prefix(self::$db->getPrefix())
-                ->select('*')
+                ->select('account_id, account_login, account_password, account_password_temp, account_tries')
                 ->from('account')
                 ->where('account_login', '=', $login)
                 ->execute()->fetchAll();
