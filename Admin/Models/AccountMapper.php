@@ -159,7 +159,7 @@ final class AccountMapper extends DataMapperAbstract
 
             $query  = new Builder(self::$db);
             $result = $query->prefix(self::$db->getPrefix())
-                ->select('account_id, account_login, account_password, account_password_temp, account_tries')
+                ->select('account_id', 'account_login', 'account_password', 'account_password_temp', 'account_tries')
                 ->from('account')
                 ->where('account_login', '=', $login)
                 ->execute()->fetchAll();
@@ -171,7 +171,6 @@ final class AccountMapper extends DataMapperAbstract
             $result = $result[0];
 
             // @todo: implement account tries
-
             if ($result['account_tries'] <= 0) {
                 return LoginReturnType::WRONG_INPUT_EXCEEDED;
             }
