@@ -20,7 +20,6 @@ use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Views\PaginationView;
 use phpOMS\Views\View;
 
 /**

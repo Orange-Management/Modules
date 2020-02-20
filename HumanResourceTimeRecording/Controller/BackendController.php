@@ -17,13 +17,13 @@ namespace Modules\HumanResourceTimeRecording\Controller;
 use Modules\Dashboard\Models\DashboardElementInterface;
 use Modules\HumanResourceManagement\Models\EmployeeMapper;
 
+use Modules\HumanResourceTimeRecording\Models\NullSession;
 use Modules\HumanResourceTimeRecording\Models\SessionMapper;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Stdlib\Base\SmartDateTime;
 use phpOMS\Views\View;
-use Modules\HumanResourceTimeRecording\Models\NullSession;
 
 /**
  * TimeRecording controller class.

@@ -16,11 +16,11 @@ namespace Modules\Tag\Controller;
 
 use Modules\Tag\Models\Tag;
 
+use Modules\Tag\Models\TagMapper;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use Modules\Tag\Models\TagMapper;
 
 /**
  * Tag controller class.
