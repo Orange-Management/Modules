@@ -31,7 +31,7 @@ class WikiCategoryTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->category->getId());
-        self::assertEquals(null, $this->category->getApp());
+        self::assertNull($this->category->getApp());
         self::assertEquals('', $this->category->getName());
         self::assertEquals('/', $this->category->getPath());
         self::assertNull($this->category->getParent());

@@ -71,7 +71,7 @@ final class WikiDocMapper extends DataMapperAbstract
         ],
         'app' => [
             'mapper' => WikiAppMapper::class,
-            'self' => 'wiki_article_app'
+            'self' => 'wiki_article_app',
         ],
     ];
 

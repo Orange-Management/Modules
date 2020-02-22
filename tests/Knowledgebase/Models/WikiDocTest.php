@@ -32,7 +32,7 @@ class WikiDocTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->doc->getId());
-        self::assertEquals(null, $this->doc->getApp());
+        self::assertNull($this->doc->getApp());
         self::assertEquals('', $this->doc->getName());
         self::assertEquals('', $this->doc->getDoc());
         self::assertEquals('', $this->doc->getDocRaw());
