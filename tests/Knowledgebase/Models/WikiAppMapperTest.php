@@ -19,10 +19,17 @@ use Modules\Knowledgebase\Models\WikiAppMapper;
 use phpOMS\Utils\RnG\Text;
 
 /**
+ * @testdox Modules\tests\Knowledgebase\Models\WikiAppMapperTest: Wiki application mapper
+ *
  * @internal
  */
 class WikiAppMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @testdox The model can be created and read from the database
+     * @covers Modules\Knowledgebase\Models\WikiAppMapper
+     * @group module
+     */
     public function testCR() : void
     {
         $app = new WikiApp();

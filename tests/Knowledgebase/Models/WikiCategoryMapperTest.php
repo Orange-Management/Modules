@@ -19,6 +19,8 @@ use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use phpOMS\Utils\RnG\Text;
 
 /**
+ * @testdox Modules\tests\Knowledgebase\Models\WikiCategoryMapperTest: Wiki category mapper
+ *
  * @internal
  */
 class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
@@ -30,6 +32,11 @@ class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
         $this->category = new WikiCategory();
     }
 
+    /**
+     * @testdox The model can be created and read from the database
+     * @covers Modules\Knowledgebase\Models\WikiAppMapper
+     * @group module
+     */
     public function testCR() : void
     {
         $this->category->setName('Test Category');
@@ -42,7 +49,12 @@ class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($this->category->getName(), $categoryR->getName());
     }
 
-    public function testChildCRUD() : void
+    /**
+     * @testdox The model can be created and read from the database with a parent category
+     * @covers Modules\Knowledgebase\Models\WikiAppMapper
+     * @group module
+     */
+    public function testChildCR() : void
     {
         $this->category->setName('Test Category2');
         $this->category->setParent(1);

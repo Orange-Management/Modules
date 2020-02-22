@@ -20,11 +20,18 @@ use Modules\Knowledgebase\Models\WikiStatus;
 use phpOMS\Utils\RnG\Text;
 
 /**
+ * @testdox Modules\tests\Knowledgebase\Models\WikiDocMapperTest: Wiki document mapper
+ *
  * @internal
  */
 class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
 {
-    public function testCRUD() : void
+    /**
+     * @testdox The model can be created and read from the database
+     * @covers Modules\Knowledgebase\Models\WikiDocMapper
+     * @group module
+     */
+    public function testCR() : void
     {
         $doc = new WikiDoc();
 
