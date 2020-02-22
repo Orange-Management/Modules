@@ -22,11 +22,14 @@ use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Utils\RnG\Text;
 
 /**
+ * @testdox Modules\tests\News\Models\NewsArticleMapperTest: News article mapper
+ *
  * @internal
  */
 class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
+     * @testdox The model can be created and read from the database
      * @covers Modules\News\Models\NewsArticleMapper
      * @group module
      */

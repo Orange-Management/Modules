@@ -42,17 +42,6 @@ $busy = [
 ];
 
 echo $this->getData('nav')->render(); ?>
-
-on response successful reload!!! or!
-on response successful change ui/change ui and on response not successful undo changed ui both result in the same
-
-list for month show total of total
-list contains segments for week show total of total
-every week contains every day show total of total
-if you click on a day you get detailed information of that day
-
-show additional section with vacation days
-
 <div class="row">
     <div class="col-md-4 col-xs-12">
         <section class="box wf-100">

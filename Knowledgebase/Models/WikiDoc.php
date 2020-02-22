@@ -33,6 +33,16 @@ class WikiDoc implements \JsonSerializable
     protected int $id = 0;
 
     /**
+     * App id.
+     *
+     * There can be different wikis
+     *
+     * @var null|int|WikiApp
+     * @since 1.0.0
+     */
+    private $app = null;
+
+    /**
      * Name.
      *
      * @var string
@@ -40,29 +50,53 @@ class WikiDoc implements \JsonSerializable
      */
     private string $name = '';
 
-    private int $status = WikiStatus::ACTIVE;
-
-    private $doc = '';
-
-    private $category = 0;
-
-    private $language = '';
-
-    private $createdBy = 0;
-
-    private $createdAt = null;
-
-    private $badges = [];
-
     /**
-     * Constructor.
+     * Article status.
      *
+     * @var int
      * @since 1.0.0
      */
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-    }
+    private int $status = WikiStatus::ACTIVE;
+
+    /**
+     * Document content.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $doc = '';
+
+    /**
+     * Document raw content.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $docRaw = '';
+
+    /**
+     * Category.
+     *
+     * @var int|WikiCategory
+     * @since 1.0.0
+     */
+    private $category = 0;
+
+    /**
+     * Language.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private $language = 'en';
+
+    /**
+     * Tags.
+     *
+     * @var array
+     * @since 1.0.0
+     */
+    private $tags = [];
 
     /**
      * Get id.
@@ -74,6 +108,32 @@ class WikiDoc implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * Get app
+     *
+     * @return null|int|WikiApp
+     *
+     * @since 1.0.0
+     */
+    public function getApp()
+    {
+        return $this->app;
+    }
+
+    /**
+     * Set app
+     *
+     * @param int $app App
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setApp(int $app) : void
+    {
+        $this->app = $app;
     }
 
     /**
@@ -155,6 +215,32 @@ class WikiDoc implements \JsonSerializable
     }
 
     /**
+     * Get content
+     *
+     * @return string
+     *
+     * @since 1.0.0
+     */
+    public function getDocRaw() : string
+    {
+        return $this->docRaw;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $doc Document content
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setDocRaw(string $doc) : void
+    {
+        $this->docRaw = $doc;
+    }
+
+    /**
      * Get status
      *
      * @return int
@@ -207,67 +293,29 @@ class WikiDoc implements \JsonSerializable
     }
 
     /**
-     * Get created by
-     *
-     * @return int|\phpOMS\Account\Account
-     *
-     * @since 1.0.0
-     */
-    public function getCreatedBy() : int
-    {
-        return $this->createdBy;
-    }
-
-    /**
-     * Set created by
-     *
-     * @param mixed $id Created by
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setCreatedBy($id) : void
-    {
-        $this->createdBy = $id;
-    }
-
-    /**
-     * Get created at date time
-     *
-     * @return \DateTime
-     *
-     * @since 1.0.0
-     */
-    public function getCreatedAt() : \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Get badges
+     * Get tags
      *
      * @return array
      *
      * @since 1.0.0
      */
-    public function getBadges() : array
+    public function getTags() : array
     {
-        return $this->badges;
+        return $this->tags;
     }
 
     /**
-     * Add badge
+     * Add tag
      *
-     * @param mixed $badge Badge
+     * @param mixed $tag Tag
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addBadge($badge) : void
+    public function addTag($tag) : void
     {
-        $this->badges[] = $badge;
+        $this->tags[] = $tag;
     }
 
     /**

@@ -23,34 +23,37 @@ use phpOMS\Utils\RnG\Text;
  */
 class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
-    public function testCRUD() : void
+    protected WikiCategory $category;
+
+    protected function setUp() : void
     {
-        $category = new WikiCategory();
+        $this->category = new WikiCategory();
+    }
 
-        $category->setName('Test Category');
+    public function testCR() : void
+    {
+        $this->category->setName('Test Category');
 
-        $id = WikiCategoryMapper::create($category);
-        self::assertGreaterThan(0, $category->getId());
-        self::assertEquals($id, $category->getId());
+        $id = WikiCategoryMapper::create($this->category);
+        self::assertGreaterThan(0, $this->category->getId());
+        self::assertEquals($id, $this->category->getId());
 
-        $categoryR = WikiCategoryMapper::get($category->getId());
-        self::assertEquals($category->getName(), $categoryR->getName());
+        $categoryR = WikiCategoryMapper::get($this->category->getId());
+        self::assertEquals($this->category->getName(), $categoryR->getName());
     }
 
     public function testChildCRUD() : void
     {
-        $category = new WikiCategory();
+        $this->category->setName('Test Category2');
+        $this->category->setParent(1);
 
-        $category->setName('Test Category2');
-        $category->setParent(1);
+        $id = WikiCategoryMapper::create($this->category);
+        self::assertGreaterThan(0, $this->category->getId());
+        self::assertEquals($id, $this->category->getId());
 
-        $id = WikiCategoryMapper::create($category);
-        self::assertGreaterThan(0, $category->getId());
-        self::assertEquals($id, $category->getId());
-
-        $categoryR = WikiCategoryMapper::get($category->getId());
-        self::assertEquals($category->getName(), $categoryR->getName());
-        self::assertEquals($category->getParent(), $categoryR->getParent());
+        $categoryR = WikiCategoryMapper::get($this->category->getId());
+        self::assertEquals($this->category->getName(), $categoryR->getName());
+        self::assertEquals($this->category->getParent(), $categoryR->getParent()->getId());
     }
 
     /**

@@ -1,4 +1,22 @@
 {
+    "wiki_app": {
+        "name": "wiki_app",
+        "comment": "This allows to create different wikis",
+        "fields": {
+            "wiki_app_id": {
+                "name": "wiki_app_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "wiki_app_name": {
+                "name": "wiki_app_name",
+                "type": "VARCHAR(255)",
+                "null": false
+            }
+        }
+    },
     "wiki_category": {
         "name": "wiki_category",
         "fields": {
@@ -14,6 +32,11 @@
                 "type": "VARCHAR(255)",
                 "null": false
             },
+            "wiki_category_path": {
+                "name": "wiki_category_path",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
             "wiki_category_parent": {
                 "name": "wiki_category_parent",
                 "type": "INT",
@@ -21,6 +44,14 @@
                 "null": true,
                 "foreignTable": "wiki_category",
                 "foreignKey": "wiki_category_id"
+            },
+            "wiki_category_app": {
+                "name": "wiki_category_app",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "wiki_app",
+                "foreignKey": "wiki_app_id"
             }
         }
     },
@@ -54,18 +85,6 @@
                 "type": "TEXT",
                 "null": false
             },
-            "wiki_article_created_at": {
-                "name": "wiki_article_created_at",
-                "type": "DATETIME",
-                "null": false
-            },
-            "wiki_article_created_by": {
-                "name": "wiki_article_created_by",
-                "type": "INT",
-                "null": false,
-                "foreignTable": "account",
-                "foreignKey": "account_id"
-            },
             "wiki_article_category": {
                 "name": "wiki_article_category",
                 "type": "INT",
@@ -73,6 +92,14 @@
                 "null": true,
                 "foreignTable": "wiki_category",
                 "foreignKey": "wiki_category_id"
+            },
+            "wiki_article_app": {
+                "name": "wiki_article_app",
+                "type": "INT",
+                "default": null,
+                "null": true,
+                "foreignTable": "wiki_app",
+                "foreignKey": "wiki_app_id"
             }
         }
     }

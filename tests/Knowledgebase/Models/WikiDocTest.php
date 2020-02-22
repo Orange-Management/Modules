@@ -22,37 +22,71 @@ use Modules\Knowledgebase\Models\WikiStatus;
  */
 class WikiDocTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $doc = new WikiDoc();
+    protected WikiDoc $doc;
 
-        self::assertEquals(0, $doc->getId());
-        self::assertEquals('', $doc->getName());
-        self::assertEquals('', $doc->getDoc());
-        self::assertEquals(WikiStatus::ACTIVE, $doc->getStatus());
-        self::assertEquals(0, $doc->getCategory());
-        self::assertEquals('', $doc->getLanguage());
-        self::assertEquals(0, $doc->getCreatedBy());
-        self::assertInstanceOf('\DateTime', $doc->getCreatedAt());
-        self::assertEquals([], $doc->getBadges());
+    protected function setUp() : void
+    {
+        $this->doc = new WikiDoc();
     }
 
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $doc = new WikiDoc();
+        self::assertEquals(0, $this->doc->getId());
+        self::assertEquals(null, $this->doc->getApp());
+        self::assertEquals('', $this->doc->getName());
+        self::assertEquals('', $this->doc->getDoc());
+        self::assertEquals('', $this->doc->getDocRaw());
+        self::assertEquals(WikiStatus::ACTIVE, $this->doc->getStatus());
+        self::assertEquals(0, $this->doc->getCategory());
+        self::assertEquals('en', $this->doc->getLanguage());
+        self::assertEquals([], $this->doc->getTags());
+    }
 
-        $doc->setName('Doc Name');
-        $doc->setDoc('Doc content');
-        $doc->setStatus(WikiStatus::DRAFT);
-        $doc->setCategory(1);
-        $doc->setCreatedBy(1);
-        $doc->setLanguage('en');
+    public function tesAppInputOutput() : void
+    {
+        $this->doc->setApp(2);
+        self::assertEquals(2, $this->doc->getApp());
+    }
 
-        self::assertEquals('Doc Name', $doc->getName());
-        self::assertEquals('Doc content', $doc->getDoc());
-        self::assertEquals(WikiStatus::DRAFT, $doc->getStatus());
-        self::assertEquals('en', $doc->getLanguage());
-        self::assertEquals(1, $doc->getCategory());
-        self::assertEquals(1, $doc->getCreatedBy());
+    public function testNameInputOutput() : void
+    {
+        $this->doc->setName('Test name');
+        self::assertEquals('Test name', $this->doc->getName());
+    }
+
+    public function testDocInputOutput() : void
+    {
+        $this->doc->setDoc('Test content');
+        self::assertEquals('Test content', $this->doc->getDoc());
+    }
+
+    public function testDocRawInputOutput() : void
+    {
+        $this->doc->setDocRaw('Test content');
+        self::assertEquals('Test content', $this->doc->getDocRaw());
+    }
+
+    public function testStatusInputOutput() : void
+    {
+        $this->doc->setStatus(WikiStatus::DRAFT);
+        self::assertEquals(WikiStatus::DRAFT, $this->doc->getStatus());
+    }
+
+    public function testCategoryInputOutput() : void
+    {
+        $this->doc->setCategory(3);
+        self::assertEquals(3, $this->doc->getCategory());
+    }
+
+    public function testLanguageInputOutput() : void
+    {
+        $this->doc->setLanguage('de');
+        self::assertEquals('de', $this->doc->getLanguage());
+    }
+
+    public function testTagInputOutput() : void
+    {
+        $this->doc->addTag(5);
+        self::assertEquals([5], $this->doc->getTags());
     }
 }

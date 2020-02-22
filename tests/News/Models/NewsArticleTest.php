@@ -20,76 +20,178 @@ use Modules\News\Models\NewsType;
 use phpOMS\Localization\ISO639x1Enum;
 
 /**
+ * @testdox Modules\tests\News\Models\NewsArticleTest: News article
+ *
  * @internal
  */
 class NewsArticleTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $news = new NewsArticle();
+    protected NewsArticle $news;
 
-        self::assertEquals(0, $news->getId());
-        self::assertEquals(0, $news->getCreatedBy());
-        self::assertEquals('', $news->getTitle());
-        self::assertEquals('', $news->getContent());
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $news->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $news->getPublish()->format('Y-m-d'));
-        self::assertFalse($news->isFeatured());
-        self::assertEquals(ISO639x1Enum::_EN, $news->getLanguage());
-        self::assertEquals(NewsStatus::DRAFT, $news->getStatus());
-        self::assertEquals(NewsType::ARTICLE, $news->getType());
-        self::assertEquals([], $news->getBadges());
-        self::assertEquals('', $news->getPlain());
+    protected function setUp() : void
+    {
+        $this->news = new NewsArticle();
     }
 
-    public function testSetGet() : void
+    /**
+     * @testdox The model has the expected default values after initialization
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testDefault() : void
     {
-        $news = new NewsArticle();
+        self::assertEquals(0, $this->news->getId());
+        self::assertEquals(0, $this->news->getCreatedBy());
+        self::assertEquals('', $this->news->getTitle());
+        self::assertEquals('', $this->news->getContent());
+        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->news->getCreatedAt()->format('Y-m-d'));
+        self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->news->getPublish()->format('Y-m-d'));
+        self::assertFalse($this->news->isFeatured());
+        self::assertEquals(ISO639x1Enum::_EN, $this->news->getLanguage());
+        self::assertEquals(NewsStatus::DRAFT, $this->news->getStatus());
+        self::assertEquals(NewsType::ARTICLE, $this->news->getType());
+        self::assertEquals([], $this->news->getBadges());
+        self::assertEquals('', $this->news->getPlain());
+    }
 
-        $news->setCreatedBy(1);
-        self::assertEquals(1, $news->getCreatedBy());
+    /**
+     * @testdox The creator can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testCreatorInputOutput() : void
+    {
+        $this->news->setCreatedBy(1);
+        self::assertEquals(1, $this->news->getCreatedBy());
+    }
 
-        $news->setTitle('Title');
-        self::assertEquals('Title', $news->getTitle());
+    /**
+     * @testdox The title can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testTitleInputOutput() : void
+    {
+        $this->news->setTitle('Title');
+        self::assertEquals('Title', $this->news->getTitle());
+    }
 
-        $news->setContent('Content');
-        self::assertEquals('Content', $news->getContent());
+    /**
+     * @testdox The content can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testContentInputOutput() : void
+    {
+        $this->news->setContent('Content');
+        self::assertEquals('Content', $this->news->getContent());
+    }
 
-        $news->setPlain('Plain');
-        self::assertEquals('Plain', $news->getPlain());
+    /**
+     * @testdox The plain content can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testPlainInputOutput() : void
+    {
+        $this->news->setPlain('Plain');
+        self::assertEquals('Plain', $this->news->getPlain());
+    }
 
-        $news->setPublish($data = new \DateTime('2001-05-07'));
-        self::assertEquals($data, $news->getPublish());
+    /**
+     * @testdox The publish date can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testPublishInputOutput() : void
+    {
+        $this->news->setPublish($data = new \DateTime('2001-05-07'));
+        self::assertEquals($data, $this->news->getPublish());
+    }
 
-        $news->setFeatured(true);
-        self::assertTrue($news->isFeatured());
+    /**
+     * @testdox The featured flag can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testFeaturedInputOutput() : void
+    {
+        $this->news->setFeatured(true);
+        self::assertTrue($this->news->isFeatured());
+    }
 
-        $news->setLanguage(ISO639x1Enum::_DE);
-        self::assertEquals(ISO639x1Enum::_DE, $news->getLanguage());
+    /**
+     * @testdox The language can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testLanguageInputOutput() : void
+    {
+        $this->news->setLanguage(ISO639x1Enum::_DE);
+        self::assertEquals(ISO639x1Enum::_DE, $this->news->getLanguage());
+    }
 
-        $news->setStatus(NewsStatus::VISIBLE);
-        self::assertEquals(NewsStatus::VISIBLE, $news->getStatus());
+    /**
+     * @testdox The langague can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testStatusInputOutput() : void
+    {
+        $this->news->setStatus(NewsStatus::VISIBLE);
+        self::assertEquals(NewsStatus::VISIBLE, $this->news->getStatus());
+    }
 
-        $news->setType(NewsType::HEADLINE);
-        self::assertEquals(NewsType::HEADLINE, $news->getType());
+    /**
+     * @testdox The type can be correctly set and returned
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testTypeInputOutput() : void
+    {
+        $this->news->setType(NewsType::HEADLINE);
+        self::assertEquals(NewsType::HEADLINE, $this->news->getType());
+    }
+
+    /**
+     * @testdox The model can be correctly serialized
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+     */
+    public function testSerialization() : void
+    {
+        $this->news->setTitle('Title');
+        $this->news->setCreatedBy(1);
+        $this->news->setContent('Content');
+        $this->news->setPlain('Plain');
+        $this->news->setPublish(new \DateTime('2001-05-07'));
+        $this->news->setFeatured(true);
+        $this->news->setLanguage(ISO639x1Enum::_DE);
+        $this->news->setStatus(NewsStatus::VISIBLE);
+        $this->news->setType(NewsType::HEADLINE);
 
         $arr = [
             'id' => 0,
-            'title' => $news->getTitle(),
-            'plain' => $news->getPlain(),
-            'content' => $news->getContent(),
-            'type' => $news->getType(),
-            'status' => $news->getStatus(),
-            'featured' => $news->isFeatured(),
-            'publish' => $news->getPublish(),
-            'createdAt' => $news->getCreatedAt(),
-            'createdBy' => $news->getCreatedBy(),
+            'title' => $this->news->getTitle(),
+            'plain' => $this->news->getPlain(),
+            'content' => $this->news->getContent(),
+            'type' => $this->news->getType(),
+            'status' => $this->news->getStatus(),
+            'featured' => $this->news->isFeatured(),
+            'publish' => $this->news->getPublish(),
+            'createdAt' => $this->news->getCreatedAt(),
+            'createdBy' => $this->news->getCreatedBy(),
         ];
-        self::assertEquals($arr, $news->toArray());
-        self::assertEquals($arr, $news->jsonSerialize());
-        self::assertEquals(\json_encode($arr), $news->__toString());
+
+        self::assertEquals($arr, $this->news->toArray());
+        self::assertEquals($arr, $this->news->jsonSerialize());
     }
 
+    /**
+     * @testdox A invalid status throws a InvalidEnumValue exception
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+    */
     public function testInvalidStatus() : void
     {
         self::expectException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
@@ -98,6 +200,11 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         $news->setStatus(9999);
     }
 
+    /**
+     * @testdox A invalid type throws a InvalidEnumValue exception
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+    */
     public function testInvalidType() : void
     {
         self::expectException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
@@ -106,6 +213,11 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
         $news->setType(9999);
     }
 
+    /**
+     * @testdox A invalid language throws a InvalidEnumValue exception
+     * @covers Modules\News\Models\NewsArticle
+     * @group module
+    */
     public function testInvalidLanguage() : void
     {
         self::expectException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);

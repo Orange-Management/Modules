@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Knowledgebase\Models;
 
 /**
- * Task class.
+ * Wiki category class.
  *
  * @package Modules\Knowledgebase\Models
  * @license OMS License 1.0
@@ -33,6 +33,16 @@ class WikiCategory implements \JsonSerializable
     protected int $id = 0;
 
     /**
+     * App id.
+     *
+     * There can be different wikis
+     *
+     * @var null|int|WikiApp
+     * @since 1.0.0
+     */
+    private $app = null;
+
+    /**
      * Name.
      *
      * @var string
@@ -40,6 +50,19 @@ class WikiCategory implements \JsonSerializable
      */
     private string $name = '';
 
+    /**
+     * Path.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $path = '/';
+
+    /**
+     * Parent category.
+     *
+     * @var null|int|self
+     */
     private $parent = null;
 
     /**
@@ -52,6 +75,32 @@ class WikiCategory implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * Get app
+     *
+     * @return null|int|WikiApp
+     *
+     * @since 1.0.0
+     */
+    public function getApp()
+    {
+        return $this->app;
+    }
+
+    /**
+     * Set app
+     *
+     * @param int $app App
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setApp(int $app) : void
+    {
+        $this->app = $app;
     }
 
     /**
@@ -81,13 +130,39 @@ class WikiCategory implements \JsonSerializable
     }
 
     /**
-     * Get parent category
+     * Get path
      *
-     * @return null|int
+     * @return string
      *
      * @since 1.0.0
      */
-    public function getParent() : ?int
+    public function getPath() : string
+    {
+        return $this->path;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path Path
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setPath(string $path) : void
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * Get parent category
+     *
+     * @return null|int|self
+     *
+     * @since 1.0.0
+     */
+    public function getParent()
     {
         return $this->parent;
     }
@@ -109,8 +184,21 @@ class WikiCategory implements \JsonSerializable
     /**
      * {@inheritdoc}
      */
-    public function jsonSerialize() : array
+    public function toArray() : array
     {
-        return [];
+        return [
+            'id'   => $this->id,
+            'app'  => $this->app,
+            'name' => $this->name,
+            'path' => $this->path,
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

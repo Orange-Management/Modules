@@ -12,8 +12,6 @@
  */
 declare(strict_types=1);
 
-
-
 $sessions = $this->getData('sessions');
 
 echo $this->getData('nav')->render(); ?>

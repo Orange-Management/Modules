@@ -32,7 +32,6 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
         $doc->setDoc('Doc content');
         $doc->setStatus(WikiStatus::DRAFT);
         $doc->setCategory(1);
-        $doc->setCreatedBy(1);
         $doc->setLanguage('en');
 
         $id = WikiDocMapper::create($doc);
@@ -45,7 +44,6 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($doc->getStatus(), $docR->getStatus());
         self::assertEquals($doc->getLanguage(), $docR->getLanguage());
         self::assertEquals($doc->getCategory(), $docR->getCategory()->getId());
-        self::assertEquals($doc->getCreatedBy(), $docR->getCreatedBy());
     }
 
     /**
@@ -63,7 +61,6 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
             $doc->setDoc($text->generateText(\mt_rand(100, 500)));
             $doc->setStatus(WikiStatus::ACTIVE);
             $doc->setCategory(\mt_rand(1, 9));
-            $doc->setCreatedBy(1);
             $doc->setLanguage('en');
 
             $id = WikiDocMapper::create($doc);

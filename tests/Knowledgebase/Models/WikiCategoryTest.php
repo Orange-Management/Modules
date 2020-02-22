@@ -21,23 +21,43 @@ use Modules\Knowledgebase\Models\WikiCategory;
  */
 class WikiCategoryTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault() : void
-    {
-        $category = new WikiCategory();
+    protected WikiCategory $category;
 
-        self::assertEquals(0, $category->getId());
-        self::assertEquals('', $category->getName());
-        self::assertNull($category->getParent());
+    protected function setUp() : void
+    {
+        $this->category = new WikiCategory();
     }
 
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $category = new WikiCategory();
+        self::assertEquals(0, $this->category->getId());
+        self::assertEquals(null, $this->category->getApp());
+        self::assertEquals('', $this->category->getName());
+        self::assertEquals('/', $this->category->getPath());
+        self::assertNull($this->category->getParent());
+    }
 
-        $category->setName('Category Name');
-        $category->setParent(1);
+    public function testAppInputOutput() : void
+    {
+        $this->category->setApp(2);
+        self::assertEquals(2, $this->category->getApp());
+    }
 
-        self::assertEquals('Category Name', $category->getName());
-        self::assertEquals(1, $category->getParent());
+    public function testNameInputOutput() : void
+    {
+        $this->category->setName('Category Name');
+        self::assertEquals('Category Name', $this->category->getName());
+    }
+
+    public function testPathInputOutput() : void
+    {
+        $this->category->setPath('/test/path');
+        self::assertEquals('/test/path', $this->category->getPath());
+    }
+
+    public function testParentInputOutput() : void
+    {
+        $this->category->setParent(2);
+        self::assertEquals(2, $this->category->getParent());
     }
 }

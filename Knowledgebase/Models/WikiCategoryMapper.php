@@ -34,8 +34,27 @@ final class WikiCategoryMapper extends DataMapperAbstract
      */
     protected static array $columns = [
         'wiki_category_id'     => ['name' => 'wiki_category_id',     'type' => 'int',    'internal' => 'id'],
+        'wiki_category_app'    => ['name' => 'wiki_category_app',    'type' => 'int',    'internal' => 'app'],
         'wiki_category_name'   => ['name' => 'wiki_category_name',   'type' => 'string', 'internal' => 'name'],
+        'wiki_category_path'   => ['name' => 'wiki_category_path',   'type' => 'string', 'internal' => 'path'],
         'wiki_category_parent' => ['name' => 'wiki_category_parent', 'type' => 'int',    'internal' => 'parent'],
+    ];
+
+    /**
+     * Has owns one relation.
+     *
+     * @var array<string, array<string, null|string>>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'parent' => [
+            'mapper' => WikiCategoryMapper::class,
+            'self'   => 'wiki_category_parent',
+        ],
+        'app' => [
+            'mapper' => WikiAppMapper::class,
+            'self' => 'wiki_category_app'
+        ],
     ];
 
     /**
