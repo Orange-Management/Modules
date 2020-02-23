@@ -9,7 +9,7 @@
 
     <div class="col-xs-12 col-md-4 col-lg-3">
         <div class="box wf-100">
-            <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/lang}/backend/help/module/single?id={?id}'); ?>">Module</a>
+            <a class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/lang}/backend/help/module/single?id={?id}'); ?>"><?= $this->getHtml('Module'); ?></a>
         </div>
 
         <section class="box wf-100">
