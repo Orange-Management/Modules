@@ -33,6 +33,14 @@ class Template implements \JsonSerializable
     private int $id = 0;
 
     /**
+     * Unit.
+     *
+     * @var null|int|\Modules\Organization\Models\Unit
+     * @since 1.0.0
+     */
+    private $unit = null;
+
+    /**
      * Template status.
      *
      * @var int
@@ -131,6 +139,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get model id
+     *
      * @return int
      *
      * @since 1.0.0
@@ -138,6 +148,34 @@ class Template implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
+    }
+
+    /**
+     * Get unit this template belogns to
+     *
+     * @return null|int|\Modules\Organization\Models\Unit
+     *
+     * @since 1.0.0
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+    /**
+     * Set unit this model belongs to
+     *
+     * Set the unit
+     *
+     * @param int $unit Unit
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function setUnit(int $unit) : void
+    {
+        $this->unit = $unit;
     }
 
     /**
@@ -157,6 +195,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set template name
+     *
      * @param string $name Template name
      *
      * @return void
@@ -169,6 +209,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get template name
+     *
      * @return string
      *
      * @since 1.0.0
@@ -179,6 +221,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set description
+     *
      * @param string $description Template description
      *
      * @return void
@@ -191,6 +235,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get description
+     *
      * @return string
      *
      * @since 1.0.0
@@ -201,6 +247,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set raw description
+     *
      * @param string $description Template description
      *
      * @return void
@@ -213,6 +261,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get raw description
+     *
      * @return string
      *
      * @since 1.0.0
@@ -223,6 +273,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set source media
+     *
      * @param int $source Source
      *
      * @return mixed
@@ -235,6 +287,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get source media
+     *
      * @return mixed
      *
      * @since 1.0.0
@@ -245,6 +299,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set creator
+     *
      * @param mixed $createdBy Creator
      *
      * @return void
@@ -257,6 +313,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get creator
+     *
      * @return int|\phpOMS\Account\Account
      *
      * @since 1.0.0
@@ -267,6 +325,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get created date
+     *
      * @return \DateTime
      *
      * @since 1.0.0
@@ -277,6 +337,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set expected files from reports
+     *
      * @param array $expected Expected files
      *
      * @return void
@@ -289,6 +351,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get expected files from report
+     *
      * @return array
      *
      * @since 1.0.0
@@ -299,6 +363,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Add expected file from report
+     *
      * @param string $expected Expected file
      *
      * @return void
@@ -311,6 +377,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set activity satuus
+     *
      * @param int $status Template status (is active?)
      *
      * @return void
@@ -323,6 +391,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get activity status
+     *
      * @return int
      *
      * @since 1.0.0
@@ -333,6 +403,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set data type basis
+     *
      * @param int $datatype Template datatype source
      *
      * @return void
@@ -345,6 +417,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Get data type basis
+     *
      * @return int
      *
      * @since 1.0.0
@@ -355,6 +429,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Set if the template needs report data
+     *
      * @param bool $isStandalone Is template standalone
      *
      * @return void
@@ -367,6 +443,8 @@ class Template implements \JsonSerializable
     }
 
     /**
+     * Does the template need report data?
+     *
      * @return bool
      *
      * @since 1.0.0

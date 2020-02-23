@@ -16,6 +16,7 @@ namespace Modules\Helper\Models;
 
 use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\CollectionMapper;
+use Modules\Organization\Models\UnitMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
@@ -45,6 +46,7 @@ final class TemplateMapper extends DataMapperAbstract
         'helper_template_desc_raw'   => ['name' => 'helper_template_desc_raw',    'type' => 'string',   'internal' => 'descriptionRaw'],
         'helper_template_media'      => ['name' => 'helper_template_media',       'type' => 'int',      'internal' => 'source'],
         'helper_template_creator'    => ['name'     => 'helper_template_creator', 'type' => 'int',      'internal' => 'createdBy', ],
+        'helper_template_unit'    => ['name'     => 'helper_template_unit', 'type' => 'int',      'internal' => 'unit', ],
         'helper_template_created'    => ['name'     => 'helper_template_created', 'type' => 'DateTime', 'internal' => 'createdAt', ],
     ];
 
@@ -71,6 +73,10 @@ final class TemplateMapper extends DataMapperAbstract
         'createdBy' => [
             'mapper' => AccountMapper::class,
             'self'   => 'helper_template_creator',
+        ],
+        'unit' => [
+            'mapper' => UnitMapper::class,
+            'self'   => 'helper_template_unit',
         ],
     ];
 

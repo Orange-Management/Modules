@@ -107,6 +107,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get model id.
+     *
      * @return int
      *
      * @since 1.0.0
@@ -117,6 +119,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get the activity status
+     *
      * @return int
      *
      * @since 1.0.0
@@ -127,6 +131,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set the activity status
+     *
      * @param int $status Report status
      *
      * @return void
@@ -139,6 +145,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get title,
+     *
      * @return string
      *
      * @since 1.0.0
@@ -149,6 +157,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set the title
+     *
      * @param string $title Title
      *
      * @return void
@@ -161,6 +171,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get description
+     *
      * @return string
      *
      * @since 1.0.0
@@ -171,6 +183,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set the description
+     *
      * @param string $description Description
      *
      * @return void
@@ -183,6 +197,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get raw description
+     *
      * @return string
      *
      * @since 1.0.0
@@ -193,6 +209,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set raw description
+     *
      * @param string $descriptionRaw Description
      *
      * @return void
@@ -205,6 +223,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get created datetime
+     *
      * @return \DateTime
      *
      * @since 1.0.0
@@ -215,6 +235,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get creator
+     *
      * @return int|\phpOMS\Account\Account
      *
      * @since 1.0.0
@@ -225,6 +247,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set creator
+     *
      * @param mixed $creator Created by
      *
      * @return void
@@ -237,6 +261,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get template this report belongs to
+     *
      * @return mixed
      *
      * @since 1.0.0
@@ -247,6 +273,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set template this report belongs to
+     *
      * @param mixed $template Report template
      *
      * @return void
@@ -259,6 +287,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Set source media for the report
+     *
      * @param \Modules\Media\Models\Collection|int $source Report source
      *
      * @return void
@@ -271,6 +301,8 @@ class Report implements \JsonSerializable
     }
 
     /**
+     * Get source media for the report
+     *
      * @return \Modules\Media\Models\Collection|int
      *
      * @since 1.0.0
@@ -281,9 +313,7 @@ class Report implements \JsonSerializable
     }
 
     /**
-     * @return array
-     *
-     * @since 1.0.0
+     * {@inheritdoc}
      */
     public function toArray() : array
     {
