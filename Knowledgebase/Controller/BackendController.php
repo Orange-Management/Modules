@@ -14,9 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Controller;
 
+use Modules\Knowledgebase\Models\NullWikiApp;
 use Modules\Knowledgebase\Models\NullWikiCategory;
 use Modules\Knowledgebase\Models\NullWikiDoc;
 use Modules\Knowledgebase\Models\PermissionState;
+use Modules\Knowledgebase\Models\WikiAppMapper;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\WikiDocMapper;
 
@@ -79,8 +81,84 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
-        $list = WikiCategoryMapper::getNewest(50);
-        $view->setData('categories', $list);
+        $categories = WikiCategoryMapper::getNewest(50);
+        $view->setData('categories', $categories);
+
+        $documents = WikiDocMapper::getNewest(50);
+        $view->setData('docs', $documents);
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewKnowledgebaseAppList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-app-list');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
+
+        $list = WikiAppMapper::getAll();
+        $view->setData('apps', $list);
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewKnowledgebaseApp(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-app-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
+
+        $app = WikiAppMapper::get((int) $request->getData('id'));
+        $view->setData('app', $app);
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewKnowledgebaseAppCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-app-single');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
+
+        $view->setData('app', new NullWikiApp());
 
         return $view;
     }
@@ -106,31 +184,6 @@ final class BackendController extends Controller
 
         $list = WikiCategoryMapper::getAll();
         $view->setData('categories', $list);
-
-        return $view;
-    }
-
-    /**
-     * Routing end-point for application behaviour.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
-     */
-    public function viewKnowledgebaseDocList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
-    {
-        $view = new View($this->app->l11nManager, $request, $response);
-
-        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-doc-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
-
-        $list = WikiDocMapper::getAll();
-        $view->setData('docs', $list);
 
         return $view;
     }
@@ -179,6 +232,31 @@ final class BackendController extends Controller
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
         $view->setData('category', new NullWikiCategory());
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behaviour.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewKnowledgebaseDocList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-doc-list');
+        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
+
+        $list = WikiDocMapper::getAll();
+        $view->setData('docs', $list);
 
         return $view;
     }

@@ -12,8 +12,10 @@
  */
 declare(strict_types=1);
 
-return ['Navigation' => [
-    'Wiki'       => 'Wiki',
-    'Categories' => 'Categories',
-    'Apps'       => 'Apps',
-]];
+$app = $this->getData('app');
+
+/**
+ * @var \phpOMS\Views\View $this
+ */
+echo $this->getData('nav')->render();
+?>
