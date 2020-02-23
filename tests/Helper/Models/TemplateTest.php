@@ -41,6 +41,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->template->getId());
+        self::assertEquals(0, $this->template->getUnit());
         self::assertEquals(0, $this->template->getCreatedBy());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->template->getCreatedAt()->format('Y-m-d'));
         self::assertEquals('', $this->template->getName());
@@ -54,6 +55,16 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf(NullReport::class, $this->template->getNewestReport());
     }
 
+    /**
+     * @testdox The unit can be set and returned correctly
+     * @covers Modules\Helper\Models\Template
+     * @group module
+     */
+    public function testUnitInputOutput() : void
+    {
+        $this->template->setUnit(1);
+        self::assertEquals(1, $this->template->getUnit());
+    }
     /**
      * @testdox The creator can be set and returned correctly
      * @covers Modules\Helper\Models\Template

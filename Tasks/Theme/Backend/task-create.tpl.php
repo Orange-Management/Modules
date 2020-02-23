@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-
 use \Modules\Tasks\Models\TaskPriority;
 use \Modules\Tasks\Models\TaskType;
 
