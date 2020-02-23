@@ -16,7 +16,7 @@ use \phpOMS\Uri\UriFactory;
 
 /**
  * @var \Modules\Knowledgebase\Models\WikiCategory[] $categories
- * @var \Modules\Knowledgebase\Models\WikiDoc[] $documents
+ * @var \Modules\Knowledgebase\Models\WikiDoc[]      $documents
  */
 $categories = $this->getData('categories') ?? [];
 $documents  = $this->getData('docs') ?? [];

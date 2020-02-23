@@ -18,4 +18,3 @@ $apps = $this->getData('apps');
  * @var \phpOMS\Views\View $this
  */
 echo $this->getData('nav')->render();
-?>
