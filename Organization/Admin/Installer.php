@@ -43,7 +43,6 @@ class Installer extends InstallerAbstract
         parent::install($dbPool, $info);
 
         self::installDefaultUnit();
-        self::installSettings($dbPool);
     }
 
     /**
@@ -59,22 +58,5 @@ class Installer extends InstallerAbstract
         $unit->setName('Orange Management');
 
         UnitMapper::create($unit);
-    }
-
-    /**
-     * Install settings
-     *
-     * @param DatabasePool $dbPool Database pool
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    private static function installSettings(DatabasePool $dbPool) : void
-    {
-        $settings = new CoreSettings($dbPool->get('insert'));
-        $settings->create(['name' => SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_UNIT, 'content' => '1', 'module' => ApiController::MODULE_NAME]);
-        $settings->create(['name' => SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_DEPARTMENT, 'content' => '1', 'module' => ApiController::MODULE_NAME]);
-        $settings->create(['name' => SettingsEnum::GROUP_GENERATE_AUTOMATICALLY_POSITION, 'content' => '1', 'module' => ApiController::MODULE_NAME]);
     }
 }
