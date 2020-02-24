@@ -17,13 +17,13 @@ namespace Modules\Messages\Admin;
 use phpOMS\Module\StatusAbstract;
 
 /**
- * Navigation class.
+ * Status class.
  *
  * @package Modules\Messages\Admin
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class Status extends StatusAbstract
+final class Status extends StatusAbstract
 {
 }
