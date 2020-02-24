@@ -29,7 +29,7 @@ use phpOMS\Module\ModuleInfo;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class Installer extends InstallerAbstract
+final class Installer extends InstallerAbstract
 {
     /**
      * {@inheritdoc}
