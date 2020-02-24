@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-use Modules\Knowledgebase\Models\NullWikiDoc;
 use \phpOMS\Uri\UriFactory;
+use Modules\Knowledgebase\Models\NullWikiDoc;
 
 /**
  * @var \Modules\Knowledgebase\Models\WikiCategory[] $categories

@@ -17,9 +17,9 @@ namespace Modules\Knowledgebase\Admin;
 use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
-use phpOMS\DataStorage\Database\DatabasePool;
 
 /**
  * Installer class.
