@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\Search\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\System\File\PathException;
 use phpOMS\System\File\PermissionException;
 use phpOMS\Utils\Parser\Php\ArrayParser;

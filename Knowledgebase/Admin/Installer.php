@@ -18,8 +18,8 @@ use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\ModuleInfo;
 
 /**
  * Installer class.
