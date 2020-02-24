@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Tasks\Controller;
 
 use Modules\Tasks\Models\Task;
-
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
