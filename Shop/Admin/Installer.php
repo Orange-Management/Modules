@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Shop\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\InfoManager;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
 use phpOMS\System\File\Local\Directory;
 
@@ -32,7 +32,7 @@ class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(DatabasePool $dbPool, InfoManager $info) : void
+    public static function install(DatabasePool $dbPool, ModuleInfo $info) : void
     {
         if (\file_exists(__DIR__ . '/../../../Web/Shop')) {
             Directory::delete(__DIR__ . '/../../../Web/Shop');

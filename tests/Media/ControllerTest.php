@@ -17,7 +17,7 @@ namespace Modules\tests\Media;
 use Model\CoreSettings;
 use Modules\Media\Models\UploadStatus;
 use phpOMS\Account\AccountManager;
-use phpOMS\ApplicationAbstract;
+use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
 use phpOMS\Module\ModuleManager;

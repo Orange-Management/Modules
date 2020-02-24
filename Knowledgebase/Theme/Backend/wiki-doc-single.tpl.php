@@ -34,7 +34,7 @@ echo $this->getData('nav')->render();
             <header><h1><?= $this->printHtml($doc->getName()); ?></h1></header>
             <article><?= $doc->getDoc(); ?></article>
             <div class="inner">
-                <span class="tag">Test Tag</span>
+                <span class="tag">FiBu v7.124.52334</span>
             </div>
         </section>
     </div>

@@ -27,7 +27,7 @@ use phpOMS\Contract\RenderableInterface;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Module\InfoManager;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\Views\View;
 
 /**
@@ -301,7 +301,7 @@ final class BackendController extends Controller
         $path = \realpath(__DIR__ . '/../' . $id . '/info.json');
 
         if (isset($installed[$id]) && $path !== false) {
-            $info = new InfoManager($path);
+            $info = new ModuleInfo($path);
             $info->load();
 
             $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(

@@ -18,7 +18,7 @@ use phpOMS\System\File\PathException;
 use phpOMS\Utils\ArrayUtils;
 
 /**
- * InfoManager class.
+ * ModuleInfo class.
  *
  * Handling the info files for modules
  *

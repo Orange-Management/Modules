@@ -18,7 +18,7 @@ use phpOMS\DataStorage\Database\Connection\SQLiteConnection;
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\DataStorage\Database\Query\Builder;
 
-use phpOMS\Module\InfoManager;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
 
 /**
@@ -34,7 +34,7 @@ final class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(DatabasePool $dbPool, InfoManager $info) : void
+    public static function install(DatabasePool $dbPool, ModuleInfo $info) : void
     {
         parent::install($dbPool, $info);
 

@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 /**
  * @var \phpOMS\Views\View           $this
- * @var \phpOMS\Module\InfoManager[] $modules
+ * @var \phpOMS\Module\ModuleInfo[] $modules
  */
 $modules = $this->getData('modules');
 ?>

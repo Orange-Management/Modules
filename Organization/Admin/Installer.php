@@ -22,7 +22,7 @@ use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 use phpOMS\DataStorage\Database\DatabasePool;
 
-use phpOMS\Module\InfoManager;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
 
 /**
@@ -38,7 +38,7 @@ class Installer extends InstallerAbstract
     /**
      * {@inheritdoc}
      */
-    public static function install(DatabasePool $dbPool, InfoManager $info) : void
+    public static function install(DatabasePool $dbPool, ModuleInfo $info) : void
     {
         parent::install($dbPool, $info);
 
