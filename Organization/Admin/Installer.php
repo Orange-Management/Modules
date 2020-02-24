@@ -14,14 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Organization\Admin;
 
-use Model\CoreSettings;
-
-use Modules\Organization\Controller\ApiController;
-use Modules\Organization\Models\SettingsEnum;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
-use phpOMS\DataStorage\Database\DatabasePool;
 
+use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InstallerAbstract;
 use phpOMS\Module\ModuleInfo;
 
