@@ -15,5 +15,6 @@ declare(strict_types=1);
 return ['Knowledgebase' => [
     'Categories' => 'Categories',
     'Name'       => 'Name',
+    'Parent'     => 'Parent',
     'Wiki'       => 'Wiki',
 ]];

@@ -12,6 +12,7 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
 
 $categories = $this->getData('categories');
 
@@ -30,18 +31,20 @@ echo $this->getData('nav')->render();
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
-                        <tfoot>
+                    <td><?= $this->getHtml('Parent') ?>
+                <tfoot>
                 <tr><td colspan="2">
                         <tbody>
-                        <?php $c = 0; foreach ($categories as $key => $value) : ++$c;
-                        $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()); ?>
+                <?php foreach ($categories as $key => $value) :
+                        $url = UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()); ?>
                 <tr data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', '0', '0') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Name') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                        <?php endforeach; ?>
-                        <?php if ($c === 0) : ?>
-                        <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                <?php endif; ?>
+                    <td data-label="<?= $this->getHtml('Parent') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->getParent() !== null ? $value->getParent()->getName() : ''); ?></a>
+                <?php endforeach; ?>
+                <?php if (empty($categories)) : ?>
+                <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                <?php endif; ?>
             </table>
         </div>
     </div>

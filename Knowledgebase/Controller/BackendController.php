@@ -81,7 +81,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
 
-        $categories = WikiCategoryMapper::getNewest(50);
+        $categories = WikiCategoryMapper::getAll();
         $view->setData('categories', $categories);
 
         $documents = WikiDocMapper::getNewest(50);
@@ -288,9 +288,14 @@ final class BackendController extends Controller
             return $view;
         }
 
-        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-category-single');
+        $view->setTemplate('/Modules/Knowledgebase/Theme/Backend/wiki-doc-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005901001, $request, $response));
-        $view->setData('category', $category);
+
+        $categories = WikiCategoryMapper::getAll();
+        $view->setData('categories', $categories);
+
+        $document = WikiDocMapper::get((int) $request->getData('id'));
+        $view->setData('document', $document);
 
         return $view;
     }

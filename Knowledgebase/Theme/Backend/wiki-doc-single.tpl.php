@@ -12,38 +12,31 @@
  */
 declare(strict_types=1);
 
+use Modules\Knowledgebase\Models\NullWikiDoc;
 use \phpOMS\Uri\UriFactory;
 
 /**
  * @var \Modules\Knowledgebase\Models\WikiCategory[] $categories
- * @var \Modules\Knowledgebase\Models\WikiDoc[]      $documents
+ * @var \Modules\Knowledgebase\Models\WikiDoc        $doc
  */
 $categories = $this->getData('categories') ?? [];
-$documents  = $this->getData('docs') ?? [];
+$doc        = $this->getData('document') ?? new NullWikiDoc();
 
 /**
  * @var \phpOMS\Views\View $this
  */
-echo $this->getData('nav')->render(); ?>
+echo $this->getData('nav')->render();
+?>
 
 <div class="row">
     <div class="col-xs-12 col-md-8 col-lg-9">
-        <div class="row">
-            <?php foreach ($documents as $doc) : $url = UriFactory::build('{/prefix}wiki/doc/single?id=' . $doc->getId()); ?>
-                <section class="box wf-100">
-                    <header><h1><a href="<?= $url; ?>"><?= $this->printHtml($doc->getName()); ?></a></h1></header>
-                    <article>
-                        <?= \substr($doc->getDoc(), 0, 300) . (\strlen($doc->getDoc()) > 300 ? '...' : ''); ?>
-                    </article>
-                    <div class="inner">
-                        <div class="overflowfix">
-                            <span class="tag">Test Tag</span>
-                            <a href="<?= $url; ?>" class="button floatRight">More</a>
-                        </div>
-                    </div>
-                </section>
-            <?php endforeach; ?>
-        </div>
+        <section class="box wf-100">
+            <header><h1><?= $this->printHtml($doc->getName()); ?></h1></header>
+            <article><?= $doc->getDoc(); ?></article>
+            <div class="inner">
+                <span class="tag">Test Tag</span>
+            </div>
+        </section>
     </div>
 
     <div class="col-xs-12 col-md-4 col-lg-3">

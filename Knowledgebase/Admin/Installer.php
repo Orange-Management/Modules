@@ -14,7 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Admin;
 
+use Modules\Knowledgebase\Models\WikiCategory;
+use Modules\Knowledgebase\Models\WikiCategoryMapper;
+
+use phpOMS\Module\InfoManager;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\DataStorage\Database\DatabasePool;
 
 /**
  * Installer class.
@@ -26,4 +31,17 @@ use phpOMS\Module\InstallerAbstract;
  */
 class Installer extends InstallerAbstract
 {
+    /**
+     * {@inheritdoc}
+     */
+    public static function install(DatabasePool $dbPool, InfoManager $info) : void
+    {
+        parent::install($dbPool, $info);
+
+        $category = new WikiCategory();
+        $category->setName('Default');
+        $category->setPath('/');
+
+        WikiCategoryMapper::create($category);
+    }
 }

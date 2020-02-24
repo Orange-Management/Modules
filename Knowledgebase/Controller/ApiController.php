@@ -19,7 +19,7 @@ use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
-
+use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
@@ -55,14 +55,14 @@ final class ApiController extends Controller
     public function apiWikiDocCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateWikiDocCreate($request))) {
-            $response->set('wiki_doc_create', new FormValidation($val));
+            $response->set($request->getUri()->__toString(), new FormValidation($val));
 
             return;
         }
 
-        $doc = $this->createWikiDocFromRquest($request);
-        WikiDocMapper::create($doc);
-        $response->set('doc', $doc->jsonSerialize());
+        $doc = $this->createWikiDocFromRequest($request);
+        $this->createModel($request->getHeader()->getAccount(), $doc, WikiDocMapper::class, 'doc');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Wiki', 'Wiki successfully created.', $doc);
     }
 
     /**
@@ -74,15 +74,19 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function createWikiDocFromRquest(RequestAbstract $request) : WikiDoc
+    public function createWikiDocFromRequest(RequestAbstract $request) : WikiDoc
     {
-        $mardkownParser = new Markdown();
-
         $doc = new WikiDoc();
         $doc->setName((string) $request->getData('title'));
-        $doc->setDoc((string) $request->getData('plain'));
-        $doc->setCategory((int) $request->getData('category'));
-        $doc->setStatus((int) $request->getData('status'));
+        $doc->setDoc(Markdown::parse((string) ($request->getData('plain') ?? '')));
+        $doc->setDocRaw((string) ($request->getData('plain') ?? ''));
+        $doc->setCategory((int) ($request->getData('category') ?? 1));
+        $doc->setLanguage((string) ($request->getData('language') ?? $request->getHeader()->getL11n()->getLanguage()));
+        $doc->setStatus((int) ($request->getData('status') ?? WikiStatus::INACTIVE));
+
+        if ($request->getData('tags') !== null) {
+            $doc->addTag((int) $request->getData('tags'));
+        }
 
         return $doc;
     }
@@ -101,7 +105,6 @@ final class ApiController extends Controller
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
             || ($val['plain'] = empty($request->getData('plain')))
-            || ($val['category'] = empty($request->getData('category')))
             || ($val['status'] = (
                 $request->getData('status') !== null
                 && !WikiStatus::isValidValue((int) $request->getData('status'))
@@ -129,14 +132,14 @@ final class ApiController extends Controller
     public function apiWikiCategoryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateWikiCategoryCreate($request))) {
-            $response->set('wiki_category_create', new FormValidation($val));
+            $response->set($request->getUri()->__toString(), new FormValidation($val));
 
             return;
         }
 
-        $category = $this->createWikiCategoryFromRquest($request);
-        WikiCategoryMapper::create($category);
-        $response->set('category', $category->jsonSerialize());
+        $category = $this->createWikiCategoryFromRequest($request);
+        $this->createModel($request->getHeader()->getAccount(), $category, WikiCategoryMapper::class, 'category');
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Category', 'Category successfully created.', $category);
     }
 
     /**
@@ -148,13 +151,18 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function createWikiCategoryFromRquest(RequestAbstract $request) : WikiCategory
+    public function createWikiCategoryFromRequest(RequestAbstract $request) : WikiCategory
     {
-        $mardkownParser = new Markdown();
-
         $category = new WikiCategory();
         $category->setName((string) $request->getData('title'));
-        $category->setParent((int) $request->getData('parent'));
+
+        if ($request->getData('path') !== null) {
+            $category->setPath((string) $request->getData('path'));
+        }
+
+        if ($request->getData('parent') !== null) {
+            $category->setParent((int) $request->getData('parent'));
+        }
 
         return $category;
     }
@@ -171,9 +179,7 @@ final class ApiController extends Controller
     private function validateWikiCategoryCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['title'] = empty($request->getData('title')))
-            || ($val['parent'] = empty($request->getData('parent')))
-        ) {
+        if (($val['title'] = empty($request->getData('title')))) {
             return $val;
         }
 
