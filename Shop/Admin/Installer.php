@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\Shop\Admin;
 
 use phpOMS\DataStorage\Database\DatabasePool;
-use phpOMS\Module\ModuleInfo;
 use phpOMS\Module\InstallerAbstract;
+use phpOMS\Module\ModuleInfo;
 use phpOMS\System\File\Local\Directory;
 
 /**
