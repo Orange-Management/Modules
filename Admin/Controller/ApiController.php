@@ -185,9 +185,9 @@ final class ApiController extends Controller
             Directory::delete(__DIR__ . '/../../../' . $request->getData('appDest') . '/css');
         }
 
-        if (\file_exists(__DIR__ . '/../../../' . $request->getData('appDest') . '/' . $request->getData('theme') . '/css')) {
+        if (\file_exists(__DIR__ . '/../../../' . $request->getData('appDest') . '/Themes/' . $request->getData('theme') . '/css')) {
             Directory::copy(
-                __DIR__ . '/../../../' . $request->getData('appDest') . '/' . $request->getData('theme') . '/css',
+                __DIR__ . '/../../../' . $request->getData('appDest') . '/Themes/' . $request->getData('theme') . '/css',
                 __DIR__ . '/../../../' . $request->getData('appDest') . '/css',
                 true
             );
