@@ -1,4 +1,5 @@
-<?php return [
+<?php declare(strict_types=1);
+return [
     '^/timerecording$' => [
         0 => [
             'dest' => '\Modules\HumanResourceTimeRecording\Controller\TimerecordingController:viewDashboard',
