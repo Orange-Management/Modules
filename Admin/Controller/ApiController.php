@@ -31,6 +31,7 @@ use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
 use phpOMS\Account\PermissionAbstract;
 use phpOMS\Account\PermissionOwner;
+use phpOMS\Application\ApplicationManager;
 use phpOMS\Localization\Localization;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\Http\RequestMethod;
@@ -153,6 +154,15 @@ final class ApiController extends Controller
      */
     public function apiInstallApplication(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        $appManager = new ApplicationManager($this->app->moduleManager);
+
+        $app = $request->getData('appSrc');
+        if (!\file_exists(__DIR__ . '/../../../' . $app)) {
+            return;
+        }
+
+        $appManager->install(__DIR__ . '/../../../' . $app, __DIR__ . '/../../../' . $request->getData('appDest') ?? '');
+
         $this->apiActivateTheme($request, $response);
     }
 
@@ -171,14 +181,14 @@ final class ApiController extends Controller
      */
     public function apiActivateTheme(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        if (\file_exists(__DIR__ . '/../../../Web/' . $request->getData('app') . '/css')) {
-            Directory::delete(__DIR__ . '/../../../Web/' . $request->getData('app') . '/css');
+        if (\file_exists(__DIR__ . '/../../../' . $request->getData('appDest') . '/css')) {
+            Directory::delete(__DIR__ . '/../../../' . $request->getData('appDest') . '/css');
         }
 
-        if (\file_exists(__DIR__ . '/../../../Web/' . $request->getData('app') . '/' . $request->getData('theme') . '/css')) {
+        if (\file_exists(__DIR__ . '/../../../' . $request->getData('appDest') . '/' . $request->getData('theme') . '/css')) {
             Directory::copy(
-                __DIR__ . '/../../../Web/' . $request->getData('app') . '/' . $request->getData('theme') . '/css',
-                __DIR__ . '/../../../Web/' . $request->getData('app') . '/css',
+                __DIR__ . '/../../../' . $request->getData('appDest') . '/' . $request->getData('theme') . '/css',
+                __DIR__ . '/../../../' . $request->getData('appDest') . '/css',
                 true
             );
         }
