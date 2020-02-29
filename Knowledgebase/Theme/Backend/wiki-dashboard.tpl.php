@@ -30,18 +30,20 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-8 col-lg-9">
         <div class="row">
             <?php foreach ($documents as $doc) : $url = UriFactory::build('{/prefix}wiki/doc/single?id=' . $doc->getId()); ?>
-                <section class="box wf-100">
-                    <header><h1><a href="<?= $url; ?>"><?= $this->printHtml($doc->getName()); ?></a></h1></header>
+            <div class="portlet">
+                <div class="portlet-head"><a href="<?= $url; ?>"><?= $this->printHtml($doc->getName()); ?></a></div>
+                <div class="portlet-body">
                     <article>
                         <?= \substr($doc->getDoc(), 0, 300) . (\strlen($doc->getDoc()) > 300 ? '...' : ''); ?>
                     </article>
-                    <div class="inner">
-                        <div class="overflowfix">
-                            <span class="tag">Test Tag</span>
-                            <a href="<?= $url; ?>" class="button floatRight">More</a>
-                        </div>
+                </div>
+                <div class="portlet-foot">
+                    <div class="overflowfix">
+                        <span class="tag">Test Tag</span>
+                        <a href="<?= $url; ?>" class="button floatRight">More</a>
                     </div>
-                </section>
+                </div>
+            </div>
             <?php endforeach; ?>
         </div>
     </div>

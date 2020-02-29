@@ -12,6 +12,8 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View $this
  */
@@ -21,10 +23,10 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Report'); ?></h1></header>
-            <div class="inner">
-                <form id="helper-report-create" action="<?= \phpOMS\Uri\UriFactory::build('{/api}helper/report/report'); ?>" method="post">
+        <div class="portlet">
+            <form id="helper-report-create" action="<?= UriFactory::build('{/api}helper/report/report'); ?>" method="post">
+                <div class="portlet-head"><?= $this->getHtml('Report'); ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>
@@ -35,11 +37,13 @@ echo $this->getData('nav')->render(); ?>
                                     <option value="<?= $this->printHtml($key); ?>"><?= $this->printHtml($value->getName()); ?>
                                         <?php endforeach; ?>
                                 </select>
-                        <tr><td><input type="submit" id="iReportCreateButton" name="reportCreateButton" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input type="submit" id="iReportCreateButton" name="reportCreateButton" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="col-xs-12 col-md-6">

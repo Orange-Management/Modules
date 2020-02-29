@@ -30,13 +30,15 @@ echo $this->getData('nav')->render();
 
 <div class="row">
     <div class="col-xs-12 col-md-8 col-lg-9">
-        <section class="box wf-100">
-            <header><h1><?= $this->printHtml($doc->getName()); ?></h1></header>
-            <article><?= $doc->getDoc(); ?></article>
-            <div class="inner">
+        <div class="portlet">
+            <div class="portlet-head"><a href="<?= $url; ?>"><?= $this->printHtml($doc->getName()); ?></a></div>
+            <div class="portlet-body">
+                <article><?= $doc->getDoc(); ?></article>
+            </div>
+            <div class="portlet-foot">
                 <span class="tag">FiBu v7.124.52334</span>
             </div>
-        </section>
+        </div>
     </div>
 
     <div class="col-xs-12 col-md-4 col-lg-3">

@@ -46,7 +46,9 @@ echo $this->getData('nav')->render();
     <div class="box wf-100 col-xs-12">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('General'); ?></label></li>
+            <?php if ($this->request->getHeader()->getAccount() === $account->getId()) : ?>
             <li><label for="c-tab-2"><?= $this->getHtml('Localization'); ?></label></li>
+            <?php endif; ?>
         </ul>
     </div>
     <div class="tab-content">
@@ -54,95 +56,91 @@ echo $this->getData('nav')->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <section itemscope itemtype="http://schema.org/Person" itemtype="http://schema.org/Organization" class="box wf-100">
-                        <header>
-                            <h1>
-                                <?php if (!empty($account->getName3()) || !empty($account->getName2())) : ?>
-                                    <span itemprop="familyName" itemprop="legalName">
-                                        <?= $this->printHtml(empty($account->getName3()) ? $account->getName2() : $account->getName3()); ?></span>,
+                    <div class="portlet" itemscope itemtype="http://schema.org/Person" itemtype="http://schema.org/Organization">
+                    <div class="portlet-head">
+                        <?php if (!empty($account->getName3()) || !empty($account->getName2())) : ?>
+                            <span itemprop="familyName" itemprop="legalName">
+                                <?= $this->printHtml(empty($account->getName3()) ? $account->getName2() : $account->getName3()); ?></span>,
+                        <?php endif; ?>
+                        <span itemprop="givenName" itemprop="legalName">
+                            <?= $this->printHtml($account->getName1()); ?>
+                        </span>
+                    </div>
+                    <div class="portlet-body">
+                        <span class="rf">
+                            <img class="m-profile rf"
+                                alt="<?= $this->getHtml('ProfileImage'); ?>"
+                                itemprop="logo"
+                                data-lazyload="<?=
+                                    $profile->getImage() instanceof NullMedia ?
+                                        UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') :
+                                        UriFactory::build('{/prefix}' . $profile->getImage()->getPath()); ?>"
+                            >
+                        </span>
+                            <table class="list" style="table-layout: fixed">
+                                <tr>
+                                    <th><?= $this->getHtml('Occupation') ?>
+                                    <td itemprop="jobTitle">Sailor
+                                <tr>
+                                    <th><?= $this->getHtml('Birthday') ?>
+                                    <td itemprop="birthDate" itemprop="foundingDate"><?= $profile->getBirthday()->format('Y-m-d'); ?>
+                                <tr>
+                                    <th><?= $this->getHtml('Email') ?>
+                                    <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $this->printHtml($account->getEmail()); ?></a>
+                                <tr>
+                                    <th><?= $this->getHtml('Address') ?>
+                                    <td>
+                                <?php
+                                    $locations = $profile->getLocation();
+                                    if (empty($locations)) :
+                                ?>
+                                <tr>
+                                    <th>
+                                    <td>No address specified
                                 <?php endif; ?>
-                                <span itemprop="givenName" itemprop="legalName">
-                                    <?= $this->printHtml($account->getName1()); ?>
-                                </span>
-                            </h1>
-                        </header>
-                        <div class="inner">
-                            <!-- @formatter:off -->
-                                <span class="rf">
-                                    <img class="m-profile rf"
-                                        alt="<?= $this->getHtml('ProfileImage'); ?>"
-                                        itemprop="logo"
-                                        data-lazyload="<?=
-                                            $profile->getImage() instanceof NullMedia ?
-                                                UriFactory::build('Web/Backend/img/user_default_' . \mt_rand(1, 6) .'.png') :
-                                                UriFactory::build('{/prefix}' . $profile->getImage()->getPath()); ?>"
-                                    >
-                                </span>
-                                    <table class="list" style="table-layout: fixed">
-                                        <tr>
-                                            <th><?= $this->getHtml('Occupation') ?>
-                                            <td itemprop="jobTitle">Sailor
-                                        <tr>
-                                            <th><?= $this->getHtml('Birthday') ?>
-                                            <td itemprop="birthDate" itemprop="foundingDate"><?= $profile->getBirthday()->format('Y-m-d'); ?>
-                                        <tr>
-                                            <th><?= $this->getHtml('Email') ?>
-                                            <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $this->printHtml($account->getEmail()); ?></a>
-                                        <tr>
-                                            <th><?= $this->getHtml('Address') ?>
-                                            <td>
-                                        <?php
-                                            $locations = $profile->getLocation();
-                                            if (empty($locations)) :
-                                        ?>
-                                        <tr>
-                                            <th>
-                                            <td>No address specified
-                                        <?php endif; ?>
-                                        <?php foreach ($locations as $location) : ?>
-                                        <tr>
-                                            <th class="vT">Private
-                                            <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
-                                        <?php endforeach; ?>
-                                        <tr>
-                                            <th><?= $this->getHtml('Contact') ?>
-                                            <td>
-                                            <?php
-                                            $contacts = $profile->getContactElements();
-                                            if (empty($contacts)) :
-                                        ?>
-                                        <tr>
-                                            <th>
-                                            <td>No contact specified
-                                        <?php endif; ?>
-                                        <?php foreach ($contacts as $location) : ?>
-                                        <tr>
-                                            <th>Private
-                                            <td itemprop="telephone">+01 12345-4567
-                                        <?php endforeach; ?>
-                                        <tr>
-                                            <th><?= $this->getHtml('Registered') ?>
-                                            <td><?= $this->printHtml($account->getCreatedAt()->format('Y-m-d')); ?>
-                                        <tr>
-                                            <th><?= $this->getHtml('LastLogin') ?>
-                                            <td><?= $this->printHtml($account->getLastActive()->format('Y-m-d')); ?>
-                                        <tr>
-                                            <th><?= $this->getHtml('Status') ?>
-                                            <td><span class="tag green"><?= $this->getHtml(':s' . $account->getStatus(), 'Admin'); ?></span>
-                                    </table>
-                                    <!-- @formatter:on -->
+                                <?php foreach ($locations as $location) : ?>
+                                <tr>
+                                    <th class="vT">Private
+                                    <td itemprop="address">SMALLSYS INC<br>795 E DRAGRAM<br>TUCSON AZ 85705<br>USA
+                                <?php endforeach; ?>
+                                <tr>
+                                    <th><?= $this->getHtml('Contact') ?>
+                                    <td>
+                                    <?php
+                                    $contacts = $profile->getContactElements();
+                                    if (empty($contacts)) :
+                                ?>
+                                <tr>
+                                    <th>
+                                    <td>No contact specified
+                                <?php endif; ?>
+                                <?php foreach ($contacts as $location) : ?>
+                                <tr>
+                                    <th>Private
+                                    <td itemprop="telephone">+01 12345-4567
+                                <?php endforeach; ?>
+                                <tr>
+                                    <th><?= $this->getHtml('Registered') ?>
+                                    <td><?= $this->printHtml($account->getCreatedAt()->format('Y-m-d')); ?>
+                                <tr>
+                                    <th><?= $this->getHtml('LastLogin') ?>
+                                    <td><?= $this->printHtml($account->getLastActive()->format('Y-m-d')); ?>
+                                <tr>
+                                    <th><?= $this->getHtml('Status') ?>
+                                    <td><span class="tag green"><?= $this->getHtml(':s' . $account->getStatus(), 'Admin'); ?></span>
+                            </table>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Visibility') ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Visibility') ?></div>
+                        <div class="portlet-body">
                             <p>Define which users and user groups can see your profile</p>
                             <?= $this->getData('accGrpSelector')->render('iVisibility', 'visibility', true); ?>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
@@ -156,14 +154,15 @@ echo $this->getData('nav')->render();
                 </div>
             </div>
         </div>
+        <?php if ($this->request->getHeader()->getAccount() === $account->getId()) : ?>
         <input type="radio" id="c-tab-2" name="tabular-2">
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Localization'); ?></h1></header>
-                        <div class="inner">
-                            <form id="fLocalization" name="fLocalization" action="<?= UriFactory::build('{/api}admin/settings/localization'); ?>" method="post">
+                    <div class="portlet">
+                        <form id="fLocalization" name="fLocalization" action="<?= UriFactory::build('{/api}admin/settings/localization'); ?>" method="post">
+                        <div class="portlet-head"><?= $this->getHtml('Localization'); ?></div>
+                        <div class="portlet-body">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iDefaultLocalizations"><?= $this->getHtml('Defaults'); ?></label>
@@ -199,17 +198,17 @@ echo $this->getData('nav')->render();
                                                 <option value="<?= $this->printHtml($code); ?>"<?= $this->printHtml($temperature === $l11n->getTemperature() ? ' selected' : ''); ?>><?= $this->printHtml($temperature); ?>
                                                 <?php endforeach; ?>
                                             </select>
-                                    <tr><td colspan="2"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                                 </table>
-                            </form>
-                        </div>
-                    </section>
+                            </div>
+                            <div class="portlet-foot"><input id="iSubmitLocalization" name="submitLocalization" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>"></div>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Time'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Time'); ?></div>
+                        <div class="portlet-body">
                             <form>
                             <table class="layout wf-100">
                                 <tbody>
@@ -234,13 +233,13 @@ echo $this->getData('nav')->render();
                             </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100 green">
-                        <header><h1><?= $this->getHtml('Numeric'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Numeric'); ?></div>
+                        <div class="portlet-body">
                             <form>
                             <table class="layout wf-100">
                                         <tr><td colspan="2"><label for="iCurrencies"><?= $this->getHtml('Currency'); ?></label>
@@ -264,14 +263,14 @@ echo $this->getData('nav')->render();
                                 </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100 red">
-                        <header><h1><?= $this->getHtml('Weight'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Weight'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -313,13 +312,13 @@ echo $this->getData('nav')->render();
                                 </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100 blue">
-                        <header><h1><?= $this->getHtml('Speed'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Speed'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -368,13 +367,13 @@ echo $this->getData('nav')->render();
                                 </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100 purple">
-                        <header><h1><?= $this->getHtml('Length'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Length'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -423,13 +422,13 @@ echo $this->getData('nav')->render();
                                 </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Area'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Area'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -471,13 +470,13 @@ echo $this->getData('nav')->render();
                                 </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Volume'); ?></h1></header>
-                        <div class="inner">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Volume'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -540,8 +539,9 @@ echo $this->getData('nav')->render();
                                 </table>
                             </form>
                         </div>
-                    </section>
+                    </div>
                 </div>
         </div>
+        <?php endif; ?>
     </div>
 </div>

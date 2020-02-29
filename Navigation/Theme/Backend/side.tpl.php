@@ -27,10 +27,9 @@ if (isset($this->nav[NavigationType::SIDE])) : ?>
             <ul>
                 <li><label for="nav-<?= $this->printHtml($parent['nav_name']); ?>">
                     <?php if (isset($parent['nav_icon'])) : ?>
-                        <span class="centerText"><i class="<?= $this->printHtml($parent['nav_icon']); ?>"></i></span>
+                        <i class="<?= $this->printHtml($parent['nav_icon']); ?>"></i>
                     <?php endif; ?>
-                    <?= $this->getHtml($parent['nav_name'], 'Navigation') ?><i class="fa fa-chevron-left min"></i>
-                    <i class="fa fa-chevron-down max"></i></label>
+                    <span><?= $this->getHtml($parent['nav_name'], 'Navigation') ?></span><i class="fa fa-chevron-right expand"></i></label>
                     <?php if (isset($this->nav[NavigationType::SIDE][LinkType::LINK])) :
                         foreach ($this->nav[NavigationType::SIDE][LinkType::LINK] as $key2 => $link) :
                             if ($link['nav_parent'] === $key) :

@@ -2,11 +2,10 @@
 @todo Orange-Management/Modules#58
     Implement drag/drop upload
 -->
-<section class="box wf-100">
-    <header><h1><?= $this->getHtml('Media') ?></h1></header>
-
-    <div class="inner">
-        <form id="<?= $this->form; ?>-upload">
+<div class="portlet">
+    <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
+    <form id="<?= $this->form; ?>-upload">
+        <div class="portlet-body">
             <table class="layout wf-100">
                 <tbody>
                 <tr><td><label for="iMedia"><?= $this->getHtml('Media') ?></label>
@@ -45,9 +44,9 @@
                     <input type="hidden" name="virtualPath" form="<?= $this->form; ?>" value="<?= $this->virtualPath; ?>">
                     <input type="file" id="iUpload" name="upload" form="<?= $this->form; ?>" multiple>
             </table>
-        </form>
-    </div>
-</section>
+        </div>
+    </form>
+</div>
 
 <div class="box wf-100">
     <table class="default">
