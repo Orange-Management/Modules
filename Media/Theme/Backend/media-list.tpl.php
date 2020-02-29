@@ -66,9 +66,9 @@ $media = $this->getData('media');
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Media') ?><i class="fa fa-download floatRight download btn"></i></div>
             <table id="mediaList" class="default">
-                <caption><?= $this->getHtml('Media') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td>
@@ -102,6 +102,8 @@ $media = $this->getData('media');
                         <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                     <?php endif; ?>
             </table>
+            <div class="portlet-foot">
+            </div>
         </div>
     </div>
 </div>

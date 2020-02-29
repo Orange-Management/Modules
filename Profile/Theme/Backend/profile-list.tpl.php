@@ -25,19 +25,14 @@ $next     = empty($accounts) ? '{/prefix}profile/list' : '{/prefix}profile/list?
 ?>
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Profiles') ?><i class="fa fa-download floatRight download btn"></i></div>
             <table id="profileList" class="default">
-                <caption><?= $this->getHtml('Profiles') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                     <td class="wf-100"><?= $this->getHtml('Name') ?>
                     <td><?= $this->getHtml('Activity') ?>
-                <tfoot>
-                <tr>
-                    <td colspan="3">
-                        <a class="button" href="<?= UriFactory::build($previous); ?>">Previous</a>
-                        <a class="button" href="<?= UriFactory::build($next); ?>">Next</a>
                 <tbody>
                 <?php $count = 0; foreach ($accounts as $key => $account) : ++$count;
                 $url = UriFactory::build('{/prefix}profile/single?{?}&id=' . $account->getId()); ?>
@@ -50,6 +45,10 @@ $next     = empty($accounts) ? '{/prefix}profile/list' : '{/prefix}profile/list?
                 <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
+            <div class="portlet-foot">
+                <a class="button" href="<?= UriFactory::build($previous); ?>">Previous</a>
+                <a class="button" href="<?= UriFactory::build($next); ?>">Next</a>
+            </div>
         </div>
     </div>
 </div>

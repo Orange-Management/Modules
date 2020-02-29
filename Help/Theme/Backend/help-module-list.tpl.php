@@ -21,15 +21,12 @@ $modules = $this->getData('modules');
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Modules') ?><i class="fa fa-download floatRight download btn"></i></div>
             <table id="moduleList" class="default">
-                <caption><?= $this->getHtml('Modules') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                <tfoot>
-                <tr>
-                    <td>
                 <tbody>
                 <?php
                 $count = 0;
@@ -51,6 +48,7 @@ $modules = $this->getData('modules');
                     <tr><td class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
+            <div class="portlet-foot"></div>
         </div>
     </div>
 </div>
