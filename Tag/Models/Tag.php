@@ -17,7 +17,7 @@ namespace Modules\Tag\Models;
 use phpOMS\Contract\ArrayableInterface;
 
 /**
- * Tag article class.
+ * Tag class.
  *
  * @package Modules\Tag\Models
  * @license OMS License 1.0
@@ -53,10 +53,10 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var null|int|\Modules\Admin\Models\Account
      * @since 1.0.0
      */
-    protected $owner = 0;
+    protected $owner = null;
 
     /**
      * Tag type.
@@ -69,7 +69,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return null|int|\phpOMS\Account\Account
+     * @return null|int|\Modules\Admin\Models\Account
      *
      * @since 1.0.0
      */
@@ -190,14 +190,6 @@ class Tag implements ArrayableInterface, \JsonSerializable
             'title' => $this->title,
             'color' => $this->color,
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return (string) \json_encode($this->toArray());
     }
 
     /**

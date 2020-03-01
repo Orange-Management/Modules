@@ -21,8 +21,6 @@
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-align-left"></i>
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-align-justify"></i>
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-align-right"></i>
-    </ul>
-    <ul class="h-list">
         <li><i data-editor-button="table" class="btn editor-button fa fa-lg fa-table"></i>
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-image"></i>
         <li><i data-editor-button="a" class="btn editor-button fa fa-lg fa-camera"></i>

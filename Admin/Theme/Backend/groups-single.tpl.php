@@ -12,6 +12,8 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 /**
  * @todo Orange-Management/Modules#122
  *  Add group account removal
@@ -59,10 +61,10 @@ echo $this->getData('nav')->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Group'); ?></h1></header>
-                        <div class="inner">
-                            <form id="fGroupEdit" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/group'); ?>" method="post">
+                    <div class="portlet">
+                        <form id="fGroupEdit" action="<?= UriFactory::build('{/api}admin/group'); ?>" method="post">
+                            <div class="portlet-head"><?= $this->getHtml('Group'); ?></div>
+                            <div class="portlet-body">
                                 <label for="iGid"><?= $this->getHtml('ID', '0', '0'); ?></label>
                                 <input id="iGid" name="id" type="text" value="<?= $this->printHtml($group->getId()); ?>" disabled>
                                 <label for="iGname"><?= $this->getHtml('Name'); ?></label>
@@ -81,105 +83,116 @@ echo $this->getData('nav')->render(); ?>
                                     $group->getDescriptionRaw(),
                                     $group->getDescription()
                                 ); ?>
+                            </div>
+                            <div class="portlet-foot">
                                 <input id="groupSubmit" name="groupsubmit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
-                            </form>
-                        </div>
-                    </section>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table class="box table default wf-100">
-                        <caption><?= $this->getHtml('Accounts') ?><i class="fa fa-download floatRight download btn"></i></caption>
-                        <thead>
-                            <tr>
-                                <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td class="wf-100"><?= $this->getHtml('Name'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                        <tbody>
-                            <?php $c = 0; foreach ($accounts as $key => $value) : ++$c; ?>
-                            <tr>
-                                <td><a href="#"><i class="fa fa-times"></i></a>
-                                <td><a href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
-                            <?php endforeach; ?>
-                            <?php if ($c === 0) : ?>
-                            <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                            <?php endif; ?>
-                    </table>
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Accounts') ?><i class="fa fa-download floatRight download btn"></i></div>
+                        <table class="default">
+                            <thead>
+                                <tr>
+                                    <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td class="wf-100"><?= $this->getHtml('Name'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                            <tbody>
+                                <?php $c = 0; foreach ($accounts as $key => $value) : ++$c; ?>
+                                <tr>
+                                    <td><a href="#"><i class="fa fa-times"></i></a>
+                                    <td><a href="<?= UriFactory::build('{/prefix}admin/account/settings?{?}&id=' . $value->getId()) ?>"><?= $value->getName1(); ?></a>
+                                <?php endforeach; ?>
+                                <?php if ($c === 0) : ?>
+                                <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                                <?php endif; ?>
+                        </table>
+                        <div class="portlet-foot"></div>
+                    </div>
 
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Accounts'); ?></h1></header>
-                        <div class="inner">
-                            <form id="iAddAccountToGroup" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/group/account'); ?>" method="put">
+                    <div class="portlet">
+                        <form id="iAddAccountToGroup" action="<?= UriFactory::build('{/api}admin/group/account'); ?>" method="put">
+                            <div class="portlet-head"><?= $this->getHtml('Accounts'); ?></div>
+                            <div class="portlet-body">
                                 <label for="iAccount"><?= $this->getHtml('Name'); ?></label>
                                 <?= $this->getData('accGrpSelector')->render('iAccount', 'group', true); ?>
+                            </div>
+                            <div class="portlet-foot">
                                 <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
-                            </form>
-                        </div>
-                    </section>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <table id="groupPermissions" class="box table default wf-100" data-table-form="fGroupAddPermission">
-                        <caption><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></caption>
-                        <thead>
-                            <tr>
-                                <td>
-                                <td>
-                                <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td><?= $this->getHtml('Unit'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td><?= $this->getHtml('App'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td><?= $this->getHtml('Module'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td><?= $this->getHtml('Type'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td><?= $this->getHtml('Ele'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td><?= $this->getHtml('Comp'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                                <td class="wf-100"><?= $this->getHtml('Perm'); ?>
-                        <tbody>
-                            <template>
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></div>
+                        <table id="groupPermissions" class="default" data-table-form="fGroupAddPermission">
+                            <thead>
+                                <tr>
+                                    <td>
+                                    <td>
+                                    <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td><?= $this->getHtml('Unit'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td><?= $this->getHtml('App'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td><?= $this->getHtml('Module'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td><?= $this->getHtml('Type'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td><?= $this->getHtml('Ele'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td><?= $this->getHtml('Comp'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                                    <td class="wf-100"><?= $this->getHtml('Perm'); ?>
+                            <tbody>
+                                <template>
+                                    <tr>
+                                        <td><a href="#"><i class="fa fa-times"></i></a>
+                                        <td><a href="#"><i class="fa fa-cogs"></i></a>
+                                        <td></td>
+                                        <td data-tpl-text="/unit" data-tpl-value="/unit" data-value=""></td>
+                                        <td data-tpl-text="/app" data-tpl-value="/app" data-value=""></td>
+                                        <td data-tpl-text="/module" data-tpl-value="/module" data-value=""></td>
+                                        <td data-tpl-text="/type" data-tpl-value="/type" data-value=""></td>
+                                        <td data-tpl-text="/ele" data-tpl-value="/ele" data-value=""></td>
+                                        <td data-tpl-text="/comp" data-tpl-value="/comp" data-value=""></td>
+                                        <td>
+                                            <span data-tpl-text="/perm/c" data-tpl-value="/perm/c" data-value=""><span>
+                                            <span data-tpl-text="/perm/r" data-tpl-value="/perm/r" data-value=""><span>
+                                            <span data-tpl-text="/perm/u" data-tpl-value="/perm/u" data-value=""><span>
+                                            <span data-tpl-text="/perm/d" data-tpl-value="/perm/d" data-value=""><span>
+                                            <span data-tpl-text="/perm/p" data-tpl-value="/perm/p" data-value=""><span>
+                                        </td>
+                                    </tr>
+                                </template>
+                                <?php $c = 0; foreach ($permissions as $key => $value) : ++$c; $permission = $value->getPermission(); ?>
                                 <tr>
                                     <td><a href="#"><i class="fa fa-times"></i></a>
                                     <td><a href="#"><i class="fa fa-cogs"></i></a>
-                                    <td></td>
-                                    <td data-tpl-text="/unit" data-tpl-value="/unit" data-value=""></td>
-                                    <td data-tpl-text="/app" data-tpl-value="/app" data-value=""></td>
-                                    <td data-tpl-text="/module" data-tpl-value="/module" data-value=""></td>
-                                    <td data-tpl-text="/type" data-tpl-value="/type" data-value=""></td>
-                                    <td data-tpl-text="/ele" data-tpl-value="/ele" data-value=""></td>
-                                    <td data-tpl-text="/comp" data-tpl-value="/comp" data-value=""></td>
+                                    <td><?= $value->getId(); ?>
+                                    <td><?= $value->getUnit(); ?>
+                                    <td><?= $value->getApp(); ?>
+                                    <td><?= $value->getModule(); ?>
+                                    <td><?= $value->getType(); ?>
+                                    <td><?= $value->getElement(); ?>
+                                    <td><?= $value->getComponent(); ?>
                                     <td>
-                                        <span data-tpl-text="/perm/c" data-tpl-value="/perm/c" data-value=""><span>
-                                        <span data-tpl-text="/perm/r" data-tpl-value="/perm/r" data-value=""><span>
-                                        <span data-tpl-text="/perm/u" data-tpl-value="/perm/u" data-value=""><span>
-                                        <span data-tpl-text="/perm/d" data-tpl-value="/perm/d" data-value=""><span>
-                                        <span data-tpl-text="/perm/p" data-tpl-value="/perm/p" data-value=""><span>
-                                    </td>
-                                </tr>
-                            </template>
-                            <?php $c = 0; foreach ($permissions as $key => $value) : ++$c; $permission = $value->getPermission(); ?>
-                            <tr>
-                                <td><a href="#"><i class="fa fa-times"></i></a>
-                                <td><a href="#"><i class="fa fa-cogs"></i></a>
-                                <td><?= $value->getId(); ?>
-                                <td><?= $value->getUnit(); ?>
-                                <td><?= $value->getApp(); ?>
-                                <td><?= $value->getModule(); ?>
-                                <td><?= $value->getType(); ?>
-                                <td><?= $value->getElement(); ?>
-                                <td><?= $value->getComponent(); ?>
-                                <td>
-                                    <?= (\phpOMS\Account\PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
-                                    <?= (\phpOMS\Account\PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
-                                    <?= (\phpOMS\Account\PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
-                                    <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
-                                    <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
-                            <?php endforeach; ?>
-                            <?php if ($c === 0) : ?>
-                            <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                            <?php endif; ?>
-                    </table>
+                                        <?= (\phpOMS\Account\PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
+                                        <?= (\phpOMS\Account\PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
+                                        <?= (\phpOMS\Account\PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
+                                        <?= (\phpOMS\Account\PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
+                                        <?= (\phpOMS\Account\PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
+                                <?php endforeach; ?>
+                                <?php if ($c === 0) : ?>
+                                <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                                <?php endif; ?>
+                        </table>
+                        <div class="portlet-foot"></div>
+                    </div>
 
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
-                        <div class="inner">
-                            <form id="fGroupAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/group/permission'); ?>" method="put">
+
+                    <div class="portlet">
+                        <form id="fGroupAddPermission" action="<?= UriFactory::build('{/api}admin/group/permission'); ?>" method="put">
+                            <div class="portlet-head"><?= $this->getHtml('Permissions'); ?></div>
+                            <div class="portlet-body">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>
@@ -216,14 +229,15 @@ echo $this->getData('nav')->render(); ?>
                                             <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= \phpOMS\Account\PermissionType::PERMISSION ?>" data-tpl-text="/perm/p" data-tpl-value="/perm/p">
                                             <label for="iPermissionPermission"><?= $this->getHtml('Permission') ?></label>
                                         </span>
-                                    <tr><td>
-                                        <input type="hidden" name="permissionref" value="<?= $this->printHtml($group->getId()); ?>">
-                                        <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::GROUP ?>">
-                                        <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                                 </table>
-                            </form>
-                        </div>
-                    </section>
+                            </div>
+                            <div class="portlet-foot">
+                                <input type="hidden" name="permissionref" value="<?= $this->printHtml($group->getId()); ?>">
+                                <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::GROUP ?>">
+                                <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -232,23 +246,26 @@ echo $this->getData('nav')->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <table class="box table default wf-100">
-                        <caption><?= $this->getHtml('AuditLog') ?><i class="fa fa-download floatRight download btn"></i></caption>
-                        <thead>
-                            <tr>
-                                <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100">Name
-                        <tbody>
-                            <?php $c = 0; foreach ([] as $key => $value) : ++$c; ?>
-                            <tr>
-                                <td><a href="#"><i class="fa fa-times"></i></a>
-                                <td>
-                                <td>
-                            <?php endforeach; ?>
-                            <?php if ($c === 0) : ?>
-                            <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                            <?php endif; ?>
-                    </table>
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('AuditLog') ?><i class="fa fa-download floatRight download btn"></i></div>
+                        <table class="default">
+                            <thead>
+                                <tr>
+                                    <td><?= $this->getHtml('ID', '0', '0'); ?>
+                                    <td class="wf-100">Name
+                            <tbody>
+                                <?php $c = 0; foreach ([] as $key => $value) : ++$c; ?>
+                                <tr>
+                                    <td><a href="#"><i class="fa fa-times"></i></a>
+                                    <td>
+                                    <td>
+                                <?php endforeach; ?>
+                                <?php if ($c === 0) : ?>
+                                <tr><td colspan="2" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                                <?php endif; ?>
+                        </table>
+                        <div class="portlet-foot"></div>
+                    </div>
                 </div>
             </div>
         </div>

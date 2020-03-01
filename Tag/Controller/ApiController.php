@@ -21,6 +21,7 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
+use phpOMS\System\MimeType;
 
 /**
  * Tag controller class.
@@ -49,7 +50,7 @@ final class ApiController extends Controller
     {
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
-            || ($val['color'] = (!empty($request->getData('color')) && !\ctype_xdigit($request->getData('color'))))
+            || ($val['color'] = (!empty($request->getData('color')) && !\ctype_xdigit(\ltrim($request->getData('color'), '#'))))
         ) {
             return $val;
         }
@@ -135,7 +136,7 @@ final class ApiController extends Controller
     {
         $tag = new Tag();
         $tag->setTitle((string) ($request->getData('title') ?? ''));
-        $tag->setColor($request->getData('color') ?? '00000000');
+        $tag->setColor($request->getData('color') ?? '#00000000');
 
         return $tag;
     }
@@ -178,4 +179,29 @@ final class ApiController extends Controller
         $this->deleteModel($request->getHeader()->getAccount(), $tag, TagMapper::class, 'tag');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Tag', 'Tag successfully deleted', $tag);
     }
+
+    /**
+     * Api method to find tags
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiTagFind(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        $response->getHeader()->set('Content-Type', MimeType::M_JSON, true);
+        $response->set(
+            $request->getUri()->__toString(),
+            \array_values(
+                TagMapper::find((string) ($request->getData('search') ?? ''))
+            )
+        );
+    }
+
 }

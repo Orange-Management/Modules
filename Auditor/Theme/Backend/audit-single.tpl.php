@@ -21,7 +21,7 @@ echo $this->getData('nav')->render();
 
 <div class="row">
     <div class="col-xs-12">
-        <section class="box wf-100">
+        <div class="portlet">
             <article>
                 <pre><?= \phpOMS\Utils\StringUtils::createDiffMarkup(
                         \phpOMS\Views\ViewAbstract::html($this->getData('audit')->getOld() ?? ''),
@@ -30,6 +30,6 @@ echo $this->getData('nav')->render();
                     ); ?>
                 </pre>
             </article>
-        </section>
+        </div>
     </div>
 </div>

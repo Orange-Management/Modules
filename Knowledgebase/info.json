@@ -19,7 +19,8 @@
     "dependencies": {
         "Admin": "1.0.0",
         "Editor": "1.0.0",
-        "Tools": "1.0.0"
+        "Tools": "1.0.0",
+        "Tag": "1.0.0"
     },
     "providing": {
         "Navigation": "*"

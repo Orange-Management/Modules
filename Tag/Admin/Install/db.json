@@ -16,7 +16,7 @@
             },
             "tag_color": {
                 "name": "tag_color",
-                "type": "VARCHAR(8)",
+                "type": "VARCHAR(9)",
                 "null": false
             },
             "tag_type": {

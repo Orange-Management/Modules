@@ -12,18 +12,19 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View $this
  */
-
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Unit') ?></h1></header>
-            <div class="inner">
-                <form id="fUnitCreate" method="put" action="<?= \phpOMS\Uri\UriFactory::build('{/api}organization/unit'); ?>">
+        <div class="portlet">
+            <form id="fUnitCreate" method="put" action="<?= UriFactory::build('{/api}organization/unit'); ?>">
+                <div class="portlet-head"><?= $this->getHtml('Unit') ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" placeholder="&#xf040; Orange Management" required>
@@ -39,11 +40,13 @@ echo $this->getData('nav')->render(); ?>
                                     </select>
                         <tr><td><?= $this->getData('editor')->render('unit-editor'); ?>
                         <tr><td><?= $this->getData('editor')->getData('text')->render('unit-editor', 'description', 'fUnitCreate'); ?>
-                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

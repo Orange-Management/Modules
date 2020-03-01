@@ -12,11 +12,8 @@
  */
 declare(strict_types=1);
 
-return ['Tag' => [
-    'Color'  => 'Color',
+return ['Navigation' => [
     'Create' => 'Create',
     'List'   => 'List',
     'Tag'    => 'Tag',
-    'Tags'   => 'Tags',
-    'Title'  => 'Title',
 ]];

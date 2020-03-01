@@ -4,9 +4,9 @@ use phpOMS\System\File\FileUtils;
 use phpOMS\Uri\UriFactory;
 
 ?>
-<div class="box wf-100">
+<div class="portlet">
+    <div class="portlet-head"><?= $this->getHtml('Media', 'Media') ?><i class="fa fa-download floatRight download btn"></i></div>
     <table class="default">
-        <caption><?= $this->getHtml('Media', 'Media') ?><i class="fa fa-download floatRight download btn"></i></caption>
         <thead>
             <td>
             <td class="wf-100"><?= $this->getHtml('Name', 'Media') ?>
@@ -14,7 +14,6 @@ use phpOMS\Uri\UriFactory;
             <td><?= $this->getHtml('Size', 'Media') ?>
             <td><?= $this->getHtml('Creator', 'Media') ?>
             <td><?= $this->getHtml('Created', 'Media') ?>
-        <tfoot>
         <tbody>
             <?php $count = 0; foreach ($this->media as $key => $value) : ++$count;
                 $url = UriFactory::build('{/prefix}media/single?{?}&id=' . $value->getId());
@@ -58,4 +57,5 @@ use phpOMS\Uri\UriFactory;
         <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
         <?php endif; ?>
     </table>
+    <div class="portlet-foot"></div>
 </div>

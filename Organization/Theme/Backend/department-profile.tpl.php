@@ -12,6 +12,8 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View           $this
  * @var \Mouldes\Organization\Models $department;
@@ -22,10 +24,10 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Department') ?></h1></header>
-            <div class="inner">
-                <form id="iDepartment" action="<?= \phpOMS\Uri\UriFactory::build('{/api}organization/department?{?}') ?>" method="POST">
+        <div class="portlet">
+            <form id="iDepartment" action="<?= UriFactory::build('{/api}organization/department?{?}') ?>" method="POST">
+                <div class="portlet-head"><?= $this->getHtml('Department') ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= $this->printHtml($department->getName()); ?>">
@@ -46,11 +48,13 @@ echo $this->getData('nav')->render(); ?>
                             $department->getDescriptionRaw(),
                             $department->getDescription()
                         ); ?>
-                        <tr><td><input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

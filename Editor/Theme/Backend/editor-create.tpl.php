@@ -19,9 +19,9 @@ declare(strict_types=1);
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
-    <div class="col-xs-12">
-        <section class="box wf-100">
-            <div class="inner">
+    <div class="col-xs-12 col-md-8">
+        <div class="portlet">
+            <div class="portlet-body">
                 <form id="fEditor" method="PUT" action="<?= \phpOMS\Uri\UriFactory::build('{/api}editor?{?}&csrf={$CSRF}'); ?>">
                     <div class="ipt-wrap">
                         <div class="ipt-first"><input name="title" type="text" class="wf-100"></div>
@@ -29,30 +29,28 @@ echo $this->getData('nav')->render(); ?>
                     </div>
                 </form>
             </div>
-        </section>
-    </div>
-</div>
+        </div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <section class="box wf-100">
-            <div class="inner">
+        <div class="portlet">
+            <div class="portlet-body">
                 <?= $this->getData('editor')->render('editor'); ?>
             </div>
-        </section>
-    </div>
-</div>
+        </div>
 
-<div class="row">
-    <div class="box col-xs-12">
-        <?= $this->getData('editor')->getData('text')->render('editor', 'plain', 'fEditor'); ?>
+        <div class="box">
+            <?= $this->getData('editor')->getData('text')->render('editor', 'plain', 'fEditor'); ?>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <section class="box wf-100">
-            <div class="inner">
+    <div class="col-xs-12 col-md-4">
+        <div class="portlet">
+            <div class="portlet-body">
+                <?= $this->getData('tagSelector')->render('iTag', 'tag', false); ?>
+            </div>
+        </div>
+
+        <div class="portlet">
+            <div class="portlet-body">
                 <form>
                     <table class="layout">
                         <tr><td colspan="2"><label><?= $this->getHtml('Permission'); ?></label>
@@ -64,6 +62,6 @@ echo $this->getData('nav')->render(); ?>
                     </table>
                 </form>
             </div>
-        </section>
+        </div>
     </div>
 </div>

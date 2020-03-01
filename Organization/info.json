@@ -14,7 +14,7 @@
         "name": "Orange Management",
         "website": "www.spl1nes.com"
     },
-    "description": "The buisness module.",
+    "description": "The business module.",
     "directory": "Organization",
     "dependencies": {
         "Admin": "1.0.0",
@@ -31,7 +31,7 @@
             "type": 4,
             "for": "Organization",
             "file": "Organization",
-            "from": "Admin"
+            "from": "Organization"
         },
         {
             "pid": [

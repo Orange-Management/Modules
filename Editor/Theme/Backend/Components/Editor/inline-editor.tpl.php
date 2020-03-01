@@ -9,7 +9,6 @@
             <textarea
                 id="i<?= $this->renderName(); ?>"
                 style="height: 300px"
-                placeholder="&#xf040;"
                 name="<?= $this->renderName(); ?>"
                 form="<?= $this->renderForm(); ?>"
                 data-tpl-text="<?= $this->renderTplText(); ?>"
@@ -19,9 +18,7 @@
 
         <input type="radio" id="<?= $this->renderId(); ?>-c-tab-2" name="tabular-1">
         <div class="tab">
-            <section class="box wf-100">
-                <article data-tpl-text="<?= $this->renderTplText(); ?>" data-tpl-value="<?= $this->renderTplValue(); ?>"><?= $this->renderPreview(); ?></article>
-            </section>
+            <article data-tpl-text="<?= $this->renderTplText(); ?>" data-tpl-value="<?= $this->renderTplValue(); ?>"><?= $this->renderPreview(); ?></article>
         </div>
     </div>
 </div>

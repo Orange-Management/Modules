@@ -35,10 +35,9 @@ echo $this->getData('nav')->render(); ?>
         <iframe src="<?= UriFactory::build('{/api}helper/report/export/?{?}&id=' . $template->getId()); ?>&u=<?=  $this->getData('unit'); ?>" allowfullscreen></iframe>
     </div>
     <div class="col-xs-12 col-md-3">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Reports') ?></h1></header>
-
-            <div class="inner">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Reports') ?></div>
+            <div class="portlet-body">
                 <form action="<?= UriFactory::build('{/api}helper/template'); ?>" method="post">
                     <table class="layout wf-100">
                         <tbody>
@@ -59,13 +58,12 @@ echo $this->getData('nav')->render(); ?>
                     </table>
                 </form>
             </div>
-        </section>
+        </div>
 
         <?php if (isset($tcoll['excel']) || isset($tcoll['pdf']) || isset($tcoll['word']) || isset($tcoll['powerpoint']) || isset($tcoll['csv']) || isset($tcoll['json'])) : ?>
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Export') ?></h1></header>
-
-            <div class="inner">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Export') ?></div>
+            <div class="portlet-body">
                 <form>
                     <table class="layout wf-100">
                         <tbody>
@@ -88,33 +86,30 @@ echo $this->getData('nav')->render(); ?>
                     </table>
                 </form>
             </div>
-        </section>
+        </div>
         <?php endif; ?>
 
         <?php if (!empty($settings)) : ?>
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Settings') ?></h1></header>
-
-            <div class="inner">
-                <form id="iUiSettings">
+        <div class="portlet">
+            <form id="iUiSettings">
+                <div class="portlet-head"><?= $this->getHtml('Settings') ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100">
                         <tbody>
                         <?php foreach ($settings as $element) : ?>
                         <tr>
                             <td><?= FormElementGenerator::generate($element, $this->request->getData($element['attributes']['name'] ?? '')); ?>
                         <?php endforeach; ?>
-                        <tr>
-                            <td><a class="button" href="<?= UriFactory::build('{%}');?>&type={#iExport}&lang={#iLang}{#iUiSettings}"><?= $this->getHtml('Load'); ?></a>
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot"><a class="button" href="<?= UriFactory::build('{%}');?>&type={#iExport}&lang={#iLang}{#iUiSettings}"><?= $this->getHtml('Load'); ?></a></div>
+            </form>
+        </div>
         <?php endif; ?>
 
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Info') ?></h1></header>
-
-            <div class="inner">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Info') ?></div>
+            <div class="portlet-body">
                 <table class="list wf-100">
                     <tbody>
                     <?php if (!$template->isStandalone() && !($report instanceof \Modules\Helper\Models\NullReport)) : ?>
@@ -143,6 +138,6 @@ echo $this->getData('nav')->render(); ?>
                         <td><?= $template->getCreatedAt()->format('Y-m-d'); ?>
                 </table>
             </div>
-        </section>
+        </div>
     </div>
 </div>

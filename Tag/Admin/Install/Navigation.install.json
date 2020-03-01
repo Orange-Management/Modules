@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1007501001,
+        "pid": "/",
+        "type": 2,
+        "subtype": 1,
+        "name": "Tag",
+        "uri": "{/prefix}tag/list?{?}",
+        "target": "self",
+        "icon": null,
+        "order": 75,
+        "from": "Tag",
+        "permission": { "permission": 2, "type": null, "element": null },
+        "parent": 1003301001,
+        "children": [
+            {
+                "id": 1007502001,
+                "pid": "/tag",
+                "type": 3,
+                "subtype": 1,
+                "name": "List",
+                "uri": "{/prefix}tag/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "Tag",
+                "permission": { "permission": 2, "type": null, "element": null },
+                "parent": 1007501001,
+                "children": []
+            },
+            {
+                "id": 1007502101,
+                "pid": "/tag",
+                "type": 3,
+                "subtype": 5,
+                "name": "Create",
+                "uri": "{/prefix}tag/create?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 15,
+                "from": "Tag",
+                "permission": { "permission": 4, "type": null, "element": null },
+                "parent": 1007501001,
+                "children": []
+            }
+        ]
+    }
+]

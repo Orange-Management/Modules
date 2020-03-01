@@ -15,6 +15,7 @@ declare(strict_types=1);
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\PermissionType;
+use phpOMS\Uri\UriFactory;
 
 /**
  * @todo Orange-Management/Modules#122
@@ -41,10 +42,10 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Account'); ?></h1></header>
-            <div class="inner">
-                <form id="account-edit" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/account'); ?>" method="post">
+        <div class="portlet">
+            <form id="account-edit" action="<?= UriFactory::build('{/api}admin/account'); ?>" method="post">
+                <div class="portlet-head"><?= $this->getHtml('Account'); ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iId"><?= $this->getHtml('ID', '0', '0'); ?></label>
@@ -102,105 +103,111 @@ echo $this->getData('nav')->render(); ?>
                                 </div>
                                 <div class="ipt-second"> or <button><?= $this->getHtml('Reset'); ?></button></div>
                         </div>
-                        <tr><td>
-                            <input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
-                            <button id="account-profile-create" data-action='[
-                                {
-                                    "key": 1, "listener": "click", "action": [
-                                        {"key": 1, "type": "event.prevent"},
-                                        {"key": 2, "type": "dom.getvalue", "base": "", "selector": "#iId"},
-                                        {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/profile", "method": "PUT", "request_type": "json"},
-                                        {"key": 4, "type": "message.log"}
-                                    ]
-                                }
-                            ]'><?= $this->getHtml('CreateProfile'); ?></button>
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input id="account-edit-submit" name="editSubmit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
+                    <button id="account-profile-create" data-action='[
+                        {
+                            "key": 1, "listener": "click", "action": [
+                                {"key": 1, "type": "event.prevent"},
+                                {"key": 2, "type": "dom.getvalue", "base": "", "selector": "#iId"},
+                                {"key": 3, "type": "message.request", "uri": "{/base}/{/lang}/api/profile", "method": "PUT", "request_type": "json"},
+                                {"key": 4, "type": "message.log"}
+                            ]
+                        }
+                    ]'><?= $this->getHtml('CreateProfile'); ?></button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table id="groupTable" class="box table default">
-            <caption><?= $this->getHtml('Groups') ?><i class="fa fa-download floatRight download btn"></i></caption>
-            <thead>
-                <tr>
-                    <td>
-                    <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-                    <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
-            <tbody>
-                <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : ++$c;
-                $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/group/settings?{?}&id=' . $value->getId()); ?>
-                <tr data-href="<?= $url; ?>">
-                    <td><a href="#"><i class="fa fa-times"></i></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                <?php endforeach; ?>
-                <?php if ($c === 0) : ?>
-                <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                <?php endif; ?>
-        </table>
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Groups') ?><i class="fa fa-download floatRight download btn"></i></div>
+            <table id="groupTable" class="default">
+                <thead>
+                    <tr>
+                        <td>
+                        <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                        <td class="wf-100"><?= $this->getHtml('Name') ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
+                <tbody>
+                    <?php $c = 0; $groups = $account->getGroups(); foreach ($groups as $key => $value) : ++$c;
+                    $url = UriFactory::build('{/prefix}admin/group/settings?{?}&id=' . $value->getId()); ?>
+                    <tr data-href="<?= $url; ?>">
+                        <td><a href="#"><i class="fa fa-times"></i></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
+                        <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
+                    <?php endforeach; ?>
+                    <?php if ($c === 0) : ?>
+                    <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                    <?php endif; ?>
+            </table>
+        </div>
 
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Groups'); ?></h1></header>
-            <div class="inner">
-                <form id="iAddGroupToAccount" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/account/group'); ?>" method="put">
+        <div class="portlet">
+            <form id="iAddGroupToAccount" action="<?= UriFactory::build('{/api}admin/account/group'); ?>" method="put">
+                <div class="portlet-head"><?= $this->getHtml('Groups'); ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iGroup"><?= $this->getHtml('Name'); ?></label>
                         <tr><td><?= $this->getData('grpSelector')->render('iGroup', true); ?>
-                        <tr><td>
-                            <input name="account" type="hidden" value="<?= $this->printHtml($account->getId()); ?>">
-                            <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input name="account" type="hidden" value="<?= $this->printHtml($account->getId()); ?>">
+                    <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="col-xs-12 col-md-6">
-        <table class="box table default">
-            <caption><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></caption>
-            <thead>
-                <tr>
-                    <td>
-                    <td>
-                    <td><?= $this->getHtml('ID', '0', '0'); ?>
-                    <td><?= $this->getHtml('Unit'); ?>
-                    <td><?= $this->getHtml('App'); ?>
-                    <td><?= $this->getHtml('Module'); ?>
-                    <td><?= $this->getHtml('Type'); ?>
-                    <td><?= $this->getHtml('Ele'); ?>
-                    <td><?= $this->getHtml('Comp'); ?>
-                    <td class="wf-100"><?= $this->getHtml('Perm'); ?>
-            <tbody>
-                <?php $c = 0; foreach ($permissions as $key => $value) : ++$c; $permission = $value->getPermission(); ?>
-                <tr>
-                    <td><a href="#"><i class="fa fa-times"></i></a>
-                    <td><a href="#"><i class="fa fa-cogs"></i></a>
-                    <td><?= $value->getId(); ?>
-                    <td><?= $value->getUnit(); ?>
-                    <td><?= $value->getApp(); ?>
-                    <td><?= $value->getModule(); ?>
-                    <td><?= $value->getType(); ?>
-                    <td><?= $value->getElement(); ?>
-                    <td><?= $value->getComponent(); ?>
-                    <td>
-                        <?= (PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
-                        <?= (PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
-                        <?= (PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
-                        <?= (PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
-                        <?= (PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
-                <?php endforeach; ?>
-                <?php if ($c === 0) : ?>
-                <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                <?php endif; ?>
-        </table>
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Permissions') ?><i class="fa fa-download floatRight download btn"></i></div>
+            <table class="default">
+                <thead>
+                    <tr>
+                        <td>
+                        <td>
+                        <td><?= $this->getHtml('ID', '0', '0'); ?>
+                        <td><?= $this->getHtml('Unit'); ?>
+                        <td><?= $this->getHtml('App'); ?>
+                        <td><?= $this->getHtml('Module'); ?>
+                        <td><?= $this->getHtml('Type'); ?>
+                        <td><?= $this->getHtml('Ele'); ?>
+                        <td><?= $this->getHtml('Comp'); ?>
+                        <td class="wf-100"><?= $this->getHtml('Perm'); ?>
+                <tbody>
+                    <?php $c = 0; foreach ($permissions as $key => $value) : ++$c; $permission = $value->getPermission(); ?>
+                    <tr>
+                        <td><a href="#"><i class="fa fa-times"></i></a>
+                        <td><a href="#"><i class="fa fa-cogs"></i></a>
+                        <td><?= $value->getId(); ?>
+                        <td><?= $value->getUnit(); ?>
+                        <td><?= $value->getApp(); ?>
+                        <td><?= $value->getModule(); ?>
+                        <td><?= $value->getType(); ?>
+                        <td><?= $value->getElement(); ?>
+                        <td><?= $value->getComponent(); ?>
+                        <td>
+                            <?= (PermissionType::CREATE | $permission) === $permission ? 'C' : ''; ?>
+                            <?= (PermissionType::READ | $permission) === $permission ? 'R' : ''; ?>
+                            <?= (PermissionType::MODIFY | $permission) === $permission ? 'U' : ''; ?>
+                            <?= (PermissionType::DELETE | $permission) === $permission ? 'D' : ''; ?>
+                            <?= (PermissionType::PERMISSION | $permission) === $permission ? 'P' : ''; ?>
+                    <?php endforeach; ?>
+                    <?php if ($c === 0) : ?>
+                    <tr><td colspan="10" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                    <?php endif; ?>
+            </table>
+        </div>
 
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Permissions'); ?></h1></header>
-            <div class="inner">
-                <form id="fAccountAddPermission" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/account/permission'); ?>" method="put">
+        <div class="portlet">
+            <form id="fAccountAddPermission" action="<?= UriFactory::build('{/api}admin/account/permission'); ?>" method="put">
+            <div class="portlet-head"><?= $this->getHtml('Permissions'); ?></div>
+            <div class="portlet-body">
                     <table class="layout wf-100">
                     <tbody>
                         <tr><td><label for="iPermissionUnit"><?= $this->getHtml('Unit'); ?></label>
@@ -237,13 +244,14 @@ echo $this->getData('nav')->render(); ?>
                                 <input id="iPermissionPermission" name="permissionpermission" type="checkbox" value="<?= PermissionType::PERMISSION ?>">
                                 <label for="iPermissionPermission"><?= $this->getHtml('Permission') ?></label>
                             </span>
-                        <tr><td>
-                            <input type="hidden" name="permissionref" value="<?= $this->printHtml($account->getId()); ?>">
-                            <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::ACCOUNT ?>">
-                            <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input type="hidden" name="permissionref" value="<?= $this->printHtml($account->getId()); ?>">
+                    <input type="hidden" name="permissionowner" value="<?= \phpOMS\Account\PermissionOwner::ACCOUNT ?>">
+                    <input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 </div>

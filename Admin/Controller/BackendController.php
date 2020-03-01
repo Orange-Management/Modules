@@ -273,6 +273,10 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/modules-list');
 
+        $view->setData('modules', $this->app->moduleManager->getAllModules());
+        $view->setData('active', $this->app->moduleManager->getActiveModules());
+        $view->setData('installed', $this->app->moduleManager->getInstalledModules());
+
         return $view;
     }
 

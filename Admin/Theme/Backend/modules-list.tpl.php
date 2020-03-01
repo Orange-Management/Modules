@@ -18,16 +18,16 @@ use phpOMS\Module\ModuleStatus;
  * @var \phpOMS\Views\View $this
  */
 
-$modules   = $this->app->moduleManager->getAllModules();
-$active    = $this->app->moduleManager->getActiveModules();
-$installed = $this->app->moduleManager->getInstalledModules();
+$modules   = $this->getData('modules') ?? [];
+$active    = $this->getData('active') ?? [];
+$isntalled = $this->getData('isntalled') ?? [];
 ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Modules') ?><i class="fa fa-download floatRight download btn"></i></div>
             <table id="moduleList" class="default">
-                <caption><?= $this->getHtml('Modules') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?><i class="sort-asc fa fa-chevron-up"></i><i class="sort-desc fa fa-chevron-down"></i>
@@ -71,6 +71,7 @@ $installed = $this->app->moduleManager->getInstalledModules();
                     <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
+            <div class="portlet-foot"></div>
         </div>
     </div>
 </div>

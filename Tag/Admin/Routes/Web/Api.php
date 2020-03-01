@@ -6,7 +6,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/tag.*$' => [
+    '^.*/tag$' => [
         [
             'dest' => '\Modules\Tag\Controller\ApiController:apiTagCreate',
             'verb' => RouteVerb::PUT,
@@ -31,6 +31,17 @@ return [
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
                 'type'  => PermissionType::DELETE,
+                'state' => PermissionState::TAG,
+            ],
+        ],
+    ],
+    '^.*/tag/find.*$' => [
+        [
+            'dest' => '\Modules\Tag\Controller\ApiController:apiTagFind',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'  => PermissionType::READ,
                 'state' => PermissionState::TAG,
             ],
         ],

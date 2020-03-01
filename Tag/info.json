@@ -24,5 +24,23 @@
         "Navigation": "*"
     },
     "load": [
+        {
+            "pid": [
+                "/tag"
+            ],
+            "type": 4,
+            "for": "Tag",
+            "file": "Tag",
+            "from": "Tag"
+        },
+        {
+            "pid": [
+                "/"
+            ],
+            "type": 5,
+            "from": "Tag",
+            "for": "Navigation",
+            "file": "Navigation"
+        }
     ]
 }

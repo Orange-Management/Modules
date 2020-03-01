@@ -12,18 +12,19 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
 
- /**
+/**
  * @var \phpOMS\Views\View $this
  */
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-4">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Account'); ?></h1></header>
-            <div class="inner">
-                <form id="fAccount" action="<?= \phpOMS\Uri\UriFactory::build('{/api}admin/account'); ?>" method="put">
+        <div class="portlet">
+            <form id="fAccount" action="<?= UriFactory::build('{/api}admin/account'); ?>" method="put">
+                <div class="portlet-head"><?= $this->getHtml('Account'); ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iType"><?= $this->getHtml('Type'); ?></label>
@@ -50,10 +51,12 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input id="iEmail" name="email" type="email" placeholder="&#xf0e0; d.duck@duckburg.com">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Name3'); ?></label>
                         <tr><td><input id="iPassword" name="password" type="password" placeholder="&#xf023; Pa55ssw0rd?">
-                        <tr><td><input id="account-create-submit" name="createSubmit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input id="account-create-submit" name="createSubmit" type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 </div>

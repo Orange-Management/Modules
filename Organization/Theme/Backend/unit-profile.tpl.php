@@ -12,6 +12,8 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View                $this
  * @var \Modules\Organization\Models\Unit $unit;
@@ -22,10 +24,10 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-6">
-        <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Unit') ?></h1></header>
-            <div class="inner">
-                <form id="iUnit" action="<?= \phpOMS\Uri\UriFactory::build('{/api}organization/unit') ?>" method="post">
+        <div class="portlet">
+            <form id="iUnit" action="<?= UriFactory::build('{/api}organization/unit') ?>" method="post">
+                <div class="portlet-head"><?= $this->getHtml('Unit') ?></div>
+                <div class="portlet-body">
                     <table class="layout wf-100" style="table-layout: fixed">
                         <tr><td><label for="iName"><?= $this->getHtml('Name') ?></label>
                         <tr><td><input type="text" name="name" id="iName" value="<?= $this->printHtml($unit->getName()); ?>">
@@ -44,13 +46,14 @@ echo $this->getData('nav')->render(); ?>
                             $unit->getDescriptionRaw(),
                             $unit->getDescription()
                         ); ?>
-                        <tr><td>
-                            <input id="iUnitId" name="id" type="hidden" value="<?= (int) $unit->getId(); ?>">
-                            <input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
                     </table>
-                </form>
-            </div>
-        </section>
+                </div>
+                <div class="portlet-foot">
+                    <input id="iUnitId" name="id" type="hidden" value="<?= (int) $unit->getId(); ?>">
+                    <input id="iSubmit" name="submit" type="submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

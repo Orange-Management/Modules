@@ -20,9 +20,9 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box wf-100">
+        <div class="portlet">
+            <div class="portlet-head"><?= $this->getHtml('Audits') ?><i class="fa fa-download floatRight download btn"></i></div>
             <table class="default fixed">
-                <caption><?= $this->getHtml('Audits') ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <colgroup>
                     <col style="width: 100px">
                     <col style="width: 150px">
@@ -45,9 +45,6 @@ echo $this->getData('nav')->render(); ?>
                     <td ><?= $this->getHtml('Content') ?>
                     <td ><?= $this->getHtml('By') ?>
                     <td ><?= $this->getHtml('Date') ?>
-                <tfoot>
-                <tr>
-                    <td colspan="9">
                 <tbody>
                 <?php $count = 0; foreach ($audits as $key => $audit) : ++$count;
                 $url = \phpOMS\Uri\UriFactory::build('{/prefix}admin/audit/single?{?}&id=' . $audit->getId()); ?>
@@ -66,6 +63,7 @@ echo $this->getData('nav')->render(); ?>
                     <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
+            <div class="portlet-foot"></div>
         </div>
     </div>
 </div>
