@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Models;
 
+use Modules\Tag\Models\TagMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
@@ -45,18 +46,17 @@ final class WikiDocMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array<string, null|string>>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
      * @since 1.0.0
      */
-    /*
     protected static array $hasMany = [
-        'badges' => [
-            'mapper' => BadgeMapper::class,
-            'table'  => 'wiki_article_badge',
-            'self'   => 'wiki_article_badge_badge',
-            'external' => 'wiki_article_badge_article',
+        'tags' => [
+            'mapper' => TagMapper::class,
+            'table'  => 'wiki_tag',
+            'self'   => 'wiki_tag_src',
+            'external' => 'wiki_tag_dst',
         ],
-    ];*/
+    ];
 
     /**
      * Has owns one relation.

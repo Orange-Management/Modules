@@ -102,5 +102,31 @@
                 "foreignKey": "wiki_app_id"
             }
         }
+    },
+    "wiki_tag": {
+        "name": "wiki_tag",
+        "fields": {
+            "wiki_tag_id": {
+                "name": "wiki_tag_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "wiki_tag_dst": {
+                "name": "wiki_tag_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "wiki_article",
+                "foreignKey": "wiki_article_id"
+            },
+            "wiki_tag_src": {
+                "name": "wiki_tag_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "tag",
+                "foreignKey": "tag_id"
+            }
+        }
     }
 }

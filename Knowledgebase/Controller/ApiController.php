@@ -19,6 +19,7 @@ use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
+use Modules\Tag\Models\Tag;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -84,8 +85,17 @@ final class ApiController extends Controller
         $doc->setLanguage((string) ($request->getData('language') ?? $request->getHeader()->getL11n()->getLanguage()));
         $doc->setStatus((int) ($request->getData('status') ?? WikiStatus::INACTIVE));
 
-        if ($request->getData('tags') !== null) {
-            $doc->addTag((int) $request->getData('tags'));
+        if (!empty($tags = $request->getDataJson('tags'))) {
+            foreach ($tags as $tag) {
+                if (!\is_numeric($tag['id'])) {
+                    $tagObj = new Tag();
+                    $tagObj->setTitle($tag['id']);
+                    $tagObj->setColor($tag['color']);
+                    $doc->addTag($tagObj);
+                } else {
+                    $doc->addTag((int) $tag['id']);
+                }
+            }
         }
 
         return $doc;
