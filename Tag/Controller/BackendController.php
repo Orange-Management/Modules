@@ -15,11 +15,8 @@ declare(strict_types=1);
 namespace Modules\Tag\Controller;
 
 use Modules\Tag\Models\TagMapper;
-use Modules\Tag\Models\PermissionState;
 
-use phpOMS\Account\PermissionType;
 use phpOMS\Contract\RenderableInterface;
-use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
