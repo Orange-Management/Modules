@@ -1,6 +1,7 @@
-<?php
-use Modules\Tasks\Models\TaskStatus;
+<?php declare(strict_types=1);
 use Modules\Tasks\Models\TaskPriority;
+use Modules\Tasks\Models\TaskStatus;
+
 ?>
 <table class="default">
     <caption><?= $this->getHtml('Tasks', 'Tasks') ?><i class="fa fa-download floatRight download btn"></i></caption>
