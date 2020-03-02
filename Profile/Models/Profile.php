@@ -42,10 +42,10 @@ class Profile implements \JsonSerializable
     /**
      * Profile image.
      *
-     * @var null|int|Media
+     * @var Media
      * @since 1.0.0
      */
-    protected $image = null;
+    protected Media $image;
 
     /**
      * Birthday.
@@ -61,7 +61,7 @@ class Profile implements \JsonSerializable
      * @var Account
      * @since 1.0.0
      */
-    protected $account = null;
+    protected Account $account;
 
     /**
      * Location data.

@@ -30,8 +30,21 @@ use phpOMS\Views\View;
  */
 class GroupTagSelectorView extends View
 {
-    private $id         = '';
-    private $isRequired = false;
+    /**
+     * Dom id
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $id = '';
+
+    /**
+     * Is required?
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    private bool $isRequired = false;
 
     /**
      * {@inheritdoc}

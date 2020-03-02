@@ -72,6 +72,14 @@ class Controller extends ModuleAbstract implements WebInterface
 
     /**
      * Test Endpoint
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @since 1.0.0
      */
     public function testEndpoint(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {

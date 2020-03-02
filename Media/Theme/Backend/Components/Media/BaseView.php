@@ -30,6 +30,12 @@ use phpOMS\Views\View;
  */
 class BaseView extends View
 {
+    /**
+     * Media files
+     *
+     * @var \Modules\Media\Models\Media[]
+     * @since 1.0.0
+     */
     protected $media = [];
 
     /**

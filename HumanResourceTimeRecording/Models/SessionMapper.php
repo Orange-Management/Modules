@@ -151,7 +151,7 @@ final class SessionMapper extends DataMapperAbstract
             ->orderBy(self::$table.'.hr_timerecording_session_start', 'DESC')
             ->limit(1);
 
-        /** @var Session[] $session */
+        /** @var Session[] $sessions */
         $sessions = self::getAllByQuery($query, RelationType::ALL, 6);
 
         if (empty($sessions)) {

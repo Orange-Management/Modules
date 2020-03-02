@@ -328,7 +328,13 @@ final class TaskMapper extends DataMapperAbstract
             $sth = self::$db->con->prepare($query->toSql());
             $sth->execute();
 
-            $count = $sth->fetchAll()[0][0] ?? 0;
+            $fetched = $sth->fetchAll();
+
+            if ($fetched === false) {
+                return -1;
+            }
+
+            $count = $fetched[0][0] ?? 0;
         } catch (\Exception $e) {
             return -1;
         }

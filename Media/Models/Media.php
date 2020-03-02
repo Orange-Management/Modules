@@ -196,7 +196,7 @@ class Media implements \JsonSerializable
      *
      * @since 1.0.0
      */
-    public function decrypt(string $password, string $outputPath) : string
+    public function decrypt(string $password, string $outputPath = null) : string
     {
         /**
          * @todo Orange-Management/Modules#185
@@ -273,7 +273,7 @@ class Media implements \JsonSerializable
      */
     public function compareNonce(string $nonce) : bool
     {
-        return \hash_equals($this->nonce, $nonce);
+        return $this->nonce === null ? false : \hash_equals($this->nonce, $nonce);
     }
 
     /**

@@ -30,9 +30,29 @@ use phpOMS\Views\View;
  */
 class BaseView extends View
 {
-    private $id         = '';
-    private $name       = '';
-    private $isRequired = false;
+    /**
+     * Dom id
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $id = '';
+
+    /**
+     * Is required?
+     *
+     * @var bool
+     * @since 1.0.0
+     */
+    private bool $isRequired = false;
+
+    /**
+     * Dom name
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $name = '';
 
     /**
      * {@inheritdoc}

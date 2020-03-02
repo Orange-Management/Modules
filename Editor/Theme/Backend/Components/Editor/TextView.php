@@ -30,12 +30,60 @@ use phpOMS\Views\View;
  */
 class TextView extends View
 {
-    private string $id       = '';
-    private string $name     = '';
-    private string $form     = '';
-    private string $plain    = '';
-    private string $preview  = '';
-    private string $tplText  = '';
+    /**
+     * Dom id
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $id = '';
+
+    /**
+     * Dom name
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $name = '';
+
+    /**
+     * Form id
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $form = '';
+
+    /**
+     * Plain content
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $plain = '';
+
+    /**
+     * Preview content
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $preview = '';
+
+    /**
+     * Tpl text identifier
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $tplText = '';
+
+    /**
+     * Tpl value identifier
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private string $tplValue = '';
 
     /**

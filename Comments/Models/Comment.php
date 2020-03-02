@@ -34,16 +34,40 @@ class Comment
 
     private $createdBy = 0;
 
-    private $createdAt = null;
+    /**
+     * Created at
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
+    private \DateTime $createdAt;
 
     private $list = null;
 
+    /**
+     * Title
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $title = '';
 
     private int $status = 0;
 
+    /**
+     * Content
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $content = '';
 
+    /**
+     * Content raw
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $contentRaw = '';
 
     private $ref = null;

@@ -4,7 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @package   Modules\Helper\Views
+ * @package   Modules\News\Models
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -12,20 +12,16 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Helper\Views;
-
-use phpOMS\Views\View;
+namespace Modules\HumanResourceManagement\Models;
 
 /**
- * Helper view.
+ * Null model
  *
- * @package Modules\Helper\Views
+ * @package Modules\HumanResourceManagement\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-class HelperView extends View
+final class NullEmployeeEducationHistory extends EmployeeEducationHistory
 {
-    protected $dataSets = [];
-    protected $dataSet  = null;
 }

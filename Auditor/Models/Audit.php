@@ -97,7 +97,7 @@ class Audit
     /**
      * Account.
      *
-     * @var Account|int
+     * @var int|Account
      * @since 1.0.0
      */
     private $createdBy;
@@ -121,13 +121,14 @@ class Audit
     /**
      * Constructor.
      *
-     * @parram Account     $account Account of the creator
-     * @parram null|string $old     Old value
-     * @parram null|string $new     New value
-     * @parram int         $type    Type of the audit
-     * @parram int         $subtype Subtype of the audit
-     * @parram null|string $module  Module id
-     * @parram null|string $content Additional audit information
+     * @param int|Account $account Account of the creator
+     * @param null|string $old     Old value
+     * @param null|string $new     New value
+     * @param int         $type    Type of the audit
+     * @param int         $subtype Subtype of the audit
+     * @param null|string $module  Module id
+     * @param null|string $ref     Dynamic reference to model
+     * @param null|string $content Additional audit information
      *
      * @since 1.0.0
      */

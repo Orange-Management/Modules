@@ -30,11 +30,29 @@ use phpOMS\Views\View;
  */
 class BaseView extends View
 {
-    protected $form = '';
+    /**
+     * Form id
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected string $form = '';
 
-    protected $virtualPath = '';
+    /**
+     * Virtual path of the media file
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected string $virtualPath = '';
 
-    protected $name = '';
+    /**
+     * Name of the image preview
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    protected string $name = '';
 
     /**
      * {@inheritdoc}

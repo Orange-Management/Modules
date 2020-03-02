@@ -27,8 +27,6 @@ use phpOMS\Views\View;
  */
 class TaskView extends View
 {
-    protected $media = [];
-
     /**
      * Get task status color.
      *

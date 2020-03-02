@@ -30,7 +30,13 @@ use phpOMS\Views\View;
  */
 class ListView extends View
 {
-    protected $tasks = [];
+    /**
+     * Tasks
+     *
+     * @var \Modules\Tasks\Models\Task[]
+     * @since 1.0.0
+     */
+    protected array $tasks = [];
 
     /**
      * {@inheritdoc}
