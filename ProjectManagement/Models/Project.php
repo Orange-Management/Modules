@@ -169,7 +169,7 @@ class Project
     /**
      * Tasks.
      *
-     * @var Tasks[]
+     * @var Task[]
      * @since 1.0.0
      */
     private $tasks = [];

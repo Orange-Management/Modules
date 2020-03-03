@@ -34,15 +34,35 @@ class QAAnswer implements \JsonSerializable
 
     private int $status = QAAnswerStatus::ACTIVE;
 
+    /**
+     * Answer.
+     *
+     * @var string
+     * @var 1.0.0
+     */
     private $answer = '';
+
+    /**
+     * Answer raw.
+     *
+     * @var string
+     * @var 1.0.0
+     */
+    private $answerRaw = '';
 
     private $question = 0;
 
-    private $isAccepted = false;
+    /**
+     * Is accepted answer.
+     *
+     * @var bool
+     * @var 1.0.0
+     */
+    private bool $isAccepted = false;
 
     private $createdBy = 0;
 
-    private $createdAt = null;
+    private \DateTime $createdAt;
 
     /**
      * Constructor.

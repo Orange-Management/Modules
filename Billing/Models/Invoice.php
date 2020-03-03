@@ -79,28 +79,100 @@ class Invoice implements \JsonSerializable
 
     private $client = 0;
 
+    /**
+     * Receiver.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $shipTo = '';
 
+    /**
+     * For the attention of.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $shipFAO = '';
 
+    /**
+     * Shipping address.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $shipAddress = '';
 
+    /**
+     * Shipping city.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $shipCity = '';
 
+    /**
+     * Shipping zip.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $shipZip = '';
 
+    /**
+     * Shipping country.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $shipCountry = '';
 
+    /**
+     * Billing.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $billTo = '';
 
+    /**
+     * Billing for the attention of.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $billFAO = '';
 
+    /**
+     * Billing address.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $billAddress = '';
 
+    /**
+     * Billing city.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $billCity = '';
 
+    /**
+     * Billing zip.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $billZip = '';
 
+    /**
+     * Billing country.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $billCountry = '';
 
     /**

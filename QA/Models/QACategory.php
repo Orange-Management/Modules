@@ -40,6 +40,12 @@ class QACategory implements \JsonSerializable
      */
     private string $name = '';
 
+    /**
+     * Parent category.
+     *
+     * @var null|int|QACategory
+     * @since 1.0.0
+     */
     private $parent = null;
 
     /**

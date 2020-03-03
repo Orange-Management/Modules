@@ -24,7 +24,19 @@ namespace Modules\DatabaseEditor\Models;
  */
 class Database
 {
+    /**
+     * Name of the database
+     *
+     * @var string
+     * @since 1.0.0
+     */
     public $name = '';
 
+    /**
+     * Tables
+     *
+     * @var string[]
+     * @since 1.0.0
+     */
     public $tables = [];
 }

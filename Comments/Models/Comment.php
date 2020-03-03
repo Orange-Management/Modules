@@ -42,7 +42,13 @@ class Comment
      */
     private \DateTime $createdAt;
 
-    private $list = null;
+    /**
+     * Comment list this comment belongs to
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    private $list = 0;
 
     /**
      * Title
@@ -123,13 +129,13 @@ class Comment
     /**
      * Set the list this comment belongs to
      *
-     * @param mixed $list List
+     * @param int $list List
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setList($list) : void
+    public function setList(int $list) : void
     {
         $this->list = $list;
     }
@@ -137,11 +143,11 @@ class Comment
     /**
      * Get the list this comment belongs to
      *
-     * @return mixed
+     * @return int
      *
      * @since 1.0.0
      */
-    public function getList()
+    public function getList() : int
     {
         return $this->list;
     }

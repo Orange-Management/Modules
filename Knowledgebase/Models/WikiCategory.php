@@ -62,6 +62,7 @@ class WikiCategory implements \JsonSerializable
      * Parent category.
      *
      * @var null|int|self
+     * @since 1.0.0
      */
     private $parent = null;
 

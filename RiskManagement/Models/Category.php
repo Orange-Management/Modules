@@ -32,6 +32,12 @@ class Category
      */
     protected int $id = 0;
 
+    /**
+     * Title.
+     *
+     * @var string
+     * @since 1.0.0
+     */
     private $title = '';
 
     /**
@@ -41,6 +47,7 @@ class Category
      * @since 1.0.0
      */
     private string $description = '';
+
     /**
      * Description.
      *
@@ -49,6 +56,12 @@ class Category
      */
     private string $descriptionRaw = '';
 
+    /**
+     * Parent category.
+     *
+     * @var null|int|self
+     * @since 1.0.0
+     */
     private $parent = null;
 
     private $responsible = null;
