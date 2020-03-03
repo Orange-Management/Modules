@@ -42,10 +42,10 @@ class Profile implements \JsonSerializable
     /**
      * Profile image.
      *
-     * @var int|Media
+     * @var Media
      * @since 1.0.0
      */
-    protected $image;
+    protected Media $image;
 
     /**
      * Birthday.
@@ -58,10 +58,10 @@ class Profile implements \JsonSerializable
     /**
      * Account.
      *
-     * @var int|Account
+     * @var Account
      * @since 1.0.0
      */
-    protected $account;
+    protected Account $account;
 
     /**
      * Location data.
@@ -166,7 +166,7 @@ class Profile implements \JsonSerializable
      */
     public function getImage() : Media
     {
-        return $this->image;
+        return $this->image ?? new NullMedia();
     }
 
     /**
@@ -241,7 +241,11 @@ class Profile implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'id' => $this->id,
+            'id'             => $this->id,
+            'account'        => $this->account,
+            'image'          => $this->image,
+            'location'       => $this->location,
+            'contactelement' => $this->contactElements,
         ];
     }
 }
