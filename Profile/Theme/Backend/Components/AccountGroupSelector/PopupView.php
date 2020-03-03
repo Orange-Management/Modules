@@ -30,7 +30,13 @@ use phpOMS\Views\View;
  */
 class PopupView extends View
 {
-    private $id = '';
+    /**
+     * Dom id
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    private string $id = '';
 
     /**
      * {@inheritdoc}

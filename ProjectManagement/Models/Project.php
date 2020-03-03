@@ -265,7 +265,7 @@ class Project
     /**
      * Add task
      *
-     * @param int|Task $task Task
+     * @param Task $task Task
      *
      * @return void
      *
