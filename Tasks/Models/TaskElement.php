@@ -357,7 +357,7 @@ class TaskElement implements \JsonSerializable
     {
         foreach ($this->accRelation as $acc) {
             if (($acc->getDuty() === DutyType::TO
-                    && ($acc->getRelation() instanceof AccountRelation) && $acc->getRelation()->getId() === $id)
+                    && ($acc->getRelation() instanceof Account) && $acc->getRelation()->getId() === $id)
                 || ($acc->getDuty() === DutyType::TO
                     && $acc->getRelation() === $id)
             ) {
@@ -381,7 +381,7 @@ class TaskElement implements \JsonSerializable
     {
         foreach ($this->grpRelation as $grp) {
             if (($grp->getDuty() === DutyType::TO
-                    && ($grp->getRelation() instanceof GroupRelation) && $grp->getRelation()->getId() === $id)
+                    && ($grp->getRelation() instanceof Group) && $grp->getRelation()->getId() === $id)
                 || ($grp->getDuty() === DutyType::TO
                     && $grp->getRelation() === $id)
             ) {
@@ -405,7 +405,7 @@ class TaskElement implements \JsonSerializable
     {
         foreach ($this->accRelation as $acc) {
             if (($acc->getDuty() === DutyType::CC
-                    && ($acc->getRelation() instanceof AccountRelation) && $acc->getRelation()->getId() === $id)
+                    && ($acc->getRelation() instanceof Account) && $acc->getRelation()->getId() === $id)
                 || ($acc->getDuty() === DutyType::CC
                     && $acc->getRelation() === $id)
             ) {
@@ -429,7 +429,7 @@ class TaskElement implements \JsonSerializable
     {
         foreach ($this->grpRelation as $grp) {
             if (($grp->getDuty() === DutyType::CC
-                    && ($grp->getRelation() instanceof GroupRelation) && $grp->getRelation()->getId() === $id)
+                    && ($grp->getRelation() instanceof Group) && $grp->getRelation()->getId() === $id)
                 || ($grp->getDuty() === DutyType::CC
                     && $grp->getRelation() === $id)
             ) {
