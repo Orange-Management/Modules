@@ -64,7 +64,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Draft",
-                "uri": "{/prefix}news/draft/list?{?}",
+                "uri": "{/prefix}news/draft/list",
                 "target": "self",
                 "icon": null,
                 "order": 15,

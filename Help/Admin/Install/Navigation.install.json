@@ -34,7 +34,7 @@
                 "type": 2,
                 "subtype": 1,
                 "name": "Modules",
-                "uri": "{/prefix}help/module/list?{?}",
+                "uri": "{/prefix}help/module/list",
                 "target": "self",
                 "icon": null,
                 "order": 10,

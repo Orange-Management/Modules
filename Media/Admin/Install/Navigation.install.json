@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "Media",
-        "uri": "{/prefix}media/list?{?}",
+        "uri": "{/prefix}media/list",
         "target": "self",
         "icon": null,
         "order": 20,

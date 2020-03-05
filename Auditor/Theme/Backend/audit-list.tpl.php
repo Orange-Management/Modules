@@ -12,10 +12,17 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 /**
  * @var \phpOMS\Views\View $this
+ * @var \Modules\Audit\Models\Audit[] $audits
  */
 $audits = $this->getData('audits') ?? [];
+
+$previous = empty($audits) ? '{/prefix}admin/audit/list' : '{/prefix}admin/audit/list?{?}&id=' . \reset($audits)->getId() . '&ptype=-';
+$next     = empty($audits) ? '{/prefix}admin/audit/list' : '{/prefix}admin/audit/list?{?}&id=' . \end($audits)->getId() . '&ptype=+';
+
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
@@ -63,7 +70,10 @@ echo $this->getData('nav')->render(); ?>
                     <tr><td colspan="9" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                 <?php endif; ?>
             </table>
-            <div class="portlet-foot"></div>
+            <div class="portlet-foot">
+                <a class="button" href="<?= UriFactory::build($previous); ?>">Previous</a>
+                <a class="button" href="<?= UriFactory::build($next); ?>">Next</a>
+            </div>
         </div>
     </div>
 </div>

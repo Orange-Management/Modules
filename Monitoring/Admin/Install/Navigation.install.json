@@ -34,7 +34,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Logs",
-                "uri": "{/prefix}admin/monitoring/log/list?{?}",
+                "uri": "{/prefix}admin/monitoring/log/list",
                 "target": "self",
                 "icon": null,
                 "order": 5,
