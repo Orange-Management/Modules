@@ -15,7 +15,7 @@ declare(strict_types=1);
 use phpOMS\Uri\UriFactory;
 
 /**
- * @var \phpOMS\Views\View $this
+ * @var \phpOMS\Views\View            $this
  * @var \Modules\Audit\Models\Audit[] $audits
  */
 $audits = $this->getData('audits') ?? [];
