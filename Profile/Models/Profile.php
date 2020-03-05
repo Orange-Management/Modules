@@ -50,10 +50,10 @@ class Profile implements \JsonSerializable
     /**
      * Birthday.
      *
-     * @var \DateTime
+     * @var null|\DateTime
      * @since 1.0.0
      */
-    protected \DateTime $birthday;
+    protected ?\DateTime $birthday = null;
 
     /**
      * Account.
@@ -90,7 +90,7 @@ class Profile implements \JsonSerializable
     {
         $this->image    = new NullMedia();
         $this->birthday = new \DateTime('now');
-        $this->account  = $account ?? new Account();
+        $this->account  = $account ?? new NullAccount();
     }
 
     /**
@@ -212,13 +212,13 @@ class Profile implements \JsonSerializable
     /**
      * Set birthday.
      *
-     * @param \DateTime $birthday Birthday
+     * @param null|\DateTime $birthday Birthday
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setBirthday(\DateTime $birthday) : void
+    public function setBirthday(?\DateTime $birthday) : void
     {
         $this->birthday = $birthday;
     }
@@ -226,11 +226,11 @@ class Profile implements \JsonSerializable
     /**
      * Get birthday.
      *
-     * @return \DateTime
+     * @return null|\DateTime
      *
      * @since 1.0.0
      */
-    public function getBirthday() : \DateTime
+    public function getBirthday() : ?\DateTime
     {
         return $this->birthday;
     }

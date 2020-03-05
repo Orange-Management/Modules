@@ -83,7 +83,7 @@ echo $this->getData('nav')->render();
                                     <td itemprop="jobTitle">Sailor
                                 <tr>
                                     <th><?= $this->getHtml('Birthday') ?>
-                                    <td itemprop="birthDate" itemprop="foundingDate"><?= $profile->getBirthday()->format('Y-m-d'); ?>
+                                    <td itemprop="birthDate" itemprop="foundingDate"><?= $profile->getBirthday() !== null ? $profile->getBirthday()->format('Y-m-d') : ''; ?>
                                 <tr>
                                     <th><?= $this->getHtml('Email') ?>
                                     <td itemprop="email"><a href="mailto:>donald.duck@email.com<"><?= $this->printHtml($account->getEmail()); ?></a>

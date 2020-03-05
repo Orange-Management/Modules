@@ -34,5 +34,6 @@ final class NullQAAnswer extends QAAnswer
     public function __construct(int $id = 0)
     {
         $this->id = $id;
+        parent::__construct();
     }
 }

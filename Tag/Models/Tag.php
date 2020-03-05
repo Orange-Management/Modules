@@ -55,10 +55,10 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var Account
+     * @var null|Account
      * @since 1.0.0
      */
-    protected Account $owner;
+    protected ?Account $owner = null;
 
     /**
      * Tag type.

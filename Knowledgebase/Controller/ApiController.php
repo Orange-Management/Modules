@@ -14,11 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Controller;
 
+use Modules\Knowledgebase\Models\NullWikiCategory;
 use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
+use Modules\Tag\Models\NullTag;
 use Modules\Tag\Models\Tag;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
@@ -81,7 +83,7 @@ final class ApiController extends Controller
         $doc->setName((string) $request->getData('title'));
         $doc->setDoc(Markdown::parse((string) ($request->getData('plain') ?? '')));
         $doc->setDocRaw((string) ($request->getData('plain') ?? ''));
-        $doc->setCategory((int) ($request->getData('category') ?? 1));
+        $doc->setCategory(new NullWikiCategory((int) ($request->getData('category') ?? 1)));
         $doc->setLanguage((string) ($request->getData('language') ?? $request->getHeader()->getL11n()->getLanguage()));
         $doc->setStatus((int) ($request->getData('status') ?? WikiStatus::INACTIVE));
 
@@ -93,7 +95,7 @@ final class ApiController extends Controller
                     $tagObj->setColor($tag['color']);
                     $doc->addTag($tagObj);
                 } else {
-                    $doc->addTag((int) $tag['id']);
+                    $doc->addTag(new NullTag((int) $tag['id']));
                 }
             }
         }
@@ -171,7 +173,7 @@ final class ApiController extends Controller
         }
 
         if ($request->getData('parent') !== null) {
-            $category->setParent((int) $request->getData('parent'));
+            $category->setParent(new NullWikiCategory((int) $request->getData('parent')));
         }
 
         return $category;

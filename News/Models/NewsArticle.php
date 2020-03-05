@@ -37,7 +37,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private int $id = 0;
+    protected int $id = 0;
 
     /**
      * Title.
@@ -137,7 +137,6 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
         $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime('now');
         $this->publish   = new \DateTime('now');
-        $this->account   = new NullAccount();
     }
 
     /**
