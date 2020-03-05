@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\EventManagement\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Tasks\Models\TaskMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -47,7 +48,7 @@ final class EventMapper extends DataMapperAbstract
         'eventmanagement_event_costs'         => ['name' => 'eventmanagement_event_costs',         'type' => 'Serializable', 'internal' => 'costs'],
         'eventmanagement_event_budget'        => ['name' => 'eventmanagement_event_budget',        'type' => 'Serializable', 'internal' => 'budget'],
         'eventmanagement_event_earnings'      => ['name' => 'eventmanagement_event_earnings',      'type' => 'Serializable', 'internal' => 'earnings'],
-        'eventmanagement_event_created_by'    => ['name' => 'eventmanagement_event_created_by',    'type' => 'int',          'internal' => 'createdBy'],
+        'eventmanagement_event_created_by'    => ['name' => 'eventmanagement_event_created_by',    'type' => 'int',          'internal' => 'createdBy', 'readonly' => true],
         'eventmanagement_event_created_at'    => ['name' => 'eventmanagement_event_created_at',    'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -82,6 +83,19 @@ final class EventMapper extends DataMapperAbstract
         'calendar' => [
             'mapper' => \Modules\Calendar\Models\CalendarMapper::class,
             'self'   => 'eventmanagement_event_calendar',
+        ],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'eventmanagement_event_created_by',
         ],
     ];
 

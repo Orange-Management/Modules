@@ -27,10 +27,10 @@ class Collection extends Media implements \Iterator
     /**
      * Resource id.
      *
-     * @var array<int, int|Media>
+     * @var Media[]
      * @since 1.0.0
      */
-    private $sources = [];
+    private array $sources = [];
 
     /**
      * Extension name.
@@ -65,13 +65,13 @@ class Collection extends Media implements \Iterator
     /**
      * Set sources.
      *
-     * @param int|Media $source Source
+     * @param Media $source Source
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addSource($source) : void
+    public function addSource(Media $source) : void
     {
         $this->sources[] = $source;
     }
@@ -79,7 +79,7 @@ class Collection extends Media implements \Iterator
     /**
      * Get sources.
      *
-     * @return array
+     * @return Media[]
      *
      * @since 1.0.0
      */

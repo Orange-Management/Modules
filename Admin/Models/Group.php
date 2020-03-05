@@ -35,10 +35,10 @@ class Group extends \phpOMS\Account\Group
     /**
      * Created by.
      *
-     * @var int
+     * @var Account
      * @since 1.0.0
      */
-    protected $createdBy = 0;
+    protected Account $createdBy;
 
     /**
      * Group raw description.
@@ -51,7 +51,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Accounts
      *
-     * @var Account[]|int[]
+     * @var Account[]
      * @since 1.0.0
      */
     protected array $accounts = [];
@@ -65,7 +65,8 @@ class Group extends \phpOMS\Account\Group
      */
     public function __construct(string $name = '')
     {
-        $this->createdAt = new \DateTime();
+        $this->createdBy = new NullAccount();
+        $this->createdAt = new \DateTime('now');
         $this->setName($name);
     }
 
@@ -78,17 +79,17 @@ class Group extends \phpOMS\Account\Group
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime('NOW');
+        return $this->createdAt;
     }
 
     /**
      * Get created by.
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -96,13 +97,13 @@ class Group extends \phpOMS\Account\Group
     /**
      * Set created by
      *
-     * @param mixed $createdBy Group created by
+     * @param Account $createdBy Group created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }
@@ -136,7 +137,7 @@ class Group extends \phpOMS\Account\Group
     /**
      * Get accounts
      *
-     * @return array Accounts
+     * @return Account[] Accounts
      *
      * @since 1.0.0
      */

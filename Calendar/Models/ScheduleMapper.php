@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Calendar\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
@@ -45,7 +46,20 @@ final class ScheduleMapper extends DataMapperAbstract
         'schedule_duration'               => ['name' => 'schedule_duration',               'type' => 'int',      'internal' => 'duration'],
         'schedule_end'                    => ['name' => 'schedule_end',                    'type' => 'DateTime', 'internal' => 'end'],
         'schedule_created_at'             => ['name' => 'schedule_created_at',             'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'schedule_created_by'             => ['name' => 'schedule_created_by',             'type' => 'int',      'internal' => 'createdBy'],
+        'schedule_created_by'             => ['name' => 'schedule_created_by',             'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'schedule_created_by',
+        ],
     ];
 
     /**

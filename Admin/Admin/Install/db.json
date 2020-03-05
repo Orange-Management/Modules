@@ -14,11 +14,6 @@
                 "type": "VARCHAR(100)",
                 "null": false
             },
-            "country_native": {
-                "name": "country_native",
-                "type": "VARCHAR(100)",
-                "null": false
-            },
             "country_code2": {
                 "name": "country_code2",
                 "type": "VARCHAR(2)",
@@ -95,9 +90,15 @@
                 "type": "VARCHAR(100)",
                 "null": false
             },
+            "language_639_1": {
+                "name": "language_639_1",
+                "type": "VARCHAR(2)",
+                "null": false,
+                "unique": true
+            },
             "language_639_2T": {
                 "name": "language_639_2T",
-                "type": "VARCHAR(2)",
+                "type": "VARCHAR(3)",
                 "null": false,
                 "unique": true
             },
@@ -108,7 +109,7 @@
             },
             "language_639_3": {
                 "name": "language_639_3",
-                "type": "VARCHAR(3)",
+                "type": "VARCHAR(10)",
                 "null": false
             }
         }
@@ -185,7 +186,7 @@
                 "default": null,
                 "null": true,
                 "foreignTable": "language",
-                "foreignKey": "language_639_2T"
+                "foreignKey": "language_639_1"
             },
             "l11n_datetime": {
                 "name": "l11n_datetime",

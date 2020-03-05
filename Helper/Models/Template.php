@@ -14,6 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\Helper\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\NullCollection;
+use Modules\Organization\Models\NullUnit;
+use Modules\Organization\Models\Unit;
+
 /**
  * Template model.
  *
@@ -30,15 +37,15 @@ class Template implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private int $id = 0;
+    protected int $id = 0;
 
     /**
      * Unit.
      *
-     * @var null|int|\Modules\Organization\Models\Unit
+     * @var Unit
      * @since 1.0.0
      */
-    private $unit = null;
+    private Unit $unit;
 
     /**
      * Template status.
@@ -99,18 +106,18 @@ class Template implements \JsonSerializable
     /**
      * Template created by.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Template source.
      *
-     * @var int|\Modules\Media\Models\Media
+     * @var Collection
      * @since 1.0.0
      */
-    private $source = 0;
+    private Collection $source;
 
     /**
      * Expected files.
@@ -136,6 +143,9 @@ class Template implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->unit      = new NullUnit();
+        $this->source    = new NullCollection();
+        $this->createdBy = new NullAccount();
     }
 
     /**
@@ -153,11 +163,11 @@ class Template implements \JsonSerializable
     /**
      * Get unit this template belogns to
      *
-     * @return null|int|\Modules\Organization\Models\Unit
+     * @return Unit
      *
      * @since 1.0.0
      */
-    public function getUnit()
+    public function getUnit() : Unit
     {
         return $this->unit;
     }
@@ -167,13 +177,13 @@ class Template implements \JsonSerializable
      *
      * Set the unit
      *
-     * @param int $unit Unit
+     * @param Unit $unit Unit
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setUnit(int $unit) : void
+    public function setUnit(Unit $unit) : void
     {
         $this->unit = $unit;
     }
@@ -275,13 +285,13 @@ class Template implements \JsonSerializable
     /**
      * Set source media
      *
-     * @param int $source Source
+     * @param Collection $source Source
      *
-     * @return mixed
+     * @return void
      *
      * @since 1.0.0
      */
-    public function setSource($source)
+    public function setSource(Collection $source) : void
     {
         $this->source = $source;
     }
@@ -289,11 +299,11 @@ class Template implements \JsonSerializable
     /**
      * Get source media
      *
-     * @return mixed
+     * @return Collection
      *
      * @since 1.0.0
      */
-    public function getSource()
+    public function getSource() : Collection
     {
         return $this->source;
     }
@@ -301,13 +311,13 @@ class Template implements \JsonSerializable
     /**
      * Set creator
      *
-     * @param mixed $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }
@@ -315,11 +325,11 @@ class Template implements \JsonSerializable
     /**
      * Get creator
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -333,7 +343,7 @@ class Template implements \JsonSerializable
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime('now');
+        return $this->createdAt;
     }
 
     /**

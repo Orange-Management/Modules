@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\Media\Controller;
 
 use Modules\Admin\Models\AccountPermission;
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
 use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\Media;
@@ -23,8 +24,8 @@ use Modules\Media\Models\NullCollection;
 use Modules\Media\Models\PathSettings;
 use Modules\Media\Models\PermissionState;
 use Modules\Media\Models\UploadFile;
-use Modules\Media\Models\UploadStatus;
 
+use Modules\Media\Models\UploadStatus;
 use phpOMS\Account\PermissionType;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
@@ -240,7 +241,7 @@ final class ApiController extends Controller
             $media->setPath(self::normalizeDbPath($status['path']) . '/' . $status['filename']);
             $media->setName($status['name']);
             $media->setSize($status['size']);
-            $media->setCreatedBy($account);
+            $media->setCreatedBy(new NullAccount($account));
             $media->setExtension($status['extension']);
             $media->setVirtualPath($virtualPath);
 

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Comments\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentMapper;
 
@@ -25,7 +26,7 @@ class CommentMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $comment = new Comment();
-        $comment->setCreatedBy(1);
+        $comment->setCreatedBy(new NullAccount(1));
         $comment->setTitle('Test Title');
         $comment->setContent('Test Content');
         $comment->setRef(1);
@@ -37,7 +38,7 @@ class CommentMapperTest extends \PHPUnit\Framework\TestCase
 
         $commentR = CommentMapper::get($comment->getId());
         self::assertEquals($id, $commentR->getId());
-        self::assertEquals($comment->getCreatedBy(), $commentR->getCreatedBy());
+        self::assertEquals($comment->getCreatedBy()->getId(), $commentR->getCreatedBy()->getId());
         self::assertEquals($comment->getTitle(), $commentR->getTitle());
         self::assertEquals($comment->getContent(), $commentR->getContent());
         self::assertEquals($comment->getRef(), $commentR->getRef());

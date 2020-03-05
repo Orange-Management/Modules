@@ -35,7 +35,7 @@ final class NewsArticleMapper extends DataMapperAbstract
      */
     protected static array $columns = [
         'news_id'         => ['name' => 'news_id',         'type' => 'int',      'internal' => 'id'],
-        'news_created_by' => ['name' => 'news_created_by', 'type' => 'int',      'internal' => 'createdBy'],
+        'news_created_by' => ['name' => 'news_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'news_publish'    => ['name' => 'news_publish',    'type' => 'DateTime', 'internal' => 'publish'],
         'news_title'      => ['name' => 'news_title',      'type' => 'string',   'internal' => 'title'],
         'news_plain'      => ['name' => 'news_plain',      'type' => 'string',   'internal' => 'plain'],

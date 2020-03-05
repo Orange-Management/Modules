@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\News\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+use Modules\Tag\Models\Tag;
 use phpOMS\Contract\ArrayableInterface;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
@@ -95,10 +98,10 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Publish.
@@ -119,7 +122,7 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Badge.
      *
-     * @var array
+     * @var Tag[]
      * @since 1.0.0
      */
     private array $badges = [];
@@ -131,14 +134,16 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime('now');
         $this->publish   = new \DateTime('now');
+        $this->account   = new NullAccount();
     }
 
     /**
      * Get badges
      *
-     * @return array
+     * @return Tag[]
      *
      * @since 1.0.0
      */
@@ -150,13 +155,13 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Add badge
      *
-     * @param mixed $badge Badge to add
+     * @param Tag $badge Badge to add
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addBadge($badge) : void
+    public function addBadge(Tag $badge) : void
     {
         $this->badges[] = $badge;
     }
@@ -296,11 +301,11 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -308,15 +313,15 @@ class NewsArticle implements ArrayableInterface, \JsonSerializable
     /**
      * Set created by
      *
-     * @param int $id Created by
+     * @param Account $account Created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setCreatedBy(Account $account) : void
     {
-        $this->createdBy = $id;
+        $this->createdBy = $account;
     }
 
     /**

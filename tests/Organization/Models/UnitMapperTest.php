@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Organization\Models;
 
+use Modules\Organization\Models\NullUnit;
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
 
@@ -27,7 +28,7 @@ class UnitMapperTest extends \PHPUnit\Framework\TestCase
         $unit = new Unit();
         $unit->setName('Scrooge Inc.');
         $unit->setDescription('Description');
-        $unit->setParent(1);
+        $unit->setParent(new NullUnit(1));
 
         $id = UnitMapper::create($unit);
 
@@ -35,6 +36,6 @@ class UnitMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($id, $unitR->getId());
         self::assertEquals($unit->getName(), $unitR->getName());
         self::assertEquals($unit->getDescription(), $unitR->getDescription());
-        self::assertEquals($unit->getParent(), $unitR->getParent()->getId());
+        self::assertEquals($unit->getParent()->getId(), $unitR->getParent()->getId());
     }
 }

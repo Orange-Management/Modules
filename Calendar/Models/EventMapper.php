@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Calendar\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
@@ -41,7 +42,7 @@ final class EventMapper extends DataMapperAbstract
         'calendar_event_status'      => ['name' => 'calendar_event_status',      'type' => 'int',          'internal' => 'status'],
         'calendar_event_schedule'    => ['name' => 'calendar_event_schedule',    'type' => 'int',          'internal' => 'schedule'],
         'calendar_event_calendar'    => ['name' => 'calendar_event_calendar',    'type' => 'int',          'internal' => 'calendar'],
-        'calendar_event_created_by'  => ['name' => 'calendar_event_created_by',  'type' => 'int',          'internal' => 'createdBy'],
+        'calendar_event_created_by'  => ['name' => 'calendar_event_created_by',  'type' => 'int',          'internal' => 'createdBy', 'readonly' => true],
         'calendar_event_created_at'  => ['name' => 'calendar_event_created_at',  'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -55,6 +56,19 @@ final class EventMapper extends DataMapperAbstract
         'schedule' => [
             'mapper' => ScheduleMapper::class,
             'self'   => 'calendar_event_schedule',
+        ],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'calendar_event_created_by',
         ],
     ];
 

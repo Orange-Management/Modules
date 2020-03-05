@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\RiskManagement\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\Cause;
@@ -66,7 +67,7 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->addHistory(2);
 
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath('some/path');
         $media->setSize(11);

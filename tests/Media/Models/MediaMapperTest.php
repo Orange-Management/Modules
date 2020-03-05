@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Media\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\MediaMapper;
 
@@ -25,7 +26,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setDescriptionRaw('descRaw');
         $media->setPath('some/path');
@@ -39,7 +40,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
 
         $mediaR = MediaMapper::get($media->getId());
         self::assertEquals($media->getCreatedAt()->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals($media->getCreatedBy(), $mediaR->getCreatedBy()->getId());
+        self::assertEquals($media->getCreatedBy()->getId(), $mediaR->getCreatedBy()->getId());
         self::assertEquals($media->getDescription(), $mediaR->getDescription());
         self::assertEquals($media->getDescriptionRaw(), $mediaR->getDescriptionRaw());
         self::assertEquals($media->getPath(), $mediaR->getPath());
@@ -52,7 +53,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
     public function testAbsolute() : void
     {
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath('https://avatars0.githubusercontent.com/u/16034994');
         $media->setAbsolute(true);
@@ -66,7 +67,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
 
         $mediaR = MediaMapper::get($media->getId());
         self::assertEquals($media->getCreatedAt()->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals($media->getCreatedBy(), $mediaR->getCreatedBy()->getId());
+        self::assertEquals($media->getCreatedBy()->getId(), $mediaR->getCreatedBy()->getId());
         self::assertEquals($media->getDescription(), $mediaR->getDescription());
         self::assertEquals($media->getPath(), $mediaR->getPath());
         self::assertEquals($media->isAbsolute(), $mediaR->isAbsolute());
@@ -78,7 +79,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
     public function testDirectoryMapping() : void
     {
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath(\realpath(__DIR__ . '/../../../../../'));
         $media->setAbsolute(true);
@@ -92,7 +93,7 @@ class MediaMapperTest extends \PHPUnit\Framework\TestCase
 
         $mediaR = MediaMapper::get($media->getId());
         self::assertEquals($media->getCreatedAt()->format('Y-m-d'), $mediaR->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals($media->getCreatedBy(), $mediaR->getCreatedBy()->getId());
+        self::assertEquals($media->getCreatedBy()->getId(), $mediaR->getCreatedBy()->getId());
         self::assertEquals($media->getDescription(), $mediaR->getDescription());
         self::assertEquals($media->getPath(), $mediaR->getPath());
         self::assertEquals($media->isAbsolute(), $mediaR->isAbsolute());

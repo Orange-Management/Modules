@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\Tasks\Models;
 
+use Modules\Admin\Models\NullAccount;
+use Modules\Admin\Models\NullGroup;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskPriority;
@@ -30,7 +32,7 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         $task = new Task();
 
         self::assertEquals(0, $task->getId());
-        self::assertEquals(0, $task->getCreatedBy());
+        self::assertEquals(0, $task->getCreatedBy()->getId());
         self::assertEquals('', $task->getTitle());
         self::assertFalse($task->isToAccount(0));
         self::assertFalse($task->isCCAccount(0));
@@ -55,8 +57,8 @@ class TaskTest extends \PHPUnit\Framework\TestCase
     {
         $task = new Task();
 
-        $task->setCreatedBy(1);
-        self::assertEquals(1, $task->getCreatedBy());
+        $task->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $task->getCreatedBy()->getId());
 
         $task->setStart($date = new \DateTime('2005-05-05'));
         self::assertEquals($date->format('Y-m-d'), $task->getStart()->format('Y-m-d'));
@@ -80,16 +82,16 @@ class TaskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(TaskPriority::LOW, $task->getPriority());
 
         $taskElement1 = new TaskElement();
-        $taskElement1->addTo(2);
-        $taskElement1->addGroupTo(4);
-        $taskElement1->addCC(6);
-        $taskElement1->addGroupCC(8);
+        $taskElement1->addTo(new NullAccount(2));
+        $taskElement1->addGroupTo(new NullGroup(4));
+        $taskElement1->addCC(new NullAccount(6));
+        $taskElement1->addGroupCC(new NullGroup(8));
 
         $taskElement2 = new TaskElement();
-        $taskElement2->addTo(3);
-        $taskElement2->addGroupTo(5);
-        $taskElement2->addCC(7);
-        $taskElement2->addGroupCC(9);
+        $taskElement2->addTo(new NullAccount(3));
+        $taskElement2->addGroupTo(new NullGroup(5));
+        $taskElement2->addCC(new NullAccount(7));
+        $taskElement2->addGroupCC(new NullGroup(9));
 
         $id   = [];
         $id[] = $task->addElement($taskElement1);

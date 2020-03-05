@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\QA\Models;
 
-use Modules\Profile\Models\ProfileMapper;
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
@@ -40,7 +40,7 @@ final class QAQuestionMapper extends DataMapperAbstract
         'qa_question_question'   => ['name' => 'qa_question_question',   'type' => 'string',   'internal' => 'question'],
         'qa_question_status'     => ['name' => 'qa_question_status',     'type' => 'int',      'internal' => 'status'],
         'qa_question_category'   => ['name' => 'qa_question_category',   'type' => 'int',      'internal' => 'category'],
-        'qa_question_created_by' => ['name' => 'qa_question_created_by', 'type' => 'int',      'internal' => 'createdBy'],
+        'qa_question_created_by' => ['name' => 'qa_question_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'qa_question_created_at' => ['name' => 'qa_question_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -80,7 +80,7 @@ final class QAQuestionMapper extends DataMapperAbstract
      */
     protected static array $belongsTo = [
         'createdBy' => [
-            'mapper' => ProfileMapper::class,
+            'mapper' => AccountMapper::class,
             'self'   => 'qa_question_created_by',
         ],
     ];

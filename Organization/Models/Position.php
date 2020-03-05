@@ -45,18 +45,18 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var mixed
+     * @var null|Position
      * @since 1.0.0
      */
-    private $parent = null;
+    private ?self $parent = null;
 
     /**
      * Department
      *
-     * @var mixed
+     * @var null|Department
      * @since 1.0.0
      */
-    private $department = null;
+    private ?Department $department = null;
 
     /**
      * Description.
@@ -123,11 +123,11 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Get parent
      *
-     * @return mixed
+     * @return Position
      *
      * @since 1.0.0
      */
-    public function getParent()
+    public function getParent() : self
     {
         return $this->parent ?? new NullPosition();
     }
@@ -135,13 +135,13 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Set parent
      *
-     * @param mixed $parent Parent
+     * @param null|Position $parent Parent
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setParent($parent) : void
+    public function setParent(?self $parent) : void
     {
         $this->parent = $parent;
     }
@@ -149,11 +149,11 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Get parent
      *
-     * @return mixed
+     * @return Department
      *
      * @since 1.0.0
      */
-    public function getDepartment()
+    public function getDepartment() : Department
     {
         return $this->department ?? new NullDepartment();
     }
@@ -161,13 +161,13 @@ class Position implements ArrayableInterface, \JsonSerializable
     /**
      * Set department
      *
-     * @param mixed $department Department
+     * @param null|Department $department Department
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setDepartment($department) : void
+    public function setDepartment(?Department $department) : void
     {
         $this->department = $department;
     }
@@ -259,7 +259,7 @@ class Position implements ArrayableInterface, \JsonSerializable
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
-            'department'  => $this->department,
+            'department'  => $this->department ?? new NullDepartment(),
             'parent'      => $this->parent,
         ];
     }

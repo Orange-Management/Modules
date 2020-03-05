@@ -35,7 +35,7 @@ final class GSDAddressMapper extends DataMapperAbstract
     protected static array $columns = [
         'AdressRowId'     => ['name' => 'AdressRowId',     'type' => 'int',      'internal' => 'id'],
         'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'row_create_user' => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy'],
+        'row_create_user' => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'NAME1'           => ['name' => 'NAME1',           'type' => 'string',   'internal' => 'name1'],
         'NAME2'           => ['name' => 'NAME2',           'type' => 'string',   'internal' => 'name2'],
         'NAME3'           => ['name' => 'NAME3',           'type' => 'string',   'internal' => 'name3'],

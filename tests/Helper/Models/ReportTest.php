@@ -14,8 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\tests\Helper\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Helper\Models\HelperStatus;
+use Modules\Helper\Models\NullTemplate;
 use Modules\Helper\Models\Report;
+use Modules\Media\Models\NullCollection;
 
 /**
  * @testdox Modules\tests\Helper\Models\ReportTest: Report model
@@ -39,14 +42,14 @@ class ReportTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->report->getId());
-        self::assertEquals(0, $this->report->getCreatedBy());
+        self::assertEquals(0, $this->report->getCreatedBy()->getId());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->report->getCreatedAt()->format('Y-m-d'));
         self::assertEquals('', $this->report->getTitle());
         self::assertEquals(HelperStatus::INACTIVE, $this->report->getStatus());
         self::assertEquals('', $this->report->getDescription());
         self::assertEquals('', $this->report->getDescriptionRaw());
-        self::assertEquals(0, $this->report->getTemplate());
-        self::assertEquals(0, $this->report->getSource());
+        self::assertEquals(0, $this->report->getTemplate()->getId());
+        self::assertEquals(0, $this->report->getSource()->getId());
     }
 
     /**
@@ -56,8 +59,8 @@ class ReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreatedByInputOutput() : void
     {
-        $this->report->setCreatedBy(1);
-        self::assertEquals(1, $this->report->getCreatedBy());
+        $this->report->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $this->report->getCreatedBy()->getId());
     }
 
     /**
@@ -111,8 +114,8 @@ class ReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testTemplateInputOutput() : void
     {
-        $this->report->setTemplate(11);
-        self::assertEquals(11, $this->report->getTemplate());
+        $this->report->setTemplate(new NullTemplate(11));
+        self::assertEquals(11, $this->report->getTemplate()->getId());
     }
 
     /**
@@ -122,8 +125,8 @@ class ReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testSourceInputOutput() : void
     {
-        $this->report->setSource(4);
-        self::assertEquals(4, $this->report->getSource());
+        $this->report->setSource(new NullCollection(4));
+        self::assertEquals(4, $this->report->getSource()->getId());
     }
 
     /**
@@ -133,7 +136,7 @@ class ReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testToArray() : void
     {
-        $this->report->setTemplate(11);
+        $this->report->setTemplate(new NullTemplate(11));
         $this->report->setTitle('testTitle');
         $this->report->setDescription('testDescription');
         $this->report->setDescriptionRaw('testDescriptionRaw');
@@ -141,7 +144,6 @@ class ReportTest extends \PHPUnit\Framework\TestCase
         $array    = $this->report->toArray();
         $expected = [
             'id' => 0,
-            'createdBy' => 0,
             'name' => 'testTitle',
             'description' => 'testDescription',
             'descriptionRaw' => 'testDescriptionRaw',
@@ -164,7 +166,7 @@ class ReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testJsonSerialize() : void
     {
-        $this->report->setTemplate(11);
+        $this->report->setTemplate(new NullTemplate(11));
         $this->report->setTitle('testTitle');
         $this->report->setDescription('testDescription');
         $this->report->setDescriptionRaw('testDescriptionRaw');
@@ -172,7 +174,6 @@ class ReportTest extends \PHPUnit\Framework\TestCase
         $array    = $this->report->jsonSerialize();
         $expected = [
             'id' => 0,
-            'createdBy' => 0,
             'name' => 'testTitle',
             'description' => 'testDescription',
             'descriptionRaw' => 'testDescriptionRaw',

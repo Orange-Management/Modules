@@ -16,7 +16,8 @@ namespace Modules\Tasks\Models;
 
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\Group;
-
+use Modules\Admin\Models\NullAccount;
+use Modules\Media\Models\Media;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
@@ -64,10 +65,10 @@ class TaskElement implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Created.
@@ -104,7 +105,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Media.
      *
-     * @var array
+     * @var Media[]
      * @since 1.0.0
      */
     private array $media = [];
@@ -112,7 +113,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Accounts who received this task element.
      *
-     * @var array
+     * @var AccountRelation[]
      * @since 1.0.0
      */
     protected array $accRelation = [];
@@ -120,7 +121,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Groups who received this task element.
      *
-     * @var array
+     * @var GroupRelaction[]
      * @since 1.0.0
      */
     protected array $grpRelation = [];
@@ -135,6 +136,7 @@ class TaskElement implements \JsonSerializable
         $this->due = new \DateTime('now');
         $this->due->modify('+1 day');
         $this->createdAt = new \DateTime('now');
+        $this->createdBy = new NullAccount();
     }
 
     /**
@@ -160,11 +162,11 @@ class TaskElement implements \JsonSerializable
     }
 
     /**
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -172,13 +174,13 @@ class TaskElement implements \JsonSerializable
     /**
      * Set created by
      *
-     * @param mixed $creator Creator
+     * @param Account $creator Creator
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($creator) : void
+    public function setCreatedBy(Account $creator) : void
     {
         $this->createdBy = $creator;
     }
@@ -186,7 +188,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Get all media
      *
-     * @return array
+     * @return Media[]
      *
      * @since 1.0.0
      */
@@ -198,13 +200,13 @@ class TaskElement implements \JsonSerializable
     /**
      * Add media
      *
-     * @param mixed $media Media to add
+     * @param Media $media Media to add
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addMedia($media) : void
+    public function addMedia(Media $media) : void
     {
         $this->media[] = $media;
     }
@@ -321,7 +323,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Get to
      *
-     * @return array<RelationAbstract>
+     * @return RelationAbstract[]
      *
      * @since 1.0.0
      */
@@ -443,7 +445,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Add to
      *
-     * @param mixed $to To
+     * @param Group|Account $to To
      *
      * @return void
      *
@@ -453,7 +455,7 @@ class TaskElement implements \JsonSerializable
     {
         if ($to instanceof Group) {
             $this->addGroupTo($to);
-        } elseif (($to instanceof Account) || \is_int($to)) {
+        } elseif (($to instanceof Account)) {
             $this->addAccountTo($to);
         }
     }
@@ -461,15 +463,15 @@ class TaskElement implements \JsonSerializable
     /**
      * Add group as to
      *
-     * @param int|Group $group Group
+     * @param Group $group Group
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addGroupTo($group) : void
+    public function addGroupTo(Group $group) : void
     {
-        $groupId = \is_int($group) ? $group : $group->getId();
+        $groupId = $group->getId();
 
         foreach ($this->grpRelation as $grp) {
             $grpId = !\is_int($grp->getRelation()) ? $grp->getRelation()->getId() : $grp->getRelation();
@@ -485,15 +487,15 @@ class TaskElement implements \JsonSerializable
     /**
      * Add account as to
      *
-     * @param int|Account $account Account
+     * @param Account $account Account
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addAccountTo($account) : void
+    public function addAccountTo(Account $account) : void
     {
-        $accountId = \is_int($account) ? $account : $account->getId();
+        $accountId = $account->getId();
 
         foreach ($this->accRelation as $acc) {
             $accId = !\is_int($acc->getRelation()) ? $acc->getRelation()->getId() : $acc->getRelation();
@@ -509,7 +511,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Get cc
      *
-     * @return array<RelationAbstract>
+     * @return RelationAbstract[]
      *
      * @since 1.0.0
      */
@@ -535,7 +537,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Add cc
      *
-     * @param mixed $cc CC
+     * @param Group|Account $cc CC
      *
      * @return void
      *
@@ -545,7 +547,7 @@ class TaskElement implements \JsonSerializable
     {
         if ($cc instanceof Group) {
             $this->addGroupCC($cc);
-        } elseif (($cc instanceof Account) || \is_int($cc)) {
+        } elseif (($cc instanceof Account)) {
             $this->addAccountCC($cc);
         }
     }
@@ -553,15 +555,15 @@ class TaskElement implements \JsonSerializable
     /**
      * Add group as cc
      *
-     * @param int|Group $group Group
+     * @param Group $group Group
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addGroupCC($group) : void
+    public function addGroupCC(Group $group) : void
     {
-        $groupId = \is_int($group) ? $group : $group->getId();
+        $groupId = $group->getId();
 
         foreach ($this->grpRelation as $grp) {
             $grpId = !\is_int($grp->getRelation()) ? $grp->getRelation()->getId() : $grp->getRelation();
@@ -577,15 +579,15 @@ class TaskElement implements \JsonSerializable
     /**
      * Add account as cc
      *
-     * @param int|Account $account Account
+     * @param Account $account Account
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addAccountCC($account) : void
+    public function addAccountCC(Account $account) : void
     {
-        $accountId = \is_int($account) ? $account : $account->getId();
+        $accountId = $account->getId();
 
         foreach ($this->accRelation as $acc) {
             $accId = !\is_int($acc->getRelation()) ? $acc->getRelation()->getId() : $acc->getRelation();

@@ -37,10 +37,10 @@ class WikiCategory implements \JsonSerializable
      *
      * There can be different wikis
      *
-     * @var null|int|WikiApp
+     * @var null|WikiApp
      * @since 1.0.0
      */
-    private $app = null;
+    private ?WikiApp $app = null;
 
     /**
      * Name.
@@ -61,10 +61,10 @@ class WikiCategory implements \JsonSerializable
     /**
      * Parent category.
      *
-     * @var null|int|self
+     * @var self
      * @since 1.0.0
      */
-    private $parent = null;
+    private ?self $parent = null;
 
     /**
      * Get id.
@@ -81,25 +81,25 @@ class WikiCategory implements \JsonSerializable
     /**
      * Get app
      *
-     * @return null|int|WikiApp
+     * @return WikiApp
      *
      * @since 1.0.0
      */
-    public function getApp()
+    public function getApp() : WikiApp
     {
-        return $this->app;
+        return $this->app ?? new NullWikiApp();
     }
 
     /**
      * Set app
      *
-     * @param int $app App
+     * @param null|WikiApp $app App
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setApp(int $app) : void
+    public function setApp(?WikiApp $app) : void
     {
         $this->app = $app;
     }
@@ -159,25 +159,25 @@ class WikiCategory implements \JsonSerializable
     /**
      * Get parent category
      *
-     * @return null|int|self
+     * @return null|self
      *
      * @since 1.0.0
      */
-    public function getParent()
+    public function getParent() : self
     {
-        return $this->parent;
+        return $this->parent ?? new NullWikiCategory();
     }
 
     /**
      * Set parent category
      *
-     * @param int $parent Parent category
+     * @param null|self $parent Parent category
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setParent(int $parent) : void
+    public function setParent(?self $parent) : void
     {
         $this->parent = $parent;
     }

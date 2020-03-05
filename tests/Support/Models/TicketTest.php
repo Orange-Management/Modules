@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Support\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Support\Models\Ticket;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskPriority;
@@ -38,8 +39,8 @@ class TicketTest extends \PHPUnit\Framework\TestCase
     {
         $ticket = new Ticket();
 
-        $ticket->getTask()->setCreatedBy(1);
-        self::assertEquals(1, $ticket->getTask()->getCreatedBy());
+        $ticket->getTask()->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $ticket->getTask()->getCreatedBy()->getId());
 
         $ticket->getTask()->setTitle('Ticket');
         self::assertEquals('Ticket', $ticket->getTask()->getTitle());

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\News\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsStatus;
 use Modules\News\Models\NewsType;
@@ -41,7 +42,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->news->getId());
-        self::assertEquals(0, $this->news->getCreatedBy());
+        self::assertEquals(0, $this->news->getCreatedBy()->getId());
         self::assertEquals('', $this->news->getTitle());
         self::assertEquals('', $this->news->getContent());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->news->getCreatedAt()->format('Y-m-d'));
@@ -61,8 +62,8 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreatorInputOutput() : void
     {
-        $this->news->setCreatedBy(1);
-        self::assertEquals(1, $this->news->getCreatedBy());
+        $this->news->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $this->news->getCreatedBy()->getId());
     }
 
     /**
@@ -161,7 +162,7 @@ class NewsArticleTest extends \PHPUnit\Framework\TestCase
     public function testSerialization() : void
     {
         $this->news->setTitle('Title');
-        $this->news->setCreatedBy(1);
+        $this->news->setCreatedBy(new NullAccount(1));
         $this->news->setContent('Content');
         $this->news->setPlain('Plain');
         $this->news->setPublish(new \DateTime('2001-05-07'));

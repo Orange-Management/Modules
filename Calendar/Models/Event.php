@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Calendar\Models;
 
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Account\Account;
-use phpOMS\Account\NullAccount;
 use phpOMS\Stdlib\Base\Location;
 
 /**
@@ -63,10 +63,10 @@ class Event
     /**
      * Creator.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Event type.
@@ -91,10 +91,10 @@ class Event
     /**
      * Schedule
      *
-     * @var int|Schedule
+     * @var Schedule
      * @since 1.0.0
      */
-    private $schedule;
+    private Schedule $schedule;
 
     /**
      * Location of the event.
@@ -127,6 +127,7 @@ class Event
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime('now');
         $this->location  = new Location();
         $this->schedule  = new Schedule();
@@ -247,11 +248,11 @@ class Event
     }
 
     /**
-     * @return int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -259,13 +260,13 @@ class Event
     /**
      * Set creator
      *
-     * @param int $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy(int $createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
 
@@ -339,11 +340,11 @@ class Event
     }
 
     /**
-     * @return int|Schedule
+     * @return Schedule
      *
      * @since 1.0.0
      */
-    public function getSchedule()
+    public function getSchedule() : Schedule
     {
         return $this->schedule;
     }

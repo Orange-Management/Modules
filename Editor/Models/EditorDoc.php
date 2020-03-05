@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Editor\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Contract\ArrayableInterface;
 
 /**
@@ -77,10 +79,10 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Constructor.
@@ -89,7 +91,8 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
      */
     public function __construct()
     {
-        $this->createdAt = new \DateTime('NOW');
+        $this->createdBy = new NullAccount();
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -171,11 +174,11 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -183,13 +186,13 @@ class EditorDoc implements ArrayableInterface, \JsonSerializable
     /**
      * Set created by
      *
-     * @param int $id Creator
+     * @param Account $account Creator
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setCreatedBy(Account $account) : void
     {
-        $this->createdBy = $id;
+        $this->createdBy = $account;
     }
 
     /**

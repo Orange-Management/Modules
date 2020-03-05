@@ -43,10 +43,10 @@ class QACategory implements \JsonSerializable
     /**
      * Parent category.
      *
-     * @var null|int|QACategory
+     * @var null|QACategory
      * @since 1.0.0
      */
-    private $parent = null;
+    private ?self $parent = null;
 
     /**
      * Get id.
@@ -89,11 +89,11 @@ class QACategory implements \JsonSerializable
     /**
      * Get the parent category
      *
-     * @return null|int
+     * @return null|self
      *
      * @since 1.0.0
      */
-    public function getParent() : ?int
+    public function getParent() : ?self
     {
         return $this->parent;
     }
@@ -101,13 +101,13 @@ class QACategory implements \JsonSerializable
     /**
      * Set the parent category
      *
-     * @param int $parent Parent category
+     * @param null|self $parent Parent category
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setParent(int $parent) : void
+    public function setParent(?self $parent) : void
     {
         $this->parent = $parent;
     }

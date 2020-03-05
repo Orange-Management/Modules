@@ -42,7 +42,7 @@ final class TaskElementMapper extends DataMapperAbstract
         'task_element_priority'   => ['name' => 'task_element_priority',   'type' => 'int',      'internal' => 'priority'],
         'task_element_due'        => ['name' => 'task_element_due',        'type' => 'DateTime', 'internal' => 'due'],
         'task_element_task'       => ['name' => 'task_element_task',       'type' => 'int',      'internal' => 'task'],
-        'task_element_created_by' => ['name' => 'task_element_created_by', 'type' => 'int',      'internal' => 'createdBy'],
+        'task_element_created_by' => ['name' => 'task_element_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'task_element_created_at' => ['name' => 'task_element_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 

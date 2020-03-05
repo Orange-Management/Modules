@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\News\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\NewsStatus;
@@ -38,7 +39,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $text = new Text();
         $news = new NewsArticle();
 
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(100, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -53,7 +54,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
 
         $newsR = NewsArticleMapper::get($news->getId());
         self::assertEquals($news->getCreatedAt()->format('Y-m-d'), $newsR->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals($news->getCreatedBy(), $newsR->getCreatedBy()->getId());
+        self::assertEquals($news->getCreatedBy()->getId(), $newsR->getCreatedBy()->getId());
         self::assertEquals($news->getContent(), $newsR->getContent());
         self::assertEquals($news->getTitle(), $newsR->getTitle());
         self::assertEquals($news->getStatus(), $newsR->getStatus());
@@ -75,7 +76,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         // Created by other
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -87,7 +88,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $id = NewsArticleMapper::create($news);
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -101,7 +102,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         // Created by me
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -113,7 +114,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $id = NewsArticleMapper::create($news);
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -125,7 +126,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $id = NewsArticleMapper::create($news);
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -139,7 +140,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         // Language
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish(new \DateTime('2001-05-07'));
@@ -156,7 +157,7 @@ class NewsArticleMapperTest extends \PHPUnit\Framework\TestCase
         $publishDate->modify('+1 days');
 
         $news = new NewsArticle();
-        $news->setCreatedBy(1);
+        $news->setCreatedBy(new NullAccount(1));
         $news->setTitle($text->generateText(\mt_rand(3, 7)));
         $news->setContent($text->generateText(\mt_rand(10, 300)));
         $news->setPublish($publishDate);

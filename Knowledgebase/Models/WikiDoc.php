@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Knowledgebase\Models;
 
+use Modules\Tag\Models\Tag;
+
 /**
  * Wiki document class.
  *
@@ -37,10 +39,10 @@ class WikiDoc implements \JsonSerializable
      *
      * There can be different wikis
      *
-     * @var null|int|WikiApp
+     * @var null|WikiApp
      * @since 1.0.0
      */
-    private $app = null;
+    private ?WikiApp $app = null;
 
     /**
      * Name.
@@ -77,10 +79,10 @@ class WikiDoc implements \JsonSerializable
     /**
      * Category.
      *
-     * @var int|WikiCategory
+     * @var null|WikiCategory
      * @since 1.0.0
      */
-    private $category = 0;
+    private ?WikiCategory $category = null;
 
     /**
      * Language.
@@ -88,15 +90,15 @@ class WikiDoc implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    private $language = 'en';
+    private string $language = 'en';
 
     /**
      * Tags.
      *
-     * @var array
+     * @var Tag[]
      * @since 1.0.0
      */
-    private $tags = [];
+    private array $tags = [];
 
     /**
      * Get id.
@@ -113,25 +115,25 @@ class WikiDoc implements \JsonSerializable
     /**
      * Get app
      *
-     * @return null|int|WikiApp
+     * @return WikiApp
      *
      * @since 1.0.0
      */
-    public function getApp()
+    public function getApp() : WikiApp
     {
-        return $this->app;
+        return $this->app ?? new NullWikiApp();
     }
 
     /**
      * Set app
      *
-     * @param int $app App
+     * @param null|WikiApp $app App
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setApp(int $app) : void
+    public function setApp(?WikiApp $app) : void
     {
         $this->app = $app;
     }
@@ -269,25 +271,25 @@ class WikiDoc implements \JsonSerializable
     /**
      * Get category
      *
-     * @return mixed
+     * @return WikiCategory
      *
      * @since 1.0.0
      */
-    public function getCategory()
+    public function getCategory() : WikiCategory
     {
-        return $this->category;
+        return $this->category ?? new NullWikiCategory();
     }
 
     /**
      * Set cateogry
      *
-     * @param int $category Category
+     * @param null|WikiCategory $category Category
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCategory(int $category) : void
+    public function setCategory(?WikiCategory $category) : void
     {
         $this->category = $category;
     }
@@ -307,13 +309,13 @@ class WikiDoc implements \JsonSerializable
     /**
      * Add tag
      *
-     * @param mixed $tag Tag
+     * @param Tag $tag Tag
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addTag($tag) : void
+    public function addTag(Tag $tag) : void
     {
         $this->tags[] = $tag;
     }

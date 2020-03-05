@@ -44,7 +44,7 @@ echo $this->getData('nav')->render(); ?>
                     <td data-label="<?= $this->getHtml('Status') ?>"><a href="<?= $url; ?>"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $workflow->getStatus()) ?></span></a>
                     <td data-label="<?= $this->getHtml('Next') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getDue()->format('Y-m-d H:i')); ?></a>
                     <td data-label="<?= $this->getHtml('Title') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getTitle()); ?></a>
-                    <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getCreatedBy()); ?></a>
+                    <td data-label="<?= $this->getHtml('Creator') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getCreatedBy()->getId()); ?></a>
                     <td data-label="<?= $this->getHtml('Created') ?>"><a href="<?= $url; ?>"><?= $this->printHtml($workflow->getCreatedAt()->format('Y-m-d H:i')); ?></a>
                         <?php endforeach; if ($c == 0) : ?>
                 <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>

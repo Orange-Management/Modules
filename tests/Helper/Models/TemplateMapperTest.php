@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Helper\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Helper\Models\HelperStatus;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
@@ -37,7 +38,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
     {
         $template = new Template();
 
-        $template->setCreatedBy(1);
+        $template->setCreatedBy(new NullAccount(1));
         $template->setName('Title');
         $template->setStatus(HelperStatus::ACTIVE);
         $template->setDescription('Description');
@@ -47,7 +48,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
         $template->setExpected(['source1.csv', 'source2.csv']);
 
         $collection = new Collection();
-        $collection->setCreatedBy(1);
+        $collection->setCreatedBy(new NullAccount(1));
 
         $templateFiles = [
             [
@@ -89,7 +90,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 
         foreach ($templateFiles as $file) {
             $media = new Media();
-            $media->setCreatedBy(1);
+            $media->setCreatedBy(new NullAccount(1));
             $media->setExtension($file['extension']);
             $media->setPath(\trim($file['path'], '/') . '/' . $file['filename']);
             $media->setName($file['name']);
@@ -106,7 +107,7 @@ class TemplateMapperTest extends \PHPUnit\Framework\TestCase
 
         $templateR = TemplateMapper::get($template->getId());
         self::assertEquals($template->getCreatedAt()->format('Y-m-d'), $templateR->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals($template->getCreatedBy(), $templateR->getCreatedBy()->getId());
+        self::assertEquals($template->getCreatedBy()->getId(), $templateR->getCreatedBy()->getId());
         self::assertEquals($template->getDescription(), $templateR->getDescription());
         self::assertEquals($template->getDescriptionRaw(), $templateR->getDescriptionRaw());
         self::assertEquals($template->getName(), $templateR->getName());

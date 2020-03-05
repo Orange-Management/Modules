@@ -35,7 +35,7 @@ final class GSDCostCenterMapper extends DataMapperAbstract
     protected static array $columns = [
         'ROW_ID'          => ['name' => 'ROW_ID',          'type' => 'int',      'internal' => 'id'],
         'row_create_time' => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'row_create_user' => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy'],
+        'row_create_user' => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'KST'             => ['name' => 'KST',             'type' => 'string',   'internal' => 'costcenter'],
         'Bezeichnung'     => ['name' => 'Bezeichnung',     'type' => 'string',   'internal' => 'description'],
     ];

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\EventManagement\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\EventManagement\Models\Event;
 use Modules\EventManagement\Models\EventMapper;
 use Modules\EventManagement\Models\EventType;
@@ -39,7 +40,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
         $event->setType(EventType::SEMINAR);
         $event->setName('Eventname');
         $event->setDescription('Event description');
-        $event->setCreatedBy(1);
+        $event->setCreatedBy(new NullAccount(1));
         $event->setStart(new \DateTime('2000-05-05'));
         $event->setEnd(new \DateTime('2005-05-05'));
 
@@ -52,11 +53,11 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
 
         $task = new Task();
         $task->setTitle('EventTask 1');
-        $task->setCreatedBy(1);
+        $task->setCreatedBy(new NullAccount(1));
 
         $task2 = new Task();
         $task2->setTitle('EventTask 2');
-        $task2->setCreatedBy(1);
+        $task2->setCreatedBy(new NullAccount(1));
 
         $event->addTask($task);
         $event->addTask($task2);
@@ -65,7 +66,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
         $event->setProgressType(ProgressType::TASKS);
 
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath('some/path');
         $media->setSize(11);
@@ -122,7 +123,7 @@ class EventMapperTest extends \PHPUnit\Framework\TestCase
             $event->setType(EventType::SEMINAR);
             $event->setName($text->generateText(\mt_rand(3, 7)));
             $event->setDescription($text->generateText(\mt_rand(20, 100)));
-            $event->setCreatedBy(1);
+            $event->setCreatedBy(new NullAccount(1));
             $event->setStart(new \DateTime('2000-05-05'));
             $event->setEnd(new \DateTime('2005-05-05'));
             $event->setProgress(\mt_rand(0, 100));

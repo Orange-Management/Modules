@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Marketing\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Marketing\Models\Promotion;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
@@ -32,7 +33,7 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $promotion->getCreatedAt()->format('Y-m-d'));
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $promotion->getStart()->format('Y-m-d'));
         self::assertEquals((new \DateTime('now'))->modify('+1 month')->format('Y-m-d'), $promotion->getEnd()->format('Y-m-d'));
-        self::assertEquals(0, $promotion->getCreatedBy());
+        self::assertEquals(0, $promotion->getCreatedBy()->getId());
         self::assertEquals('', $promotion->getName());
         self::assertEquals('', $promotion->getDescription());
         self::assertEquals(0, $promotion->getCosts()->getInt());
@@ -73,7 +74,7 @@ class PromotionTest extends \PHPUnit\Framework\TestCase
 
         $task = new Task();
         $task->setTitle('Promo Task A');
-        $task->setCreatedBy(1);
+        $task->setCreatedBy(new NullAccount(1));
 
         $promotion->addTask($task);
 

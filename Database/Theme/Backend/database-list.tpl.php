@@ -41,7 +41,7 @@ echo $this->getData('nav')->render(); ?>
                         $url = \phpOMS\Uri\UriFactory::build('{/prefix}database/template/single?{?}&id=' . $value->getId()); ?>
                         <tr>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
-                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()); ?></a>
+                            <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedBy()->getId()); ?></a>
                             <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCreatedAt()->format('Y-m-d H:i:s')); ?></a>
                         <?php endforeach; ?>
                         <?php if ($count === 0) : ?>

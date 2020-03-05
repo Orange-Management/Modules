@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Kanban\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
@@ -38,7 +39,7 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
         'kanban_card_comment_description' => ['name' => 'kanban_card_comment_description', 'type' => 'string',   'internal' => 'description'],
         'kanban_card_comment_card'        => ['name' => 'kanban_card_comment_card',        'type' => 'int',      'internal' => 'card'],
         'kanban_card_comment_created_at'  => ['name' => 'kanban_card_comment_created_at',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'kanban_card_comment_created_by'  => ['name' => 'kanban_card_comment_created_by',  'type' => 'int',      'internal' => 'createdBy'],
+        'kanban_card_comment_created_by'  => ['name' => 'kanban_card_comment_created_by',  'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
     ];
 
     /**
@@ -53,6 +54,19 @@ final class KanbanCardCommentMapper extends DataMapperAbstract
             'table'  => 'kanban_card_comment_media',
             'external' => 'kanban_card_comment_media_dst',
             'self'   => 'kanban_card_comment_media_src',
+        ],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'kanban_card_comment_created_by',
         ],
     ];
 

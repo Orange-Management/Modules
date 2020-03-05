@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Marketing\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Marketing\Models\Promotion;
 use Modules\Marketing\Models\PromotionMapper;
 use Modules\Media\Models\Media;
@@ -32,7 +33,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 
         $promotion->setName('Promotionname');
         $promotion->setDescription('Description');
-        $promotion->setCreatedBy(1);
+        $promotion->setCreatedBy(new NullAccount(1));
         $promotion->setStart(new \DateTime('2000-05-05'));
         $promotion->setEnd(new \DateTime('2005-05-05'));
 
@@ -45,17 +46,17 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 
         $task = new Task();
         $task->setTitle('PromotionTask 1');
-        $task->setCreatedBy(1);
+        $task->setCreatedBy(new NullAccount(1));
 
         $task2 = new Task();
         $task2->setTitle('PromotionTask 2');
-        $task2->setCreatedBy(1);
+        $task2->setCreatedBy(new NullAccount(1));
 
         $promotion->addTask($task);
         $promotion->addTask($task2);
 
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath('some/path');
         $media->setSize(11);
@@ -106,7 +107,7 @@ class PromotionMapperTest extends \PHPUnit\Framework\TestCase
 
             $promotion->setName($text->generateText(\mt_rand(3, 7)));
             $promotion->setDescription($text->generateText(\mt_rand(20, 100)));
-            $promotion->setCreatedBy(1);
+            $promotion->setCreatedBy(new NullAccount(1));
             $promotion->setStart(new \DateTime('2000-05-05'));
             $promotion->setEnd(new \DateTime('2005-05-05'));
 

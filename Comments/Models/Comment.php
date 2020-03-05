@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Comments\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+
 /**
  * Task class.
  *
@@ -32,7 +35,13 @@ class Comment
      */
     protected int $id = 0;
 
-    private $createdBy = 0;
+    /**
+     * Account.
+     *
+     * @var Account
+     * @since 1.0.0
+     */
+    private Account $createdBy;
 
     /**
      * Created at
@@ -85,6 +94,7 @@ class Comment
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime();
     }
 
@@ -233,11 +243,11 @@ class Comment
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -245,13 +255,13 @@ class Comment
     /**
      * Set the creator
      *
-     * @param mixed $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

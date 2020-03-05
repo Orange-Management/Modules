@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\QA\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+
 /**
  * Answer class.
  *
@@ -50,7 +53,13 @@ class QAAnswer implements \JsonSerializable
      */
     private $answerRaw = '';
 
-    private $question = 0;
+    /**
+     * Question
+     *
+     * @var QAQuestion
+     * @since 1.0.0
+     */
+    private QAQuestion $question;
 
     /**
      * Is accepted answer.
@@ -60,8 +69,20 @@ class QAAnswer implements \JsonSerializable
      */
     private bool $isAccepted = false;
 
-    private $createdBy = 0;
+    /**
+     * Created by.
+     *
+     * @var Account
+     * @var 1.0.0
+     */
+    private Account $createdBy;
 
+    /**
+     * Created at.
+     *
+     * @var \DateTime
+     * @var 1.0.0
+     */
     private \DateTime $createdAt;
 
     /**
@@ -72,6 +93,8 @@ class QAAnswer implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->createdBy = new NullAccount();
+        $this->question  = new NullQAQuestion();
     }
 
     /**
@@ -115,11 +138,11 @@ class QAAnswer implements \JsonSerializable
     /**
      * Get the question
      *
-     * @return int
+     * @return QAQuestion
      *
      * @since 1.0.0
      */
-    public function getQuestion() : int
+    public function getQuestion() : QAQuestion
     {
         return $this->question;
     }
@@ -127,13 +150,13 @@ class QAAnswer implements \JsonSerializable
     /**
      * Set the question
      *
-     * @param int $question Question
+     * @param QAQuestion $question Question
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setQuestion(int $question) : void
+    public function setQuestion(QAQuestion $question) : void
     {
         $this->question = $question;
     }
@@ -193,11 +216,11 @@ class QAAnswer implements \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -205,15 +228,15 @@ class QAAnswer implements \JsonSerializable
     /**
      * Set created by
      *
-     * @param mixed $id Creator
+     * @param Account $account Creator
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setCreatedBy(Account $account) : void
     {
-        $this->createdBy = $id;
+        $this->createdBy = $account;
     }
 
     /**

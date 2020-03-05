@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Tasks\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Editor\Models\EditorDoc;
 
 /**
@@ -26,7 +27,7 @@ class EditorDocTest extends \PHPUnit\Framework\TestCase
         $doc = new EditorDoc();
 
         self::assertEquals(0, $doc->getId());
-        self::assertEquals(0, $doc->getCreatedBy());
+        self::assertEquals(0, $doc->getCreatedBy()->getId());
         self::assertEquals('', $doc->getTitle());
         self::assertEquals('', $doc->getContent());
         self::assertEquals('', $doc->getPlain());
@@ -37,8 +38,8 @@ class EditorDocTest extends \PHPUnit\Framework\TestCase
     {
         $doc = new EditorDoc();
 
-        $doc->setCreatedBy(1);
-        self::assertEquals(1, $doc->getCreatedBy());
+        $doc->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $doc->getCreatedBy()->getId());
 
         $doc->setTitle('Title');
         self::assertEquals('Title', $doc->getTitle());

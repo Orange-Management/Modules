@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Knowledgebase\Models;
 
+use Modules\Knowledgebase\Models\NullWikiCategory;
 use Modules\Knowledgebase\Models\WikiCategory;
 use Modules\Knowledgebase\Models\WikiCategoryMapper;
 use phpOMS\Utils\RnG\Text;
@@ -57,7 +58,7 @@ class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
     public function testChildCR() : void
     {
         $this->category->setName('Test Category2');
-        $this->category->setParent(1);
+        $this->category->setParent(new NullWikiCategory(1));
 
         $id = WikiCategoryMapper::create($this->category);
         self::assertGreaterThan(0, $this->category->getId());
@@ -65,7 +66,7 @@ class WikiCategoryMapperTest extends \PHPUnit\Framework\TestCase
 
         $categoryR = WikiCategoryMapper::get($this->category->getId());
         self::assertEquals($this->category->getName(), $categoryR->getName());
-        self::assertEquals($this->category->getParent(), $categoryR->getParent()->getId());
+        self::assertEquals($this->category->getParent()->getId(), $categoryR->getParent()->getId());
     }
 
     /**

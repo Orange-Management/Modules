@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\QA\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use Modules\Tag\Models\Tag;
 
 /**
@@ -61,16 +63,28 @@ class QAQuestion implements \JsonSerializable
     /**
      * Category.
      *
-     * @var int
+     * @var QACategory
      * @since 1.0.0
      */
-    private $category = 0;
+    private ?QACategory $category = null;
 
     private $language = '';
 
-    private $createdBy = 0;
+    /**
+     * Created by.
+     *
+     * @var Account
+     * @since 1.0.0
+     */
+    private Account $createdBy;
 
-    private $createdAt = null;
+    /**
+     * Created at.
+     *
+     * @var \DateTime
+     * @since 1.0.0
+     */
+    private \DateTime $createdAt;
 
     /**
      * Badges.
@@ -96,6 +110,7 @@ class QAQuestion implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->createdBy = new NullAccount();
     }
 
     /**
@@ -257,21 +272,21 @@ class QAQuestion implements \JsonSerializable
      *
      * @since 1.0.0
      */
-    public function getCategory()
+    public function getCategory() : QACategory
     {
-        return $this->category;
+        return $this->category ?? new NullQACategory();
     }
 
     /**
      * Set the category
      *
-     * @param int $category Category
+     * @param null|QACategory $category Category
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCategory(int $category) : void
+    public function setCategory(?QACategory $category) : void
     {
         $this->category = $category;
     }
@@ -279,11 +294,11 @@ class QAQuestion implements \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -291,15 +306,15 @@ class QAQuestion implements \JsonSerializable
     /**
      * Set created by
      *
-     * @param mixed $id Created by
+     * @param Account $account Created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setCreatedBy(Account $account) : void
     {
-        $this->createdBy = $id;
+        $this->createdBy = $account;
     }
 
     /**

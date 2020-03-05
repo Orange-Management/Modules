@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\tests\ClientMapper\Models;
 
 use Modules\Admin\Models\AccountMapper;
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Profile\Models\Profile;
 use Modules\Profile\Models\ProfileMapper;
@@ -31,7 +32,7 @@ class ProfileMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath('Web/Backend/img/default-user.jpg');
         $media->setSize(11);

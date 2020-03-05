@@ -16,13 +16,16 @@ namespace Modules\Organization\Controller;
 
 use Modules\Organization\Models\Department;
 use Modules\Organization\Models\DepartmentMapper;
+use Modules\Organization\Models\NullDepartment;
+use Modules\Organization\Models\NullPosition;
+use Modules\Organization\Models\NullUnit;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
 use Modules\Organization\Models\SettingsEnum;
 use Modules\Organization\Models\Status;
+
 use Modules\Organization\Models\Unit;
 use Modules\Organization\Models\UnitMapper;
-
 use phpOMS\Account\GroupStatus;
 use phpOMS\Message\Http\HttpRequest;
 use phpOMS\Message\NotificationLevel;
@@ -204,7 +207,7 @@ final class ApiController extends Controller
         $unit->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
 
         $parent = (int) $request->getData('parent');
-        $unit->setParent(!empty($parent) ? $parent : null);
+        $unit->setParent(!empty($parent) ? new NullUnit($parent) : null);
         $unit->setStatus((int) $request->getData('status'));
 
         return $unit;
@@ -376,10 +379,10 @@ final class ApiController extends Controller
         $position->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
 
         $parent = (int) $request->getData('parent');
-        $position->setParent(!empty($parent) ? $parent : null);
+        $position->setParent(!empty($parent) ? new NullPosition($parent) : null);
 
         $department = (int) $request->getData('department');
-        $position->setDepartment(!empty($department) ? $department : null);
+        $position->setDepartment(!empty($department) ? new NullDepartment($department) : null);
 
         return $position;
     }
@@ -547,8 +550,8 @@ final class ApiController extends Controller
         $department->setStatus((int) $request->getData('status'));
 
         $parent = (int) $request->getData('parent');
-        $department->setParent(!empty($parent) ? $parent : null);
-        $department->setUnit((int) ($request->getData('unit') ?? 1));
+        $department->setParent(!empty($parent) ? new NullDepartment($parent) : null);
+        $department->setUnit(new NullUnit((int) ($request->getData('unit') ?? 1)));
         $department->setDescriptionRaw((string) ($request->getData('description') ?? ''));
         $department->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));
 

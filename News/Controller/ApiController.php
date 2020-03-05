@@ -14,11 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\News\Controller;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\News\Models\NewsArticle;
 use Modules\News\Models\NewsArticleMapper;
 use Modules\News\Models\NewsStatus;
-use Modules\News\Models\NewsType;
 
+use Modules\News\Models\NewsType;
 use phpOMS\Account\Account;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\NotificationLevel;
@@ -153,7 +154,7 @@ final class ApiController extends Controller
     private function createNewsArticleFromRequest(RequestAbstract $request) : NewsArticle
     {
         $newsArticle = new NewsArticle();
-        $newsArticle->setCreatedBy($request->getHeader()->getAccount());
+        $newsArticle->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
         $newsArticle->setPublish(new \DateTime((string) ($request->getData('publish') ?? 'now')));
         $newsArticle->setTitle((string) ($request->getData('title') ?? ''));
         $newsArticle->setPlain($request->getData('plain') ?? '');

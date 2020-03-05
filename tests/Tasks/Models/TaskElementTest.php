@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\Tasks\Models;
 
+use Modules\Admin\Models\NullAccount;
+use Modules\Admin\Models\NullGroup;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskPriority;
 use Modules\Tasks\Models\TaskStatus;
@@ -28,7 +30,7 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         $task = new TaskElement();
 
         self::assertEquals(0, $task->getId());
-        self::assertEquals(0, $task->getCreatedBy());
+        self::assertEquals(0, $task->getCreatedBy()->getId());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $task->getCreatedAt()->format('Y-m-d'));
         self::assertEquals((new \DateTime('now'))->modify('+1 day')->format('Y-m-d'), $task->getDue()->format('Y-m-d'));
         self::assertEquals(TaskStatus::OPEN, $task->getStatus());
@@ -44,8 +46,8 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
     {
         $task = new TaskElement();
 
-        $task->setCreatedBy(1);
-        self::assertEquals(1, $task->getCreatedBy());
+        $task->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $task->getCreatedBy()->getId());
 
         $task->setDue($date = new \DateTime('2000-05-07'));
         self::assertEquals($date->format('Y-m-d'), $task->getDue()->format('Y-m-d'));
@@ -65,20 +67,20 @@ class TaskElementTest extends \PHPUnit\Framework\TestCase
         $task->setTask(2);
         self::assertEquals(2, $task->getTask());
 
-        $task->addTo(3);
-        $task->addTo(3); // test duplicate
+        $task->addTo(new NullAccount(3));
+        $task->addTo(new NullAccount(3)); // test duplicate
         self::assertTrue($task->isToAccount(3));
 
-        $task->addGroupTo(4);
-        $task->addGroupTo(4); // test duplicate
+        $task->addGroupTo(new NullGroup(4));
+        $task->addGroupTo(new NullGroup(4)); // test duplicate
         self::assertTrue($task->isToGroup(4));
 
-        $task->addCC(5);
-        $task->addCC(5); // test duplicate
+        $task->addCC(new NullAccount(5));
+        $task->addCC(new NullAccount(5)); // test duplicate
         self::assertTrue($task->isCCAccount(5));
 
-        $task->addGroupCC(6);
-        $task->addGroupCC(6); // test duplicate
+        $task->addGroupCC(new NullGroup(6));
+        $task->addGroupCC(new NullGroup(6)); // test duplicate
         self::assertTrue($task->isCCGroup(6));
 
         self::assertFalse($task->isToAccount(7));

@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\QA\Models;
 
+use Modules\Admin\Models\NullAccount;
+use Modules\QA\Models\NullQACategory;
 use Modules\QA\Models\QAQuestion;
 use Modules\QA\Models\QAQuestionMapper;
 use Modules\QA\Models\QAQuestionStatus;
@@ -31,8 +33,8 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
         $question->setName('Question Name');
         $question->setQuestion('Question content');
         $question->setStatus(QAQuestionStatus::ACTIVE);
-        $question->setCategory(1);
-        $question->setCreatedBy(1);
+        $question->setCategory(new NullQACategory(1));
+        $question->setCreatedBy(new NullAccount(1));
         $question->setLanguage('en');
 
         $id = QAQuestionMapper::create($question);
@@ -44,8 +46,8 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($question->getQuestion(), $questionR->getQuestion());
         self::assertEquals($question->getStatus(), $questionR->getStatus());
         self::assertEquals($question->getLanguage(), $questionR->getLanguage());
-        self::assertEquals($question->getCategory(), $questionR->getCategory()->getId());
-        self::assertEquals($question->getCreatedBy(), $questionR->getCreatedBy()->getId());
+        self::assertEquals($question->getCategory()->getId(), $questionR->getCategory()->getId());
+        self::assertEquals($question->getCreatedBy()->getId(), $questionR->getCreatedBy()->getId());
     }
 
     /**
@@ -62,8 +64,8 @@ class QAQuestionMapperTest extends \PHPUnit\Framework\TestCase
             $question->setName($text->generateText(\mt_rand(1, 3)));
             $question->setQuestion($text->generateText(\mt_rand(100, 500)));
             $question->setStatus(QAQuestionStatus::ACTIVE);
-            $question->setCategory(\mt_rand(1, 9));
-            $question->setCreatedBy(1);
+            $question->setCategory(new NullQACategory(\mt_rand(1, 9)));
+            $question->setCreatedBy(new NullAccount(1));
             $question->setLanguage('en');
 
             $id = QAQuestionMapper::create($question);

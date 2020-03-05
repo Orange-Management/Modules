@@ -30,7 +30,7 @@ echo $this->getData('nav')->render(); ?>
         <blockquote>
             <?= $this->printHtml($task->getDescription()); ?>
         </blockquote>
-        <div>Created <?= $this->printHtml($task->getCreatedBy()); ?></div>
+        <div>Created <?= $this->printHtml($task->getCreatedBy()->getId()); ?></div>
         <div>Status <?= $this->printHtml($task->getStatus()); ?></div>
     </div>
 </section>
@@ -44,7 +44,7 @@ foreach ($elements as $key => $element) : ++$c;
     elseif ($element->getStatus() === \Modules\Tasks\Models\TaskStatus::SUSPENDED) { $color = 'yellow'; } ?>
     <section class="box w-50">
         <div class="floatRight"><span class="tag <?= $this->printHtml($color); ?>"><?= $this->getHtml('S' . $element->getStatus()) ?></span></div>
-        <div><?= $this->printHtml($element->getCreatedBy()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
+        <div><?= $this->printHtml($element->getCreatedBy()->getId()); ?> - <?= $this->printHtml($element->getCreatedAt()->format('Y-m-d H:i')); ?></div>
     </section>
     <?php if ($element->getDescription() !== '') : ?>
         <section class="box w-50">

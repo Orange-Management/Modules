@@ -14,10 +14,11 @@ declare(strict_types=1);
 
 namespace Modules\Auditor\Controller;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Auditor\Models\Audit;
 use Modules\Auditor\Models\AuditMapper;
-use phpOMS\Account\Account;
 
+use phpOMS\Account\Account;
 use phpOMS\Utils\StringUtils;
 
 /**
@@ -65,7 +66,7 @@ final class ApiController extends Controller
     ) : void
     {
         $newString = StringUtils::stringify($new, \JSON_PRETTY_PRINT);
-        $audit     = new Audit($account, null, $newString, $type, $subtype, $module, $ref, $content);
+        $audit     = new Audit(new NullAccount($account), null, $newString, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
     }
@@ -101,7 +102,7 @@ final class ApiController extends Controller
     {
         $oldString = StringUtils::stringify($old, \JSON_PRETTY_PRINT);
         $newString = StringUtils::stringify($new, \JSON_PRETTY_PRINT);
-        $audit     = new Audit($account, $oldString, $newString, $type, $subtype, $module, $ref, $content);
+        $audit     = new Audit(new NullAccount($account), $oldString, $newString, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
     }
@@ -136,7 +137,7 @@ final class ApiController extends Controller
     ) : void
     {
         $oldString = StringUtils::stringify($old, \JSON_PRETTY_PRINT);
-        $audit     = new Audit($account, $oldString, null, $type, $subtype, $module, $ref, $content);
+        $audit     = new Audit(new NullAccount($account), $oldString, null, $type, $subtype, $module, $ref, $content);
 
         AuditMapper::create($audit);
     }

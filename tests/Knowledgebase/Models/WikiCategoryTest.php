@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\Knowledgebase\Models;
 
+use Modules\Knowledgebase\Models\NullWikiApp;
+use Modules\Knowledgebase\Models\NullWikiCategory;
 use Modules\Knowledgebase\Models\WikiCategory;
 
 /**
@@ -39,10 +41,10 @@ class WikiCategoryTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->category->getId());
-        self::assertNull($this->category->getApp());
+        self::assertEquals(0, $this->category->getApp()->getId());
         self::assertEquals('', $this->category->getName());
         self::assertEquals('/', $this->category->getPath());
-        self::assertNull($this->category->getParent());
+        self::assertEquals(0, $this->category->getParent()->getId());
     }
 
     /**
@@ -52,8 +54,8 @@ class WikiCategoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testAppInputOutput() : void
     {
-        $this->category->setApp(2);
-        self::assertEquals(2, $this->category->getApp());
+        $this->category->setApp(new NullWikiApp(2));
+        self::assertEquals(2, $this->category->getApp()->getId());
     }
 
     /**
@@ -85,7 +87,7 @@ class WikiCategoryTest extends \PHPUnit\Framework\TestCase
      */
     public function testParentInputOutput() : void
     {
-        $this->category->setParent(2);
-        self::assertEquals(2, $this->category->getParent());
+        $this->category->setParent(new NullWikiCategory(2));
+        self::assertEquals(2, $this->category->getParent()->getId());
     }
 }

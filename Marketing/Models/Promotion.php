@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Marketing\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use Modules\Calendar\Models\Calendar;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
@@ -80,10 +82,10 @@ class Promotion
     /**
      * Created by.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     private $tasks = [];
 
@@ -100,6 +102,7 @@ class Promotion
         $this->end   = new \DateTime('now');
         $this->end->modify('+1 month');
         $this->createdAt = new \DateTime('now');
+        $this->createdBy = new NullAccount();
 
         $this->calendar = new Calendar();
 
@@ -486,11 +489,11 @@ class Promotion
     /**
      * Get created by
      *
-     * @return int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -498,11 +501,11 @@ class Promotion
     /**
      * Set creator
      *
-     * @param int $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @since 1.0.0
      */
-    public function setCreatedBy(int $createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

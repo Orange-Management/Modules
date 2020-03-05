@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Calendar\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Calendar\Models\Calendar;
 use Modules\Calendar\Models\CalendarMapper;
 use Modules\Calendar\Models\Event;
@@ -33,15 +34,15 @@ class CalendarMapperTest extends \PHPUnit\Framework\TestCase
         $calendarEvent1 = new Event();
         $calendarEvent1->setName('Running test');
         $calendarEvent1->setDescription('Desc1');
-        $calendarEvent1->setCreatedBy(1);
-        $calendarEvent1->getSchedule()->setCreatedBy(1);
+        $calendarEvent1->setCreatedBy(new NullAccount(1));
+        $calendarEvent1->getSchedule()->setCreatedBy(new NullAccount(1));
         $calendar->addEvent($calendarEvent1);
 
         $calendarEvent2 = new Event();
         $calendarEvent2->setName('Running test2');
         $calendarEvent2->setDescription('Desc2');
-        $calendarEvent2->setCreatedBy(1);
-        $calendarEvent2->getSchedule()->setCreatedBy(1);
+        $calendarEvent2->setCreatedBy(new NullAccount(1));
+        $calendarEvent2->getSchedule()->setCreatedBy(new NullAccount(1));
         $calendar->addEvent($calendarEvent2);
 
         $id = CalendarMapper::create($calendar);

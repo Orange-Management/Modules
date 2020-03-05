@@ -48,7 +48,7 @@ class Department implements ArrayableInterface, \JsonSerializable
      * @var mixed
      * @since 1.0.0
      */
-    protected $parent = null;
+    protected ?self $parent = null;
 
     /**
      * Status
@@ -61,10 +61,10 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Unit this department belongs to
      *
-     * @var mixed
+     * @var Unit
      * @since 1.0.0
      */
-    protected $unit = 1;
+    protected Unit $unit;
 
     /**
      * Description.
@@ -135,11 +135,11 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Get parent
      *
-     * @return mixed
+     * @return Department
      *
      * @since 1.0.0
      */
-    public function getParent()
+    public function getParent() : self
     {
         return $this->parent ?? new NullDepartment();
     }
@@ -147,13 +147,13 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Set parent
      *
-     * @param mixed $parent Parent
+     * @param null|self $parent Parent
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setParent($parent) : void
+    public function setParent(?self $parent) : void
     {
         $this->parent = $parent;
     }
@@ -187,11 +187,11 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Get unit
      *
-     * @return mixed
+     * @return Unit
      *
      * @since 1.0.0
      */
-    public function getUnit()
+    public function getUnit() : Unit
     {
         return $this->unit ?? new NullUnit();
     }
@@ -199,13 +199,13 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Set unit
      *
-     * @param mixed $unit Unit
+     * @param Unit $unit Unit
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setUnit($unit) : void
+    public function setUnit(Unit $unit) : void
     {
         $this->unit = $unit;
     }
@@ -271,7 +271,7 @@ class Department implements ArrayableInterface, \JsonSerializable
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
-            'unit'        => $this->unit,
+            'unit'        => $this->unit ?? new NullUnit(),
         ];
     }
 

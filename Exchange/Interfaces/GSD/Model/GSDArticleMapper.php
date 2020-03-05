@@ -35,7 +35,7 @@ final class GSDArticleMapper extends DataMapperAbstract
     protected static array $columns = [
         'row_id'               => ['name' => 'row_id',               'type' => 'int',      'internal' => 'id'],
         'row_create_time'      => ['name' => 'row_create_time',      'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'row_create_user'      => ['name' => 'row_create_user',      'type' => 'int',      'internal' => 'createdBy'],
+        'row_create_user'      => ['name' => 'row_create_user',      'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'Artikelnummer'        => ['name' => 'Artikelnummer',        'type' => 'string',   'internal' => 'number'],
         'Artikelbezeichnung'   => ['name' => 'Artikelbezeichnung',   'type' => 'string',   'internal' => 'name1'],
         '_Artikelbezeichnung2' => ['name' => '_Artikelbezeichnung2', 'type' => 'string',   'internal' => 'name2'],

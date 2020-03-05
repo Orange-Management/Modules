@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\ProjectManagement\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\ProjectManagement\Models\ProgressType;
 use Modules\ProjectManagement\Models\Project;
 use Modules\Tasks\Models\Task;
@@ -33,7 +34,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $project->getCreatedAt()->format('Y-m-d'));
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $project->getStart()->format('Y-m-d'));
         self::assertEquals((new \DateTime('now'))->modify('+1 month')->format('Y-m-d'), $project->getEnd()->format('Y-m-d'));
-        self::assertEquals(0, $project->getCreatedBy());
+        self::assertEquals(0, $project->getCreatedBy()->getId());
         self::assertEquals('', $project->getName());
         self::assertEquals('', $project->getDescription());
         self::assertEquals(0, $project->getCosts()->getInt());
@@ -80,7 +81,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
 
         $task = new Task();
         $task->setTitle('A');
-        $task->setCreatedBy(1);
+        $task->setCreatedBy(new NullAccount(1));
 
         $project->addTask($task);
 

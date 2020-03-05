@@ -32,7 +32,7 @@ class Unit implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private int $id = 0;
+    protected int $id = 0;
 
     /**
      * Name.
@@ -45,10 +45,10 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var mixed
+     * @var null|Unit
      * @since 1.0.0
      */
-    private $parent = null;
+    private ?self $parent = null;
 
     /**
      * Description.
@@ -115,11 +115,11 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Get parent
      *
-     * @return mixed
+     * @return Unit
      *
      * @since 1.0.0
      */
-    public function getParent()
+    public function getParent() : self
     {
         return $this->parent ?? new NullUnit();
     }
@@ -127,13 +127,13 @@ class Unit implements ArrayableInterface, \JsonSerializable
     /**
      * Set parent
      *
-     * @param mixed $parent Parent
+     * @param null|Unit $parent Parent
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setParent($parent) : void
+    public function setParent(?self $parent) : void
     {
         $this->parent = $parent;
     }

@@ -67,7 +67,7 @@ final class Installer extends InstallerAbstract
 
         $query = new Builder($con);
         $query->prefix($con->getPrefix())
-            ->insert('country_name', 'country_native', 'country_code2', 'country_code3', 'country_numeric')
+            ->insert('country_name', 'country_code2', 'country_code3', 'country_numeric')
             ->into('country');
 
         $querySqlite = new Builder($sqlite);
@@ -75,7 +75,6 @@ final class Installer extends InstallerAbstract
 
         foreach ($countries as $country) {
             $query->values(
-                $country['country_name'] === null ? null : \trim($country['country_name']),
                 $country['country_name'] === null ? null : \trim($country['country_name']),
                 $country['country_code2'] === null ? null : \trim($country['country_code2']),
                 $country['country_code3'] === null ? null : \trim($country['country_code3']),
@@ -102,7 +101,7 @@ final class Installer extends InstallerAbstract
 
         $query = new Builder($con);
         $query->prefix($con->getPrefix())
-            ->insert('language_name', 'language_native', 'language_639_2T', 'language_639_2B', 'language_639_3')
+            ->insert('language_name', 'language_native', 'language_639_1', 'language_639_2T', 'language_639_2B', 'language_639_3')
             ->into('language');
 
         $querySqlite = new Builder($sqlite);
@@ -112,6 +111,7 @@ final class Installer extends InstallerAbstract
             $query->values(
                 $language['language_name'] === null ? null : \trim($language['language_name']),
                 $language['language_native'] === null ? null : \trim($language['language_native']),
+                $language['language_639_1'] === null ? null : \trim($language['language_639_1']),
                 $language['language_639_2T'] === null ? null : \trim($language['language_639_2T']),
                 $language['language_639_2B'] === null ? null : \trim($language['language_639_2B']),
                 $language['language_639_3'] === null ? null : \trim($language['language_639_3'])

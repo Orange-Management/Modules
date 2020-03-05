@@ -14,10 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\tests\Helper\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Helper\Models\HelperStatus;
 use Modules\Helper\Models\NullReport;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
+use Modules\Media\Models\NullCollection;
+use Modules\Organization\Models\NullUnit;
 
 /**
  * @testdox Modules\tests\Helper\Models\TemplateTest: Template model
@@ -41,15 +44,15 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->template->getId());
-        self::assertEquals(0, $this->template->getUnit());
-        self::assertEquals(0, $this->template->getCreatedBy());
+        self::assertEquals(0, $this->template->getUnit()->getId());
+        self::assertEquals(0, $this->template->getCreatedBy()->getId());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->template->getCreatedAt()->format('Y-m-d'));
         self::assertEquals('', $this->template->getName());
         self::assertEquals(HelperStatus::INACTIVE, $this->template->getStatus());
         self::assertEquals('', $this->template->getDescription());
         self::assertEquals('', $this->template->getDescriptionRaw());
         self::assertEquals([], $this->template->getExpected());
-        self::assertEquals(0, $this->template->getSource());
+        self::assertEquals(0, $this->template->getSource()->getId());
         self::assertFalse($this->template->isStandalone());
         self::assertEquals(TemplateDataType::OTHER, $this->template->getDatatype());
         self::assertInstanceOf(NullReport::class, $this->template->getNewestReport());
@@ -62,8 +65,8 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
      */
     public function testUnitInputOutput() : void
     {
-        $this->template->setUnit(1);
-        self::assertEquals(1, $this->template->getUnit());
+        $this->template->setUnit(new NullUnit(1));
+        self::assertEquals(1, $this->template->getUnit()->getId());
     }
     /**
      * @testdox The creator can be set and returned correctly
@@ -72,8 +75,8 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreatedByInputOutput() : void
     {
-        $this->template->setCreatedBy(1);
-        self::assertEquals(1, $this->template->getCreatedBy());
+        $this->template->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $this->template->getCreatedBy()->getId());
     }
 
     /**
@@ -150,8 +153,8 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
      */
     public function testSourceInputOutput() : void
     {
-        $this->template->setSource(4);
-        self::assertEquals(4, $this->template->getSource());
+        $this->template->setSource(new NullCollection(4));
+        self::assertEquals(4, $this->template->getSource()->getId());
     }
 
     /**
@@ -180,7 +183,6 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
         $array    = $this->template->toArray();
         $expected = [
             'id' => 0,
-            'createdBy' => 0,
             'name' => 'testName',
             'description' => 'testDescription',
             'descriptionRaw' => 'testDescriptionRaw',
@@ -213,7 +215,6 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
         $array    = $this->template->jsonSerialize();
         $expected = [
             'id' => 0,
-            'createdBy' => 0,
             'name' => 'testName',
             'description' => 'testDescription',
             'descriptionRaw' => 'testDescriptionRaw',

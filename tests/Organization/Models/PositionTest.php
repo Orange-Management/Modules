@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\Organization\Models;
 
+use Modules\Organization\Models\NullDepartment;
+use Modules\Organization\Models\NullPosition;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\Status;
 
@@ -44,13 +46,13 @@ class PositionTest extends \PHPUnit\Framework\TestCase
         $position->setStatus(Status::ACTIVE);
         self::assertEquals(Status::ACTIVE, $position->getStatus());
 
-        $position->setDepartment(2);
-        self::assertEquals(2, $position->getDepartment());
+        $position->setDepartment(new NullDepartment(2));
+        self::assertEquals(2, $position->getDepartment()->getId());
 
         $position->setDescription('Description');
         self::assertEquals('Description', $position->getDescription());
 
-        $position->setParent(2);
-        self::assertEquals(2, $position->getParent());
+        $position->setParent(new NullPosition(2));
+        self::assertEquals(2, $position->getParent()->getId());
     }
 }

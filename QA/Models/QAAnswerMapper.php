@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\QA\Models;
 
-use Modules\Profile\Models\ProfileMapper;
+use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**
@@ -39,8 +39,25 @@ final class QAAnswerMapper extends DataMapperAbstract
         'qa_answer_question'   => ['name' => 'qa_answer_question',   'type' => 'int',      'internal' => 'question'],
         'qa_answer_status'     => ['name' => 'qa_answer_status',     'type' => 'int',      'internal' => 'status'],
         'qa_answer_accepted'   => ['name' => 'qa_answer_accepted',   'type' => 'bool',     'internal' => 'isAccepted'],
-        'qa_answer_created_by' => ['name' => 'qa_answer_created_by', 'type' => 'int',      'internal' => 'createdBy'],
+        'qa_answer_created_by' => ['name' => 'qa_answer_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'qa_answer_created_at' => ['name' => 'qa_answer_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'qa_answer_created_by',
+        ],
+        'question' => [
+            'mapper' => QAQuestionMapper::class,
+            'self'   => 'qa_answer_question',
+        ],
     ];
 
     /**
@@ -66,17 +83,4 @@ final class QAAnswerMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static string $primaryField = 'qa_answer_id';
-
-    /**
-     * Belongs to.
-     *
-     * @var array<string, array{mapper:string, self:string}>
-     * @since 1.0.0
-     */
-    protected static array $belongsTo = [
-        'createdBy' => [
-            'mapper' => ProfileMapper::class,
-            'self'   => 'qa_answer_created_by',
-        ],
-    ];
 }

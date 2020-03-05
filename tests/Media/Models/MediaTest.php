@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Media\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 
 /**
@@ -31,7 +32,7 @@ class MediaTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->media->getId());
-        self::assertEquals(0, $this->media->getCreatedBy());
+        self::assertEquals(0, $this->media->getCreatedBy()->getId());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->media->getCreatedAt()->format('Y-m-d'));
         self::assertEquals('', $this->media->getExtension());
         self::assertEquals('', $this->media->getPath());
@@ -46,8 +47,8 @@ class MediaTest extends \PHPUnit\Framework\TestCase
 
     public function testCreatedByInputOutput() : void
     {
-        $this->media->setCreatedBy(1);
-        self::assertEquals(1, $this->media->getCreatedBy());
+        $this->media->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $this->media->getCreatedBy()->getId());
     }
 
     public function testExtensionInputOutput() : void

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Comments\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Comments\Models\Comment;
 
 /**
@@ -28,7 +29,7 @@ class CommentTest extends \PHPUnit\Framework\TestCase
 
         $date = new \DateTime('now');
         self::assertEquals($date->format('Y-m-d'), $comment->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals(0, $comment->getCreatedBy());
+        self::assertEquals(0, $comment->getCreatedBy()->getId());
         self::assertEquals(0, $comment->getList());
         self::assertEquals(0, $comment->getRef());
         self::assertEquals('', $comment->getTitle());
@@ -39,8 +40,8 @@ class CommentTest extends \PHPUnit\Framework\TestCase
     {
         $comment = new Comment();
 
-        $comment->setCreatedBy(1);
-        self::assertEquals(1, $comment->getCreatedBy());
+        $comment->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $comment->getCreatedBy()->getId());
 
         $comment->setList(2);
         self::assertEquals(2, $comment->getList());

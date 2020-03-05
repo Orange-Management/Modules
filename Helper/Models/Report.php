@@ -14,6 +14,12 @@ declare(strict_types=1);
 
 namespace Modules\Helper\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+use Modules\Helper\Admin\Install\Media;
+use Modules\Media\Models\Collection;
+use Modules\Media\Models\NullCollection;
+
 /**
  * Report model.
  *
@@ -30,7 +36,7 @@ class Report implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private int $id = 0;
+    protected int $id = 0;
 
     /**
      * Report status.
@@ -75,26 +81,26 @@ class Report implements \JsonSerializable
     /**
      * Report created by.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Report template.
      *
-     * @var int|\Modules\Media\Models\Media
+     * @var Template
      * @since 1.0.0
      */
-    private $template = 0;
+    private Template $template;
 
     /**
      * Report source.
      *
-     * @var int|\Modules\Media\Models\Collection
+     * @var Collection
      * @since 1.0.0
      */
-    private $source = 0;
+    private Collection $source;
 
     /**
      * Constructor.
@@ -103,7 +109,10 @@ class Report implements \JsonSerializable
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime('now');
+        $this->template  = new NullTemplate();
+        $this->source    = new NullCollection();
     }
 
     /**
@@ -231,17 +240,17 @@ class Report implements \JsonSerializable
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime('now');
+        return $this->createdAt;
     }
 
     /**
      * Get creator
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -249,13 +258,13 @@ class Report implements \JsonSerializable
     /**
      * Set creator
      *
-     * @param mixed $creator Created by
+     * @param Account $creator Created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($creator) : void
+    public function setCreatedBy(Account $creator) : void
     {
         $this->createdBy = $creator;
     }
@@ -263,11 +272,11 @@ class Report implements \JsonSerializable
     /**
      * Get template this report belongs to
      *
-     * @return mixed
+     * @return Template
      *
      * @since 1.0.0
      */
-    public function getTemplate()
+    public function getTemplate() : Template
     {
         return $this->template;
     }
@@ -275,13 +284,13 @@ class Report implements \JsonSerializable
     /**
      * Set template this report belongs to
      *
-     * @param mixed $template Report template
+     * @param Template $template Report template
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setTemplate($template) : void
+    public function setTemplate(Template $template) : void
     {
         $this->template = $template;
     }
@@ -289,13 +298,13 @@ class Report implements \JsonSerializable
     /**
      * Set source media for the report
      *
-     * @param \Modules\Media\Models\Collection|int $source Report source
+     * @param Collection $source Report source
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setSource($source) : void
+    public function setSource(Collection $source) : void
     {
         $this->source = $source;
     }
@@ -303,11 +312,11 @@ class Report implements \JsonSerializable
     /**
      * Get source media for the report
      *
-     * @return \Modules\Media\Models\Collection|int
+     * @return Collection
      *
      * @since 1.0.0
      */
-    public function getSource()
+    public function getSource() : Collection
     {
         return $this->source;
     }

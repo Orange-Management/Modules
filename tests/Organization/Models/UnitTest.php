@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Organization\Models;
 
+use Modules\Organization\Models\NullUnit;
 use Modules\Organization\Models\Status;
 use Modules\Organization\Models\Unit;
 
@@ -46,7 +47,7 @@ class UnitTest extends \PHPUnit\Framework\TestCase
         $unit->setDescription('Description');
         self::assertEquals('Description', $unit->getDescription());
 
-        $unit->setParent(1);
-        self::assertEquals(1, $unit->getParent());
+        $unit->setParent(new NullUnit(1));
+        self::assertEquals(1, $unit->getParent()->getId());
     }
 }

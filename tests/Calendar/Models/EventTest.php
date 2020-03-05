@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Calendar\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Calendar\Models\Event;
 use phpOMS\Account\Account;
 
@@ -27,12 +28,12 @@ class EventTest extends \PHPUnit\Framework\TestCase
         $event = new Event();
 
         self::assertEquals(0, $event->getId());
-        self::assertEquals(0, $event->getCreatedBy());
+        self::assertEquals(0, $event->getCreatedBy()->getId());
         self::assertEquals('', $event->getName());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $event->getCreatedAt()->format('Y-m-d'));
         self::assertEquals('', $event->getDescription());
         self::assertEquals([], $event->getPeople());
-        self::assertInstanceOf('\phpOMS\Account\NullAccount', $event->getPerson(1));
+        self::assertInstanceOf('\Modules\Admin\Models\NullAccount', $event->getPerson(1));
         self::assertInstanceOf('\phpOMS\Stdlib\Base\Location', $event->getLocation());
     }
 
@@ -40,8 +41,8 @@ class EventTest extends \PHPUnit\Framework\TestCase
     {
         $event = new Event();
 
-        $event->setCreatedBy(1);
-        self::assertEquals(1, $event->getCreatedBy());
+        $event->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $event->getCreatedBy()->getId());
 
         $event->setName('Name');
         self::assertEquals('Name', $event->getName());

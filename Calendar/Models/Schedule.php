@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Calendar\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
@@ -125,10 +127,10 @@ class Schedule
     /**
      * Created by.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Constructor.
@@ -137,6 +139,7 @@ class Schedule
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime('now');
         $this->start     = new \DateTime('now');
         $this->end       = new \DateTime('now');
@@ -170,7 +173,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status) : self
     {
         if (!ScheduleStatus::isValidValue($status)) {
             throw new InvalidEnumValue($status);
@@ -198,7 +201,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setFreqType(int $freqType)
+    public function setFreqType(int $freqType) : self
     {
         if (!FrequencyType::isValidValue($freqType)) {
             throw new InvalidEnumValue($freqType);
@@ -226,7 +229,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setIntervalType(int $intervalType)
+    public function setIntervalType(int $intervalType) : self
     {
         if (!IntervalType::isValidValue($intervalType)) {
             throw new InvalidEnumValue($intervalType);
@@ -254,7 +257,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setFrequencyRelative(int $relativeInterval)
+    public function setFrequencyRelative(int $relativeInterval) : self
     {
         if (!FrequencyRelative::isValidValue($relativeInterval)) {
             throw new InvalidEnumValue($relativeInterval);
@@ -272,7 +275,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setFreqInterval(int $freqInterval)
+    public function setFreqInterval(int $freqInterval) : self
     {
         if (!FrequencyInterval::isValidValue($freqInterval)) {
             throw new InvalidEnumValue($freqInterval);
@@ -310,7 +313,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setRecurrenceFactor(int $recurrence)
+    public function setRecurrenceFactor(int $recurrence) : self
     {
         $this->recurrenceFactor = $recurrence;
 
@@ -334,7 +337,7 @@ class Schedule
      *
      * @since 1.0.0
      */
-    public function setStart(\DateTime $start)
+    public function setStart(\DateTime $start) : self
     {
         $this->start = $start;
 
@@ -394,13 +397,13 @@ class Schedule
     }
 
     /**
-     * @param int $creator Creator
+     * @param Account $creator Creator
      *
      * @return $this
      *
      * @since 1.0.0
      */
-    public function setCreatedBy(int $creator)
+    public function setCreatedBy(Account $creator) : self
     {
         $this->createdBy = $creator;
 
@@ -408,11 +411,11 @@ class Schedule
     }
 
     /**
-     * @return int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }

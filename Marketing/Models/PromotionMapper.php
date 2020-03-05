@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Marketing\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Calendar\Models\CalendarMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Tasks\Models\TaskMapper;
@@ -47,7 +48,7 @@ final class PromotionMapper extends DataMapperAbstract
         'marketing_promotion_end'           => ['name' => 'marketing_promotion_end',           'type' => 'DateTime',     'internal' => 'end'],
         'marketing_promotion_progress'      => ['name' => 'marketing_promotion_progress',      'type' => 'int',          'internal' => 'progress'],
         'marketing_promotion_progress_type' => ['name' => 'marketing_promotion_progress_type', 'type' => 'int',          'internal' => 'progressType'],
-        'marketing_promotion_created_by'    => ['name' => 'marketing_promotion_created_by',    'type' => 'int',          'internal' => 'createdBy'],
+        'marketing_promotion_created_by'    => ['name' => 'marketing_promotion_created_by',    'type' => 'int',          'internal' => 'createdBy', 'readonly' => true],
         'marketing_promotion_created_at'    => ['name' => 'marketing_promotion_created_at',    'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -82,6 +83,19 @@ final class PromotionMapper extends DataMapperAbstract
         'calendar' => [
             'mapper' => CalendarMapper::class,
             'self'   => 'marketing_promotion_calendar',
+        ],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'marketing_promotion_created_by',
         ],
     ];
 

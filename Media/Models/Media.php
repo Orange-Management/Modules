@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Media\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+
 /**
  * Media class.
  *
@@ -59,10 +62,10 @@ class Media implements \JsonSerializable
     /**
      * Author.
      *
-     * @var int
+     * @var Account
      * @since 1.0.0
      */
-    protected $createdBy = 0;
+    protected Account $createdBy;
 
     /**
      * Uploaded.
@@ -151,6 +154,7 @@ class Media implements \JsonSerializable
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime();
     }
 
@@ -297,11 +301,11 @@ class Media implements \JsonSerializable
     }
 
     /**
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -313,7 +317,7 @@ class Media implements \JsonSerializable
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime('now');
+        return $this->createdAt;
     }
 
     /**
@@ -397,13 +401,13 @@ class Media implements \JsonSerializable
     }
 
     /**
-     * @param mixed $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

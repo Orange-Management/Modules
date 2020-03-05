@@ -26,6 +26,7 @@ use Modules\Admin\Models\GroupPermission;
 use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Admin\Models\ModuleStatusUpdateType;
 
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Account\AccountStatus;
 use phpOMS\Account\AccountType;
 use phpOMS\Account\GroupStatus;
@@ -313,7 +314,7 @@ final class ApiController extends Controller
     private function createGroupFromRequest(RequestAbstract $request) : Group
     {
         $group = new Group();
-        $group->setCreatedBy($request->getHeader()->getAccount());
+        $group->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
         $group->setName((string) ($request->getData('name') ?? ''));
         $group->setStatus((int) ($request->getData('status') ?? GroupStatus::INACTIVE));
         $group->setDescription(Markdown::parse((string) ($request->getData('description') ?? '')));

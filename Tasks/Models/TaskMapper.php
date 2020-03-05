@@ -50,7 +50,7 @@ final class TaskMapper extends DataMapperAbstract
         'task_done'       => ['name' => 'task_done',       'type' => 'DateTime', 'internal' => 'done'],
         'task_schedule'   => ['name' => 'task_schedule',   'type' => 'int',      'internal' => 'schedule'],
         'task_start'      => ['name' => 'task_start',      'type' => 'DateTime', 'internal' => 'start'],
-        'task_created_by' => ['name' => 'task_created_by', 'type' => 'int',      'internal' => 'createdBy'],
+        'task_created_by' => ['name' => 'task_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'task_created_at' => ['name' => 'task_created_at', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -324,6 +324,8 @@ final class TaskMapper extends DataMapperAbstract
                     ->on(TaskElementMapper::getTable() . '.task_element_id', '=', AccountRelationMapper::getTable() . '.task_account_task_element')
                 ->where(self::$table . '.task_status', '=', TaskStatus::OPEN)
                 ->andWhere(AccountRelationMapper::getTable() . '.task_account_account', '=', $user);
+
+            $t = $query->toSql();
 
             $sth = self::$db->con->prepare($query->toSql());
             $sth->execute();

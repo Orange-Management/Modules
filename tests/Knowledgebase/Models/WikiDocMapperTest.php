@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Knowledgebase\Models;
 
+use Modules\Knowledgebase\Models\NullWikiCategory;
 use Modules\Knowledgebase\Models\WikiDoc;
 use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
@@ -38,7 +39,7 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
         $doc->setName('Doc Name');
         $doc->setDoc('Doc content');
         $doc->setStatus(WikiStatus::DRAFT);
-        $doc->setCategory(1);
+        $doc->setCategory(new NullWikiCategory(1));
         $doc->setLanguage('en');
 
         $id = WikiDocMapper::create($doc);
@@ -50,7 +51,7 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($doc->getDoc(), $docR->getDoc());
         self::assertEquals($doc->getStatus(), $docR->getStatus());
         self::assertEquals($doc->getLanguage(), $docR->getLanguage());
-        self::assertEquals($doc->getCategory(), $docR->getCategory()->getId());
+        self::assertEquals($doc->getCategory()->getId(), $docR->getCategory()->getId());
     }
 
     /**
@@ -67,7 +68,7 @@ class WikiDocMapperTest extends \PHPUnit\Framework\TestCase
             $doc->setName($text->generateText(\mt_rand(1, 3)));
             $doc->setDoc($text->generateText(\mt_rand(100, 500)));
             $doc->setStatus(WikiStatus::ACTIVE);
-            $doc->setCategory(\mt_rand(1, 9));
+            $doc->setCategory(new NullWikiCategory(\mt_rand(1, 9)));
             $doc->setLanguage('en');
 
             $id = WikiDocMapper::create($doc);

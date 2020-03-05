@@ -44,7 +44,7 @@ final class KanbanCardMapper extends DataMapperAbstract
         'kanban_card_ref'         => ['name' => 'kanban_card_ref',         'type' => 'int',      'internal' => 'ref'],
         'kanban_card_column'      => ['name' => 'kanban_card_column',      'type' => 'int',      'internal' => 'column'],
         'kanban_card_created_at'  => ['name' => 'kanban_card_created_at',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'kanban_card_created_by'  => ['name' => 'kanban_card_created_by',  'type' => 'int',      'internal' => 'createdBy'],
+        'kanban_card_created_by'  => ['name' => 'kanban_card_created_by',  'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
     ];
 
     /**

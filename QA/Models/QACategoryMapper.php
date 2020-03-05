@@ -39,6 +39,19 @@ final class QACategoryMapper extends DataMapperAbstract
     ];
 
     /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'parent'  => [
+            'mapper' => self::class,
+            'self'   => 'qa_category_parent',
+        ],
+    ];
+
+    /**
      * Primary table.
      *
      * @var string

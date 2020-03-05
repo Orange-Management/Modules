@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Media\Admin;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
 
 use Modules\Media\Models\CollectionMapper;
@@ -85,7 +86,7 @@ final class Installer extends InstallerAbstract
         $collection->setName((string) $data['name'] ?? '');
         $collection->setVirtualPath((string) $data['virtualPath'] ?? '/');
         $collection->setPath((string) $data['virtualPath'] ?? '/');
-        $collection->setCreatedBy((int) $data['user'] ?? 1);
+        $collection->setCreatedBy(new NullAccount((int) $data['user'] ?? 1));
 
         CollectionMapper::create($collection);
     }

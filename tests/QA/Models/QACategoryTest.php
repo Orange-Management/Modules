@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\QA\Models;
 
+use Modules\QA\Models\NullQACategory;
 use Modules\QA\Models\QACategory;
 
 /**
@@ -35,9 +36,9 @@ class QACategoryTest extends \PHPUnit\Framework\TestCase
         $category = new QACategory();
 
         $category->setName('Category Name');
-        $category->setParent(1);
+        $category->setParent(new NullQACategory(1));
 
         self::assertEquals('Category Name', $category->getName());
-        self::assertEquals(1, $category->getParent());
+        self::assertEquals(1, $category->getParent()->getId());
     }
 }

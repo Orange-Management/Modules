@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\Kanban\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
+
 /**
  * Task class.
  *
@@ -51,11 +54,11 @@ class KanbanBoard implements \JsonSerializable
      */
     private string $description = '';
 
-    private $createdBy = 0;
+    private Account $createdBy;
 
-    private $createdAt = null;
+    private \DateTime $createdAt;
 
-    private $columns = [];
+    private array $columns = [];
 
     /**
      * Constructor.
@@ -65,6 +68,7 @@ class KanbanBoard implements \JsonSerializable
     public function __construct()
     {
         $this->createdAt = new \DateTime('now');
+        $this->createdBy = new NullAccount();
     }
 
     /**
@@ -186,11 +190,11 @@ class KanbanBoard implements \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -198,15 +202,15 @@ class KanbanBoard implements \JsonSerializable
     /**
      * Set created by
      *
-     * @param mixed $id Created by
+     * @param Account $account Created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setCreatedBy(Account $account) : void
     {
-        $this->createdBy = $id;
+        $this->createdBy = $account;
     }
 
     /**

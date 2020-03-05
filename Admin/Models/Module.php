@@ -98,7 +98,7 @@ class Module
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime('NOW');
+        return $this->createdAt;
     }
 
     /**

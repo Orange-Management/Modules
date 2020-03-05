@@ -14,7 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use Modules\Calendar\Models\Schedule;
+use Modules\Media\Models\Media;
 use Modules\Tag\Models\NullTag;
 use Modules\Tag\Models\Tag;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
@@ -51,7 +54,7 @@ class Task implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected $createdBy = 0;
+    protected Account $createdBy;
 
     /**
      * Created.
@@ -115,7 +118,7 @@ class Task implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $start = null;
+    protected ?\DateTime $start = null;
 
     /**
      * Due.
@@ -123,7 +126,7 @@ class Task implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $due = null;
+    protected ?\DateTime $due = null;
 
     /**
      * Done.
@@ -131,7 +134,7 @@ class Task implements \JsonSerializable
      * @var null|\DateTime
      * @since 1.0.0
      */
-    protected $done = null;
+    protected ?\DateTime $done = null;
 
     /**
      * Task elements.
@@ -155,7 +158,7 @@ class Task implements \JsonSerializable
      * @var Schedule
      * @since 1.0.0
      */
-    protected $schedule = null;
+    protected Schedule $schedule;
 
     /**
      * Priority
@@ -180,6 +183,7 @@ class Task implements \JsonSerializable
      */
     public function __construct()
     {
+        $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTime('now');
         $this->schedule  = new Schedule();
         $this->start     = new \DateTime('now');
@@ -298,7 +302,7 @@ class Task implements \JsonSerializable
     /**
      * Get all media
      *
-     * @return array<int|\Modules\Media\Models\Media>
+     * @return Media[]
      *
      * @since 1.0.0
      */
@@ -310,13 +314,13 @@ class Task implements \JsonSerializable
     /**
      * Add media
      *
-     * @param mixed $media Media to add
+     * @param Media $media Media to add
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function addMedia($media) : void
+    public function addMedia(Media $media) : void
     {
         $this->media[] = $media;
     }
@@ -408,7 +412,7 @@ class Task implements \JsonSerializable
      */
     public function getCreatedAt() : \DateTime
     {
-        return $this->createdAt ?? new \DateTime();
+        return $this->createdAt;
     }
 
     /**
@@ -438,11 +442,11 @@ class Task implements \JsonSerializable
     /**
      * Get created by
      *
-     * @return int|\phpOMS\Account\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -450,16 +454,16 @@ class Task implements \JsonSerializable
     /**
      * Set created by
      *
-     * @param mixed $id Created by
+     * @param Account $account Created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setCreatedBy($id) : void
+    public function setCreatedBy(Account $account) : void
     {
-        $this->createdBy = $id;
-        $this->schedule->setCreatedBy($id);
+        $this->createdBy = $account;
+        $this->schedule->setCreatedBy($account);
     }
 
     /**

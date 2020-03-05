@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\tests\Media\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Collection;
+use Modules\Media\Models\NullMedia;
 
 /**
  * @internal
@@ -31,7 +33,7 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
     public function testDefault() : void
     {
         self::assertEquals(0, $this->media->getId());
-        self::assertEquals(0, $this->media->getCreatedBy());
+        self::assertEquals(0, $this->media->getCreatedBy()->getId());
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $this->media->getCreatedAt()->format('Y-m-d'));
         self::assertEquals('collection', $this->media->getExtension());
         self::assertEquals('', $this->media->getPath());
@@ -44,8 +46,8 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
 
     public function testCreatedByInputOutput() : void
     {
-        $this->media->setCreatedBy(1);
-        self::assertEquals(1, $this->media->getCreatedBy());
+        $this->media->setCreatedBy(new NullAccount(1));
+        self::assertEquals(1, $this->media->getCreatedBy()->getId());
     }
 
     public function testExtensionInputOutput() : void
@@ -80,14 +82,14 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
 
     public function testSourceInputOutput() : void
     {
-        $this->media->setSources([1, 2, 3]);
-        self::assertEquals([1, 2, 3], $this->media->getSources());
+        $this->media->setSources([new NullMedia(1), new NullMedia(2), new NullMedia(3)]);
+        self::assertEquals([new NullMedia(1), new NullMedia(2), new NullMedia(3)], $this->media->getSources());
     }
 
     public function testSourceAddInputOutput() : void
     {
-        $this->media->setSources([1, 2, 3]);
-        $this->media->addSource(4);
-        self::assertEquals([1, 2, 3, 4], $this->media->getSources());
+        $this->media->setSources([new NullMedia(1), new NullMedia(2), new NullMedia(3)]);
+        $this->media->addSource(new NullMedia(4));
+        self::assertEquals([new NullMedia(1), new NullMedia(2), new NullMedia(3), new NullMedia(4)], $this->media->getSources());
     }
 }

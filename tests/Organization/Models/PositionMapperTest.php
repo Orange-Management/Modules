@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Organization\Models;
 
+use Modules\Organization\Models\NullPosition;
 use Modules\Organization\Models\Position;
 use Modules\Organization\Models\PositionMapper;
 
@@ -50,56 +51,56 @@ class PositionMapperTest extends \PHPUnit\Framework\TestCase
         $position = new Position();
         $position->setName('CFO');
         $position->setDescription('Description');
-        $position->setParent($first);
+        $position->setParent(new NullPosition($first));
         $id = PositionMapper::create($position);
 
         /* 5 */
         $position = new Position();
         $position->setName('Accountant');
         $position->setDescription('Description');
-        $position->setParent($id);
+        $position->setParent(new NullPosition($id));
         PositionMapper::create($position);
 
         /* 6 */
         $position = new Position();
         $position->setName('Controller');
         $position->setDescription('Description');
-        $position->setParent($id);
+        $position->setParent(new NullPosition($id));
         PositionMapper::create($position);
 
         /* 7 */
         $position = new Position();
         $position->setName('Sales Director');
         $position->setDescription('Description');
-        $position->setParent($first);
+        $position->setParent(new NullPosition($first));
         PositionMapper::create($position);
 
         /* 8 */
         $position = new Position();
         $position->setName('Purchase Director');
         $position->setDescription('Description');
-        $position->setParent($first);
+        $position->setParent(new NullPosition($first));
         PositionMapper::create($position);
 
         /* 9 */
         $position = new Position();
         $position->setName('Territory Manager');
         $position->setDescription('Description');
-        $position->setParent($first + 4);
+        $position->setParent(new NullPosition($first + 4));
         PositionMapper::create($position);
 
         /* 10 */
         $position = new Position();
         $position->setName('Territory Sales Assistant');
         $position->setDescription('Description');
-        $position->setParent($first + 6);
+        $position->setParent(new NullPosition($first + 6));
         PositionMapper::create($position);
 
         /* 11 */
         $position = new Position();
         $position->setName('Domestic Sales Manager');
         $position->setDescription('Description');
-        $position->setParent($first + 4);
+        $position->setParent(new NullPosition($first + 4));
         PositionMapper::create($position);
     }
 }

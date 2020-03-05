@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\tests\Admin\Models;
 
 use Modules\Admin\Models\Group;
+use Modules\Admin\Models\NullAccount;
 
 /**
  * @testdox Modules\tests\Admin\Models\GroupTest: Group model
@@ -32,7 +33,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
     {
         $group = new Group();
         self::assertEquals((new \DateTime('now'))->format('Y-m-d'), $group->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals(0, $group->getCreatedBy());
+        self::assertEquals(0, $group->getCreatedBy()->getId());
         self::assertEquals('', $group->getDescriptionRaw());
         self::assertEquals([], $group->getAccounts());
     }
@@ -59,7 +60,7 @@ class GroupTest extends \PHPUnit\Framework\TestCase
     {
         $group = new Group();
 
-        $group->setCreatedBy(3);
-        self::assertEquals(3, $group->getCreatedBy());
+        $group->setCreatedBy(new NullAccount(3));
+        self::assertEquals(3, $group->getCreatedBy()->getId());
     }
 }

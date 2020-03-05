@@ -14,13 +14,14 @@ declare(strict_types=1);
 
 namespace Modules\Tasks\Controller;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Tasks\Models\Task;
 use Modules\Tasks\Models\TaskElement;
 use Modules\Tasks\Models\TaskElementMapper;
 use Modules\Tasks\Models\TaskMapper;
 use Modules\Tasks\Models\TaskStatus;
-use Modules\Tasks\Models\TaskType;
 
+use Modules\Tasks\Models\TaskType;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -117,7 +118,7 @@ final class ApiController extends Controller
         $task->setTitle((string) ($request->getData('title') ?? ''));
         $task->setDescription(Markdown::parse((string) ($request->getData('plain') ?? '')));
         $task->setDescriptionRaw((string) ($request->getData('plain') ?? ''));
-        $task->setCreatedBy($request->getHeader()->getAccount());
+        $task->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
         $task->setDue(new \DateTime($request->getData('due')));
         $task->setStatus(TaskStatus::OPEN);
         $task->setType(TaskType::SINGLE);
@@ -269,7 +270,7 @@ final class ApiController extends Controller
     private function createTaskElementFromRequest(RequestAbstract $request) : TaskElement
     {
         $element = new TaskElement();
-        $element->setCreatedBy($request->getHeader()->getAccount());
+        $element->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
         $element->setDue(new \DateTime((string) ($request->getData('due') ?? 'now')));
         $element->setPriority((int) $request->getData('priority'));
         $element->setStatus((int) ($request->getData('status')));

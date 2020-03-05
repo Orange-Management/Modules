@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\tests\QA\Models;
 
+use Modules\Admin\Models\NullAccount;
+use Modules\QA\Models\NullQAQuestion;
 use Modules\QA\Models\QAAnswer;
 use Modules\QA\Models\QAAnswerMapper;
 use Modules\QA\Models\QAAnswerStatus;
@@ -30,8 +32,8 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
 
         $answer->setAnswer('Answer content');
         $answer->setStatus(QAAnswerStatus::ACTIVE);
-        $answer->setCreatedBy(1);
-        $answer->setQuestion(1);
+        $answer->setCreatedBy(new NullAccount(1));
+        $answer->setQuestion(new NullQAQuestion(1));
         $answer->setAccepted(true);
 
         $id = QAAnswerMapper::create($answer);
@@ -40,10 +42,10 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
 
         $answerR = QAAnswerMapper::get($answer->getId());
         self::assertEquals($answer->getAnswer(), $answerR->getAnswer());
-        self::assertEquals($answer->getQuestion(), $answerR->getQuestion());
+        self::assertEquals($answer->getQuestion()->getId(), $answerR->getQuestion()->getId());
         self::assertEquals($answer->getStatus(), $answerR->getStatus());
         self::assertEquals($answer->isAccepted(), $answerR->isAccepted());
-        self::assertEquals($answer->getCreatedBy(), $answerR->getCreatedBy()->getId());
+        self::assertEquals($answer->getCreatedBy()->getId(), $answerR->getCreatedBy()->getId());
     }
 
     /**
@@ -58,9 +60,9 @@ class QAAnswerMapperTest extends \PHPUnit\Framework\TestCase
             $answer = new QAAnswer();
 
             $answer->setAnswer($text->generateText(\mt_rand(100, 500)));
-            $answer->setCreatedBy(1);
+            $answer->setCreatedBy(new NullAccount(1));
             $answer->setStatus(QAAnswerStatus::ACTIVE);
-            $answer->setQuestion(1);
+            $answer->setQuestion(new NullQAQuestion(1));
 
             $id = QAAnswerMapper::create($answer);
         }

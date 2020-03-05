@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\ProjectManagement\Models;
 
+use Modules\Admin\Models\AccountMapper;
 use Modules\Calendar\Models\CalendarMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Tasks\Models\TaskMapper;
@@ -50,7 +51,7 @@ final class ProjectMapper extends DataMapperAbstract
         'projectmanagement_project_endestimated'    => ['name' => 'projectmanagement_project_endestimated',    'type' => 'DateTime',     'internal' => 'endEstimated'],
         'projectmanagement_project_progress'        => ['name' => 'projectmanagement_project_progress',        'type' => 'int',          'internal' => 'progress'],
         'projectmanagement_project_progress_type'   => ['name' => 'projectmanagement_project_progress_type',   'type' => 'int',          'internal' => 'progressType'],
-        'projectmanagement_project_created_by'      => ['name' => 'projectmanagement_project_created_by',      'type' => 'int',          'internal' => 'createdBy'],
+        'projectmanagement_project_created_by'      => ['name' => 'projectmanagement_project_created_by',      'type' => 'int',          'internal' => 'createdBy', 'readonly' => true],
         'projectmanagement_project_created_at'      => ['name' => 'projectmanagement_project_created_at',      'type' => 'DateTime',     'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -85,6 +86,19 @@ final class ProjectMapper extends DataMapperAbstract
         'calendar' => [
             'mapper' => CalendarMapper::class,
             'self'   => 'projectmanagement_project_calendar',
+        ],
+    ];
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, self:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper' => AccountMapper::class,
+            'self'   => 'projectmanagement_project_created_by',
         ],
     ];
 

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Auditor\Models;
 
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Account\Account;
 
 /**
@@ -97,10 +98,10 @@ class Audit
     /**
      * Account.
      *
-     * @var int|Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy;
+    private Account $createdBy;
 
     /**
      * Created at.
@@ -121,7 +122,7 @@ class Audit
     /**
      * Constructor.
      *
-     * @param int|Account $account Account of the creator
+     * @param Account     $account Account of the creator
      * @param null|string $old     Old value
      * @param null|string $new     New value
      * @param int         $type    Type of the audit
@@ -133,7 +134,7 @@ class Audit
      * @since 1.0.0
      */
     public function __construct(
-        $account = 0,
+        Account $account = null,
         string $old = null,
         string $new = null,
         int $type = 0,
@@ -143,7 +144,7 @@ class Audit
         string $content = null
     ) {
         $this->createdAt = new \DateTime('now');
-        $this->createdBy = $account;
+        $this->createdBy = $account ?? new NullAccount();
         $this->old       = $old;
         $this->new       = $new;
         $this->type      = $type;

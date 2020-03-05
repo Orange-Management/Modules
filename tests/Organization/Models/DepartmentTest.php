@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace Modules\tests\Organization\Models;
 
 use Modules\Organization\Models\Department;
+use Modules\Organization\Models\NullDepartment;
+use Modules\Organization\Models\NullUnit;
 use Modules\Organization\Models\Status;
 
 /**
@@ -30,7 +32,7 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $department->getName());
         self::assertEquals('', $department->getDescription());
         self::assertInstanceOf('Modules\Organization\Models\NullDepartment', $department->getParent());
-        self::assertEquals(1, $department->getUnit());
+        self::assertEquals(0, $department->getUnit()->getId());
         self::assertEquals(Status::INACTIVE, $department->getStatus());
     }
 
@@ -47,10 +49,10 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
         $department->setDescription('Description');
         self::assertEquals('Description', $department->getDescription());
 
-        $department->setParent(1);
-        self::assertEquals(1, $department->getParent());
+        $department->setParent(new NullDepartment(1));
+        self::assertEquals(1, $department->getParent()->getId());
 
-        $department->setUnit(1);
-        self::assertEquals(1, $department->getUnit());
+        $department->setUnit(new NullUnit(1));
+        self::assertEquals(1, $department->getUnit()->getId());
     }
 }

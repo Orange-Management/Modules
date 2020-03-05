@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\ProjectManagement\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\ProjectManagement\Models\ProgressType;
 use Modules\ProjectManagement\Models\Project;
@@ -37,7 +38,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
         $project->setName('Projectname');
         $project->setDescription('Description');
-        $project->setCreatedBy(1);
+        $project->setCreatedBy(new NullAccount(1));
         $project->setStart(new \DateTime('2000-05-05'));
         $project->setEnd(new \DateTime('2005-05-05'));
 
@@ -51,11 +52,11 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
         $task = new Task();
         $task->setTitle('ProjectTask 1');
-        $task->setCreatedBy(1);
+        $task->setCreatedBy(new NullAccount(1));
 
         $task2 = new Task();
         $task2->setTitle('ProjectTask 2');
-        $task2->setCreatedBy(1);
+        $task2->setCreatedBy(new NullAccount(1));
 
         $project->addTask($task);
         $project->addTask($task2);
@@ -64,7 +65,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
         $project->setProgressType(ProgressType::TASKS);
 
         $media = new Media();
-        $media->setCreatedBy(1);
+        $media->setCreatedBy(new NullAccount(1));
         $media->setDescription('desc');
         $media->setPath('some/path');
         $media->setSize(11);
@@ -118,7 +119,7 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
             $project->setName($text->generateText(\mt_rand(3, 7)));
             $project->setDescription($text->generateText(\mt_rand(20, 100)));
-            $project->setCreatedBy(1);
+            $project->setCreatedBy(new NullAccount(1));
             $project->setStart(new \DateTime('2000-05-05'));
             $project->setEnd(new \DateTime('2005-05-05'));
             $project->setProgress(\mt_rand(0, 100));

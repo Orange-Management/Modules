@@ -18,6 +18,7 @@ require_once __DIR__ . '/../Autoloader.php';
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountPermission;
+use Modules\Editor\Controller\ApiController;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
@@ -36,8 +37,8 @@ use phpOMS\Utils\TestUtils;
  */
 class ControllerTest extends \PHPUnit\Framework\TestCase
 {
-    protected $app    = null;
-    protected $module = null;
+    protected ApplicationAbstract $app;
+    protected ApiController $module;
 
     protected function setUp() : void
     {

@@ -41,7 +41,7 @@ final class ReportMapper extends DataMapperAbstract
         'helper_report_desc_raw' => ['name' => 'helper_report_desc_raw', 'type' => 'string',   'internal' => 'descriptionRaw'],
         'helper_report_media'    => ['name' => 'helper_report_media',    'type' => 'int',      'internal' => 'source'],
         'helper_report_template' => ['name' => 'helper_report_template', 'type' => 'int',      'internal' => 'template'],
-        'helper_report_creator'  => ['name' => 'helper_report_creator',  'type' => 'int',      'internal' => 'createdBy'],
+        'helper_report_creator'  => ['name' => 'helper_report_creator',  'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'helper_report_created'  => ['name' => 'helper_report_created',  'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
@@ -57,7 +57,7 @@ final class ReportMapper extends DataMapperAbstract
             'self'   => 'helper_report_media',
         ],
         'template' => [
-            'mapper' => \Modules\Helper\Models\TemplateMapper::class,
+            'mapper' => TemplateMapper::class,
             'self'   => 'helper_report_template',
         ],
     ];

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\QA\Models;
 
+use Modules\QA\Models\NullQACategory;
 use Modules\QA\Models\QACategory;
 use Modules\QA\Models\QACategoryMapper;
 use phpOMS\Utils\RnG\Text;
@@ -42,7 +43,7 @@ class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
         $category = new QACategory();
 
         $category->setName('Test Category2');
-        $category->setParent(1);
+        $category->setParent(new NullQACategory(1));
 
         $id = QACategoryMapper::create($category);
         self::assertGreaterThan(0, $category->getId());
@@ -50,7 +51,7 @@ class QACategoryMapperTest extends \PHPUnit\Framework\TestCase
 
         $categoryR = QACategoryMapper::get($category->getId());
         self::assertEquals($category->getName(), $categoryR->getName());
-        self::assertEquals($category->getParent(), $categoryR->getParent());
+        self::assertEquals($category->getParent()->getId(), $categoryR->getParent()->getId());
     }
 
     /**

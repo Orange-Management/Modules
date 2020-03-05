@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\EventManagement\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use Modules\Calendar\Models\Calendar;
 use Modules\Tasks\Models\Task;
 use phpOMS\Localization\Money;
@@ -85,10 +87,10 @@ class Event
     /**
      * Creator.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Constructor.
@@ -106,6 +108,7 @@ class Event
         $this->budget    = new Money();
         $this->earnings  = new Money();
         $this->createdAt = new \DateTime('now');
+        $this->createdBy = new NullAccount();
 
         $this->setName($name);
     }
@@ -515,11 +518,11 @@ class Event
     /**
      * Get creator
      *
-     * @return int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -527,11 +530,11 @@ class Event
     /**
      * Set creator
      *
-     * @param int $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @since 1.0.0
      */
-    public function setCreatedBy(int $createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

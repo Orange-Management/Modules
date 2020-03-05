@@ -35,7 +35,7 @@ final class GSDCustomerMapper extends DataMapperAbstract
     protected static array $columns = [
         'row_id'               => ['name' => 'row_id',          'type' => 'int',      'internal' => 'id'],
         'row_create_time'      => ['name' => 'row_create_time', 'type' => 'DateTime', 'internal' => 'createdAt', 'readonly' => true],
-        'row_create_user'      => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy'],
+        'row_create_user'      => ['name' => 'row_create_user', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
         'Kundennummer'         => ['name' => 'Kundennummer',    'type' => 'string',   'internal' => 'number'],
     ];
 

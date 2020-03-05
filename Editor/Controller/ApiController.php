@@ -14,9 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\Editor\Controller;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Editor\Models\EditorDoc;
-use Modules\Editor\Models\EditorDocMapper;
 
+use Modules\Editor\Models\EditorDocMapper;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -103,7 +104,7 @@ final class ApiController extends Controller
         $doc->setTitle((string) ($request->getData('title') ?? ''));
         $doc->setPlain((string) ($request->getData('plain') ?? ''));
         $doc->setContent(Markdown::parse((string) ($request->getData('plain') ?? '')));
-        $doc->setCreatedBy($request->getHeader()->getAccount());
+        $doc->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
 
         return $doc;
     }

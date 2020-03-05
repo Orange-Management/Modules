@@ -42,10 +42,10 @@ class Navigation
     /**
      * Singleton instance.
      *
-     * @var \Modules\Navigation\Models\Navigation
+     * @var null|self
      * @since 1.0.0
      */
-    private static $instance = null;
+    private static ?self $instance = null;
 
     /**
      * Database pool.
@@ -53,7 +53,7 @@ class Navigation
      * @var DatabasePool
      * @since 1.0.0
      */
-    private $dbPool = null;
+    private DatabasePool $dbPool;
 
     /**
      * Constructor.

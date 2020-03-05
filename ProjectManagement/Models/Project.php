@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\ProjectManagement\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use Modules\Calendar\Models\Calendar;
 use Modules\Media\Models\Media;
 use Modules\Media\Models\NullMedia;
@@ -161,10 +163,10 @@ class Project
     /**
      * Created by.
      *
-     * @var int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    private $createdBy = 0;
+    private Account $createdBy;
 
     /**
      * Tasks.
@@ -189,6 +191,7 @@ class Project
 
         $this->endEstimated = clone $this->end;
         $this->createdAt    = new \DateTime('now');
+        $this->createdBy    = new NullAccount();
 
         $this->calendar = new Calendar();
 
@@ -704,11 +707,11 @@ class Project
     /**
      * Get created by
      *
-     * @return int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getCreatedBy()
+    public function getCreatedBy() : Account
     {
         return $this->createdBy;
     }
@@ -716,11 +719,11 @@ class Project
     /**
      * Set created by
      *
-     * @param int $createdBy Creator
+     * @param Account $createdBy Creator
      *
      * @since 1.0.0
      */
-    public function setCreatedBy(int $createdBy) : void
+    public function setCreatedBy(Account $createdBy) : void
     {
         $this->createdBy = $createdBy;
     }

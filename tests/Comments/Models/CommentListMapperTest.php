@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Comments\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Comments\Models\Comment;
 use Modules\Comments\Models\CommentList;
 use Modules\Comments\Models\CommentListMapper;
@@ -28,7 +29,7 @@ class CommentListMapperTest extends \PHPUnit\Framework\TestCase
         $list = new CommentList();
 
         $comment = new Comment();
-        $comment->setCreatedBy(1);
+        $comment->setCreatedBy(new NullAccount(1));
         $comment->setTitle('Test Comment');
 
         $list->addComment($comment);

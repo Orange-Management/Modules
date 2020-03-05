@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Tag\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Contract\ArrayableInterface;
 
 /**
@@ -32,7 +34,7 @@ class Tag implements ArrayableInterface, \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    private int $id = 0;
+    protected int $id = 0;
 
     /**
      * Title.
@@ -53,10 +55,10 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Creator.
      *
-     * @var null|int|\Modules\Admin\Models\Account
+     * @var Account
      * @since 1.0.0
      */
-    protected $owner = null;
+    protected Account $owner;
 
     /**
      * Tag type.
@@ -69,25 +71,25 @@ class Tag implements ArrayableInterface, \JsonSerializable
     /**
      * Get created by
      *
-     * @return null|int|\Modules\Admin\Models\Account
+     * @return Account
      *
      * @since 1.0.0
      */
-    public function getOwner()
+    public function getOwner() : Account
     {
-        return $this->owner;
+        return $this->owner ?? new NullAccount();
     }
 
     /**
      * Set created by
      *
-     * @param mixed $id Created by
+     * @param Account $id Created by
      *
      * @return void
      *
      * @since 1.0.0
      */
-    public function setOwner($id) : void
+    public function setOwner(Account $id) : void
     {
         $this->owner = $id;
     }

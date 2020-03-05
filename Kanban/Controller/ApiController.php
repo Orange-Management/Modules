@@ -14,17 +14,18 @@ declare(strict_types=1);
 
 namespace Modules\Kanban\Controller;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Kanban\Models\BoardStatus;
 use Modules\Kanban\Models\CardStatus;
 use Modules\Kanban\Models\CardType;
 use Modules\Kanban\Models\KanbanBoard;
 use Modules\Kanban\Models\KanbanBoardMapper;
-use Modules\Kanban\Models\KanbanCard;
 
+use Modules\Kanban\Models\KanbanCard;
 use Modules\Kanban\Models\KanbanCardMapper;
 use Modules\Kanban\Models\KanbanColumn;
-use Modules\Kanban\Models\KanbanColumnMapper;
 
+use Modules\Kanban\Models\KanbanColumnMapper;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -89,7 +90,7 @@ final class ApiController extends Controller
         $card->setRef((int) ($request->getData('ref') ?? 0));
         $card->setStatus((int) ($request->getData('status') ?? CardStatus::ACTIVE));
         $card->setType((int) ($request->getData('type') ?? CardType::TEXT));
-        $card->setCreatedBy($request->getHeader()->getAccount());
+        $card->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
 
         return $card;
     }
@@ -165,7 +166,7 @@ final class ApiController extends Controller
         $board->setDescription((string) ($request->getData('plain') ?? ''));
         $board->setOrder((int) ($request->getData('order') ?? 1));
         $board->setStatus((int) ($request->getData('status') ?? BoardStatus::ACTIVE));
-        $board->setCreatedBy($request->getHeader()->getAccount());
+        $board->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
 
         return $board;
     }

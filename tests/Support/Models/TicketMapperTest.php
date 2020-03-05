@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\tests\Support\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Support\Models\Ticket;
 use Modules\Support\Models\TicketMapper;
 use Modules\Tasks\Models\TaskElement;
@@ -31,8 +32,8 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
     {
         $ticket = new Ticket();
 
-        $ticket->getTask()->setCreatedBy(1);
-        $ticket->getTask()->getSchedule()->setCreatedBy(1);
+        $ticket->getTask()->setCreatedBy(new NullAccount(1));
+        $ticket->getTask()->getSchedule()->setCreatedBy(new NullAccount(1));
         $ticket->getTask()->setTitle('Ticket Title');
         $ticket->getTask()->setStatus(TaskStatus::DONE);
         $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -43,12 +44,12 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
         $taskElement1 = new TaskElement();
         $taskElement1->setDescription('Desc1');
-        $taskElement1->setCreatedBy(1);
+        $taskElement1->setCreatedBy(new NullAccount(1));
         $ticket->getTask()->addElement($taskElement1);
 
         $taskElement2 = new TaskElement();
         $taskElement2->setDescription('Desc2');
-        $taskElement2->setCreatedBy(1);
+        $taskElement2->setCreatedBy(new NullAccount(1));
         $ticket->getTask()->addElement($taskElement2);
 
         $id = TicketMapper::create($ticket);
@@ -57,7 +58,7 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
         $ticketR = TicketMapper::get($ticket->getId());
         self::assertEquals($ticket->getTask()->getCreatedAt()->format('Y-m-d'), $ticketR->getTask()->getCreatedAt()->format('Y-m-d'));
-        self::assertEquals($ticket->getTask()->getCreatedBy(), $ticketR->getTask()->getCreatedBy()->getId());
+        self::assertEquals($ticket->getTask()->getCreatedBy()->getId(), $ticketR->getTask()->getCreatedBy()->getId());
         self::assertEquals($ticket->getTask()->getDescription(), $ticketR->getTask()->getDescription());
         self::assertEquals($ticket->getTask()->getTitle(), $ticketR->getTask()->getTitle());
         self::assertEquals($ticket->getTask()->getStatus(), $ticketR->getTask()->getStatus());
@@ -91,8 +92,8 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
         foreach ($taskStatus as $status) {
             $ticket = new Ticket();
 
-            $ticket->getTask()->setCreatedBy(1);
-            $ticket->getTask()->getSchedule()->setCreatedBy(1);
+            $ticket->getTask()->setCreatedBy(new NullAccount(1));
+            $ticket->getTask()->getSchedule()->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->setTitle($text->generateText(\mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -102,12 +103,12 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(\mt_rand(3, 20)));
-            $taskElement1->setCreatedBy(1);
+            $taskElement1->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription('Desc2');
-            $taskElement2->setCreatedBy(1);
+            $taskElement2->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->addElement($taskElement2);
 
             $id = TicketMapper::create($ticket);
@@ -127,8 +128,8 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
         foreach ($taskStatus as $status) {
             $ticket = new Ticket();
 
-            $ticket->getTask()->setCreatedBy(1);
-            $ticket->getTask()->getSchedule()->setCreatedBy(1);
+            $ticket->getTask()->setCreatedBy(new NullAccount(1));
+            $ticket->getTask()->getSchedule()->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->setTitle($text->generateText(\mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -138,12 +139,12 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(\mt_rand(3, 20)));
-            $taskElement1->setCreatedBy(1);
+            $taskElement1->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription($text->generateText(\mt_rand(3, 20)));
-            $taskElement2->setCreatedBy(1);
+            $taskElement2->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->addElement($taskElement2);
 
             $id = TicketMapper::create($ticket);
@@ -163,8 +164,8 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
         foreach ($taskStatus as $status) {
             $ticket = new Ticket();
 
-            $ticket->getTask()->setCreatedBy(1);
-            $ticket->getTask()->getSchedule()->setCreatedBy(1);
+            $ticket->getTask()->setCreatedBy(new NullAccount(1));
+            $ticket->getTask()->getSchedule()->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->setTitle($text->generateText(\mt_rand(1, 5)));
             $ticket->getTask()->setStatus($status);
             $ticket->getTask()->setType(TaskType::HIDDEN);
@@ -174,12 +175,12 @@ class TicketMapperTest extends \PHPUnit\Framework\TestCase
 
             $taskElement1 = new TaskElement();
             $taskElement1->setDescription($text->generateText(\mt_rand(3, 20)));
-            $taskElement1->setCreatedBy(1);
+            $taskElement1->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->addElement($taskElement1);
 
             $taskElement2 = new TaskElement();
             $taskElement2->setDescription($text->generateText(\mt_rand(3, 20)));
-            $taskElement2->setCreatedBy(1);
+            $taskElement2->setCreatedBy(new NullAccount(1));
             $ticket->getTask()->addElement($taskElement2);
 
             $id = TicketMapper::create($ticket);
