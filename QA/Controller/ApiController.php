@@ -14,7 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\QA\Controller;
 
+use Modules\QA\Models\NullQACategory;
+use Modules\QA\Models\NullQAQuestion;
 use Modules\QA\Models\QAAnswer;
+use Modules\QA\Models\QAAnswerMapper;
 use Modules\QA\Models\QAAnswerStatus;
 use Modules\QA\Models\QACategory;
 use Modules\QA\Models\QACategoryMapper;
@@ -86,7 +89,7 @@ final class ApiController extends Controller
         $question->setName((string) $request->getData('title'));
         $question->setQuestion((string) $request->getData('plain'));
         $question->setLanguage((string) $request->getData('language'));
-        $question->setCategory((int) $request->getData('category'));
+        $question->setCategory(new NullQACategory((int) $request->getData('category')));
         $question->setStatus((int) $request->getData('status'));
         $question->setBadges((array) $request->getData('badges'));
 
@@ -161,9 +164,8 @@ final class ApiController extends Controller
         $mardkownParser = new Markdown();
 
         $answer = new QAAnswer();
-        $answer->setName((string) $request->getData('title'));
         $answer->setAnswer((string) $request->getData('plain'));
-        $answer->setQuestion((int) $request->getData('question'));
+        $answer->setQuestion(new NullQAQuestion((int) $request->getData('question')));
         $answer->setStatus((int) $request->getData('status'));
 
         return $answer;
@@ -236,7 +238,7 @@ final class ApiController extends Controller
 
         $category = new QACategory();
         $category->setName((string) $request->getData('title'));
-        $category->setParent((int) $request->getData('parent'));
+        $category->setParent($request->getData('parent') === null ? null : new NullQACategory((int) $request->getData('parent')));
 
         return $category;
     }

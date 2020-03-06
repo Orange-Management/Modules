@@ -51,7 +51,7 @@ class Task implements \JsonSerializable
     /**
      * Creator.
      *
-     * @var int
+     * @var Account
      * @since 1.0.0
      */
     protected Account $createdBy;

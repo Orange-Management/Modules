@@ -15,15 +15,17 @@ declare(strict_types=1);
 namespace Modules\Helper\Controller;
 
 use Modules\Admin\Models\AccountPermission;
+use Modules\Admin\Models\NullAccount;
 use Modules\Helper\Models\NullReport;
+use Modules\Helper\Models\NullTemplate;
 use Modules\Helper\Models\PermissionState;
 use Modules\Helper\Models\Report;
 use Modules\Helper\Models\ReportMapper;
 use Modules\Helper\Models\Template;
 use Modules\Helper\Models\TemplateDataType;
 use Modules\Helper\Models\TemplateMapper;
-use Modules\Media\Models\NullCollection;
 
+use Modules\Media\Models\NullCollection;
 use phpOMS\Account\PermissionType;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\Http\HttpRequest;
@@ -301,12 +303,12 @@ final class ApiController extends Controller
         $helperTemplate->setDescriptionRaw((string) ($request->getData('description') ?? ''));
 
         if ($collectionId > 0) {
-            $helperTemplate->setSource($collectionId);
+            $helperTemplate->setSource(new NullCollection($collectionId));
         }
 
         $helperTemplate->setStandalone((bool) ($request->getData('standalone') ?? false));
         $helperTemplate->setExpected(!empty($expected) ? \json_decode($expected, true) : []);
-        $helperTemplate->setCreatedBy($request->getHeader()->getAccount());
+        $helperTemplate->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
         $helperTemplate->setDatatype((int) ($request->getData('datatype') ?? TemplateDataType::OTHER));
 
         return $helperTemplate;
@@ -383,9 +385,9 @@ final class ApiController extends Controller
     {
         $helperReport = new Report();
         $helperReport->setTitle((string) ($request->getData('name')));
-        $helperReport->setSource($collectionId);
-        $helperReport->setTemplate((int) $request->getData('template'));
-        $helperReport->setCreatedBy($request->getHeader()->getAccount());
+        $helperReport->setSource(new NullCollection($collectionId));
+        $helperReport->setTemplate(new NullTemplate((int) $request->getData('template')));
+        $helperReport->setCreatedBy(new NullAccount($request->getHeader()->getAccount()));
 
         return $helperReport;
     }

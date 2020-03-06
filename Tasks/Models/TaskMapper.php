@@ -57,7 +57,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string, column?:string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [
@@ -97,7 +97,7 @@ final class TaskMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @var array<string, array{mapper:string, self:string, by?:string}>
+     * @var array<string, array{mapper:string, self:string, by?:string, column?:string}>
      * @since 1.0.0
      */
     protected static array $ownsOne = [

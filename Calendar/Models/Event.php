@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Calendar\Models;
 
+use Modules\Admin\Models\Account;
 use Modules\Admin\Models\NullAccount;
-use phpOMS\Account\Account;
 use phpOMS\Stdlib\Base\Location;
 
 /**

@@ -353,7 +353,7 @@ final class ApiController extends Controller
         $mediaCollection->setName($name);
         $mediaCollection->setDescription(Markdown::parse($description));
         $mediaCollection->setDescriptionRaw($description);
-        $mediaCollection->setCreatedBy($account);
+        $mediaCollection->setCreatedBy(new NullAccount($account));
         $mediaCollection->setSources($media);
         $mediaCollection->setVirtualPath('/Modules/Helper');
         $mediaCollection->setPath('/Modules/Helper');

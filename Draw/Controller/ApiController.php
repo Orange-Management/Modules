@@ -103,16 +103,16 @@ final class ApiController extends Controller
         $this->createLocalFile($fullPath, (string) $request->getData('image'));
 
         $status = [
-            'path' => $path,
-            'filename' => $filename,
-            'name' => (string) $request->getData('title'),
-            'size' => File::size($fullPath),
+            'path'      => $path,
+            'filename'  => $filename,
+            'name'      => (string) $request->getData('title'),
+            'size'      => File::size($fullPath),
             'extension' => $extension,
-            'status' => UploadStatus::OK,
+            'status'    => UploadStatus::OK,
         ];
 
         $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
-        $draw  = DrawImage::fromMedia($media);
+        $draw  = $media !== null ? DrawImage::fromMedia($media) : null;
 
         $this->createModel($request->getHeader()->getAccount(), $draw, DrawImageMapper::class, 'draw');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Draw', 'Draw successfully created.', $draw);

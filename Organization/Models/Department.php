@@ -45,7 +45,7 @@ class Department implements ArrayableInterface, \JsonSerializable
     /**
      * Parent
      *
-     * @var mixed
+     * @var null|self
      * @since 1.0.0
      */
     protected ?self $parent = null;

@@ -49,7 +49,7 @@ final class TaskElementMapper extends DataMapperAbstract
     /**
      * Has many relation.
      *
-     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string}>
+     * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string, column?:string}>
      * @since 1.0.0
      */
     protected static array $hasMany = [

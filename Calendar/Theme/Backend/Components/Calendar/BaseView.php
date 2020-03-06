@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Calendar\Theme\Backend\Components\Calendar;
 
+use Modules\Calendar\Models\Calendar;
 use phpOMS\Localization\L11nManager;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -30,7 +31,13 @@ use phpOMS\Views\View;
  */
 class BaseView extends View
 {
-    protected $calendar = [];
+    /**
+     * Calendar to render
+     *
+     * @var Calendar
+     * @since 1.0.0
+     */
+    protected Calendar $calendar;
 
     /**
      * {@inheritdoc}

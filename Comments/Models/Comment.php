@@ -57,7 +57,7 @@ class Comment
      * @var int
      * @since 1.0.0
      */
-    private $list = 0;
+    private int $list = 0;
 
     /**
      * Title
@@ -67,6 +67,12 @@ class Comment
      */
     private $title = '';
 
+    /**
+     * Comment status
+     *
+     * @var int
+     * @since 1.0.0
+     */
     private int $status = 0;
 
     /**
@@ -85,7 +91,13 @@ class Comment
      */
     private $contentRaw = '';
 
-    private $ref = null;
+    /**
+     * Comment this is refering to
+     *
+     * @var null|self
+     * @since 1.0.0
+     */
+    private ?Comment $ref = null;
 
     /**
      * Constructor.

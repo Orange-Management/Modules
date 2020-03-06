@@ -125,7 +125,7 @@ final class ApiController extends Controller
         $task->setPriority((int) $request->getData('priority'));
 
         $element = new TaskElement();
-        $element->addTo((int) ($request->getData('forward') ?? $request->getHeader()->getAccount()));
+        $element->addTo(new NullAccount((int) ($request->getData('forward') ?? $request->getHeader()->getAccount())));
         $element->setCreatedBy($task->getCreatedBy());
         $element->setDue($task->getDue());
         $element->setPriority($task->getPriority());
@@ -289,11 +289,11 @@ final class ApiController extends Controller
         }
 
         foreach ($tos as $to) {
-            $element->addTo((int) $to);
+            $element->addTo(new NullAccount((int) $to));
         }
 
         foreach ($ccs as $cc) {
-            $element->addCC((int) $cc);
+            $element->addCC(new NullAccount((int) $cc));
         }
 
         return $element;

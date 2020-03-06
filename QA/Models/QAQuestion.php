@@ -268,7 +268,7 @@ class QAQuestion implements \JsonSerializable
     /**
      * Get the category
      *
-     * @return mixed
+     * @return QACategory
      *
      * @since 1.0.0
      */

@@ -121,7 +121,7 @@ class TaskElement implements \JsonSerializable
     /**
      * Groups who received this task element.
      *
-     * @var GroupRelaction[]
+     * @var GroupRelation[]
      * @since 1.0.0
      */
     protected array $grpRelation = [];

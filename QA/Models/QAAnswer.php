@@ -41,7 +41,7 @@ class QAAnswer implements \JsonSerializable
      * Answer.
      *
      * @var string
-     * @var 1.0.0
+     * @since 1.0.0
      */
     private $answer = '';
 
@@ -49,7 +49,7 @@ class QAAnswer implements \JsonSerializable
      * Answer raw.
      *
      * @var string
-     * @var 1.0.0
+     * @since 1.0.0
      */
     private $answerRaw = '';
 
@@ -65,7 +65,7 @@ class QAAnswer implements \JsonSerializable
      * Is accepted answer.
      *
      * @var bool
-     * @var 1.0.0
+     * @since 1.0.0
      */
     private bool $isAccepted = false;
 
@@ -73,7 +73,7 @@ class QAAnswer implements \JsonSerializable
      * Created by.
      *
      * @var Account
-     * @var 1.0.0
+     * @since 1.0.0
      */
     private Account $createdBy;
 
@@ -81,7 +81,7 @@ class QAAnswer implements \JsonSerializable
      * Created at.
      *
      * @var \DateTime
-     * @var 1.0.0
+     * @since 1.0.0
      */
     private \DateTime $createdAt;
 

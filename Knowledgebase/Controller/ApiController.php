@@ -71,7 +71,9 @@ final class ApiController extends Controller
     /**
      * Method to create a wiki entry from request.
      *
-     * @param RequestAbstract $request Request
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
      *
      * @return WikiDoc
      *

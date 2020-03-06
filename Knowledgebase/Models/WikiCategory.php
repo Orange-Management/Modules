@@ -159,7 +159,7 @@ class WikiCategory implements \JsonSerializable
     /**
      * Get parent category
      *
-     * @return null|self
+     * @return self
      *
      * @since 1.0.0
      */
