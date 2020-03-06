@@ -33,7 +33,6 @@ final class NullAccount extends Account
      */
     public function __construct(int $id = 0)
     {
-        $this->id = $id;
-        parent::__construct();
+        parent::__construct($id);
     }
 }

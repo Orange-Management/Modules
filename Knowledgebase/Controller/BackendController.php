@@ -25,6 +25,7 @@ use Modules\Knowledgebase\Models\WikiDocMapper;
 use phpOMS\Account\PermissionType;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -84,7 +85,7 @@ final class BackendController extends Controller
         $categories = WikiCategoryMapper::getAll();
         $view->setData('categories', $categories);
 
-        $documents = WikiDocMapper::getNewest(50);
+        $documents = WikiDocMapper::withConditional('language', $response->getHeader()->getL11n()->getLanguage())::getNewest(50);
         $view->setData('docs', $documents);
 
         return $view;

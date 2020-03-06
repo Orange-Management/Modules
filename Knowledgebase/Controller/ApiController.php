@@ -22,6 +22,7 @@ use Modules\Knowledgebase\Models\WikiDocMapper;
 use Modules\Knowledgebase\Models\WikiStatus;
 use Modules\Tag\Models\NullTag;
 use Modules\Tag\Models\Tag;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -63,7 +64,7 @@ final class ApiController extends Controller
             return;
         }
 
-        $doc = $this->createWikiDocFromRequest($request);
+        $doc = $this->createWikiDocFromRequest($request, $response, $data);
         $this->createModel($request->getHeader()->getAccount(), $doc, WikiDocMapper::class, 'doc');
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Wiki', 'Wiki successfully created.', $doc);
     }
@@ -77,7 +78,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function createWikiDocFromRequest(RequestAbstract $request) : WikiDoc
+    public function createWikiDocFromRequest(RequestAbstract $request, ResponseAbstract $response, $data = null) : WikiDoc
     {
         $doc = new WikiDoc();
         $doc->setName((string) $request->getData('title'));
@@ -89,11 +90,14 @@ final class ApiController extends Controller
 
         if (!empty($tags = $request->getDataJson('tags'))) {
             foreach ($tags as $tag) {
-                if (!\is_numeric($tag['id'])) {
-                    $tagObj = new Tag();
-                    $tagObj->setTitle($tag['id']);
-                    $tagObj->setColor($tag['color']);
-                    $doc->addTag($tagObj);
+                if (!isset($tag['id'])) {
+                    $request->setData('title', $tag['title'], true);
+                    $request->setData('color', $tag['color'], true);
+                    $request->setData('language', $tag['language'], true);
+
+                    $internalResponse = new HttpResponse();
+                    $this->app->moduleManager->get('Tag')->apiTagCreate($request, $internalResponse, $data);
+                    $doc->addTag($internalResponse->get($request->getUri()->__toString())['response']);
                 } else {
                     $doc->addTag(new NullTag((int) $tag['id']));
                 }

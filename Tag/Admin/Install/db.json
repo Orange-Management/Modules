@@ -9,11 +9,6 @@
                 "primary": true,
                 "autoincrement": true
             },
-            "tag_title": {
-                "name": "tag_title",
-                "type": "VARCHAR(255)",
-                "null": false
-            },
             "tag_color": {
                 "name": "tag_color",
                 "type": "VARCHAR(9)",
@@ -31,6 +26,38 @@
                 "default": null,
                 "foreignTable": "account",
                 "foreignKey": "account_id"
+            }
+        }
+    },
+    "tag_l11n": {
+        "name": "tag_l11n",
+        "fields": {
+            "tag_l11n_id": {
+                "name": "tag_l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "tag_l11n_title": {
+                "name": "tag_l11n_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "tag_l11n_tag": {
+                "name": "tag_l11n_tag",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "tag",
+                "foreignKey": "tag_id"
+            },
+            "tag_l11n_language": {
+                "name": "tag_l11n_language",
+                "type": "VARCHAR(2)",
+                "default": null,
+                "null": true,
+                "foreignTable": "language",
+                "foreignKey": "language_639_1"
             }
         }
     }

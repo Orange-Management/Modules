@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Tag\Controller;
 
+use Modules\Tag\Models\L11nTag;
 use Modules\Tag\Models\Tag;
 
 use Modules\Tag\Models\TagMapper;
@@ -22,6 +23,8 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
 use phpOMS\System\MimeType;
+use Modules\Tag\Models\L11nTagMapper;
+use phpOMS\Localization\ISO639x1Enum;
 
 /**
  * Tag controller class.
@@ -120,6 +123,11 @@ final class ApiController extends Controller
 
         $tag = $this->createTagFromRequest($request);
         $this->createModel($request->getHeader()->getAccount(), $tag, TagMapper::class, 'tag');
+
+        $request->setData('tag', $tag->getId(), true);
+        $l11nTag = $this->createL11nTagFromRequest($request);
+        $this->createModel($request->getHeader()->getAccount(), $l11nTag, L11nTagMapper::class, 'tag_l11n');
+
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Tag', 'Tag successfully created', $tag);
     }
 
@@ -135,10 +143,28 @@ final class ApiController extends Controller
     private function createTagFromRequest(RequestAbstract $request) : Tag
     {
         $tag = new Tag();
-        $tag->setTitle((string) ($request->getData('title') ?? ''));
         $tag->setColor($request->getData('color') ?? '#00000000');
 
         return $tag;
+    }
+
+    /**
+     * Method to create tag localization from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return L11nTag
+     *
+     * @since 1.0.0
+     */
+    private function createL11nTagFromRequest(RequestAbstract $request) : L11nTag
+    {
+        $l11nTag = new L11nTag();
+        $l11nTag->setTag((int) ($request->getData('tag') ?? 0));
+        $l11nTag->setLanguage((string) ($request->getData('language') ?? ISO639x1Enum::_EN));
+        $l11nTag->setTitle((string) ($request->getData('title') ?? ''));
+
+        return $l11nTag;
     }
 
     /**
