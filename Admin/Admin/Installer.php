@@ -40,7 +40,6 @@ final class Installer extends InstallerAbstract
 
         $sqlite = new SQLiteConnection([
             'db' => 'sqlite',
-            'prefix' => '',
             'database' => __DIR__ . '/../../../phpOMS/Localization/Defaults/localization.sqlite',
         ]);
 
@@ -66,8 +65,7 @@ final class Installer extends InstallerAbstract
         $con = $dbPool->get();
 
         $query = new Builder($con);
-        $query->prefix($con->getPrefix())
-            ->insert('country_name', 'country_code2', 'country_code3', 'country_numeric')
+        $query->insert('country_name', 'country_code2', 'country_code3', 'country_numeric')
             ->into('country');
 
         $querySqlite = new Builder($sqlite);
@@ -100,8 +98,7 @@ final class Installer extends InstallerAbstract
         $con = $dbPool->get();
 
         $query = new Builder($con);
-        $query->prefix($con->getPrefix())
-            ->insert('language_name', 'language_native', 'language_639_1', 'language_639_2T', 'language_639_2B', 'language_639_3')
+        $query->insert('language_name', 'language_native', 'language_639_1', 'language_639_2T', 'language_639_2B', 'language_639_3')
             ->into('language');
 
         $querySqlite = new Builder($sqlite);
@@ -136,8 +133,7 @@ final class Installer extends InstallerAbstract
         $con = $dbPool->get();
 
         $query = new Builder($con);
-        $query->prefix($con->getPrefix())
-            ->insert('currency_id', 'currency_name', 'currency_code', 'currency_number', 'currency_symbol', 'currency_subunits', 'currency_decimal', 'currency_countries')
+        $query->insert('currency_id', 'currency_name', 'currency_code', 'currency_number', 'currency_symbol', 'currency_subunits', 'currency_decimal', 'currency_countries')
             ->into('currency');
 
         $querySqlite = new Builder($sqlite);

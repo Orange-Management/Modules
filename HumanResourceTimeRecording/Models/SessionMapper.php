@@ -111,15 +111,13 @@ final class SessionMapper extends DataMapperAbstract
     public static function getLastSessionsFromAllEmployees(\DateTime $dt = null) : array
     {
         $join = new Builder(self::$db);
-        $join->prefix(self::$db->getPrefix())
-            ->select(self::$table . '.hr_timerecording_session_employee')
+        $join->select(self::$table . '.hr_timerecording_session_employee')
             ->selectAs('MAX(hr_timerecording_session_start)', 'maxDate')
             ->from(self::$table)
             ->groupBy(self::$table . '.hr_timerecording_session_employee');
 
         $query = new Builder(self::$db);
-        $query->prefix(self::$db->getPrefix())
-            ->select('*')->fromAs(self::$table, 't')
+        $query->select('*')->fromAs(self::$table, 't')
             ->innerJoin($join, 'tm')
             ->on('t.hr_timerecording_session_employee', '=', 'tm.hr_timerecording_session_employee')
             ->andOn('t.hr_timerecording_session_start', '=', 'tm.maxDate');

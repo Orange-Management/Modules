@@ -145,15 +145,14 @@ final class LocalizationMapper extends DataMapperAbstract
      *
      * @param mixed $primaryKey Key
      * @param int   $relations  Load relations
-     * @param mixed $fill       Object to fill
      * @param int   $depth      Relation depth
      *
      * @return mixed
      *
      * @since 1.0.0
      */
-    public static function get($primaryKey, int $relations = RelationType::ALL, $fill = null, int $depth = 1)
+    public static function get($primaryKey, int $relations = RelationType::ALL, int $depth = 1)
     {
-        return parent::get($primaryKey, $relations, $fill, 1);
+        return parent::get($primaryKey, $relations, 1);
     }
 }

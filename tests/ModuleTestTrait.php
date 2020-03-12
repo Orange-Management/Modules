@@ -230,7 +230,7 @@ trait ModuleTestTrait
     public function testDbSchemaAgainstDb() : void
     {
         $builder = new SchemaBuilder($this->app->dbPool->get());
-        $tables  = $builder->prefix($this->app->dbPool->get()->prefix)->selectTables()->execute()->fetchAll(\PDO::FETCH_COLUMN);
+        $tables  = $builder->selectTables()->execute()->fetchAll(\PDO::FETCH_COLUMN);
 
         $schemaPath = __DIR__ . '/../../Modules/' . self::MODULE_NAME . '/Admin/Install/db.json';
 
@@ -243,7 +243,7 @@ trait ModuleTestTrait
                 }
 
                 $field  = new SchemaBuilder($this->app->dbPool->get());
-                $fields = $field->prefix($this->app->dbPool->get()->prefix)->selectFields($name)->execute()->fetchAll();
+                $fields = $field->selectFields($name)->execute()->fetchAll();
 
                 foreach ($table['fields'] as $cName => $column) {
                     if (!ArrayUtils::inArrayRecursive($cName, $fields)) {
@@ -444,7 +444,7 @@ trait ModuleTestTrait
     private function navLinksTest($db, array $links, string $module) : bool
     {
         $query = new Builder($db);
-        $query->select('nav_id')->from('oms_nav')->where('nav_from', '=', $module);
+        $query->select('nav_id')->from('nav')->where('nav_from', '=', $module);
 
         $result = $query->execute()->fetchAll(\PDO::FETCH_COLUMN);
         $it     = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($links));

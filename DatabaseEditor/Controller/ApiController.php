@@ -64,7 +64,7 @@ final class ApiController extends Controller
      */
     public function apiQueryExecute(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /** @var array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string} $config */
+        /** @var array{db:string, host:string, port:int, login:string, password:string, database:string} $config */
         $config  = $this->createDbConfigFromRequest($request);
         $con     = ConnectionFactory::create($config);
         $builder = new Builder($con);
@@ -88,7 +88,7 @@ final class ApiController extends Controller
      */
     public function apiConnectionTest(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-        /** @var array{db:string, host:string, port:int, login:string, password:string, database:string, prefix:string} $config */
+        /** @var array{db:string, host:string, port:int, login:string, password:string, database:string} $config */
         $config = $this->createDbConfigFromRequest($request);
         $con    = ConnectionFactory::create($config);
 

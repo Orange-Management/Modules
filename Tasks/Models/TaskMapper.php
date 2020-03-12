@@ -315,8 +315,7 @@ final class TaskMapper extends DataMapperAbstract
         try {
             $query = new Builder(self::$db);
 
-            $query->prefix(self::$db->getPrefix())
-                ->count('*')
+            $query->count('*')
                 ->from(self::$table)
                 ->innerJoin(TaskElementMapper::getTable())
                     ->on(self::$table . '.task_id', '=', TaskElementMapper::getTable() . '.task_element_task')

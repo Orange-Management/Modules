@@ -158,8 +158,7 @@ final class AccountMapper extends DataMapperAbstract
             $result = null;
 
             $query  = new Builder(self::$db);
-            $result = $query->prefix(self::$db->getPrefix())
-                ->select('account_id', 'account_login', 'account_password', 'account_password_temp', 'account_tries')
+            $result = $query->select('account_id', 'account_login', 'account_password', 'account_password_temp', 'account_tries')
                 ->from('account')
                 ->where('account_login', '=', $login)
                 ->execute()->fetchAll();

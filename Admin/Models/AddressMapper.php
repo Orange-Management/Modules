@@ -45,18 +45,12 @@ final class AddressMapper extends DataMapperAbstract
     /**
      * Has one relation.
      *
-     * @todo Orange-Management/phpOMS#224
-     *  Implement composite models.
-     *  If a column is defined only that column value should get populated in the model and not the full model!
-     *  OwnsOne, HasOne, use single value instead of full model defined in the mapper.
-     *
      * @var array<string, array{mapper:string, self:string, by?:string}>
      * @since 1.0.0
      */
     protected static array $ownsOne = [
         'country' => [
             'mapper' => CountryMapper::class,
-            //'column' => '',
             'self'   => 'address_country',
         ],
     ];

@@ -90,7 +90,6 @@ class Navigation
             $this->nav = [];
 
             $query = new Builder($this->dbPool->get('select'));
-            $query->prefix($this->dbPool->get('select')->prefix);
             $sth = $query->select('*')
                 ->from('nav')
                 ->whereIn('nav.nav_pid', $hashes)
