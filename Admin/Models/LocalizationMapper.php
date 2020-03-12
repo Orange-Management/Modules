@@ -20,6 +20,7 @@ use phpOMS\Localization\Defaults\CountryMapper;
 use phpOMS\Localization\Defaults\CurrencyMapper;
 use phpOMS\Localization\Defaults\LanguageMapper;
 use phpOMS\Localization\Localization;
+use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
  * Localization mapper.
@@ -143,15 +144,17 @@ final class LocalizationMapper extends DataMapperAbstract
     /**
      * Get object.
      *
-     * @param mixed $primaryKey Key
-     * @param int   $relations  Load relations
-     * @param int   $depth      Relation depth
+     * @param mixed   $primaryKey Key
+     * @param int     $relations  Load relations
+     * @param int     $depth      Relation depth
+     * @param string  $ref        Ref (for getBy and getFor)
+     * @param Builder $query      Query
      *
      * @return mixed
      *
      * @since 1.0.0
      */
-    public static function get($primaryKey, int $relations = RelationType::ALL, int $depth = 1)
+    public static function get($primaryKey, int $relations = RelationType::ALL, int $depth = 1, string $ref = null, Builder $query = null)
     {
         return parent::get($primaryKey, $relations, 1);
     }
