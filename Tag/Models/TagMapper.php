@@ -62,12 +62,14 @@ final class TagMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, self:string}>
      * @since 1.0.0
      */
+    /*
     protected static array $belongsTo = [
         'owner' => [
             'mapper' => AccountMapper::class,
             'self'   => 'tag_owner',
         ],
     ];
+    */
 
     /**
      * Primary table.

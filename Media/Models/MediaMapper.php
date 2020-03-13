@@ -16,6 +16,7 @@ namespace Modules\Media\Models;
 
 use Modules\Admin\Models\AccountMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Media mapper class.
@@ -112,14 +113,15 @@ class MediaMapper extends DataMapperAbstract
      */
     public static function getByVirtualPath(string $virtualPath = '/', bool $hidden = false) : array
     {
+        $depth = 3;
         $query = self::getQuery();
-        $query->where(self::$table . '.media_virtual', '=', $virtualPath);
+        $query->where(self::$table . '_' . $depth . '.media_virtual', '=', $virtualPath);
 
         if ($hidden === false) {
-            $query->where(self::$table . '.media_hidden', '=', (int) $hidden);
+            $query->where(self::$table . '_' . $depth . '.media_hidden', '=', (int) $hidden);
         }
 
-        return self::getAllByQuery($query);
+        return self::getAllByQuery($query, RelationType::ALL, $depth);
     }
 
     /**
@@ -136,11 +138,12 @@ class MediaMapper extends DataMapperAbstract
         $virtualPath = '/' . \trim(\substr($path, 0, \strripos($path, '/') + 1), '/');
         $name        = \substr($path, \strripos($path, '/') + 1);
 
+        $depth = 3;
         $query = self::getQuery();
-        $query->where(self::$table . '.media_virtual', '=', $virtualPath)
-            ->andWhere(self::$table . '.media_name', '=', $name);
+        $query->where(self::$table. '_' . $depth  . '.media_virtual', '=', $virtualPath)
+            ->andWhere(self::$table. '_' . $depth  . '.media_name', '=', $name);
 
-        $objs = self::getAllByQuery($query);
+        $objs = self::getAllByQuery($query, RelationType::ALL, $depth);
 
         return \count($objs) === 1 ? \reset($objs) : $objs;
     }

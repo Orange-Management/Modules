@@ -14,10 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Controller;
 
-use Modules\Admin\Models\Account;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Admin\Models\AccountPermissionMapper;
-use Modules\Admin\Models\Group;
 use Modules\Admin\Models\GroupMapper;
 use Modules\Admin\Models\GroupPermissionMapper;
 use Modules\Admin\Models\NullAccountPermission;
@@ -138,7 +136,7 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/accounts-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000104001, $request, $response));
-        $view->addData('account', AccountMapper::get((int) $request->getData('id'), RelationType::ALL, null, 2));
+        $view->addData('account', AccountMapper::get((int) $request->getData('id'), RelationType::ALL, 2));
 
         $permissions = AccountPermissionMapper::getFor((int) $request->getData('id'), 'account');
 
@@ -213,7 +211,7 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Admin/Theme/Backend/groups-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000103001, $request, $response));
-        $view->addData('group', GroupMapper::get((int) $request->getData('id'), RelationType::ALL, null, 2));
+        $view->addData('group', GroupMapper::get((int) $request->getData('id'), RelationType::ALL, 2));
 
         $permissions = GroupPermissionMapper::getFor((int) $request->getData('id'), 'group');
 

@@ -15,12 +15,12 @@ declare(strict_types=1);
 namespace Modules\Admin\Models;
 
 use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\DataStorage\Database\RelationType;
 use phpOMS\Localization\Defaults\CountryMapper;
 use phpOMS\Localization\Defaults\CurrencyMapper;
 use phpOMS\Localization\Defaults\LanguageMapper;
 use phpOMS\Localization\Localization;
-use phpOMS\DataStorage\Database\Query\Builder;
 
 /**
  * Localization mapper.
@@ -156,6 +156,6 @@ final class LocalizationMapper extends DataMapperAbstract
      */
     public static function get($primaryKey, int $relations = RelationType::ALL, int $depth = 1, string $ref = null, Builder $query = null)
     {
-        return parent::get($primaryKey, $relations, 1);
+        return parent::get($primaryKey, $relations, 2);
     }
 }

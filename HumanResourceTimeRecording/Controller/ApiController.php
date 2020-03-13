@@ -225,7 +225,7 @@ final class ApiController extends Controller
         $account = (int) ($request->getData('account') ?? $request->getHeader()->getAccount());
 
         /** @var Session $session */
-        $session = SessionMapper::get((int) $request->getData('session'), RelationType::ALL, null, 6);
+        $session = SessionMapper::get((int) $request->getData('session'), RelationType::ALL, 6);
 
         // cannot create session element for none existing session
         if ($session === null || $session instanceof NullSession) {

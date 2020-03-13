@@ -115,7 +115,7 @@ final class AccountMapper extends DataMapperAbstract
     public static function getWithPermissions(int $id) : Account
     {
         $account          = self::get($id);
-        $groupPermissions = GroupPermissionMapper::getFor(\array_keys($account->getGroups()), 'group', RelationType::ALL, null, 2);
+        $groupPermissions = GroupPermissionMapper::getFor(\array_keys($account->getGroups()), 'group', RelationType::ALL, 2);
 
         if (\is_array($groupPermissions)) {
             foreach ($groupPermissions as $permission) {
@@ -125,7 +125,7 @@ final class AccountMapper extends DataMapperAbstract
             $account->addPermissions([$groupPermissions]);
         }
 
-        $accountPermissions = AccountPermissionMapper::getFor($id, 'account', RelationType::ALL, null, 2);
+        $accountPermissions = AccountPermissionMapper::getFor($id, 'account', RelationType::ALL, 2);
 
         if (\is_array($accountPermissions)) {
             foreach ($accountPermissions as $permission) {
